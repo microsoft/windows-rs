@@ -109,6 +109,11 @@ impl ::core::cmp::PartialEq for Geofence {
     }
 }
 impl ::core::cmp::Eq for Geofence {}
+impl ::core::fmt::Debug for Geofence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Geofence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Geofence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.Geofence;{9c090823-edb8-47e0-8245-5bf61d321f2d})");
 }
@@ -253,6 +258,11 @@ impl ::core::cmp::PartialEq for GeofenceMonitor {
     }
 }
 impl ::core::cmp::Eq for GeofenceMonitor {}
+impl ::core::fmt::Debug for GeofenceMonitor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeofenceMonitor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeofenceMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.GeofenceMonitor;{4c0f5f78-1c1f-4621-bbbd-833b92247226})");
 }
@@ -331,6 +341,11 @@ impl ::core::cmp::PartialEq for GeofenceMonitorStatus {
     }
 }
 impl ::core::cmp::Eq for GeofenceMonitorStatus {}
+impl ::core::fmt::Debug for GeofenceMonitorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeofenceMonitorStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeofenceMonitorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceMonitorStatus;i4)");
 }
@@ -359,6 +374,11 @@ impl ::core::cmp::PartialEq for GeofenceRemovalReason {
     }
 }
 impl ::core::cmp::Eq for GeofenceRemovalReason {}
+impl ::core::fmt::Debug for GeofenceRemovalReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeofenceRemovalReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeofenceRemovalReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceRemovalReason;i4)");
 }
@@ -389,6 +409,11 @@ impl ::core::cmp::PartialEq for GeofenceState {
     }
 }
 impl ::core::cmp::Eq for GeofenceState {}
+impl ::core::fmt::Debug for GeofenceState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeofenceState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeofenceState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceState;u4)");
 }
@@ -443,6 +468,11 @@ impl ::core::cmp::PartialEq for GeofenceStateChangeReport {
     }
 }
 impl ::core::cmp::Eq for GeofenceStateChangeReport {}
+impl ::core::fmt::Debug for GeofenceStateChangeReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeofenceStateChangeReport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeofenceStateChangeReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport;{9a243c18-2464-4c89-be05-b3ffff5babc5})");
 }
@@ -639,6 +669,11 @@ impl ::core::cmp::PartialEq for MonitoredGeofenceStates {
     }
 }
 impl ::core::cmp::Eq for MonitoredGeofenceStates {}
+impl ::core::fmt::Debug for MonitoredGeofenceStates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MonitoredGeofenceStates").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MonitoredGeofenceStates {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.MonitoredGeofenceStates;u4)");
 }

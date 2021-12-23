@@ -215,6 +215,11 @@ impl ::core::cmp::PartialEq for PrintSupportExtensionSession {
     }
 }
 impl ::core::cmp::Eq for PrintSupportExtensionSession {}
+impl ::core::fmt::Debug for PrintSupportExtensionSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintSupportExtensionSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintSupportExtensionSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionSession;{eea45f1a-f4c6-54b3-a0b8-a559839aa4c3})");
 }
@@ -291,6 +296,11 @@ impl ::core::cmp::PartialEq for PrintSupportExtensionTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for PrintSupportExtensionTriggerDetails {}
+impl ::core::fmt::Debug for PrintSupportExtensionTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintSupportExtensionTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintSupportExtensionTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionTriggerDetails;{ae083711-9b09-55d1-a0ae-2a14c5f83d6a})");
 }
@@ -383,6 +393,11 @@ impl ::core::cmp::PartialEq for PrintSupportPrintDeviceCapabilitiesChangedEventA
     }
 }
 impl ::core::cmp::Eq for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {}
+impl ::core::fmt::Debug for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintSupportPrintDeviceCapabilitiesChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesChangedEventArgs;{15969bf0-9028-5722-8a37-7d7c34b41dd6})");
 }
@@ -474,6 +489,11 @@ impl ::core::cmp::PartialEq for PrintSupportPrintTicketValidationRequestedEventA
     }
 }
 impl ::core::cmp::Eq for PrintSupportPrintTicketValidationRequestedEventArgs {}
+impl ::core::fmt::Debug for PrintSupportPrintTicketValidationRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintSupportPrintTicketValidationRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintSupportPrintTicketValidationRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketValidationRequestedEventArgs;{338e4e69-db55-55c7-8338-ef64680a8f90})");
 }
@@ -560,6 +580,11 @@ impl ::core::cmp::PartialEq for PrintSupportSessionInfo {
     }
 }
 impl ::core::cmp::Eq for PrintSupportSessionInfo {}
+impl ::core::fmt::Debug for PrintSupportSessionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintSupportSessionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintSupportSessionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportSessionInfo;{852149af-777d-53e9-9ee9-45d3f4b5be9c})");
 }
@@ -681,6 +706,11 @@ impl ::core::cmp::PartialEq for PrintSupportSettingsActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PrintSupportSettingsActivatedEventArgs {}
+impl ::core::fmt::Debug for PrintSupportSettingsActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintSupportSettingsActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintSupportSettingsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsActivatedEventArgs;{1e1b565e-a013-55ea-9b8c-eea39d9fb6c1})");
 }
@@ -840,6 +870,11 @@ impl ::core::cmp::PartialEq for PrintSupportSettingsUISession {
     }
 }
 impl ::core::cmp::Eq for PrintSupportSettingsUISession {}
+impl ::core::fmt::Debug for PrintSupportSettingsUISession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintSupportSettingsUISession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintSupportSettingsUISession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsUISession;{c6da2251-83c3-55e4-a0f8-5de8b062adbf})");
 }
@@ -914,6 +949,11 @@ impl ::core::cmp::PartialEq for SettingsLaunchKind {
     }
 }
 impl ::core::cmp::Eq for SettingsLaunchKind {}
+impl ::core::fmt::Debug for SettingsLaunchKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SettingsLaunchKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SettingsLaunchKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.SettingsLaunchKind;i4)");
 }
@@ -943,6 +983,11 @@ impl ::core::cmp::PartialEq for WorkflowPrintTicketValidationStatus {
     }
 }
 impl ::core::cmp::Eq for WorkflowPrintTicketValidationStatus {}
+impl ::core::fmt::Debug for WorkflowPrintTicketValidationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WorkflowPrintTicketValidationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WorkflowPrintTicketValidationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.WorkflowPrintTicketValidationStatus;i4)");
 }

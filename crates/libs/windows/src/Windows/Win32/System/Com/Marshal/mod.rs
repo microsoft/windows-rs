@@ -1374,6 +1374,11 @@ impl ::core::cmp::PartialEq for IMarshal {
     }
 }
 impl ::core::cmp::Eq for IMarshal {}
+impl ::core::fmt::Debug for IMarshal {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMarshal").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMarshal {
     type Vtable = IMarshalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000003_0000_0000_c000_000000000046);
@@ -1471,6 +1476,11 @@ impl ::core::cmp::PartialEq for IMarshal2 {
     }
 }
 impl ::core::cmp::Eq for IMarshal2 {}
+impl ::core::fmt::Debug for IMarshal2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMarshal2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMarshal2 {
     type Vtable = IMarshal2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x000001cf_0000_0000_c000_000000000046);
@@ -1618,6 +1628,11 @@ impl ::core::cmp::PartialEq for IMarshalingStream {
     }
 }
 impl ::core::cmp::Eq for IMarshalingStream {}
+impl ::core::fmt::Debug for IMarshalingStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMarshalingStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMarshalingStream {
     type Vtable = IMarshalingStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8f2f5e6_6102_4863_9f26_389a4676efde);

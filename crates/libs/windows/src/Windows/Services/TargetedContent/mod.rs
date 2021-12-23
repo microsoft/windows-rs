@@ -373,6 +373,11 @@ impl ::core::cmp::PartialEq for TargetedContentAction {
     }
 }
 impl ::core::cmp::Eq for TargetedContentAction {}
+impl ::core::fmt::Debug for TargetedContentAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentAction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentAction;{d75b691e-6cd6-4ca0-9d8f-4728b0b7e6b6})");
 }
@@ -448,6 +453,11 @@ impl ::core::cmp::PartialEq for TargetedContentAppInstallationState {
     }
 }
 impl ::core::cmp::Eq for TargetedContentAppInstallationState {}
+impl ::core::fmt::Debug for TargetedContentAppInstallationState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentAppInstallationState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentAppInstallationState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAppInstallationState;i4)");
 }
@@ -477,6 +487,11 @@ impl ::core::cmp::PartialEq for TargetedContentAvailability {
     }
 }
 impl ::core::cmp::Eq for TargetedContentAvailability {}
+impl ::core::fmt::Debug for TargetedContentAvailability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentAvailability").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentAvailability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAvailability;i4)");
 }
@@ -508,6 +523,11 @@ impl ::core::cmp::PartialEq for TargetedContentAvailabilityChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for TargetedContentAvailabilityChangedEventArgs {}
+impl ::core::fmt::Debug for TargetedContentAvailabilityChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentAvailabilityChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentAvailabilityChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentAvailabilityChangedEventArgs;{e0f59d26-5927-4450-965c-1ceb7becde65})");
 }
@@ -593,6 +613,11 @@ impl ::core::cmp::PartialEq for TargetedContentChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for TargetedContentChangedEventArgs {}
+impl ::core::fmt::Debug for TargetedContentChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentChangedEventArgs;{99d488c9-587e-4586-8ef7-b54ca9453a16})");
 }
@@ -714,6 +739,11 @@ impl ::core::cmp::PartialEq for TargetedContentCollection {
     }
 }
 impl ::core::cmp::Eq for TargetedContentCollection {}
+impl ::core::fmt::Debug for TargetedContentCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentCollection;{2d4b66c5-f163-44ba-9f6e-e1a4c2bb559d})");
 }
@@ -836,6 +866,11 @@ impl ::core::cmp::PartialEq for TargetedContentContainer {
     }
 }
 impl ::core::cmp::Eq for TargetedContentContainer {}
+impl ::core::fmt::Debug for TargetedContentContainer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentContainer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentContainer;{bc2494c9-8837-47c2-850f-d79d64595926})");
 }
@@ -918,6 +953,12 @@ impl ::core::cmp::PartialEq for TargetedContentFile {
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::core::cmp::Eq for TargetedContentFile {}
+#[cfg(feature = "Storage_Streams")]
+impl ::core::fmt::Debug for TargetedContentFile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentFile").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::core::RuntimeType for TargetedContentFile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentFile;{33ee3134-1dd6-4e3a-8067-d1c162e8642b})");
@@ -1050,6 +1091,11 @@ impl ::core::cmp::PartialEq for TargetedContentImage {
     }
 }
 impl ::core::cmp::Eq for TargetedContentImage {}
+impl ::core::fmt::Debug for TargetedContentImage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentImage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentImage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentImage;{a7a585d9-779f-4b1e-bbb1-8eaf53fbeab2})");
 }
@@ -1161,6 +1207,11 @@ impl ::core::cmp::PartialEq for TargetedContentInteraction {
     }
 }
 impl ::core::cmp::Eq for TargetedContentInteraction {}
+impl ::core::fmt::Debug for TargetedContentInteraction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentInteraction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentInteraction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentInteraction;i4)");
 }
@@ -1227,6 +1278,11 @@ impl ::core::cmp::PartialEq for TargetedContentItem {
     }
 }
 impl ::core::cmp::Eq for TargetedContentItem {}
+impl ::core::fmt::Debug for TargetedContentItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentItem;{38168dc4-276c-4c32-96ba-565c6e406e74})");
 }
@@ -1311,6 +1367,11 @@ impl ::core::cmp::PartialEq for TargetedContentItemState {
     }
 }
 impl ::core::cmp::Eq for TargetedContentItemState {}
+impl ::core::fmt::Debug for TargetedContentItemState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentItemState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentItemState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentItemState;{73935454-4c65-4b47-a441-472de53c79b6})");
 }
@@ -1411,6 +1472,11 @@ impl ::core::cmp::PartialEq for TargetedContentObject {
     }
 }
 impl ::core::cmp::Eq for TargetedContentObject {}
+impl ::core::fmt::Debug for TargetedContentObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentObject;{041d7969-2212-42d1-9dfa-88a8e3033aa3})");
 }
@@ -1486,6 +1552,11 @@ impl ::core::cmp::PartialEq for TargetedContentObjectKind {
     }
 }
 impl ::core::cmp::Eq for TargetedContentObjectKind {}
+impl ::core::fmt::Debug for TargetedContentObjectKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentObjectKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentObjectKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentObjectKind;i4)");
 }
@@ -1517,6 +1588,11 @@ impl ::core::cmp::PartialEq for TargetedContentStateChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for TargetedContentStateChangedEventArgs {}
+impl ::core::fmt::Debug for TargetedContentStateChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentStateChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentStateChangedEventArgs;{9a1cef3d-8073-4416-8df2-546835a6414f})");
 }
@@ -1667,6 +1743,11 @@ impl ::core::cmp::PartialEq for TargetedContentSubscription {
     }
 }
 impl ::core::cmp::Eq for TargetedContentSubscription {}
+impl ::core::fmt::Debug for TargetedContentSubscription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentSubscription").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentSubscription {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentSubscription;{882c2c49-c652-4c7a-acad-1f7fa2986c73})");
 }
@@ -1779,6 +1860,11 @@ impl ::core::cmp::PartialEq for TargetedContentSubscriptionOptions {
     }
 }
 impl ::core::cmp::Eq for TargetedContentSubscriptionOptions {}
+impl ::core::fmt::Debug for TargetedContentSubscriptionOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentSubscriptionOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentSubscriptionOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentSubscriptionOptions;{61ee6ad0-2c83-421b-8467-413eaf1aeb97})");
 }
@@ -1984,6 +2070,11 @@ impl ::core::cmp::PartialEq for TargetedContentValue {
     }
 }
 impl ::core::cmp::Eq for TargetedContentValue {}
+impl ::core::fmt::Debug for TargetedContentValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentValue;{aafde4b3-4215-4bf8-867f-43f04865f9bf})");
 }
@@ -2070,6 +2161,11 @@ impl ::core::cmp::PartialEq for TargetedContentValueKind {
     }
 }
 impl ::core::cmp::Eq for TargetedContentValueKind {}
+impl ::core::fmt::Debug for TargetedContentValueKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentValueKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentValueKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentValueKind;i4)");
 }

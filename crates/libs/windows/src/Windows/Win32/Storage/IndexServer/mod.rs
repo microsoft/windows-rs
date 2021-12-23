@@ -92,6 +92,27 @@ impl ::core::clone::Clone for CI_STATE {
         *self
     }
 }
+impl ::core::fmt::Debug for CI_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CI_STATE")
+            .field("cbStruct", &self.cbStruct)
+            .field("cWordList", &self.cWordList)
+            .field("cPersistentIndex", &self.cPersistentIndex)
+            .field("cQueries", &self.cQueries)
+            .field("cDocuments", &self.cDocuments)
+            .field("cFreshTest", &self.cFreshTest)
+            .field("dwMergeProgress", &self.dwMergeProgress)
+            .field("eState", &self.eState)
+            .field("cFilteredDocuments", &self.cFilteredDocuments)
+            .field("cTotalDocuments", &self.cTotalDocuments)
+            .field("cPendingScans", &self.cPendingScans)
+            .field("dwIndexSize", &self.dwIndexSize)
+            .field("cUniqueKeys", &self.cUniqueKeys)
+            .field("cSecQDocuments", &self.cSecQDocuments)
+            .field("dwPropCacheSize", &self.dwPropCacheSize)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CI_STATE {
     type Abi = Self;
 }
@@ -479,6 +500,11 @@ impl ::core::clone::Clone for FILTERREGION {
         *self
     }
 }
+impl ::core::fmt::Debug for FILTERREGION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILTERREGION").field("idChunk", &self.idChunk).field("cwcStart", &self.cwcStart).field("cwcExtent", &self.cwcExtent).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILTERREGION {
     type Abi = Self;
 }
@@ -650,6 +676,11 @@ impl ::core::cmp::PartialEq for IFilter {
     }
 }
 impl ::core::cmp::Eq for IFilter {}
+impl ::core::fmt::Debug for IFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFilter {
     type Vtable = IFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89bcb740_6119_101a_bcb7_00dd010655af);
@@ -716,6 +747,11 @@ impl ::core::cmp::PartialEq for IPhraseSink {
     }
 }
 impl ::core::cmp::Eq for IPhraseSink {}
+impl ::core::fmt::Debug for IPhraseSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPhraseSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPhraseSink {
     type Vtable = IPhraseSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc906ff0_c058_101a_b554_08002b33b0e6);

@@ -41,6 +41,11 @@ impl ::core::cmp::PartialEq for AutomationConnection {
     }
 }
 impl ::core::cmp::Eq for AutomationConnection {}
+impl ::core::fmt::Debug for AutomationConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationConnection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.AutomationConnection;{aad262ed-0ef4-5d43-97be-a834e27b65b9})");
 }
@@ -117,6 +122,11 @@ impl ::core::cmp::PartialEq for AutomationConnectionBoundObject {
     }
 }
 impl ::core::cmp::Eq for AutomationConnectionBoundObject {}
+impl ::core::fmt::Debug for AutomationConnectionBoundObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationConnectionBoundObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationConnectionBoundObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.AutomationConnectionBoundObject;{5e8558fb-ca52-5b65-9830-dd2905816093})");
 }
@@ -209,6 +219,11 @@ impl ::core::cmp::PartialEq for AutomationElement {
     }
 }
 impl ::core::cmp::Eq for AutomationElement {}
+impl ::core::fmt::Debug for AutomationElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationElement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.AutomationElement;{a1898370-2c07-56fd-993f-61a72a08058c})");
 }
@@ -276,6 +291,11 @@ impl ::core::cmp::PartialEq for AutomationTextRange {
     }
 }
 impl ::core::cmp::Eq for AutomationTextRange {}
+impl ::core::fmt::Debug for AutomationTextRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationTextRange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationTextRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.AutomationTextRange;{7e101b65-40d3-5994-85a9-0a0cb9a4ec98})");
 }

@@ -115,6 +115,12 @@ impl ::core::cmp::PartialEq for CortanaActionableInsights {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for CortanaActionableInsights {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for CortanaActionableInsights {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CortanaActionableInsights").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for CortanaActionableInsights {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Cortana.CortanaActionableInsights;{951ec6b1-fc83-586d-8b84-2452c8981625})");
 }
@@ -238,6 +244,12 @@ impl ::core::cmp::PartialEq for CortanaActionableInsightsOptions {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for CortanaActionableInsightsOptions {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for CortanaActionableInsightsOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CortanaActionableInsightsOptions").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for CortanaActionableInsightsOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Cortana.CortanaActionableInsightsOptions;{aac2bbcf-9782-5420-b81e-7ae56af31815})");
 }
@@ -341,6 +353,12 @@ impl ::core::cmp::PartialEq for CortanaPermission {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for CortanaPermission {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for CortanaPermission {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CortanaPermission").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for CortanaPermission {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Cortana.CortanaPermission;i4)");
 }
@@ -378,6 +396,12 @@ impl ::core::cmp::PartialEq for CortanaPermissionsChangeResult {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for CortanaPermissionsChangeResult {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for CortanaPermissionsChangeResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CortanaPermissionsChangeResult").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for CortanaPermissionsChangeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Cortana.CortanaPermissionsChangeResult;i4)");
@@ -457,6 +481,12 @@ impl ::core::cmp::PartialEq for CortanaPermissionsManager {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for CortanaPermissionsManager {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for CortanaPermissionsManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CortanaPermissionsManager").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for CortanaPermissionsManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Cortana.CortanaPermissionsManager;{191330e0-8695-438a-9545-3da4e822ddb4})");
@@ -589,6 +619,12 @@ impl ::core::cmp::PartialEq for CortanaSettings {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for CortanaSettings {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for CortanaSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CortanaSettings").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for CortanaSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Cortana.CortanaSettings;{54d571a7-8062-40f4-abe7-dedfd697b019})");

@@ -88,6 +88,11 @@ impl ::core::cmp::PartialEq for WalletItemAppAssociation {
     }
 }
 impl ::core::cmp::Eq for WalletItemAppAssociation {}
+impl ::core::fmt::Debug for WalletItemAppAssociation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletItemAppAssociation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WalletItemAppAssociation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.System.WalletItemAppAssociation;i4)");
 }
@@ -169,6 +174,11 @@ impl ::core::cmp::PartialEq for WalletItemSystemStore {
     }
 }
 impl ::core::cmp::Eq for WalletItemSystemStore {}
+impl ::core::fmt::Debug for WalletItemSystemStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletItemSystemStore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WalletItemSystemStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.System.WalletItemSystemStore;{522e2bff-96a2-4a17-8d19-fe1d9f837561})");
 }

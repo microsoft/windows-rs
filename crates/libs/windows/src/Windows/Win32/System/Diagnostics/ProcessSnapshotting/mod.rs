@@ -14,6 +14,11 @@ impl ::core::clone::Clone for PSS_ALLOCATOR {
         *self
     }
 }
+impl ::core::fmt::Debug for PSS_ALLOCATOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSS_ALLOCATOR").field("Context", &self.Context).field("AllocRoutine", &self.AllocRoutine).field("FreeRoutine", &self.FreeRoutine).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PSS_ALLOCATOR {
     type Abi = Self;
 }
@@ -37,6 +42,11 @@ impl ::core::marker::Copy for PSS_AUXILIARY_PAGES_INFORMATION {}
 impl ::core::clone::Clone for PSS_AUXILIARY_PAGES_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PSS_AUXILIARY_PAGES_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSS_AUXILIARY_PAGES_INFORMATION").field("AuxPagesCaptured", &self.AuxPagesCaptured).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PSS_AUXILIARY_PAGES_INFORMATION {
@@ -69,6 +79,12 @@ impl ::core::marker::Copy for PSS_AUXILIARY_PAGE_ENTRY {}
 impl ::core::clone::Clone for PSS_AUXILIARY_PAGE_ENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
+impl ::core::fmt::Debug for PSS_AUXILIARY_PAGE_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSS_AUXILIARY_PAGE_ENTRY").field("Address", &self.Address).field("BasicInformation", &self.BasicInformation).field("CaptureTime", &self.CaptureTime).field("PageContents", &self.PageContents).field("PageSize", &self.PageSize).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
@@ -241,6 +257,12 @@ impl ::core::clone::Clone for PSS_HANDLE_ENTRY_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PSS_HANDLE_ENTRY_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSS_HANDLE_ENTRY_0_0").field("ManualReset", &self.ManualReset).field("Signaled", &self.Signaled).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_0 {
     type Abi = Self;
 }
@@ -273,6 +295,12 @@ impl ::core::marker::Copy for PSS_HANDLE_ENTRY_0_1 {}
 impl ::core::clone::Clone for PSS_HANDLE_ENTRY_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PSS_HANDLE_ENTRY_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSS_HANDLE_ENTRY_0_1").field("CurrentCount", &self.CurrentCount).field("Abandoned", &self.Abandoned).field("OwnerProcessId", &self.OwnerProcessId).field("OwnerThreadId", &self.OwnerThreadId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -314,6 +342,12 @@ impl ::core::clone::Clone for PSS_HANDLE_ENTRY_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PSS_HANDLE_ENTRY_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSS_HANDLE_ENTRY_0_2").field("ExitStatus", &self.ExitStatus).field("PebBaseAddress", &self.PebBaseAddress).field("AffinityMask", &self.AffinityMask).field("BasePriority", &self.BasePriority).field("ProcessId", &self.ProcessId).field("ParentProcessId", &self.ParentProcessId).field("Flags", &self.Flags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_2 {
     type Abi = Self;
 }
@@ -348,6 +382,12 @@ impl ::core::clone::Clone for PSS_HANDLE_ENTRY_0_3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PSS_HANDLE_ENTRY_0_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSS_HANDLE_ENTRY_0_3").field("BaseAddress", &self.BaseAddress).field("AllocationAttributes", &self.AllocationAttributes).field("MaximumSize", &self.MaximumSize).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_3 {
     type Abi = Self;
 }
@@ -378,6 +418,12 @@ impl ::core::marker::Copy for PSS_HANDLE_ENTRY_0_4 {}
 impl ::core::clone::Clone for PSS_HANDLE_ENTRY_0_4 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PSS_HANDLE_ENTRY_0_4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSS_HANDLE_ENTRY_0_4").field("CurrentCount", &self.CurrentCount).field("MaximumCount", &self.MaximumCount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -417,6 +463,12 @@ impl ::core::marker::Copy for PSS_HANDLE_ENTRY_0_5 {}
 impl ::core::clone::Clone for PSS_HANDLE_ENTRY_0_5 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PSS_HANDLE_ENTRY_0_5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSS_HANDLE_ENTRY_0_5").field("ExitStatus", &self.ExitStatus).field("TebBaseAddress", &self.TebBaseAddress).field("ProcessId", &self.ProcessId).field("ThreadId", &self.ThreadId).field("AffinityMask", &self.AffinityMask).field("Priority", &self.Priority).field("BasePriority", &self.BasePriority).field("Win32StartAddress", &self.Win32StartAddress).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -460,6 +512,11 @@ impl ::core::clone::Clone for PSS_HANDLE_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for PSS_HANDLE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSS_HANDLE_INFORMATION").field("HandlesCaptured", &self.HandlesCaptured).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PSS_HANDLE_INFORMATION {
     type Abi = Self;
 }
@@ -487,6 +544,12 @@ impl ::core::marker::Copy for PSS_HANDLE_TRACE_INFORMATION {}
 impl ::core::clone::Clone for PSS_HANDLE_TRACE_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PSS_HANDLE_TRACE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSS_HANDLE_TRACE_INFORMATION").field("SectionHandle", &self.SectionHandle).field("Size", &self.Size).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -543,6 +606,24 @@ impl ::core::marker::Copy for PSS_PERFORMANCE_COUNTERS {}
 impl ::core::clone::Clone for PSS_PERFORMANCE_COUNTERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PSS_PERFORMANCE_COUNTERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSS_PERFORMANCE_COUNTERS")
+            .field("TotalCycleCount", &self.TotalCycleCount)
+            .field("TotalWallClockPeriod", &self.TotalWallClockPeriod)
+            .field("VaCloneCycleCount", &self.VaCloneCycleCount)
+            .field("VaCloneWallClockPeriod", &self.VaCloneWallClockPeriod)
+            .field("VaSpaceCycleCount", &self.VaSpaceCycleCount)
+            .field("VaSpaceWallClockPeriod", &self.VaSpaceWallClockPeriod)
+            .field("AuxPagesCycleCount", &self.AuxPagesCycleCount)
+            .field("AuxPagesWallClockPeriod", &self.AuxPagesWallClockPeriod)
+            .field("HandlesCycleCount", &self.HandlesCycleCount)
+            .field("HandlesWallClockPeriod", &self.HandlesWallClockPeriod)
+            .field("ThreadsCycleCount", &self.ThreadsCycleCount)
+            .field("ThreadsWallClockPeriod", &self.ThreadsWallClockPeriod)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for PSS_PERFORMANCE_COUNTERS {
@@ -615,6 +696,39 @@ impl ::core::clone::Clone for PSS_PROCESS_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PSS_PROCESS_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSS_PROCESS_INFORMATION")
+            .field("ExitStatus", &self.ExitStatus)
+            .field("PebBaseAddress", &self.PebBaseAddress)
+            .field("AffinityMask", &self.AffinityMask)
+            .field("BasePriority", &self.BasePriority)
+            .field("ProcessId", &self.ProcessId)
+            .field("ParentProcessId", &self.ParentProcessId)
+            .field("Flags", &self.Flags)
+            .field("CreateTime", &self.CreateTime)
+            .field("ExitTime", &self.ExitTime)
+            .field("KernelTime", &self.KernelTime)
+            .field("UserTime", &self.UserTime)
+            .field("PriorityClass", &self.PriorityClass)
+            .field("PeakVirtualSize", &self.PeakVirtualSize)
+            .field("VirtualSize", &self.VirtualSize)
+            .field("PageFaultCount", &self.PageFaultCount)
+            .field("PeakWorkingSetSize", &self.PeakWorkingSetSize)
+            .field("WorkingSetSize", &self.WorkingSetSize)
+            .field("QuotaPeakPagedPoolUsage", &self.QuotaPeakPagedPoolUsage)
+            .field("QuotaPagedPoolUsage", &self.QuotaPagedPoolUsage)
+            .field("QuotaPeakNonPagedPoolUsage", &self.QuotaPeakNonPagedPoolUsage)
+            .field("QuotaNonPagedPoolUsage", &self.QuotaNonPagedPoolUsage)
+            .field("PagefileUsage", &self.PagefileUsage)
+            .field("PeakPagefileUsage", &self.PeakPagefileUsage)
+            .field("PrivateUsage", &self.PrivateUsage)
+            .field("ExecuteFlags", &self.ExecuteFlags)
+            .field("ImageFileName", &self.ImageFileName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PSS_PROCESS_INFORMATION {
     type Abi = Self;
 }
@@ -683,6 +797,32 @@ impl ::core::clone::Clone for PSS_THREAD_ENTRY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl ::core::fmt::Debug for PSS_THREAD_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSS_THREAD_ENTRY")
+            .field("ExitStatus", &self.ExitStatus)
+            .field("TebBaseAddress", &self.TebBaseAddress)
+            .field("ProcessId", &self.ProcessId)
+            .field("ThreadId", &self.ThreadId)
+            .field("AffinityMask", &self.AffinityMask)
+            .field("Priority", &self.Priority)
+            .field("BasePriority", &self.BasePriority)
+            .field("LastSyscallFirstArgument", &self.LastSyscallFirstArgument)
+            .field("LastSyscallNumber", &self.LastSyscallNumber)
+            .field("CreateTime", &self.CreateTime)
+            .field("ExitTime", &self.ExitTime)
+            .field("KernelTime", &self.KernelTime)
+            .field("UserTime", &self.UserTime)
+            .field("Win32StartAddress", &self.Win32StartAddress)
+            .field("CaptureTime", &self.CaptureTime)
+            .field("Flags", &self.Flags)
+            .field("SuspendCount", &self.SuspendCount)
+            .field("SizeOfContextRecord", &self.SizeOfContextRecord)
+            .field("ContextRecord", &self.ContextRecord)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for PSS_THREAD_ENTRY {
     type Abi = Self;
 }
@@ -718,6 +858,11 @@ impl ::core::clone::Clone for PSS_THREAD_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for PSS_THREAD_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSS_THREAD_INFORMATION").field("ThreadsCaptured", &self.ThreadsCaptured).field("ContextLength", &self.ContextLength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PSS_THREAD_INFORMATION {
     type Abi = Self;
 }
@@ -744,6 +889,12 @@ impl ::core::marker::Copy for PSS_VA_CLONE_INFORMATION {}
 impl ::core::clone::Clone for PSS_VA_CLONE_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PSS_VA_CLONE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSS_VA_CLONE_INFORMATION").field("VaCloneHandle", &self.VaCloneHandle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -791,6 +942,26 @@ impl ::core::clone::Clone for PSS_VA_SPACE_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PSS_VA_SPACE_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSS_VA_SPACE_ENTRY")
+            .field("BaseAddress", &self.BaseAddress)
+            .field("AllocationBase", &self.AllocationBase)
+            .field("AllocationProtect", &self.AllocationProtect)
+            .field("RegionSize", &self.RegionSize)
+            .field("State", &self.State)
+            .field("Protect", &self.Protect)
+            .field("Type", &self.Type)
+            .field("TimeDateStamp", &self.TimeDateStamp)
+            .field("SizeOfImage", &self.SizeOfImage)
+            .field("ImageBase", &self.ImageBase)
+            .field("CheckSum", &self.CheckSum)
+            .field("MappedFileNameLength", &self.MappedFileNameLength)
+            .field("MappedFileName", &self.MappedFileName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PSS_VA_SPACE_ENTRY {
     type Abi = Self;
 }
@@ -817,6 +988,11 @@ impl ::core::marker::Copy for PSS_VA_SPACE_INFORMATION {}
 impl ::core::clone::Clone for PSS_VA_SPACE_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PSS_VA_SPACE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSS_VA_SPACE_INFORMATION").field("RegionCount", &self.RegionCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PSS_VA_SPACE_INFORMATION {

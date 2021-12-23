@@ -279,6 +279,11 @@ impl ::core::cmp::PartialEq for CurrencyFormatter {
     }
 }
 impl ::core::cmp::Eq for CurrencyFormatter {}
+impl ::core::fmt::Debug for CurrencyFormatter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CurrencyFormatter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CurrencyFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.CurrencyFormatter;{11730ca5-4b00-41b2-b332-73b12a497d54})");
 }
@@ -507,6 +512,11 @@ impl ::core::cmp::PartialEq for CurrencyFormatterMode {
     }
 }
 impl ::core::cmp::Eq for CurrencyFormatterMode {}
+impl ::core::fmt::Debug for CurrencyFormatterMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CurrencyFormatterMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CurrencyFormatterMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.NumberFormatting.CurrencyFormatterMode;i4)");
 }
@@ -761,6 +771,11 @@ impl ::core::cmp::PartialEq for DecimalFormatter {
     }
 }
 impl ::core::cmp::Eq for DecimalFormatter {}
+impl ::core::fmt::Debug for DecimalFormatter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DecimalFormatter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DecimalFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.DecimalFormatter;{a5007c49-7676-4db7-8631-1b6ff265caa9})");
 }
@@ -1147,6 +1162,11 @@ impl ::core::cmp::PartialEq for INumberFormatter {
     }
 }
 impl ::core::cmp::Eq for INumberFormatter {}
+impl ::core::fmt::Debug for INumberFormatter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INumberFormatter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for INumberFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a5007c49-7676-4db7-8631-1b6ff265caa9}");
 }
@@ -1247,6 +1267,11 @@ impl ::core::cmp::PartialEq for INumberFormatter2 {
     }
 }
 impl ::core::cmp::Eq for INumberFormatter2 {}
+impl ::core::fmt::Debug for INumberFormatter2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INumberFormatter2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for INumberFormatter2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d4a8c1f0-80d0-4b0d-a89e-882c1e8f8310}");
 }
@@ -1421,6 +1446,11 @@ impl ::core::cmp::PartialEq for INumberFormatterOptions {
     }
 }
 impl ::core::cmp::Eq for INumberFormatterOptions {}
+impl ::core::fmt::Debug for INumberFormatterOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INumberFormatterOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for INumberFormatterOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{80332d21-aee1-4a39-baa2-07ed8c96daf6}");
 }
@@ -1536,6 +1566,11 @@ impl ::core::cmp::PartialEq for INumberParser {
     }
 }
 impl ::core::cmp::Eq for INumberParser {}
+impl ::core::fmt::Debug for INumberParser {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INumberParser").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for INumberParser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e6659412-4a13-4a53-83a1-392fbe4cff9f}");
 }
@@ -1663,6 +1698,11 @@ impl ::core::cmp::PartialEq for INumberRounder {
     }
 }
 impl ::core::cmp::Eq for INumberRounder {}
+impl ::core::fmt::Debug for INumberRounder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INumberRounder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for INumberRounder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5473c375-38ed-4631-b80c-ef34fc48b7f5}");
 }
@@ -1755,6 +1795,11 @@ impl ::core::cmp::PartialEq for INumberRounderOption {
     }
 }
 impl ::core::cmp::Eq for INumberRounderOption {}
+impl ::core::fmt::Debug for INumberRounderOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INumberRounderOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for INumberRounderOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3b088433-646f-4efe-8d48-66eb2e49e736}");
 }
@@ -1923,6 +1968,11 @@ impl ::core::cmp::PartialEq for ISignedZeroOption {
     }
 }
 impl ::core::cmp::Eq for ISignedZeroOption {}
+impl ::core::fmt::Debug for ISignedZeroOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISignedZeroOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISignedZeroOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fd1cdd31-0a3c-49c4-a642-96a1564f4f30}");
 }
@@ -2032,6 +2082,11 @@ impl ::core::cmp::PartialEq for ISignificantDigitsOption {
     }
 }
 impl ::core::cmp::Eq for ISignificantDigitsOption {}
+impl ::core::fmt::Debug for ISignificantDigitsOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISignificantDigitsOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISignificantDigitsOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1d4dfcdd-2d43-4ee8-bbf1-c1b26a711a58}");
 }
@@ -2148,6 +2203,11 @@ impl ::core::cmp::PartialEq for IncrementNumberRounder {
     }
 }
 impl ::core::cmp::Eq for IncrementNumberRounder {}
+impl ::core::fmt::Debug for IncrementNumberRounder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IncrementNumberRounder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IncrementNumberRounder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.IncrementNumberRounder;{5473c375-38ed-4631-b80c-ef34fc48b7f5})");
 }
@@ -2296,6 +2356,11 @@ impl ::core::cmp::PartialEq for NumeralSystemTranslator {
     }
 }
 impl ::core::cmp::Eq for NumeralSystemTranslator {}
+impl ::core::fmt::Debug for NumeralSystemTranslator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NumeralSystemTranslator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NumeralSystemTranslator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.NumeralSystemTranslator;{28f5bc2c-8c23-4234-ad2e-fa5a3a426e9b})");
 }
@@ -2596,6 +2661,11 @@ impl ::core::cmp::PartialEq for PercentFormatter {
     }
 }
 impl ::core::cmp::Eq for PercentFormatter {}
+impl ::core::fmt::Debug for PercentFormatter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PercentFormatter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PercentFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.PercentFormatter;{a5007c49-7676-4db7-8631-1b6ff265caa9})");
 }
@@ -3050,6 +3120,11 @@ impl ::core::cmp::PartialEq for PermilleFormatter {
     }
 }
 impl ::core::cmp::Eq for PermilleFormatter {}
+impl ::core::fmt::Debug for PermilleFormatter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PermilleFormatter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PermilleFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.PermilleFormatter;{a5007c49-7676-4db7-8631-1b6ff265caa9})");
 }
@@ -3287,6 +3362,11 @@ impl ::core::cmp::PartialEq for RoundingAlgorithm {
     }
 }
 impl ::core::cmp::Eq for RoundingAlgorithm {}
+impl ::core::fmt::Debug for RoundingAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RoundingAlgorithm").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RoundingAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.NumberFormatting.RoundingAlgorithm;i4)");
 }
@@ -3390,6 +3470,11 @@ impl ::core::cmp::PartialEq for SignificantDigitsNumberRounder {
     }
 }
 impl ::core::cmp::Eq for SignificantDigitsNumberRounder {}
+impl ::core::fmt::Debug for SignificantDigitsNumberRounder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SignificantDigitsNumberRounder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SignificantDigitsNumberRounder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder;{5473c375-38ed-4631-b80c-ef34fc48b7f5})");
 }

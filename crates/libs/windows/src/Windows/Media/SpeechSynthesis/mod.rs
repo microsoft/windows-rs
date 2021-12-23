@@ -207,6 +207,11 @@ impl ::core::cmp::PartialEq for SpeechAppendedSilence {
     }
 }
 impl ::core::cmp::Eq for SpeechAppendedSilence {}
+impl ::core::fmt::Debug for SpeechAppendedSilence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechAppendedSilence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechAppendedSilence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechAppendedSilence;i4)");
 }
@@ -235,6 +240,11 @@ impl ::core::cmp::PartialEq for SpeechPunctuationSilence {
     }
 }
 impl ::core::cmp::Eq for SpeechPunctuationSilence {}
+impl ::core::fmt::Debug for SpeechPunctuationSilence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechPunctuationSilence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechPunctuationSilence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechPunctuationSilence;i4)");
 }
@@ -392,6 +402,11 @@ impl ::core::cmp::PartialEq for SpeechSynthesisStream {
     }
 }
 impl ::core::cmp::Eq for SpeechSynthesisStream {}
+impl ::core::fmt::Debug for SpeechSynthesisStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechSynthesisStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechSynthesisStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechSynthesis.SpeechSynthesisStream;{83e46e93-244c-4622-ba0b-6229c4d0d65d})");
 }
@@ -727,6 +742,11 @@ impl ::core::cmp::PartialEq for SpeechSynthesizer {
     }
 }
 impl ::core::cmp::Eq for SpeechSynthesizer {}
+impl ::core::fmt::Debug for SpeechSynthesizer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechSynthesizer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechSynthesizer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechSynthesis.SpeechSynthesizer;{ce9f7c76-97f4-4ced-ad68-d51c458e45c6})");
 }
@@ -912,6 +932,11 @@ impl ::core::cmp::PartialEq for SpeechSynthesizerOptions {
     }
 }
 impl ::core::cmp::Eq for SpeechSynthesizerOptions {}
+impl ::core::fmt::Debug for SpeechSynthesizerOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechSynthesizerOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechSynthesizerOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechSynthesis.SpeechSynthesizerOptions;{a0e23871-cc3d-43c9-91b1-ee185324d83d})");
 }
@@ -986,6 +1011,11 @@ impl ::core::cmp::PartialEq for VoiceGender {
     }
 }
 impl ::core::cmp::Eq for VoiceGender {}
+impl ::core::fmt::Debug for VoiceGender {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceGender").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VoiceGender {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.VoiceGender;i4)");
 }
@@ -1048,6 +1078,11 @@ impl ::core::cmp::PartialEq for VoiceInformation {
     }
 }
 impl ::core::cmp::Eq for VoiceInformation {}
+impl ::core::fmt::Debug for VoiceInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VoiceInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechSynthesis.VoiceInformation;{b127d6a4-1291-4604-aa9c-83134083352c})");
 }

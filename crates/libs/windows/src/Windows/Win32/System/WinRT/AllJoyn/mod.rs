@@ -60,6 +60,11 @@ impl ::core::cmp::PartialEq for IWindowsDevicesAllJoynBusAttachmentFactoryIntero
     }
 }
 impl ::core::cmp::Eq for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {}
+impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowsDevicesAllJoynBusAttachmentFactoryInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
     type Vtable = IWindowsDevicesAllJoynBusAttachmentFactoryInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b8f7505_b239_4e7b_88af_f6682575d861);
@@ -136,6 +141,11 @@ impl ::core::cmp::PartialEq for IWindowsDevicesAllJoynBusAttachmentInterop {
     }
 }
 impl ::core::cmp::Eq for IWindowsDevicesAllJoynBusAttachmentInterop {}
+impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusAttachmentInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowsDevicesAllJoynBusAttachmentInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusAttachmentInterop {
     type Vtable = IWindowsDevicesAllJoynBusAttachmentInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd89c65b_b50e_4a19_9d0c_b42b783281cd);
@@ -212,6 +222,11 @@ impl ::core::cmp::PartialEq for IWindowsDevicesAllJoynBusObjectFactoryInterop {
     }
 }
 impl ::core::cmp::Eq for IWindowsDevicesAllJoynBusObjectFactoryInterop {}
+impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusObjectFactoryInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowsDevicesAllJoynBusObjectFactoryInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusObjectFactoryInterop {
     type Vtable = IWindowsDevicesAllJoynBusObjectFactoryInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6174e506_8b95_4e36_95c0_b88fed34938c);
@@ -296,6 +311,11 @@ impl ::core::cmp::PartialEq for IWindowsDevicesAllJoynBusObjectInterop {
     }
 }
 impl ::core::cmp::Eq for IWindowsDevicesAllJoynBusObjectInterop {}
+impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusObjectInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowsDevicesAllJoynBusObjectInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusObjectInterop {
     type Vtable = IWindowsDevicesAllJoynBusObjectInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd78aa3d5_5054_428f_99f2_ec3a5de3c3bc);

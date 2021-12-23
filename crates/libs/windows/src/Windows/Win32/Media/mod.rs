@@ -83,6 +83,11 @@ impl ::core::cmp::PartialEq for IReferenceClock {
     }
 }
 impl ::core::cmp::Eq for IReferenceClock {}
+impl ::core::fmt::Debug for IReferenceClock {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IReferenceClock").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IReferenceClock {
     type Vtable = IReferenceClockVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56a86897_0ad4_11ce_b03a_0020af0ba770);
@@ -177,6 +182,11 @@ impl ::core::cmp::PartialEq for IReferenceClock2 {
     }
 }
 impl ::core::cmp::Eq for IReferenceClock2 {}
+impl ::core::fmt::Debug for IReferenceClock2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IReferenceClock2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IReferenceClock2 {
     type Vtable = IReferenceClock2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36b73885_c2c8_11cf_8b46_00805f6cef60);
@@ -239,6 +249,11 @@ impl ::core::cmp::PartialEq for IReferenceClockTimerControl {
     }
 }
 impl ::core::cmp::Eq for IReferenceClockTimerControl {}
+impl ::core::fmt::Debug for IReferenceClockTimerControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IReferenceClockTimerControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IReferenceClockTimerControl {
     type Vtable = IReferenceClockTimerControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebec459c_2eca_4d42_a8af_30df557614b8);
@@ -425,6 +440,11 @@ impl ::core::clone::Clone for MMTIME_0_1 {
         *self
     }
 }
+impl ::core::fmt::Debug for MMTIME_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMTIME_0_1").field("hour", &self.hour).field("min", &self.min).field("sec", &self.sec).field("frame", &self.frame).field("fps", &self.fps).field("dummy", &self.dummy).field("pad", &self.pad).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MMTIME_0_1 {
     type Abi = Self;
 }
@@ -549,6 +569,11 @@ impl ::core::clone::Clone for TIMECAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for TIMECAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TIMECAPS").field("wPeriodMin", &self.wPeriodMin).field("wPeriodMax", &self.wPeriodMax).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TIMECAPS {
     type Abi = Self;
 }
@@ -600,6 +625,11 @@ impl ::core::marker::Copy for TIMECODE_0 {}
 impl ::core::clone::Clone for TIMECODE_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TIMECODE_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TIMECODE_0").field("wFrameRate", &self.wFrameRate).field("wFrameFract", &self.wFrameFract).field("dwFrames", &self.dwFrames).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TIMECODE_0 {

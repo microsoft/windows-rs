@@ -14,6 +14,12 @@ impl ::core::clone::Clone for CYPHER_BLOCK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CYPHER_BLOCK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CYPHER_BLOCK").field("data", &self.data).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CYPHER_BLOCK {
     type Abi = Self;
 }
@@ -46,6 +52,12 @@ impl ::core::clone::Clone for ENCRYPTED_LM_OWF_PASSWORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ENCRYPTED_LM_OWF_PASSWORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENCRYPTED_LM_OWF_PASSWORD").field("data", &self.data).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ENCRYPTED_LM_OWF_PASSWORD {
     type Abi = Self;
 }
@@ -75,6 +87,12 @@ impl ::core::marker::Copy for LM_OWF_PASSWORD {}
 impl ::core::clone::Clone for LM_OWF_PASSWORD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LM_OWF_PASSWORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LM_OWF_PASSWORD").field("data", &self.data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -134,6 +152,11 @@ impl ::core::marker::Copy for SAMPR_ENCRYPTED_USER_PASSWORD {}
 impl ::core::clone::Clone for SAMPR_ENCRYPTED_USER_PASSWORD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SAMPR_ENCRYPTED_USER_PASSWORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SAMPR_ENCRYPTED_USER_PASSWORD").field("Buffer", &self.Buffer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SAMPR_ENCRYPTED_USER_PASSWORD {

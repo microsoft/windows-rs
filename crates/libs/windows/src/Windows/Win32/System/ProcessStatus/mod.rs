@@ -14,6 +14,11 @@ impl ::core::clone::Clone for ENUM_PAGE_FILE_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for ENUM_PAGE_FILE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENUM_PAGE_FILE_INFORMATION").field("cb", &self.cb).field("Reserved", &self.Reserved).field("TotalSize", &self.TotalSize).field("TotalInUse", &self.TotalInUse).field("PeakUsage", &self.PeakUsage).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ENUM_PAGE_FILE_INFORMATION {
     type Abi = Self;
 }
@@ -456,6 +461,11 @@ impl ::core::clone::Clone for MODULEINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for MODULEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MODULEINFO").field("lpBaseOfDll", &self.lpBaseOfDll).field("SizeOfImage", &self.SizeOfImage).field("EntryPoint", &self.EntryPoint).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MODULEINFO {
     type Abi = Self;
 }
@@ -500,6 +510,26 @@ impl ::core::clone::Clone for PERFORMANCE_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for PERFORMANCE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PERFORMANCE_INFORMATION")
+            .field("cb", &self.cb)
+            .field("CommitTotal", &self.CommitTotal)
+            .field("CommitLimit", &self.CommitLimit)
+            .field("CommitPeak", &self.CommitPeak)
+            .field("PhysicalTotal", &self.PhysicalTotal)
+            .field("PhysicalAvailable", &self.PhysicalAvailable)
+            .field("SystemCache", &self.SystemCache)
+            .field("KernelTotal", &self.KernelTotal)
+            .field("KernelPaged", &self.KernelPaged)
+            .field("KernelNonpaged", &self.KernelNonpaged)
+            .field("PageSize", &self.PageSize)
+            .field("HandleCount", &self.HandleCount)
+            .field("ProcessCount", &self.ProcessCount)
+            .field("ThreadCount", &self.ThreadCount)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PERFORMANCE_INFORMATION {
     type Abi = Self;
 }
@@ -532,6 +562,22 @@ impl ::core::marker::Copy for PROCESS_MEMORY_COUNTERS {}
 impl ::core::clone::Clone for PROCESS_MEMORY_COUNTERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PROCESS_MEMORY_COUNTERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESS_MEMORY_COUNTERS")
+            .field("cb", &self.cb)
+            .field("PageFaultCount", &self.PageFaultCount)
+            .field("PeakWorkingSetSize", &self.PeakWorkingSetSize)
+            .field("WorkingSetSize", &self.WorkingSetSize)
+            .field("QuotaPeakPagedPoolUsage", &self.QuotaPeakPagedPoolUsage)
+            .field("QuotaPagedPoolUsage", &self.QuotaPagedPoolUsage)
+            .field("QuotaPeakNonPagedPoolUsage", &self.QuotaPeakNonPagedPoolUsage)
+            .field("QuotaNonPagedPoolUsage", &self.QuotaNonPagedPoolUsage)
+            .field("PagefileUsage", &self.PagefileUsage)
+            .field("PeakPagefileUsage", &self.PeakPagefileUsage)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROCESS_MEMORY_COUNTERS {
@@ -567,6 +613,23 @@ impl ::core::marker::Copy for PROCESS_MEMORY_COUNTERS_EX {}
 impl ::core::clone::Clone for PROCESS_MEMORY_COUNTERS_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PROCESS_MEMORY_COUNTERS_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESS_MEMORY_COUNTERS_EX")
+            .field("cb", &self.cb)
+            .field("PageFaultCount", &self.PageFaultCount)
+            .field("PeakWorkingSetSize", &self.PeakWorkingSetSize)
+            .field("WorkingSetSize", &self.WorkingSetSize)
+            .field("QuotaPeakPagedPoolUsage", &self.QuotaPeakPagedPoolUsage)
+            .field("QuotaPagedPoolUsage", &self.QuotaPagedPoolUsage)
+            .field("QuotaPeakNonPagedPoolUsage", &self.QuotaPeakNonPagedPoolUsage)
+            .field("QuotaNonPagedPoolUsage", &self.QuotaNonPagedPoolUsage)
+            .field("PagefileUsage", &self.PagefileUsage)
+            .field("PeakPagefileUsage", &self.PeakPagefileUsage)
+            .field("PrivateUsage", &self.PrivateUsage)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROCESS_MEMORY_COUNTERS_EX {
@@ -620,6 +683,11 @@ impl ::core::marker::Copy for PSAPI_WORKING_SET_BLOCK_0 {}
 impl ::core::clone::Clone for PSAPI_WORKING_SET_BLOCK_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PSAPI_WORKING_SET_BLOCK_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSAPI_WORKING_SET_BLOCK_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_BLOCK_0 {
@@ -699,6 +767,11 @@ impl ::core::clone::Clone for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSAPI_WORKING_SET_EX_BLOCK_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
     type Abi = Self;
 }
@@ -722,6 +795,11 @@ impl ::core::marker::Copy for PSAPI_WORKING_SET_EX_BLOCK_0_1 {}
 impl ::core::clone::Clone for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSAPI_WORKING_SET_EX_BLOCK_0_1").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
@@ -802,6 +880,11 @@ impl ::core::clone::Clone for PSAPI_WS_WATCH_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for PSAPI_WS_WATCH_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSAPI_WS_WATCH_INFORMATION").field("FaultingPc", &self.FaultingPc).field("FaultingVa", &self.FaultingVa).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PSAPI_WS_WATCH_INFORMATION {
     type Abi = Self;
 }
@@ -827,6 +910,11 @@ impl ::core::marker::Copy for PSAPI_WS_WATCH_INFORMATION_EX {}
 impl ::core::clone::Clone for PSAPI_WS_WATCH_INFORMATION_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PSAPI_WS_WATCH_INFORMATION_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSAPI_WS_WATCH_INFORMATION_EX").field("BasicInfo", &self.BasicInfo).field("FaultingThreadId", &self.FaultingThreadId).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PSAPI_WS_WATCH_INFORMATION_EX {

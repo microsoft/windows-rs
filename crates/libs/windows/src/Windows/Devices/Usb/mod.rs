@@ -683,6 +683,11 @@ impl ::core::cmp::PartialEq for UsbBulkInEndpointDescriptor {
     }
 }
 impl ::core::cmp::Eq for UsbBulkInEndpointDescriptor {}
+impl ::core::fmt::Debug for UsbBulkInEndpointDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbBulkInEndpointDescriptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbBulkInEndpointDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbBulkInEndpointDescriptor;{3c6e4846-06cf-42a9-9dc2-971c1b14b6e3})");
 }
@@ -803,6 +808,11 @@ impl ::core::cmp::PartialEq for UsbBulkInPipe {
     }
 }
 impl ::core::cmp::Eq for UsbBulkInPipe {}
+impl ::core::fmt::Debug for UsbBulkInPipe {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbBulkInPipe").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbBulkInPipe {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbBulkInPipe;{f01d2d3b-4548-4d50-b326-d82cdabe1220})");
 }
@@ -895,6 +905,11 @@ impl ::core::cmp::PartialEq for UsbBulkOutEndpointDescriptor {
     }
 }
 impl ::core::cmp::Eq for UsbBulkOutEndpointDescriptor {}
+impl ::core::fmt::Debug for UsbBulkOutEndpointDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbBulkOutEndpointDescriptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbBulkOutEndpointDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbBulkOutEndpointDescriptor;{2820847a-ffee-4f60-9be1-956cac3ecb65})");
 }
@@ -1002,6 +1017,11 @@ impl ::core::cmp::PartialEq for UsbBulkOutPipe {
     }
 }
 impl ::core::cmp::Eq for UsbBulkOutPipe {}
+impl ::core::fmt::Debug for UsbBulkOutPipe {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbBulkOutPipe").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbBulkOutPipe {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbBulkOutPipe;{a8e9ee6e-0115-45aa-8b21-37b225bccee7})");
 }
@@ -1096,6 +1116,11 @@ impl ::core::cmp::PartialEq for UsbConfiguration {
     }
 }
 impl ::core::cmp::Eq for UsbConfiguration {}
+impl ::core::fmt::Debug for UsbConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbConfiguration;{68177429-36a9-46d7-b873-fc689251ec30})");
 }
@@ -1215,6 +1240,11 @@ impl ::core::cmp::PartialEq for UsbConfigurationDescriptor {
     }
 }
 impl ::core::cmp::Eq for UsbConfigurationDescriptor {}
+impl ::core::fmt::Debug for UsbConfigurationDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbConfigurationDescriptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbConfigurationDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbConfigurationDescriptor;{f2176d92-b442-407a-8207-7d646c0385f3})");
 }
@@ -1292,6 +1322,11 @@ impl ::core::cmp::PartialEq for UsbControlRecipient {
     }
 }
 impl ::core::cmp::Eq for UsbControlRecipient {}
+impl ::core::fmt::Debug for UsbControlRecipient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbControlRecipient").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbControlRecipient {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbControlRecipient;i4)");
 }
@@ -1373,6 +1408,11 @@ impl ::core::cmp::PartialEq for UsbControlRequestType {
     }
 }
 impl ::core::cmp::Eq for UsbControlRequestType {}
+impl ::core::fmt::Debug for UsbControlRequestType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbControlRequestType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbControlRequestType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbControlRequestType;{8e9465a6-d73d-46de-94be-aae7f07c0f5c})");
 }
@@ -1448,6 +1488,11 @@ impl ::core::cmp::PartialEq for UsbControlTransferType {
     }
 }
 impl ::core::cmp::Eq for UsbControlTransferType {}
+impl ::core::fmt::Debug for UsbControlTransferType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbControlTransferType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbControlTransferType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbControlTransferType;i4)");
 }
@@ -1492,6 +1537,11 @@ impl ::core::cmp::PartialEq for UsbDescriptor {
     }
 }
 impl ::core::cmp::Eq for UsbDescriptor {}
+impl ::core::fmt::Debug for UsbDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbDescriptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbDescriptor;{0a89f216-5f9d-4874-8904-da9ad3f5528f})");
 }
@@ -1667,6 +1717,11 @@ impl ::core::cmp::PartialEq for UsbDevice {
     }
 }
 impl ::core::cmp::Eq for UsbDevice {}
+impl ::core::fmt::Debug for UsbDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbDevice;{5249b992-c456-44d5-ad5e-24f5a089f63b})");
 }
@@ -1811,6 +1866,11 @@ impl ::core::cmp::PartialEq for UsbDeviceClass {
     }
 }
 impl ::core::cmp::Eq for UsbDeviceClass {}
+impl ::core::fmt::Debug for UsbDeviceClass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbDeviceClass").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbDeviceClass {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbDeviceClass;{051942f9-845e-47eb-b12a-38f2f617afe7})");
 }
@@ -1947,6 +2007,11 @@ impl ::core::cmp::PartialEq for UsbDeviceClasses {
     }
 }
 impl ::core::cmp::Eq for UsbDeviceClasses {}
+impl ::core::fmt::Debug for UsbDeviceClasses {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbDeviceClasses").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbDeviceClasses {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbDeviceClasses;{686f955d-9b92-4b30-9781-c22c55ac35cb})");
 }
@@ -2063,6 +2128,11 @@ impl ::core::cmp::PartialEq for UsbDeviceDescriptor {
     }
 }
 impl ::core::cmp::Eq for UsbDeviceDescriptor {}
+impl ::core::fmt::Debug for UsbDeviceDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbDeviceDescriptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbDeviceDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbDeviceDescriptor;{1f48d1f6-ba97-4322-b92c-b5b189216588})");
 }
@@ -2206,6 +2276,11 @@ impl ::core::cmp::PartialEq for UsbEndpointDescriptor {
     }
 }
 impl ::core::cmp::Eq for UsbEndpointDescriptor {}
+impl ::core::fmt::Debug for UsbEndpointDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbEndpointDescriptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbEndpointDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbEndpointDescriptor;{6b4862d9-8df7-4b40-ac83-578f139f0575})");
 }
@@ -2282,6 +2357,11 @@ impl ::core::cmp::PartialEq for UsbEndpointType {
     }
 }
 impl ::core::cmp::Eq for UsbEndpointType {}
+impl ::core::fmt::Debug for UsbEndpointType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbEndpointType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbEndpointType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbEndpointType;i4)");
 }
@@ -2366,6 +2446,11 @@ impl ::core::cmp::PartialEq for UsbInterface {
     }
 }
 impl ::core::cmp::Eq for UsbInterface {}
+impl ::core::fmt::Debug for UsbInterface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbInterface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbInterface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterface;{a0322b95-7f47-48ab-a727-678c25be2112})");
 }
@@ -2493,6 +2578,11 @@ impl ::core::cmp::PartialEq for UsbInterfaceDescriptor {
     }
 }
 impl ::core::cmp::Eq for UsbInterfaceDescriptor {}
+impl ::core::fmt::Debug for UsbInterfaceDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbInterfaceDescriptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbInterfaceDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterfaceDescriptor;{199670c7-b7ee-4f90-8cd5-94a2e257598a})");
 }
@@ -2631,6 +2721,11 @@ impl ::core::cmp::PartialEq for UsbInterfaceSetting {
     }
 }
 impl ::core::cmp::Eq for UsbInterfaceSetting {}
+impl ::core::fmt::Debug for UsbInterfaceSetting {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbInterfaceSetting").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbInterfaceSetting {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterfaceSetting;{1827bba7-8da7-4af7-8f4c-7f3032e781f5})");
 }
@@ -2732,6 +2827,11 @@ impl ::core::cmp::PartialEq for UsbInterruptInEndpointDescriptor {
     }
 }
 impl ::core::cmp::Eq for UsbInterruptInEndpointDescriptor {}
+impl ::core::fmt::Debug for UsbInterruptInEndpointDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbInterruptInEndpointDescriptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbInterruptInEndpointDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterruptInEndpointDescriptor;{c0528967-c911-4c3a-86b2-419c2da89039})");
 }
@@ -2809,6 +2909,11 @@ impl ::core::cmp::PartialEq for UsbInterruptInEventArgs {
     }
 }
 impl ::core::cmp::Eq for UsbInterruptInEventArgs {}
+impl ::core::fmt::Debug for UsbInterruptInEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbInterruptInEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbInterruptInEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterruptInEventArgs;{b7b04092-1418-4936-8209-299cf5605583})");
 }
@@ -2909,6 +3014,11 @@ impl ::core::cmp::PartialEq for UsbInterruptInPipe {
     }
 }
 impl ::core::cmp::Eq for UsbInterruptInPipe {}
+impl ::core::fmt::Debug for UsbInterruptInPipe {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbInterruptInPipe").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbInterruptInPipe {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterruptInPipe;{fa007116-84d7-48c7-8a3f-4c0b235f2ea6})");
 }
@@ -3010,6 +3120,11 @@ impl ::core::cmp::PartialEq for UsbInterruptOutEndpointDescriptor {
     }
 }
 impl ::core::cmp::Eq for UsbInterruptOutEndpointDescriptor {}
+impl ::core::fmt::Debug for UsbInterruptOutEndpointDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbInterruptOutEndpointDescriptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbInterruptOutEndpointDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor;{cc9fed81-10ca-4533-952d-9e278341e80f})");
 }
@@ -3117,6 +3232,11 @@ impl ::core::cmp::PartialEq for UsbInterruptOutPipe {
     }
 }
 impl ::core::cmp::Eq for UsbInterruptOutPipe {}
+impl ::core::fmt::Debug for UsbInterruptOutPipe {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbInterruptOutPipe").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbInterruptOutPipe {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterruptOutPipe;{e984c8a9-aaf9-49d0-b96c-f661ab4a7f95})");
 }
@@ -3194,6 +3314,11 @@ impl ::core::cmp::PartialEq for UsbReadOptions {
     }
 }
 impl ::core::cmp::Eq for UsbReadOptions {}
+impl ::core::fmt::Debug for UsbReadOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbReadOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbReadOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbReadOptions;u4)");
 }
@@ -3301,6 +3426,11 @@ impl ::core::cmp::PartialEq for UsbSetupPacket {
     }
 }
 impl ::core::cmp::Eq for UsbSetupPacket {}
+impl ::core::fmt::Debug for UsbSetupPacket {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbSetupPacket").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbSetupPacket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbSetupPacket;{104ba132-c78f-4c51-b654-e49d02f2cb03})");
 }
@@ -3375,6 +3505,11 @@ impl ::core::cmp::PartialEq for UsbTransferDirection {
     }
 }
 impl ::core::cmp::Eq for UsbTransferDirection {}
+impl ::core::fmt::Debug for UsbTransferDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbTransferDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbTransferDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbTransferDirection;i4)");
 }
@@ -3404,6 +3539,11 @@ impl ::core::cmp::PartialEq for UsbWriteOptions {
     }
 }
 impl ::core::cmp::Eq for UsbWriteOptions {}
+impl ::core::fmt::Debug for UsbWriteOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbWriteOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbWriteOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbWriteOptions;u4)");
 }

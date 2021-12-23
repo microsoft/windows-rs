@@ -43,6 +43,11 @@ impl ::core::clone::Clone for Color {
         *self
     }
 }
+impl ::core::fmt::Debug for Color {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Color").field("A", &self.A).field("R", &self.R).field("G", &self.G).field("B", &self.B).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Color {
     type Abi = Self;
 }
@@ -103,6 +108,11 @@ impl ::core::cmp::PartialEq for ColorHelper {
     }
 }
 impl ::core::cmp::Eq for ColorHelper {}
+impl ::core::fmt::Debug for ColorHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ColorHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ColorHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ColorHelper;{193cfbe7-65c7-4540-ad08-6283ba76879a})");
 }
@@ -1163,6 +1173,11 @@ impl ::core::cmp::PartialEq for Colors {
     }
 }
 impl ::core::cmp::Eq for Colors {}
+impl ::core::fmt::Debug for Colors {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Colors").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Colors {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Colors;{9b8c9326-4ca6-4ce5-8994-9eff65cabdcc})");
 }
@@ -1502,6 +1517,11 @@ impl ::core::cmp::PartialEq for UIContentRoot {
     }
 }
 impl ::core::cmp::Eq for UIContentRoot {}
+impl ::core::fmt::Debug for UIContentRoot {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIContentRoot").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UIContentRoot {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIContentRoot;{1dfcbac6-b36b-5cb9-9bc5-2b7a0eddc378})");
 }
@@ -1569,6 +1589,11 @@ impl ::core::cmp::PartialEq for UIContext {
     }
 }
 impl ::core::cmp::Eq for UIContext {}
+impl ::core::fmt::Debug for UIContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UIContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIContext;{bb5cfacd-5bd8-59d0-a59e-1c17a4d6d243})");
 }
@@ -1630,6 +1655,11 @@ impl ::core::marker::Copy for WindowId {}
 impl ::core::clone::Clone for WindowId {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WindowId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WindowId").field("Value", &self.Value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WindowId {

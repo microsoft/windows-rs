@@ -286,6 +286,11 @@ impl ::core::clone::Clone for AVICOMPRESSOPTIONS {
         *self
     }
 }
+impl ::core::fmt::Debug for AVICOMPRESSOPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AVICOMPRESSOPTIONS").field("fccType", &self.fccType).field("fccHandler", &self.fccHandler).field("dwKeyFrameEvery", &self.dwKeyFrameEvery).field("dwQuality", &self.dwQuality).field("dwBytesPerSecond", &self.dwBytesPerSecond).field("dwFlags", &self.dwFlags).field("lpFormat", &self.lpFormat).field("cbFormat", &self.cbFormat).field("lpParms", &self.lpParms).field("cbParms", &self.cbParms).field("dwInterleaveEvery", &self.dwInterleaveEvery).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AVICOMPRESSOPTIONS {
     type Abi = Self;
 }
@@ -356,6 +361,25 @@ impl ::core::clone::Clone for AVIFILEINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AVIFILEINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AVIFILEINFOA")
+            .field("dwMaxBytesPerSec", &self.dwMaxBytesPerSec)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwCaps", &self.dwCaps)
+            .field("dwStreams", &self.dwStreams)
+            .field("dwSuggestedBufferSize", &self.dwSuggestedBufferSize)
+            .field("dwWidth", &self.dwWidth)
+            .field("dwHeight", &self.dwHeight)
+            .field("dwScale", &self.dwScale)
+            .field("dwRate", &self.dwRate)
+            .field("dwLength", &self.dwLength)
+            .field("dwEditCount", &self.dwEditCount)
+            .field("szFileType", &self.szFileType)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AVIFILEINFOA {
     type Abi = Self;
 }
@@ -393,6 +417,24 @@ impl ::core::marker::Copy for AVIFILEINFOW {}
 impl ::core::clone::Clone for AVIFILEINFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AVIFILEINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AVIFILEINFOW")
+            .field("dwMaxBytesPerSec", &self.dwMaxBytesPerSec)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwCaps", &self.dwCaps)
+            .field("dwStreams", &self.dwStreams)
+            .field("dwSuggestedBufferSize", &self.dwSuggestedBufferSize)
+            .field("dwWidth", &self.dwWidth)
+            .field("dwHeight", &self.dwHeight)
+            .field("dwScale", &self.dwScale)
+            .field("dwRate", &self.dwRate)
+            .field("dwLength", &self.dwLength)
+            .field("dwEditCount", &self.dwEditCount)
+            .field("szFileType", &self.szFileType)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for AVIFILEINFOW {
@@ -734,6 +776,31 @@ impl ::core::clone::Clone for AVISTREAMINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AVISTREAMINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AVISTREAMINFOA")
+            .field("fccType", &self.fccType)
+            .field("fccHandler", &self.fccHandler)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwCaps", &self.dwCaps)
+            .field("wPriority", &self.wPriority)
+            .field("wLanguage", &self.wLanguage)
+            .field("dwScale", &self.dwScale)
+            .field("dwRate", &self.dwRate)
+            .field("dwStart", &self.dwStart)
+            .field("dwLength", &self.dwLength)
+            .field("dwInitialFrames", &self.dwInitialFrames)
+            .field("dwSuggestedBufferSize", &self.dwSuggestedBufferSize)
+            .field("dwQuality", &self.dwQuality)
+            .field("dwSampleSize", &self.dwSampleSize)
+            .field("rcFrame", &self.rcFrame)
+            .field("dwEditCount", &self.dwEditCount)
+            .field("dwFormatChangeCount", &self.dwFormatChangeCount)
+            .field("szName", &self.szName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AVISTREAMINFOA {
     type Abi = Self;
 }
@@ -780,6 +847,31 @@ impl ::core::marker::Copy for AVISTREAMINFOW {}
 impl ::core::clone::Clone for AVISTREAMINFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AVISTREAMINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AVISTREAMINFOW")
+            .field("fccType", &self.fccType)
+            .field("fccHandler", &self.fccHandler)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwCaps", &self.dwCaps)
+            .field("wPriority", &self.wPriority)
+            .field("wLanguage", &self.wLanguage)
+            .field("dwScale", &self.dwScale)
+            .field("dwRate", &self.dwRate)
+            .field("dwStart", &self.dwStart)
+            .field("dwLength", &self.dwLength)
+            .field("dwInitialFrames", &self.dwInitialFrames)
+            .field("dwSuggestedBufferSize", &self.dwSuggestedBufferSize)
+            .field("dwQuality", &self.dwQuality)
+            .field("dwSampleSize", &self.dwSampleSize)
+            .field("rcFrame", &self.rcFrame)
+            .field("dwEditCount", &self.dwEditCount)
+            .field("dwFormatChangeCount", &self.dwFormatChangeCount)
+            .field("szName", &self.szName)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1256,6 +1348,24 @@ impl ::core::clone::Clone for CAPDRIVERCAPS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CAPDRIVERCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAPDRIVERCAPS")
+            .field("wDeviceIndex", &self.wDeviceIndex)
+            .field("fHasOverlay", &self.fHasOverlay)
+            .field("fHasDlgVideoSource", &self.fHasDlgVideoSource)
+            .field("fHasDlgVideoFormat", &self.fHasDlgVideoFormat)
+            .field("fHasDlgVideoDisplay", &self.fHasDlgVideoDisplay)
+            .field("fCaptureInitialized", &self.fCaptureInitialized)
+            .field("fDriverSuppliesPalettes", &self.fDriverSuppliesPalettes)
+            .field("hVideoIn", &self.hVideoIn)
+            .field("hVideoOut", &self.hVideoOut)
+            .field("hVideoExtIn", &self.hVideoExtIn)
+            .field("hVideoExtOut", &self.hVideoExtOut)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CAPDRIVERCAPS {
     type Abi = Self;
 }
@@ -1290,6 +1400,11 @@ impl ::core::marker::Copy for CAPINFOCHUNK {}
 impl ::core::clone::Clone for CAPINFOCHUNK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CAPINFOCHUNK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAPINFOCHUNK").field("fccInfoID", &self.fccInfoID).field("lpData", &self.lpData).field("cbData", &self.cbData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CAPINFOCHUNK {
@@ -1335,6 +1450,31 @@ impl ::core::marker::Copy for CAPSTATUS {}
 impl ::core::clone::Clone for CAPSTATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for CAPSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAPSTATUS")
+            .field("uiImageWidth", &self.uiImageWidth)
+            .field("uiImageHeight", &self.uiImageHeight)
+            .field("fLiveWindow", &self.fLiveWindow)
+            .field("fOverlayWindow", &self.fOverlayWindow)
+            .field("fScale", &self.fScale)
+            .field("ptScroll", &self.ptScroll)
+            .field("fUsingDefaultPalette", &self.fUsingDefaultPalette)
+            .field("fAudioHardware", &self.fAudioHardware)
+            .field("fCapFileExists", &self.fCapFileExists)
+            .field("dwCurrentVideoFrame", &self.dwCurrentVideoFrame)
+            .field("dwCurrentVideoFramesDropped", &self.dwCurrentVideoFramesDropped)
+            .field("dwCurrentWaveSamples", &self.dwCurrentWaveSamples)
+            .field("dwCurrentTimeElapsedMS", &self.dwCurrentTimeElapsedMS)
+            .field("hPalCurrent", &self.hPalCurrent)
+            .field("fCapturingNow", &self.fCapturingNow)
+            .field("dwReturn", &self.dwReturn)
+            .field("wNumVideoAllocated", &self.wNumVideoAllocated)
+            .field("wNumAudioAllocated", &self.wNumAudioAllocated)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1399,6 +1539,37 @@ impl ::core::clone::Clone for CAPTUREPARMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CAPTUREPARMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAPTUREPARMS")
+            .field("dwRequestMicroSecPerFrame", &self.dwRequestMicroSecPerFrame)
+            .field("fMakeUserHitOKToCapture", &self.fMakeUserHitOKToCapture)
+            .field("wPercentDropForError", &self.wPercentDropForError)
+            .field("fYield", &self.fYield)
+            .field("dwIndexSize", &self.dwIndexSize)
+            .field("wChunkGranularity", &self.wChunkGranularity)
+            .field("fUsingDOSMemory", &self.fUsingDOSMemory)
+            .field("wNumVideoRequested", &self.wNumVideoRequested)
+            .field("fCaptureAudio", &self.fCaptureAudio)
+            .field("wNumAudioRequested", &self.wNumAudioRequested)
+            .field("vKeyAbort", &self.vKeyAbort)
+            .field("fAbortLeftMouse", &self.fAbortLeftMouse)
+            .field("fAbortRightMouse", &self.fAbortRightMouse)
+            .field("fLimitEnabled", &self.fLimitEnabled)
+            .field("wTimeLimit", &self.wTimeLimit)
+            .field("fMCIControl", &self.fMCIControl)
+            .field("fStepMCIDevice", &self.fStepMCIDevice)
+            .field("dwMCIStartTime", &self.dwMCIStartTime)
+            .field("dwMCIStopTime", &self.dwMCIStopTime)
+            .field("fStepCaptureAt2x", &self.fStepCaptureAt2x)
+            .field("wStepCaptureAverageFrames", &self.wStepCaptureAverageFrames)
+            .field("dwAudioBufferSize", &self.dwAudioBufferSize)
+            .field("fDisableWriteCache", &self.fDisableWriteCache)
+            .field("AVStreamMaster", &self.AVStreamMaster)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CAPTUREPARMS {
     type Abi = Self;
 }
@@ -1444,6 +1615,11 @@ impl ::core::clone::Clone for CHANNEL_CAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for CHANNEL_CAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHANNEL_CAPS").field("dwFlags", &self.dwFlags).field("dwSrcRectXMod", &self.dwSrcRectXMod).field("dwSrcRectYMod", &self.dwSrcRectYMod).field("dwSrcRectWidthMod", &self.dwSrcRectWidthMod).field("dwSrcRectHeightMod", &self.dwSrcRectHeightMod).field("dwDstRectXMod", &self.dwDstRectXMod).field("dwDstRectYMod", &self.dwDstRectYMod).field("dwDstRectWidthMod", &self.dwDstRectWidthMod).field("dwDstRectHeightMod", &self.dwDstRectHeightMod).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CHANNEL_CAPS {
     type Abi = Self;
 }
@@ -1487,6 +1663,29 @@ impl ::core::marker::Copy for COMPVARS {}
 impl ::core::clone::Clone for COMPVARS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for COMPVARS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMPVARS")
+            .field("cbSize", &self.cbSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("hic", &self.hic)
+            .field("fccType", &self.fccType)
+            .field("fccHandler", &self.fccHandler)
+            .field("lpbiIn", &self.lpbiIn)
+            .field("lpbiOut", &self.lpbiOut)
+            .field("lpBitsOut", &self.lpBitsOut)
+            .field("lpBitsPrev", &self.lpBitsPrev)
+            .field("lFrame", &self.lFrame)
+            .field("lKey", &self.lKey)
+            .field("lDataRate", &self.lDataRate)
+            .field("lQ", &self.lQ)
+            .field("lKeyCount", &self.lKeyCount)
+            .field("lpState", &self.lpState)
+            .field("cbState", &self.cbState)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2001,6 +2200,11 @@ impl ::core::marker::Copy for DRAWDIBTIME {}
 impl ::core::clone::Clone for DRAWDIBTIME {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DRAWDIBTIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRAWDIBTIME").field("timeCount", &self.timeCount).field("timeDraw", &self.timeDraw).field("timeDecompress", &self.timeDecompress).field("timeDither", &self.timeDither).field("timeStretch", &self.timeStretch).field("timeBlt", &self.timeBlt).field("timeSetDIBits", &self.timeSetDIBits).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DRAWDIBTIME {
@@ -3109,6 +3313,11 @@ impl ::core::cmp::PartialEq for IAVIEditStream {
     }
 }
 impl ::core::cmp::Eq for IAVIEditStream {}
+impl ::core::fmt::Debug for IAVIEditStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAVIEditStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAVIEditStream {
     type Vtable = IAVIEditStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020024_0000_0000_c000_000000000046);
@@ -3191,6 +3400,11 @@ impl ::core::cmp::PartialEq for IAVIFile {
     }
 }
 impl ::core::cmp::Eq for IAVIFile {}
+impl ::core::fmt::Debug for IAVIFile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAVIFile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAVIFile {
     type Vtable = IAVIFileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020020_0000_0000_c000_000000000046);
@@ -3330,6 +3544,11 @@ impl ::core::cmp::PartialEq for IAVIPersistFile {
     }
 }
 impl ::core::cmp::Eq for IAVIPersistFile {}
+impl ::core::fmt::Debug for IAVIPersistFile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAVIPersistFile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAVIPersistFile {
     type Vtable = IAVIPersistFileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020025_0000_0000_c000_000000000046);
@@ -3437,6 +3656,11 @@ impl ::core::cmp::PartialEq for IAVIStream {
     }
 }
 impl ::core::cmp::Eq for IAVIStream {}
+impl ::core::fmt::Debug for IAVIStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAVIStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAVIStream {
     type Vtable = IAVIStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020021_0000_0000_c000_000000000046);
@@ -3506,6 +3730,11 @@ impl ::core::cmp::PartialEq for IAVIStreaming {
     }
 }
 impl ::core::cmp::Eq for IAVIStreaming {}
+impl ::core::fmt::Debug for IAVIStreaming {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAVIStreaming").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAVIStreaming {
     type Vtable = IAVIStreamingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020022_0000_0000_c000_000000000046);
@@ -3542,6 +3771,12 @@ impl ::core::marker::Copy for ICCOMPRESS {}
 impl ::core::clone::Clone for ICCOMPRESS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for ICCOMPRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICCOMPRESS").field("dwFlags", &self.dwFlags).field("lpbiOutput", &self.lpbiOutput).field("lpOutput", &self.lpOutput).field("lpbiInput", &self.lpbiInput).field("lpInput", &self.lpInput).field("lpckid", &self.lpckid).field("lpdwFlags", &self.lpdwFlags).field("lFrameNum", &self.lFrameNum).field("dwFrameSize", &self.dwFrameSize).field("dwQuality", &self.dwQuality).field("lpbiPrev", &self.lpbiPrev).field("lpPrev", &self.lpPrev).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3589,6 +3824,29 @@ impl ::core::marker::Copy for ICCOMPRESSFRAMES {}
 impl ::core::clone::Clone for ICCOMPRESSFRAMES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for ICCOMPRESSFRAMES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICCOMPRESSFRAMES")
+            .field("dwFlags", &self.dwFlags)
+            .field("lpbiOutput", &self.lpbiOutput)
+            .field("lOutput", &self.lOutput)
+            .field("lpbiInput", &self.lpbiInput)
+            .field("lInput", &self.lInput)
+            .field("lStartFrame", &self.lStartFrame)
+            .field("lFrameCount", &self.lFrameCount)
+            .field("lQuality", &self.lQuality)
+            .field("lDataRate", &self.lDataRate)
+            .field("lKeyRate", &self.lKeyRate)
+            .field("dwRate", &self.dwRate)
+            .field("dwScale", &self.dwScale)
+            .field("dwOverheadPerFrame", &self.dwOverheadPerFrame)
+            .field("dwReserved2", &self.dwReserved2)
+            .field("GetData", &self.GetData)
+            .field("PutData", &self.PutData)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3693,6 +3951,12 @@ impl ::core::clone::Clone for ICDECOMPRESS {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for ICDECOMPRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICDECOMPRESS").field("dwFlags", &self.dwFlags).field("lpbiInput", &self.lpbiInput).field("lpInput", &self.lpInput).field("lpbiOutput", &self.lpbiOutput).field("lpOutput", &self.lpOutput).field("ckid", &self.ckid).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::core::Abi for ICDECOMPRESS {
     type Abi = Self;
 }
@@ -3734,6 +3998,12 @@ impl ::core::marker::Copy for ICDECOMPRESSEX {}
 impl ::core::clone::Clone for ICDECOMPRESSEX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for ICDECOMPRESSEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICDECOMPRESSEX").field("dwFlags", &self.dwFlags).field("lpbiSrc", &self.lpbiSrc).field("lpSrc", &self.lpSrc).field("lpbiDst", &self.lpbiDst).field("lpDst", &self.lpDst).field("xDst", &self.xDst).field("yDst", &self.yDst).field("dxDst", &self.dxDst).field("dyDst", &self.dyDst).field("xSrc", &self.xSrc).field("ySrc", &self.ySrc).field("dxSrc", &self.dxSrc).field("dySrc", &self.dySrc).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3779,6 +4049,11 @@ impl ::core::clone::Clone for ICDRAW {
         *self
     }
 }
+impl ::core::fmt::Debug for ICDRAW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICDRAW").field("dwFlags", &self.dwFlags).field("lpFormat", &self.lpFormat).field("lpData", &self.lpData).field("cbData", &self.cbData).field("lTime", &self.lTime).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ICDRAW {
     type Abi = Self;
 }
@@ -3822,6 +4097,12 @@ impl ::core::clone::Clone for ICDRAWBEGIN {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for ICDRAWBEGIN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICDRAWBEGIN").field("dwFlags", &self.dwFlags).field("hpal", &self.hpal).field("hwnd", &self.hwnd).field("hdc", &self.hdc).field("xDst", &self.xDst).field("yDst", &self.yDst).field("dxDst", &self.dxDst).field("dyDst", &self.dyDst).field("lpbi", &self.lpbi).field("xSrc", &self.xSrc).field("ySrc", &self.ySrc).field("dxSrc", &self.dxSrc).field("dySrc", &self.dySrc).field("dwRate", &self.dwRate).field("dwScale", &self.dwScale).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for ICDRAWBEGIN {
     type Abi = Self;
 }
@@ -3857,6 +4138,12 @@ impl ::core::marker::Copy for ICDRAWSUGGEST {}
 impl ::core::clone::Clone for ICDRAWSUGGEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for ICDRAWSUGGEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICDRAWSUGGEST").field("lpbiIn", &self.lpbiIn).field("lpbiSuggest", &self.lpbiSuggest).field("dxSrc", &self.dxSrc).field("dySrc", &self.dySrc).field("dxDst", &self.dxDst).field("dyDst", &self.dyDst).field("hicDecompressor", &self.hicDecompressor).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4051,6 +4338,11 @@ impl ::core::marker::Copy for ICINFO {}
 impl ::core::clone::Clone for ICINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ICINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICINFO").field("dwSize", &self.dwSize).field("fccType", &self.fccType).field("fccHandler", &self.fccHandler).field("dwFlags", &self.dwFlags).field("dwVersion", &self.dwVersion).field("dwVersionICM", &self.dwVersionICM).field("szName", &self.szName).field("szDescription", &self.szDescription).field("szDriver", &self.szDriver).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ICINFO {
@@ -4323,6 +4615,12 @@ impl ::core::clone::Clone for ICOPEN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ICOPEN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICOPEN").field("dwSize", &self.dwSize).field("fccType", &self.fccType).field("fccHandler", &self.fccHandler).field("dwVersion", &self.dwVersion).field("dwFlags", &self.dwFlags).field("dwError", &self.dwError).field("pV1Reserved", &self.pV1Reserved).field("pV2Reserved", &self.pV2Reserved).field("dnDevNode", &self.dnDevNode).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ICOPEN {
     type Abi = Self;
 }
@@ -4387,6 +4685,12 @@ impl ::core::clone::Clone for ICPALETTE {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for ICPALETTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICPALETTE").field("dwFlags", &self.dwFlags).field("iStart", &self.iStart).field("iLen", &self.iLen).field("lppe", &self.lppe).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::core::Abi for ICPALETTE {
     type Abi = Self;
 }
@@ -4439,6 +4743,12 @@ impl ::core::marker::Copy for ICSETSTATUSPROC {}
 impl ::core::clone::Clone for ICSETSTATUSPROC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ICSETSTATUSPROC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICSETSTATUSPROC").field("dwFlags", &self.dwFlags).field("lParam", &self.lParam).field("Status", &self.Status).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4724,6 +5034,11 @@ impl ::core::cmp::PartialEq for IGetFrame {
     }
 }
 impl ::core::cmp::Eq for IGetFrame {}
+impl ::core::fmt::Debug for IGetFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGetFrame {
     type Vtable = IGetFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020023_0000_0000_c000_000000000046);
@@ -16058,6 +16373,11 @@ impl ::core::clone::Clone for VIDEOHDR {
         *self
     }
 }
+impl ::core::fmt::Debug for VIDEOHDR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VIDEOHDR").field("lpData", &self.lpData).field("dwBufferLength", &self.dwBufferLength).field("dwBytesUsed", &self.dwBytesUsed).field("dwTimeCaptured", &self.dwTimeCaptured).field("dwUser", &self.dwUser).field("dwFlags", &self.dwFlags).field("dwReserved", &self.dwReserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VIDEOHDR {
     type Abi = Self;
 }
@@ -18002,6 +18322,12 @@ impl ::core::marker::Copy for s_RIFFWAVE_inst {}
 impl ::core::clone::Clone for s_RIFFWAVE_inst {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for s_RIFFWAVE_inst {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("s_RIFFWAVE_inst").field("bUnshiftedNote", &self.bUnshiftedNote).field("chFineTune", &self.chFineTune).field("chGain", &self.chGain).field("bLowNote", &self.bLowNote).field("bHighNote", &self.bHighNote).field("bLowVelocity", &self.bLowVelocity).field("bHighVelocity", &self.bHighVelocity).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -111,6 +111,13 @@ impl ::core::clone::Clone for CABINET_INFO_A {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CABINET_INFO_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CABINET_INFO_A").field("CabinetPath", &self.CabinetPath).field("CabinetFile", &self.CabinetFile).field("DiskName", &self.DiskName).field("SetId", &self.SetId).field("CabinetNumber", &self.CabinetNumber).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CABINET_INFO_A {
     type Abi = Self;
 }
@@ -193,6 +200,13 @@ impl ::core::marker::Copy for CABINET_INFO_W {}
 impl ::core::clone::Clone for CABINET_INFO_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CABINET_INFO_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CABINET_INFO_W").field("CabinetPath", &self.CabinetPath).field("CabinetFile", &self.CabinetFile).field("DiskName", &self.DiskName).field("SetId", &self.SetId).field("CabinetNumber", &self.CabinetNumber).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2987,6 +3001,11 @@ impl ::core::clone::Clone for CM_NOTIFY_EVENT_DATA_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for CM_NOTIFY_EVENT_DATA_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CM_NOTIFY_EVENT_DATA_0_0").field("EventGuid", &self.EventGuid).field("NameOffset", &self.NameOffset).field("DataSize", &self.DataSize).field("Data", &self.Data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA_0_0 {
     type Abi = Self;
 }
@@ -3010,6 +3029,11 @@ impl ::core::marker::Copy for CM_NOTIFY_EVENT_DATA_0_1 {}
 impl ::core::clone::Clone for CM_NOTIFY_EVENT_DATA_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CM_NOTIFY_EVENT_DATA_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CM_NOTIFY_EVENT_DATA_0_1").field("InstanceId", &self.InstanceId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA_0_1 {
@@ -3036,6 +3060,11 @@ impl ::core::marker::Copy for CM_NOTIFY_EVENT_DATA_0_2 {}
 impl ::core::clone::Clone for CM_NOTIFY_EVENT_DATA_0_2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CM_NOTIFY_EVENT_DATA_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CM_NOTIFY_EVENT_DATA_0_2").field("ClassGuid", &self.ClassGuid).field("SymbolicLink", &self.SymbolicLink).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA_0_2 {
@@ -3137,6 +3166,12 @@ impl ::core::clone::Clone for CM_NOTIFY_FILTER_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CM_NOTIFY_FILTER_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CM_NOTIFY_FILTER_0_0").field("hTarget", &self.hTarget).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_0_0 {
     type Abi = Self;
 }
@@ -3169,6 +3204,12 @@ impl ::core::clone::Clone for CM_NOTIFY_FILTER_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CM_NOTIFY_FILTER_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CM_NOTIFY_FILTER_0_1").field("InstanceId", &self.InstanceId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_0_1 {
     type Abi = Self;
 }
@@ -3198,6 +3239,12 @@ impl ::core::marker::Copy for CM_NOTIFY_FILTER_0_2 {}
 impl ::core::clone::Clone for CM_NOTIFY_FILTER_0_2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CM_NOTIFY_FILTER_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CM_NOTIFY_FILTER_0_2").field("ClassGuid", &self.ClassGuid).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4510,6 +4557,13 @@ impl ::core::clone::Clone for COINSTALLER_CONTEXT_DATA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for COINSTALLER_CONTEXT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COINSTALLER_CONTEXT_DATA").field("PostProcessing", &self.PostProcessing).field("InstallResult", &self.InstallResult).field("PrivateData", &self.PrivateData).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for COINSTALLER_CONTEXT_DATA {
     type Abi = Self;
 }
@@ -4725,6 +4779,12 @@ impl ::core::clone::Clone for CONFLICT_DETAILS_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CONFLICT_DETAILS_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONFLICT_DETAILS_A").field("CD_ulSize", &self.CD_ulSize).field("CD_ulMask", &self.CD_ulMask).field("CD_dnDevInst", &self.CD_dnDevInst).field("CD_rdResDes", &self.CD_rdResDes).field("CD_ulFlags", &self.CD_ulFlags).field("CD_szDescription", &self.CD_szDescription).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CONFLICT_DETAILS_A {
     type Abi = Self;
 }
@@ -4756,6 +4816,11 @@ impl ::core::marker::Copy for CONFLICT_DETAILS_W {}
 impl ::core::clone::Clone for CONFLICT_DETAILS_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CONFLICT_DETAILS_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONFLICT_DETAILS_W").field("CD_ulSize", &self.CD_ulSize).field("CD_ulMask", &self.CD_ulMask).field("CD_dnDevInst", &self.CD_dnDevInst).field("CD_rdResDes", &self.CD_rdResDes).field("CD_ulFlags", &self.CD_ulFlags).field("CD_szDescription", &self.CD_szDescription).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CONFLICT_DETAILS_W {
@@ -5830,6 +5895,13 @@ impl ::core::clone::Clone for FILEPATHS_A {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FILEPATHS_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILEPATHS_A").field("Target", &self.Target).field("Source", &self.Source).field("Win32Error", &self.Win32Error).field("Flags", &self.Flags).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FILEPATHS_A {
     type Abi = Self;
 }
@@ -5917,6 +5989,13 @@ impl ::core::clone::Clone for FILEPATHS_SIGNERINFO_A {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FILEPATHS_SIGNERINFO_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILEPATHS_SIGNERINFO_A").field("Target", &self.Target).field("Source", &self.Source).field("Win32Error", &self.Win32Error).field("Flags", &self.Flags).field("DigitalSigner", &self.DigitalSigner).field("Version", &self.Version).field("CatalogFile", &self.CatalogFile).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FILEPATHS_SIGNERINFO_A {
     type Abi = Self;
 }
@@ -6007,6 +6086,13 @@ impl ::core::clone::Clone for FILEPATHS_SIGNERINFO_W {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FILEPATHS_SIGNERINFO_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILEPATHS_SIGNERINFO_W").field("Target", &self.Target).field("Source", &self.Source).field("Win32Error", &self.Win32Error).field("Flags", &self.Flags).field("DigitalSigner", &self.DigitalSigner).field("Version", &self.Version).field("CatalogFile", &self.CatalogFile).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FILEPATHS_SIGNERINFO_W {
     type Abi = Self;
 }
@@ -6090,6 +6176,13 @@ impl ::core::marker::Copy for FILEPATHS_W {}
 impl ::core::clone::Clone for FILEPATHS_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FILEPATHS_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILEPATHS_W").field("Target", &self.Target).field("Source", &self.Source).field("Win32Error", &self.Win32Error).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -6189,6 +6282,13 @@ impl ::core::clone::Clone for FILE_IN_CABINET_INFO_A {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FILE_IN_CABINET_INFO_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_IN_CABINET_INFO_A").field("NameInCabinet", &self.NameInCabinet).field("FileSize", &self.FileSize).field("Win32Error", &self.Win32Error).field("DosDate", &self.DosDate).field("DosTime", &self.DosTime).field("DosAttribs", &self.DosAttribs).field("FullTargetName", &self.FullTargetName).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FILE_IN_CABINET_INFO_A {
     type Abi = Self;
 }
@@ -6275,6 +6375,13 @@ impl ::core::marker::Copy for FILE_IN_CABINET_INFO_W {}
 impl ::core::clone::Clone for FILE_IN_CABINET_INFO_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FILE_IN_CABINET_INFO_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_IN_CABINET_INFO_W").field("NameInCabinet", &self.NameInCabinet).field("FileSize", &self.FileSize).field("Win32Error", &self.Win32Error).field("DosDate", &self.DosDate).field("DosTime", &self.DosTime).field("DosAttribs", &self.DosAttribs).field("FullTargetName", &self.FullTargetName).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -6755,6 +6862,12 @@ impl ::core::marker::Copy for INFCONTEXT {}
 impl ::core::clone::Clone for INFCONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for INFCONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INFCONTEXT").field("Inf", &self.Inf).field("CurrentInf", &self.CurrentInf).field("Section", &self.Section).field("Line", &self.Line).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -7696,6 +7809,13 @@ impl ::core::clone::Clone for SOURCE_MEDIA_A {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SOURCE_MEDIA_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOURCE_MEDIA_A").field("Reserved", &self.Reserved).field("Tagfile", &self.Tagfile).field("Description", &self.Description).field("SourcePath", &self.SourcePath).field("SourceFile", &self.SourceFile).field("Flags", &self.Flags).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SOURCE_MEDIA_A {
     type Abi = Self;
 }
@@ -7780,6 +7900,13 @@ impl ::core::marker::Copy for SOURCE_MEDIA_W {}
 impl ::core::clone::Clone for SOURCE_MEDIA_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SOURCE_MEDIA_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOURCE_MEDIA_W").field("Reserved", &self.Reserved).field("Tagfile", &self.Tagfile).field("Description", &self.Description).field("SourcePath", &self.SourcePath).field("SourceFile", &self.SourceFile).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -8186,6 +8313,13 @@ impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V1 {}
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::core::fmt::Debug for SP_ALTPLATFORM_INFO_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_ALTPLATFORM_INFO_V1").field("cbSize", &self.cbSize).field("Platform", &self.Platform).field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("ProcessorArchitecture", &self.ProcessorArchitecture).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -8603,6 +8737,13 @@ impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V1_A {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_BACKUP_QUEUE_PARAMS_V1_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_BACKUP_QUEUE_PARAMS_V1_A").field("cbSize", &self.cbSize).field("FullInfPath", &self.FullInfPath).field("FilenameOffset", &self.FilenameOffset).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V1_A {
     type Abi = Self;
 }
@@ -8681,6 +8822,12 @@ impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V1_W {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SP_BACKUP_QUEUE_PARAMS_V1_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_BACKUP_QUEUE_PARAMS_V1_W").field("cbSize", &self.cbSize).field("FullInfPath", &self.FullInfPath).field("FilenameOffset", &self.FilenameOffset).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V1_W {
     type Abi = Self;
 }
@@ -8750,6 +8897,13 @@ impl ::core::marker::Copy for SP_BACKUP_QUEUE_PARAMS_V2_A {}
 impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V2_A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_BACKUP_QUEUE_PARAMS_V2_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_BACKUP_QUEUE_PARAMS_V2_A").field("cbSize", &self.cbSize).field("FullInfPath", &self.FullInfPath).field("FilenameOffset", &self.FilenameOffset).field("ReinstallInstance", &self.ReinstallInstance).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -8831,6 +8985,12 @@ impl ::core::marker::Copy for SP_BACKUP_QUEUE_PARAMS_V2_W {}
 impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V2_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SP_BACKUP_QUEUE_PARAMS_V2_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_BACKUP_QUEUE_PARAMS_V2_W").field("cbSize", &self.cbSize).field("FullInfPath", &self.FullInfPath).field("FilenameOffset", &self.FilenameOffset).field("ReinstallInstance", &self.ReinstallInstance).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -8909,6 +9069,13 @@ impl ::core::clone::Clone for SP_CLASSIMAGELIST_DATA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_Controls")]
+impl ::core::fmt::Debug for SP_CLASSIMAGELIST_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_CLASSIMAGELIST_DATA").field("cbSize", &self.cbSize).field("ImageList", &self.ImageList).field("Reserved", &self.Reserved).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_Controls")]
 unsafe impl ::windows::core::Abi for SP_CLASSIMAGELIST_DATA {
     type Abi = Self;
 }
@@ -8983,6 +9150,12 @@ impl ::core::marker::Copy for SP_CLASSINSTALL_HEADER {}
 impl ::core::clone::Clone for SP_CLASSINSTALL_HEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SP_CLASSINSTALL_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_CLASSINSTALL_HEADER").field("cbSize", &self.cbSize).field("InstallFunction", &self.InstallFunction).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -9115,6 +9288,13 @@ impl ::core::clone::Clone for SP_DETECTDEVICE_PARAMS {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_DETECTDEVICE_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_DETECTDEVICE_PARAMS").field("ClassInstallHeader", &self.ClassInstallHeader).field("DetectProgressNotify", &self.DetectProgressNotify.map(|f| f as usize)).field("ProgressNotifyParam", &self.ProgressNotifyParam).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_DETECTDEVICE_PARAMS {
     type Abi = Self;
 }
@@ -9194,6 +9374,12 @@ impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DATA {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SP_DEVICE_INTERFACE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_DEVICE_INTERFACE_DATA").field("cbSize", &self.cbSize).field("InterfaceClassGuid", &self.InterfaceClassGuid).field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DATA {
     type Abi = Self;
 }
@@ -9266,6 +9452,13 @@ impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_DEVICE_INTERFACE_DETAIL_DATA_A").field("cbSize", &self.cbSize).field("DevicePath", &self.DevicePath).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     type Abi = Self;
 }
@@ -9342,6 +9535,12 @@ impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_DEVICE_INTERFACE_DETAIL_DATA_W").field("cbSize", &self.cbSize).field("DevicePath", &self.DevicePath).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     type Abi = Self;
 }
@@ -9407,6 +9606,12 @@ impl ::core::marker::Copy for SP_DEVINFO_DATA {}
 impl ::core::clone::Clone for SP_DEVINFO_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SP_DEVINFO_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_DEVINFO_DATA").field("cbSize", &self.cbSize).field("ClassGuid", &self.ClassGuid).field("DevInst", &self.DevInst).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -9480,6 +9685,13 @@ impl ::core::marker::Copy for SP_DEVINFO_LIST_DETAIL_DATA_A {}
 impl ::core::clone::Clone for SP_DEVINFO_LIST_DETAIL_DATA_A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_DEVINFO_LIST_DETAIL_DATA_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_DEVINFO_LIST_DETAIL_DATA_A").field("cbSize", &self.cbSize).field("ClassGuid", &self.ClassGuid).field("RemoteMachineHandle", &self.RemoteMachineHandle).field("RemoteMachineName", &self.RemoteMachineName).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -9564,6 +9776,13 @@ impl ::core::marker::Copy for SP_DEVINFO_LIST_DETAIL_DATA_W {}
 impl ::core::clone::Clone for SP_DEVINFO_LIST_DETAIL_DATA_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_DEVINFO_LIST_DETAIL_DATA_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_DEVINFO_LIST_DETAIL_DATA_W").field("cbSize", &self.cbSize).field("ClassGuid", &self.ClassGuid).field("RemoteMachineHandle", &self.RemoteMachineHandle).field("RemoteMachineName", &self.RemoteMachineName).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -9654,6 +9873,24 @@ impl ::core::marker::Copy for SP_DEVINSTALL_PARAMS_A {}
 impl ::core::clone::Clone for SP_DEVINSTALL_PARAMS_A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_DEVINSTALL_PARAMS_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_DEVINSTALL_PARAMS_A")
+            .field("cbSize", &self.cbSize)
+            .field("Flags", &self.Flags)
+            .field("FlagsEx", &self.FlagsEx)
+            .field("hwndParent", &self.hwndParent)
+            .field("InstallMsgHandler", &self.InstallMsgHandler.map(|f| f as usize))
+            .field("InstallMsgHandlerContext", &self.InstallMsgHandlerContext)
+            .field("FileQueue", &self.FileQueue)
+            .field("ClassInstallReserved", &self.ClassInstallReserved)
+            .field("Reserved", &self.Reserved)
+            .field("DriverPath", &self.DriverPath)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -9750,6 +9987,24 @@ impl ::core::marker::Copy for SP_DEVINSTALL_PARAMS_W {}
 impl ::core::clone::Clone for SP_DEVINSTALL_PARAMS_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_DEVINSTALL_PARAMS_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_DEVINSTALL_PARAMS_W")
+            .field("cbSize", &self.cbSize)
+            .field("Flags", &self.Flags)
+            .field("FlagsEx", &self.FlagsEx)
+            .field("hwndParent", &self.hwndParent)
+            .field("InstallMsgHandler", &self.InstallMsgHandler.map(|f| f as usize))
+            .field("InstallMsgHandlerContext", &self.InstallMsgHandlerContext)
+            .field("FileQueue", &self.FileQueue)
+            .field("ClassInstallReserved", &self.ClassInstallReserved)
+            .field("Reserved", &self.Reserved)
+            .field("DriverPath", &self.DriverPath)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -9842,6 +10097,13 @@ impl ::core::marker::Copy for SP_DRVINFO_DATA_V1_A {}
 impl ::core::clone::Clone for SP_DRVINFO_DATA_V1_A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_DRVINFO_DATA_V1_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_DRVINFO_DATA_V1_A").field("cbSize", &self.cbSize).field("DriverType", &self.DriverType).field("Reserved", &self.Reserved).field("Description", &self.Description).field("MfgName", &self.MfgName).field("ProviderName", &self.ProviderName).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -9927,6 +10189,12 @@ impl ::core::marker::Copy for SP_DRVINFO_DATA_V1_W {}
 impl ::core::clone::Clone for SP_DRVINFO_DATA_V1_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SP_DRVINFO_DATA_V1_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_DRVINFO_DATA_V1_W").field("cbSize", &self.cbSize).field("DriverType", &self.DriverType).field("Reserved", &self.Reserved).field("Description", &self.Description).field("MfgName", &self.MfgName).field("ProviderName", &self.ProviderName).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10006,6 +10274,13 @@ impl ::core::marker::Copy for SP_DRVINFO_DATA_V2_A {}
 impl ::core::clone::Clone for SP_DRVINFO_DATA_V2_A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_DRVINFO_DATA_V2_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_DRVINFO_DATA_V2_A").field("cbSize", &self.cbSize).field("DriverType", &self.DriverType).field("Reserved", &self.Reserved).field("Description", &self.Description).field("MfgName", &self.MfgName).field("ProviderName", &self.ProviderName).field("DriverDate", &self.DriverDate).field("DriverVersion", &self.DriverVersion).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10098,6 +10373,13 @@ impl ::core::marker::Copy for SP_DRVINFO_DATA_V2_W {}
 impl ::core::clone::Clone for SP_DRVINFO_DATA_V2_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_DRVINFO_DATA_V2_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_DRVINFO_DATA_V2_W").field("cbSize", &self.cbSize).field("DriverType", &self.DriverType).field("Reserved", &self.Reserved).field("Description", &self.Description).field("MfgName", &self.MfgName).field("ProviderName", &self.ProviderName).field("DriverDate", &self.DriverDate).field("DriverVersion", &self.DriverVersion).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10191,6 +10473,13 @@ impl ::core::marker::Copy for SP_DRVINFO_DETAIL_DATA_A {}
 impl ::core::clone::Clone for SP_DRVINFO_DETAIL_DATA_A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_DRVINFO_DETAIL_DATA_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_DRVINFO_DETAIL_DATA_A").field("cbSize", &self.cbSize).field("InfDate", &self.InfDate).field("CompatIDsOffset", &self.CompatIDsOffset).field("CompatIDsLength", &self.CompatIDsLength).field("Reserved", &self.Reserved).field("SectionName", &self.SectionName).field("InfFileName", &self.InfFileName).field("DrvDescription", &self.DrvDescription).field("HardwareID", &self.HardwareID).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10285,6 +10574,13 @@ impl ::core::marker::Copy for SP_DRVINFO_DETAIL_DATA_W {}
 impl ::core::clone::Clone for SP_DRVINFO_DETAIL_DATA_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_DRVINFO_DETAIL_DATA_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_DRVINFO_DETAIL_DATA_W").field("cbSize", &self.cbSize).field("InfDate", &self.InfDate).field("CompatIDsOffset", &self.CompatIDsOffset).field("CompatIDsLength", &self.CompatIDsLength).field("Reserved", &self.Reserved).field("SectionName", &self.SectionName).field("InfFileName", &self.InfFileName).field("DrvDescription", &self.DrvDescription).field("HardwareID", &self.HardwareID).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10372,6 +10668,12 @@ impl ::core::marker::Copy for SP_DRVINSTALL_PARAMS {}
 impl ::core::clone::Clone for SP_DRVINSTALL_PARAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SP_DRVINSTALL_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_DRVINSTALL_PARAMS").field("cbSize", &self.cbSize).field("Rank", &self.Rank).field("Flags", &self.Flags).field("PrivateData", &self.PrivateData).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10442,6 +10744,12 @@ impl ::core::marker::Copy for SP_ENABLECLASS_PARAMS {}
 impl ::core::clone::Clone for SP_ENABLECLASS_PARAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SP_ENABLECLASS_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_ENABLECLASS_PARAMS").field("ClassInstallHeader", &self.ClassInstallHeader).field("ClassGuid", &self.ClassGuid).field("EnableMessage", &self.EnableMessage).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10522,6 +10830,26 @@ impl ::core::marker::Copy for SP_FILE_COPY_PARAMS_A {}
 impl ::core::clone::Clone for SP_FILE_COPY_PARAMS_A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_FILE_COPY_PARAMS_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_FILE_COPY_PARAMS_A")
+            .field("cbSize", &self.cbSize)
+            .field("QueueHandle", &self.QueueHandle)
+            .field("SourceRootPath", &self.SourceRootPath)
+            .field("SourcePath", &self.SourcePath)
+            .field("SourceFilename", &self.SourceFilename)
+            .field("SourceDescription", &self.SourceDescription)
+            .field("SourceTagfile", &self.SourceTagfile)
+            .field("TargetDirectory", &self.TargetDirectory)
+            .field("TargetFilename", &self.TargetFilename)
+            .field("CopyStyle", &self.CopyStyle)
+            .field("LayoutInf", &self.LayoutInf)
+            .field("SecurityDescriptor", &self.SecurityDescriptor)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10622,6 +10950,26 @@ impl ::core::marker::Copy for SP_FILE_COPY_PARAMS_W {}
 impl ::core::clone::Clone for SP_FILE_COPY_PARAMS_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_FILE_COPY_PARAMS_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_FILE_COPY_PARAMS_W")
+            .field("cbSize", &self.cbSize)
+            .field("QueueHandle", &self.QueueHandle)
+            .field("SourceRootPath", &self.SourceRootPath)
+            .field("SourcePath", &self.SourcePath)
+            .field("SourceFilename", &self.SourceFilename)
+            .field("SourceDescription", &self.SourceDescription)
+            .field("SourceTagfile", &self.SourceTagfile)
+            .field("TargetDirectory", &self.TargetDirectory)
+            .field("TargetFilename", &self.TargetFilename)
+            .field("CopyStyle", &self.CopyStyle)
+            .field("LayoutInf", &self.LayoutInf)
+            .field("SecurityDescriptor", &self.SecurityDescriptor)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10715,6 +11063,12 @@ impl ::core::clone::Clone for SP_INF_INFORMATION {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SP_INF_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_INF_INFORMATION").field("InfStyle", &self.InfStyle).field("InfCount", &self.InfCount).field("VersionData", &self.VersionData).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for SP_INF_INFORMATION {
     type Abi = Self;
 }
@@ -10784,6 +11138,13 @@ impl ::core::marker::Copy for SP_INF_SIGNER_INFO_V1_A {}
 impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V1_A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_INF_SIGNER_INFO_V1_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_INF_SIGNER_INFO_V1_A").field("cbSize", &self.cbSize).field("CatalogFile", &self.CatalogFile).field("DigitalSigner", &self.DigitalSigner).field("DigitalSignerVersion", &self.DigitalSignerVersion).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10865,6 +11226,12 @@ impl ::core::marker::Copy for SP_INF_SIGNER_INFO_V1_W {}
 impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V1_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SP_INF_SIGNER_INFO_V1_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_INF_SIGNER_INFO_V1_W").field("cbSize", &self.cbSize).field("CatalogFile", &self.CatalogFile).field("DigitalSigner", &self.DigitalSigner).field("DigitalSignerVersion", &self.DigitalSignerVersion).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10939,6 +11306,13 @@ impl ::core::marker::Copy for SP_INF_SIGNER_INFO_V2_A {}
 impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V2_A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_INF_SIGNER_INFO_V2_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_INF_SIGNER_INFO_V2_A").field("cbSize", &self.cbSize).field("CatalogFile", &self.CatalogFile).field("DigitalSigner", &self.DigitalSigner).field("DigitalSignerVersion", &self.DigitalSignerVersion).field("SignerScore", &self.SignerScore).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -11022,6 +11396,12 @@ impl ::core::marker::Copy for SP_INF_SIGNER_INFO_V2_W {}
 impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V2_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SP_INF_SIGNER_INFO_V2_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_INF_SIGNER_INFO_V2_W").field("cbSize", &self.cbSize).field("CatalogFile", &self.CatalogFile).field("DigitalSigner", &self.DigitalSigner).field("DigitalSignerVersion", &self.DigitalSignerVersion).field("SignerScore", &self.SignerScore).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -11108,6 +11488,13 @@ impl ::core::marker::Copy for SP_INSTALLWIZARD_DATA {}
 impl ::core::clone::Clone for SP_INSTALLWIZARD_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::core::fmt::Debug for SP_INSTALLWIZARD_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_INSTALLWIZARD_DATA").field("ClassInstallHeader", &self.ClassInstallHeader).field("Flags", &self.Flags).field("DynamicPages", &self.DynamicPages).field("NumDynamicPages", &self.NumDynamicPages).field("DynamicPageFlags", &self.DynamicPageFlags).field("PrivateFlags", &self.PrivateFlags).field("PrivateData", &self.PrivateData).field("hwndWizardDlg", &self.hwndWizardDlg).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -11203,6 +11590,13 @@ impl ::core::clone::Clone for SP_NEWDEVICEWIZARD_DATA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::core::fmt::Debug for SP_NEWDEVICEWIZARD_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_NEWDEVICEWIZARD_DATA").field("ClassInstallHeader", &self.ClassInstallHeader).field("Flags", &self.Flags).field("DynamicPages", &self.DynamicPages).field("NumDynamicPages", &self.NumDynamicPages).field("hwndWizardDlg", &self.hwndWizardDlg).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 unsafe impl ::windows::core::Abi for SP_NEWDEVICEWIZARD_DATA {
     type Abi = Self;
 }
@@ -11287,6 +11681,13 @@ impl ::core::clone::Clone for SP_ORIGINAL_FILE_INFO_A {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_ORIGINAL_FILE_INFO_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_ORIGINAL_FILE_INFO_A").field("cbSize", &self.cbSize).field("OriginalInfName", &self.OriginalInfName).field("OriginalCatalogName", &self.OriginalCatalogName).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_ORIGINAL_FILE_INFO_A {
     type Abi = Self;
 }
@@ -11365,6 +11766,12 @@ impl ::core::clone::Clone for SP_ORIGINAL_FILE_INFO_W {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SP_ORIGINAL_FILE_INFO_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_ORIGINAL_FILE_INFO_W").field("cbSize", &self.cbSize).field("OriginalInfName", &self.OriginalInfName).field("OriginalCatalogName", &self.OriginalCatalogName).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for SP_ORIGINAL_FILE_INFO_W {
     type Abi = Self;
 }
@@ -11432,6 +11839,12 @@ impl ::core::clone::Clone for SP_POWERMESSAGEWAKE_PARAMS_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_POWERMESSAGEWAKE_PARAMS_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_POWERMESSAGEWAKE_PARAMS_A").field("ClassInstallHeader", &self.ClassInstallHeader).field("PowerMessageWake", &self.PowerMessageWake).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_POWERMESSAGEWAKE_PARAMS_A {
     type Abi = Self;
 }
@@ -11462,6 +11875,12 @@ impl ::core::marker::Copy for SP_POWERMESSAGEWAKE_PARAMS_W {}
 impl ::core::clone::Clone for SP_POWERMESSAGEWAKE_PARAMS_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SP_POWERMESSAGEWAKE_PARAMS_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_POWERMESSAGEWAKE_PARAMS_W").field("ClassInstallHeader", &self.ClassInstallHeader).field("PowerMessageWake", &self.PowerMessageWake).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -11530,6 +11949,12 @@ impl ::core::marker::Copy for SP_PROPCHANGE_PARAMS {}
 impl ::core::clone::Clone for SP_PROPCHANGE_PARAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SP_PROPCHANGE_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_PROPCHANGE_PARAMS").field("ClassInstallHeader", &self.ClassInstallHeader).field("StateChange", &self.StateChange).field("Scope", &self.Scope).field("HwProfile", &self.HwProfile).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -11600,6 +12025,12 @@ impl ::core::marker::Copy for SP_PROPSHEETPAGE_REQUEST {}
 impl ::core::clone::Clone for SP_PROPSHEETPAGE_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SP_PROPSHEETPAGE_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_PROPSHEETPAGE_REQUEST").field("cbSize", &self.cbSize).field("PageRequested", &self.PageRequested).field("DeviceInfoSet", &self.DeviceInfoSet).field("DeviceInfoData", &self.DeviceInfoData).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -11673,6 +12104,13 @@ impl ::core::marker::Copy for SP_REGISTER_CONTROL_STATUSA {}
 impl ::core::clone::Clone for SP_REGISTER_CONTROL_STATUSA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_REGISTER_CONTROL_STATUSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_REGISTER_CONTROL_STATUSA").field("cbSize", &self.cbSize).field("FileName", &self.FileName).field("Win32Error", &self.Win32Error).field("FailureCode", &self.FailureCode).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -11757,6 +12195,13 @@ impl ::core::marker::Copy for SP_REGISTER_CONTROL_STATUSW {}
 impl ::core::clone::Clone for SP_REGISTER_CONTROL_STATUSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_REGISTER_CONTROL_STATUSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_REGISTER_CONTROL_STATUSW").field("cbSize", &self.cbSize).field("FileName", &self.FileName).field("Win32Error", &self.Win32Error).field("FailureCode", &self.FailureCode).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -11837,6 +12282,12 @@ impl ::core::marker::Copy for SP_REMOVEDEVICE_PARAMS {}
 impl ::core::clone::Clone for SP_REMOVEDEVICE_PARAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SP_REMOVEDEVICE_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_REMOVEDEVICE_PARAMS").field("ClassInstallHeader", &self.ClassInstallHeader).field("Scope", &self.Scope).field("HwProfile", &self.HwProfile).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -11911,6 +12362,12 @@ impl ::core::clone::Clone for SP_SELECTDEVICE_PARAMS_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_SELECTDEVICE_PARAMS_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_SELECTDEVICE_PARAMS_A").field("ClassInstallHeader", &self.ClassInstallHeader).field("Title", &self.Title).field("Instructions", &self.Instructions).field("ListLabel", &self.ListLabel).field("SubTitle", &self.SubTitle).field("Reserved", &self.Reserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_SELECTDEVICE_PARAMS_A {
     type Abi = Self;
 }
@@ -11944,6 +12401,12 @@ impl ::core::marker::Copy for SP_SELECTDEVICE_PARAMS_W {}
 impl ::core::clone::Clone for SP_SELECTDEVICE_PARAMS_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SP_SELECTDEVICE_PARAMS_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_SELECTDEVICE_PARAMS_W").field("ClassInstallHeader", &self.ClassInstallHeader).field("Title", &self.Title).field("Instructions", &self.Instructions).field("ListLabel", &self.ListLabel).field("SubTitle", &self.SubTitle).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -12017,6 +12480,12 @@ impl ::core::clone::Clone for SP_TROUBLESHOOTER_PARAMS_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SP_TROUBLESHOOTER_PARAMS_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_TROUBLESHOOTER_PARAMS_A").field("ClassInstallHeader", &self.ClassInstallHeader).field("ChmFile", &self.ChmFile).field("HtmlTroubleShooter", &self.HtmlTroubleShooter).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_TROUBLESHOOTER_PARAMS_A {
     type Abi = Self;
 }
@@ -12048,6 +12517,12 @@ impl ::core::marker::Copy for SP_TROUBLESHOOTER_PARAMS_W {}
 impl ::core::clone::Clone for SP_TROUBLESHOOTER_PARAMS_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SP_TROUBLESHOOTER_PARAMS_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_TROUBLESHOOTER_PARAMS_W").field("ClassInstallHeader", &self.ClassInstallHeader).field("ChmFile", &self.ChmFile).field("HtmlTroubleShooter", &self.HtmlTroubleShooter).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -12116,6 +12591,12 @@ impl ::core::marker::Copy for SP_UNREMOVEDEVICE_PARAMS {}
 impl ::core::clone::Clone for SP_UNREMOVEDEVICE_PARAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SP_UNREMOVEDEVICE_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SP_UNREMOVEDEVICE_PARAMS").field("ClassInstallHeader", &self.ClassInstallHeader).field("Scope", &self.Scope).field("HwProfile", &self.HwProfile).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]

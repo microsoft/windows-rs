@@ -45,6 +45,11 @@ impl ::core::cmp::PartialEq for IPdfRendererNative {
     }
 }
 impl ::core::cmp::Eq for IPdfRendererNative {}
+impl ::core::fmt::Debug for IPdfRendererNative {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPdfRendererNative").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPdfRendererNative {
     type Vtable = IPdfRendererNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d9dcd91_d277_4947_8527_07a0daeda94a);
@@ -76,6 +81,12 @@ impl ::core::marker::Copy for PDF_RENDER_PARAMS {}
 impl ::core::clone::Clone for PDF_RENDER_PARAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::core::fmt::Debug for PDF_RENDER_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PDF_RENDER_PARAMS").field("SourceRect", &self.SourceRect).field("DestinationWidth", &self.DestinationWidth).field("DestinationHeight", &self.DestinationHeight).field("BackgroundColor", &self.BackgroundColor).field("IgnoreHighContrast", &self.IgnoreHighContrast).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]

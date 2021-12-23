@@ -61,6 +61,12 @@ impl ::core::clone::Clone for DOS_IMAGE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DOS_IMAGE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DOS_IMAGE_INFO").field("PdbName", &self.PdbName).field("ImageBaseAddress", &self.ImageBaseAddress).field("ImageSize", &self.ImageSize).field("Timestamp", &self.Timestamp).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DOS_IMAGE_INFO {
     type Abi = Self;
 }
@@ -165,6 +171,11 @@ impl ::core::clone::Clone for GPA_MEMORY_CHUNK {
         *self
     }
 }
+impl ::core::fmt::Debug for GPA_MEMORY_CHUNK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GPA_MEMORY_CHUNK").field("GuestPhysicalStartPageIndex", &self.GuestPhysicalStartPageIndex).field("PageCount", &self.PageCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GPA_MEMORY_CHUNK {
     type Abi = Self;
 }
@@ -217,6 +228,11 @@ impl ::core::clone::Clone for GUEST_OS_INFO_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for GUEST_OS_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GUEST_OS_INFO_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GUEST_OS_INFO_0 {
     type Abi = Self;
 }
@@ -240,6 +256,11 @@ impl ::core::marker::Copy for GUEST_OS_INFO_1 {}
 impl ::core::clone::Clone for GUEST_OS_INFO_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GUEST_OS_INFO_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GUEST_OS_INFO_1").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GUEST_OS_INFO_1 {
@@ -611,6 +632,24 @@ impl ::core::clone::Clone for HDV_PCI_DEVICE_INTERFACE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HDV_PCI_DEVICE_INTERFACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HDV_PCI_DEVICE_INTERFACE")
+            .field("Version", &self.Version)
+            .field("Initialize", &self.Initialize.map(|f| f as usize))
+            .field("Teardown", &self.Teardown.map(|f| f as usize))
+            .field("SetConfiguration", &self.SetConfiguration.map(|f| f as usize))
+            .field("GetDetails", &self.GetDetails.map(|f| f as usize))
+            .field("Start", &self.Start.map(|f| f as usize))
+            .field("Stop", &self.Stop.map(|f| f as usize))
+            .field("ReadConfigSpace", &self.ReadConfigSpace.map(|f| f as usize))
+            .field("WriteConfigSpace", &self.WriteConfigSpace.map(|f| f as usize))
+            .field("ReadInterceptedMemory", &self.ReadInterceptedMemory.map(|f| f as usize))
+            .field("WriteInterceptedMemory", &self.WriteInterceptedMemory.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HDV_PCI_DEVICE_INTERFACE {
     type Abi = Self;
 }
@@ -661,6 +700,11 @@ impl ::core::clone::Clone for HDV_PCI_PNP_ID {
         *self
     }
 }
+impl ::core::fmt::Debug for HDV_PCI_PNP_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HDV_PCI_PNP_ID").field("VendorID", &self.VendorID).field("DeviceID", &self.DeviceID).field("RevisionID", &self.RevisionID).field("ProgIf", &self.ProgIf).field("SubClass", &self.SubClass).field("BaseClass", &self.BaseClass).field("SubVendorID", &self.SubVendorID).field("SubSystemID", &self.SubSystemID).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HDV_PCI_PNP_ID {
     type Abi = Self;
 }
@@ -697,6 +741,11 @@ impl ::core::marker::Copy for HVSOCKET_ADDRESS_INFO {}
 impl ::core::clone::Clone for HVSOCKET_ADDRESS_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HVSOCKET_ADDRESS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HVSOCKET_ADDRESS_INFO").field("SystemId", &self.SystemId).field("VirtualMachineId", &self.VirtualMachineId).field("SiloId", &self.SiloId).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HVSOCKET_ADDRESS_INFO {
@@ -1052,6 +1101,12 @@ impl ::core::marker::Copy for MODULE_INFO {}
 impl ::core::clone::Clone for MODULE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MODULE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MODULE_INFO").field("ProcessImageName", &self.ProcessImageName).field("Image", &self.Image).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1506,6 +1561,11 @@ impl ::core::clone::Clone for SOCKADDR_HV {
         *self
     }
 }
+impl ::core::fmt::Debug for SOCKADDR_HV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOCKADDR_HV").field("Family", &self.Family).field("Reserved", &self.Reserved).field("VmId", &self.VmId).field("ServiceId", &self.ServiceId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SOCKADDR_HV {
     type Abi = Self;
 }
@@ -1614,6 +1674,11 @@ impl ::core::marker::Copy for VIRTUAL_PROCESSOR_REGISTER_0 {}
 impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_REGISTER_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VIRTUAL_PROCESSOR_REGISTER_0").field("Low64", &self.Low64).field("High64", &self.High64).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_0 {
@@ -1726,6 +1791,11 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VIRTUAL_PROCESSOR_REGISTER_1_0_0_0").field("LastFpEip", &self.LastFpEip).field("LastFpCs", &self.LastFpCs).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
     type Abi = Self;
 }
@@ -1805,6 +1875,11 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VIRTUAL_PROCESSOR_REGISTER_1_1_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
     type Abi = Self;
 }
@@ -1829,6 +1904,11 @@ impl ::core::marker::Copy for VIRTUAL_PROCESSOR_REGISTER_1_2 {}
 impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_REGISTER_1_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VIRTUAL_PROCESSOR_REGISTER_1_2").field("Limit", &self.Limit).field("Base", &self.Base).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_2 {
@@ -1910,6 +1990,11 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VIRTUAL_PROCESSOR_REGISTER_1_3_0_0").field("LastFpDp", &self.LastFpDp).field("LastFpDs", &self.LastFpDs).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
     type Abi = Self;
 }
@@ -1946,6 +2031,11 @@ impl ::core::marker::Copy for VM_GENCOUNTER {}
 impl ::core::clone::Clone for VM_GENCOUNTER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VM_GENCOUNTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VM_GENCOUNTER").field("GenerationCount", &self.GenerationCount).field("GenerationCountHigh", &self.GenerationCountHigh).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VM_GENCOUNTER {
@@ -1998,6 +2088,11 @@ impl ::core::marker::Copy for WHV_ACCESS_GPA_CONTROLS_0 {}
 impl ::core::clone::Clone for WHV_ACCESS_GPA_CONTROLS_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_ACCESS_GPA_CONTROLS_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_ACCESS_GPA_CONTROLS_0").field("CacheType", &self.CacheType).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_ACCESS_GPA_CONTROLS_0 {
@@ -2108,6 +2203,11 @@ impl ::core::marker::Copy for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {}
 impl ::core::clone::Clone for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
@@ -2265,6 +2365,11 @@ impl ::core::clone::Clone for WHV_CAPABILITY_FEATURES_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_CAPABILITY_FEATURES_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_CAPABILITY_FEATURES_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_CAPABILITY_FEATURES_0 {
     type Abi = Self;
 }
@@ -2294,6 +2399,11 @@ impl ::core::clone::Clone for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP").field("_bitfield", &self._bitfield).field("HighestFrequencyMhz", &self.HighestFrequencyMhz).field("NominalFrequencyMhz", &self.NominalFrequencyMhz).field("LowestFrequencyMhz", &self.LowestFrequencyMhz).field("FrequencyStepMhz", &self.FrequencyStepMhz).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
     type Abi = Self;
 }
@@ -2320,6 +2430,11 @@ impl ::core::marker::Copy for WHV_CPUID_OUTPUT {}
 impl ::core::clone::Clone for WHV_CPUID_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_CPUID_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_CPUID_OUTPUT").field("Eax", &self.Eax).field("Ebx", &self.Ebx).field("Ecx", &self.Ecx).field("Edx", &self.Edx).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_CPUID_OUTPUT {
@@ -2358,6 +2473,11 @@ impl ::core::clone::Clone for WHV_DOORBELL_MATCH_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_DOORBELL_MATCH_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_DOORBELL_MATCH_DATA").field("GuestAddress", &self.GuestAddress).field("Value", &self.Value).field("Length", &self.Length).field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_DOORBELL_MATCH_DATA {
     type Abi = Self;
 }
@@ -2387,6 +2507,19 @@ impl ::core::marker::Copy for WHV_EMULATOR_CALLBACKS {}
 impl ::core::clone::Clone for WHV_EMULATOR_CALLBACKS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_EMULATOR_CALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_EMULATOR_CALLBACKS")
+            .field("Size", &self.Size)
+            .field("Reserved", &self.Reserved)
+            .field("WHvEmulatorIoPortCallback", &self.WHvEmulatorIoPortCallback.map(|f| f as usize))
+            .field("WHvEmulatorMemoryCallback", &self.WHvEmulatorMemoryCallback.map(|f| f as usize))
+            .field("WHvEmulatorGetVirtualProcessorRegisters", &self.WHvEmulatorGetVirtualProcessorRegisters.map(|f| f as usize))
+            .field("WHvEmulatorSetVirtualProcessorRegisters", &self.WHvEmulatorSetVirtualProcessorRegisters.map(|f| f as usize))
+            .field("WHvEmulatorTranslateGvaPage", &self.WHvEmulatorTranslateGvaPage.map(|f| f as usize))
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_EMULATOR_CALLBACKS {
@@ -2419,6 +2552,11 @@ impl ::core::clone::Clone for WHV_EMULATOR_IO_ACCESS_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_EMULATOR_IO_ACCESS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_EMULATOR_IO_ACCESS_INFO").field("Direction", &self.Direction).field("Port", &self.Port).field("AccessSize", &self.AccessSize).field("Data", &self.Data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_EMULATOR_IO_ACCESS_INFO {
     type Abi = Self;
 }
@@ -2447,6 +2585,11 @@ impl ::core::marker::Copy for WHV_EMULATOR_MEMORY_ACCESS_INFO {}
 impl ::core::clone::Clone for WHV_EMULATOR_MEMORY_ACCESS_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_EMULATOR_MEMORY_ACCESS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_EMULATOR_MEMORY_ACCESS_INFO").field("GpaAddress", &self.GpaAddress).field("Direction", &self.Direction).field("AccessSize", &self.AccessSize).field("Data", &self.Data).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_EMULATOR_MEMORY_ACCESS_INFO {
@@ -2502,6 +2645,11 @@ impl ::core::marker::Copy for WHV_EMULATOR_STATUS_0 {}
 impl ::core::clone::Clone for WHV_EMULATOR_STATUS_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_EMULATOR_STATUS_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_EMULATOR_STATUS_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_EMULATOR_STATUS_0 {
@@ -2593,6 +2741,11 @@ impl ::core::clone::Clone for WHV_EXTENDED_VM_EXITS_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_EXTENDED_VM_EXITS_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_EXTENDED_VM_EXITS_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_EXTENDED_VM_EXITS_0 {
     type Abi = Self;
 }
@@ -2680,6 +2833,11 @@ impl ::core::clone::Clone for WHV_INTERNAL_ACTIVITY_REGISTER_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_INTERNAL_ACTIVITY_REGISTER_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_INTERNAL_ACTIVITY_REGISTER_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_INTERNAL_ACTIVITY_REGISTER_0 {
     type Abi = Self;
 }
@@ -2705,6 +2863,11 @@ impl ::core::marker::Copy for WHV_INTERRUPT_CONTROL {}
 impl ::core::clone::Clone for WHV_INTERRUPT_CONTROL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_INTERRUPT_CONTROL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_INTERRUPT_CONTROL").field("_bitfield", &self._bitfield).field("Destination", &self.Destination).field("Vector", &self.Vector).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_INTERRUPT_CONTROL {
@@ -2828,6 +2991,11 @@ impl ::core::clone::Clone for WHV_MEMORY_ACCESS_INFO_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_MEMORY_ACCESS_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_MEMORY_ACCESS_INFO_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_MEMORY_ACCESS_INFO_0 {
     type Abi = Self;
 }
@@ -2860,6 +3028,11 @@ impl ::core::marker::Copy for WHV_MEMORY_RANGE_ENTRY {}
 impl ::core::clone::Clone for WHV_MEMORY_RANGE_ENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_MEMORY_RANGE_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_MEMORY_RANGE_ENTRY").field("GuestAddress", &self.GuestAddress).field("SizeInBytes", &self.SizeInBytes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_MEMORY_RANGE_ENTRY {
@@ -2896,6 +3069,11 @@ impl ::core::marker::Copy for WHV_MSR_ACTION_ENTRY {}
 impl ::core::clone::Clone for WHV_MSR_ACTION_ENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_MSR_ACTION_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_MSR_ACTION_ENTRY").field("Index", &self.Index).field("ReadAction", &self.ReadAction).field("WriteAction", &self.WriteAction).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_MSR_ACTION_ENTRY {
@@ -2976,6 +3154,11 @@ impl ::core::clone::Clone for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_NOTIFICATION_PORT_PARAMETERS_0_0").field("ConnectionId", &self.ConnectionId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
     type Abi = Self;
 }
@@ -3018,6 +3201,11 @@ impl ::core::marker::Copy for WHV_PARTITION_MEMORY_COUNTERS {}
 impl ::core::clone::Clone for WHV_PARTITION_MEMORY_COUNTERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_PARTITION_MEMORY_COUNTERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_PARTITION_MEMORY_COUNTERS").field("Mapped4KPageCount", &self.Mapped4KPageCount).field("Mapped2MPageCount", &self.Mapped2MPageCount).field("Mapped1GPageCount", &self.Mapped1GPageCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_PARTITION_MEMORY_COUNTERS {
@@ -3172,6 +3360,11 @@ impl ::core::clone::Clone for WHV_PROCESSOR_APIC_COUNTERS {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_PROCESSOR_APIC_COUNTERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_PROCESSOR_APIC_COUNTERS").field("MmioAccessCount", &self.MmioAccessCount).field("EoiAccessCount", &self.EoiAccessCount).field("TprAccessCount", &self.TprAccessCount).field("SentIpiCount", &self.SentIpiCount).field("SelfIpiCount", &self.SelfIpiCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_APIC_COUNTERS {
     type Abi = Self;
 }
@@ -3209,6 +3402,11 @@ impl ::core::marker::Copy for WHV_PROCESSOR_EVENT_COUNTERS {}
 impl ::core::clone::Clone for WHV_PROCESSOR_EVENT_COUNTERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_PROCESSOR_EVENT_COUNTERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_PROCESSOR_EVENT_COUNTERS").field("PageFaultCount", &self.PageFaultCount).field("ExceptionCount", &self.ExceptionCount).field("InterruptCount", &self.InterruptCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_EVENT_COUNTERS {
@@ -3262,6 +3460,11 @@ impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_PROCESSOR_FEATURES_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_PROCESSOR_FEATURES_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES_0 {
     type Abi = Self;
 }
@@ -3311,6 +3514,11 @@ impl ::core::marker::Copy for WHV_PROCESSOR_FEATURES1_0 {}
 impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES1_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_PROCESSOR_FEATURES1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_PROCESSOR_FEATURES1_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES1_0 {
@@ -3420,6 +3628,11 @@ impl ::core::clone::Clone for WHV_PROCESSOR_INTERCEPT_COUNTER {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_PROCESSOR_INTERCEPT_COUNTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_PROCESSOR_INTERCEPT_COUNTER").field("Count", &self.Count).field("Time100ns", &self.Time100ns).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_INTERCEPT_COUNTER {
     type Abi = Self;
 }
@@ -3456,6 +3669,26 @@ impl ::core::marker::Copy for WHV_PROCESSOR_INTERCEPT_COUNTERS {}
 impl ::core::clone::Clone for WHV_PROCESSOR_INTERCEPT_COUNTERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_PROCESSOR_INTERCEPT_COUNTERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_PROCESSOR_INTERCEPT_COUNTERS")
+            .field("PageInvalidations", &self.PageInvalidations)
+            .field("ControlRegisterAccesses", &self.ControlRegisterAccesses)
+            .field("IoInstructions", &self.IoInstructions)
+            .field("HaltInstructions", &self.HaltInstructions)
+            .field("CpuidInstructions", &self.CpuidInstructions)
+            .field("MsrAccesses", &self.MsrAccesses)
+            .field("OtherIntercepts", &self.OtherIntercepts)
+            .field("PendingInterrupts", &self.PendingInterrupts)
+            .field("EmulatedInstructions", &self.EmulatedInstructions)
+            .field("DebugRegisterAccesses", &self.DebugRegisterAccesses)
+            .field("PageFaultIntercepts", &self.PageFaultIntercepts)
+            .field("NestedPageFaultIntercepts", &self.NestedPageFaultIntercepts)
+            .field("Hypercalls", &self.Hypercalls)
+            .field("RdpmcInstructions", &self.RdpmcInstructions)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_INTERCEPT_COUNTERS {
@@ -3509,6 +3742,11 @@ impl ::core::clone::Clone for WHV_PROCESSOR_PERFMON_FEATURES_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_PROCESSOR_PERFMON_FEATURES_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_PROCESSOR_PERFMON_FEATURES_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_PERFMON_FEATURES_0 {
     type Abi = Self;
 }
@@ -3533,6 +3771,11 @@ impl ::core::marker::Copy for WHV_PROCESSOR_RUNTIME_COUNTERS {}
 impl ::core::clone::Clone for WHV_PROCESSOR_RUNTIME_COUNTERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_PROCESSOR_RUNTIME_COUNTERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_PROCESSOR_RUNTIME_COUNTERS").field("TotalRuntime100ns", &self.TotalRuntime100ns).field("HypervisorRuntime100ns", &self.HypervisorRuntime100ns).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_RUNTIME_COUNTERS {
@@ -3563,6 +3806,18 @@ impl ::core::marker::Copy for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {}
 impl ::core::clone::Clone for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS")
+            .field("SyntheticInterruptsCount", &self.SyntheticInterruptsCount)
+            .field("LongSpinWaitHypercallsCount", &self.LongSpinWaitHypercallsCount)
+            .field("OtherHypercallsCount", &self.OtherHypercallsCount)
+            .field("SyntheticInterruptHypercallsCount", &self.SyntheticInterruptHypercallsCount)
+            .field("VirtualInterruptHypercallsCount", &self.VirtualInterruptHypercallsCount)
+            .field("VirtualMmuHypercallsCount", &self.VirtualMmuHypercallsCount)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
@@ -3622,6 +3877,11 @@ impl ::core::marker::Copy for WHV_PROCESSOR_XSAVE_FEATURES_0 {}
 impl ::core::clone::Clone for WHV_PROCESSOR_XSAVE_FEATURES_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_PROCESSOR_XSAVE_FEATURES_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_PROCESSOR_XSAVE_FEATURES_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_XSAVE_FEATURES_0 {
@@ -4146,6 +4406,11 @@ impl ::core::clone::Clone for WHV_RUN_VP_CANCELED_CONTEXT {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_RUN_VP_CANCELED_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_RUN_VP_CANCELED_CONTEXT").field("CancelReason", &self.CancelReason).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_RUN_VP_CANCELED_CONTEXT {
     type Abi = Self;
 }
@@ -4308,6 +4573,11 @@ impl ::core::clone::Clone for WHV_SCHEDULER_FEATURES_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_SCHEDULER_FEATURES_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_SCHEDULER_FEATURES_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_SCHEDULER_FEATURES_0 {
     type Abi = Self;
 }
@@ -4337,6 +4607,12 @@ impl ::core::marker::Copy for WHV_SRIOV_RESOURCE_DESCRIPTOR {}
 impl ::core::clone::Clone for WHV_SRIOV_RESOURCE_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WHV_SRIOV_RESOURCE_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_SRIOV_RESOURCE_DESCRIPTOR").field("PnpInstanceId", &self.PnpInstanceId).field("VirtualFunctionId", &self.VirtualFunctionId).field("VirtualFunctionIndex", &self.VirtualFunctionIndex).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4371,6 +4647,11 @@ impl ::core::clone::Clone for WHV_SYNIC_EVENT_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_SYNIC_EVENT_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_SYNIC_EVENT_PARAMETERS").field("VpIndex", &self.VpIndex).field("TargetSint", &self.TargetSint).field("Reserved", &self.Reserved).field("FlagNumber", &self.FlagNumber).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_SYNIC_EVENT_PARAMETERS {
     type Abi = Self;
 }
@@ -4398,6 +4679,11 @@ impl ::core::marker::Copy for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {}
 impl ::core::clone::Clone for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_SYNIC_SINT_DELIVERABLE_CONTEXT").field("DeliverableSints", &self.DeliverableSints).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
@@ -4449,6 +4735,11 @@ impl ::core::marker::Copy for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {}
 impl ::core::clone::Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_SYNTHETIC_PROCESSOR_FEATURES_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
@@ -4575,6 +4866,11 @@ impl ::core::clone::Clone for WHV_TRANSLATE_GVA_RESULT {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_TRANSLATE_GVA_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_TRANSLATE_GVA_RESULT").field("ResultCode", &self.ResultCode).field("Reserved", &self.Reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_TRANSLATE_GVA_RESULT {
     type Abi = Self;
 }
@@ -4677,6 +4973,11 @@ impl ::core::clone::Clone for WHV_TRIGGER_PARAMETERS_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_TRIGGER_PARAMETERS_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_TRIGGER_PARAMETERS_0_0").field("LogicalDeviceId", &self.LogicalDeviceId).field("MsiAddress", &self.MsiAddress).field("MsiData", &self.MsiData).field("Reserved", &self.Reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_TRIGGER_PARAMETERS_0_0 {
     type Abi = Self;
 }
@@ -4735,6 +5036,11 @@ impl ::core::marker::Copy for WHV_UINT128_0 {}
 impl ::core::clone::Clone for WHV_UINT128_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_UINT128_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_UINT128_0").field("Low64", &self.Low64).field("High64", &self.High64).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_UINT128_0 {
@@ -4901,6 +5207,11 @@ impl ::core::clone::Clone for WHV_VPCI_DEVICE_REGISTER {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_VPCI_DEVICE_REGISTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_VPCI_DEVICE_REGISTER").field("Location", &self.Location).field("SizeInBytes", &self.SizeInBytes).field("OffsetInBytes", &self.OffsetInBytes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_VPCI_DEVICE_REGISTER {
     type Abi = Self;
 }
@@ -4949,6 +5260,11 @@ impl ::core::clone::Clone for WHV_VPCI_HARDWARE_IDS {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_VPCI_HARDWARE_IDS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_VPCI_HARDWARE_IDS").field("VendorID", &self.VendorID).field("DeviceID", &self.DeviceID).field("RevisionID", &self.RevisionID).field("ProgIf", &self.ProgIf).field("SubClass", &self.SubClass).field("BaseClass", &self.BaseClass).field("SubVendorID", &self.SubVendorID).field("SubSystemID", &self.SubSystemID).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_VPCI_HARDWARE_IDS {
     type Abi = Self;
 }
@@ -4975,6 +5291,11 @@ impl ::core::marker::Copy for WHV_VPCI_INTERRUPT_TARGET {}
 impl ::core::clone::Clone for WHV_VPCI_INTERRUPT_TARGET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_VPCI_INTERRUPT_TARGET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_VPCI_INTERRUPT_TARGET").field("Vector", &self.Vector).field("Flags", &self.Flags).field("ProcessorCount", &self.ProcessorCount).field("Processors", &self.Processors).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_VPCI_INTERRUPT_TARGET {
@@ -5012,6 +5333,11 @@ impl ::core::clone::Clone for WHV_VPCI_MMIO_MAPPING {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_VPCI_MMIO_MAPPING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_VPCI_MMIO_MAPPING").field("Location", &self.Location).field("Flags", &self.Flags).field("SizeInBytes", &self.SizeInBytes).field("OffsetInBytes", &self.OffsetInBytes).field("VirtualAddress", &self.VirtualAddress).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_VPCI_MMIO_MAPPING {
     type Abi = Self;
 }
@@ -5041,6 +5367,11 @@ impl ::core::marker::Copy for WHV_VPCI_PROBED_BARS {}
 impl ::core::clone::Clone for WHV_VPCI_PROBED_BARS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_VPCI_PROBED_BARS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_VPCI_PROBED_BARS").field("Value", &self.Value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_VPCI_PROBED_BARS {
@@ -5128,6 +5459,11 @@ impl ::core::clone::Clone for WHV_VP_EXCEPTION_INFO_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_VP_EXCEPTION_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_VP_EXCEPTION_INFO_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_VP_EXCEPTION_INFO_0 {
     type Abi = Self;
 }
@@ -5184,6 +5520,11 @@ impl ::core::clone::Clone for WHV_X64_APIC_EOI_CONTEXT {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_X64_APIC_EOI_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_APIC_EOI_CONTEXT").field("InterruptVector", &self.InterruptVector).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_X64_APIC_EOI_CONTEXT {
     type Abi = Self;
 }
@@ -5207,6 +5548,11 @@ impl ::core::marker::Copy for WHV_X64_APIC_INIT_SIPI_CONTEXT {}
 impl ::core::clone::Clone for WHV_X64_APIC_INIT_SIPI_CONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_X64_APIC_INIT_SIPI_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_APIC_INIT_SIPI_CONTEXT").field("ApicIcr", &self.ApicIcr).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_X64_APIC_INIT_SIPI_CONTEXT {
@@ -5234,6 +5580,11 @@ impl ::core::clone::Clone for WHV_X64_APIC_SMI_CONTEXT {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_X64_APIC_SMI_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_APIC_SMI_CONTEXT").field("ApicIcr", &self.ApicIcr).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_X64_APIC_SMI_CONTEXT {
     type Abi = Self;
 }
@@ -5259,6 +5610,11 @@ impl ::core::marker::Copy for WHV_X64_APIC_WRITE_CONTEXT {}
 impl ::core::clone::Clone for WHV_X64_APIC_WRITE_CONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_X64_APIC_WRITE_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_APIC_WRITE_CONTEXT").field("Type", &self.Type).field("Reserved", &self.Reserved).field("WriteValue", &self.WriteValue).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_X64_APIC_WRITE_CONTEXT {
@@ -5305,6 +5661,11 @@ impl ::core::clone::Clone for WHV_X64_CPUID_ACCESS_CONTEXT {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_X64_CPUID_ACCESS_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_CPUID_ACCESS_CONTEXT").field("Rax", &self.Rax).field("Rcx", &self.Rcx).field("Rdx", &self.Rdx).field("Rbx", &self.Rbx).field("DefaultResultRax", &self.DefaultResultRax).field("DefaultResultRcx", &self.DefaultResultRcx).field("DefaultResultRdx", &self.DefaultResultRdx).field("DefaultResultRbx", &self.DefaultResultRbx).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_X64_CPUID_ACCESS_CONTEXT {
     type Abi = Self;
 }
@@ -5335,6 +5696,11 @@ impl ::core::clone::Clone for WHV_X64_CPUID_RESULT {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_X64_CPUID_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_CPUID_RESULT").field("Function", &self.Function).field("Reserved", &self.Reserved).field("Eax", &self.Eax).field("Ebx", &self.Ebx).field("Ecx", &self.Ecx).field("Edx", &self.Edx).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_X64_CPUID_RESULT {
     type Abi = Self;
 }
@@ -5363,6 +5729,11 @@ impl ::core::marker::Copy for WHV_X64_CPUID_RESULT2 {}
 impl ::core::clone::Clone for WHV_X64_CPUID_RESULT2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_X64_CPUID_RESULT2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_CPUID_RESULT2").field("Function", &self.Function).field("Index", &self.Index).field("VpIndex", &self.VpIndex).field("Flags", &self.Flags).field("Output", &self.Output).field("Mask", &self.Mask).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_X64_CPUID_RESULT2 {
@@ -5420,6 +5791,11 @@ impl ::core::marker::Copy for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {}
 impl ::core::clone::Clone for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
@@ -5531,6 +5907,11 @@ impl ::core::clone::Clone for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0").field("LastFpEip", &self.LastFpEip).field("LastFpCs", &self.LastFpCs).field("Reserved2", &self.Reserved2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
     type Abi = Self;
 }
@@ -5583,6 +5964,11 @@ impl ::core::clone::Clone for WHV_X64_FP_REGISTER_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_X64_FP_REGISTER_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_FP_REGISTER_0").field("Mantissa", &self.Mantissa).field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_X64_FP_REGISTER_0 {
     type Abi = Self;
 }
@@ -5606,6 +5992,11 @@ impl ::core::marker::Copy for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {}
 impl ::core::clone::Clone for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT").field("DeliverableType", &self.DeliverableType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
@@ -5657,6 +6048,11 @@ impl ::core::marker::Copy for WHV_X64_INTERRUPT_STATE_REGISTER_0 {}
 impl ::core::clone::Clone for WHV_X64_INTERRUPT_STATE_REGISTER_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_X64_INTERRUPT_STATE_REGISTER_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_INTERRUPT_STATE_REGISTER_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_X64_INTERRUPT_STATE_REGISTER_0 {
@@ -5746,6 +6142,11 @@ impl ::core::clone::Clone for WHV_X64_IO_PORT_ACCESS_INFO_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_X64_IO_PORT_ACCESS_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_IO_PORT_ACCESS_INFO_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_X64_IO_PORT_ACCESS_INFO_0 {
     type Abi = Self;
 }
@@ -5833,6 +6234,11 @@ impl ::core::clone::Clone for WHV_X64_MSR_ACCESS_INFO_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_X64_MSR_ACCESS_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_MSR_ACCESS_INFO_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_X64_MSR_ACCESS_INFO_0 {
     type Abi = Self;
 }
@@ -5884,6 +6290,11 @@ impl ::core::clone::Clone for WHV_X64_MSR_EXIT_BITMAP_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_X64_MSR_EXIT_BITMAP_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_MSR_EXIT_BITMAP_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_X64_MSR_EXIT_BITMAP_0 {
     type Abi = Self;
 }
@@ -5933,6 +6344,11 @@ impl ::core::marker::Copy for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {}
 impl ::core::clone::Clone for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_PENDING_DEBUG_EXCEPTION_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
@@ -5994,6 +6410,11 @@ impl ::core::clone::Clone for WHV_X64_PENDING_EXCEPTION_EVENT_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_X64_PENDING_EXCEPTION_EVENT_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_PENDING_EXCEPTION_EVENT_0").field("_bitfield", &self._bitfield).field("ErrorCode", &self.ErrorCode).field("ExceptionParameter", &self.ExceptionParameter).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_X64_PENDING_EXCEPTION_EVENT_0 {
     type Abi = Self;
 }
@@ -6046,6 +6467,11 @@ impl ::core::clone::Clone for WHV_X64_PENDING_EXT_INT_EVENT_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_X64_PENDING_EXT_INT_EVENT_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_PENDING_EXT_INT_EVENT_0").field("_bitfield", &self._bitfield).field("Reserved2", &self.Reserved2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_X64_PENDING_EXT_INT_EVENT_0 {
     type Abi = Self;
 }
@@ -6096,6 +6522,11 @@ impl ::core::marker::Copy for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {}
 impl ::core::clone::Clone for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_PENDING_INTERRUPTION_REGISTER_0").field("_bitfield", &self._bitfield).field("ErrorCode", &self.ErrorCode).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
@@ -6186,6 +6617,11 @@ impl ::core::clone::Clone for WHV_X64_RDTSC_INFO_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_X64_RDTSC_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_RDTSC_INFO_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_X64_RDTSC_INFO_0 {
     type Abi = Self;
 }
@@ -6265,6 +6701,11 @@ impl ::core::clone::Clone for WHV_X64_SEGMENT_REGISTER_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WHV_X64_SEGMENT_REGISTER_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_SEGMENT_REGISTER_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_X64_SEGMENT_REGISTER_0_0 {
     type Abi = Self;
 }
@@ -6290,6 +6731,11 @@ impl ::core::marker::Copy for WHV_X64_TABLE_REGISTER {}
 impl ::core::clone::Clone for WHV_X64_TABLE_REGISTER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_X64_TABLE_REGISTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_TABLE_REGISTER").field("Pad", &self.Pad).field("Limit", &self.Limit).field("Base", &self.Base).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_X64_TABLE_REGISTER {
@@ -6323,6 +6769,11 @@ impl ::core::marker::Copy for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {}
 impl ::core::clone::Clone for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_UNSUPPORTED_FEATURE_CONTEXT").field("FeatureCode", &self.FeatureCode).field("Reserved", &self.Reserved).field("FeatureParameter", &self.FeatureParameter).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
@@ -6374,6 +6825,11 @@ impl ::core::marker::Copy for WHV_X64_VP_EXECUTION_STATE_0 {}
 impl ::core::clone::Clone for WHV_X64_VP_EXECUTION_STATE_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_X64_VP_EXECUTION_STATE_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_VP_EXECUTION_STATE_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_X64_VP_EXECUTION_STATE_0 {
@@ -6480,6 +6936,11 @@ impl ::core::marker::Copy for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {}
 impl ::core::clone::Clone for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0").field("LastFpDp", &self.LastFpDp).field("LastFpDs", &self.LastFpDs).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {

@@ -28,6 +28,11 @@ impl ::core::cmp::PartialEq for CoreAppWindowPreview {
     }
 }
 impl ::core::cmp::Eq for CoreAppWindowPreview {}
+impl ::core::fmt::Debug for CoreAppWindowPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreAppWindowPreview").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreAppWindowPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.Preview.CoreAppWindowPreview;{a4f6e665-365e-5fde-87a5-9543c3a15aa8})");
 }
@@ -214,6 +219,11 @@ impl ::core::cmp::PartialEq for SystemNavigationCloseRequestedPreviewEventArgs {
     }
 }
 impl ::core::cmp::Eq for SystemNavigationCloseRequestedPreviewEventArgs {}
+impl ::core::fmt::Debug for SystemNavigationCloseRequestedPreviewEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemNavigationCloseRequestedPreviewEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemNavigationCloseRequestedPreviewEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.Preview.SystemNavigationCloseRequestedPreviewEventArgs;{83d00de1-cbe5-4f31-8414-361da046518f})");
 }
@@ -309,6 +319,11 @@ impl ::core::cmp::PartialEq for SystemNavigationManagerPreview {
     }
 }
 impl ::core::cmp::Eq for SystemNavigationManagerPreview {}
+impl ::core::fmt::Debug for SystemNavigationManagerPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemNavigationManagerPreview").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemNavigationManagerPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.Preview.SystemNavigationManagerPreview;{ec5f0488-6425-4777-a536-cb5634427f0d})");
 }

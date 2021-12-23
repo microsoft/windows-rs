@@ -72,6 +72,11 @@ impl ::core::cmp::PartialEq for ConditionForceEffect {
     }
 }
 impl ::core::cmp::Eq for ConditionForceEffect {}
+impl ::core::fmt::Debug for ConditionForceEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConditionForceEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConditionForceEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ForceFeedback.ConditionForceEffect;{a17fba0c-2ae4-48c2-8063-eabd0777cb89})");
 }
@@ -170,6 +175,11 @@ impl ::core::cmp::PartialEq for ConditionForceEffectKind {
     }
 }
 impl ::core::cmp::Eq for ConditionForceEffectKind {}
+impl ::core::fmt::Debug for ConditionForceEffectKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConditionForceEffectKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConditionForceEffectKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ConditionForceEffectKind;i4)");
 }
@@ -242,6 +252,11 @@ impl ::core::cmp::PartialEq for ConstantForceEffect {
     }
 }
 impl ::core::cmp::Eq for ConstantForceEffect {}
+impl ::core::fmt::Debug for ConstantForceEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConstantForceEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConstantForceEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ForceFeedback.ConstantForceEffect;{a17fba0c-2ae4-48c2-8063-eabd0777cb89})");
 }
@@ -340,6 +355,11 @@ impl ::core::cmp::PartialEq for ForceFeedbackEffectAxes {
     }
 }
 impl ::core::cmp::Eq for ForceFeedbackEffectAxes {}
+impl ::core::fmt::Debug for ForceFeedbackEffectAxes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ForceFeedbackEffectAxes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ForceFeedbackEffectAxes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectAxes;u4)");
 }
@@ -370,6 +390,11 @@ impl ::core::cmp::PartialEq for ForceFeedbackEffectState {
     }
 }
 impl ::core::cmp::Eq for ForceFeedbackEffectState {}
+impl ::core::fmt::Debug for ForceFeedbackEffectState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ForceFeedbackEffectState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ForceFeedbackEffectState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectState;i4)");
 }
@@ -399,6 +424,11 @@ impl ::core::cmp::PartialEq for ForceFeedbackLoadEffectResult {
     }
 }
 impl ::core::cmp::Eq for ForceFeedbackLoadEffectResult {}
+impl ::core::fmt::Debug for ForceFeedbackLoadEffectResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ForceFeedbackLoadEffectResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ForceFeedbackLoadEffectResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ForceFeedbackLoadEffectResult;i4)");
 }
@@ -518,6 +548,11 @@ impl ::core::cmp::PartialEq for ForceFeedbackMotor {
     }
 }
 impl ::core::cmp::Eq for ForceFeedbackMotor {}
+impl ::core::fmt::Debug for ForceFeedbackMotor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ForceFeedbackMotor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ForceFeedbackMotor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor;{8d3d417c-a5ea-4516-8026-2b00f74ef6e5})");
 }
@@ -716,6 +751,11 @@ impl ::core::cmp::PartialEq for IForceFeedbackEffect {
     }
 }
 impl ::core::cmp::Eq for IForceFeedbackEffect {}
+impl ::core::fmt::Debug for IForceFeedbackEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IForceFeedbackEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IForceFeedbackEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a17fba0c-2ae4-48c2-8063-eabd0777cb89}");
 }
@@ -913,6 +953,11 @@ impl ::core::cmp::PartialEq for PeriodicForceEffect {
     }
 }
 impl ::core::cmp::Eq for PeriodicForceEffect {}
+impl ::core::fmt::Debug for PeriodicForceEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PeriodicForceEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PeriodicForceEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ForceFeedback.PeriodicForceEffect;{a17fba0c-2ae4-48c2-8063-eabd0777cb89})");
 }
@@ -1012,6 +1057,11 @@ impl ::core::cmp::PartialEq for PeriodicForceEffectKind {
     }
 }
 impl ::core::cmp::Eq for PeriodicForceEffectKind {}
+impl ::core::fmt::Debug for PeriodicForceEffectKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PeriodicForceEffectKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PeriodicForceEffectKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.PeriodicForceEffectKind;i4)");
 }
@@ -1096,6 +1146,11 @@ impl ::core::cmp::PartialEq for RampForceEffect {
     }
 }
 impl ::core::cmp::Eq for RampForceEffect {}
+impl ::core::fmt::Debug for RampForceEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RampForceEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RampForceEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ForceFeedback.RampForceEffect;{a17fba0c-2ae4-48c2-8063-eabd0777cb89})");
 }

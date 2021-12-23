@@ -300,6 +300,11 @@ impl ::core::cmp::PartialEq for Lamp {
     }
 }
 impl ::core::cmp::Eq for Lamp {}
+impl ::core::fmt::Debug for Lamp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Lamp").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Lamp {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Lamp;{047d5b9a-ea45-4b2b-b1a2-14dff00bde7b})");
 }
@@ -607,6 +612,11 @@ impl ::core::cmp::PartialEq for LampArray {
     }
 }
 impl ::core::cmp::Eq for LampArray {}
+impl ::core::fmt::Debug for LampArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LampArray").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LampArray {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.LampArray;{7ace9787-c8a0-4e95-a1e0-d58676538649})");
 }
@@ -690,6 +700,11 @@ impl ::core::cmp::PartialEq for LampArrayKind {
     }
 }
 impl ::core::cmp::Eq for LampArrayKind {}
+impl ::core::fmt::Debug for LampArrayKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LampArrayKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LampArrayKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampArrayKind;i4)");
 }
@@ -720,6 +735,11 @@ impl ::core::cmp::PartialEq for LampAvailabilityChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for LampAvailabilityChangedEventArgs {}
+impl ::core::fmt::Debug for LampAvailabilityChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LampAvailabilityChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LampAvailabilityChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.LampAvailabilityChangedEventArgs;{4f6e3ded-07a2-499d-9260-67e304532ba4})");
 }
@@ -872,6 +892,11 @@ impl ::core::cmp::PartialEq for LampInfo {
     }
 }
 impl ::core::cmp::Eq for LampInfo {}
+impl ::core::fmt::Debug for LampInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LampInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LampInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.LampInfo;{30bb521c-0acf-49da-8c10-150b9cf62713})");
 }
@@ -951,6 +976,11 @@ impl ::core::cmp::PartialEq for LampPurposes {
     }
 }
 impl ::core::cmp::Eq for LampPurposes {}
+impl ::core::fmt::Debug for LampPurposes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LampPurposes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LampPurposes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampPurposes;u4)");
 }

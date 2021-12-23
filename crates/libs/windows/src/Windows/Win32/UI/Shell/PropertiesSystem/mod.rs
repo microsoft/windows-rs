@@ -116,6 +116,11 @@ impl ::core::cmp::PartialEq for ICreateObject {
     }
 }
 impl ::core::cmp::Eq for ICreateObject {}
+impl ::core::fmt::Debug for ICreateObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICreateObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICreateObject {
     type Vtable = ICreateObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75121952_e0d0_43e5_9380_1d80483acf72);
@@ -199,6 +204,11 @@ impl ::core::cmp::PartialEq for IDelayedPropertyStoreFactory {
     }
 }
 impl ::core::cmp::Eq for IDelayedPropertyStoreFactory {}
+impl ::core::fmt::Debug for IDelayedPropertyStoreFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDelayedPropertyStoreFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDelayedPropertyStoreFactory {
     type Vtable = IDelayedPropertyStoreFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40d4577f_e237_4bdb_bd69_58f089431b6a);
@@ -254,6 +264,11 @@ impl ::core::cmp::PartialEq for IInitializeWithFile {
     }
 }
 impl ::core::cmp::Eq for IInitializeWithFile {}
+impl ::core::fmt::Debug for IInitializeWithFile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInitializeWithFile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInitializeWithFile {
     type Vtable = IInitializeWithFileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7d14566_0509_4cce_a71f_0a554233bd9b);
@@ -308,6 +323,11 @@ impl ::core::cmp::PartialEq for IInitializeWithStream {
     }
 }
 impl ::core::cmp::Eq for IInitializeWithStream {}
+impl ::core::fmt::Debug for IInitializeWithStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInitializeWithStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInitializeWithStream {
     type Vtable = IInitializeWithStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb824b49d_22ac_4161_ac8a_9916e8fa3f7f);
@@ -379,6 +399,11 @@ impl ::core::cmp::PartialEq for INamedPropertyStore {
     }
 }
 impl ::core::cmp::Eq for INamedPropertyStore {}
+impl ::core::fmt::Debug for INamedPropertyStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INamedPropertyStore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INamedPropertyStore {
     type Vtable = INamedPropertyStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71604b0f_97b0_4764_8577_2f13e98a1422);
@@ -442,6 +467,11 @@ impl ::core::cmp::PartialEq for IObjectWithPropertyKey {
     }
 }
 impl ::core::cmp::Eq for IObjectWithPropertyKey {}
+impl ::core::fmt::Debug for IObjectWithPropertyKey {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IObjectWithPropertyKey").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IObjectWithPropertyKey {
     type Vtable = IObjectWithPropertyKeyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc0ca0a7_c316_4fd2_9031_3e628e6d4f23);
@@ -503,6 +533,11 @@ impl ::core::cmp::PartialEq for IPersistSerializedPropStorage {
     }
 }
 impl ::core::cmp::Eq for IPersistSerializedPropStorage {}
+impl ::core::fmt::Debug for IPersistSerializedPropStorage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPersistSerializedPropStorage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPersistSerializedPropStorage {
     type Vtable = IPersistSerializedPropStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe318ad57_0aa0_450f_aca5_6fab7103d917);
@@ -594,6 +629,11 @@ impl ::core::cmp::PartialEq for IPersistSerializedPropStorage2 {
     }
 }
 impl ::core::cmp::Eq for IPersistSerializedPropStorage2 {}
+impl ::core::fmt::Debug for IPersistSerializedPropStorage2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPersistSerializedPropStorage2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPersistSerializedPropStorage2 {
     type Vtable = IPersistSerializedPropStorage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77effa68_4f98_4366_ba72_573b3d880571);
@@ -681,6 +721,11 @@ impl ::core::cmp::PartialEq for IPropertyChange {
     }
 }
 impl ::core::cmp::Eq for IPropertyChange {}
+impl ::core::fmt::Debug for IPropertyChange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyChange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyChange {
     type Vtable = IPropertyChangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf917bc8a_1bba_4478_a245_1bde03eb9431);
@@ -762,6 +807,11 @@ impl ::core::cmp::PartialEq for IPropertyChangeArray {
     }
 }
 impl ::core::cmp::Eq for IPropertyChangeArray {}
+impl ::core::fmt::Debug for IPropertyChangeArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyChangeArray").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyChangeArray {
     type Vtable = IPropertyChangeArrayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x380f5cad_1b5e_42f2_805d_637fd392d31e);
@@ -926,6 +976,11 @@ impl ::core::cmp::PartialEq for IPropertyDescription {
     }
 }
 impl ::core::cmp::Eq for IPropertyDescription {}
+impl ::core::fmt::Debug for IPropertyDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyDescription").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyDescription {
     type Vtable = IPropertyDescriptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f79d558_3e96_4549_a1d1_7d75d2288814);
@@ -1139,6 +1194,11 @@ impl ::core::cmp::PartialEq for IPropertyDescription2 {
     }
 }
 impl ::core::cmp::Eq for IPropertyDescription2 {}
+impl ::core::fmt::Debug for IPropertyDescription2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyDescription2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyDescription2 {
     type Vtable = IPropertyDescription2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57d2eded_5062_400e_b107_5dae79fe57a6);
@@ -1358,6 +1418,11 @@ impl ::core::cmp::PartialEq for IPropertyDescriptionAliasInfo {
     }
 }
 impl ::core::cmp::Eq for IPropertyDescriptionAliasInfo {}
+impl ::core::fmt::Debug for IPropertyDescriptionAliasInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyDescriptionAliasInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyDescriptionAliasInfo {
     type Vtable = IPropertyDescriptionAliasInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf67104fc_2af9_46fd_b32d_243c1404f3d1);
@@ -1447,6 +1512,11 @@ impl ::core::cmp::PartialEq for IPropertyDescriptionList {
     }
 }
 impl ::core::cmp::Eq for IPropertyDescriptionList {}
+impl ::core::fmt::Debug for IPropertyDescriptionList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyDescriptionList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyDescriptionList {
     type Vtable = IPropertyDescriptionListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f9fc1d0_c39b_4b26_817f_011967d3440e);
@@ -1632,6 +1702,11 @@ impl ::core::cmp::PartialEq for IPropertyDescriptionRelatedPropertyInfo {
     }
 }
 impl ::core::cmp::Eq for IPropertyDescriptionRelatedPropertyInfo {}
+impl ::core::fmt::Debug for IPropertyDescriptionRelatedPropertyInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyDescriptionRelatedPropertyInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyDescriptionRelatedPropertyInfo {
     type Vtable = IPropertyDescriptionRelatedPropertyInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x507393f4_2a3d_4a60_b59e_d9c75716c2dd);
@@ -1862,6 +1937,11 @@ impl ::core::cmp::PartialEq for IPropertyDescriptionSearchInfo {
     }
 }
 impl ::core::cmp::Eq for IPropertyDescriptionSearchInfo {}
+impl ::core::fmt::Debug for IPropertyDescriptionSearchInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyDescriptionSearchInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyDescriptionSearchInfo {
     type Vtable = IPropertyDescriptionSearchInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x078f91bd_29a2_440f_924e_46a291524520);
@@ -1973,6 +2053,11 @@ impl ::core::cmp::PartialEq for IPropertyEnumType {
     }
 }
 impl ::core::cmp::Eq for IPropertyEnumType {}
+impl ::core::fmt::Debug for IPropertyEnumType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyEnumType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyEnumType {
     type Vtable = IPropertyEnumTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11e1fbf9_2d56_4a6b_8db3_7cd193a471f2);
@@ -2084,6 +2169,11 @@ impl ::core::cmp::PartialEq for IPropertyEnumType2 {
     }
 }
 impl ::core::cmp::Eq for IPropertyEnumType2 {}
+impl ::core::fmt::Debug for IPropertyEnumType2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyEnumType2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyEnumType2 {
     type Vtable = IPropertyEnumType2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b6e051c_5ddd_4321_9070_fe2acb55e794);
@@ -2163,6 +2253,11 @@ impl ::core::cmp::PartialEq for IPropertyEnumTypeList {
     }
 }
 impl ::core::cmp::Eq for IPropertyEnumTypeList {}
+impl ::core::fmt::Debug for IPropertyEnumTypeList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyEnumTypeList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyEnumTypeList {
     type Vtable = IPropertyEnumTypeListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa99400f4_3d84_4557_94ba_1242fb2cc9a6);
@@ -2240,6 +2335,11 @@ impl ::core::cmp::PartialEq for IPropertyStore {
     }
 }
 impl ::core::cmp::Eq for IPropertyStore {}
+impl ::core::fmt::Debug for IPropertyStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyStore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyStore {
     type Vtable = IPropertyStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x886d8eeb_8cf2_4446_8d02_cdba1dbdcf99);
@@ -2358,6 +2458,11 @@ impl ::core::cmp::PartialEq for IPropertyStoreCache {
     }
 }
 impl ::core::cmp::Eq for IPropertyStoreCache {}
+impl ::core::fmt::Debug for IPropertyStoreCache {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyStoreCache").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyStoreCache {
     type Vtable = IPropertyStoreCacheVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3017056d_9a91_4e90_937d_746c72abbf4f);
@@ -2422,6 +2527,11 @@ impl ::core::cmp::PartialEq for IPropertyStoreCapabilities {
     }
 }
 impl ::core::cmp::Eq for IPropertyStoreCapabilities {}
+impl ::core::fmt::Debug for IPropertyStoreCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyStoreCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyStoreCapabilities {
     type Vtable = IPropertyStoreCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8e2d566_186e_4d49_bf41_6909ead56acc);
@@ -2475,6 +2585,11 @@ impl ::core::cmp::PartialEq for IPropertyStoreFactory {
     }
 }
 impl ::core::cmp::Eq for IPropertyStoreFactory {}
+impl ::core::fmt::Debug for IPropertyStoreFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyStoreFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyStoreFactory {
     type Vtable = IPropertyStoreFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc110b6d_57e8_4148_a9c6_91015ab2f3a5);
@@ -2571,6 +2686,11 @@ impl ::core::cmp::PartialEq for IPropertySystem {
     }
 }
 impl ::core::cmp::Eq for IPropertySystem {}
+impl ::core::fmt::Debug for IPropertySystem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertySystem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertySystem {
     type Vtable = IPropertySystemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca724e8a_c3e6_442b_88a4_6fb0db8035a3);
@@ -2637,6 +2757,11 @@ impl ::core::cmp::PartialEq for IPropertySystemChangeNotify {
     }
 }
 impl ::core::cmp::Eq for IPropertySystemChangeNotify {}
+impl ::core::fmt::Debug for IPropertySystemChangeNotify {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertySystemChangeNotify").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertySystemChangeNotify {
     type Vtable = IPropertySystemChangeNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa955fd9_38be_4879_a6ce_824cf52d609f);
@@ -2720,6 +2845,11 @@ impl ::core::cmp::PartialEq for IPropertyUI {
     }
 }
 impl ::core::cmp::Eq for IPropertyUI {}
+impl ::core::fmt::Debug for IPropertyUI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyUI").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyUI {
     type Vtable = IPropertyUIVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x757a7d9f_919a_4118_99d7_dbb208c8cc66);
@@ -3600,6 +3730,11 @@ impl ::core::marker::Copy for PROPERTYKEY {}
 impl ::core::clone::Clone for PROPERTYKEY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PROPERTYKEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROPERTYKEY").field("fmtid", &self.fmtid).field("pid", &self.pid).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROPERTYKEY {

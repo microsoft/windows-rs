@@ -43,6 +43,32 @@ impl ::core::clone::Clone for Fts5ExtensionApi {
         *self
     }
 }
+impl ::core::fmt::Debug for Fts5ExtensionApi {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Fts5ExtensionApi")
+            .field("iVersion", &self.iVersion)
+            .field("xUserData", &self.xUserData)
+            .field("xColumnCount", &self.xColumnCount)
+            .field("xRowCount", &self.xRowCount)
+            .field("xColumnTotalSize", &self.xColumnTotalSize)
+            .field("xTokenize", &self.xTokenize)
+            .field("xPhraseCount", &self.xPhraseCount)
+            .field("xPhraseSize", &self.xPhraseSize)
+            .field("xInstCount", &self.xInstCount)
+            .field("xInst", &self.xInst)
+            .field("xRowid", &self.xRowid)
+            .field("xColumnText", &self.xColumnText)
+            .field("xColumnSize", &self.xColumnSize)
+            .field("xQueryPhrase", &self.xQueryPhrase)
+            .field("xSetAuxdata", &self.xSetAuxdata)
+            .field("xGetAuxdata", &self.xGetAuxdata)
+            .field("xPhraseFirst", &self.xPhraseFirst)
+            .field("xPhraseNext", &self.xPhraseNext)
+            .field("xPhraseFirstColumn", &self.xPhraseFirstColumn)
+            .field("xPhraseNextColumn", &self.xPhraseNextColumn)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Fts5ExtensionApi {
     type Abi = Self;
 }
@@ -67,6 +93,11 @@ impl ::core::marker::Copy for Fts5PhraseIter {}
 impl ::core::clone::Clone for Fts5PhraseIter {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for Fts5PhraseIter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Fts5PhraseIter").field("a", &self.a).field("b", &self.b).finish()
     }
 }
 unsafe impl ::windows::core::Abi for Fts5PhraseIter {
@@ -855,6 +886,11 @@ impl ::core::clone::Clone for fts5_api {
         *self
     }
 }
+impl ::core::fmt::Debug for fts5_api {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("fts5_api").field("iVersion", &self.iVersion).field("xCreateTokenizer", &self.xCreateTokenizer).field("xFindTokenizer", &self.xFindTokenizer).field("xCreateFunction", &self.xCreateFunction).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for fts5_api {
     type Abi = Self;
 }
@@ -882,6 +918,11 @@ impl ::core::marker::Copy for fts5_tokenizer {}
 impl ::core::clone::Clone for fts5_tokenizer {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for fts5_tokenizer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("fts5_tokenizer").field("xCreate", &self.xCreate).field("xDelete", &self.xDelete).field("xTokenize", &self.xTokenize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for fts5_tokenizer {
@@ -1199,6 +1240,267 @@ impl ::core::clone::Clone for sqlite3_api_routines {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for sqlite3_api_routines {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sqlite3_api_routines")
+            .field("aggregate_context", &self.aggregate_context)
+            .field("aggregate_count", &self.aggregate_count)
+            .field("bind_blob", &self.bind_blob)
+            .field("bind_double", &self.bind_double)
+            .field("bind_int", &self.bind_int)
+            .field("bind_int64", &self.bind_int64)
+            .field("bind_null", &self.bind_null)
+            .field("bind_parameter_count", &self.bind_parameter_count)
+            .field("bind_parameter_index", &self.bind_parameter_index)
+            .field("bind_parameter_name", &self.bind_parameter_name)
+            .field("bind_text", &self.bind_text)
+            .field("bind_text16", &self.bind_text16)
+            .field("bind_value", &self.bind_value)
+            .field("busy_handler", &self.busy_handler)
+            .field("busy_timeout", &self.busy_timeout)
+            .field("changes", &self.changes)
+            .field("close", &self.close)
+            .field("collation_needed", &self.collation_needed)
+            .field("collation_needed16", &self.collation_needed16)
+            .field("column_blob", &self.column_blob)
+            .field("column_bytes", &self.column_bytes)
+            .field("column_bytes16", &self.column_bytes16)
+            .field("column_count", &self.column_count)
+            .field("column_database_name", &self.column_database_name)
+            .field("column_database_name16", &self.column_database_name16)
+            .field("column_decltype", &self.column_decltype)
+            .field("column_decltype16", &self.column_decltype16)
+            .field("column_double", &self.column_double)
+            .field("column_int", &self.column_int)
+            .field("column_int64", &self.column_int64)
+            .field("column_name", &self.column_name)
+            .field("column_name16", &self.column_name16)
+            .field("column_origin_name", &self.column_origin_name)
+            .field("column_origin_name16", &self.column_origin_name16)
+            .field("column_table_name", &self.column_table_name)
+            .field("column_table_name16", &self.column_table_name16)
+            .field("column_text", &self.column_text)
+            .field("column_text16", &self.column_text16)
+            .field("column_type", &self.column_type)
+            .field("column_value", &self.column_value)
+            .field("commit_hook", &self.commit_hook)
+            .field("complete", &self.complete)
+            .field("complete16", &self.complete16)
+            .field("create_collation", &self.create_collation)
+            .field("create_collation16", &self.create_collation16)
+            .field("create_function", &self.create_function)
+            .field("create_function16", &self.create_function16)
+            .field("create_module", &self.create_module)
+            .field("data_count", &self.data_count)
+            .field("db_handle", &self.db_handle)
+            .field("declare_vtab", &self.declare_vtab)
+            .field("enable_shared_cache", &self.enable_shared_cache)
+            .field("errcode", &self.errcode)
+            .field("errmsg", &self.errmsg)
+            .field("errmsg16", &self.errmsg16)
+            .field("exec", &self.exec)
+            .field("expired", &self.expired)
+            .field("finalize", &self.finalize)
+            .field("free", &self.free)
+            .field("free_table", &self.free_table)
+            .field("get_autocommit", &self.get_autocommit)
+            .field("get_auxdata", &self.get_auxdata)
+            .field("get_table", &self.get_table)
+            .field("global_recover", &self.global_recover)
+            .field("interruptx", &self.interruptx)
+            .field("last_insert_rowid", &self.last_insert_rowid)
+            .field("libversion", &self.libversion)
+            .field("libversion_number", &self.libversion_number)
+            .field("malloc", &self.malloc)
+            .field("mprintf", &self.mprintf)
+            .field("open", &self.open)
+            .field("open16", &self.open16)
+            .field("prepare", &self.prepare)
+            .field("prepare16", &self.prepare16)
+            .field("profile", &self.profile)
+            .field("progress_handler", &self.progress_handler)
+            .field("realloc", &self.realloc)
+            .field("reset", &self.reset)
+            .field("result_blob", &self.result_blob)
+            .field("result_double", &self.result_double)
+            .field("result_error", &self.result_error)
+            .field("result_error16", &self.result_error16)
+            .field("result_int", &self.result_int)
+            .field("result_int64", &self.result_int64)
+            .field("result_null", &self.result_null)
+            .field("result_text", &self.result_text)
+            .field("result_text16", &self.result_text16)
+            .field("result_text16be", &self.result_text16be)
+            .field("result_text16le", &self.result_text16le)
+            .field("result_value", &self.result_value)
+            .field("rollback_hook", &self.rollback_hook)
+            .field("set_authorizer", &self.set_authorizer)
+            .field("set_auxdata", &self.set_auxdata)
+            .field("xsnprintf", &self.xsnprintf)
+            .field("step", &self.step)
+            .field("table_column_metadata", &self.table_column_metadata)
+            .field("thread_cleanup", &self.thread_cleanup)
+            .field("total_changes", &self.total_changes)
+            .field("trace", &self.trace)
+            .field("transfer_bindings", &self.transfer_bindings)
+            .field("update_hook", &self.update_hook)
+            .field("user_data", &self.user_data)
+            .field("value_blob", &self.value_blob)
+            .field("value_bytes", &self.value_bytes)
+            .field("value_bytes16", &self.value_bytes16)
+            .field("value_double", &self.value_double)
+            .field("value_int", &self.value_int)
+            .field("value_int64", &self.value_int64)
+            .field("value_numeric_type", &self.value_numeric_type)
+            .field("value_text", &self.value_text)
+            .field("value_text16", &self.value_text16)
+            .field("value_text16be", &self.value_text16be)
+            .field("value_text16le", &self.value_text16le)
+            .field("value_type", &self.value_type)
+            .field("vmprintf", &self.vmprintf)
+            .field("overload_function", &self.overload_function)
+            .field("prepare_v2", &self.prepare_v2)
+            .field("prepare16_v2", &self.prepare16_v2)
+            .field("clear_bindings", &self.clear_bindings)
+            .field("create_module_v2", &self.create_module_v2)
+            .field("bind_zeroblob", &self.bind_zeroblob)
+            .field("blob_bytes", &self.blob_bytes)
+            .field("blob_close", &self.blob_close)
+            .field("blob_open", &self.blob_open)
+            .field("blob_read", &self.blob_read)
+            .field("blob_write", &self.blob_write)
+            .field("create_collation_v2", &self.create_collation_v2)
+            .field("file_control", &self.file_control)
+            .field("memory_highwater", &self.memory_highwater)
+            .field("memory_used", &self.memory_used)
+            .field("mutex_alloc", &self.mutex_alloc)
+            .field("mutex_enter", &self.mutex_enter)
+            .field("mutex_free", &self.mutex_free)
+            .field("mutex_leave", &self.mutex_leave)
+            .field("mutex_try", &self.mutex_try)
+            .field("open_v2", &self.open_v2)
+            .field("release_memory", &self.release_memory)
+            .field("result_error_nomem", &self.result_error_nomem)
+            .field("result_error_toobig", &self.result_error_toobig)
+            .field("sleep", &self.sleep)
+            .field("soft_heap_limit", &self.soft_heap_limit)
+            .field("vfs_find", &self.vfs_find)
+            .field("vfs_register", &self.vfs_register)
+            .field("vfs_unregister", &self.vfs_unregister)
+            .field("xthreadsafe", &self.xthreadsafe)
+            .field("result_zeroblob", &self.result_zeroblob)
+            .field("result_error_code", &self.result_error_code)
+            .field("test_control", &self.test_control)
+            .field("randomness", &self.randomness)
+            .field("context_db_handle", &self.context_db_handle)
+            .field("extended_result_codes", &self.extended_result_codes)
+            .field("limit", &self.limit)
+            .field("next_stmt", &self.next_stmt)
+            .field("sql", &self.sql)
+            .field("status", &self.status)
+            .field("backup_finish", &self.backup_finish)
+            .field("backup_init", &self.backup_init)
+            .field("backup_pagecount", &self.backup_pagecount)
+            .field("backup_remaining", &self.backup_remaining)
+            .field("backup_step", &self.backup_step)
+            .field("compileoption_get", &self.compileoption_get)
+            .field("compileoption_used", &self.compileoption_used)
+            .field("create_function_v2", &self.create_function_v2)
+            .field("db_config", &self.db_config)
+            .field("db_mutex", &self.db_mutex)
+            .field("db_status", &self.db_status)
+            .field("extended_errcode", &self.extended_errcode)
+            .field("log", &self.log)
+            .field("soft_heap_limit64", &self.soft_heap_limit64)
+            .field("sourceid", &self.sourceid)
+            .field("stmt_status", &self.stmt_status)
+            .field("strnicmp", &self.strnicmp)
+            .field("unlock_notify", &self.unlock_notify)
+            .field("wal_autocheckpoint", &self.wal_autocheckpoint)
+            .field("wal_checkpoint", &self.wal_checkpoint)
+            .field("wal_hook", &self.wal_hook)
+            .field("blob_reopen", &self.blob_reopen)
+            .field("vtab_config", &self.vtab_config)
+            .field("vtab_on_conflict", &self.vtab_on_conflict)
+            .field("close_v2", &self.close_v2)
+            .field("db_filename", &self.db_filename)
+            .field("db_readonly", &self.db_readonly)
+            .field("db_release_memory", &self.db_release_memory)
+            .field("errstr", &self.errstr)
+            .field("stmt_busy", &self.stmt_busy)
+            .field("stmt_readonly", &self.stmt_readonly)
+            .field("stricmp", &self.stricmp)
+            .field("uri_boolean", &self.uri_boolean)
+            .field("uri_int64", &self.uri_int64)
+            .field("uri_parameter", &self.uri_parameter)
+            .field("xvsnprintf", &self.xvsnprintf)
+            .field("wal_checkpoint_v2", &self.wal_checkpoint_v2)
+            .field("auto_extension", &self.auto_extension)
+            .field("bind_blob64", &self.bind_blob64)
+            .field("bind_text64", &self.bind_text64)
+            .field("cancel_auto_extension", &self.cancel_auto_extension)
+            .field("load_extension", &self.load_extension)
+            .field("malloc64", &self.malloc64)
+            .field("msize", &self.msize)
+            .field("realloc64", &self.realloc64)
+            .field("reset_auto_extension", &self.reset_auto_extension)
+            .field("result_blob64", &self.result_blob64)
+            .field("result_text64", &self.result_text64)
+            .field("strglob", &self.strglob)
+            .field("value_dup", &self.value_dup)
+            .field("value_free", &self.value_free)
+            .field("result_zeroblob64", &self.result_zeroblob64)
+            .field("bind_zeroblob64", &self.bind_zeroblob64)
+            .field("value_subtype", &self.value_subtype)
+            .field("result_subtype", &self.result_subtype)
+            .field("status64", &self.status64)
+            .field("strlike", &self.strlike)
+            .field("db_cacheflush", &self.db_cacheflush)
+            .field("system_errno", &self.system_errno)
+            .field("trace_v2", &self.trace_v2)
+            .field("expanded_sql", &self.expanded_sql)
+            .field("set_last_insert_rowid", &self.set_last_insert_rowid)
+            .field("prepare_v3", &self.prepare_v3)
+            .field("prepare16_v3", &self.prepare16_v3)
+            .field("bind_pointer", &self.bind_pointer)
+            .field("result_pointer", &self.result_pointer)
+            .field("value_pointer", &self.value_pointer)
+            .field("vtab_nochange", &self.vtab_nochange)
+            .field("value_nochange", &self.value_nochange)
+            .field("vtab_collation", &self.vtab_collation)
+            .field("keyword_count", &self.keyword_count)
+            .field("keyword_name", &self.keyword_name)
+            .field("keyword_check", &self.keyword_check)
+            .field("str_new", &self.str_new)
+            .field("str_finish", &self.str_finish)
+            .field("str_appendf", &self.str_appendf)
+            .field("str_vappendf", &self.str_vappendf)
+            .field("str_append", &self.str_append)
+            .field("str_appendall", &self.str_appendall)
+            .field("str_appendchar", &self.str_appendchar)
+            .field("str_reset", &self.str_reset)
+            .field("str_errcode", &self.str_errcode)
+            .field("str_length", &self.str_length)
+            .field("str_value", &self.str_value)
+            .field("create_window_function", &self.create_window_function)
+            .field("normalized_sql", &self.normalized_sql)
+            .field("stmt_isexplain", &self.stmt_isexplain)
+            .field("value_frombind", &self.value_frombind)
+            .field("drop_modules", &self.drop_modules)
+            .field("hard_heap_limit64", &self.hard_heap_limit64)
+            .field("uri_key", &self.uri_key)
+            .field("filename_database", &self.filename_database)
+            .field("filename_journal", &self.filename_journal)
+            .field("filename_wal", &self.filename_wal)
+            .field("create_filename", &self.create_filename)
+            .field("free_filename", &self.free_filename)
+            .field("database_file_object", &self.database_file_object)
+            .field("txn_state", &self.txn_state)
+            .finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for sqlite3_api_routines {
     type Abi = Self;
 }
@@ -1486,6 +1788,267 @@ impl ::core::marker::Copy for sqlite3_api_routines {}
 impl ::core::clone::Clone for sqlite3_api_routines {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for sqlite3_api_routines {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sqlite3_api_routines")
+            .field("aggregate_context", &self.aggregate_context)
+            .field("aggregate_count", &self.aggregate_count)
+            .field("bind_blob", &self.bind_blob)
+            .field("bind_double", &self.bind_double)
+            .field("bind_int", &self.bind_int)
+            .field("bind_int64", &self.bind_int64)
+            .field("bind_null", &self.bind_null)
+            .field("bind_parameter_count", &self.bind_parameter_count)
+            .field("bind_parameter_index", &self.bind_parameter_index)
+            .field("bind_parameter_name", &self.bind_parameter_name)
+            .field("bind_text", &self.bind_text)
+            .field("bind_text16", &self.bind_text16)
+            .field("bind_value", &self.bind_value)
+            .field("busy_handler", &self.busy_handler)
+            .field("busy_timeout", &self.busy_timeout)
+            .field("changes", &self.changes)
+            .field("close", &self.close)
+            .field("collation_needed", &self.collation_needed)
+            .field("collation_needed16", &self.collation_needed16)
+            .field("column_blob", &self.column_blob)
+            .field("column_bytes", &self.column_bytes)
+            .field("column_bytes16", &self.column_bytes16)
+            .field("column_count", &self.column_count)
+            .field("column_database_name", &self.column_database_name)
+            .field("column_database_name16", &self.column_database_name16)
+            .field("column_decltype", &self.column_decltype)
+            .field("column_decltype16", &self.column_decltype16)
+            .field("column_double", &self.column_double)
+            .field("column_int", &self.column_int)
+            .field("column_int64", &self.column_int64)
+            .field("column_name", &self.column_name)
+            .field("column_name16", &self.column_name16)
+            .field("column_origin_name", &self.column_origin_name)
+            .field("column_origin_name16", &self.column_origin_name16)
+            .field("column_table_name", &self.column_table_name)
+            .field("column_table_name16", &self.column_table_name16)
+            .field("column_text", &self.column_text)
+            .field("column_text16", &self.column_text16)
+            .field("column_type", &self.column_type)
+            .field("column_value", &self.column_value)
+            .field("commit_hook", &self.commit_hook)
+            .field("complete", &self.complete)
+            .field("complete16", &self.complete16)
+            .field("create_collation", &self.create_collation)
+            .field("create_collation16", &self.create_collation16)
+            .field("create_function", &self.create_function)
+            .field("create_function16", &self.create_function16)
+            .field("create_module", &self.create_module)
+            .field("data_count", &self.data_count)
+            .field("db_handle", &self.db_handle)
+            .field("declare_vtab", &self.declare_vtab)
+            .field("enable_shared_cache", &self.enable_shared_cache)
+            .field("errcode", &self.errcode)
+            .field("errmsg", &self.errmsg)
+            .field("errmsg16", &self.errmsg16)
+            .field("exec", &self.exec)
+            .field("expired", &self.expired)
+            .field("finalize", &self.finalize)
+            .field("free", &self.free)
+            .field("free_table", &self.free_table)
+            .field("get_autocommit", &self.get_autocommit)
+            .field("get_auxdata", &self.get_auxdata)
+            .field("get_table", &self.get_table)
+            .field("global_recover", &self.global_recover)
+            .field("interruptx", &self.interruptx)
+            .field("last_insert_rowid", &self.last_insert_rowid)
+            .field("libversion", &self.libversion)
+            .field("libversion_number", &self.libversion_number)
+            .field("malloc", &self.malloc)
+            .field("mprintf", &self.mprintf)
+            .field("open", &self.open)
+            .field("open16", &self.open16)
+            .field("prepare", &self.prepare)
+            .field("prepare16", &self.prepare16)
+            .field("profile", &self.profile)
+            .field("progress_handler", &self.progress_handler)
+            .field("realloc", &self.realloc)
+            .field("reset", &self.reset)
+            .field("result_blob", &self.result_blob)
+            .field("result_double", &self.result_double)
+            .field("result_error", &self.result_error)
+            .field("result_error16", &self.result_error16)
+            .field("result_int", &self.result_int)
+            .field("result_int64", &self.result_int64)
+            .field("result_null", &self.result_null)
+            .field("result_text", &self.result_text)
+            .field("result_text16", &self.result_text16)
+            .field("result_text16be", &self.result_text16be)
+            .field("result_text16le", &self.result_text16le)
+            .field("result_value", &self.result_value)
+            .field("rollback_hook", &self.rollback_hook)
+            .field("set_authorizer", &self.set_authorizer)
+            .field("set_auxdata", &self.set_auxdata)
+            .field("xsnprintf", &self.xsnprintf)
+            .field("step", &self.step)
+            .field("table_column_metadata", &self.table_column_metadata)
+            .field("thread_cleanup", &self.thread_cleanup)
+            .field("total_changes", &self.total_changes)
+            .field("trace", &self.trace)
+            .field("transfer_bindings", &self.transfer_bindings)
+            .field("update_hook", &self.update_hook)
+            .field("user_data", &self.user_data)
+            .field("value_blob", &self.value_blob)
+            .field("value_bytes", &self.value_bytes)
+            .field("value_bytes16", &self.value_bytes16)
+            .field("value_double", &self.value_double)
+            .field("value_int", &self.value_int)
+            .field("value_int64", &self.value_int64)
+            .field("value_numeric_type", &self.value_numeric_type)
+            .field("value_text", &self.value_text)
+            .field("value_text16", &self.value_text16)
+            .field("value_text16be", &self.value_text16be)
+            .field("value_text16le", &self.value_text16le)
+            .field("value_type", &self.value_type)
+            .field("vmprintf", &self.vmprintf)
+            .field("overload_function", &self.overload_function)
+            .field("prepare_v2", &self.prepare_v2)
+            .field("prepare16_v2", &self.prepare16_v2)
+            .field("clear_bindings", &self.clear_bindings)
+            .field("create_module_v2", &self.create_module_v2)
+            .field("bind_zeroblob", &self.bind_zeroblob)
+            .field("blob_bytes", &self.blob_bytes)
+            .field("blob_close", &self.blob_close)
+            .field("blob_open", &self.blob_open)
+            .field("blob_read", &self.blob_read)
+            .field("blob_write", &self.blob_write)
+            .field("create_collation_v2", &self.create_collation_v2)
+            .field("file_control", &self.file_control)
+            .field("memory_highwater", &self.memory_highwater)
+            .field("memory_used", &self.memory_used)
+            .field("mutex_alloc", &self.mutex_alloc)
+            .field("mutex_enter", &self.mutex_enter)
+            .field("mutex_free", &self.mutex_free)
+            .field("mutex_leave", &self.mutex_leave)
+            .field("mutex_try", &self.mutex_try)
+            .field("open_v2", &self.open_v2)
+            .field("release_memory", &self.release_memory)
+            .field("result_error_nomem", &self.result_error_nomem)
+            .field("result_error_toobig", &self.result_error_toobig)
+            .field("sleep", &self.sleep)
+            .field("soft_heap_limit", &self.soft_heap_limit)
+            .field("vfs_find", &self.vfs_find)
+            .field("vfs_register", &self.vfs_register)
+            .field("vfs_unregister", &self.vfs_unregister)
+            .field("xthreadsafe", &self.xthreadsafe)
+            .field("result_zeroblob", &self.result_zeroblob)
+            .field("result_error_code", &self.result_error_code)
+            .field("test_control", &self.test_control)
+            .field("randomness", &self.randomness)
+            .field("context_db_handle", &self.context_db_handle)
+            .field("extended_result_codes", &self.extended_result_codes)
+            .field("limit", &self.limit)
+            .field("next_stmt", &self.next_stmt)
+            .field("sql", &self.sql)
+            .field("status", &self.status)
+            .field("backup_finish", &self.backup_finish)
+            .field("backup_init", &self.backup_init)
+            .field("backup_pagecount", &self.backup_pagecount)
+            .field("backup_remaining", &self.backup_remaining)
+            .field("backup_step", &self.backup_step)
+            .field("compileoption_get", &self.compileoption_get)
+            .field("compileoption_used", &self.compileoption_used)
+            .field("create_function_v2", &self.create_function_v2)
+            .field("db_config", &self.db_config)
+            .field("db_mutex", &self.db_mutex)
+            .field("db_status", &self.db_status)
+            .field("extended_errcode", &self.extended_errcode)
+            .field("log", &self.log)
+            .field("soft_heap_limit64", &self.soft_heap_limit64)
+            .field("sourceid", &self.sourceid)
+            .field("stmt_status", &self.stmt_status)
+            .field("strnicmp", &self.strnicmp)
+            .field("unlock_notify", &self.unlock_notify)
+            .field("wal_autocheckpoint", &self.wal_autocheckpoint)
+            .field("wal_checkpoint", &self.wal_checkpoint)
+            .field("wal_hook", &self.wal_hook)
+            .field("blob_reopen", &self.blob_reopen)
+            .field("vtab_config", &self.vtab_config)
+            .field("vtab_on_conflict", &self.vtab_on_conflict)
+            .field("close_v2", &self.close_v2)
+            .field("db_filename", &self.db_filename)
+            .field("db_readonly", &self.db_readonly)
+            .field("db_release_memory", &self.db_release_memory)
+            .field("errstr", &self.errstr)
+            .field("stmt_busy", &self.stmt_busy)
+            .field("stmt_readonly", &self.stmt_readonly)
+            .field("stricmp", &self.stricmp)
+            .field("uri_boolean", &self.uri_boolean)
+            .field("uri_int64", &self.uri_int64)
+            .field("uri_parameter", &self.uri_parameter)
+            .field("xvsnprintf", &self.xvsnprintf)
+            .field("wal_checkpoint_v2", &self.wal_checkpoint_v2)
+            .field("auto_extension", &self.auto_extension)
+            .field("bind_blob64", &self.bind_blob64)
+            .field("bind_text64", &self.bind_text64)
+            .field("cancel_auto_extension", &self.cancel_auto_extension)
+            .field("load_extension", &self.load_extension)
+            .field("malloc64", &self.malloc64)
+            .field("msize", &self.msize)
+            .field("realloc64", &self.realloc64)
+            .field("reset_auto_extension", &self.reset_auto_extension)
+            .field("result_blob64", &self.result_blob64)
+            .field("result_text64", &self.result_text64)
+            .field("strglob", &self.strglob)
+            .field("value_dup", &self.value_dup)
+            .field("value_free", &self.value_free)
+            .field("result_zeroblob64", &self.result_zeroblob64)
+            .field("bind_zeroblob64", &self.bind_zeroblob64)
+            .field("value_subtype", &self.value_subtype)
+            .field("result_subtype", &self.result_subtype)
+            .field("status64", &self.status64)
+            .field("strlike", &self.strlike)
+            .field("db_cacheflush", &self.db_cacheflush)
+            .field("system_errno", &self.system_errno)
+            .field("trace_v2", &self.trace_v2)
+            .field("expanded_sql", &self.expanded_sql)
+            .field("set_last_insert_rowid", &self.set_last_insert_rowid)
+            .field("prepare_v3", &self.prepare_v3)
+            .field("prepare16_v3", &self.prepare16_v3)
+            .field("bind_pointer", &self.bind_pointer)
+            .field("result_pointer", &self.result_pointer)
+            .field("value_pointer", &self.value_pointer)
+            .field("vtab_nochange", &self.vtab_nochange)
+            .field("value_nochange", &self.value_nochange)
+            .field("vtab_collation", &self.vtab_collation)
+            .field("keyword_count", &self.keyword_count)
+            .field("keyword_name", &self.keyword_name)
+            .field("keyword_check", &self.keyword_check)
+            .field("str_new", &self.str_new)
+            .field("str_finish", &self.str_finish)
+            .field("str_appendf", &self.str_appendf)
+            .field("str_vappendf", &self.str_vappendf)
+            .field("str_append", &self.str_append)
+            .field("str_appendall", &self.str_appendall)
+            .field("str_appendchar", &self.str_appendchar)
+            .field("str_reset", &self.str_reset)
+            .field("str_errcode", &self.str_errcode)
+            .field("str_length", &self.str_length)
+            .field("str_value", &self.str_value)
+            .field("create_window_function", &self.create_window_function)
+            .field("normalized_sql", &self.normalized_sql)
+            .field("stmt_isexplain", &self.stmt_isexplain)
+            .field("value_frombind", &self.value_frombind)
+            .field("drop_modules", &self.drop_modules)
+            .field("hard_heap_limit64", &self.hard_heap_limit64)
+            .field("uri_key", &self.uri_key)
+            .field("filename_database", &self.filename_database)
+            .field("filename_journal", &self.filename_journal)
+            .field("filename_wal", &self.filename_wal)
+            .field("create_filename", &self.create_filename)
+            .field("free_filename", &self.free_filename)
+            .field("database_file_object", &self.database_file_object)
+            .field("txn_state", &self.txn_state)
+            .finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -2949,6 +3512,11 @@ impl ::core::clone::Clone for sqlite3_file {
         *self
     }
 }
+impl ::core::fmt::Debug for sqlite3_file {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sqlite3_file").field("pMethods", &self.pMethods).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for sqlite3_file {
     type Abi = Self;
 }
@@ -3178,6 +3746,26 @@ impl ::core::clone::Clone for sqlite3_index_info {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for sqlite3_index_info {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sqlite3_index_info")
+            .field("nConstraint", &self.nConstraint)
+            .field("aConstraint", &self.aConstraint)
+            .field("nOrderBy", &self.nOrderBy)
+            .field("aOrderBy", &self.aOrderBy)
+            .field("aConstraintUsage", &self.aConstraintUsage)
+            .field("idxNum", &self.idxNum)
+            .field("idxStr", &self.idxStr)
+            .field("needToFreeIdxStr", &self.needToFreeIdxStr)
+            .field("orderByConsumed", &self.orderByConsumed)
+            .field("estimatedCost", &self.estimatedCost)
+            .field("estimatedRows", &self.estimatedRows)
+            .field("idxFlags", &self.idxFlags)
+            .field("colUsed", &self.colUsed)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for sqlite3_index_info {
     type Abi = Self;
 }
@@ -3210,6 +3798,12 @@ impl ::core::marker::Copy for sqlite3_index_info_0 {}
 impl ::core::clone::Clone for sqlite3_index_info_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for sqlite3_index_info_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sqlite3_index_info_0").field("iColumn", &self.iColumn).field("op", &self.op).field("usable", &self.usable).field("iTermOffset", &self.iTermOffset).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3246,6 +3840,12 @@ impl ::core::clone::Clone for sqlite3_index_info_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for sqlite3_index_info_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sqlite3_index_info_1").field("argvIndex", &self.argvIndex).field("omit", &self.omit).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for sqlite3_index_info_1 {
     type Abi = Self;
 }
@@ -3276,6 +3876,12 @@ impl ::core::marker::Copy for sqlite3_index_info_2 {}
 impl ::core::clone::Clone for sqlite3_index_info_2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for sqlite3_index_info_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sqlite3_index_info_2").field("iColumn", &self.iColumn).field("desc", &self.desc).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3351,6 +3957,31 @@ impl ::core::marker::Copy for sqlite3_io_methods {}
 impl ::core::clone::Clone for sqlite3_io_methods {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for sqlite3_io_methods {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sqlite3_io_methods")
+            .field("iVersion", &self.iVersion)
+            .field("xClose", &self.xClose)
+            .field("xRead", &self.xRead)
+            .field("xWrite", &self.xWrite)
+            .field("xTruncate", &self.xTruncate)
+            .field("xSync", &self.xSync)
+            .field("xFileSize", &self.xFileSize)
+            .field("xLock", &self.xLock)
+            .field("xUnlock", &self.xUnlock)
+            .field("xCheckReservedLock", &self.xCheckReservedLock)
+            .field("xFileControl", &self.xFileControl)
+            .field("xSectorSize", &self.xSectorSize)
+            .field("xDeviceCharacteristics", &self.xDeviceCharacteristics)
+            .field("xShmMap", &self.xShmMap)
+            .field("xShmLock", &self.xShmLock)
+            .field("xShmBarrier", &self.xShmBarrier)
+            .field("xShmUnmap", &self.xShmUnmap)
+            .field("xFetch", &self.xFetch)
+            .field("xUnfetch", &self.xUnfetch)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for sqlite3_io_methods {
@@ -3546,6 +4177,11 @@ impl ::core::clone::Clone for sqlite3_mem_methods {
         *self
     }
 }
+impl ::core::fmt::Debug for sqlite3_mem_methods {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sqlite3_mem_methods").field("xMalloc", &self.xMalloc).field("xFree", &self.xFree).field("xRealloc", &self.xRealloc).field("xSize", &self.xSize).field("xRoundup", &self.xRoundup).field("xInit", &self.xInit).field("xShutdown", &self.xShutdown).field("pAppData", &self.pAppData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for sqlite3_mem_methods {
     type Abi = Self;
 }
@@ -3634,6 +4270,36 @@ impl ::core::marker::Copy for sqlite3_module {}
 impl ::core::clone::Clone for sqlite3_module {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for sqlite3_module {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sqlite3_module")
+            .field("iVersion", &self.iVersion)
+            .field("xCreate", &self.xCreate)
+            .field("xConnect", &self.xConnect)
+            .field("xBestIndex", &self.xBestIndex)
+            .field("xDisconnect", &self.xDisconnect)
+            .field("xDestroy", &self.xDestroy)
+            .field("xOpen", &self.xOpen)
+            .field("xClose", &self.xClose)
+            .field("xFilter", &self.xFilter)
+            .field("xNext", &self.xNext)
+            .field("xEof", &self.xEof)
+            .field("xColumn", &self.xColumn)
+            .field("xRowid", &self.xRowid)
+            .field("xUpdate", &self.xUpdate)
+            .field("xBegin", &self.xBegin)
+            .field("xSync", &self.xSync)
+            .field("xCommit", &self.xCommit)
+            .field("xRollback", &self.xRollback)
+            .field("xFindFunction", &self.xFindFunction)
+            .field("xRename", &self.xRename)
+            .field("xSavepoint", &self.xSavepoint)
+            .field("xRelease", &self.xRelease)
+            .field("xRollbackTo", &self.xRollbackTo)
+            .field("xShadowName", &self.xShadowName)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for sqlite3_module {
@@ -3754,6 +4420,11 @@ impl ::core::marker::Copy for sqlite3_mutex_methods {}
 impl ::core::clone::Clone for sqlite3_mutex_methods {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for sqlite3_mutex_methods {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sqlite3_mutex_methods").field("xMutexInit", &self.xMutexInit).field("xMutexEnd", &self.xMutexEnd).field("xMutexAlloc", &self.xMutexAlloc).field("xMutexFree", &self.xMutexFree).field("xMutexEnter", &self.xMutexEnter).field("xMutexTry", &self.xMutexTry).field("xMutexLeave", &self.xMutexLeave).field("xMutexHeld", &self.xMutexHeld).field("xMutexNotheld", &self.xMutexNotheld).finish()
     }
 }
 unsafe impl ::windows::core::Abi for sqlite3_mutex_methods {
@@ -3908,6 +4579,11 @@ impl ::core::clone::Clone for sqlite3_pcache_methods {
         *self
     }
 }
+impl ::core::fmt::Debug for sqlite3_pcache_methods {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sqlite3_pcache_methods").field("pArg", &self.pArg).field("xInit", &self.xInit).field("xShutdown", &self.xShutdown).field("xCreate", &self.xCreate).field("xCachesize", &self.xCachesize).field("xPagecount", &self.xPagecount).field("xFetch", &self.xFetch).field("xUnpin", &self.xUnpin).field("xRekey", &self.xRekey).field("xTruncate", &self.xTruncate).field("xDestroy", &self.xDestroy).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for sqlite3_pcache_methods {
     type Abi = Self;
 }
@@ -3945,6 +4621,11 @@ impl ::core::clone::Clone for sqlite3_pcache_methods2 {
         *self
     }
 }
+impl ::core::fmt::Debug for sqlite3_pcache_methods2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sqlite3_pcache_methods2").field("iVersion", &self.iVersion).field("pArg", &self.pArg).field("xInit", &self.xInit).field("xShutdown", &self.xShutdown).field("xCreate", &self.xCreate).field("xCachesize", &self.xCachesize).field("xPagecount", &self.xPagecount).field("xFetch", &self.xFetch).field("xUnpin", &self.xUnpin).field("xRekey", &self.xRekey).field("xTruncate", &self.xTruncate).field("xDestroy", &self.xDestroy).field("xShrink", &self.xShrink).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for sqlite3_pcache_methods2 {
     type Abi = Self;
 }
@@ -3969,6 +4650,11 @@ impl ::core::marker::Copy for sqlite3_pcache_page {}
 impl ::core::clone::Clone for sqlite3_pcache_page {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for sqlite3_pcache_page {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sqlite3_pcache_page").field("pBuf", &self.pBuf).field("pExtra", &self.pExtra).finish()
     }
 }
 unsafe impl ::windows::core::Abi for sqlite3_pcache_page {
@@ -4511,6 +5197,11 @@ impl ::core::clone::Clone for sqlite3_rtree_geometry {
         *self
     }
 }
+impl ::core::fmt::Debug for sqlite3_rtree_geometry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sqlite3_rtree_geometry").field("pContext", &self.pContext).field("nParam", &self.nParam).field("aParam", &self.aParam).field("pUser", &self.pUser).field("xDelUser", &self.xDelUser).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for sqlite3_rtree_geometry {
     type Abi = Self;
 }
@@ -4579,6 +5270,28 @@ impl ::core::marker::Copy for sqlite3_rtree_query_info {}
 impl ::core::clone::Clone for sqlite3_rtree_query_info {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for sqlite3_rtree_query_info {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sqlite3_rtree_query_info")
+            .field("pContext", &self.pContext)
+            .field("nParam", &self.nParam)
+            .field("aParam", &self.aParam)
+            .field("pUser", &self.pUser)
+            .field("xDelUser", &self.xDelUser)
+            .field("aCoord", &self.aCoord)
+            .field("anQueue", &self.anQueue)
+            .field("nCoord", &self.nCoord)
+            .field("iLevel", &self.iLevel)
+            .field("mxLevel", &self.mxLevel)
+            .field("iRowid", &self.iRowid)
+            .field("rParentScore", &self.rParentScore)
+            .field("eParentWithin", &self.eParentWithin)
+            .field("eWithin", &self.eWithin)
+            .field("rScore", &self.rScore)
+            .field("apSqlParam", &self.apSqlParam)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for sqlite3_rtree_query_info {
@@ -4689,6 +5402,11 @@ impl ::core::marker::Copy for sqlite3_snapshot {}
 impl ::core::clone::Clone for sqlite3_snapshot {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for sqlite3_snapshot {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sqlite3_snapshot").field("hidden", &self.hidden).finish()
     }
 }
 unsafe impl ::windows::core::Abi for sqlite3_snapshot {
@@ -5624,6 +6342,35 @@ impl ::core::clone::Clone for sqlite3_vfs {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for sqlite3_vfs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sqlite3_vfs")
+            .field("iVersion", &self.iVersion)
+            .field("szOsFile", &self.szOsFile)
+            .field("mxPathname", &self.mxPathname)
+            .field("pNext", &self.pNext)
+            .field("zName", &self.zName)
+            .field("pAppData", &self.pAppData)
+            .field("xOpen", &self.xOpen)
+            .field("xDelete", &self.xDelete)
+            .field("xAccess", &self.xAccess)
+            .field("xFullPathname", &self.xFullPathname)
+            .field("xDlOpen", &self.xDlOpen)
+            .field("xDlError", &self.xDlError)
+            .field("xDlSym", &self.xDlSym)
+            .field("xDlClose", &self.xDlClose)
+            .field("xRandomness", &self.xRandomness)
+            .field("xSleep", &self.xSleep)
+            .field("xCurrentTime", &self.xCurrentTime)
+            .field("xGetLastError", &self.xGetLastError)
+            .field("xCurrentTimeInt64", &self.xCurrentTimeInt64)
+            .field("xSetSystemCall", &self.xSetSystemCall)
+            .field("xGetSystemCall", &self.xGetSystemCall)
+            .field("xNextSystemCall", &self.xNextSystemCall)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for sqlite3_vfs {
     type Abi = Self;
 }
@@ -5733,6 +6480,12 @@ impl ::core::clone::Clone for sqlite3_vtab {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for sqlite3_vtab {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sqlite3_vtab").field("pModule", &self.pModule).field("nRef", &self.nRef).field("zErrMsg", &self.zErrMsg).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for sqlite3_vtab {
     type Abi = Self;
 }
@@ -5791,6 +6544,12 @@ impl ::core::marker::Copy for sqlite3_vtab_cursor {}
 impl ::core::clone::Clone for sqlite3_vtab_cursor {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for sqlite3_vtab_cursor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sqlite3_vtab_cursor").field("pVtab", &self.pVtab).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

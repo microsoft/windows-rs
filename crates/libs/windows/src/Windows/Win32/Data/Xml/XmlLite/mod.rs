@@ -247,6 +247,11 @@ impl ::core::cmp::PartialEq for IXmlReader {
     }
 }
 impl ::core::cmp::Eq for IXmlReader {}
+impl ::core::fmt::Debug for IXmlReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXmlReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXmlReader {
     type Vtable = IXmlReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7279fc81_709d_4095_b63d_69fe4b0d9030);
@@ -334,6 +339,11 @@ impl ::core::cmp::PartialEq for IXmlResolver {
     }
 }
 impl ::core::cmp::Eq for IXmlResolver {}
+impl ::core::fmt::Debug for IXmlResolver {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXmlResolver").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXmlResolver {
     type Vtable = IXmlResolverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7279fc82_709d_4095_b63d_69fe4b0d9030);
@@ -519,6 +529,11 @@ impl ::core::cmp::PartialEq for IXmlWriter {
     }
 }
 impl ::core::cmp::Eq for IXmlWriter {}
+impl ::core::fmt::Debug for IXmlWriter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXmlWriter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXmlWriter {
     type Vtable = IXmlWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7279fc88_709d_4095_b63d_69fe4b0d9030);
@@ -747,6 +762,11 @@ impl ::core::cmp::PartialEq for IXmlWriterLite {
     }
 }
 impl ::core::cmp::Eq for IXmlWriterLite {}
+impl ::core::fmt::Debug for IXmlWriterLite {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXmlWriterLite").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXmlWriterLite {
     type Vtable = IXmlWriterLiteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x862494c6_1310_4aad_b3cd_2dbeebf670d3);

@@ -23,6 +23,11 @@ impl ::core::cmp::PartialEq for CachedFileOptions {
     }
 }
 impl ::core::cmp::Eq for CachedFileOptions {}
+impl ::core::fmt::Debug for CachedFileOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CachedFileOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CachedFileOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileOptions;u4)");
 }
@@ -51,6 +56,11 @@ impl ::core::cmp::PartialEq for CachedFileTarget {
     }
 }
 impl ::core::cmp::Eq for CachedFileTarget {}
+impl ::core::fmt::Debug for CachedFileTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CachedFileTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CachedFileTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileTarget;i4)");
 }
@@ -164,6 +174,11 @@ impl ::core::cmp::PartialEq for CachedFileUpdaterUI {
     }
 }
 impl ::core::cmp::Eq for CachedFileUpdaterUI {}
+impl ::core::fmt::Debug for CachedFileUpdaterUI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CachedFileUpdaterUI").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CachedFileUpdaterUI {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.CachedFileUpdaterUI;{9e6f41e6-baf2-4a97-b600-9333f5df80fd})");
 }
@@ -285,6 +300,11 @@ impl ::core::cmp::PartialEq for FileUpdateRequest {
     }
 }
 impl ::core::cmp::Eq for FileUpdateRequest {}
+impl ::core::fmt::Debug for FileUpdateRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileUpdateRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileUpdateRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.FileUpdateRequest;{40c82536-c1fe-4d93-a792-1e736bc70837})");
 }
@@ -356,6 +376,11 @@ impl ::core::cmp::PartialEq for FileUpdateRequestDeferral {
     }
 }
 impl ::core::cmp::Eq for FileUpdateRequestDeferral {}
+impl ::core::fmt::Debug for FileUpdateRequestDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileUpdateRequestDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileUpdateRequestDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.FileUpdateRequestDeferral;{ffcedb2b-8ade-44a5-bb00-164c4e72f13a})");
 }
@@ -430,6 +455,11 @@ impl ::core::cmp::PartialEq for FileUpdateRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for FileUpdateRequestedEventArgs {}
+impl ::core::fmt::Debug for FileUpdateRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileUpdateRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileUpdateRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.FileUpdateRequestedEventArgs;{7b0a9342-3905-438d-aaef-78ae265f8dd2})");
 }
@@ -506,6 +536,11 @@ impl ::core::cmp::PartialEq for FileUpdateStatus {
     }
 }
 impl ::core::cmp::Eq for FileUpdateStatus {}
+impl ::core::fmt::Debug for FileUpdateStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileUpdateStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileUpdateStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.FileUpdateStatus;i4)");
 }
@@ -886,6 +921,11 @@ impl ::core::cmp::PartialEq for IStorageProviderHandlerFactory {
     }
 }
 impl ::core::cmp::Eq for IStorageProviderHandlerFactory {}
+impl ::core::fmt::Debug for IStorageProviderHandlerFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageProviderHandlerFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStorageProviderHandlerFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6154dc3a-fc1d-5aae-9e23-e8659a22c5f6}");
 }
@@ -1032,6 +1072,11 @@ impl ::core::cmp::PartialEq for IStorageProviderItemPropertySource {
     }
 }
 impl ::core::cmp::Eq for IStorageProviderItemPropertySource {}
+impl ::core::fmt::Debug for IStorageProviderItemPropertySource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageProviderItemPropertySource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStorageProviderItemPropertySource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8f6f9c3e-f632-4a9b-8d99-d2d7a11df56a}");
 }
@@ -1115,6 +1160,11 @@ impl ::core::cmp::PartialEq for IStorageProviderPropertyCapabilities {
     }
 }
 impl ::core::cmp::Eq for IStorageProviderPropertyCapabilities {}
+impl ::core::fmt::Debug for IStorageProviderPropertyCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageProviderPropertyCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStorageProviderPropertyCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{658d2f0e-63b7-4567-acf9-51abe301dda5}");
 }
@@ -1253,6 +1303,11 @@ impl ::core::cmp::PartialEq for IStorageProviderStatusSource {
     }
 }
 impl ::core::cmp::Eq for IStorageProviderStatusSource {}
+impl ::core::fmt::Debug for IStorageProviderStatusSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageProviderStatusSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStorageProviderStatusSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2e316bb2-fd43-5335-b3c4-a962ee31d17e}");
 }
@@ -1473,6 +1528,11 @@ impl ::core::cmp::PartialEq for IStorageProviderUriSource {
     }
 }
 impl ::core::cmp::Eq for IStorageProviderUriSource {}
+impl ::core::fmt::Debug for IStorageProviderUriSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageProviderUriSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStorageProviderUriSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b29806d1-8be0-4962-8bb6-0d4c2e14d47a}");
 }
@@ -1514,6 +1574,11 @@ impl ::core::cmp::PartialEq for ReadActivationMode {
     }
 }
 impl ::core::cmp::Eq for ReadActivationMode {}
+impl ::core::fmt::Debug for ReadActivationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ReadActivationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ReadActivationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.ReadActivationMode;i4)");
 }
@@ -1624,6 +1689,11 @@ impl ::core::cmp::PartialEq for StorageProviderError {
     }
 }
 impl ::core::cmp::Eq for StorageProviderError {}
+impl ::core::fmt::Debug for StorageProviderError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderError;{47f2780b-ef7f-5910-bf83-331d89256615})");
 }
@@ -1722,6 +1792,11 @@ impl ::core::cmp::PartialEq for StorageProviderErrorCommand {
     }
 }
 impl ::core::cmp::Eq for StorageProviderErrorCommand {}
+impl ::core::fmt::Debug for StorageProviderErrorCommand {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderErrorCommand").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderErrorCommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderErrorCommand;{b6b18aed-bb65-5f26-86e4-1d3e34d54477})");
 }
@@ -1818,6 +1893,11 @@ impl ::core::cmp::PartialEq for StorageProviderFileTypeInfo {
     }
 }
 impl ::core::cmp::Eq for StorageProviderFileTypeInfo {}
+impl ::core::fmt::Debug for StorageProviderFileTypeInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderFileTypeInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderFileTypeInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderFileTypeInfo;{1955b9c1-0184-5a88-87df-4544f464365d})");
 }
@@ -1932,6 +2012,11 @@ impl ::core::cmp::PartialEq for StorageProviderGetContentInfoForPathResult {
     }
 }
 impl ::core::cmp::Eq for StorageProviderGetContentInfoForPathResult {}
+impl ::core::fmt::Debug for StorageProviderGetContentInfoForPathResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderGetContentInfoForPathResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderGetContentInfoForPathResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderGetContentInfoForPathResult;{2564711d-aa89-4d12-82e3-f72a92e33966})");
 }
@@ -2033,6 +2118,11 @@ impl ::core::cmp::PartialEq for StorageProviderGetPathForContentUriResult {
     }
 }
 impl ::core::cmp::Eq for StorageProviderGetPathForContentUriResult {}
+impl ::core::fmt::Debug for StorageProviderGetPathForContentUriResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderGetPathForContentUriResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderGetPathForContentUriResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderGetPathForContentUriResult;{63711a9d-4118-45a6-acb6-22c49d019f40})");
 }
@@ -2107,6 +2197,11 @@ impl ::core::cmp::PartialEq for StorageProviderHardlinkPolicy {
     }
 }
 impl ::core::cmp::Eq for StorageProviderHardlinkPolicy {}
+impl ::core::fmt::Debug for StorageProviderHardlinkPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderHardlinkPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderHardlinkPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHardlinkPolicy;u4)");
 }
@@ -2137,6 +2232,11 @@ impl ::core::cmp::PartialEq for StorageProviderHydrationPolicy {
     }
 }
 impl ::core::cmp::Eq for StorageProviderHydrationPolicy {}
+impl ::core::fmt::Debug for StorageProviderHydrationPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderHydrationPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderHydrationPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicy;i4)");
 }
@@ -2168,6 +2268,11 @@ impl ::core::cmp::PartialEq for StorageProviderHydrationPolicyModifier {
     }
 }
 impl ::core::cmp::Eq for StorageProviderHydrationPolicyModifier {}
+impl ::core::fmt::Debug for StorageProviderHydrationPolicyModifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderHydrationPolicyModifier").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderHydrationPolicyModifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicyModifier;u4)");
 }
@@ -2206,6 +2311,11 @@ impl ::core::cmp::PartialEq for StorageProviderInSyncPolicy {
     }
 }
 impl ::core::cmp::Eq for StorageProviderInSyncPolicy {}
+impl ::core::fmt::Debug for StorageProviderInSyncPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderInSyncPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderInSyncPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderInSyncPolicy;u4)");
 }
@@ -2294,6 +2404,11 @@ impl ::core::cmp::PartialEq for StorageProviderItemProperty {
     }
 }
 impl ::core::cmp::Eq for StorageProviderItemProperty {}
+impl ::core::fmt::Debug for StorageProviderItemProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderItemProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderItemProperty {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderItemProperty;{476cb558-730b-4188-b7b5-63b716ed476d})");
 }
@@ -2395,6 +2510,11 @@ impl ::core::cmp::PartialEq for StorageProviderItemPropertyDefinition {
     }
 }
 impl ::core::cmp::Eq for StorageProviderItemPropertyDefinition {}
+impl ::core::fmt::Debug for StorageProviderItemPropertyDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderItemPropertyDefinition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderItemPropertyDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderItemPropertyDefinition;{c5b383bb-ff1f-4298-831e-ff1c08089690})");
 }
@@ -2469,6 +2589,11 @@ impl ::core::cmp::PartialEq for StorageProviderPopulationPolicy {
     }
 }
 impl ::core::cmp::Eq for StorageProviderPopulationPolicy {}
+impl ::core::fmt::Debug for StorageProviderPopulationPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderPopulationPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderPopulationPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderPopulationPolicy;i4)");
 }
@@ -2497,6 +2622,11 @@ impl ::core::cmp::PartialEq for StorageProviderProtectionMode {
     }
 }
 impl ::core::cmp::Eq for StorageProviderProtectionMode {}
+impl ::core::fmt::Debug for StorageProviderProtectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderProtectionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderProtectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderProtectionMode;i4)");
 }
@@ -2529,6 +2659,11 @@ impl ::core::cmp::PartialEq for StorageProviderState {
     }
 }
 impl ::core::cmp::Eq for StorageProviderState {}
+impl ::core::fmt::Debug for StorageProviderState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderState;i4)");
 }
@@ -2596,6 +2731,11 @@ impl ::core::cmp::PartialEq for StorageProviderStatus {
     }
 }
 impl ::core::cmp::Eq for StorageProviderStatus {}
+impl ::core::fmt::Debug for StorageProviderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderStatus;{ff6e761d-fb8b-56c3-9e7a-05309d191fb4})");
 }
@@ -2901,6 +3041,11 @@ impl ::core::cmp::PartialEq for StorageProviderSyncRootInfo {
     }
 }
 impl ::core::cmp::Eq for StorageProviderSyncRootInfo {}
+impl ::core::fmt::Debug for StorageProviderSyncRootInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderSyncRootInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderSyncRootInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderSyncRootInfo;{7c1305c4-99f9-41ac-8904-ab055d654926})");
 }
@@ -3030,6 +3175,11 @@ impl ::core::cmp::PartialEq for StorageProviderUriSourceStatus {
     }
 }
 impl ::core::cmp::Eq for StorageProviderUriSourceStatus {}
+impl ::core::fmt::Debug for StorageProviderUriSourceStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderUriSourceStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderUriSourceStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderUriSourceStatus;i4)");
 }
@@ -3060,6 +3210,11 @@ impl ::core::cmp::PartialEq for UIStatus {
     }
 }
 impl ::core::cmp::Eq for UIStatus {}
+impl ::core::fmt::Debug for UIStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UIStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.UIStatus;i4)");
 }
@@ -3089,6 +3244,11 @@ impl ::core::cmp::PartialEq for WriteActivationMode {
     }
 }
 impl ::core::cmp::Eq for WriteActivationMode {}
+impl ::core::fmt::Debug for WriteActivationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WriteActivationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WriteActivationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.WriteActivationMode;i4)");
 }

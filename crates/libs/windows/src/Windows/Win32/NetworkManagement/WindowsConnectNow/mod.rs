@@ -43,6 +43,11 @@ impl ::core::cmp::PartialEq for IWCNConnectNotify {
     }
 }
 impl ::core::cmp::Eq for IWCNConnectNotify {}
+impl ::core::fmt::Debug for IWCNConnectNotify {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWCNConnectNotify").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWCNConnectNotify {
     type Vtable = IWCNConnectNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc100be9f_d33a_4a4b_bf23_bbef4663d017);
@@ -140,6 +145,11 @@ impl ::core::cmp::PartialEq for IWCNDevice {
     }
 }
 impl ::core::cmp::Eq for IWCNDevice {}
+impl ::core::fmt::Debug for IWCNDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWCNDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWCNDevice {
     type Vtable = IWCNDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc100be9c_d33a_4a4b_bf23_bbef4663d017);
@@ -822,6 +832,11 @@ impl ::core::marker::Copy for WCN_VENDOR_EXTENSION_SPEC {}
 impl ::core::clone::Clone for WCN_VENDOR_EXTENSION_SPEC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WCN_VENDOR_EXTENSION_SPEC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WCN_VENDOR_EXTENSION_SPEC").field("VendorId", &self.VendorId).field("SubType", &self.SubType).field("Index", &self.Index).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WCN_VENDOR_EXTENSION_SPEC {

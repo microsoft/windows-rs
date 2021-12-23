@@ -67,6 +67,11 @@ impl ::core::cmp::PartialEq for IUIAnimationInterpolator {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationInterpolator {}
+impl ::core::fmt::Debug for IUIAnimationInterpolator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationInterpolator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationInterpolator {
     type Vtable = IUIAnimationInterpolatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7815cbba_ddf7_478c_a46c_7b6c738b7978);
@@ -159,6 +164,11 @@ impl ::core::cmp::PartialEq for IUIAnimationInterpolator2 {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationInterpolator2 {}
+impl ::core::fmt::Debug for IUIAnimationInterpolator2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationInterpolator2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationInterpolator2 {
     type Vtable = IUIAnimationInterpolator2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea76aff8_ea22_4a23_a0ef_a6a966703518);
@@ -219,6 +229,11 @@ impl ::core::cmp::PartialEq for IUIAnimationLoopIterationChangeHandler2 {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationLoopIterationChangeHandler2 {}
+impl ::core::fmt::Debug for IUIAnimationLoopIterationChangeHandler2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationLoopIterationChangeHandler2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationLoopIterationChangeHandler2 {
     type Vtable = IUIAnimationLoopIterationChangeHandler2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d3b15a4_4762_47ab_a030_b23221df3ae0);
@@ -349,6 +364,11 @@ impl ::core::cmp::PartialEq for IUIAnimationManager {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationManager {}
+impl ::core::fmt::Debug for IUIAnimationManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationManager {
     type Vtable = IUIAnimationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9169896c_ac8d_4e7d_94e5_67fa4dc2f2e8);
@@ -508,6 +528,11 @@ impl ::core::cmp::PartialEq for IUIAnimationManager2 {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationManager2 {}
+impl ::core::fmt::Debug for IUIAnimationManager2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationManager2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationManager2 {
     type Vtable = IUIAnimationManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8b6f7d4_4109_4d3f_acee_879926968cb1);
@@ -581,6 +606,11 @@ impl ::core::cmp::PartialEq for IUIAnimationManagerEventHandler {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationManagerEventHandler {}
+impl ::core::fmt::Debug for IUIAnimationManagerEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationManagerEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationManagerEventHandler {
     type Vtable = IUIAnimationManagerEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x783321ed_78a3_4366_b574_6af607a64788);
@@ -628,6 +658,11 @@ impl ::core::cmp::PartialEq for IUIAnimationManagerEventHandler2 {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationManagerEventHandler2 {}
+impl ::core::fmt::Debug for IUIAnimationManagerEventHandler2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationManagerEventHandler2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationManagerEventHandler2 {
     type Vtable = IUIAnimationManagerEventHandler2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6e022ba_bff3_42ec_9033_e073f33e83c3);
@@ -679,6 +714,11 @@ impl ::core::cmp::PartialEq for IUIAnimationPrimitiveInterpolation {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationPrimitiveInterpolation {}
+impl ::core::fmt::Debug for IUIAnimationPrimitiveInterpolation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationPrimitiveInterpolation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationPrimitiveInterpolation {
     type Vtable = IUIAnimationPrimitiveInterpolationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbab20d63_4361_45da_a24f_ab8508846b5b);
@@ -732,6 +772,11 @@ impl ::core::cmp::PartialEq for IUIAnimationPriorityComparison {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationPriorityComparison {}
+impl ::core::fmt::Debug for IUIAnimationPriorityComparison {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationPriorityComparison").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationPriorityComparison {
     type Vtable = IUIAnimationPriorityComparisonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83fa9b74_5f86_4618_bc6a_a2fac19b3f44);
@@ -784,6 +829,11 @@ impl ::core::cmp::PartialEq for IUIAnimationPriorityComparison2 {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationPriorityComparison2 {}
+impl ::core::fmt::Debug for IUIAnimationPriorityComparison2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationPriorityComparison2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationPriorityComparison2 {
     type Vtable = IUIAnimationPriorityComparison2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b6d7a37_4621_467c_8b05_70131de62ddb);
@@ -905,6 +955,11 @@ impl ::core::cmp::PartialEq for IUIAnimationStoryboard {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationStoryboard {}
+impl ::core::fmt::Debug for IUIAnimationStoryboard {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationStoryboard").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationStoryboard {
     type Vtable = IUIAnimationStoryboardVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8ff128f_9bf9_4af1_9e67_e5e410defb84);
@@ -1048,6 +1103,11 @@ impl ::core::cmp::PartialEq for IUIAnimationStoryboard2 {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationStoryboard2 {}
+impl ::core::fmt::Debug for IUIAnimationStoryboard2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationStoryboard2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationStoryboard2 {
     type Vtable = IUIAnimationStoryboard2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae289cd2_12d4_4945_9419_9e41be034df2);
@@ -1123,6 +1183,11 @@ impl ::core::cmp::PartialEq for IUIAnimationStoryboardEventHandler {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationStoryboardEventHandler {}
+impl ::core::fmt::Debug for IUIAnimationStoryboardEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationStoryboardEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationStoryboardEventHandler {
     type Vtable = IUIAnimationStoryboardEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d5c9008_ec7c_4364_9f8a_9af3c58cbae6);
@@ -1180,6 +1245,11 @@ impl ::core::cmp::PartialEq for IUIAnimationStoryboardEventHandler2 {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationStoryboardEventHandler2 {}
+impl ::core::fmt::Debug for IUIAnimationStoryboardEventHandler2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationStoryboardEventHandler2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationStoryboardEventHandler2 {
     type Vtable = IUIAnimationStoryboardEventHandler2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbac5f55a_ba7c_414c_b599_fbf850f553c6);
@@ -1258,6 +1328,11 @@ impl ::core::cmp::PartialEq for IUIAnimationTimer {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationTimer {}
+impl ::core::fmt::Debug for IUIAnimationTimer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationTimer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationTimer {
     type Vtable = IUIAnimationTimerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b0efad1_a053_41d6_9085_33a689144665);
@@ -1316,6 +1391,11 @@ impl ::core::cmp::PartialEq for IUIAnimationTimerClientEventHandler {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationTimerClientEventHandler {}
+impl ::core::fmt::Debug for IUIAnimationTimerClientEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationTimerClientEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationTimerClientEventHandler {
     type Vtable = IUIAnimationTimerClientEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbedb4db6_94fa_4bfb_a47f_ef2d9e408c25);
@@ -1376,6 +1456,11 @@ impl ::core::cmp::PartialEq for IUIAnimationTimerEventHandler {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationTimerEventHandler {}
+impl ::core::fmt::Debug for IUIAnimationTimerEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationTimerEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationTimerEventHandler {
     type Vtable = IUIAnimationTimerEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x274a7dea_d771_4095_abbd_8df7abd23ce3);
@@ -1439,6 +1524,11 @@ impl ::core::cmp::PartialEq for IUIAnimationTimerUpdateHandler {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationTimerUpdateHandler {}
+impl ::core::fmt::Debug for IUIAnimationTimerUpdateHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationTimerUpdateHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationTimerUpdateHandler {
     type Vtable = IUIAnimationTimerUpdateHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x195509b7_5d5e_4e3e_b278_ee3759b367ad);
@@ -1506,6 +1596,11 @@ impl ::core::cmp::PartialEq for IUIAnimationTransition {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationTransition {}
+impl ::core::fmt::Debug for IUIAnimationTransition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationTransition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationTransition {
     type Vtable = IUIAnimationTransitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc6ce252_f731_41cf_b610_614b6ca049ad);
@@ -1587,6 +1682,11 @@ impl ::core::cmp::PartialEq for IUIAnimationTransition2 {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationTransition2 {}
+impl ::core::fmt::Debug for IUIAnimationTransition2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationTransition2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationTransition2 {
     type Vtable = IUIAnimationTransition2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62ff9123_a85a_4e9b_a218_435a93e268fd);
@@ -1646,6 +1746,11 @@ impl ::core::cmp::PartialEq for IUIAnimationTransitionFactory {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationTransitionFactory {}
+impl ::core::fmt::Debug for IUIAnimationTransitionFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationTransitionFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationTransitionFactory {
     type Vtable = IUIAnimationTransitionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcd91e03_3e3b_45ad_bbb1_6dfc8153743d);
@@ -1694,6 +1799,11 @@ impl ::core::cmp::PartialEq for IUIAnimationTransitionFactory2 {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationTransitionFactory2 {}
+impl ::core::fmt::Debug for IUIAnimationTransitionFactory2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationTransitionFactory2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationTransitionFactory2 {
     type Vtable = IUIAnimationTransitionFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x937d4916_c1a6_42d5_88d8_30344d6efe31);
@@ -1797,6 +1907,11 @@ impl ::core::cmp::PartialEq for IUIAnimationTransitionLibrary {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationTransitionLibrary {}
+impl ::core::fmt::Debug for IUIAnimationTransitionLibrary {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationTransitionLibrary").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationTransitionLibrary {
     type Vtable = IUIAnimationTransitionLibraryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca5a14b1_d24f_48b8_8fe4_c78169ba954e);
@@ -1951,6 +2066,11 @@ impl ::core::cmp::PartialEq for IUIAnimationTransitionLibrary2 {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationTransitionLibrary2 {}
+impl ::core::fmt::Debug for IUIAnimationTransitionLibrary2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationTransitionLibrary2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationTransitionLibrary2 {
     type Vtable = IUIAnimationTransitionLibrary2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03cfae53_9580_4ee3_b363_2ece51b4af6a);
@@ -2080,6 +2200,11 @@ impl ::core::cmp::PartialEq for IUIAnimationVariable {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationVariable {}
+impl ::core::fmt::Debug for IUIAnimationVariable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationVariable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationVariable {
     type Vtable = IUIAnimationVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ceeb155_2849_4ce5_9448_91ff70e1e4d9);
@@ -2257,6 +2382,11 @@ impl ::core::cmp::PartialEq for IUIAnimationVariable2 {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationVariable2 {}
+impl ::core::fmt::Debug for IUIAnimationVariable2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationVariable2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationVariable2 {
     type Vtable = IUIAnimationVariable2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4914b304_96ab_44d9_9e77_d5109b7e7466);
@@ -2338,6 +2468,11 @@ impl ::core::cmp::PartialEq for IUIAnimationVariableChangeHandler {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationVariableChangeHandler {}
+impl ::core::fmt::Debug for IUIAnimationVariableChangeHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationVariableChangeHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationVariableChangeHandler {
     type Vtable = IUIAnimationVariableChangeHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6358b7ba_87d2_42d5_bf71_82e919dd5862);
@@ -2390,6 +2525,11 @@ impl ::core::cmp::PartialEq for IUIAnimationVariableChangeHandler2 {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationVariableChangeHandler2 {}
+impl ::core::fmt::Debug for IUIAnimationVariableChangeHandler2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationVariableChangeHandler2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationVariableChangeHandler2 {
     type Vtable = IUIAnimationVariableChangeHandler2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63acc8d2_6eae_4bb0_b879_586dd8cfbe42);
@@ -2442,6 +2582,11 @@ impl ::core::cmp::PartialEq for IUIAnimationVariableCurveChangeHandler2 {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationVariableCurveChangeHandler2 {}
+impl ::core::fmt::Debug for IUIAnimationVariableCurveChangeHandler2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationVariableCurveChangeHandler2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationVariableCurveChangeHandler2 {
     type Vtable = IUIAnimationVariableCurveChangeHandler2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72895e91_0145_4c21_9192_5aab40eddf80);
@@ -2489,6 +2634,11 @@ impl ::core::cmp::PartialEq for IUIAnimationVariableIntegerChangeHandler {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationVariableIntegerChangeHandler {}
+impl ::core::fmt::Debug for IUIAnimationVariableIntegerChangeHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationVariableIntegerChangeHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationVariableIntegerChangeHandler {
     type Vtable = IUIAnimationVariableIntegerChangeHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb3e1550_356e_44b0_99da_85ac6017865e);
@@ -2541,6 +2691,11 @@ impl ::core::cmp::PartialEq for IUIAnimationVariableIntegerChangeHandler2 {
     }
 }
 impl ::core::cmp::Eq for IUIAnimationVariableIntegerChangeHandler2 {}
+impl ::core::fmt::Debug for IUIAnimationVariableIntegerChangeHandler2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAnimationVariableIntegerChangeHandler2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAnimationVariableIntegerChangeHandler2 {
     type Vtable = IUIAnimationVariableIntegerChangeHandler2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x829b6cf1_4f3a_4412_ae09_b243eb4c6b58);

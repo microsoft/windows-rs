@@ -21,6 +21,21 @@ impl ::core::clone::Clone for PRJ_CALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRJ_CALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRJ_CALLBACKS")
+            .field("StartDirectoryEnumerationCallback", &self.StartDirectoryEnumerationCallback.map(|f| f as usize))
+            .field("EndDirectoryEnumerationCallback", &self.EndDirectoryEnumerationCallback.map(|f| f as usize))
+            .field("GetDirectoryEnumerationCallback", &self.GetDirectoryEnumerationCallback.map(|f| f as usize))
+            .field("GetPlaceholderInfoCallback", &self.GetPlaceholderInfoCallback.map(|f| f as usize))
+            .field("GetFileDataCallback", &self.GetFileDataCallback.map(|f| f as usize))
+            .field("QueryFileNameCallback", &self.QueryFileNameCallback.map(|f| f as usize))
+            .field("NotificationCallback", &self.NotificationCallback.map(|f| f as usize))
+            .field("CancelCommandCallback", &self.CancelCommandCallback.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PRJ_CALLBACKS {
     type Abi = Self;
 }
@@ -60,6 +75,24 @@ impl ::core::marker::Copy for PRJ_CALLBACK_DATA {}
 impl ::core::clone::Clone for PRJ_CALLBACK_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRJ_CALLBACK_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRJ_CALLBACK_DATA")
+            .field("Size", &self.Size)
+            .field("Flags", &self.Flags)
+            .field("NamespaceVirtualizationContext", &self.NamespaceVirtualizationContext)
+            .field("CommandId", &self.CommandId)
+            .field("FileId", &self.FileId)
+            .field("DataStreamId", &self.DataStreamId)
+            .field("FilePathName", &self.FilePathName)
+            .field("VersionInfo", &self.VersionInfo)
+            .field("TriggeringProcessId", &self.TriggeringProcessId)
+            .field("TriggeringProcessImageFileName", &self.TriggeringProcessImageFileName)
+            .field("InstanceContext", &self.InstanceContext)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -152,6 +185,11 @@ impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0").field("DirEntryBufferHandle", &self.DirEntryBufferHandle).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     type Abi = Self;
 }
@@ -175,6 +213,11 @@ impl ::core::marker::Copy for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {}
 impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1").field("NotificationMask", &self.NotificationMask).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
@@ -282,6 +325,12 @@ impl ::core::clone::Clone for PRJ_EXTENDED_INFO_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRJ_EXTENDED_INFO_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRJ_EXTENDED_INFO_0_0").field("TargetName", &self.TargetName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PRJ_EXTENDED_INFO_0_0 {
     type Abi = Self;
 }
@@ -321,6 +370,12 @@ impl ::core::marker::Copy for PRJ_FILE_BASIC_INFO {}
 impl ::core::clone::Clone for PRJ_FILE_BASIC_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRJ_FILE_BASIC_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRJ_FILE_BASIC_INFO").field("IsDirectory", &self.IsDirectory).field("FileSize", &self.FileSize).field("CreationTime", &self.CreationTime).field("LastAccessTime", &self.LastAccessTime).field("LastWriteTime", &self.LastWriteTime).field("ChangeTime", &self.ChangeTime).field("FileAttributes", &self.FileAttributes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -408,6 +463,12 @@ impl ::core::clone::Clone for PRJ_NOTIFICATION_MAPPING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRJ_NOTIFICATION_MAPPING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRJ_NOTIFICATION_MAPPING").field("NotificationBitMask", &self.NotificationBitMask).field("NotificationRoot", &self.NotificationRoot).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION_MAPPING {
     type Abi = Self;
 }
@@ -474,6 +535,12 @@ impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRJ_NOTIFICATION_PARAMETERS_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRJ_NOTIFICATION_PARAMETERS_0").field("IsFileModified", &self.IsFileModified).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION_PARAMETERS_0 {
     type Abi = Self;
 }
@@ -506,6 +573,12 @@ impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRJ_NOTIFICATION_PARAMETERS_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRJ_NOTIFICATION_PARAMETERS_1").field("NotificationMask", &self.NotificationMask).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION_PARAMETERS_1 {
     type Abi = Self;
 }
@@ -535,6 +608,12 @@ impl ::core::marker::Copy for PRJ_NOTIFICATION_PARAMETERS_2 {}
 impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS_2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRJ_NOTIFICATION_PARAMETERS_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRJ_NOTIFICATION_PARAMETERS_2").field("NotificationMask", &self.NotificationMask).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -611,6 +690,12 @@ impl ::core::clone::Clone for PRJ_PLACEHOLDER_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRJ_PLACEHOLDER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRJ_PLACEHOLDER_INFO").field("FileBasicInfo", &self.FileBasicInfo).field("EaInformation", &self.EaInformation).field("SecurityInformation", &self.SecurityInformation).field("StreamsInformation", &self.StreamsInformation).field("VersionInfo", &self.VersionInfo).field("VariableData", &self.VariableData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_INFO {
     type Abi = Self;
 }
@@ -641,6 +726,12 @@ impl ::core::marker::Copy for PRJ_PLACEHOLDER_INFO_0 {}
 impl ::core::clone::Clone for PRJ_PLACEHOLDER_INFO_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRJ_PLACEHOLDER_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRJ_PLACEHOLDER_INFO_0").field("EaBufferSize", &self.EaBufferSize).field("OffsetToFirstEa", &self.OffsetToFirstEa).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -677,6 +768,12 @@ impl ::core::clone::Clone for PRJ_PLACEHOLDER_INFO_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRJ_PLACEHOLDER_INFO_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRJ_PLACEHOLDER_INFO_1").field("SecurityBufferSize", &self.SecurityBufferSize).field("OffsetToSecurityDescriptor", &self.OffsetToSecurityDescriptor).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_INFO_1 {
     type Abi = Self;
 }
@@ -710,6 +807,12 @@ impl ::core::clone::Clone for PRJ_PLACEHOLDER_INFO_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRJ_PLACEHOLDER_INFO_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRJ_PLACEHOLDER_INFO_2").field("StreamsInfoBufferSize", &self.StreamsInfoBufferSize).field("OffsetToFirstStreamInfo", &self.OffsetToFirstStreamInfo).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_INFO_2 {
     type Abi = Self;
 }
@@ -737,6 +840,11 @@ impl ::core::marker::Copy for PRJ_PLACEHOLDER_VERSION_INFO {}
 impl ::core::clone::Clone for PRJ_PLACEHOLDER_VERSION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PRJ_PLACEHOLDER_VERSION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRJ_PLACEHOLDER_VERSION_INFO").field("ProviderID", &self.ProviderID).field("ContentID", &self.ContentID).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_VERSION_INFO {
@@ -778,6 +886,12 @@ impl ::core::marker::Copy for PRJ_STARTVIRTUALIZING_OPTIONS {}
 impl ::core::clone::Clone for PRJ_STARTVIRTUALIZING_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRJ_STARTVIRTUALIZING_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRJ_STARTVIRTUALIZING_OPTIONS").field("Flags", &self.Flags).field("PoolThreadCount", &self.PoolThreadCount).field("ConcurrentThreadCount", &self.ConcurrentThreadCount).field("NotificationMappings", &self.NotificationMappings).field("NotificationMappingsCount", &self.NotificationMappingsCount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -841,6 +955,11 @@ impl ::core::marker::Copy for PRJ_VIRTUALIZATION_INSTANCE_INFO {}
 impl ::core::clone::Clone for PRJ_VIRTUALIZATION_INSTANCE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PRJ_VIRTUALIZATION_INSTANCE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRJ_VIRTUALIZATION_INSTANCE_INFO").field("InstanceID", &self.InstanceID).field("WriteAlignment", &self.WriteAlignment).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PRJ_VIRTUALIZATION_INSTANCE_INFO {

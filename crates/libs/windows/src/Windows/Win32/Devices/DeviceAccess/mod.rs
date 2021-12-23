@@ -157,6 +157,11 @@ impl ::core::cmp::PartialEq for ICreateDeviceAccessAsync {
     }
 }
 impl ::core::cmp::Eq for ICreateDeviceAccessAsync {}
+impl ::core::fmt::Debug for ICreateDeviceAccessAsync {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICreateDeviceAccessAsync").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICreateDeviceAccessAsync {
     type Vtable = ICreateDeviceAccessAsyncVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3474628f_683d_42d2_abcb_db018c6503bc);
@@ -220,6 +225,11 @@ impl ::core::cmp::PartialEq for IDeviceIoControl {
     }
 }
 impl ::core::cmp::Eq for IDeviceIoControl {}
+impl ::core::fmt::Debug for IDeviceIoControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDeviceIoControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDeviceIoControl {
     type Vtable = IDeviceIoControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9eefe161_23ab_4f18_9b49_991b586ae970);
@@ -274,6 +284,11 @@ impl ::core::cmp::PartialEq for IDeviceRequestCompletionCallback {
     }
 }
 impl ::core::cmp::Eq for IDeviceRequestCompletionCallback {}
+impl ::core::fmt::Debug for IDeviceRequestCompletionCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDeviceRequestCompletionCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDeviceRequestCompletionCallback {
     type Vtable = IDeviceRequestCompletionCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x999bad24_9acd_45bb_8669_2a2fc0288b04);

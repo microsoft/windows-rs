@@ -277,6 +277,11 @@ impl ::core::cmp::PartialEq for Print3DWorkflow {
     }
 }
 impl ::core::cmp::Eq for Print3DWorkflow {}
+impl ::core::fmt::Debug for Print3DWorkflow {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DWorkflow").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Print3DWorkflow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.Print3DWorkflow;{c56f74bd-3669-4a66-ab42-c8151930cd34})");
 }
@@ -356,6 +361,11 @@ impl ::core::cmp::PartialEq for Print3DWorkflowDetail {
     }
 }
 impl ::core::cmp::Eq for Print3DWorkflowDetail {}
+impl ::core::fmt::Debug for Print3DWorkflowDetail {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DWorkflowDetail").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Print3DWorkflowDetail {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowDetail;i4)");
 }
@@ -401,6 +411,11 @@ impl ::core::cmp::PartialEq for Print3DWorkflowPrintRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for Print3DWorkflowPrintRequestedEventArgs {}
+impl ::core::fmt::Debug for Print3DWorkflowPrintRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DWorkflowPrintRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Print3DWorkflowPrintRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.Print3DWorkflowPrintRequestedEventArgs;{19f8c858-5ac8-4b55-8a5f-e61567dafb4d})");
 }
@@ -477,6 +492,11 @@ impl ::core::cmp::PartialEq for Print3DWorkflowPrinterChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for Print3DWorkflowPrinterChangedEventArgs {}
+impl ::core::fmt::Debug for Print3DWorkflowPrinterChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DWorkflowPrinterChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Print3DWorkflowPrinterChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.Print3DWorkflowPrinterChangedEventArgs;{45226402-95fc-4847-93b3-134dbf5c60f7})");
 }
@@ -554,6 +574,11 @@ impl ::core::cmp::PartialEq for Print3DWorkflowStatus {
     }
 }
 impl ::core::cmp::Eq for Print3DWorkflowStatus {}
+impl ::core::fmt::Debug for Print3DWorkflowStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DWorkflowStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Print3DWorkflowStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowStatus;i4)");
 }
@@ -616,6 +641,11 @@ impl ::core::cmp::PartialEq for PrintNotificationEventDetails {
     }
 }
 impl ::core::cmp::Eq for PrintNotificationEventDetails {}
+impl ::core::fmt::Debug for PrintNotificationEventDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintNotificationEventDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintNotificationEventDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintNotificationEventDetails;{e00e4c8a-4828-4da1-8bb8-8672df8515e7})");
 }
@@ -707,6 +737,11 @@ impl ::core::cmp::PartialEq for PrintTaskConfiguration {
     }
 }
 impl ::core::cmp::Eq for PrintTaskConfiguration {}
+impl ::core::fmt::Debug for PrintTaskConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTaskConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintTaskConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintTaskConfiguration;{e3c22451-3aa4-4885-9240-311f5f8fbe9d})");
 }
@@ -800,6 +835,11 @@ impl ::core::cmp::PartialEq for PrintTaskConfigurationSaveRequest {
     }
 }
 impl ::core::cmp::Eq for PrintTaskConfigurationSaveRequest {}
+impl ::core::fmt::Debug for PrintTaskConfigurationSaveRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTaskConfigurationSaveRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintTaskConfigurationSaveRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequest;{eeaf2fcb-621e-4b62-ac77-b281cce08d60})");
 }
@@ -871,6 +911,11 @@ impl ::core::cmp::PartialEq for PrintTaskConfigurationSaveRequestedDeferral {
     }
 }
 impl ::core::cmp::Eq for PrintTaskConfigurationSaveRequestedDeferral {}
+impl ::core::fmt::Debug for PrintTaskConfigurationSaveRequestedDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTaskConfigurationSaveRequestedDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintTaskConfigurationSaveRequestedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequestedDeferral;{e959d568-f729-44a4-871d-bd0628696a33})");
 }
@@ -945,6 +990,11 @@ impl ::core::cmp::PartialEq for PrintTaskConfigurationSaveRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PrintTaskConfigurationSaveRequestedEventArgs {}
+impl ::core::fmt::Debug for PrintTaskConfigurationSaveRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTaskConfigurationSaveRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintTaskConfigurationSaveRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequestedEventArgs;{e06c2879-0d61-4938-91d0-96a45bee8479})");
 }

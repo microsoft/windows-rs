@@ -33,6 +33,12 @@ impl ::core::cmp::PartialEq for HingeState {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for HingeState {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for HingeState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HingeState").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for HingeState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Preview.HingeState;i4)");
 }
@@ -202,6 +208,12 @@ impl ::core::cmp::PartialEq for TwoPanelHingedDevicePosturePreview {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for TwoPanelHingedDevicePosturePreview {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for TwoPanelHingedDevicePosturePreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TwoPanelHingedDevicePosturePreview").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for TwoPanelHingedDevicePosturePreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Preview.TwoPanelHingedDevicePosturePreview;{72245c31-4b39-42a6-8e73-7235ade16853})");
 }
@@ -342,6 +354,12 @@ impl ::core::cmp::PartialEq for TwoPanelHingedDevicePosturePreviewReading {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for TwoPanelHingedDevicePosturePreviewReading {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for TwoPanelHingedDevicePosturePreviewReading {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TwoPanelHingedDevicePosturePreviewReading").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for TwoPanelHingedDevicePosturePreviewReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Preview.TwoPanelHingedDevicePosturePreviewReading;{a0251452-4ad6-4b38-8426-c59a15493a7d})");
 }
@@ -436,6 +454,12 @@ impl ::core::cmp::PartialEq for TwoPanelHingedDevicePosturePreviewReadingChanged
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Preview.TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs;{2d2d1bc6-02ce-474a-a556-a75b1cf93a03})");

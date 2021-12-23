@@ -22,6 +22,11 @@ impl ::core::cmp::PartialEq for BluetoothEventTriggeringMode {
     }
 }
 impl ::core::cmp::Eq for BluetoothEventTriggeringMode {}
+impl ::core::fmt::Debug for BluetoothEventTriggeringMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothEventTriggeringMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothEventTriggeringMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Background.BluetoothEventTriggeringMode;i4)");
 }
@@ -70,6 +75,11 @@ impl ::core::cmp::PartialEq for BluetoothLEAdvertisementPublisherTriggerDetails 
     }
 }
 impl ::core::cmp::Eq for BluetoothLEAdvertisementPublisherTriggerDetails {}
+impl ::core::fmt::Debug for BluetoothLEAdvertisementPublisherTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAdvertisementPublisherTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementPublisherTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.BluetoothLEAdvertisementPublisherTriggerDetails;{610eca86-3480-41c9-a918-7ddadf207e00})");
 }
@@ -163,6 +173,11 @@ impl ::core::cmp::PartialEq for BluetoothLEAdvertisementWatcherTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEAdvertisementWatcherTriggerDetails {}
+impl ::core::fmt::Debug for BluetoothLEAdvertisementWatcherTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAdvertisementWatcherTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementWatcherTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.BluetoothLEAdvertisementWatcherTriggerDetails;{a7db5ad7-2257-4e69-9784-fee645c1dce0})");
 }
@@ -274,6 +289,11 @@ impl ::core::cmp::PartialEq for GattCharacteristicNotificationTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for GattCharacteristicNotificationTriggerDetails {}
+impl ::core::fmt::Debug for GattCharacteristicNotificationTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattCharacteristicNotificationTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattCharacteristicNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.GattCharacteristicNotificationTriggerDetails;{9ba03b18-0fec-436a-93b1-f46c697532a2})");
 }
@@ -377,6 +397,11 @@ impl ::core::cmp::PartialEq for GattServiceProviderConnection {
     }
 }
 impl ::core::cmp::Eq for GattServiceProviderConnection {}
+impl ::core::fmt::Debug for GattServiceProviderConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattServiceProviderConnection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattServiceProviderConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.GattServiceProviderConnection;{7fa1b9b9-2f13-40b5-9582-8eb78e98ef13})");
 }
@@ -453,6 +478,11 @@ impl ::core::cmp::PartialEq for GattServiceProviderTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for GattServiceProviderTriggerDetails {}
+impl ::core::fmt::Debug for GattServiceProviderTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattServiceProviderTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattServiceProviderTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.GattServiceProviderTriggerDetails;{ae8c0625-05ff-4afb-b16a-de95f3cf0158})");
 }
@@ -775,6 +805,11 @@ impl ::core::cmp::PartialEq for RfcommConnectionTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for RfcommConnectionTriggerDetails {}
+impl ::core::fmt::Debug for RfcommConnectionTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RfcommConnectionTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RfcommConnectionTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.RfcommConnectionTriggerDetails;{f922734d-2e3c-4efc-ab59-fc5cf96f97e3})");
 }
@@ -886,6 +921,11 @@ impl ::core::cmp::PartialEq for RfcommInboundConnectionInformation {
     }
 }
 impl ::core::cmp::Eq for RfcommInboundConnectionInformation {}
+impl ::core::fmt::Debug for RfcommInboundConnectionInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RfcommInboundConnectionInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RfcommInboundConnectionInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.RfcommInboundConnectionInformation;{6d3e75a8-5429-4059-92e3-1e8b65528707})");
 }
@@ -969,6 +1009,11 @@ impl ::core::cmp::PartialEq for RfcommOutboundConnectionInformation {
     }
 }
 impl ::core::cmp::Eq for RfcommOutboundConnectionInformation {}
+impl ::core::fmt::Debug for RfcommOutboundConnectionInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RfcommOutboundConnectionInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RfcommOutboundConnectionInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.RfcommOutboundConnectionInformation;{b091227b-f434-4cb0-99b1-4ab8cedaedd7})");
 }

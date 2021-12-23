@@ -89,6 +89,11 @@ impl ::core::cmp::PartialEq for DRendezvousSessionEvents {
     }
 }
 impl ::core::cmp::Eq for DRendezvousSessionEvents {}
+impl ::core::fmt::Debug for DRendezvousSessionEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DRendezvousSessionEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for DRendezvousSessionEvents {
     type Vtable = DRendezvousSessionEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fa19cf8_64c4_4f53_ae60_635b3806eca6);
@@ -148,6 +153,11 @@ impl ::core::cmp::PartialEq for IRendezvousApplication {
     }
 }
 impl ::core::cmp::Eq for IRendezvousApplication {}
+impl ::core::fmt::Debug for IRendezvousApplication {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRendezvousApplication").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRendezvousApplication {
     type Vtable = IRendezvousApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f4d070b_a275_49fb_b10d_8ec26387b50d);
@@ -217,6 +227,11 @@ impl ::core::cmp::PartialEq for IRendezvousSession {
     }
 }
 impl ::core::cmp::Eq for IRendezvousSession {}
+impl ::core::fmt::Debug for IRendezvousSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRendezvousSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRendezvousSession {
     type Vtable = IRendezvousSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ba4b1dd_8b0c_48b7_9e7c_2f25857c8df5);

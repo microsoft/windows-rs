@@ -351,6 +351,11 @@ impl ::core::cmp::PartialEq for FulfillmentResult {
     }
 }
 impl ::core::cmp::Eq for FulfillmentResult {}
+impl ::core::fmt::Debug for FulfillmentResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FulfillmentResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FulfillmentResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.FulfillmentResult;i4)");
 }
@@ -913,6 +918,11 @@ impl ::core::cmp::PartialEq for LicenseChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for LicenseChangedEventHandler {}
+impl ::core::fmt::Debug for LicenseChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LicenseChangedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for LicenseChangedEventHandler {
     type Vtable = LicenseChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4a50255_1369_4c36_832f_6f2d88e3659b);
@@ -988,6 +998,11 @@ impl ::core::cmp::PartialEq for LicenseInformation {
     }
 }
 impl ::core::cmp::Eq for LicenseInformation {}
+impl ::core::fmt::Debug for LicenseInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LicenseInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LicenseInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.LicenseInformation;{8eb7dc30-f170-4ed5-8e21-1516da3fd367})");
 }
@@ -1138,6 +1153,11 @@ impl ::core::cmp::PartialEq for ListingInformation {
     }
 }
 impl ::core::cmp::Eq for ListingInformation {}
+impl ::core::fmt::Debug for ListingInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ListingInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ListingInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.ListingInformation;{588b4abf-bc74-4383-b78c-99606323dece})");
 }
@@ -1239,6 +1259,11 @@ impl ::core::cmp::PartialEq for ProductLicense {
     }
 }
 impl ::core::cmp::Eq for ProductLicense {}
+impl ::core::fmt::Debug for ProductLicense {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProductLicense").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProductLicense {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.ProductLicense;{363308c7-2bcf-4c0e-8f2f-e808aaa8f99d})");
 }
@@ -1406,6 +1431,11 @@ impl ::core::cmp::PartialEq for ProductListing {
     }
 }
 impl ::core::cmp::Eq for ProductListing {}
+impl ::core::fmt::Debug for ProductListing {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProductListing").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProductListing {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.ProductListing;{45a7d6ad-c750-4d9c-947c-b00dcbf9e9c2})");
 }
@@ -1534,6 +1564,11 @@ impl ::core::cmp::PartialEq for ProductPurchaseDisplayProperties {
     }
 }
 impl ::core::cmp::Eq for ProductPurchaseDisplayProperties {}
+impl ::core::fmt::Debug for ProductPurchaseDisplayProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProductPurchaseDisplayProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProductPurchaseDisplayProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.ProductPurchaseDisplayProperties;{d70b7420-bc92-401b-a809-c9b2e5dbbdaf})");
 }
@@ -1610,6 +1645,11 @@ impl ::core::cmp::PartialEq for ProductPurchaseStatus {
     }
 }
 impl ::core::cmp::Eq for ProductPurchaseStatus {}
+impl ::core::fmt::Debug for ProductPurchaseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProductPurchaseStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProductPurchaseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.ProductPurchaseStatus;i4)");
 }
@@ -1639,6 +1679,11 @@ impl ::core::cmp::PartialEq for ProductType {
     }
 }
 impl ::core::cmp::Eq for ProductType {}
+impl ::core::fmt::Debug for ProductType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProductType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProductType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.ProductType;i4)");
 }
@@ -1693,6 +1738,11 @@ impl ::core::cmp::PartialEq for PurchaseResults {
     }
 }
 impl ::core::cmp::Eq for PurchaseResults {}
+impl ::core::fmt::Debug for PurchaseResults {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PurchaseResults").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PurchaseResults {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.PurchaseResults;{ed50b37e-8656-4f65-b8c8-ac7e0cb1a1c2})");
 }
@@ -1785,6 +1835,11 @@ impl ::core::cmp::PartialEq for UnfulfilledConsumable {
     }
 }
 impl ::core::cmp::Eq for UnfulfilledConsumable {}
+impl ::core::fmt::Debug for UnfulfilledConsumable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnfulfilledConsumable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UnfulfilledConsumable {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.UnfulfilledConsumable;{2df7fbbb-1cdd-4cb8-a014-7b9cf8986927})");
 }

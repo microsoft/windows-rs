@@ -39,6 +39,11 @@ impl ::core::cmp::PartialEq for IInkCommitRequestHandler {
     }
 }
 impl ::core::cmp::Eq for IInkCommitRequestHandler {}
+impl ::core::fmt::Debug for IInkCommitRequestHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkCommitRequestHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkCommitRequestHandler {
     type Vtable = IInkCommitRequestHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfabea3fc_b108_45b6_a9fc_8d08fa9f85cf);
@@ -87,6 +92,11 @@ impl ::core::cmp::PartialEq for IInkD2DRenderer {
     }
 }
 impl ::core::cmp::Eq for IInkD2DRenderer {}
+impl ::core::fmt::Debug for IInkD2DRenderer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkD2DRenderer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkD2DRenderer {
     type Vtable = IInkD2DRendererVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x407fb1de_f85a_4150_97cf_b7fb274fb4f8);
@@ -140,6 +150,11 @@ impl ::core::cmp::PartialEq for IInkD2DRenderer2 {
     }
 }
 impl ::core::cmp::Eq for IInkD2DRenderer2 {}
+impl ::core::fmt::Debug for IInkD2DRenderer2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkD2DRenderer2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkD2DRenderer2 {
     type Vtable = IInkD2DRenderer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a95dcd9_4578_4b71_b20b_bf664d4bfeee);
@@ -202,6 +217,11 @@ impl ::core::cmp::PartialEq for IInkDesktopHost {
     }
 }
 impl ::core::cmp::Eq for IInkDesktopHost {}
+impl ::core::fmt::Debug for IInkDesktopHost {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkDesktopHost").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkDesktopHost {
     type Vtable = IInkDesktopHostVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ce7d875_a981_4140_a1ff_ad93258e8d59);
@@ -256,6 +276,11 @@ impl ::core::cmp::PartialEq for IInkHostWorkItem {
     }
 }
 impl ::core::cmp::Eq for IInkHostWorkItem {}
+impl ::core::fmt::Debug for IInkHostWorkItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkHostWorkItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkHostWorkItem {
     type Vtable = IInkHostWorkItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccda0a9a_1b78_4632_bb96_97800662e26c);
@@ -319,6 +344,11 @@ impl ::core::cmp::PartialEq for IInkPresenterDesktop {
     }
 }
 impl ::core::cmp::Eq for IInkPresenterDesktop {}
+impl ::core::fmt::Debug for IInkPresenterDesktop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkPresenterDesktop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkPresenterDesktop {
     type Vtable = IInkPresenterDesktopVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73f3c0d9_2e8b_48f3_895e_20cbd27b723b);

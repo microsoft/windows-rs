@@ -52,6 +52,11 @@ impl ::core::cmp::PartialEq for IEnumOfflineFilesItems {
     }
 }
 impl ::core::cmp::Eq for IEnumOfflineFilesItems {}
+impl ::core::fmt::Debug for IEnumOfflineFilesItems {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumOfflineFilesItems").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumOfflineFilesItems {
     type Vtable = IEnumOfflineFilesItemsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda70e815_c361_4407_bc0b_0d7046e5f2cd);
@@ -120,6 +125,11 @@ impl ::core::cmp::PartialEq for IEnumOfflineFilesSettings {
     }
 }
 impl ::core::cmp::Eq for IEnumOfflineFilesSettings {}
+impl ::core::fmt::Debug for IEnumOfflineFilesSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumOfflineFilesSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumOfflineFilesSettings {
     type Vtable = IEnumOfflineFilesSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x729680c4_1a38_47bc_9e5c_02c51562ac30);
@@ -257,6 +267,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesCache {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesCache {}
+impl ::core::fmt::Debug for IOfflineFilesCache {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesCache").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesCache {
     type Vtable = IOfflineFilesCacheVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x855d6203_7914_48b9_8d40_4c56f5acffc5);
@@ -445,6 +460,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesCache2 {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesCache2 {}
+impl ::core::fmt::Debug for IOfflineFilesCache2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesCache2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesCache2 {
     type Vtable = IOfflineFilesCache2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c075039_1551_4ed9_8781_56705c04d3c0);
@@ -560,6 +580,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesChangeInfo {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesChangeInfo {}
+impl ::core::fmt::Debug for IOfflineFilesChangeInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesChangeInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesChangeInfo {
     type Vtable = IOfflineFilesChangeInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa96e6fa4_e0d1_4c29_960b_ee508fe68c72);
@@ -639,6 +664,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesConnectionInfo {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesConnectionInfo {}
+impl ::core::fmt::Debug for IOfflineFilesConnectionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesConnectionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesConnectionInfo {
     type Vtable = IOfflineFilesConnectionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefb23a09_a867_4be8_83a6_86969a7d0856);
@@ -739,6 +769,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesDirectoryItem {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesDirectoryItem {}
+impl ::core::fmt::Debug for IOfflineFilesDirectoryItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesDirectoryItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesDirectoryItem {
     type Vtable = IOfflineFilesDirectoryItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2273597a_a08c_4a00_a37a_c1ae4e9a1cfd);
@@ -803,6 +838,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesDirtyInfo {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesDirtyInfo {}
+impl ::core::fmt::Debug for IOfflineFilesDirtyInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesDirtyInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesDirtyInfo {
     type Vtable = IOfflineFilesDirtyInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f50ce33_bac9_4eaa_a11d_da0e527d047d);
@@ -864,6 +904,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesErrorInfo {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesErrorInfo {}
+impl ::core::fmt::Debug for IOfflineFilesErrorInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesErrorInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesErrorInfo {
     type Vtable = IOfflineFilesErrorInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7112fa5f_7571_435a_8eb7_195c7c1429bc);
@@ -1032,6 +1077,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesEvents {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesEvents {}
+impl ::core::fmt::Debug for IOfflineFilesEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesEvents {
     type Vtable = IOfflineFilesEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe25585c1_0caa_4eb1_873b_1cae5b77c314);
@@ -1294,6 +1344,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesEvents2 {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesEvents2 {}
+impl ::core::fmt::Debug for IOfflineFilesEvents2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesEvents2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesEvents2 {
     type Vtable = IOfflineFilesEvents2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ead8f56_ff76_4faa_a795_6f6ef792498b);
@@ -1600,6 +1655,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesEvents3 {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesEvents3 {}
+impl ::core::fmt::Debug for IOfflineFilesEvents3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesEvents3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesEvents3 {
     type Vtable = IOfflineFilesEvents3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ba04a45_ee69_42f0_9ab1_7db5c8805808);
@@ -1940,6 +2000,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesEvents4 {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesEvents4 {}
+impl ::core::fmt::Debug for IOfflineFilesEvents4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesEvents4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesEvents4 {
     type Vtable = IOfflineFilesEvents4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbd69b1e_c7d2_473e_b35f_9d8c24c0c484);
@@ -2059,6 +2124,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesEventsFilter {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesEventsFilter {}
+impl ::core::fmt::Debug for IOfflineFilesEventsFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesEventsFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesEventsFilter {
     type Vtable = IOfflineFilesEventsFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33fc4e1b_0716_40fa_ba65_6e62a84a846f);
@@ -2168,6 +2238,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesFileItem {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesFileItem {}
+impl ::core::fmt::Debug for IOfflineFilesFileItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesFileItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesFileItem {
     type Vtable = IOfflineFilesFileItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8dfadead_26c2_4eff_8a72_6b50723d9a00);
@@ -2241,6 +2316,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesFileSysInfo {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesFileSysInfo {}
+impl ::core::fmt::Debug for IOfflineFilesFileSysInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesFileSysInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesFileSysInfo {
     type Vtable = IOfflineFilesFileSysInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc1a163f_7bfd_4d88_9c66_96ea9a6a3d6b);
@@ -2298,6 +2378,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesGhostInfo {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesGhostInfo {}
+impl ::core::fmt::Debug for IOfflineFilesGhostInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesGhostInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesGhostInfo {
     type Vtable = IOfflineFilesGhostInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b09d48c_8ab5_464f_a755_a59d92f99429);
@@ -2373,6 +2458,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesItem {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesItem {}
+impl ::core::fmt::Debug for IOfflineFilesItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesItem {
     type Vtable = IOfflineFilesItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a753da6_e044_4f12_a718_5d14d079a906);
@@ -2437,6 +2527,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesItemContainer {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesItemContainer {}
+impl ::core::fmt::Debug for IOfflineFilesItemContainer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesItemContainer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesItemContainer {
     type Vtable = IOfflineFilesItemContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3836f049_9413_45dd_bf46_b5aaa82dc310);
@@ -2500,6 +2595,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesItemFilter {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesItemFilter {}
+impl ::core::fmt::Debug for IOfflineFilesItemFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesItemFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesItemFilter {
     type Vtable = IOfflineFilesItemFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4b5a26c_dc05_4f20_ada4_551f1077be5c);
@@ -2578,6 +2678,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesPinInfo {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesPinInfo {}
+impl ::core::fmt::Debug for IOfflineFilesPinInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesPinInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesPinInfo {
     type Vtable = IOfflineFilesPinInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b2b0655_b3fd_497d_adeb_bd156bc8355b);
@@ -2687,6 +2792,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesPinInfo2 {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesPinInfo2 {}
+impl ::core::fmt::Debug for IOfflineFilesPinInfo2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesPinInfo2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesPinInfo2 {
     type Vtable = IOfflineFilesPinInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x623c58a2_42ed_4ad7_b69a_0f1b30a72d0d);
@@ -2762,6 +2872,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesProgress {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesProgress {}
+impl ::core::fmt::Debug for IOfflineFilesProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesProgress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesProgress {
     type Vtable = IOfflineFilesProgressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfad63237_c55b_4911_9850_bcf96d4c979e);
@@ -2860,6 +2975,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesServerItem {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesServerItem {}
+impl ::core::fmt::Debug for IOfflineFilesServerItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesServerItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesServerItem {
     type Vtable = IOfflineFilesServerItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b1c9576_a92b_4151_8e9e_7c7b3ec2e016);
@@ -2959,6 +3079,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesSetting {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesSetting {}
+impl ::core::fmt::Debug for IOfflineFilesSetting {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesSetting").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesSetting {
     type Vtable = IOfflineFilesSettingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd871d3f7_f613_48a1_827e_7a34e560fff6);
@@ -3036,6 +3161,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesShareInfo {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesShareInfo {}
+impl ::core::fmt::Debug for IOfflineFilesShareInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesShareInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesShareInfo {
     type Vtable = IOfflineFilesShareInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bcc43e7_31ce_4ca4_8ccd_1cff2dc494da);
@@ -3133,6 +3263,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesShareItem {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesShareItem {}
+impl ::core::fmt::Debug for IOfflineFilesShareItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesShareItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesShareItem {
     type Vtable = IOfflineFilesShareItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbab7e48d_4804_41b5_a44d_0f199b06b145);
@@ -3235,6 +3370,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesSimpleProgress {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesSimpleProgress {}
+impl ::core::fmt::Debug for IOfflineFilesSimpleProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesSimpleProgress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesSimpleProgress {
     type Vtable = IOfflineFilesSimpleProgressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc34f7f9b_c43d_4f9d_a776_c0eb6de5d401);
@@ -3296,6 +3436,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesSuspend {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesSuspend {}
+impl ::core::fmt::Debug for IOfflineFilesSuspend {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesSuspend").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesSuspend {
     type Vtable = IOfflineFilesSuspendVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62c4560f_bc0b_48ca_ad9d_34cb528d99a9);
@@ -3350,6 +3495,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesSuspendInfo {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesSuspendInfo {}
+impl ::core::fmt::Debug for IOfflineFilesSuspendInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesSuspendInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesSuspendInfo {
     type Vtable = IOfflineFilesSuspendInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa457c25b_4e9c_4b04_85af_8932ccd97889);
@@ -3404,6 +3554,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesSyncConflictHandler {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesSyncConflictHandler {}
+impl ::core::fmt::Debug for IOfflineFilesSyncConflictHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesSyncConflictHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesSyncConflictHandler {
     type Vtable = IOfflineFilesSyncConflictHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6dd5092_c65c_46b6_97b8_fadd08e7e1be);
@@ -3520,6 +3675,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesSyncErrorInfo {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesSyncErrorInfo {}
+impl ::core::fmt::Debug for IOfflineFilesSyncErrorInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesSyncErrorInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesSyncErrorInfo {
     type Vtable = IOfflineFilesSyncErrorInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59f95e46_eb54_49d1_be76_de95458d01b0);
@@ -3595,6 +3755,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesSyncErrorItemInfo {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesSyncErrorItemInfo {}
+impl ::core::fmt::Debug for IOfflineFilesSyncErrorItemInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesSyncErrorItemInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesSyncErrorItemInfo {
     type Vtable = IOfflineFilesSyncErrorItemInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecdbaf0d_6a18_4d55_8017_108f7660ba44);
@@ -3694,6 +3859,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesSyncProgress {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesSyncProgress {}
+impl ::core::fmt::Debug for IOfflineFilesSyncProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesSyncProgress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesSyncProgress {
     type Vtable = IOfflineFilesSyncProgressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6931f49a_6fc7_4c1b_b265_56793fc451b7);
@@ -3756,6 +3926,11 @@ impl ::core::cmp::PartialEq for IOfflineFilesTransparentCacheInfo {
     }
 }
 impl ::core::cmp::Eq for IOfflineFilesTransparentCacheInfo {}
+impl ::core::fmt::Debug for IOfflineFilesTransparentCacheInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOfflineFilesTransparentCacheInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesTransparentCacheInfo {
     type Vtable = IOfflineFilesTransparentCacheInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcaf4a01_5b68_4b56_a6a1_8d2786ede8e3);

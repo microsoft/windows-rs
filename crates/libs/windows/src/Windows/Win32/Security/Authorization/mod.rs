@@ -33,6 +33,12 @@ impl ::core::clone::Clone for ACTRL_ACCESSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_ACCESSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESSA").field("cEntries", &self.cEntries).field("pPropertyAccessList", &self.pPropertyAccessList).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACTRL_ACCESSA {
     type Abi = Self;
 }
@@ -63,6 +69,12 @@ impl ::core::marker::Copy for ACTRL_ACCESSW {}
 impl ::core::clone::Clone for ACTRL_ACCESSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_ACCESSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESSW").field("cEntries", &self.cEntries).field("pPropertyAccessList", &self.pPropertyAccessList).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -103,6 +115,12 @@ impl ::core::clone::Clone for ACTRL_ACCESS_ENTRYA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_ACCESS_ENTRYA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESS_ENTRYA").field("Trustee", &self.Trustee).field("fAccessFlags", &self.fAccessFlags).field("Access", &self.Access).field("ProvSpecificAccess", &self.ProvSpecificAccess).field("Inheritance", &self.Inheritance).field("lpInheritProperty", &self.lpInheritProperty).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACTRL_ACCESS_ENTRYA {
     type Abi = Self;
 }
@@ -137,6 +155,12 @@ impl ::core::marker::Copy for ACTRL_ACCESS_ENTRYW {}
 impl ::core::clone::Clone for ACTRL_ACCESS_ENTRYW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_ACCESS_ENTRYW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESS_ENTRYW").field("Trustee", &self.Trustee).field("fAccessFlags", &self.fAccessFlags).field("Access", &self.Access).field("ProvSpecificAccess", &self.ProvSpecificAccess).field("Inheritance", &self.Inheritance).field("lpInheritProperty", &self.lpInheritProperty).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -183,6 +207,12 @@ impl ::core::clone::Clone for ACTRL_ACCESS_ENTRY_LISTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_ACCESS_ENTRY_LISTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESS_ENTRY_LISTA").field("cEntries", &self.cEntries).field("pAccessList", &self.pAccessList).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACTRL_ACCESS_ENTRY_LISTA {
     type Abi = Self;
 }
@@ -213,6 +243,12 @@ impl ::core::marker::Copy for ACTRL_ACCESS_ENTRY_LISTW {}
 impl ::core::clone::Clone for ACTRL_ACCESS_ENTRY_LISTW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_ACCESS_ENTRY_LISTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESS_ENTRY_LISTW").field("cEntries", &self.cEntries).field("pAccessList", &self.pAccessList).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -249,6 +285,12 @@ impl ::core::clone::Clone for ACTRL_ACCESS_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_ACCESS_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESS_INFOA").field("fAccessPermission", &self.fAccessPermission).field("lpAccessPermissionName", &self.lpAccessPermissionName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACTRL_ACCESS_INFOA {
     type Abi = Self;
 }
@@ -279,6 +321,12 @@ impl ::core::marker::Copy for ACTRL_ACCESS_INFOW {}
 impl ::core::clone::Clone for ACTRL_ACCESS_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_ACCESS_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESS_INFOW").field("fAccessPermission", &self.fAccessPermission).field("lpAccessPermissionName", &self.lpAccessPermissionName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -325,6 +373,12 @@ impl ::core::clone::Clone for ACTRL_CONTROL_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_CONTROL_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_CONTROL_INFOA").field("lpControlId", &self.lpControlId).field("lpControlName", &self.lpControlName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACTRL_CONTROL_INFOA {
     type Abi = Self;
 }
@@ -355,6 +409,12 @@ impl ::core::marker::Copy for ACTRL_CONTROL_INFOW {}
 impl ::core::clone::Clone for ACTRL_CONTROL_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_CONTROL_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_CONTROL_INFOW").field("lpControlId", &self.lpControlId).field("lpControlName", &self.lpControlName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -571,6 +631,12 @@ impl ::core::clone::Clone for ACTRL_PROPERTY_ENTRYA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_PROPERTY_ENTRYA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_PROPERTY_ENTRYA").field("lpProperty", &self.lpProperty).field("pAccessEntryList", &self.pAccessEntryList).field("fListFlags", &self.fListFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACTRL_PROPERTY_ENTRYA {
     type Abi = Self;
 }
@@ -602,6 +668,12 @@ impl ::core::marker::Copy for ACTRL_PROPERTY_ENTRYW {}
 impl ::core::clone::Clone for ACTRL_PROPERTY_ENTRYW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_PROPERTY_ENTRYW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_PROPERTY_ENTRYW").field("lpProperty", &self.lpProperty).field("pAccessEntryList", &self.pAccessEntryList).field("fListFlags", &self.fListFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -701,6 +773,11 @@ impl ::core::clone::Clone for AUDIT_IP_ADDRESS {
         *self
     }
 }
+impl ::core::fmt::Debug for AUDIT_IP_ADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIT_IP_ADDRESS").field("pIpAddress", &self.pIpAddress).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AUDIT_IP_ADDRESS {
     type Abi = Self;
 }
@@ -729,6 +806,11 @@ impl ::core::clone::Clone for AUDIT_OBJECT_TYPE {
         *self
     }
 }
+impl ::core::fmt::Debug for AUDIT_OBJECT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIT_OBJECT_TYPE").field("ObjectType", &self.ObjectType).field("Flags", &self.Flags).field("Level", &self.Level).field("AccessMask", &self.AccessMask).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AUDIT_OBJECT_TYPE {
     type Abi = Self;
 }
@@ -754,6 +836,11 @@ impl ::core::marker::Copy for AUDIT_OBJECT_TYPES {}
 impl ::core::clone::Clone for AUDIT_OBJECT_TYPES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AUDIT_OBJECT_TYPES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIT_OBJECT_TYPES").field("Count", &self.Count).field("Flags", &self.Flags).field("pObjectTypes", &self.pObjectTypes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AUDIT_OBJECT_TYPES {
@@ -896,6 +983,12 @@ impl ::core::clone::Clone for AUDIT_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUDIT_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIT_PARAMS").field("Length", &self.Length).field("Flags", &self.Flags).field("Count", &self.Count).field("Parameters", &self.Parameters).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AUDIT_PARAMS {
     type Abi = Self;
 }
@@ -966,6 +1059,11 @@ impl ::core::clone::Clone for AUTHZ_ACCESS_REPLY {
         *self
     }
 }
+impl ::core::fmt::Debug for AUTHZ_ACCESS_REPLY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_ACCESS_REPLY").field("ResultListLength", &self.ResultListLength).field("GrantedAccessMask", &self.GrantedAccessMask).field("SaclEvaluationResults", &self.SaclEvaluationResults).field("Error", &self.Error).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AUTHZ_ACCESS_REPLY {
     type Abi = Self;
 }
@@ -996,6 +1094,12 @@ impl ::core::marker::Copy for AUTHZ_ACCESS_REQUEST {}
 impl ::core::clone::Clone for AUTHZ_ACCESS_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUTHZ_ACCESS_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_ACCESS_REQUEST").field("DesiredAccess", &self.DesiredAccess).field("PrincipalSelfSid", &self.PrincipalSelfSid).field("ObjectTypeList", &self.ObjectTypeList).field("ObjectTypeListLength", &self.ObjectTypeListLength).field("OptionalArguments", &self.OptionalArguments).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1043,6 +1147,11 @@ impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {}
 impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_AUDIT_EVENT_TYPE_LEGACY").field("CategoryId", &self.CategoryId).field("AuditId", &self.AuditId).field("ParameterCount", &self.ParameterCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
@@ -1134,6 +1243,11 @@ impl ::core::clone::Clone for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
         *self
     }
 }
+impl ::core::fmt::Debug for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__").field("unused", &self.unused).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
     type Abi = Self;
 }
@@ -1222,6 +1336,20 @@ impl ::core::clone::Clone for AUTHZ_INIT_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUTHZ_INIT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_INIT_INFO")
+            .field("version", &self.version)
+            .field("szResourceManagerName", &self.szResourceManagerName)
+            .field("pfnDynamicAccessCheck", &self.pfnDynamicAccessCheck.map(|f| f as usize))
+            .field("pfnComputeDynamicGroups", &self.pfnComputeDynamicGroups.map(|f| f as usize))
+            .field("pfnFreeDynamicGroups", &self.pfnFreeDynamicGroups.map(|f| f as usize))
+            .field("pfnGetCentralAccessPolicy", &self.pfnGetCentralAccessPolicy.map(|f| f as usize))
+            .field("pfnFreeCentralAccessPolicy", &self.pfnFreeCentralAccessPolicy.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AUTHZ_INIT_INFO {
     type Abi = Self;
 }
@@ -1256,6 +1384,12 @@ impl ::core::marker::Copy for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {}
 impl ::core::clone::Clone for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET").field("szObjectTypeName", &self.szObjectTypeName).field("dwOffset", &self.dwOffset).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1305,6 +1439,12 @@ impl ::core::marker::Copy for AUTHZ_RPC_INIT_INFO_CLIENT {}
 impl ::core::clone::Clone for AUTHZ_RPC_INIT_INFO_CLIENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUTHZ_RPC_INIT_INFO_CLIENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_RPC_INIT_INFO_CLIENT").field("version", &self.version).field("ObjectUuid", &self.ObjectUuid).field("ProtSeq", &self.ProtSeq).field("NetworkAddr", &self.NetworkAddr).field("Endpoint", &self.Endpoint).field("Options", &self.Options).field("ServerSpn", &self.ServerSpn).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1420,6 +1560,12 @@ impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE").field("Version", &self.Version).field("pName", &self.pName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
     type Abi = Self;
 }
@@ -1447,6 +1593,11 @@ impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {}
 impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE").field("pValue", &self.pValue).field("ValueLength", &self.ValueLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
@@ -2728,6 +2879,12 @@ impl ::core::clone::Clone for EXPLICIT_ACCESS_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EXPLICIT_ACCESS_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXPLICIT_ACCESS_A").field("grfAccessPermissions", &self.grfAccessPermissions).field("grfAccessMode", &self.grfAccessMode).field("grfInheritance", &self.grfInheritance).field("Trustee", &self.Trustee).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EXPLICIT_ACCESS_A {
     type Abi = Self;
 }
@@ -2763,6 +2920,12 @@ impl ::core::clone::Clone for EXPLICIT_ACCESS_W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EXPLICIT_ACCESS_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXPLICIT_ACCESS_W").field("grfAccessPermissions", &self.grfAccessPermissions).field("grfAccessMode", &self.grfAccessMode).field("grfInheritance", &self.grfInheritance).field("Trustee", &self.Trustee).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EXPLICIT_ACCESS_W {
     type Abi = Self;
 }
@@ -2789,6 +2952,11 @@ impl ::core::marker::Copy for FN_OBJECT_MGR_FUNCTIONS {}
 impl ::core::clone::Clone for FN_OBJECT_MGR_FUNCTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FN_OBJECT_MGR_FUNCTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FN_OBJECT_MGR_FUNCTIONS").field("Placeholder", &self.Placeholder).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FN_OBJECT_MGR_FUNCTIONS {
@@ -3553,6 +3721,11 @@ impl ::core::cmp::PartialEq for IAzApplication {
     }
 }
 impl ::core::cmp::Eq for IAzApplication {}
+impl ::core::fmt::Debug for IAzApplication {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzApplication").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzApplication {
     type Vtable = IAzApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x987bc7c7_b813_4d27_bede_6ba5ae867e95);
@@ -4136,6 +4309,11 @@ impl ::core::cmp::PartialEq for IAzApplication2 {
     }
 }
 impl ::core::cmp::Eq for IAzApplication2 {}
+impl ::core::fmt::Debug for IAzApplication2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzApplication2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzApplication2 {
     type Vtable = IAzApplication2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x086a68af_a249_437c_b18d_d4d86d6a9660);
@@ -4819,6 +4997,11 @@ impl ::core::cmp::PartialEq for IAzApplication3 {
     }
 }
 impl ::core::cmp::Eq for IAzApplication3 {}
+impl ::core::fmt::Debug for IAzApplication3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzApplication3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzApplication3 {
     type Vtable = IAzApplication3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x181c845e_7196_4a7d_ac2e_020c0bb7a303);
@@ -5235,6 +5418,11 @@ impl ::core::cmp::PartialEq for IAzApplicationGroup {
     }
 }
 impl ::core::cmp::Eq for IAzApplicationGroup {}
+impl ::core::fmt::Debug for IAzApplicationGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzApplicationGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzApplicationGroup {
     type Vtable = IAzApplicationGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1b744cd_58a6_4e06_9fbf_36f6d779e21e);
@@ -5627,6 +5815,11 @@ impl ::core::cmp::PartialEq for IAzApplicationGroup2 {
     }
 }
 impl ::core::cmp::Eq for IAzApplicationGroup2 {}
+impl ::core::fmt::Debug for IAzApplicationGroup2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzApplicationGroup2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzApplicationGroup2 {
     type Vtable = IAzApplicationGroup2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f0613fc_b71a_464e_a11d_5b881a56cefa);
@@ -5820,6 +6013,11 @@ impl ::core::cmp::PartialEq for IAzApplicationGroups {
     }
 }
 impl ::core::cmp::Eq for IAzApplicationGroups {}
+impl ::core::fmt::Debug for IAzApplicationGroups {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzApplicationGroups").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzApplicationGroups {
     type Vtable = IAzApplicationGroupsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ce66ad5_9f3c_469d_a911_b99887a7e685);
@@ -5941,6 +6139,11 @@ impl ::core::cmp::PartialEq for IAzApplications {
     }
 }
 impl ::core::cmp::Eq for IAzApplications {}
+impl ::core::fmt::Debug for IAzApplications {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzApplications").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzApplications {
     type Vtable = IAzApplicationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x929b11a9_95c5_4a84_a29a_20ad42c2f16c);
@@ -6315,6 +6518,11 @@ impl ::core::cmp::PartialEq for IAzAuthorizationStore {
     }
 }
 impl ::core::cmp::Eq for IAzAuthorizationStore {}
+impl ::core::fmt::Debug for IAzAuthorizationStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzAuthorizationStore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzAuthorizationStore {
     type Vtable = IAzAuthorizationStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedbd9ca9_9b82_4f6a_9e8b_98301e450f14);
@@ -6811,6 +7019,11 @@ impl ::core::cmp::PartialEq for IAzAuthorizationStore2 {
     }
 }
 impl ::core::cmp::Eq for IAzAuthorizationStore2 {}
+impl ::core::fmt::Debug for IAzAuthorizationStore2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzAuthorizationStore2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzAuthorizationStore2 {
     type Vtable = IAzAuthorizationStore2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb11e5584_d577_4273_b6c5_0973e0f8e80d);
@@ -7354,6 +7567,11 @@ impl ::core::cmp::PartialEq for IAzAuthorizationStore3 {
     }
 }
 impl ::core::cmp::Eq for IAzAuthorizationStore3 {}
+impl ::core::fmt::Debug for IAzAuthorizationStore3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzAuthorizationStore3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzAuthorizationStore3 {
     type Vtable = IAzAuthorizationStore3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabc08425_0c86_4fa0_9be3_7189956c926e);
@@ -7580,6 +7798,11 @@ impl ::core::cmp::PartialEq for IAzBizRuleContext {
     }
 }
 impl ::core::cmp::Eq for IAzBizRuleContext {}
+impl ::core::fmt::Debug for IAzBizRuleContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzBizRuleContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzBizRuleContext {
     type Vtable = IAzBizRuleContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe192f17d_d59f_455e_a152_940316cd77b2);
@@ -7718,6 +7941,11 @@ impl ::core::cmp::PartialEq for IAzBizRuleInterfaces {
     }
 }
 impl ::core::cmp::Eq for IAzBizRuleInterfaces {}
+impl ::core::fmt::Debug for IAzBizRuleInterfaces {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzBizRuleInterfaces").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzBizRuleInterfaces {
     type Vtable = IAzBizRuleInterfacesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe94128c7_e9da_44cc_b0bd_53036f3aab3d);
@@ -7859,6 +8087,11 @@ impl ::core::cmp::PartialEq for IAzBizRuleParameters {
     }
 }
 impl ::core::cmp::Eq for IAzBizRuleParameters {}
+impl ::core::fmt::Debug for IAzBizRuleParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzBizRuleParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzBizRuleParameters {
     type Vtable = IAzBizRuleParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc17685f_e25d_4dcd_bae1_276ec9533cb5);
@@ -8057,6 +8290,11 @@ impl ::core::cmp::PartialEq for IAzClientContext {
     }
 }
 impl ::core::cmp::Eq for IAzClientContext {}
+impl ::core::fmt::Debug for IAzClientContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzClientContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzClientContext {
     type Vtable = IAzClientContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeff1f00b_488a_466d_afd9_a401c5f9eef5);
@@ -8323,6 +8561,11 @@ impl ::core::cmp::PartialEq for IAzClientContext2 {
     }
 }
 impl ::core::cmp::Eq for IAzClientContext2 {}
+impl ::core::fmt::Debug for IAzClientContext2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzClientContext2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzClientContext2 {
     type Vtable = IAzClientContext2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b0c92b8_208a_488a_8f81_e4edb22111cd);
@@ -8667,6 +8910,11 @@ impl ::core::cmp::PartialEq for IAzClientContext3 {
     }
 }
 impl ::core::cmp::Eq for IAzClientContext3 {}
+impl ::core::fmt::Debug for IAzClientContext3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzClientContext3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzClientContext3 {
     type Vtable = IAzClientContext3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11894fde_1deb_4b4b_8907_6d1cda1f5d4f);
@@ -8831,6 +9079,11 @@ impl ::core::cmp::PartialEq for IAzNameResolver {
     }
 }
 impl ::core::cmp::Eq for IAzNameResolver {}
+impl ::core::fmt::Debug for IAzNameResolver {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzNameResolver").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzNameResolver {
     type Vtable = IAzNameResolverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x504d0f15_73e2_43df_a870_a64f40714f53);
@@ -8947,6 +9200,11 @@ impl ::core::cmp::PartialEq for IAzObjectPicker {
     }
 }
 impl ::core::cmp::Eq for IAzObjectPicker {}
+impl ::core::fmt::Debug for IAzObjectPicker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzObjectPicker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzObjectPicker {
     type Vtable = IAzObjectPickerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63130a48_699a_42d8_bf01_c62ac3fb79f9);
@@ -9116,6 +9374,11 @@ impl ::core::cmp::PartialEq for IAzOperation {
     }
 }
 impl ::core::cmp::Eq for IAzOperation {}
+impl ::core::fmt::Debug for IAzOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzOperation {
     type Vtable = IAzOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e56b24f_ea01_4d61_be44_c49b5e4eaf74);
@@ -9329,6 +9592,11 @@ impl ::core::cmp::PartialEq for IAzOperation2 {
     }
 }
 impl ::core::cmp::Eq for IAzOperation2 {}
+impl ::core::fmt::Debug for IAzOperation2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzOperation2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzOperation2 {
     type Vtable = IAzOperation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f5ea01f_44a2_4184_9c48_a75b4dcc8ccc);
@@ -9470,6 +9738,11 @@ impl ::core::cmp::PartialEq for IAzOperations {
     }
 }
 impl ::core::cmp::Eq for IAzOperations {}
+impl ::core::fmt::Debug for IAzOperations {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzOperations").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzOperations {
     type Vtable = IAzOperationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90ef9c07_9706_49d9_af80_0438a5f3ec35);
@@ -9585,6 +9858,11 @@ impl ::core::cmp::PartialEq for IAzPrincipalLocator {
     }
 }
 impl ::core::cmp::Eq for IAzPrincipalLocator {}
+impl ::core::fmt::Debug for IAzPrincipalLocator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzPrincipalLocator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzPrincipalLocator {
     type Vtable = IAzPrincipalLocatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5c3507d_ad6a_4992_9c7f_74ab480b44cc);
@@ -9833,6 +10111,11 @@ impl ::core::cmp::PartialEq for IAzRole {
     }
 }
 impl ::core::cmp::Eq for IAzRole {}
+impl ::core::fmt::Debug for IAzRole {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzRole").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzRole {
     type Vtable = IAzRoleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x859e0d8d_62d7_41d8_a034_c0cd5d43fdfa);
@@ -10173,6 +10456,11 @@ impl ::core::cmp::PartialEq for IAzRoleAssignment {
     }
 }
 impl ::core::cmp::Eq for IAzRoleAssignment {}
+impl ::core::fmt::Debug for IAzRoleAssignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzRoleAssignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzRoleAssignment {
     type Vtable = IAzRoleAssignmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55647d31_0d5a_4fa3_b4ac_2b5f9ad5ab76);
@@ -10350,6 +10638,11 @@ impl ::core::cmp::PartialEq for IAzRoleAssignments {
     }
 }
 impl ::core::cmp::Eq for IAzRoleAssignments {}
+impl ::core::fmt::Debug for IAzRoleAssignments {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzRoleAssignments").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzRoleAssignments {
     type Vtable = IAzRoleAssignmentsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c80b900_fceb_4d73_a0f4_c83b0bbf2481);
@@ -10637,6 +10930,11 @@ impl ::core::cmp::PartialEq for IAzRoleDefinition {
     }
 }
 impl ::core::cmp::Eq for IAzRoleDefinition {}
+impl ::core::fmt::Debug for IAzRoleDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzRoleDefinition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzRoleDefinition {
     type Vtable = IAzRoleDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd97fcea1_2599_44f1_9fc3_58e9fbe09466);
@@ -10813,6 +11111,11 @@ impl ::core::cmp::PartialEq for IAzRoleDefinitions {
     }
 }
 impl ::core::cmp::Eq for IAzRoleDefinitions {}
+impl ::core::fmt::Debug for IAzRoleDefinitions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzRoleDefinitions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzRoleDefinitions {
     type Vtable = IAzRoleDefinitionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x881f25a5_d755_4550_957a_d503a3b34001);
@@ -10934,6 +11237,11 @@ impl ::core::cmp::PartialEq for IAzRoles {
     }
 }
 impl ::core::cmp::Eq for IAzRoles {}
+impl ::core::fmt::Debug for IAzRoles {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzRoles").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzRoles {
     type Vtable = IAzRolesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95e0f119_13b4_4dae_b65f_2f7d60d822e4);
@@ -11246,6 +11554,11 @@ impl ::core::cmp::PartialEq for IAzScope {
     }
 }
 impl ::core::cmp::Eq for IAzScope {}
+impl ::core::fmt::Debug for IAzScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzScope").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzScope {
     type Vtable = IAzScopeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00e52487_e08d_4514_b62e_877d5645f5ab);
@@ -11691,6 +12004,11 @@ impl ::core::cmp::PartialEq for IAzScope2 {
     }
 }
 impl ::core::cmp::Eq for IAzScope2 {}
+impl ::core::fmt::Debug for IAzScope2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzScope2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzScope2 {
     type Vtable = IAzScope2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee9fe8c9_c9f3_40e2_aa12_d1d8599727fd);
@@ -11895,6 +12213,11 @@ impl ::core::cmp::PartialEq for IAzScopes {
     }
 }
 impl ::core::cmp::Eq for IAzScopes {}
+impl ::core::fmt::Debug for IAzScopes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzScopes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzScopes {
     type Vtable = IAzScopesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78e14853_9f5e_406d_9b91_6bdba6973510);
@@ -12141,6 +12464,11 @@ impl ::core::cmp::PartialEq for IAzTask {
     }
 }
 impl ::core::cmp::Eq for IAzTask {}
+impl ::core::fmt::Debug for IAzTask {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzTask").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzTask {
     type Vtable = IAzTaskVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb94e592_2e0e_4a6c_a336_b89a6dc1e388);
@@ -12461,6 +12789,11 @@ impl ::core::cmp::PartialEq for IAzTask2 {
     }
 }
 impl ::core::cmp::Eq for IAzTask2 {}
+impl ::core::fmt::Debug for IAzTask2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzTask2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzTask2 {
     type Vtable = IAzTask2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03a9a5ee_48c8_4832_9025_aad503c46526);
@@ -12632,6 +12965,11 @@ impl ::core::cmp::PartialEq for IAzTasks {
     }
 }
 impl ::core::cmp::Eq for IAzTasks {}
+impl ::core::fmt::Debug for IAzTasks {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzTasks").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzTasks {
     type Vtable = IAzTasksVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb338ccab_4c85_4388_8c0a_c58592bad398);
@@ -12673,6 +13011,12 @@ impl ::core::clone::Clone for INHERITED_FROMA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INHERITED_FROMA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INHERITED_FROMA").field("GenerationGap", &self.GenerationGap).field("AncestorName", &self.AncestorName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INHERITED_FROMA {
     type Abi = Self;
 }
@@ -12703,6 +13047,12 @@ impl ::core::marker::Copy for INHERITED_FROMW {}
 impl ::core::clone::Clone for INHERITED_FROMW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INHERITED_FROMW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INHERITED_FROMW").field("GenerationGap", &self.GenerationGap).field("AncestorName", &self.AncestorName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12782,6 +13132,12 @@ impl ::core::clone::Clone for OBJECTS_AND_NAME_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OBJECTS_AND_NAME_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OBJECTS_AND_NAME_A").field("ObjectsPresent", &self.ObjectsPresent).field("ObjectType", &self.ObjectType).field("ObjectTypeName", &self.ObjectTypeName).field("InheritedObjectTypeName", &self.InheritedObjectTypeName).field("ptstrName", &self.ptstrName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OBJECTS_AND_NAME_A {
     type Abi = Self;
 }
@@ -12818,6 +13174,12 @@ impl ::core::clone::Clone for OBJECTS_AND_NAME_W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OBJECTS_AND_NAME_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OBJECTS_AND_NAME_W").field("ObjectsPresent", &self.ObjectsPresent).field("ObjectType", &self.ObjectType).field("ObjectTypeName", &self.ObjectTypeName).field("InheritedObjectTypeName", &self.InheritedObjectTypeName).field("ptstrName", &self.ptstrName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OBJECTS_AND_NAME_W {
     type Abi = Self;
 }
@@ -12847,6 +13209,11 @@ impl ::core::marker::Copy for OBJECTS_AND_SID {}
 impl ::core::clone::Clone for OBJECTS_AND_SID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OBJECTS_AND_SID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OBJECTS_AND_SID").field("ObjectsPresent", &self.ObjectsPresent).field("ObjectTypeGuid", &self.ObjectTypeGuid).field("InheritedObjectTypeGuid", &self.InheritedObjectTypeGuid).field("pSid", &self.pSid).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OBJECTS_AND_SID {
@@ -13031,6 +13398,12 @@ impl ::core::clone::Clone for TRUSTEE_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TRUSTEE_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRUSTEE_A").field("pMultipleTrustee", &self.pMultipleTrustee).field("MultipleTrusteeOperation", &self.MultipleTrusteeOperation).field("TrusteeForm", &self.TrusteeForm).field("TrusteeType", &self.TrusteeType).field("ptstrName", &self.ptstrName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TRUSTEE_A {
     type Abi = Self;
 }
@@ -13066,6 +13439,12 @@ impl ::core::clone::Clone for TRUSTEE_ACCESSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TRUSTEE_ACCESSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRUSTEE_ACCESSA").field("lpProperty", &self.lpProperty).field("Access", &self.Access).field("fAccessFlags", &self.fAccessFlags).field("fReturnedAccess", &self.fReturnedAccess).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TRUSTEE_ACCESSA {
     type Abi = Self;
 }
@@ -13098,6 +13477,12 @@ impl ::core::marker::Copy for TRUSTEE_ACCESSW {}
 impl ::core::clone::Clone for TRUSTEE_ACCESSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TRUSTEE_ACCESSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRUSTEE_ACCESSW").field("lpProperty", &self.lpProperty).field("Access", &self.Access).field("fAccessFlags", &self.fAccessFlags).field("fReturnedAccess", &self.fReturnedAccess).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13176,6 +13561,12 @@ impl ::core::marker::Copy for TRUSTEE_W {}
 impl ::core::clone::Clone for TRUSTEE_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TRUSTEE_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRUSTEE_W").field("pMultipleTrustee", &self.pMultipleTrustee).field("MultipleTrusteeOperation", &self.MultipleTrusteeOperation).field("TrusteeForm", &self.TrusteeForm).field("TrusteeType", &self.TrusteeType).field("ptstrName", &self.ptstrName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -47,6 +47,11 @@ impl ::core::cmp::PartialEq for IGraphicsCaptureItemInterop {
     }
 }
 impl ::core::cmp::Eq for IGraphicsCaptureItemInterop {}
+impl ::core::fmt::Debug for IGraphicsCaptureItemInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGraphicsCaptureItemInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGraphicsCaptureItemInterop {
     type Vtable = IGraphicsCaptureItemInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3628e81b_3cac_4c60_b7f4_23ce0e0c3356);

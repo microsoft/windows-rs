@@ -129,6 +129,12 @@ impl ::core::clone::Clone for DMO_MEDIA_TYPE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DMO_MEDIA_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMO_MEDIA_TYPE").field("majortype", &self.majortype).field("subtype", &self.subtype).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("lSampleSize", &self.lSampleSize).field("formattype", &self.formattype).field("pUnk", &self.pUnk).field("cbFormat", &self.cbFormat).field("pbFormat", &self.pbFormat).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DMO_MEDIA_TYPE {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -159,6 +165,11 @@ impl ::core::clone::Clone for DMO_OUTPUT_DATA_BUFFER {
         Self { pBuffer: self.pBuffer.clone(), dwStatus: self.dwStatus, rtTimestamp: self.rtTimestamp, rtTimelength: self.rtTimelength }
     }
 }
+impl ::core::fmt::Debug for DMO_OUTPUT_DATA_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMO_OUTPUT_DATA_BUFFER").field("pBuffer", &self.pBuffer).field("dwStatus", &self.dwStatus).field("rtTimestamp", &self.rtTimestamp).field("rtTimelength", &self.rtTimelength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DMO_OUTPUT_DATA_BUFFER {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -183,6 +194,11 @@ impl ::core::marker::Copy for DMO_PARTIAL_MEDIATYPE {}
 impl ::core::clone::Clone for DMO_PARTIAL_MEDIATYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DMO_PARTIAL_MEDIATYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMO_PARTIAL_MEDIATYPE").field("type", &self.r#type).field("subtype", &self.subtype).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DMO_PARTIAL_MEDIATYPE {
@@ -252,6 +268,11 @@ impl ::core::cmp::PartialEq for IDMOQualityControl {
     }
 }
 impl ::core::cmp::Eq for IDMOQualityControl {}
+impl ::core::fmt::Debug for IDMOQualityControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDMOQualityControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDMOQualityControl {
     type Vtable = IDMOQualityControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65abea96_cf36_453f_af8a_705e98f16260);
@@ -321,6 +342,11 @@ impl ::core::cmp::PartialEq for IDMOVideoOutputOptimizations {
     }
 }
 impl ::core::cmp::Eq for IDMOVideoOutputOptimizations {}
+impl ::core::fmt::Debug for IDMOVideoOutputOptimizations {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDMOVideoOutputOptimizations").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDMOVideoOutputOptimizations {
     type Vtable = IDMOVideoOutputOptimizationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe8f4f4e_5b16_4d29_b350_7f6b5d9298ac);
@@ -390,6 +416,11 @@ impl ::core::cmp::PartialEq for IEnumDMO {
     }
 }
 impl ::core::cmp::Eq for IEnumDMO {}
+impl ::core::fmt::Debug for IEnumDMO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumDMO").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumDMO {
     type Vtable = IEnumDMOVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c3cd98a_2bfa_4a53_9c27_5249ba64ba0f);
@@ -455,6 +486,11 @@ impl ::core::cmp::PartialEq for IMediaBuffer {
     }
 }
 impl ::core::cmp::Eq for IMediaBuffer {}
+impl ::core::fmt::Debug for IMediaBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMediaBuffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMediaBuffer {
     type Vtable = IMediaBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59eff8b9_938c_4a26_82f2_95cb84cdc837);
@@ -603,6 +639,11 @@ impl ::core::cmp::PartialEq for IMediaObject {
     }
 }
 impl ::core::cmp::Eq for IMediaObject {}
+impl ::core::fmt::Debug for IMediaObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMediaObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMediaObject {
     type Vtable = IMediaObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8ad0f58_5494_4102_97c5_ec798e59bcf4);
@@ -691,6 +732,11 @@ impl ::core::cmp::PartialEq for IMediaObjectInPlace {
     }
 }
 impl ::core::cmp::Eq for IMediaObjectInPlace {}
+impl ::core::fmt::Debug for IMediaObjectInPlace {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMediaObjectInPlace").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMediaObjectInPlace {
     type Vtable = IMediaObjectInPlaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x651b9ad0_0fc7_4aa9_9538_d89931010741);

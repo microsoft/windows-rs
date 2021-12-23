@@ -120,6 +120,26 @@ impl ::core::clone::Clone for FAX_CONFIGURATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_CONFIGURATIONA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_CONFIGURATIONA")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("Retries", &self.Retries)
+            .field("RetryDelay", &self.RetryDelay)
+            .field("DirtyDays", &self.DirtyDays)
+            .field("Branding", &self.Branding)
+            .field("UseDeviceTsid", &self.UseDeviceTsid)
+            .field("ServerCp", &self.ServerCp)
+            .field("PauseServerQueue", &self.PauseServerQueue)
+            .field("StartCheapTime", &self.StartCheapTime)
+            .field("StopCheapTime", &self.StopCheapTime)
+            .field("ArchiveOutgoingFaxes", &self.ArchiveOutgoingFaxes)
+            .field("ArchiveDirectory", &self.ArchiveDirectory)
+            .field("Reserved", &self.Reserved)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_CONFIGURATIONA {
     type Abi = Self;
 }
@@ -164,6 +184,26 @@ impl ::core::clone::Clone for FAX_CONFIGURATIONW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_CONFIGURATIONW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_CONFIGURATIONW")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("Retries", &self.Retries)
+            .field("RetryDelay", &self.RetryDelay)
+            .field("DirtyDays", &self.DirtyDays)
+            .field("Branding", &self.Branding)
+            .field("UseDeviceTsid", &self.UseDeviceTsid)
+            .field("ServerCp", &self.ServerCp)
+            .field("PauseServerQueue", &self.PauseServerQueue)
+            .field("StartCheapTime", &self.StartCheapTime)
+            .field("StopCheapTime", &self.StopCheapTime)
+            .field("ArchiveOutgoingFaxes", &self.ArchiveOutgoingFaxes)
+            .field("ArchiveDirectory", &self.ArchiveDirectory)
+            .field("Reserved", &self.Reserved)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_CONFIGURATIONW {
     type Abi = Self;
 }
@@ -202,6 +242,12 @@ impl ::core::clone::Clone for FAX_CONTEXT_INFOA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for FAX_CONTEXT_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_CONTEXT_INFOA").field("SizeOfStruct", &self.SizeOfStruct).field("hDC", &self.hDC).field("ServerName", &self.ServerName).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for FAX_CONTEXT_INFOA {
     type Abi = Self;
 }
@@ -233,6 +279,12 @@ impl ::core::marker::Copy for FAX_CONTEXT_INFOW {}
 impl ::core::clone::Clone for FAX_CONTEXT_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for FAX_CONTEXT_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_CONTEXT_INFOW").field("SizeOfStruct", &self.SizeOfStruct).field("hDC", &self.hDC).field("ServerName", &self.ServerName).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -296,6 +348,42 @@ impl ::core::clone::Clone for FAX_COVERPAGE_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_COVERPAGE_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_COVERPAGE_INFOA")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("CoverPageName", &self.CoverPageName)
+            .field("UseServerCoverPage", &self.UseServerCoverPage)
+            .field("RecName", &self.RecName)
+            .field("RecFaxNumber", &self.RecFaxNumber)
+            .field("RecCompany", &self.RecCompany)
+            .field("RecStreetAddress", &self.RecStreetAddress)
+            .field("RecCity", &self.RecCity)
+            .field("RecState", &self.RecState)
+            .field("RecZip", &self.RecZip)
+            .field("RecCountry", &self.RecCountry)
+            .field("RecTitle", &self.RecTitle)
+            .field("RecDepartment", &self.RecDepartment)
+            .field("RecOfficeLocation", &self.RecOfficeLocation)
+            .field("RecHomePhone", &self.RecHomePhone)
+            .field("RecOfficePhone", &self.RecOfficePhone)
+            .field("SdrName", &self.SdrName)
+            .field("SdrFaxNumber", &self.SdrFaxNumber)
+            .field("SdrCompany", &self.SdrCompany)
+            .field("SdrAddress", &self.SdrAddress)
+            .field("SdrTitle", &self.SdrTitle)
+            .field("SdrDepartment", &self.SdrDepartment)
+            .field("SdrOfficeLocation", &self.SdrOfficeLocation)
+            .field("SdrHomePhone", &self.SdrHomePhone)
+            .field("SdrOfficePhone", &self.SdrOfficePhone)
+            .field("Note", &self.Note)
+            .field("Subject", &self.Subject)
+            .field("TimeSent", &self.TimeSent)
+            .field("PageCount", &self.PageCount)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_COVERPAGE_INFOA {
     type Abi = Self;
 }
@@ -353,6 +441,42 @@ impl ::core::marker::Copy for FAX_COVERPAGE_INFOW {}
 impl ::core::clone::Clone for FAX_COVERPAGE_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_COVERPAGE_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_COVERPAGE_INFOW")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("CoverPageName", &self.CoverPageName)
+            .field("UseServerCoverPage", &self.UseServerCoverPage)
+            .field("RecName", &self.RecName)
+            .field("RecFaxNumber", &self.RecFaxNumber)
+            .field("RecCompany", &self.RecCompany)
+            .field("RecStreetAddress", &self.RecStreetAddress)
+            .field("RecCity", &self.RecCity)
+            .field("RecState", &self.RecState)
+            .field("RecZip", &self.RecZip)
+            .field("RecCountry", &self.RecCountry)
+            .field("RecTitle", &self.RecTitle)
+            .field("RecDepartment", &self.RecDepartment)
+            .field("RecOfficeLocation", &self.RecOfficeLocation)
+            .field("RecHomePhone", &self.RecHomePhone)
+            .field("RecOfficePhone", &self.RecOfficePhone)
+            .field("SdrName", &self.SdrName)
+            .field("SdrFaxNumber", &self.SdrFaxNumber)
+            .field("SdrCompany", &self.SdrCompany)
+            .field("SdrAddress", &self.SdrAddress)
+            .field("SdrTitle", &self.SdrTitle)
+            .field("SdrDepartment", &self.SdrDepartment)
+            .field("SdrOfficeLocation", &self.SdrOfficeLocation)
+            .field("SdrHomePhone", &self.SdrHomePhone)
+            .field("SdrOfficePhone", &self.SdrOfficePhone)
+            .field("Note", &self.Note)
+            .field("Subject", &self.Subject)
+            .field("TimeSent", &self.TimeSent)
+            .field("PageCount", &self.PageCount)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -423,6 +547,33 @@ impl ::core::clone::Clone for FAX_DEVICE_STATUSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_DEVICE_STATUSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_DEVICE_STATUSA")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("CallerId", &self.CallerId)
+            .field("Csid", &self.Csid)
+            .field("CurrentPage", &self.CurrentPage)
+            .field("DeviceId", &self.DeviceId)
+            .field("DeviceName", &self.DeviceName)
+            .field("DocumentName", &self.DocumentName)
+            .field("JobType", &self.JobType)
+            .field("PhoneNumber", &self.PhoneNumber)
+            .field("RoutingString", &self.RoutingString)
+            .field("SenderName", &self.SenderName)
+            .field("RecipientName", &self.RecipientName)
+            .field("Size", &self.Size)
+            .field("StartTime", &self.StartTime)
+            .field("Status", &self.Status)
+            .field("StatusString", &self.StatusString)
+            .field("SubmittedTime", &self.SubmittedTime)
+            .field("TotalPages", &self.TotalPages)
+            .field("Tsid", &self.Tsid)
+            .field("UserName", &self.UserName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_DEVICE_STATUSA {
     type Abi = Self;
 }
@@ -474,6 +625,33 @@ impl ::core::clone::Clone for FAX_DEVICE_STATUSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_DEVICE_STATUSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_DEVICE_STATUSW")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("CallerId", &self.CallerId)
+            .field("Csid", &self.Csid)
+            .field("CurrentPage", &self.CurrentPage)
+            .field("DeviceId", &self.DeviceId)
+            .field("DeviceName", &self.DeviceName)
+            .field("DocumentName", &self.DocumentName)
+            .field("JobType", &self.JobType)
+            .field("PhoneNumber", &self.PhoneNumber)
+            .field("RoutingString", &self.RoutingString)
+            .field("SenderName", &self.SenderName)
+            .field("RecipientName", &self.RecipientName)
+            .field("Size", &self.Size)
+            .field("StartTime", &self.StartTime)
+            .field("Status", &self.Status)
+            .field("StatusString", &self.StatusString)
+            .field("SubmittedTime", &self.SubmittedTime)
+            .field("TotalPages", &self.TotalPages)
+            .field("Tsid", &self.Tsid)
+            .field("UserName", &self.UserName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_DEVICE_STATUSW {
     type Abi = Self;
 }
@@ -511,6 +689,12 @@ impl ::core::marker::Copy for FAX_DEV_STATUS {}
 impl ::core::clone::Clone for FAX_DEV_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_DEV_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_DEV_STATUS").field("SizeOfStruct", &self.SizeOfStruct).field("StatusId", &self.StatusId).field("StringId", &self.StringId).field("PageCount", &self.PageCount).field("CSI", &self.CSI).field("CallerId", &self.CallerId).field("RoutingInfo", &self.RoutingInfo).field("ErrorCode", &self.ErrorCode).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -638,6 +822,12 @@ impl ::core::clone::Clone for FAX_EVENTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_EVENTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_EVENTA").field("SizeOfStruct", &self.SizeOfStruct).field("TimeStamp", &self.TimeStamp).field("DeviceId", &self.DeviceId).field("EventId", &self.EventId).field("JobId", &self.JobId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_EVENTA {
     type Abi = Self;
 }
@@ -671,6 +861,12 @@ impl ::core::marker::Copy for FAX_EVENTW {}
 impl ::core::clone::Clone for FAX_EVENTW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_EVENTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_EVENTW").field("SizeOfStruct", &self.SizeOfStruct).field("TimeStamp", &self.TimeStamp).field("DeviceId", &self.DeviceId).field("EventId", &self.EventId).field("JobId", &self.JobId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -738,6 +934,12 @@ impl ::core::clone::Clone for FAX_GLOBAL_ROUTING_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_GLOBAL_ROUTING_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_GLOBAL_ROUTING_INFOA").field("SizeOfStruct", &self.SizeOfStruct).field("Priority", &self.Priority).field("Guid", &self.Guid).field("FriendlyName", &self.FriendlyName).field("FunctionName", &self.FunctionName).field("ExtensionImageName", &self.ExtensionImageName).field("ExtensionFriendlyName", &self.ExtensionFriendlyName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_GLOBAL_ROUTING_INFOA {
     type Abi = Self;
 }
@@ -773,6 +975,12 @@ impl ::core::marker::Copy for FAX_GLOBAL_ROUTING_INFOW {}
 impl ::core::clone::Clone for FAX_GLOBAL_ROUTING_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_GLOBAL_ROUTING_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_GLOBAL_ROUTING_INFOW").field("SizeOfStruct", &self.SizeOfStruct).field("Priority", &self.Priority).field("Guid", &self.Guid).field("FriendlyName", &self.FriendlyName).field("FunctionName", &self.FunctionName).field("ExtensionImageName", &self.ExtensionImageName).field("ExtensionFriendlyName", &self.ExtensionFriendlyName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -837,6 +1045,33 @@ impl ::core::clone::Clone for FAX_JOB_ENTRYA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_JOB_ENTRYA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_JOB_ENTRYA")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("JobId", &self.JobId)
+            .field("UserName", &self.UserName)
+            .field("JobType", &self.JobType)
+            .field("QueueStatus", &self.QueueStatus)
+            .field("Status", &self.Status)
+            .field("Size", &self.Size)
+            .field("PageCount", &self.PageCount)
+            .field("RecipientNumber", &self.RecipientNumber)
+            .field("RecipientName", &self.RecipientName)
+            .field("Tsid", &self.Tsid)
+            .field("SenderName", &self.SenderName)
+            .field("SenderCompany", &self.SenderCompany)
+            .field("SenderDept", &self.SenderDept)
+            .field("BillingCode", &self.BillingCode)
+            .field("ScheduleAction", &self.ScheduleAction)
+            .field("ScheduleTime", &self.ScheduleTime)
+            .field("DeliveryReportType", &self.DeliveryReportType)
+            .field("DeliveryReportAddress", &self.DeliveryReportAddress)
+            .field("DocumentName", &self.DocumentName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_JOB_ENTRYA {
     type Abi = Self;
 }
@@ -885,6 +1120,33 @@ impl ::core::marker::Copy for FAX_JOB_ENTRYW {}
 impl ::core::clone::Clone for FAX_JOB_ENTRYW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_JOB_ENTRYW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_JOB_ENTRYW")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("JobId", &self.JobId)
+            .field("UserName", &self.UserName)
+            .field("JobType", &self.JobType)
+            .field("QueueStatus", &self.QueueStatus)
+            .field("Status", &self.Status)
+            .field("Size", &self.Size)
+            .field("PageCount", &self.PageCount)
+            .field("RecipientNumber", &self.RecipientNumber)
+            .field("RecipientName", &self.RecipientName)
+            .field("Tsid", &self.Tsid)
+            .field("SenderName", &self.SenderName)
+            .field("SenderCompany", &self.SenderCompany)
+            .field("SenderDept", &self.SenderDept)
+            .field("BillingCode", &self.BillingCode)
+            .field("ScheduleAction", &self.ScheduleAction)
+            .field("ScheduleTime", &self.ScheduleTime)
+            .field("DeliveryReportType", &self.DeliveryReportType)
+            .field("DeliveryReportAddress", &self.DeliveryReportAddress)
+            .field("DocumentName", &self.DocumentName)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -996,6 +1258,28 @@ impl ::core::clone::Clone for FAX_JOB_PARAMA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_JOB_PARAMA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_JOB_PARAMA")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("RecipientNumber", &self.RecipientNumber)
+            .field("RecipientName", &self.RecipientName)
+            .field("Tsid", &self.Tsid)
+            .field("SenderName", &self.SenderName)
+            .field("SenderCompany", &self.SenderCompany)
+            .field("SenderDept", &self.SenderDept)
+            .field("BillingCode", &self.BillingCode)
+            .field("ScheduleAction", &self.ScheduleAction)
+            .field("ScheduleTime", &self.ScheduleTime)
+            .field("DeliveryReportType", &self.DeliveryReportType)
+            .field("DeliveryReportAddress", &self.DeliveryReportAddress)
+            .field("DocumentName", &self.DocumentName)
+            .field("CallHandle", &self.CallHandle)
+            .field("Reserved", &self.Reserved)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_JOB_PARAMA {
     type Abi = Self;
 }
@@ -1039,6 +1323,28 @@ impl ::core::marker::Copy for FAX_JOB_PARAMW {}
 impl ::core::clone::Clone for FAX_JOB_PARAMW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_JOB_PARAMW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_JOB_PARAMW")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("RecipientNumber", &self.RecipientNumber)
+            .field("RecipientName", &self.RecipientName)
+            .field("Tsid", &self.Tsid)
+            .field("SenderName", &self.SenderName)
+            .field("SenderCompany", &self.SenderCompany)
+            .field("SenderDept", &self.SenderDept)
+            .field("BillingCode", &self.BillingCode)
+            .field("ScheduleAction", &self.ScheduleAction)
+            .field("ScheduleTime", &self.ScheduleTime)
+            .field("DeliveryReportType", &self.DeliveryReportType)
+            .field("DeliveryReportAddress", &self.DeliveryReportAddress)
+            .field("DocumentName", &self.DocumentName)
+            .field("CallHandle", &self.CallHandle)
+            .field("Reserved", &self.Reserved)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1112,6 +1418,12 @@ impl ::core::clone::Clone for FAX_LOG_CATEGORYA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_LOG_CATEGORYA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_LOG_CATEGORYA").field("Name", &self.Name).field("Category", &self.Category).field("Level", &self.Level).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_LOG_CATEGORYA {
     type Abi = Self;
 }
@@ -1143,6 +1455,12 @@ impl ::core::marker::Copy for FAX_LOG_CATEGORYW {}
 impl ::core::clone::Clone for FAX_LOG_CATEGORYW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_LOG_CATEGORYW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_LOG_CATEGORYW").field("Name", &self.Name).field("Category", &self.Category).field("Level", &self.Level).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1196,6 +1514,12 @@ impl ::core::clone::Clone for FAX_PORT_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_PORT_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_PORT_INFOA").field("SizeOfStruct", &self.SizeOfStruct).field("DeviceId", &self.DeviceId).field("State", &self.State).field("Flags", &self.Flags).field("Rings", &self.Rings).field("Priority", &self.Priority).field("DeviceName", &self.DeviceName).field("Tsid", &self.Tsid).field("Csid", &self.Csid).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_PORT_INFOA {
     type Abi = Self;
 }
@@ -1233,6 +1557,12 @@ impl ::core::marker::Copy for FAX_PORT_INFOW {}
 impl ::core::clone::Clone for FAX_PORT_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_PORT_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_PORT_INFOW").field("SizeOfStruct", &self.SizeOfStruct).field("DeviceId", &self.DeviceId).field("State", &self.State).field("Flags", &self.Flags).field("Rings", &self.Rings).field("Priority", &self.Priority).field("DeviceName", &self.DeviceName).field("Tsid", &self.Tsid).field("Csid", &self.Csid).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1282,6 +1612,24 @@ impl ::core::clone::Clone for FAX_PRINT_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_PRINT_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_PRINT_INFOA")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("DocName", &self.DocName)
+            .field("RecipientName", &self.RecipientName)
+            .field("RecipientNumber", &self.RecipientNumber)
+            .field("SenderName", &self.SenderName)
+            .field("SenderCompany", &self.SenderCompany)
+            .field("SenderDept", &self.SenderDept)
+            .field("SenderBillingCode", &self.SenderBillingCode)
+            .field("Reserved", &self.Reserved)
+            .field("DrEmailAddress", &self.DrEmailAddress)
+            .field("OutputFileName", &self.OutputFileName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_PRINT_INFOA {
     type Abi = Self;
 }
@@ -1321,6 +1669,24 @@ impl ::core::marker::Copy for FAX_PRINT_INFOW {}
 impl ::core::clone::Clone for FAX_PRINT_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_PRINT_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_PRINT_INFOW")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("DocName", &self.DocName)
+            .field("RecipientName", &self.RecipientName)
+            .field("RecipientNumber", &self.RecipientNumber)
+            .field("SenderName", &self.SenderName)
+            .field("SenderCompany", &self.SenderCompany)
+            .field("SenderDept", &self.SenderDept)
+            .field("SenderBillingCode", &self.SenderBillingCode)
+            .field("Reserved", &self.Reserved)
+            .field("DrEmailAddress", &self.DrEmailAddress)
+            .field("OutputFileName", &self.OutputFileName)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1392,6 +1758,12 @@ impl ::core::clone::Clone for FAX_RECEIVE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_RECEIVE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_RECEIVE").field("SizeOfStruct", &self.SizeOfStruct).field("FileName", &self.FileName).field("ReceiverName", &self.ReceiverName).field("ReceiverNumber", &self.ReceiverNumber).field("Reserved", &self.Reserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_RECEIVE {
     type Abi = Self;
 }
@@ -1438,6 +1810,28 @@ impl ::core::clone::Clone for FAX_ROUTE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_ROUTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_ROUTE")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("JobId", &self.JobId)
+            .field("ElapsedTime", &self.ElapsedTime)
+            .field("ReceiveTime", &self.ReceiveTime)
+            .field("PageCount", &self.PageCount)
+            .field("Csid", &self.Csid)
+            .field("Tsid", &self.Tsid)
+            .field("CallerId", &self.CallerId)
+            .field("RoutingInfo", &self.RoutingInfo)
+            .field("ReceiverName", &self.ReceiverName)
+            .field("ReceiverNumber", &self.ReceiverNumber)
+            .field("DeviceName", &self.DeviceName)
+            .field("DeviceId", &self.DeviceId)
+            .field("RoutingInfoData", &self.RoutingInfoData)
+            .field("RoutingInfoDataSize", &self.RoutingInfoDataSize)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_ROUTE {
     type Abi = Self;
 }
@@ -1472,6 +1866,12 @@ impl ::core::marker::Copy for FAX_ROUTE_CALLBACKROUTINES {}
 impl ::core::clone::Clone for FAX_ROUTE_CALLBACKROUTINES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_ROUTE_CALLBACKROUTINES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_ROUTE_CALLBACKROUTINES").field("SizeOfStruct", &self.SizeOfStruct).field("FaxRouteAddFile", &self.FaxRouteAddFile.map(|f| f as usize)).field("FaxRouteDeleteFile", &self.FaxRouteDeleteFile.map(|f| f as usize)).field("FaxRouteGetFile", &self.FaxRouteGetFile.map(|f| f as usize)).field("FaxRouteEnumFiles", &self.FaxRouteEnumFiles.map(|f| f as usize)).field("FaxRouteModifyRoutingData", &self.FaxRouteModifyRoutingData.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1515,6 +1915,12 @@ impl ::core::clone::Clone for FAX_ROUTING_METHODA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_ROUTING_METHODA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_ROUTING_METHODA").field("SizeOfStruct", &self.SizeOfStruct).field("DeviceId", &self.DeviceId).field("Enabled", &self.Enabled).field("DeviceName", &self.DeviceName).field("Guid", &self.Guid).field("FriendlyName", &self.FriendlyName).field("FunctionName", &self.FunctionName).field("ExtensionImageName", &self.ExtensionImageName).field("ExtensionFriendlyName", &self.ExtensionFriendlyName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_ROUTING_METHODA {
     type Abi = Self;
 }
@@ -1552,6 +1958,12 @@ impl ::core::marker::Copy for FAX_ROUTING_METHODW {}
 impl ::core::clone::Clone for FAX_ROUTING_METHODW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_ROUTING_METHODW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_ROUTING_METHODW").field("SizeOfStruct", &self.SizeOfStruct).field("DeviceId", &self.DeviceId).field("Enabled", &self.Enabled).field("DeviceName", &self.DeviceName).field("Guid", &self.Guid).field("FriendlyName", &self.FriendlyName).field("FunctionName", &self.FunctionName).field("ExtensionImageName", &self.ExtensionImageName).field("ExtensionFriendlyName", &self.ExtensionFriendlyName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1616,6 +2028,12 @@ impl ::core::marker::Copy for FAX_SEND {}
 impl ::core::clone::Clone for FAX_SEND {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_SEND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_SEND").field("SizeOfStruct", &self.SizeOfStruct).field("FileName", &self.FileName).field("CallerName", &self.CallerName).field("CallerNumber", &self.CallerNumber).field("ReceiverName", &self.ReceiverName).field("ReceiverNumber", &self.ReceiverNumber).field("Branding", &self.Branding).field("CallHandle", &self.CallHandle).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1688,6 +2106,11 @@ impl ::core::marker::Copy for FAX_TIME {}
 impl ::core::clone::Clone for FAX_TIME {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FAX_TIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_TIME").field("Hour", &self.Hour).field("Minute", &self.Minute).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FAX_TIME {
@@ -2844,6 +3267,11 @@ impl ::core::cmp::PartialEq for IFaxAccount {
     }
 }
 impl ::core::cmp::Eq for IFaxAccount {}
+impl ::core::fmt::Debug for IFaxAccount {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxAccount").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxAccount {
     type Vtable = IFaxAccountVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68535b33_5dc4_4086_be26_b76f9b711006);
@@ -2970,6 +3398,11 @@ impl ::core::cmp::PartialEq for IFaxAccountFolders {
     }
 }
 impl ::core::cmp::Eq for IFaxAccountFolders {}
+impl ::core::fmt::Debug for IFaxAccountFolders {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxAccountFolders").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxAccountFolders {
     type Vtable = IFaxAccountFoldersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6463f89d_23d8_46a9_8f86_c47b77ca7926);
@@ -3100,6 +3533,11 @@ impl ::core::cmp::PartialEq for IFaxAccountIncomingArchive {
     }
 }
 impl ::core::cmp::Eq for IFaxAccountIncomingArchive {}
+impl ::core::fmt::Debug for IFaxAccountIncomingArchive {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxAccountIncomingArchive").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxAccountIncomingArchive {
     type Vtable = IFaxAccountIncomingArchiveVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8a5b6ef_e0d6_4aee_955c_91625bec9db4);
@@ -3218,6 +3656,11 @@ impl ::core::cmp::PartialEq for IFaxAccountIncomingQueue {
     }
 }
 impl ::core::cmp::Eq for IFaxAccountIncomingQueue {}
+impl ::core::fmt::Debug for IFaxAccountIncomingQueue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxAccountIncomingQueue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxAccountIncomingQueue {
     type Vtable = IFaxAccountIncomingQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd142d92_0186_4a95_a090_cbc3eadba6b4);
@@ -3322,6 +3765,11 @@ impl ::core::cmp::PartialEq for IFaxAccountNotify {
     }
 }
 impl ::core::cmp::Eq for IFaxAccountNotify {}
+impl ::core::fmt::Debug for IFaxAccountNotify {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxAccountNotify").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxAccountNotify {
     type Vtable = IFaxAccountNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b5e5bd1_b8a9_47a0_a323_ef4a293ba06a);
@@ -3448,6 +3896,11 @@ impl ::core::cmp::PartialEq for IFaxAccountOutgoingArchive {
     }
 }
 impl ::core::cmp::Eq for IFaxAccountOutgoingArchive {}
+impl ::core::fmt::Debug for IFaxAccountOutgoingArchive {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxAccountOutgoingArchive").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxAccountOutgoingArchive {
     type Vtable = IFaxAccountOutgoingArchiveVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5463076d_ec14_491f_926e_b3ceda5e5662);
@@ -3566,6 +4019,11 @@ impl ::core::cmp::PartialEq for IFaxAccountOutgoingQueue {
     }
 }
 impl ::core::cmp::Eq for IFaxAccountOutgoingQueue {}
+impl ::core::fmt::Debug for IFaxAccountOutgoingQueue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxAccountOutgoingQueue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxAccountOutgoingQueue {
     type Vtable = IFaxAccountOutgoingQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f1424e9_f22d_4553_b7a5_0d24bd0d7e46);
@@ -3692,6 +4150,11 @@ impl ::core::cmp::PartialEq for IFaxAccountSet {
     }
 }
 impl ::core::cmp::Eq for IFaxAccountSet {}
+impl ::core::fmt::Debug for IFaxAccountSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxAccountSet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxAccountSet {
     type Vtable = IFaxAccountSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7428fbae_841e_47b8_86f4_2288946dca1b);
@@ -3816,6 +4279,11 @@ impl ::core::cmp::PartialEq for IFaxAccounts {
     }
 }
 impl ::core::cmp::Eq for IFaxAccounts {}
+impl ::core::fmt::Debug for IFaxAccounts {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxAccounts").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxAccounts {
     type Vtable = IFaxAccountsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93ea8162_8be7_42d1_ae7b_ec74e2d989da);
@@ -3945,6 +4413,11 @@ impl ::core::cmp::PartialEq for IFaxActivity {
     }
 }
 impl ::core::cmp::Eq for IFaxActivity {}
+impl ::core::fmt::Debug for IFaxActivity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxActivity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxActivity {
     type Vtable = IFaxActivityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b106f97_3df5_40f2_bc3c_44cb8115ebdf);
@@ -4088,6 +4561,11 @@ impl ::core::cmp::PartialEq for IFaxActivityLogging {
     }
 }
 impl ::core::cmp::Eq for IFaxActivityLogging {}
+impl ::core::fmt::Debug for IFaxActivityLogging {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxActivityLogging").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxActivityLogging {
     type Vtable = IFaxActivityLoggingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e29078b_5a69_497b_9592_49b7e7faddb5);
@@ -4390,6 +4868,11 @@ impl ::core::cmp::PartialEq for IFaxConfiguration {
     }
 }
 impl ::core::cmp::Eq for IFaxConfiguration {}
+impl ::core::fmt::Debug for IFaxConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxConfiguration {
     type Vtable = IFaxConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10f4d0f7_0994_4543_ab6e_506949128c40);
@@ -4666,6 +5149,11 @@ impl ::core::cmp::PartialEq for IFaxDevice {
     }
 }
 impl ::core::cmp::Eq for IFaxDevice {}
+impl ::core::fmt::Debug for IFaxDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxDevice {
     type Vtable = IFaxDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49306c59_b52e_4867_9df4_ca5841c956d0);
@@ -4832,6 +5320,11 @@ impl ::core::cmp::PartialEq for IFaxDeviceIds {
     }
 }
 impl ::core::cmp::Eq for IFaxDeviceIds {}
+impl ::core::fmt::Debug for IFaxDeviceIds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxDeviceIds").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxDeviceIds {
     type Vtable = IFaxDeviceIdsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f0f813f_4ce9_443e_8ca1_738cfaeee149);
@@ -5004,6 +5497,11 @@ impl ::core::cmp::PartialEq for IFaxDeviceProvider {
     }
 }
 impl ::core::cmp::Eq for IFaxDeviceProvider {}
+impl ::core::fmt::Debug for IFaxDeviceProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxDeviceProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxDeviceProvider {
     type Vtable = IFaxDeviceProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x290eac63_83ec_449c_8417_f148df8c682a);
@@ -5138,6 +5636,11 @@ impl ::core::cmp::PartialEq for IFaxDeviceProviders {
     }
 }
 impl ::core::cmp::Eq for IFaxDeviceProviders {}
+impl ::core::fmt::Debug for IFaxDeviceProviders {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxDeviceProviders").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxDeviceProviders {
     type Vtable = IFaxDeviceProvidersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fb76f62_4c7e_43a5_b6fd_502893f7e13e);
@@ -5264,6 +5767,11 @@ impl ::core::cmp::PartialEq for IFaxDevices {
     }
 }
 impl ::core::cmp::Eq for IFaxDevices {}
+impl ::core::fmt::Debug for IFaxDevices {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxDevices").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxDevices {
     type Vtable = IFaxDevicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e46783e_f34f_482e_a360_0416becbbd96);
@@ -5541,6 +6049,11 @@ impl ::core::cmp::PartialEq for IFaxDocument {
     }
 }
 impl ::core::cmp::Eq for IFaxDocument {}
+impl ::core::fmt::Debug for IFaxDocument {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxDocument").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxDocument {
     type Vtable = IFaxDocumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb207a246_09e3_4a4e_a7dc_fea31d29458f);
@@ -5910,6 +6423,11 @@ impl ::core::cmp::PartialEq for IFaxDocument2 {
     }
 }
 impl ::core::cmp::Eq for IFaxDocument2 {}
+impl ::core::fmt::Debug for IFaxDocument2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxDocument2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxDocument2 {
     type Vtable = IFaxDocument2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1347661_f9ef_4d6d_b4a5_c0a068b65cff);
@@ -6115,6 +6633,11 @@ impl ::core::cmp::PartialEq for IFaxEventLogging {
     }
 }
 impl ::core::cmp::Eq for IFaxEventLogging {}
+impl ::core::fmt::Debug for IFaxEventLogging {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxEventLogging").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxEventLogging {
     type Vtable = IFaxEventLoggingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0880d965_20e8_42e4_8e17_944f192caad4);
@@ -6246,6 +6769,11 @@ impl ::core::cmp::PartialEq for IFaxFolders {
     }
 }
 impl ::core::cmp::Eq for IFaxFolders {}
+impl ::core::fmt::Debug for IFaxFolders {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxFolders").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxFolders {
     type Vtable = IFaxFoldersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdce3b2a8_a7ab_42bc_9d0a_3149457261a0);
@@ -6361,6 +6889,11 @@ impl ::core::cmp::PartialEq for IFaxInboundRouting {
     }
 }
 impl ::core::cmp::Eq for IFaxInboundRouting {}
+impl ::core::fmt::Debug for IFaxInboundRouting {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxInboundRouting").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxInboundRouting {
     type Vtable = IFaxInboundRoutingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8148c20f_9d52_45b1_bf96_38fc12713527);
@@ -6523,6 +7056,11 @@ impl ::core::cmp::PartialEq for IFaxInboundRoutingExtension {
     }
 }
 impl ::core::cmp::Eq for IFaxInboundRoutingExtension {}
+impl ::core::fmt::Debug for IFaxInboundRoutingExtension {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxInboundRoutingExtension").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxInboundRoutingExtension {
     type Vtable = IFaxInboundRoutingExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x885b5e08_c26c_4ef9_af83_51580a750be1);
@@ -6655,6 +7193,11 @@ impl ::core::cmp::PartialEq for IFaxInboundRoutingExtensions {
     }
 }
 impl ::core::cmp::Eq for IFaxInboundRoutingExtensions {}
+impl ::core::fmt::Debug for IFaxInboundRoutingExtensions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxInboundRoutingExtensions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxInboundRoutingExtensions {
     type Vtable = IFaxInboundRoutingExtensionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f6c9673_7b26_42de_8eb0_915dcd2a4f4c);
@@ -6807,6 +7350,11 @@ impl ::core::cmp::PartialEq for IFaxInboundRoutingMethod {
     }
 }
 impl ::core::cmp::Eq for IFaxInboundRoutingMethod {}
+impl ::core::fmt::Debug for IFaxInboundRoutingMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxInboundRoutingMethod").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxInboundRoutingMethod {
     type Vtable = IFaxInboundRoutingMethodVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45700061_ad9d_4776_a8c4_64065492cf4b);
@@ -6938,6 +7486,11 @@ impl ::core::cmp::PartialEq for IFaxInboundRoutingMethods {
     }
 }
 impl ::core::cmp::Eq for IFaxInboundRoutingMethods {}
+impl ::core::fmt::Debug for IFaxInboundRoutingMethods {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxInboundRoutingMethods").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxInboundRoutingMethods {
     type Vtable = IFaxInboundRoutingMethodsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x783fca10_8908_4473_9d69_f67fbea0c6b9);
@@ -7128,6 +7681,11 @@ impl ::core::cmp::PartialEq for IFaxIncomingArchive {
     }
 }
 impl ::core::cmp::Eq for IFaxIncomingArchive {}
+impl ::core::fmt::Debug for IFaxIncomingArchive {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxIncomingArchive").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxIncomingArchive {
     type Vtable = IFaxIncomingArchiveVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76062cc7_f714_4fbd_aa06_ed6e4a4b70f3);
@@ -7349,6 +7907,11 @@ impl ::core::cmp::PartialEq for IFaxIncomingJob {
     }
 }
 impl ::core::cmp::Eq for IFaxIncomingJob {}
+impl ::core::fmt::Debug for IFaxIncomingJob {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxIncomingJob").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxIncomingJob {
     type Vtable = IFaxIncomingJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x207529e6_654a_4916_9f88_4d232ee8a107);
@@ -7492,6 +8055,11 @@ impl ::core::cmp::PartialEq for IFaxIncomingJobs {
     }
 }
 impl ::core::cmp::Eq for IFaxIncomingJobs {}
+impl ::core::fmt::Debug for IFaxIncomingJobs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxIncomingJobs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxIncomingJobs {
     type Vtable = IFaxIncomingJobsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x011f04e9_4fd6_4c23_9513_b6b66bb26be9);
@@ -7667,6 +8235,11 @@ impl ::core::cmp::PartialEq for IFaxIncomingMessage {
     }
 }
 impl ::core::cmp::Eq for IFaxIncomingMessage {}
+impl ::core::fmt::Debug for IFaxIncomingMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxIncomingMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxIncomingMessage {
     type Vtable = IFaxIncomingMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cab88fa_2ef9_4851_b2f3_1d148fed8447);
@@ -7957,6 +8530,11 @@ impl ::core::cmp::PartialEq for IFaxIncomingMessage2 {
     }
 }
 impl ::core::cmp::Eq for IFaxIncomingMessage2 {}
+impl ::core::fmt::Debug for IFaxIncomingMessage2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxIncomingMessage2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxIncomingMessage2 {
     type Vtable = IFaxIncomingMessage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9208503_e2bc_48f3_9ec0_e6236f9b509a);
@@ -8129,6 +8707,11 @@ impl ::core::cmp::PartialEq for IFaxIncomingMessageIterator {
     }
 }
 impl ::core::cmp::Eq for IFaxIncomingMessageIterator {}
+impl ::core::fmt::Debug for IFaxIncomingMessageIterator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxIncomingMessageIterator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxIncomingMessageIterator {
     type Vtable = IFaxIncomingMessageIteratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd73ecc4_6f06_4f52_82a8_f7ba06ae3108);
@@ -8264,6 +8847,11 @@ impl ::core::cmp::PartialEq for IFaxIncomingQueue {
     }
 }
 impl ::core::cmp::Eq for IFaxIncomingQueue {}
+impl ::core::fmt::Debug for IFaxIncomingQueue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxIncomingQueue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxIncomingQueue {
     type Vtable = IFaxIncomingQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x902e64ef_8fd8_4b75_9725_6014df161545);
@@ -8462,6 +9050,11 @@ impl ::core::cmp::PartialEq for IFaxJobStatus {
     }
 }
 impl ::core::cmp::Eq for IFaxJobStatus {}
+impl ::core::fmt::Debug for IFaxJobStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxJobStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxJobStatus {
     type Vtable = IFaxJobStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b86f485_fd7f_4824_886b_40c5caa617cc);
@@ -8595,6 +9188,11 @@ impl ::core::cmp::PartialEq for IFaxLoggingOptions {
     }
 }
 impl ::core::cmp::Eq for IFaxLoggingOptions {}
+impl ::core::fmt::Debug for IFaxLoggingOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxLoggingOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxLoggingOptions {
     type Vtable = IFaxLoggingOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34e64fb9_6b31_4d32_8b27_d286c0c33606);
@@ -8708,6 +9306,11 @@ impl ::core::cmp::PartialEq for IFaxOutboundRouting {
     }
 }
 impl ::core::cmp::Eq for IFaxOutboundRouting {}
+impl ::core::fmt::Debug for IFaxOutboundRouting {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxOutboundRouting").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxOutboundRouting {
     type Vtable = IFaxOutboundRoutingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25dc05a4_9909_41bd_a95b_7e5d1dec1d43);
@@ -8827,6 +9430,11 @@ impl ::core::cmp::PartialEq for IFaxOutboundRoutingGroup {
     }
 }
 impl ::core::cmp::Eq for IFaxOutboundRoutingGroup {}
+impl ::core::fmt::Debug for IFaxOutboundRoutingGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxOutboundRoutingGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxOutboundRoutingGroup {
     type Vtable = IFaxOutboundRoutingGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca6289a1_7e25_4f87_9a0b_93365734962c);
@@ -8959,6 +9567,11 @@ impl ::core::cmp::PartialEq for IFaxOutboundRoutingGroups {
     }
 }
 impl ::core::cmp::Eq for IFaxOutboundRoutingGroups {}
+impl ::core::fmt::Debug for IFaxOutboundRoutingGroups {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxOutboundRoutingGroups").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxOutboundRoutingGroups {
     type Vtable = IFaxOutboundRoutingGroupsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x235cbef7_c2de_4bfd_b8da_75097c82c87f);
@@ -9120,6 +9733,11 @@ impl ::core::cmp::PartialEq for IFaxOutboundRoutingRule {
     }
 }
 impl ::core::cmp::Eq for IFaxOutboundRoutingRule {}
+impl ::core::fmt::Debug for IFaxOutboundRoutingRule {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxOutboundRoutingRule").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxOutboundRoutingRule {
     type Vtable = IFaxOutboundRoutingRuleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1f795d5_07c2_469f_b027_acacc23219da);
@@ -9268,6 +9886,11 @@ impl ::core::cmp::PartialEq for IFaxOutboundRoutingRules {
     }
 }
 impl ::core::cmp::Eq for IFaxOutboundRoutingRules {}
+impl ::core::fmt::Debug for IFaxOutboundRoutingRules {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxOutboundRoutingRules").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxOutboundRoutingRules {
     type Vtable = IFaxOutboundRoutingRulesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcefa1e7_ae7d_4ed6_8521_369edcca5120);
@@ -9462,6 +10085,11 @@ impl ::core::cmp::PartialEq for IFaxOutgoingArchive {
     }
 }
 impl ::core::cmp::Eq for IFaxOutgoingArchive {}
+impl ::core::fmt::Debug for IFaxOutgoingArchive {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxOutgoingArchive").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxOutgoingArchive {
     type Vtable = IFaxOutgoingArchiveVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9c28f40_8d80_4e53_810f_9a79919b49fd);
@@ -9741,6 +10369,11 @@ impl ::core::cmp::PartialEq for IFaxOutgoingJob {
     }
 }
 impl ::core::cmp::Eq for IFaxOutgoingJob {}
+impl ::core::fmt::Debug for IFaxOutgoingJob {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxOutgoingJob").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxOutgoingJob {
     type Vtable = IFaxOutgoingJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6356daad_6614_4583_bf7a_3ad67bbfc71c);
@@ -10074,6 +10707,11 @@ impl ::core::cmp::PartialEq for IFaxOutgoingJob2 {
     }
 }
 impl ::core::cmp::Eq for IFaxOutgoingJob2 {}
+impl ::core::fmt::Debug for IFaxOutgoingJob2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxOutgoingJob2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxOutgoingJob2 {
     type Vtable = IFaxOutgoingJob2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x418a8d96_59a0_4789_b176_edf3dc8fa8f7);
@@ -10234,6 +10872,11 @@ impl ::core::cmp::PartialEq for IFaxOutgoingJobs {
     }
 }
 impl ::core::cmp::Eq for IFaxOutgoingJobs {}
+impl ::core::fmt::Debug for IFaxOutgoingJobs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxOutgoingJobs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxOutgoingJobs {
     type Vtable = IFaxOutgoingJobsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c56d8e6_8c2f_4573_944c_e505f8f5aeed);
@@ -10440,6 +11083,11 @@ impl ::core::cmp::PartialEq for IFaxOutgoingMessage {
     }
 }
 impl ::core::cmp::Eq for IFaxOutgoingMessage {}
+impl ::core::fmt::Debug for IFaxOutgoingMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxOutgoingMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxOutgoingMessage {
     type Vtable = IFaxOutgoingMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0ea35de_caa5_4a7c_82c7_2b60ba5f2be2);
@@ -10722,6 +11370,11 @@ impl ::core::cmp::PartialEq for IFaxOutgoingMessage2 {
     }
 }
 impl ::core::cmp::Eq for IFaxOutgoingMessage2 {}
+impl ::core::fmt::Debug for IFaxOutgoingMessage2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxOutgoingMessage2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxOutgoingMessage2 {
     type Vtable = IFaxOutgoingMessage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb37df687_bc88_4b46_b3be_b458b3ea9e7f);
@@ -10885,6 +11538,11 @@ impl ::core::cmp::PartialEq for IFaxOutgoingMessageIterator {
     }
 }
 impl ::core::cmp::Eq for IFaxOutgoingMessageIterator {}
+impl ::core::fmt::Debug for IFaxOutgoingMessageIterator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxOutgoingMessageIterator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxOutgoingMessageIterator {
     type Vtable = IFaxOutgoingMessageIteratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5ec5d4f_b840_432f_9980_112fe42a9b7a);
@@ -11101,6 +11759,11 @@ impl ::core::cmp::PartialEq for IFaxOutgoingQueue {
     }
 }
 impl ::core::cmp::Eq for IFaxOutgoingQueue {}
+impl ::core::fmt::Debug for IFaxOutgoingQueue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxOutgoingQueue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxOutgoingQueue {
     type Vtable = IFaxOutgoingQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80b1df24_d9ac_4333_b373_487cedc80ce5);
@@ -11315,6 +11978,11 @@ impl ::core::cmp::PartialEq for IFaxReceiptOptions {
     }
 }
 impl ::core::cmp::Eq for IFaxReceiptOptions {}
+impl ::core::fmt::Debug for IFaxReceiptOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxReceiptOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxReceiptOptions {
     type Vtable = IFaxReceiptOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x378efaeb_5fcb_4afb_b2ee_e16e80614487);
@@ -11464,6 +12132,11 @@ impl ::core::cmp::PartialEq for IFaxRecipient {
     }
 }
 impl ::core::cmp::Eq for IFaxRecipient {}
+impl ::core::fmt::Debug for IFaxRecipient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxRecipient").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxRecipient {
     type Vtable = IFaxRecipientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a3da3a0_538d_42b6_9444_aaa57d0ce2bc);
@@ -11598,6 +12271,11 @@ impl ::core::cmp::PartialEq for IFaxRecipients {
     }
 }
 impl ::core::cmp::Eq for IFaxRecipients {}
+impl ::core::fmt::Debug for IFaxRecipients {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxRecipients").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxRecipients {
     type Vtable = IFaxRecipientsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9c9de5a_894e_4492_9fa3_08c627c11d5d);
@@ -11738,6 +12416,11 @@ impl ::core::cmp::PartialEq for IFaxSecurity {
     }
 }
 impl ::core::cmp::Eq for IFaxSecurity {}
+impl ::core::fmt::Debug for IFaxSecurity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxSecurity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxSecurity {
     type Vtable = IFaxSecurityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77b508c1_09c0_47a2_91eb_fce7fdf2690e);
@@ -11881,6 +12564,11 @@ impl ::core::cmp::PartialEq for IFaxSecurity2 {
     }
 }
 impl ::core::cmp::Eq for IFaxSecurity2 {}
+impl ::core::fmt::Debug for IFaxSecurity2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxSecurity2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxSecurity2 {
     type Vtable = IFaxSecurity2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17d851f4_d09b_48fc_99c9_8f24c4db9ab1);
@@ -12175,6 +12863,11 @@ impl ::core::cmp::PartialEq for IFaxSender {
     }
 }
 impl ::core::cmp::Eq for IFaxSender {}
+impl ::core::fmt::Debug for IFaxSender {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxSender").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxSender {
     type Vtable = IFaxSenderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d879d7d_f57a_4cc6_a6f9_3ee5d527b46a);
@@ -12472,6 +13165,11 @@ impl ::core::cmp::PartialEq for IFaxServer {
     }
 }
 impl ::core::cmp::Eq for IFaxServer {}
+impl ::core::fmt::Debug for IFaxServer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxServer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxServer {
     type Vtable = IFaxServerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x475b6469_90a5_4878_a577_17a86e8e3462);
@@ -12777,6 +13475,11 @@ impl ::core::cmp::PartialEq for IFaxServer2 {
     }
 }
 impl ::core::cmp::Eq for IFaxServer2 {}
+impl ::core::fmt::Debug for IFaxServer2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxServer2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxServer2 {
     type Vtable = IFaxServer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x571ced0f_5609_4f40_9176_547e3a72ca7c);
@@ -12916,6 +13619,11 @@ impl ::core::cmp::PartialEq for IFaxServerNotify {
     }
 }
 impl ::core::cmp::Eq for IFaxServerNotify {}
+impl ::core::fmt::Debug for IFaxServerNotify {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxServerNotify").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxServerNotify {
     type Vtable = IFaxServerNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e037b27_cf8a_4abd_b1e0_5704943bea6f);
@@ -13017,6 +13725,11 @@ impl ::core::cmp::PartialEq for IFaxServerNotify2 {
     }
 }
 impl ::core::cmp::Eq for IFaxServerNotify2 {}
+impl ::core::fmt::Debug for IFaxServerNotify2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxServerNotify2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFaxServerNotify2 {
     type Vtable = IFaxServerNotify2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x616ca8d6_a77a_4062_abfd_0e471241c7aa);
@@ -13151,6 +13864,11 @@ impl ::core::cmp::PartialEq for IStiDevice {
     }
 }
 impl ::core::cmp::Eq for IStiDevice {}
+impl ::core::fmt::Debug for IStiDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStiDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IStiDevice {
     type Vtable = IStiDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cfa5a80_2dc8_11d0_90ea_00aa0060f86c);
@@ -13273,6 +13991,11 @@ impl ::core::cmp::PartialEq for IStiDeviceControl {
     }
 }
 impl ::core::cmp::Eq for IStiDeviceControl {}
+impl ::core::fmt::Debug for IStiDeviceControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStiDeviceControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IStiDeviceControl {
     type Vtable = IStiDeviceControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x128a9860_52dc_11d0_9edf_444553540000);
@@ -13415,6 +14138,11 @@ impl ::core::cmp::PartialEq for IStiUSD {
     }
 }
 impl ::core::cmp::Eq for IStiUSD {}
+impl ::core::fmt::Debug for IStiUSD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStiUSD").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IStiUSD {
     type Vtable = IStiUSDVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c9bb460_51ac_11d0_90ea_00aa0060f86c);
@@ -13559,6 +14287,11 @@ impl ::core::cmp::PartialEq for IStillImageW {
     }
 }
 impl ::core::cmp::Eq for IStillImageW {}
+impl ::core::fmt::Debug for IStillImageW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStillImageW").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IStillImageW {
     type Vtable = IStillImageWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x641bd880_2dc8_11d0_90ea_00aa0060f86c);
@@ -13958,6 +14691,11 @@ impl ::core::clone::Clone for STINOTIFY {
         *self
     }
 }
+impl ::core::fmt::Debug for STINOTIFY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STINOTIFY").field("dwSize", &self.dwSize).field("guidNotificationCode", &self.guidNotificationCode).field("abNotificationData", &self.abNotificationData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STINOTIFY {
     type Abi = Self;
 }
@@ -13989,6 +14727,12 @@ impl ::core::marker::Copy for STISUBSCRIBE {}
 impl ::core::clone::Clone for STISUBSCRIBE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STISUBSCRIBE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STISUBSCRIBE").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwFilter", &self.dwFilter).field("hWndNotify", &self.hWndNotify).field("hEvent", &self.hEvent).field("uiNotificationMessage", &self.uiNotificationMessage).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14045,6 +14789,23 @@ impl ::core::clone::Clone for STI_DEVICE_INFORMATIONW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STI_DEVICE_INFORMATIONW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STI_DEVICE_INFORMATIONW")
+            .field("dwSize", &self.dwSize)
+            .field("DeviceType", &self.DeviceType)
+            .field("szDeviceInternalName", &self.szDeviceInternalName)
+            .field("DeviceCapabilitiesA", &self.DeviceCapabilitiesA)
+            .field("dwHardwareConfiguration", &self.dwHardwareConfiguration)
+            .field("pszVendorDescription", &self.pszVendorDescription)
+            .field("pszDeviceDescription", &self.pszDeviceDescription)
+            .field("pszPortName", &self.pszPortName)
+            .field("pszPropProvider", &self.pszPropProvider)
+            .field("pszLocalName", &self.pszLocalName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STI_DEVICE_INFORMATIONW {
     type Abi = Self;
 }
@@ -14088,6 +14849,11 @@ impl ::core::clone::Clone for STI_DEVICE_STATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for STI_DEVICE_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STI_DEVICE_STATUS").field("dwSize", &self.dwSize).field("StatusMask", &self.StatusMask).field("dwOnlineState", &self.dwOnlineState).field("dwHardwareStatusCode", &self.dwHardwareStatusCode).field("dwEventHandlingState", &self.dwEventHandlingState).field("dwPollingInterval", &self.dwPollingInterval).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STI_DEVICE_STATUS {
     type Abi = Self;
 }
@@ -14117,6 +14883,11 @@ impl ::core::clone::Clone for STI_DEV_CAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for STI_DEV_CAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STI_DEV_CAPS").field("dwGeneric", &self.dwGeneric).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STI_DEV_CAPS {
     type Abi = Self;
 }
@@ -14144,6 +14915,11 @@ impl ::core::marker::Copy for STI_DIAG {}
 impl ::core::clone::Clone for STI_DIAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STI_DIAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STI_DIAG").field("dwSize", &self.dwSize).field("dwBasicDiagCode", &self.dwBasicDiagCode).field("dwVendorDiagCode", &self.dwVendorDiagCode).field("dwStatusMask", &self.dwStatusMask).field("sErrorInfo", &self.sErrorInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STI_DIAG {
@@ -14252,6 +15028,11 @@ impl ::core::clone::Clone for STI_USD_CAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for STI_USD_CAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STI_USD_CAPS").field("dwVersion", &self.dwVersion).field("dwGenericCaps", &self.dwGenericCaps).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STI_USD_CAPS {
     type Abi = Self;
 }
@@ -14301,6 +15082,25 @@ impl ::core::marker::Copy for STI_WIA_DEVICE_INFORMATIONW {}
 impl ::core::clone::Clone for STI_WIA_DEVICE_INFORMATIONW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STI_WIA_DEVICE_INFORMATIONW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STI_WIA_DEVICE_INFORMATIONW")
+            .field("dwSize", &self.dwSize)
+            .field("DeviceType", &self.DeviceType)
+            .field("szDeviceInternalName", &self.szDeviceInternalName)
+            .field("DeviceCapabilitiesA", &self.DeviceCapabilitiesA)
+            .field("dwHardwareConfiguration", &self.dwHardwareConfiguration)
+            .field("pszVendorDescription", &self.pszVendorDescription)
+            .field("pszDeviceDescription", &self.pszDeviceDescription)
+            .field("pszPortName", &self.pszPortName)
+            .field("pszPropProvider", &self.pszPropProvider)
+            .field("pszLocalName", &self.pszLocalName)
+            .field("pszUiDll", &self.pszUiDll)
+            .field("pszServer", &self.pszServer)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14371,6 +15171,11 @@ impl ::core::marker::Copy for _ERROR_INFOW {}
 impl ::core::clone::Clone for _ERROR_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _ERROR_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_ERROR_INFOW").field("dwSize", &self.dwSize).field("dwGenericError", &self.dwGenericError).field("dwVendorError", &self.dwVendorError).field("szExtendedErrorText", &self.szExtendedErrorText).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _ERROR_INFOW {
@@ -14523,6 +15328,11 @@ impl ::core::cmp::PartialEq for _IFaxAccountNotify {
     }
 }
 impl ::core::cmp::Eq for _IFaxAccountNotify {}
+impl ::core::fmt::Debug for _IFaxAccountNotify {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_IFaxAccountNotify").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _IFaxAccountNotify {
     type Vtable = _IFaxAccountNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9b3bc81_ac1b_46f3_b39d_0adc30e1b788);
@@ -14760,6 +15570,11 @@ impl ::core::cmp::PartialEq for _IFaxServerNotify2 {
     }
 }
 impl ::core::cmp::Eq for _IFaxServerNotify2 {}
+impl ::core::fmt::Debug for _IFaxServerNotify2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_IFaxServerNotify2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _IFaxServerNotify2 {
     type Vtable = _IFaxServerNotify2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec9c69b9_5fe7_4805_9467_82fcd96af903);

@@ -112,6 +112,11 @@ impl ::core::cmp::PartialEq for RadialControllerIndependentInputSource {
     }
 }
 impl ::core::cmp::Eq for RadialControllerIndependentInputSource {}
+impl ::core::fmt::Debug for RadialControllerIndependentInputSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadialControllerIndependentInputSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadialControllerIndependentInputSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Core.RadialControllerIndependentInputSource;{3d577ef6-4cee-11e6-b535-001bdc06ab3b})");
 }

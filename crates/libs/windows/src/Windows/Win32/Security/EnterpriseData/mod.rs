@@ -20,6 +20,11 @@ impl ::core::clone::Clone for FILE_UNPROTECT_OPTIONS {
         *self
     }
 }
+impl ::core::fmt::Debug for FILE_UNPROTECT_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_UNPROTECT_OPTIONS").field("audit", &self.audit).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILE_UNPROTECT_OPTIONS {
     type Abi = Self;
 }
@@ -47,6 +52,12 @@ impl ::core::marker::Copy for HTHREAD_NETWORK_CONTEXT {}
 impl ::core::clone::Clone for HTHREAD_NETWORK_CONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTHREAD_NETWORK_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTHREAD_NETWORK_CONTEXT").field("ThreadId", &self.ThreadId).field("ThreadContext", &self.ThreadContext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -135,6 +146,11 @@ impl ::core::cmp::PartialEq for IProtectionPolicyManagerInterop {
     }
 }
 impl ::core::cmp::Eq for IProtectionPolicyManagerInterop {}
+impl ::core::fmt::Debug for IProtectionPolicyManagerInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProtectionPolicyManagerInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProtectionPolicyManagerInterop {
     type Vtable = IProtectionPolicyManagerInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4652651d_c1fe_4ba1_9f0a_c0f56596f721);
@@ -239,6 +255,11 @@ impl ::core::cmp::PartialEq for IProtectionPolicyManagerInterop2 {
     }
 }
 impl ::core::cmp::Eq for IProtectionPolicyManagerInterop2 {}
+impl ::core::fmt::Debug for IProtectionPolicyManagerInterop2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProtectionPolicyManagerInterop2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProtectionPolicyManagerInterop2 {
     type Vtable = IProtectionPolicyManagerInterop2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x157cfbe4_a78d_4156_b384_61fdac41e686);
@@ -355,6 +376,11 @@ impl ::core::cmp::PartialEq for IProtectionPolicyManagerInterop3 {
     }
 }
 impl ::core::cmp::Eq for IProtectionPolicyManagerInterop3 {}
+impl ::core::fmt::Debug for IProtectionPolicyManagerInterop3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProtectionPolicyManagerInterop3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProtectionPolicyManagerInterop3 {
     type Vtable = IProtectionPolicyManagerInterop3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1c03933_b398_4d93_b0fd_2972adf802c2);

@@ -83,6 +83,11 @@ impl ::core::cmp::PartialEq for AppEvents {
     }
 }
 impl ::core::cmp::Eq for AppEvents {}
+impl ::core::fmt::Debug for AppEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AppEvents {
     type Vtable = AppEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc7a4252_78ac_4532_8c5a_563cfe138863);
@@ -182,6 +187,12 @@ impl ::core::clone::Clone for CONTEXTMENUITEM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CONTEXTMENUITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONTEXTMENUITEM").field("strName", &self.strName).field("strStatusBarText", &self.strStatusBarText).field("lCommandID", &self.lCommandID).field("lInsertionPointID", &self.lInsertionPointID).field("fFlags", &self.fFlags).field("fSpecialFlags", &self.fSpecialFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CONTEXTMENUITEM {
     type Abi = Self;
 }
@@ -217,6 +228,12 @@ impl ::core::marker::Copy for CONTEXTMENUITEM2 {}
 impl ::core::clone::Clone for CONTEXTMENUITEM2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CONTEXTMENUITEM2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONTEXTMENUITEM2").field("strName", &self.strName).field("strStatusBarText", &self.strStatusBarText).field("lCommandID", &self.lCommandID).field("lInsertionPointID", &self.lInsertionPointID).field("fFlags", &self.fFlags).field("fSpecialFlags", &self.fSpecialFlags).field("strLanguageIndependentName", &self.strLanguageIndependentName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -364,6 +381,11 @@ impl ::core::cmp::PartialEq for Column {
     }
 }
 impl ::core::cmp::Eq for Column {}
+impl ::core::fmt::Debug for Column {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Column").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for Column {
     type Vtable = ColumnVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd1c5f63_2b16_4d06_9ab3_f45350b940ab);
@@ -493,6 +515,11 @@ impl ::core::cmp::PartialEq for Columns {
     }
 }
 impl ::core::cmp::Eq for Columns {}
+impl ::core::fmt::Debug for Columns {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Columns").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for Columns {
     type Vtable = ColumnsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x383d4d97_fc44_478b_b139_6323dc48611c);
@@ -614,6 +641,11 @@ impl ::core::cmp::PartialEq for ContextMenu {
     }
 }
 impl ::core::cmp::Eq for ContextMenu {}
+impl ::core::fmt::Debug for ContextMenu {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContextMenu").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ContextMenu {
     type Vtable = ContextMenuVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdab39ce0_25e6_4e07_8362_ba9c95706545);
@@ -808,6 +840,11 @@ impl ::core::cmp::PartialEq for Document {
     }
 }
 impl ::core::cmp::Eq for Document {}
+impl ::core::fmt::Debug for Document {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Document").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for Document {
     type Vtable = DocumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x225120d6_1e0f_40a3_93fe_1079e6a8017b);
@@ -964,6 +1001,11 @@ impl ::core::cmp::PartialEq for Extension {
     }
 }
 impl ::core::cmp::Eq for Extension {}
+impl ::core::fmt::Debug for Extension {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Extension").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for Extension {
     type Vtable = ExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad4d6ca6_912f_409b_a26e_7fd234aef542);
@@ -1089,6 +1131,11 @@ impl ::core::cmp::PartialEq for Extensions {
     }
 }
 impl ::core::cmp::Eq for Extensions {}
+impl ::core::fmt::Debug for Extensions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Extensions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for Extensions {
     type Vtable = ExtensionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82dbea43_8ca4_44bc_a2ca_d18741059ec8);
@@ -1241,6 +1288,11 @@ impl ::core::cmp::PartialEq for Frame {
     }
 }
 impl ::core::cmp::Eq for Frame {}
+impl ::core::fmt::Debug for Frame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Frame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for Frame {
     type Vtable = FrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5e2d970_5bb3_4306_8804_b0968a31c8e6);
@@ -1329,6 +1381,11 @@ impl ::core::cmp::PartialEq for IColumnData {
     }
 }
 impl ::core::cmp::Eq for IColumnData {}
+impl ::core::fmt::Debug for IColumnData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IColumnData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IColumnData {
     type Vtable = IColumnDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x547c1354_024d_11d3_a707_00c04f8ef4cb);
@@ -1414,6 +1471,11 @@ impl ::core::cmp::PartialEq for IComponent {
     }
 }
 impl ::core::cmp::Eq for IComponent {}
+impl ::core::fmt::Debug for IComponent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IComponent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IComponent {
     type Vtable = IComponentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43136eb2_d36c_11cf_adbc_00aa00a80033);
@@ -1543,6 +1605,11 @@ impl ::core::cmp::PartialEq for IComponent2 {
     }
 }
 impl ::core::cmp::Eq for IComponent2 {}
+impl ::core::fmt::Debug for IComponent2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IComponent2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IComponent2 {
     type Vtable = IComponent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79a2d615_4a10_4ed4_8c65_8633f9335095);
@@ -1642,6 +1709,11 @@ impl ::core::cmp::PartialEq for IComponentData {
     }
 }
 impl ::core::cmp::Eq for IComponentData {}
+impl ::core::fmt::Debug for IComponentData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IComponentData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IComponentData {
     type Vtable = IComponentDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x955ab28a_5218_11d0_a985_00c04fd8d565);
@@ -1760,6 +1832,11 @@ impl ::core::cmp::PartialEq for IComponentData2 {
     }
 }
 impl ::core::cmp::Eq for IComponentData2 {}
+impl ::core::fmt::Debug for IComponentData2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IComponentData2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IComponentData2 {
     type Vtable = IComponentData2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcca0f2d2_82de_41b5_bf47_3b2076273d5c);
@@ -1873,6 +1950,11 @@ impl ::core::cmp::PartialEq for IConsole {
     }
 }
 impl ::core::cmp::Eq for IConsole {}
+impl ::core::fmt::Debug for IConsole {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IConsole").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IConsole {
     type Vtable = IConsoleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43136eb1_d36c_11cf_adbc_00aa00a80033);
@@ -2021,6 +2103,11 @@ impl ::core::cmp::PartialEq for IConsole2 {
     }
 }
 impl ::core::cmp::Eq for IConsole2 {}
+impl ::core::fmt::Debug for IConsole2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IConsole2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IConsole2 {
     type Vtable = IConsole2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x103d842a_aa63_11d1_a7e1_00c04fd8d565);
@@ -2198,6 +2285,11 @@ impl ::core::cmp::PartialEq for IConsole3 {
     }
 }
 impl ::core::cmp::Eq for IConsole3 {}
+impl ::core::fmt::Debug for IConsole3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IConsole3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IConsole3 {
     type Vtable = IConsole3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f85efdb_d0e1_498c_8d4a_d010dfdd404f);
@@ -2296,6 +2388,11 @@ impl ::core::cmp::PartialEq for IConsoleNameSpace {
     }
 }
 impl ::core::cmp::Eq for IConsoleNameSpace {}
+impl ::core::fmt::Debug for IConsoleNameSpace {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IConsoleNameSpace").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IConsoleNameSpace {
     type Vtable = IConsoleNameSpaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbedeb620_f24d_11cf_8afc_00aa003ca9f6);
@@ -2412,6 +2509,11 @@ impl ::core::cmp::PartialEq for IConsoleNameSpace2 {
     }
 }
 impl ::core::cmp::Eq for IConsoleNameSpace2 {}
+impl ::core::fmt::Debug for IConsoleNameSpace2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IConsoleNameSpace2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IConsoleNameSpace2 {
     type Vtable = IConsoleNameSpace2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x255f18cc_65db_11d1_a7dc_00c04fd8d565);
@@ -2479,6 +2581,11 @@ impl ::core::cmp::PartialEq for IConsolePower {
     }
 }
 impl ::core::cmp::Eq for IConsolePower {}
+impl ::core::fmt::Debug for IConsolePower {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IConsolePower").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IConsolePower {
     type Vtable = IConsolePowerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cfbdd0e_62ca_49ce_a3af_dbb2de61b068);
@@ -2534,6 +2641,11 @@ impl ::core::cmp::PartialEq for IConsolePowerSink {
     }
 }
 impl ::core::cmp::Eq for IConsolePowerSink {}
+impl ::core::fmt::Debug for IConsolePowerSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IConsolePowerSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IConsolePowerSink {
     type Vtable = IConsolePowerSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3333759f_fe4f_4975_b143_fec0a5dd6d65);
@@ -2603,6 +2715,11 @@ impl ::core::cmp::PartialEq for IConsoleVerb {
     }
 }
 impl ::core::cmp::Eq for IConsoleVerb {}
+impl ::core::fmt::Debug for IConsoleVerb {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IConsoleVerb").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IConsoleVerb {
     type Vtable = IConsoleVerbVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe49f7a60_74af_11d0_a286_00c04fd8fe93);
@@ -2661,6 +2778,11 @@ impl ::core::cmp::PartialEq for IContextMenuCallback {
     }
 }
 impl ::core::cmp::Eq for IContextMenuCallback {}
+impl ::core::fmt::Debug for IContextMenuCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContextMenuCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContextMenuCallback {
     type Vtable = IContextMenuCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43136eb7_d36c_11cf_adbc_00aa00a80033);
@@ -2715,6 +2837,11 @@ impl ::core::cmp::PartialEq for IContextMenuCallback2 {
     }
 }
 impl ::core::cmp::Eq for IContextMenuCallback2 {}
+impl ::core::fmt::Debug for IContextMenuCallback2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContextMenuCallback2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContextMenuCallback2 {
     type Vtable = IContextMenuCallback2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe178bc0e_2ed0_4b5e_8097_42c9087e8b33);
@@ -2809,6 +2936,11 @@ impl ::core::cmp::PartialEq for IContextMenuProvider {
     }
 }
 impl ::core::cmp::Eq for IContextMenuProvider {}
+impl ::core::fmt::Debug for IContextMenuProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContextMenuProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContextMenuProvider {
     type Vtable = IContextMenuProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43136eb6_d36c_11cf_adbc_00aa00a80033);
@@ -2878,6 +3010,11 @@ impl ::core::cmp::PartialEq for IControlbar {
     }
 }
 impl ::core::cmp::Eq for IControlbar {}
+impl ::core::fmt::Debug for IControlbar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IControlbar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IControlbar {
     type Vtable = IControlbarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69fb811e_6c1c_11d0_a2cb_00c04fd909dd);
@@ -2933,6 +3070,11 @@ impl ::core::cmp::PartialEq for IDisplayHelp {
     }
 }
 impl ::core::cmp::Eq for IDisplayHelp {}
+impl ::core::fmt::Debug for IDisplayHelp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDisplayHelp").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDisplayHelp {
     type Vtable = IDisplayHelpVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc593830_b926_11d1_8063_0000f875a9ce);
@@ -3000,6 +3142,11 @@ impl ::core::cmp::PartialEq for IEnumTASK {
     }
 }
 impl ::core::cmp::Eq for IEnumTASK {}
+impl ::core::fmt::Debug for IEnumTASK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumTASK").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumTASK {
     type Vtable = IEnumTASKVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x338698b1_5a02_11d1_9fec_00600832db4a);
@@ -3062,6 +3209,11 @@ impl ::core::cmp::PartialEq for IExtendContextMenu {
     }
 }
 impl ::core::cmp::Eq for IExtendContextMenu {}
+impl ::core::fmt::Debug for IExtendContextMenu {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IExtendContextMenu").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IExtendContextMenu {
     type Vtable = IExtendContextMenuVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f3b7a4f_cfac_11cf_b8e3_00c04fd8d5b0);
@@ -3122,6 +3274,11 @@ impl ::core::cmp::PartialEq for IExtendControlbar {
     }
 }
 impl ::core::cmp::Eq for IExtendControlbar {}
+impl ::core::fmt::Debug for IExtendControlbar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IExtendControlbar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IExtendControlbar {
     type Vtable = IExtendControlbarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49506520_6f40_11d0_a98b_00c04fd8d565);
@@ -3182,6 +3339,11 @@ impl ::core::cmp::PartialEq for IExtendPropertySheet {
     }
 }
 impl ::core::cmp::Eq for IExtendPropertySheet {}
+impl ::core::fmt::Debug for IExtendPropertySheet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IExtendPropertySheet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IExtendPropertySheet {
     type Vtable = IExtendPropertySheetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85de64dc_ef21_11cf_a285_00c04fd8dbe6);
@@ -3268,6 +3430,11 @@ impl ::core::cmp::PartialEq for IExtendPropertySheet2 {
     }
 }
 impl ::core::cmp::Eq for IExtendPropertySheet2 {}
+impl ::core::fmt::Debug for IExtendPropertySheet2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IExtendPropertySheet2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IExtendPropertySheet2 {
     type Vtable = IExtendPropertySheet2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7a87232_4a51_11d1_a7ea_00c04fd909dd);
@@ -3356,6 +3523,11 @@ impl ::core::cmp::PartialEq for IExtendTaskPad {
     }
 }
 impl ::core::cmp::Eq for IExtendTaskPad {}
+impl ::core::fmt::Debug for IExtendTaskPad {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IExtendTaskPad").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IExtendTaskPad {
     type Vtable = IExtendTaskPadVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8dee6511_554d_11d1_9fea_00600832db4a);
@@ -3420,6 +3592,11 @@ impl ::core::cmp::PartialEq for IExtendView {
     }
 }
 impl ::core::cmp::Eq for IExtendView {}
+impl ::core::fmt::Debug for IExtendView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IExtendView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IExtendView {
     type Vtable = IExtendViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89995cee_d2ed_4c0e_ae5e_df7e76f3fa53);
@@ -3498,6 +3675,11 @@ impl ::core::cmp::PartialEq for IHeaderCtrl {
     }
 }
 impl ::core::cmp::Eq for IHeaderCtrl {}
+impl ::core::fmt::Debug for IHeaderCtrl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IHeaderCtrl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IHeaderCtrl {
     type Vtable = IHeaderCtrlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43136eb3_d36c_11cf_adbc_00aa00a80033);
@@ -3617,6 +3799,11 @@ impl ::core::cmp::PartialEq for IHeaderCtrl2 {
     }
 }
 impl ::core::cmp::Eq for IHeaderCtrl2 {}
+impl ::core::fmt::Debug for IHeaderCtrl2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IHeaderCtrl2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IHeaderCtrl2 {
     type Vtable = IHeaderCtrl2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9757abb8_1b32_11d1_a7ce_00c04fd8d565);
@@ -3686,6 +3873,11 @@ impl ::core::cmp::PartialEq for IImageList {
     }
 }
 impl ::core::cmp::Eq for IImageList {}
+impl ::core::fmt::Debug for IImageList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IImageList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IImageList {
     type Vtable = IImageListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43136eb8_d36c_11cf_adbc_00aa00a80033);
@@ -3743,6 +3935,11 @@ impl ::core::cmp::PartialEq for IMMCVersionInfo {
     }
 }
 impl ::core::cmp::Eq for IMMCVersionInfo {}
+impl ::core::fmt::Debug for IMMCVersionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMMCVersionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMMCVersionInfo {
     type Vtable = IMMCVersionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8d2c5fe_cdcb_4b9d_bde5_a27343ff54bc);
@@ -3801,6 +3998,11 @@ impl ::core::cmp::PartialEq for IMenuButton {
     }
 }
 impl ::core::cmp::Eq for IMenuButton {}
+impl ::core::fmt::Debug for IMenuButton {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMenuButton").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMenuButton {
     type Vtable = IMenuButtonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x951ed750_d080_11d0_b197_000000000000);
@@ -3872,6 +4074,11 @@ impl ::core::cmp::PartialEq for IMessageView {
     }
 }
 impl ::core::cmp::Eq for IMessageView {}
+impl ::core::fmt::Debug for IMessageView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMessageView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMessageView {
     type Vtable = IMessageViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80f94174_fccc_11d2_b991_00c04f8ecd78);
@@ -3931,6 +4138,11 @@ impl ::core::cmp::PartialEq for INodeProperties {
     }
 }
 impl ::core::cmp::Eq for INodeProperties {}
+impl ::core::fmt::Debug for INodeProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INodeProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INodeProperties {
     type Vtable = INodePropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15bc4d24_a522_4406_aa55_0749537a6865);
@@ -3990,6 +4202,11 @@ impl ::core::cmp::PartialEq for IPropertySheetCallback {
     }
 }
 impl ::core::cmp::Eq for IPropertySheetCallback {}
+impl ::core::fmt::Debug for IPropertySheetCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertySheetCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertySheetCallback {
     type Vtable = IPropertySheetCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85de64dd_ef21_11cf_a285_00c04fd8dbe6);
@@ -4064,6 +4281,11 @@ impl ::core::cmp::PartialEq for IPropertySheetProvider {
     }
 }
 impl ::core::cmp::Eq for IPropertySheetProvider {}
+impl ::core::fmt::Debug for IPropertySheetProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertySheetProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertySheetProvider {
     type Vtable = IPropertySheetProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85de64de_ef21_11cf_a285_00c04fd8dbe6);
@@ -4133,6 +4355,11 @@ impl ::core::cmp::PartialEq for IRequiredExtensions {
     }
 }
 impl ::core::cmp::Eq for IRequiredExtensions {}
+impl ::core::fmt::Debug for IRequiredExtensions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRequiredExtensions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRequiredExtensions {
     type Vtable = IRequiredExtensionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72782d7a_a4a0_11d1_af0f_00c04fb6dd2c);
@@ -4252,6 +4479,11 @@ impl ::core::cmp::PartialEq for IResultData {
     }
 }
 impl ::core::cmp::Eq for IResultData {}
+impl ::core::fmt::Debug for IResultData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IResultData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IResultData {
     type Vtable = IResultDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31da5fa0_e0eb_11cf_9f21_00aa003ca9f6);
@@ -4414,6 +4646,11 @@ impl ::core::cmp::PartialEq for IResultData2 {
     }
 }
 impl ::core::cmp::Eq for IResultData2 {}
+impl ::core::fmt::Debug for IResultData2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IResultData2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IResultData2 {
     type Vtable = IResultData2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f36e0eb_a7f1_4a81_be5a_9247f7de4b1b);
@@ -4489,6 +4726,11 @@ impl ::core::cmp::PartialEq for IResultDataCompare {
     }
 }
 impl ::core::cmp::Eq for IResultDataCompare {}
+impl ::core::fmt::Debug for IResultDataCompare {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IResultDataCompare").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IResultDataCompare {
     type Vtable = IResultDataCompareVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8315a52_7a1a_11d0_a2d2_00c04fd909dd);
@@ -4544,6 +4786,11 @@ impl ::core::cmp::PartialEq for IResultDataCompareEx {
     }
 }
 impl ::core::cmp::Eq for IResultDataCompareEx {}
+impl ::core::fmt::Debug for IResultDataCompareEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IResultDataCompareEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IResultDataCompareEx {
     type Vtable = IResultDataCompareExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96933476_0251_11d3_aeb0_00c04f8ecd78);
@@ -4608,6 +4855,11 @@ impl ::core::cmp::PartialEq for IResultOwnerData {
     }
 }
 impl ::core::cmp::Eq for IResultOwnerData {}
+impl ::core::fmt::Debug for IResultOwnerData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IResultOwnerData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IResultOwnerData {
     type Vtable = IResultOwnerDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cb396d8_ea83_11d0_aef1_00c04fb6dd2c);
@@ -4689,6 +4941,11 @@ impl ::core::cmp::PartialEq for ISnapinAbout {
     }
 }
 impl ::core::cmp::Eq for ISnapinAbout {}
+impl ::core::fmt::Debug for ISnapinAbout {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISnapinAbout").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISnapinAbout {
     type Vtable = ISnapinAboutVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1245208c_a151_11d0_a7d7_00c04fd909dd);
@@ -4752,6 +5009,11 @@ impl ::core::cmp::PartialEq for ISnapinHelp {
     }
 }
 impl ::core::cmp::Eq for ISnapinHelp {}
+impl ::core::fmt::Debug for ISnapinHelp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISnapinHelp").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISnapinHelp {
     type Vtable = ISnapinHelpVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6b15ace_df59_11d0_a7dd_00c04fd909dd);
@@ -4833,6 +5095,11 @@ impl ::core::cmp::PartialEq for ISnapinHelp2 {
     }
 }
 impl ::core::cmp::Eq for ISnapinHelp2 {}
+impl ::core::fmt::Debug for ISnapinHelp2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISnapinHelp2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISnapinHelp2 {
     type Vtable = ISnapinHelp2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4861a010_20f9_11d2_a510_00c04fb6dd2c);
@@ -4897,6 +5164,11 @@ impl ::core::cmp::PartialEq for ISnapinProperties {
     }
 }
 impl ::core::cmp::Eq for ISnapinProperties {}
+impl ::core::fmt::Debug for ISnapinProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISnapinProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISnapinProperties {
     type Vtable = ISnapinPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7889da9_4a02_4837_bf89_1a6f2a021010);
@@ -4953,6 +5225,11 @@ impl ::core::cmp::PartialEq for ISnapinPropertiesCallback {
     }
 }
 impl ::core::cmp::Eq for ISnapinPropertiesCallback {}
+impl ::core::fmt::Debug for ISnapinPropertiesCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISnapinPropertiesCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISnapinPropertiesCallback {
     type Vtable = ISnapinPropertiesCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa50fa2e5_7e61_45eb_a8d4_9a07b3e851a8);
@@ -5038,6 +5315,11 @@ impl ::core::cmp::PartialEq for IStringTable {
     }
 }
 impl ::core::cmp::Eq for IStringTable {}
+impl ::core::fmt::Debug for IStringTable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStringTable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IStringTable {
     type Vtable = IStringTableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde40b7a4_0f65_11d2_8e25_00c04f8ecd78);
@@ -5126,6 +5408,11 @@ impl ::core::cmp::PartialEq for IToolbar {
     }
 }
 impl ::core::cmp::Eq for IToolbar {}
+impl ::core::fmt::Debug for IToolbar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IToolbar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IToolbar {
     type Vtable = IToolbarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43136eb9_d36c_11cf_adbc_00aa00a80033);
@@ -5189,6 +5476,11 @@ impl ::core::cmp::PartialEq for IViewExtensionCallback {
     }
 }
 impl ::core::cmp::Eq for IViewExtensionCallback {}
+impl ::core::fmt::Debug for IViewExtensionCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IViewExtensionCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IViewExtensionCallback {
     type Vtable = IViewExtensionCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34dd928a_7599_41e5_9f5e_d6bc3062c2da);
@@ -5231,6 +5523,11 @@ impl ::core::clone::Clone for MENUBUTTONDATA {
         *self
     }
 }
+impl ::core::fmt::Debug for MENUBUTTONDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MENUBUTTONDATA").field("idCommand", &self.idCommand).field("x", &self.x).field("y", &self.y).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MENUBUTTONDATA {
     type Abi = Self;
 }
@@ -5262,6 +5559,12 @@ impl ::core::marker::Copy for MMCBUTTON {}
 impl ::core::clone::Clone for MMCBUTTON {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MMCBUTTON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMCBUTTON").field("nBitmap", &self.nBitmap).field("idCommand", &self.idCommand).field("fsState", &self.fsState).field("fsType", &self.fsType).field("lpButtonText", &self.lpButtonText).field("lpTooltipText", &self.lpTooltipText).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5341,6 +5644,11 @@ impl ::core::clone::Clone for MMC_COLUMN_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for MMC_COLUMN_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_COLUMN_DATA").field("nColIndex", &self.nColIndex).field("dwFlags", &self.dwFlags).field("nWidth", &self.nWidth).field("ulReserved", &self.ulReserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MMC_COLUMN_DATA {
     type Abi = Self;
 }
@@ -5366,6 +5674,11 @@ impl ::core::marker::Copy for MMC_COLUMN_SET_DATA {}
 impl ::core::clone::Clone for MMC_COLUMN_SET_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MMC_COLUMN_SET_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_COLUMN_SET_DATA").field("cbSize", &self.cbSize).field("nNumCols", &self.nNumCols).field("pColData", &self.pColData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MMC_COLUMN_SET_DATA {
@@ -5437,6 +5750,12 @@ impl ::core::clone::Clone for MMC_EXPANDSYNC_STRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MMC_EXPANDSYNC_STRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_EXPANDSYNC_STRUCT").field("bHandled", &self.bHandled).field("bExpanding", &self.bExpanding).field("hItem", &self.hItem).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MMC_EXPANDSYNC_STRUCT {
     type Abi = Self;
 }
@@ -5473,6 +5792,12 @@ impl ::core::clone::Clone for MMC_EXT_VIEW_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MMC_EXT_VIEW_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_EXT_VIEW_DATA").field("viewID", &self.viewID).field("pszURL", &self.pszURL).field("pszViewTitle", &self.pszViewTitle).field("pszTooltipText", &self.pszTooltipText).field("bReplacesDefaultView", &self.bReplacesDefaultView).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MMC_EXT_VIEW_DATA {
     type Abi = Self;
 }
@@ -5504,6 +5829,12 @@ impl ::core::marker::Copy for MMC_FILTERDATA {}
 impl ::core::clone::Clone for MMC_FILTERDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MMC_FILTERDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_FILTERDATA").field("pszText", &self.pszText).field("cchTextMax", &self.cchTextMax).field("lValue", &self.lValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5562,6 +5893,12 @@ impl ::core::marker::Copy for MMC_LISTPAD_INFO {}
 impl ::core::clone::Clone for MMC_LISTPAD_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MMC_LISTPAD_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_LISTPAD_INFO").field("szTitle", &self.szTitle).field("szButtonText", &self.szButtonText).field("nCommandID", &self.nCommandID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5718,6 +6055,12 @@ impl ::core::clone::Clone for MMC_RESTORE_VIEW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MMC_RESTORE_VIEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_RESTORE_VIEW").field("dwSize", &self.dwSize).field("cookie", &self.cookie).field("pViewType", &self.pViewType).field("lViewOptions", &self.lViewOptions).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MMC_RESTORE_VIEW {
     type Abi = Self;
 }
@@ -5798,6 +6141,11 @@ impl ::core::clone::Clone for MMC_SORT_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for MMC_SORT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_SORT_DATA").field("nColIndex", &self.nColIndex).field("dwSortOptions", &self.dwSortOptions).field("ulReserved", &self.ulReserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MMC_SORT_DATA {
     type Abi = Self;
 }
@@ -5823,6 +6171,11 @@ impl ::core::marker::Copy for MMC_SORT_SET_DATA {}
 impl ::core::clone::Clone for MMC_SORT_SET_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MMC_SORT_SET_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_SORT_SET_DATA").field("cbSize", &self.cbSize).field("nNumItems", &self.nNumItems).field("pSortData", &self.pSortData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MMC_SORT_SET_DATA {
@@ -5922,6 +6275,12 @@ impl ::core::marker::Copy for MMC_TASK_DISPLAY_BITMAP {}
 impl ::core::clone::Clone for MMC_TASK_DISPLAY_BITMAP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MMC_TASK_DISPLAY_BITMAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_TASK_DISPLAY_BITMAP").field("szMouseOverBitmap", &self.szMouseOverBitmap).field("szMouseOffBitmap", &self.szMouseOffBitmap).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6025,6 +6384,12 @@ impl ::core::clone::Clone for MMC_TASK_DISPLAY_SYMBOL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MMC_TASK_DISPLAY_SYMBOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_TASK_DISPLAY_SYMBOL").field("szFontFamilyName", &self.szFontFamilyName).field("szURLtoEOT", &self.szURLtoEOT).field("szSymbolString", &self.szSymbolString).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MMC_TASK_DISPLAY_SYMBOL {
     type Abi = Self;
 }
@@ -6092,6 +6457,11 @@ impl ::core::marker::Copy for MMC_VISIBLE_COLUMNS {}
 impl ::core::clone::Clone for MMC_VISIBLE_COLUMNS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MMC_VISIBLE_COLUMNS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_VISIBLE_COLUMNS").field("nVisibleColumns", &self.nVisibleColumns).field("rgVisibleCols", &self.rgVisibleCols).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MMC_VISIBLE_COLUMNS {
@@ -6222,6 +6592,11 @@ impl ::core::cmp::PartialEq for MenuItem {
     }
 }
 impl ::core::cmp::Eq for MenuItem {}
+impl ::core::fmt::Debug for MenuItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MenuItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for MenuItem {
     type Vtable = MenuItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0178fad1_b361_4b27_96ad_67c57ebf2e1d);
@@ -6357,6 +6732,11 @@ impl ::core::cmp::PartialEq for Node {
     }
 }
 impl ::core::cmp::Eq for Node {}
+impl ::core::fmt::Debug for Node {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Node").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for Node {
     type Vtable = NodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf81ed800_7839_4447_945d_8e15da59ca55);
@@ -6480,6 +6860,11 @@ impl ::core::cmp::PartialEq for Nodes {
     }
 }
 impl ::core::cmp::Eq for Nodes {}
+impl ::core::fmt::Debug for Nodes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Nodes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for Nodes {
     type Vtable = NodesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x313b01df_b22f_4d42_b1b8_483cdcf51d35);
@@ -6605,6 +6990,11 @@ impl ::core::cmp::PartialEq for Properties {
     }
 }
 impl ::core::cmp::Eq for Properties {}
+impl ::core::fmt::Debug for Properties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Properties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for Properties {
     type Vtable = PropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2886abc2_a425_42b2_91c6_e25c0e04581c);
@@ -6728,6 +7118,11 @@ impl ::core::cmp::PartialEq for Property {
     }
 }
 impl ::core::cmp::Eq for Property {}
+impl ::core::fmt::Debug for Property {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Property").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for Property {
     type Vtable = PropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4600c3a5_e301_41d8_b6d0_ef2e4212e0ca);
@@ -6774,6 +7169,12 @@ impl ::core::clone::Clone for RDCOMPARE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RDCOMPARE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RDCOMPARE").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("nColumn", &self.nColumn).field("lUserParam", &self.lUserParam).field("prdch1", &self.prdch1).field("prdch2", &self.prdch2).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RDCOMPARE {
     type Abi = Self;
 }
@@ -6805,6 +7206,12 @@ impl ::core::marker::Copy for RDITEMHDR {}
 impl ::core::clone::Clone for RDITEMHDR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RDITEMHDR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RDITEMHDR").field("dwFlags", &self.dwFlags).field("cookie", &self.cookie).field("lpReserved", &self.lpReserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6861,6 +7268,12 @@ impl ::core::clone::Clone for RESULTDATAITEM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RESULTDATAITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESULTDATAITEM").field("mask", &self.mask).field("bScopeItem", &self.bScopeItem).field("itemID", &self.itemID).field("nIndex", &self.nIndex).field("nCol", &self.nCol).field("str", &self.str).field("nImage", &self.nImage).field("nState", &self.nState).field("lParam", &self.lParam).field("iIndent", &self.iIndent).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RESULTDATAITEM {
     type Abi = Self;
 }
@@ -6892,6 +7305,12 @@ impl ::core::marker::Copy for RESULTFINDINFO {}
 impl ::core::clone::Clone for RESULTFINDINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RESULTFINDINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESULTFINDINFO").field("psz", &self.psz).field("nStart", &self.nStart).field("dwOptions", &self.dwOptions).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6998,6 +7417,12 @@ impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RESULT_VIEW_TYPE_INFO_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESULT_VIEW_TYPE_INFO_0_0").field("dwHTMLOptions", &self.dwHTMLOptions).field("pstrURL", &self.pstrURL).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RESULT_VIEW_TYPE_INFO_0_0 {
     type Abi = Self;
 }
@@ -7026,6 +7451,12 @@ pub struct RESULT_VIEW_TYPE_INFO_0_1 {
 impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO_0_1 {
     fn clone(&self) -> Self {
         Self { dwOCXOptions: self.dwOCXOptions, pUnkControl: self.pUnkControl.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RESULT_VIEW_TYPE_INFO_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESULT_VIEW_TYPE_INFO_0_1").field("dwOCXOptions", &self.dwOCXOptions).field("pUnkControl", &self.pUnkControl).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7105,6 +7536,12 @@ impl ::core::clone::Clone for SCOPEDATAITEM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SCOPEDATAITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCOPEDATAITEM").field("mask", &self.mask).field("displayname", &self.displayname).field("nImage", &self.nImage).field("nOpenImage", &self.nOpenImage).field("nState", &self.nState).field("cChildren", &self.cChildren).field("lParam", &self.lParam).field("relativeID", &self.relativeID).field("ID", &self.ID).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SCOPEDATAITEM {
     type Abi = Self;
 }
@@ -7133,6 +7570,11 @@ impl ::core::marker::Copy for SColumnSetID {}
 impl ::core::clone::Clone for SColumnSetID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SColumnSetID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SColumnSetID").field("dwFlags", &self.dwFlags).field("cBytes", &self.cBytes).field("id", &self.id).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SColumnSetID {
@@ -7183,6 +7625,12 @@ impl ::core::clone::Clone for SMMCDataObjects {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for SMMCDataObjects {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SMMCDataObjects").field("count", &self.count).field("lpDataObject", &self.lpDataObject).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for SMMCDataObjects {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -7212,6 +7660,11 @@ impl ::core::clone::Clone for SMMCObjectTypes {
         *self
     }
 }
+impl ::core::fmt::Debug for SMMCObjectTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SMMCObjectTypes").field("count", &self.count).field("guid", &self.guid).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SMMCObjectTypes {
     type Abi = Self;
 }
@@ -7236,6 +7689,11 @@ impl ::core::marker::Copy for SNodeID {}
 impl ::core::clone::Clone for SNodeID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SNodeID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SNodeID").field("cBytes", &self.cBytes).field("id", &self.id).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SNodeID {
@@ -7263,6 +7721,11 @@ impl ::core::marker::Copy for SNodeID2 {}
 impl ::core::clone::Clone for SNodeID2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SNodeID2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SNodeID2").field("dwFlags", &self.dwFlags).field("cBytes", &self.cBytes).field("id", &self.id).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SNodeID2 {
@@ -7393,6 +7856,11 @@ impl ::core::cmp::PartialEq for ScopeNamespace {
     }
 }
 impl ::core::cmp::Eq for ScopeNamespace {}
+impl ::core::fmt::Debug for ScopeNamespace {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScopeNamespace").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ScopeNamespace {
     type Vtable = ScopeNamespaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebbb48dc_1a3b_4d86_b786_c21b28389012);
@@ -7534,6 +8002,11 @@ impl ::core::cmp::PartialEq for SnapIn {
     }
 }
 impl ::core::cmp::Eq for SnapIn {}
+impl ::core::fmt::Debug for SnapIn {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SnapIn").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for SnapIn {
     type Vtable = SnapInVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3be910f6_3459_49c6_a1bb_41e6be9df3ea);
@@ -7668,6 +8141,11 @@ impl ::core::cmp::PartialEq for SnapIns {
     }
 }
 impl ::core::cmp::Eq for SnapIns {}
+impl ::core::fmt::Debug for SnapIns {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SnapIns").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for SnapIns {
     type Vtable = SnapInsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ef3de1d_b12a_49d1_92c5_0b00798768f1);
@@ -7979,6 +8457,11 @@ impl ::core::cmp::PartialEq for View {
     }
 }
 impl ::core::cmp::Eq for View {}
+impl ::core::fmt::Debug for View {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("View").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for View {
     type Vtable = ViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6efc2da2_b38c_457e_9abb_ed2d189b8c38);
@@ -8160,6 +8643,11 @@ impl ::core::cmp::PartialEq for Views {
     }
 }
 impl ::core::cmp::Eq for Views {}
+impl ::core::fmt::Debug for Views {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Views").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for Views {
     type Vtable = ViewsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6b8c29d_a1ff_4d72_aab0_e381e9b9338d);
@@ -8314,6 +8802,11 @@ impl ::core::cmp::PartialEq for _AppEvents {
     }
 }
 impl ::core::cmp::Eq for _AppEvents {}
+impl ::core::fmt::Debug for _AppEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_AppEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _AppEvents {
     type Vtable = _AppEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde46cbdd_53f5_4635_af54_4fe71e923d3f);
@@ -8486,6 +8979,11 @@ impl ::core::cmp::PartialEq for _Application {
     }
 }
 impl ::core::cmp::Eq for _Application {}
+impl ::core::fmt::Debug for _Application {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_Application").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _Application {
     type Vtable = _ApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3afb9cc_b653_4741_86ab_f0470ec1384c);
@@ -8627,6 +9125,11 @@ impl ::core::cmp::PartialEq for _EventConnector {
     }
 }
 impl ::core::cmp::Eq for _EventConnector {}
+impl ::core::fmt::Debug for _EventConnector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_EventConnector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _EventConnector {
     type Vtable = _EventConnectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0bccd30_de44_4528_8403_a05a6a1cc8ea);

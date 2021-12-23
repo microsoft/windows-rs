@@ -23,6 +23,11 @@ impl ::core::cmp::PartialEq for HdmiDisplayColorSpace {
     }
 }
 impl ::core::cmp::Eq for HdmiDisplayColorSpace {}
+impl ::core::fmt::Debug for HdmiDisplayColorSpace {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdmiDisplayColorSpace").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HdmiDisplayColorSpace {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayColorSpace;i4)");
 }
@@ -49,6 +54,24 @@ impl ::core::marker::Copy for HdmiDisplayHdr2086Metadata {}
 impl ::core::clone::Clone for HdmiDisplayHdr2086Metadata {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HdmiDisplayHdr2086Metadata {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HdmiDisplayHdr2086Metadata")
+            .field("RedPrimaryX", &self.RedPrimaryX)
+            .field("RedPrimaryY", &self.RedPrimaryY)
+            .field("GreenPrimaryX", &self.GreenPrimaryX)
+            .field("GreenPrimaryY", &self.GreenPrimaryY)
+            .field("BluePrimaryX", &self.BluePrimaryX)
+            .field("BluePrimaryY", &self.BluePrimaryY)
+            .field("WhitePointX", &self.WhitePointX)
+            .field("WhitePointY", &self.WhitePointY)
+            .field("MaxMasteringLuminance", &self.MaxMasteringLuminance)
+            .field("MinMasteringLuminance", &self.MinMasteringLuminance)
+            .field("MaxContentLightLevel", &self.MaxContentLightLevel)
+            .field("MaxFrameAverageLightLevel", &self.MaxFrameAverageLightLevel)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for HdmiDisplayHdr2086Metadata {
@@ -95,6 +118,11 @@ impl ::core::cmp::PartialEq for HdmiDisplayHdrOption {
     }
 }
 impl ::core::cmp::Eq for HdmiDisplayHdrOption {}
+impl ::core::fmt::Debug for HdmiDisplayHdrOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdmiDisplayHdrOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HdmiDisplayHdrOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayHdrOption;i4)");
 }
@@ -197,6 +225,11 @@ impl ::core::cmp::PartialEq for HdmiDisplayInformation {
     }
 }
 impl ::core::cmp::Eq for HdmiDisplayInformation {}
+impl ::core::fmt::Debug for HdmiDisplayInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdmiDisplayInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HdmiDisplayInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.Core.HdmiDisplayInformation;{130b3c0a-f565-476e-abd5-ea05aee74c69})");
 }
@@ -361,6 +394,11 @@ impl ::core::cmp::PartialEq for HdmiDisplayMode {
     }
 }
 impl ::core::cmp::Eq for HdmiDisplayMode {}
+impl ::core::fmt::Debug for HdmiDisplayMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdmiDisplayMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HdmiDisplayMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.Core.HdmiDisplayMode;{0c06d5ad-1b90-4f51-9981-ef5a1c0ddf66})");
 }
@@ -437,6 +475,11 @@ impl ::core::cmp::PartialEq for HdmiDisplayPixelEncoding {
     }
 }
 impl ::core::cmp::Eq for HdmiDisplayPixelEncoding {}
+impl ::core::fmt::Debug for HdmiDisplayPixelEncoding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdmiDisplayPixelEncoding").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HdmiDisplayPixelEncoding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayPixelEncoding;i4)");
 }

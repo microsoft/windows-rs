@@ -55,6 +55,11 @@ impl ::core::cmp::PartialEq for CoreDragDropManager {
     }
 }
 impl ::core::cmp::Eq for CoreDragDropManager {}
+impl ::core::fmt::Debug for CoreDragDropManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreDragDropManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreDragDropManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragDropManager;{7d56d344-8464-4faf-aa49-37ea6e2d7bd1})");
 }
@@ -156,6 +161,11 @@ impl ::core::cmp::PartialEq for CoreDragInfo {
     }
 }
 impl ::core::cmp::Eq for CoreDragInfo {}
+impl ::core::fmt::Debug for CoreDragInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreDragInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreDragInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragInfo;{48353a8b-cb50-464e-9575-cd4e3a7ab028})");
 }
@@ -291,6 +301,11 @@ impl ::core::cmp::PartialEq for CoreDragOperation {
     }
 }
 impl ::core::cmp::Eq for CoreDragOperation {}
+impl ::core::fmt::Debug for CoreDragOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreDragOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreDragOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragOperation;{cc06de4f-6db0-4e62-ab1b-a74a02dc6d85})");
 }
@@ -365,6 +380,11 @@ impl ::core::cmp::PartialEq for CoreDragUIContentMode {
     }
 }
 impl ::core::cmp::Eq for CoreDragUIContentMode {}
+impl ::core::fmt::Debug for CoreDragUIContentMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreDragUIContentMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreDragUIContentMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIContentMode;u4)");
 }
@@ -456,6 +476,11 @@ impl ::core::cmp::PartialEq for CoreDragUIOverride {
     }
 }
 impl ::core::cmp::Eq for CoreDragUIOverride {}
+impl ::core::fmt::Debug for CoreDragUIOverride {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreDragUIOverride").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreDragUIOverride {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIOverride;{89a85064-3389-4f4f-8897-7e8a3ffb3c93})");
 }
@@ -529,6 +554,11 @@ impl ::core::cmp::PartialEq for CoreDropOperationTargetRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for CoreDropOperationTargetRequestedEventArgs {}
+impl ::core::fmt::Debug for CoreDropOperationTargetRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreDropOperationTargetRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreDropOperationTargetRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDropOperationTargetRequestedEventArgs;{2aca929a-5e28-4ea6-829e-29134e665d6d})");
 }
@@ -829,6 +859,11 @@ impl ::core::cmp::PartialEq for ICoreDropOperationTarget {
     }
 }
 impl ::core::cmp::Eq for ICoreDropOperationTarget {}
+impl ::core::fmt::Debug for ICoreDropOperationTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreDropOperationTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICoreDropOperationTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d9126196-4c5b-417d-bb37-76381def8db4}");
 }

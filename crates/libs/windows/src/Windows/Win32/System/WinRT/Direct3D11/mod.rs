@@ -72,6 +72,11 @@ impl ::core::cmp::PartialEq for IDirect3DDxgiInterfaceAccess {
     }
 }
 impl ::core::cmp::Eq for IDirect3DDxgiInterfaceAccess {}
+impl ::core::fmt::Debug for IDirect3DDxgiInterfaceAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DDxgiInterfaceAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3DDxgiInterfaceAccess {
     type Vtable = IDirect3DDxgiInterfaceAccessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9b3d012_3df2_4ee3_b8d1_8695f457d3c1);

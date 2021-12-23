@@ -721,6 +721,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowBackgroundSession {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowBackgroundSession {}
+impl ::core::fmt::Debug for PrintWorkflowBackgroundSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowBackgroundSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowBackgroundSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSession;{5b7913ba-0c5e-528a-7458-86a46cbddc45})");
 }
@@ -820,6 +825,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowBackgroundSetupRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowBackgroundSetupRequestedEventArgs {}
+impl ::core::fmt::Debug for PrintWorkflowBackgroundSetupRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowBackgroundSetupRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowBackgroundSetupRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSetupRequestedEventArgs;{43e97342-1750-59c9-61fb-383748a20362})");
 }
@@ -917,6 +927,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowConfiguration {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowConfiguration {}
+impl ::core::fmt::Debug for PrintWorkflowConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowConfiguration;{d0aac4ed-fd4b-5df5-4bb6-8d0d159ebe3f})");
 }
@@ -1028,6 +1043,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowForegroundSession {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowForegroundSession {}
+impl ::core::fmt::Debug for PrintWorkflowForegroundSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowForegroundSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowForegroundSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSession;{c79b63d0-f8ec-4ceb-953a-c8876157dd33})");
 }
@@ -1122,6 +1142,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowForegroundSetupRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowForegroundSetupRequestedEventArgs {}
+impl ::core::fmt::Debug for PrintWorkflowForegroundSetupRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowForegroundSetupRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowForegroundSetupRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSetupRequestedEventArgs;{bbe38247-9c1b-4dd3-9b2b-c80468d941b3})");
 }
@@ -1196,6 +1221,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowJobAbortReason {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowJobAbortReason {}
+impl ::core::fmt::Debug for PrintWorkflowJobAbortReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowJobAbortReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobAbortReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowJobAbortReason;i4)");
 }
@@ -1262,6 +1292,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowJobActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowJobActivatedEventArgs {}
+impl ::core::fmt::Debug for PrintWorkflowJobActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowJobActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobActivatedEventArgs;{d4bd5e6d-034e-5e00-a616-f961a033dcc8})");
 }
@@ -1425,6 +1460,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowJobBackgroundSession {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowJobBackgroundSession {}
+impl ::core::fmt::Debug for PrintWorkflowJobBackgroundSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowJobBackgroundSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobBackgroundSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobBackgroundSession;{c5ec6ad8-20c9-5d51-8507-2734b46f96c5})");
 }
@@ -1518,6 +1558,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowJobNotificationEventArgs {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowJobNotificationEventArgs {}
+impl ::core::fmt::Debug for PrintWorkflowJobNotificationEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowJobNotificationEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobNotificationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobNotificationEventArgs;{0ae16fba-5398-5eba-b472-978650186a9a})");
 }
@@ -1617,6 +1662,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowJobStartingEventArgs {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowJobStartingEventArgs {}
+impl ::core::fmt::Debug for PrintWorkflowJobStartingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowJobStartingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobStartingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobStartingEventArgs;{e3d99ba8-31ad-5e09-b0d7-601b97f161ad})");
 }
@@ -1693,6 +1743,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowJobTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowJobTriggerDetails {}
+impl ::core::fmt::Debug for PrintWorkflowJobTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowJobTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobTriggerDetails;{ff296129-60e2-51db-ba8c-e2ccddb516b9})");
 }
@@ -1804,6 +1859,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowJobUISession {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowJobUISession {}
+impl ::core::fmt::Debug for PrintWorkflowJobUISession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowJobUISession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobUISession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobUISession;{00c8736b-7637-5687-a302-0f664d2aac65})");
 }
@@ -1885,6 +1945,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowObjectModelSourceFileContent {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowObjectModelSourceFileContent {}
+impl ::core::fmt::Debug for PrintWorkflowObjectModelSourceFileContent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowObjectModelSourceFileContent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowObjectModelSourceFileContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelSourceFileContent;{c36c8a6a-8a2a-419a-b3c3-2090e6bfab2f})");
 }
@@ -1952,6 +2017,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowObjectModelTargetPackage {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowObjectModelTargetPackage {}
+impl ::core::fmt::Debug for PrintWorkflowObjectModelTargetPackage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowObjectModelTargetPackage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowObjectModelTargetPackage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelTargetPackage;{7d96bc74-9b54-4ca1-ad3a-979c3d44ddac})");
 }
@@ -2027,6 +2097,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowPdlConversionType {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowPdlConversionType {}
+impl ::core::fmt::Debug for PrintWorkflowPdlConversionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowPdlConversionType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlConversionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConversionType;i4)");
 }
@@ -2058,6 +2133,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowPdlConverter {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowPdlConverter {}
+impl ::core::fmt::Debug for PrintWorkflowPdlConverter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowPdlConverter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlConverter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConverter;{40604b62-0ae4-51f1-818f-731dc0b005ab})");
 }
@@ -2159,6 +2239,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowPdlDataAvailableEventArgs {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowPdlDataAvailableEventArgs {}
+impl ::core::fmt::Debug for PrintWorkflowPdlDataAvailableEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowPdlDataAvailableEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlDataAvailableEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlDataAvailableEventArgs;{d4ad6b50-1547-5991-a0ef-e2ee20211518})");
 }
@@ -2302,6 +2387,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowPdlModificationRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowPdlModificationRequestedEventArgs {}
+impl ::core::fmt::Debug for PrintWorkflowPdlModificationRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowPdlModificationRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlModificationRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlModificationRequestedEventArgs;{1a339a61-2e13-5edd-a707-ceec61d7333b})");
 }
@@ -2396,6 +2486,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowPdlSourceContent {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowPdlSourceContent {}
+impl ::core::fmt::Debug for PrintWorkflowPdlSourceContent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowPdlSourceContent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlSourceContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlSourceContent;{92f7fc41-32b8-56ab-845e-b1e68b3aedd5})");
 }
@@ -2478,6 +2573,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowPdlTargetStream {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowPdlTargetStream {}
+impl ::core::fmt::Debug for PrintWorkflowPdlTargetStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowPdlTargetStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlTargetStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlTargetStream;{a742dfe5-1ee3-52a9-9f9f-2e2043180fd1})");
 }
@@ -2616,6 +2716,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowPrinterJob {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowPrinterJob {}
+impl ::core::fmt::Debug for PrintWorkflowPrinterJob {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowPrinterJob").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowPrinterJob {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJob;{12009f94-0d14-5443-bc09-250311ce570b})");
 }
@@ -2692,6 +2797,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowPrinterJobStatus {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowPrinterJobStatus {}
+impl ::core::fmt::Debug for PrintWorkflowPrinterJobStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowPrinterJobStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowPrinterJobStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJobStatus;i4)");
 }
@@ -2723,6 +2833,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowSessionStatus {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowSessionStatus {}
+impl ::core::fmt::Debug for PrintWorkflowSessionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowSessionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowSessionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowSessionStatus;i4)");
 }
@@ -2770,6 +2885,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowSourceContent {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowSourceContent {}
+impl ::core::fmt::Debug for PrintWorkflowSourceContent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowSourceContent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowSourceContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowSourceContent;{1a28c641-ceb1-4533-bb73-fbe63eefdb18})");
 }
@@ -2847,6 +2967,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowSpoolStreamContent {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowSpoolStreamContent {}
+impl ::core::fmt::Debug for PrintWorkflowSpoolStreamContent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowSpoolStreamContent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowSpoolStreamContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowSpoolStreamContent;{72e55ece-e406-4b74-84e1-3ff3fdcdaf70})");
 }
@@ -2924,6 +3049,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowStreamTarget {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowStreamTarget {}
+impl ::core::fmt::Debug for PrintWorkflowStreamTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowStreamTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowStreamTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowStreamTarget;{b23bba84-8565-488b-9839-1c9e7c7aa916})");
 }
@@ -3018,6 +3148,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowSubmittedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowSubmittedEventArgs {}
+impl ::core::fmt::Debug for PrintWorkflowSubmittedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowSubmittedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowSubmittedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedEventArgs;{3add0a41-3794-5569-5c87-40e8ff720f83})");
 }
@@ -3107,6 +3242,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowSubmittedOperation {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowSubmittedOperation {}
+impl ::core::fmt::Debug for PrintWorkflowSubmittedOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowSubmittedOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowSubmittedOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedOperation;{2e4e6216-3be1-5f0f-5c81-a5a2bd4eab0e})");
 }
@@ -3182,6 +3322,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowSubmittedStatus {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowSubmittedStatus {}
+impl ::core::fmt::Debug for PrintWorkflowSubmittedStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowSubmittedStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowSubmittedStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedStatus;i4)");
 }
@@ -3220,6 +3365,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowTarget {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowTarget {}
+impl ::core::fmt::Debug for PrintWorkflowTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowTarget;{29da276c-0a73-5aed-4f3d-970d3251f057})");
 }
@@ -3296,6 +3446,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowTriggerDetails {}
+impl ::core::fmt::Debug for PrintWorkflowTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowTriggerDetails;{5739d868-9d86-4052-b0cb-f310becd59bb})");
 }
@@ -3408,6 +3563,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowUIActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowUIActivatedEventArgs {}
+impl ::core::fmt::Debug for PrintWorkflowUIActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowUIActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowUIActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowUIActivatedEventArgs;{bc8a844d-09eb-5746-72a6-8dc8b5edbe9b})");
 }
@@ -3536,6 +3696,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowUICompletionStatus {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowUICompletionStatus {}
+impl ::core::fmt::Debug for PrintWorkflowUICompletionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowUICompletionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowUICompletionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowUICompletionStatus;i4)");
 }
@@ -3575,6 +3740,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowUILauncher {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowUILauncher {}
+impl ::core::fmt::Debug for PrintWorkflowUILauncher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowUILauncher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowUILauncher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowUILauncher;{64e9e22f-14cc-5828-96fb-39163fb6c378})");
 }
@@ -3660,6 +3830,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowXpsDataAvailableEventArgs {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowXpsDataAvailableEventArgs {}
+impl ::core::fmt::Debug for PrintWorkflowXpsDataAvailableEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowXpsDataAvailableEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowXpsDataAvailableEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowXpsDataAvailableEventArgs;{4d11c331-54d1-434e-be0e-82c5fa58e5b2})");
 }

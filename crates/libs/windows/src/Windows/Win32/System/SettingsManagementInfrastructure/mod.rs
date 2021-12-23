@@ -51,6 +51,11 @@ impl ::core::cmp::PartialEq for IItemEnumerator {
     }
 }
 impl ::core::cmp::Eq for IItemEnumerator {}
+impl ::core::fmt::Debug for IItemEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IItemEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IItemEnumerator {
     type Vtable = IItemEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bb7_20b3_11da_81a5_0030f1642e3c);
@@ -135,6 +140,11 @@ impl ::core::cmp::PartialEq for ISettingsContext {
     }
 }
 impl ::core::cmp::Eq for ISettingsContext {}
+impl ::core::fmt::Debug for ISettingsContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISettingsContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISettingsContext {
     type Vtable = ISettingsContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bbd_20b3_11da_81a5_0030f1642e3c);
@@ -270,6 +280,11 @@ impl ::core::cmp::PartialEq for ISettingsEngine {
     }
 }
 impl ::core::cmp::Eq for ISettingsEngine {}
+impl ::core::fmt::Debug for ISettingsEngine {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISettingsEngine").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISettingsEngine {
     type Vtable = ISettingsEngineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bb9_20b3_11da_81a5_0030f1642e3c);
@@ -357,6 +372,11 @@ impl ::core::cmp::PartialEq for ISettingsIdentity {
     }
 }
 impl ::core::cmp::Eq for ISettingsIdentity {}
+impl ::core::fmt::Debug for ISettingsIdentity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISettingsIdentity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISettingsIdentity {
     type Vtable = ISettingsIdentityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bb6_20b3_11da_81a5_0030f1642e3c);
@@ -529,6 +549,11 @@ impl ::core::cmp::PartialEq for ISettingsItem {
     }
 }
 impl ::core::cmp::Eq for ISettingsItem {}
+impl ::core::fmt::Debug for ISettingsItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISettingsItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISettingsItem {
     type Vtable = ISettingsItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bbb_20b3_11da_81a5_0030f1642e3c);
@@ -652,6 +677,11 @@ impl ::core::cmp::PartialEq for ISettingsNamespace {
     }
 }
 impl ::core::cmp::Eq for ISettingsNamespace {}
+impl ::core::fmt::Debug for ISettingsNamespace {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISettingsNamespace").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISettingsNamespace {
     type Vtable = ISettingsNamespaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bba_20b3_11da_81a5_0030f1642e3c);
@@ -744,6 +774,11 @@ impl ::core::cmp::PartialEq for ISettingsResult {
     }
 }
 impl ::core::cmp::Eq for ISettingsResult {}
+impl ::core::fmt::Debug for ISettingsResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISettingsResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISettingsResult {
     type Vtable = ISettingsResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bbc_20b3_11da_81a5_0030f1642e3c);
@@ -913,6 +948,11 @@ impl ::core::cmp::PartialEq for ITargetInfo {
     }
 }
 impl ::core::cmp::Eq for ITargetInfo {}
+impl ::core::fmt::Debug for ITargetInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITargetInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITargetInfo {
     type Vtable = ITargetInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bb8_20b3_11da_81a5_0030f1642e3c);

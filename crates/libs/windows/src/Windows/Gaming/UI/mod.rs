@@ -73,6 +73,11 @@ impl ::core::cmp::PartialEq for GameChatMessageOrigin {
     }
 }
 impl ::core::cmp::Eq for GameChatMessageOrigin {}
+impl ::core::fmt::Debug for GameChatMessageOrigin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameChatMessageOrigin").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GameChatMessageOrigin {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatMessageOrigin;i4)");
 }
@@ -135,6 +140,11 @@ impl ::core::cmp::PartialEq for GameChatMessageReceivedEventArgs {
     }
 }
 impl ::core::cmp::Eq for GameChatMessageReceivedEventArgs {}
+impl ::core::fmt::Debug for GameChatMessageReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameChatMessageReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GameChatMessageReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.UI.GameChatMessageReceivedEventArgs;{a28201f1-3fb9-4e42-a403-7afce2023b1e})");
 }
@@ -233,6 +243,11 @@ impl ::core::cmp::PartialEq for GameChatOverlay {
     }
 }
 impl ::core::cmp::Eq for GameChatOverlay {}
+impl ::core::fmt::Debug for GameChatOverlay {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameChatOverlay").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GameChatOverlay {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.UI.GameChatOverlay;{fbc64865-f6fc-4a48-ae07-03ac6ed43704})");
 }
@@ -329,6 +344,11 @@ impl ::core::cmp::PartialEq for GameChatOverlayMessageSource {
     }
 }
 impl ::core::cmp::Eq for GameChatOverlayMessageSource {}
+impl ::core::fmt::Debug for GameChatOverlayMessageSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameChatOverlayMessageSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GameChatOverlayMessageSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.UI.GameChatOverlayMessageSource;{1e177397-59fb-4f4f-8e9a-80acf817743c})");
 }
@@ -409,6 +429,11 @@ impl ::core::cmp::PartialEq for GameChatOverlayPosition {
     }
 }
 impl ::core::cmp::Eq for GameChatOverlayPosition {}
+impl ::core::fmt::Debug for GameChatOverlayPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameChatOverlayPosition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GameChatOverlayPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatOverlayPosition;i4)");
 }
@@ -473,6 +498,11 @@ impl ::core::cmp::PartialEq for GameUIProviderActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for GameUIProviderActivatedEventArgs {}
+impl ::core::fmt::Debug for GameUIProviderActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameUIProviderActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GameUIProviderActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.UI.GameUIProviderActivatedEventArgs;{a7b3203e-caf7-4ded-bbd2-47de43bb6dd5})");
 }

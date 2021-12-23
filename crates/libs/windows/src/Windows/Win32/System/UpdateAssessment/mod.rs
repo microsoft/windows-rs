@@ -41,6 +41,11 @@ impl ::core::cmp::PartialEq for IWaaSAssessor {
     }
 }
 impl ::core::cmp::Eq for IWaaSAssessor {}
+impl ::core::fmt::Debug for IWaaSAssessor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWaaSAssessor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWaaSAssessor {
     type Vtable = IWaaSAssessorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2347bbef_1a3b_45a4_902d_3e09c269b45e);
@@ -78,6 +83,23 @@ impl ::core::clone::Clone for OSUpdateAssessment {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OSUpdateAssessment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OSUpdateAssessment")
+            .field("isEndOfSupport", &self.isEndOfSupport)
+            .field("assessmentForCurrent", &self.assessmentForCurrent)
+            .field("assessmentForUpToDate", &self.assessmentForUpToDate)
+            .field("securityStatus", &self.securityStatus)
+            .field("assessmentTime", &self.assessmentTime)
+            .field("releaseInfoTime", &self.releaseInfoTime)
+            .field("currentOSBuild", &self.currentOSBuild)
+            .field("currentOSReleaseTime", &self.currentOSReleaseTime)
+            .field("upToDateOSBuild", &self.upToDateOSBuild)
+            .field("upToDateOSReleaseTime", &self.upToDateOSReleaseTime)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OSUpdateAssessment {
     type Abi = Self;
 }
@@ -106,6 +128,11 @@ impl ::core::marker::Copy for UpdateAssessment {}
 impl ::core::clone::Clone for UpdateAssessment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UpdateAssessment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UpdateAssessment").field("status", &self.status).field("impact", &self.impact).field("daysOutOfDate", &self.daysOutOfDate).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UpdateAssessment {

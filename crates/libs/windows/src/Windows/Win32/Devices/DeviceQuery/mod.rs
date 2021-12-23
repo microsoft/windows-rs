@@ -15,6 +15,12 @@ impl ::core::clone::Clone for DEVPROP_FILTER_EXPRESSION {
     }
 }
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+impl ::core::fmt::Debug for DEVPROP_FILTER_EXPRESSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVPROP_FILTER_EXPRESSION").field("Operator", &self.Operator).field("Property", &self.Property).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 unsafe impl ::windows::core::Abi for DEVPROP_FILTER_EXPRESSION {
     type Abi = Self;
 }
@@ -136,6 +142,12 @@ impl ::core::clone::Clone for DEV_OBJECT {
     }
 }
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+impl ::core::fmt::Debug for DEV_OBJECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEV_OBJECT").field("ObjectType", &self.ObjectType).field("pszObjectId", &self.pszObjectId).field("cPropertyCount", &self.cPropertyCount).field("pProperties", &self.pProperties).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 unsafe impl ::windows::core::Abi for DEV_OBJECT {
     type Abi = Self;
 }
@@ -206,6 +218,12 @@ impl ::core::marker::Copy for DEV_QUERY_PARAMETER {}
 impl ::core::clone::Clone for DEV_QUERY_PARAMETER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Devices_Properties")]
+impl ::core::fmt::Debug for DEV_QUERY_PARAMETER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEV_QUERY_PARAMETER").field("Key", &self.Key).field("Type", &self.Type).field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
     }
 }
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -536,6 +554,11 @@ impl ::core::marker::Copy for HDEVQUERY__ {}
 impl ::core::clone::Clone for HDEVQUERY__ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HDEVQUERY__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HDEVQUERY__").field("unused", &self.unused).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HDEVQUERY__ {

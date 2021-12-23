@@ -19,6 +19,12 @@ impl ::core::clone::Clone for CMD_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CMD_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CMD_ENTRY").field("pwszCmdToken", &self.pwszCmdToken).field("pfnCmdHandler", &self.pfnCmdHandler.map(|f| f as usize)).field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken).field("dwCmdHlpToken", &self.dwCmdHlpToken).field("dwFlags", &self.dwFlags).field("pOsVersionCheck", &self.pOsVersionCheck.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CMD_ENTRY {
     type Abi = Self;
 }
@@ -53,6 +59,12 @@ impl ::core::marker::Copy for CMD_GROUP_ENTRY {}
 impl ::core::clone::Clone for CMD_GROUP_ENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CMD_GROUP_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CMD_GROUP_ENTRY").field("pwszCmdGroupToken", &self.pwszCmdGroupToken).field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken).field("ulCmdGroupSize", &self.ulCmdGroupSize).field("dwFlags", &self.dwFlags).field("pCmdGroup", &self.pCmdGroup).field("pOsVersionCheck", &self.pOsVersionCheck.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -269,6 +281,12 @@ impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NS_CONTEXT_ATTRIBUTES_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NS_CONTEXT_ATTRIBUTES_0_0").field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES_0_0 {
     type Abi = Self;
 }
@@ -362,6 +380,11 @@ impl ::core::marker::Copy for NS_HELPER_ATTRIBUTES_0_0 {}
 impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NS_HELPER_ATTRIBUTES_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NS_HELPER_ATTRIBUTES_0_0").field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES_0_0 {
@@ -531,6 +554,12 @@ impl ::core::clone::Clone for TAG_TYPE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TAG_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TAG_TYPE").field("pwszTag", &self.pwszTag).field("dwRequired", &self.dwRequired).field("bPresent", &self.bPresent).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TAG_TYPE {
     type Abi = Self;
 }
@@ -561,6 +590,12 @@ impl ::core::marker::Copy for TOKEN_VALUE {}
 impl ::core::clone::Clone for TOKEN_VALUE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TOKEN_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TOKEN_VALUE").field("pwszToken", &self.pwszToken).field("dwValue", &self.dwValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -34,6 +34,11 @@ pub fn gen() -> TokenStream {
             }
         }
         impl ::core::cmp::Eq for HANDLE {}
+        impl ::core::fmt::Debug for HANDLE {
+            fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                f.debug_tuple("HANDLE").field(&self.0).finish()
+            }
+        }
         unsafe impl ::windows::core::Abi for HANDLE {
             type Abi = Self;
         }

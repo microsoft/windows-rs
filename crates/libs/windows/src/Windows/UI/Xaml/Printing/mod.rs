@@ -31,6 +31,11 @@ impl ::core::cmp::PartialEq for AddPagesEventArgs {
     }
 }
 impl ::core::cmp::Eq for AddPagesEventArgs {}
+impl ::core::fmt::Debug for AddPagesEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AddPagesEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AddPagesEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Printing.AddPagesEventArgs;{e2e52be5-056c-4420-9795-cb3526ce0c20})");
 }
@@ -143,6 +148,11 @@ impl ::core::cmp::PartialEq for AddPagesEventHandler {
     }
 }
 impl ::core::cmp::Eq for AddPagesEventHandler {}
+impl ::core::fmt::Debug for AddPagesEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AddPagesEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AddPagesEventHandler {
     type Vtable = AddPagesEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4b57970_57a0_4209_847c_c093b54bc729);
@@ -184,6 +194,11 @@ impl ::core::cmp::PartialEq for GetPreviewPageEventArgs {
     }
 }
 impl ::core::cmp::Eq for GetPreviewPageEventArgs {}
+impl ::core::fmt::Debug for GetPreviewPageEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GetPreviewPageEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GetPreviewPageEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Printing.GetPreviewPageEventArgs;{a43d703d-dea9-4df6-a7ed-35049cd485c7})");
 }
@@ -296,6 +311,11 @@ impl ::core::cmp::PartialEq for GetPreviewPageEventHandler {
     }
 }
 impl ::core::cmp::Eq for GetPreviewPageEventHandler {}
+impl ::core::fmt::Debug for GetPreviewPageEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GetPreviewPageEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for GetPreviewPageEventHandler {
     type Vtable = GetPreviewPageEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccb3e9ed_9c11_4e50_ab49_e98086bbfdef);
@@ -475,6 +495,11 @@ impl ::core::cmp::PartialEq for PaginateEventArgs {
     }
 }
 impl ::core::cmp::Eq for PaginateEventArgs {}
+impl ::core::fmt::Debug for PaginateEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaginateEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaginateEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Printing.PaginateEventArgs;{ed945fd6-79ab-42b7-930a-3d6e09011d21})");
 }
@@ -587,6 +612,11 @@ impl ::core::cmp::PartialEq for PaginateEventHandler {
     }
 }
 impl ::core::cmp::Eq for PaginateEventHandler {}
+impl ::core::fmt::Debug for PaginateEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaginateEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for PaginateEventHandler {
     type Vtable = PaginateEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cc05b61_811b_4a32_9965_13eb78dbb01b);
@@ -619,6 +649,11 @@ impl ::core::cmp::PartialEq for PreviewPageCountType {
     }
 }
 impl ::core::cmp::Eq for PreviewPageCountType {}
+impl ::core::fmt::Debug for PreviewPageCountType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PreviewPageCountType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PreviewPageCountType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Printing.PreviewPageCountType;i4)");
 }
@@ -744,6 +779,11 @@ impl ::core::cmp::PartialEq for PrintDocument {
     }
 }
 impl ::core::cmp::Eq for PrintDocument {}
+impl ::core::fmt::Debug for PrintDocument {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintDocument").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintDocument {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Printing.PrintDocument;{e44327c3-a999-485b-b1d8-72dc517821e6})");
 }

@@ -74,6 +74,11 @@ impl ::core::cmp::PartialEq for ScreenReaderPositionChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ScreenReaderPositionChangedEventArgs {}
+impl ::core::fmt::Debug for ScreenReaderPositionChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScreenReaderPositionChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScreenReaderPositionChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Accessibility.ScreenReaderPositionChangedEventArgs;{557eb5e5-54d0-5ccd-9fc5-ed33357f8a9f})");
 }
@@ -172,6 +177,11 @@ impl ::core::cmp::PartialEq for ScreenReaderService {
     }
 }
 impl ::core::cmp::Eq for ScreenReaderService {}
+impl ::core::fmt::Debug for ScreenReaderService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScreenReaderService").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScreenReaderService {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Accessibility.ScreenReaderService;{19475427-eac0-50d3-bdd9-9b487a226256})");
 }

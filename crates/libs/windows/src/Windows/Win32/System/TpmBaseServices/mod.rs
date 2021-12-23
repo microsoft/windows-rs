@@ -64,6 +64,11 @@ impl ::core::clone::Clone for TBS_CONTEXT_PARAMS {
         *self
     }
 }
+impl ::core::fmt::Debug for TBS_CONTEXT_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TBS_CONTEXT_PARAMS").field("version", &self.version).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS {
     type Abi = Self;
 }
@@ -141,6 +146,11 @@ impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for TBS_CONTEXT_PARAMS2_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TBS_CONTEXT_PARAMS2_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2_0_0 {
     type Abi = Self;
 }
@@ -197,6 +207,11 @@ impl ::core::marker::Copy for TPM_DEVICE_INFO {}
 impl ::core::clone::Clone for TPM_DEVICE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TPM_DEVICE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TPM_DEVICE_INFO").field("structVersion", &self.structVersion).field("tpmVersion", &self.tpmVersion).field("tpmInterfaceType", &self.tpmInterfaceType).field("tpmImpRevision", &self.tpmImpRevision).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TPM_DEVICE_INFO {
@@ -401,6 +416,11 @@ impl ::core::marker::Copy for tdTPM_WNF_PROVISIONING {}
 impl ::core::clone::Clone for tdTPM_WNF_PROVISIONING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for tdTPM_WNF_PROVISIONING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("tdTPM_WNF_PROVISIONING").field("status", &self.status).field("message", &self.message).finish()
     }
 }
 unsafe impl ::windows::core::Abi for tdTPM_WNF_PROVISIONING {

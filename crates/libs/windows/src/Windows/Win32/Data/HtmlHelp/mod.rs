@@ -25,6 +25,11 @@ impl ::core::clone::Clone for COLUMNSTATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for COLUMNSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COLUMNSTATUS").field("cPropCount", &self.cPropCount).field("cPropsLoaded", &self.cPropsLoaded).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for COLUMNSTATUS {
     type Abi = Self;
 }
@@ -299,6 +304,12 @@ impl ::core::clone::Clone for HHNTRACK {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::core::fmt::Debug for HHNTRACK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HHNTRACK").field("hdr", &self.hdr).field("pszCurUrl", &self.pszCurUrl).field("idAction", &self.idAction).field("phhWinType", &self.phhWinType).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 unsafe impl ::windows::core::Abi for HHNTRACK {
     type Abi = Self;
 }
@@ -329,6 +340,12 @@ impl ::core::marker::Copy for HHN_NOTIFY {}
 impl ::core::clone::Clone for HHN_NOTIFY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::core::fmt::Debug for HHN_NOTIFY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HHN_NOTIFY").field("hdr", &self.hdr).field("pszUrl", &self.pszUrl).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -519,6 +536,12 @@ impl ::core::clone::Clone for HH_AKLINK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HH_AKLINK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HH_AKLINK").field("cbStruct", &self.cbStruct).field("fReserved", &self.fReserved).field("pszKeywords", &self.pszKeywords).field("pszUrl", &self.pszUrl).field("pszMsgText", &self.pszMsgText).field("pszMsgTitle", &self.pszMsgTitle).field("pszWindow", &self.pszWindow).field("fIndexOnFail", &self.fIndexOnFail).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HH_AKLINK {
     type Abi = Self;
 }
@@ -567,6 +590,12 @@ impl ::core::clone::Clone for HH_ENUM_CAT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HH_ENUM_CAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HH_ENUM_CAT").field("cbStruct", &self.cbStruct).field("pszCatName", &self.pszCatName).field("pszCatDescription", &self.pszCatDescription).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HH_ENUM_CAT {
     type Abi = Self;
 }
@@ -609,6 +638,12 @@ impl ::core::clone::Clone for HH_ENUM_IT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HH_ENUM_IT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HH_ENUM_IT").field("cbStruct", &self.cbStruct).field("iType", &self.iType).field("pszCatName", &self.pszCatName).field("pszITName", &self.pszITName).field("pszITDescription", &self.pszITDescription).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HH_ENUM_IT {
     type Abi = Self;
 }
@@ -647,6 +682,12 @@ impl ::core::marker::Copy for HH_FTS_QUERY {}
 impl ::core::clone::Clone for HH_FTS_QUERY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HH_FTS_QUERY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HH_FTS_QUERY").field("cbStruct", &self.cbStruct).field("fUniCodeStrings", &self.fUniCodeStrings).field("pszSearchQuery", &self.pszSearchQuery).field("iProximity", &self.iProximity).field("fStemmedSearch", &self.fStemmedSearch).field("fTitleOnly", &self.fTitleOnly).field("fExecute", &self.fExecute).field("pszWindow", &self.pszWindow).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -749,6 +790,12 @@ impl ::core::clone::Clone for HH_POPUP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HH_POPUP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HH_POPUP").field("cbStruct", &self.cbStruct).field("hinst", &self.hinst).field("idString", &self.idString).field("pszText", &self.pszText).field("pt", &self.pt).field("clrForeground", &self.clrForeground).field("clrBackground", &self.clrBackground).field("rcMargins", &self.rcMargins).field("pszFont", &self.pszFont).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HH_POPUP {
     type Abi = Self;
 }
@@ -798,6 +845,12 @@ impl ::core::marker::Copy for HH_SET_INFOTYPE {}
 impl ::core::clone::Clone for HH_SET_INFOTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HH_SET_INFOTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HH_SET_INFOTYPE").field("cbStruct", &self.cbStruct).field("pszCatName", &self.pszCatName).field("pszInfoTypeName", &self.pszInfoTypeName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -895,6 +948,49 @@ impl ::core::marker::Copy for HH_WINTYPE {}
 impl ::core::clone::Clone for HH_WINTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HH_WINTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HH_WINTYPE")
+            .field("cbStruct", &self.cbStruct)
+            .field("fUniCodeStrings", &self.fUniCodeStrings)
+            .field("pszType", &self.pszType)
+            .field("fsValidMembers", &self.fsValidMembers)
+            .field("fsWinProperties", &self.fsWinProperties)
+            .field("pszCaption", &self.pszCaption)
+            .field("dwStyles", &self.dwStyles)
+            .field("dwExStyles", &self.dwExStyles)
+            .field("rcWindowPos", &self.rcWindowPos)
+            .field("nShowState", &self.nShowState)
+            .field("hwndHelp", &self.hwndHelp)
+            .field("hwndCaller", &self.hwndCaller)
+            .field("paInfoTypes", &self.paInfoTypes)
+            .field("hwndToolBar", &self.hwndToolBar)
+            .field("hwndNavigation", &self.hwndNavigation)
+            .field("hwndHTML", &self.hwndHTML)
+            .field("iNavWidth", &self.iNavWidth)
+            .field("rcHTML", &self.rcHTML)
+            .field("pszToc", &self.pszToc)
+            .field("pszIndex", &self.pszIndex)
+            .field("pszFile", &self.pszFile)
+            .field("pszHome", &self.pszHome)
+            .field("fsToolBarFlags", &self.fsToolBarFlags)
+            .field("fNotExpanded", &self.fNotExpanded)
+            .field("curNavType", &self.curNavType)
+            .field("tabpos", &self.tabpos)
+            .field("idNotify", &self.idNotify)
+            .field("tabOrder", &self.tabOrder)
+            .field("cHistory", &self.cHistory)
+            .field("pszJump1", &self.pszJump1)
+            .field("pszJump2", &self.pszJump2)
+            .field("pszUrlJump1", &self.pszUrlJump1)
+            .field("pszUrlJump2", &self.pszUrlJump2)
+            .field("rcMinSize", &self.rcMinSize)
+            .field("cbInfoTypes", &self.cbInfoTypes)
+            .field("pszCustomTabs", &self.pszCustomTabs)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1021,6 +1117,11 @@ impl ::core::cmp::PartialEq for IITDatabase {
     }
 }
 impl ::core::cmp::Eq for IITDatabase {}
+impl ::core::fmt::Debug for IITDatabase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IITDatabase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IITDatabase {
     type Vtable = IITDatabaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5a2_dedf_11d0_9a61_00c04fb68bf7);
@@ -1237,6 +1338,11 @@ impl ::core::cmp::PartialEq for IITPropList {
     }
 }
 impl ::core::cmp::Eq for IITPropList {}
+impl ::core::fmt::Debug for IITPropList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IITPropList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IITPropList {
     type Vtable = IITPropListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f403bb1_9997_11d0_a850_00aa006c7d01);
@@ -1448,6 +1554,11 @@ impl ::core::cmp::PartialEq for IITResultSet {
     }
 }
 impl ::core::cmp::Eq for IITResultSet {}
+impl ::core::fmt::Debug for IITResultSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IITResultSet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IITResultSet {
     type Vtable = IITResultSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bb91d41_998b_11d0_a850_00aa006c7d01);
@@ -1589,6 +1700,11 @@ impl ::core::cmp::PartialEq for IITWordWheel {
     }
 }
 impl ::core::cmp::Eq for IITWordWheel {}
+impl ::core::fmt::Debug for IITWordWheel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IITWordWheel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IITWordWheel {
     type Vtable = IITWordWheelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5a4_dedf_11d0_9a61_00c04fb68bf7);
@@ -1661,6 +1777,11 @@ impl ::core::cmp::PartialEq for IStemSink {
     }
 }
 impl ::core::cmp::Eq for IStemSink {}
+impl ::core::fmt::Debug for IStemSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStemSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IStemSink {
     type Vtable = IStemSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe77c330_7f42_11ce_be57_00aa0051fe20);
@@ -1733,6 +1854,11 @@ impl ::core::cmp::PartialEq for IStemmerConfig {
     }
 }
 impl ::core::cmp::Eq for IStemmerConfig {}
+impl ::core::fmt::Debug for IStemmerConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStemmerConfig").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IStemmerConfig {
     type Vtable = IStemmerConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5a7_dedf_11d0_9a61_00c04fb68bf7);
@@ -1836,6 +1962,11 @@ impl ::core::cmp::PartialEq for IWordBreakerConfig {
     }
 }
 impl ::core::cmp::Eq for IWordBreakerConfig {}
+impl ::core::fmt::Debug for IWordBreakerConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWordBreakerConfig").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWordBreakerConfig {
     type Vtable = IWordBreakerConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5a6_dedf_11d0_9a61_00c04fb68bf7);
@@ -1889,6 +2020,11 @@ impl ::core::marker::Copy for ROWSTATUS {}
 impl ::core::clone::Clone for ROWSTATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ROWSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ROWSTATUS").field("lRowFirst", &self.lRowFirst).field("cRows", &self.cRows).field("cProperties", &self.cProperties).field("cRowsTotal", &self.cRowsTotal).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ROWSTATUS {

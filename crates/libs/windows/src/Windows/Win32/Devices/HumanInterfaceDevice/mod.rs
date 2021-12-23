@@ -53,6 +53,11 @@ impl ::core::clone::Clone for CPOINT {
         *self
     }
 }
+impl ::core::fmt::Debug for CPOINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CPOINT").field("lP", &self.lP).field("dwLog", &self.dwLog).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CPOINT {
     type Abi = Self;
 }
@@ -340,6 +345,27 @@ impl ::core::clone::Clone for DIACTIONFORMATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIACTIONFORMATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIACTIONFORMATA")
+            .field("dwSize", &self.dwSize)
+            .field("dwActionSize", &self.dwActionSize)
+            .field("dwDataSize", &self.dwDataSize)
+            .field("dwNumActions", &self.dwNumActions)
+            .field("rgoAction", &self.rgoAction)
+            .field("guidActionMap", &self.guidActionMap)
+            .field("dwGenre", &self.dwGenre)
+            .field("dwBufferSize", &self.dwBufferSize)
+            .field("lAxisMin", &self.lAxisMin)
+            .field("lAxisMax", &self.lAxisMax)
+            .field("hInstString", &self.hInstString)
+            .field("ftTimeStamp", &self.ftTimeStamp)
+            .field("dwCRC", &self.dwCRC)
+            .field("tszActionMap", &self.tszActionMap)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DIACTIONFORMATA {
     type Abi = Self;
 }
@@ -382,6 +408,27 @@ impl ::core::marker::Copy for DIACTIONFORMATW {}
 impl ::core::clone::Clone for DIACTIONFORMATW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIACTIONFORMATW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIACTIONFORMATW")
+            .field("dwSize", &self.dwSize)
+            .field("dwActionSize", &self.dwActionSize)
+            .field("dwDataSize", &self.dwDataSize)
+            .field("dwNumActions", &self.dwNumActions)
+            .field("rgoAction", &self.rgoAction)
+            .field("guidActionMap", &self.guidActionMap)
+            .field("dwGenre", &self.dwGenre)
+            .field("dwBufferSize", &self.dwBufferSize)
+            .field("lAxisMin", &self.lAxisMin)
+            .field("lAxisMax", &self.lAxisMax)
+            .field("hInstString", &self.hInstString)
+            .field("ftTimeStamp", &self.ftTimeStamp)
+            .field("dwCRC", &self.dwCRC)
+            .field("tszActionMap", &self.tszActionMap)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2178,6 +2225,11 @@ impl ::core::clone::Clone for DICOLORSET {
         *self
     }
 }
+impl ::core::fmt::Debug for DICOLORSET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DICOLORSET").field("dwSize", &self.dwSize).field("cTextFore", &self.cTextFore).field("cTextHighlight", &self.cTextHighlight).field("cCalloutLine", &self.cCalloutLine).field("cCalloutHighlight", &self.cCalloutHighlight).field("cBorder", &self.cBorder).field("cControlFill", &self.cControlFill).field("cHighlightFill", &self.cHighlightFill).field("cAreaFill", &self.cAreaFill).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DICOLORSET {
     type Abi = Self;
 }
@@ -2206,6 +2258,11 @@ impl ::core::marker::Copy for DICONDITION {}
 impl ::core::clone::Clone for DICONDITION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DICONDITION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DICONDITION").field("lOffset", &self.lOffset).field("lPositiveCoefficient", &self.lPositiveCoefficient).field("lNegativeCoefficient", &self.lNegativeCoefficient).field("dwPositiveSaturation", &self.dwPositiveSaturation).field("dwNegativeSaturation", &self.dwNegativeSaturation).field("lDeadBand", &self.lDeadBand).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DICONDITION {
@@ -2248,6 +2305,12 @@ impl ::core::clone::Clone for DICONFIGUREDEVICESPARAMSA {
             dics: self.dics,
             lpUnkDDSTarget: self.lpUnkDDSTarget.clone(),
         }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DICONFIGUREDEVICESPARAMSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DICONFIGUREDEVICESPARAMSA").field("dwSize", &self.dwSize).field("dwcUsers", &self.dwcUsers).field("lptszUserNames", &self.lptszUserNames).field("dwcFormats", &self.dwcFormats).field("lprgFormats", &self.lprgFormats).field("hwnd", &self.hwnd).field("dics", &self.dics).field("lpUnkDDSTarget", &self.lpUnkDDSTarget).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2297,6 +2360,12 @@ impl ::core::clone::Clone for DICONFIGUREDEVICESPARAMSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DICONFIGUREDEVICESPARAMSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DICONFIGUREDEVICESPARAMSW").field("dwSize", &self.dwSize).field("dwcUsers", &self.dwcUsers).field("lptszUserNames", &self.lptszUserNames).field("dwcFormats", &self.dwcFormats).field("lprgFormats", &self.lprgFormats).field("hwnd", &self.hwnd).field("dics", &self.dics).field("lpUnkDDSTarget", &self.lpUnkDDSTarget).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DICONFIGUREDEVICESPARAMSW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -2325,6 +2394,11 @@ impl ::core::clone::Clone for DICONSTANTFORCE {
         *self
     }
 }
+impl ::core::fmt::Debug for DICONSTANTFORCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DICONSTANTFORCE").field("lMagnitude", &self.lMagnitude).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DICONSTANTFORCE {
     type Abi = Self;
 }
@@ -2351,6 +2425,11 @@ impl ::core::marker::Copy for DICUSTOMFORCE {}
 impl ::core::clone::Clone for DICUSTOMFORCE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DICUSTOMFORCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DICUSTOMFORCE").field("cChannels", &self.cChannels).field("dwSamplePeriod", &self.dwSamplePeriod).field("cSamples", &self.cSamples).field("rglForceData", &self.rglForceData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DICUSTOMFORCE {
@@ -2393,6 +2472,11 @@ impl ::core::marker::Copy for DIDATAFORMAT {}
 impl ::core::clone::Clone for DIDATAFORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIDATAFORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIDATAFORMAT").field("dwSize", &self.dwSize).field("dwObjSize", &self.dwObjSize).field("dwFlags", &self.dwFlags).field("dwDataSize", &self.dwDataSize).field("dwNumObjs", &self.dwNumObjs).field("rgodf", &self.rgodf).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIDATAFORMAT {
@@ -2468,6 +2552,23 @@ impl ::core::clone::Clone for DIDEVCAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for DIDEVCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIDEVCAPS")
+            .field("dwSize", &self.dwSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwDevType", &self.dwDevType)
+            .field("dwAxes", &self.dwAxes)
+            .field("dwButtons", &self.dwButtons)
+            .field("dwPOVs", &self.dwPOVs)
+            .field("dwFFSamplePeriod", &self.dwFFSamplePeriod)
+            .field("dwFFMinTimeResolution", &self.dwFFMinTimeResolution)
+            .field("dwFirmwareRevision", &self.dwFirmwareRevision)
+            .field("dwHardwareRevision", &self.dwHardwareRevision)
+            .field("dwFFDriverVersion", &self.dwFFDriverVersion)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIDEVCAPS {
     type Abi = Self;
 }
@@ -2496,6 +2597,11 @@ impl ::core::marker::Copy for DIDEVCAPS_DX3 {}
 impl ::core::clone::Clone for DIDEVCAPS_DX3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIDEVCAPS_DX3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIDEVCAPS_DX3").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwDevType", &self.dwDevType).field("dwAxes", &self.dwAxes).field("dwButtons", &self.dwButtons).field("dwPOVs", &self.dwPOVs).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIDEVCAPS_DX3 {
@@ -2532,6 +2638,12 @@ impl ::core::marker::Copy for DIDEVICEIMAGEINFOA {}
 impl ::core::clone::Clone for DIDEVICEIMAGEINFOA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIDEVICEIMAGEINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIDEVICEIMAGEINFOA").field("tszImagePath", &self.tszImagePath).field("dwFlags", &self.dwFlags).field("dwViewID", &self.dwViewID).field("rcOverlay", &self.rcOverlay).field("dwObjID", &self.dwObjID).field("dwcValidPts", &self.dwcValidPts).field("rgptCalloutLine", &self.rgptCalloutLine).field("rcCalloutRect", &self.rcCalloutRect).field("dwTextAlign", &self.dwTextAlign).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2575,6 +2687,12 @@ impl ::core::clone::Clone for DIDEVICEIMAGEINFOHEADERA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIDEVICEIMAGEINFOHEADERA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIDEVICEIMAGEINFOHEADERA").field("dwSize", &self.dwSize).field("dwSizeImageInfo", &self.dwSizeImageInfo).field("dwcViews", &self.dwcViews).field("dwcButtons", &self.dwcButtons).field("dwcAxes", &self.dwcAxes).field("dwcPOVs", &self.dwcPOVs).field("dwBufferSize", &self.dwBufferSize).field("dwBufferUsed", &self.dwBufferUsed).field("lprgImageInfoArray", &self.lprgImageInfoArray).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DIDEVICEIMAGEINFOHEADERA {
     type Abi = Self;
 }
@@ -2612,6 +2730,12 @@ impl ::core::marker::Copy for DIDEVICEIMAGEINFOHEADERW {}
 impl ::core::clone::Clone for DIDEVICEIMAGEINFOHEADERW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIDEVICEIMAGEINFOHEADERW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIDEVICEIMAGEINFOHEADERW").field("dwSize", &self.dwSize).field("dwSizeImageInfo", &self.dwSizeImageInfo).field("dwcViews", &self.dwcViews).field("dwcButtons", &self.dwcButtons).field("dwcAxes", &self.dwcAxes).field("dwcPOVs", &self.dwcPOVs).field("dwBufferSize", &self.dwBufferSize).field("dwBufferUsed", &self.dwBufferUsed).field("lprgImageInfoArray", &self.lprgImageInfoArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2655,6 +2779,12 @@ impl ::core::clone::Clone for DIDEVICEIMAGEINFOW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIDEVICEIMAGEINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIDEVICEIMAGEINFOW").field("tszImagePath", &self.tszImagePath).field("dwFlags", &self.dwFlags).field("dwViewID", &self.dwViewID).field("rcOverlay", &self.rcOverlay).field("dwObjID", &self.dwObjID).field("dwcValidPts", &self.dwcValidPts).field("rgptCalloutLine", &self.rgptCalloutLine).field("rcCalloutRect", &self.rcCalloutRect).field("dwTextAlign", &self.dwTextAlign).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DIDEVICEIMAGEINFOW {
     type Abi = Self;
 }
@@ -2695,6 +2825,12 @@ impl ::core::clone::Clone for DIDEVICEINSTANCEA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIDEVICEINSTANCEA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIDEVICEINSTANCEA").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("guidProduct", &self.guidProduct).field("dwDevType", &self.dwDevType).field("tszInstanceName", &self.tszInstanceName).field("tszProductName", &self.tszProductName).field("guidFFDriver", &self.guidFFDriver).field("wUsagePage", &self.wUsagePage).field("wUsage", &self.wUsage).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DIDEVICEINSTANCEA {
     type Abi = Self;
 }
@@ -2731,6 +2867,11 @@ impl ::core::clone::Clone for DIDEVICEINSTANCEW {
         *self
     }
 }
+impl ::core::fmt::Debug for DIDEVICEINSTANCEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIDEVICEINSTANCEW").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("guidProduct", &self.guidProduct).field("dwDevType", &self.dwDevType).field("tszInstanceName", &self.tszInstanceName).field("tszProductName", &self.tszProductName).field("guidFFDriver", &self.guidFFDriver).field("wUsagePage", &self.wUsagePage).field("wUsage", &self.wUsage).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIDEVICEINSTANCEW {
     type Abi = Self;
 }
@@ -2762,6 +2903,12 @@ impl ::core::marker::Copy for DIDEVICEINSTANCE_DX3A {}
 impl ::core::clone::Clone for DIDEVICEINSTANCE_DX3A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIDEVICEINSTANCE_DX3A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIDEVICEINSTANCE_DX3A").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("guidProduct", &self.guidProduct).field("dwDevType", &self.dwDevType).field("tszInstanceName", &self.tszInstanceName).field("tszProductName", &self.tszProductName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2798,6 +2945,11 @@ impl ::core::clone::Clone for DIDEVICEINSTANCE_DX3W {
         *self
     }
 }
+impl ::core::fmt::Debug for DIDEVICEINSTANCE_DX3W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIDEVICEINSTANCE_DX3W").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("guidProduct", &self.guidProduct).field("dwDevType", &self.dwDevType).field("tszInstanceName", &self.tszInstanceName).field("tszProductName", &self.tszProductName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIDEVICEINSTANCE_DX3W {
     type Abi = Self;
 }
@@ -2827,6 +2979,11 @@ impl ::core::clone::Clone for DIDEVICEOBJECTDATA {
         *self
     }
 }
+impl ::core::fmt::Debug for DIDEVICEOBJECTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIDEVICEOBJECTDATA").field("dwOfs", &self.dwOfs).field("dwData", &self.dwData).field("dwTimeStamp", &self.dwTimeStamp).field("dwSequence", &self.dwSequence).field("uAppData", &self.uAppData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIDEVICEOBJECTDATA {
     type Abi = Self;
 }
@@ -2853,6 +3010,11 @@ impl ::core::marker::Copy for DIDEVICEOBJECTDATA_DX3 {}
 impl ::core::clone::Clone for DIDEVICEOBJECTDATA_DX3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIDEVICEOBJECTDATA_DX3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIDEVICEOBJECTDATA_DX3").field("dwOfs", &self.dwOfs).field("dwData", &self.dwData).field("dwTimeStamp", &self.dwTimeStamp).field("dwSequence", &self.dwSequence).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIDEVICEOBJECTDATA_DX3 {
@@ -2898,6 +3060,28 @@ impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCEA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIDEVICEOBJECTINSTANCEA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIDEVICEOBJECTINSTANCEA")
+            .field("dwSize", &self.dwSize)
+            .field("guidType", &self.guidType)
+            .field("dwOfs", &self.dwOfs)
+            .field("dwType", &self.dwType)
+            .field("dwFlags", &self.dwFlags)
+            .field("tszName", &self.tszName)
+            .field("dwFFMaxForce", &self.dwFFMaxForce)
+            .field("dwFFForceResolution", &self.dwFFForceResolution)
+            .field("wCollectionNumber", &self.wCollectionNumber)
+            .field("wDesignatorIndex", &self.wDesignatorIndex)
+            .field("wUsagePage", &self.wUsagePage)
+            .field("wUsage", &self.wUsage)
+            .field("dwDimension", &self.dwDimension)
+            .field("wExponent", &self.wExponent)
+            .field("wReportId", &self.wReportId)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DIDEVICEOBJECTINSTANCEA {
     type Abi = Self;
 }
@@ -2940,6 +3124,27 @@ impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCEW {
         *self
     }
 }
+impl ::core::fmt::Debug for DIDEVICEOBJECTINSTANCEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIDEVICEOBJECTINSTANCEW")
+            .field("dwSize", &self.dwSize)
+            .field("guidType", &self.guidType)
+            .field("dwOfs", &self.dwOfs)
+            .field("dwType", &self.dwType)
+            .field("dwFlags", &self.dwFlags)
+            .field("tszName", &self.tszName)
+            .field("dwFFMaxForce", &self.dwFFMaxForce)
+            .field("dwFFForceResolution", &self.dwFFForceResolution)
+            .field("wCollectionNumber", &self.wCollectionNumber)
+            .field("wDesignatorIndex", &self.wDesignatorIndex)
+            .field("wUsagePage", &self.wUsagePage)
+            .field("wUsage", &self.wUsage)
+            .field("dwDimension", &self.dwDimension)
+            .field("wExponent", &self.wExponent)
+            .field("wReportId", &self.wReportId)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIDEVICEOBJECTINSTANCEW {
     type Abi = Self;
 }
@@ -2971,6 +3176,12 @@ impl ::core::marker::Copy for DIDEVICEOBJECTINSTANCE_DX3A {}
 impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCE_DX3A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIDEVICEOBJECTINSTANCE_DX3A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIDEVICEOBJECTINSTANCE_DX3A").field("dwSize", &self.dwSize).field("guidType", &self.guidType).field("dwOfs", &self.dwOfs).field("dwType", &self.dwType).field("dwFlags", &self.dwFlags).field("tszName", &self.tszName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3007,6 +3218,11 @@ impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCE_DX3W {
         *self
     }
 }
+impl ::core::fmt::Debug for DIDEVICEOBJECTINSTANCE_DX3W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIDEVICEOBJECTINSTANCE_DX3W").field("dwSize", &self.dwSize).field("guidType", &self.guidType).field("dwOfs", &self.dwOfs).field("dwType", &self.dwType).field("dwFlags", &self.dwFlags).field("tszName", &self.tszName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIDEVICEOBJECTINSTANCE_DX3W {
     type Abi = Self;
 }
@@ -3032,6 +3248,11 @@ impl ::core::marker::Copy for DIDEVICESTATE {}
 impl ::core::clone::Clone for DIDEVICESTATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIDEVICESTATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIDEVICESTATE").field("dwSize", &self.dwSize).field("dwState", &self.dwState).field("dwLoad", &self.dwLoad).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIDEVICESTATE {
@@ -3186,6 +3407,11 @@ impl ::core::clone::Clone for DIDRIVERVERSIONS {
         *self
     }
 }
+impl ::core::fmt::Debug for DIDRIVERVERSIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIDRIVERVERSIONS").field("dwSize", &self.dwSize).field("dwFirmwareRevision", &self.dwFirmwareRevision).field("dwHardwareRevision", &self.dwHardwareRevision).field("dwFFDriverVersion", &self.dwFFDriverVersion).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIDRIVERVERSIONS {
     type Abi = Self;
 }
@@ -3266,6 +3492,26 @@ impl ::core::clone::Clone for DIEFFECT {
         *self
     }
 }
+impl ::core::fmt::Debug for DIEFFECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIEFFECT")
+            .field("dwSize", &self.dwSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwDuration", &self.dwDuration)
+            .field("dwSamplePeriod", &self.dwSamplePeriod)
+            .field("dwGain", &self.dwGain)
+            .field("dwTriggerButton", &self.dwTriggerButton)
+            .field("dwTriggerRepeatInterval", &self.dwTriggerRepeatInterval)
+            .field("cAxes", &self.cAxes)
+            .field("rgdwAxes", &self.rgdwAxes)
+            .field("rglDirection", &self.rglDirection)
+            .field("lpEnvelope", &self.lpEnvelope)
+            .field("cbTypeSpecificParams", &self.cbTypeSpecificParams)
+            .field("lpvTypeSpecificParams", &self.lpvTypeSpecificParams)
+            .field("dwStartDelay", &self.dwStartDelay)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIEFFECT {
     type Abi = Self;
 }
@@ -3293,6 +3539,11 @@ impl ::core::marker::Copy for DIEFFECTATTRIBUTES {}
 impl ::core::clone::Clone for DIEFFECTATTRIBUTES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIEFFECTATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIEFFECTATTRIBUTES").field("dwEffectId", &self.dwEffectId).field("dwEffType", &self.dwEffType).field("dwStaticParams", &self.dwStaticParams).field("dwDynamicParams", &self.dwDynamicParams).field("dwCoords", &self.dwCoords).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIEFFECTATTRIBUTES {
@@ -3329,6 +3580,12 @@ impl ::core::clone::Clone for DIEFFECTINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIEFFECTINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIEFFECTINFOA").field("dwSize", &self.dwSize).field("guid", &self.guid).field("dwEffType", &self.dwEffType).field("dwStaticParams", &self.dwStaticParams).field("dwDynamicParams", &self.dwDynamicParams).field("tszName", &self.tszName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DIEFFECTINFOA {
     type Abi = Self;
 }
@@ -3360,6 +3617,11 @@ impl ::core::marker::Copy for DIEFFECTINFOW {}
 impl ::core::clone::Clone for DIEFFECTINFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIEFFECTINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIEFFECTINFOW").field("dwSize", &self.dwSize).field("guid", &self.guid).field("dwEffType", &self.dwEffType).field("dwStaticParams", &self.dwStaticParams).field("dwDynamicParams", &self.dwDynamicParams).field("tszName", &self.tszName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIEFFECTINFOW {
@@ -3399,6 +3661,25 @@ impl ::core::clone::Clone for DIEFFECT_DX5 {
         *self
     }
 }
+impl ::core::fmt::Debug for DIEFFECT_DX5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIEFFECT_DX5")
+            .field("dwSize", &self.dwSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwDuration", &self.dwDuration)
+            .field("dwSamplePeriod", &self.dwSamplePeriod)
+            .field("dwGain", &self.dwGain)
+            .field("dwTriggerButton", &self.dwTriggerButton)
+            .field("dwTriggerRepeatInterval", &self.dwTriggerRepeatInterval)
+            .field("cAxes", &self.cAxes)
+            .field("rgdwAxes", &self.rgdwAxes)
+            .field("rglDirection", &self.rglDirection)
+            .field("lpEnvelope", &self.lpEnvelope)
+            .field("cbTypeSpecificParams", &self.cbTypeSpecificParams)
+            .field("lpvTypeSpecificParams", &self.lpvTypeSpecificParams)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIEFFECT_DX5 {
     type Abi = Self;
 }
@@ -3427,6 +3708,11 @@ impl ::core::marker::Copy for DIEFFESCAPE {}
 impl ::core::clone::Clone for DIEFFESCAPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIEFFESCAPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIEFFESCAPE").field("dwSize", &self.dwSize).field("dwCommand", &self.dwCommand).field("lpvInBuffer", &self.lpvInBuffer).field("cbInBuffer", &self.cbInBuffer).field("lpvOutBuffer", &self.lpvOutBuffer).field("cbOutBuffer", &self.cbOutBuffer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIEFFESCAPE {
@@ -3502,6 +3788,11 @@ impl ::core::marker::Copy for DIENVELOPE {}
 impl ::core::clone::Clone for DIENVELOPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIENVELOPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIENVELOPE").field("dwSize", &self.dwSize).field("dwAttackLevel", &self.dwAttackLevel).field("dwAttackTime", &self.dwAttackTime).field("dwFadeLevel", &self.dwFadeLevel).field("dwFadeTime", &self.dwFadeTime).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIENVELOPE {
@@ -3647,6 +3938,11 @@ impl ::core::clone::Clone for DIFFDEVICEATTRIBUTES {
         *self
     }
 }
+impl ::core::fmt::Debug for DIFFDEVICEATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIFFDEVICEATTRIBUTES").field("dwFlags", &self.dwFlags).field("dwFFSamplePeriod", &self.dwFFSamplePeriod).field("dwFFMinTimeResolution", &self.dwFFMinTimeResolution).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIFFDEVICEATTRIBUTES {
     type Abi = Self;
 }
@@ -3671,6 +3967,11 @@ impl ::core::marker::Copy for DIFFOBJECTATTRIBUTES {}
 impl ::core::clone::Clone for DIFFOBJECTATTRIBUTES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIFFOBJECTATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIFFOBJECTATTRIBUTES").field("dwFFMaxForce", &self.dwFFMaxForce).field("dwFFForceResolution", &self.dwFFForceResolution).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIFFOBJECTATTRIBUTES {
@@ -3702,6 +4003,12 @@ impl ::core::marker::Copy for DIFILEEFFECT {}
 impl ::core::clone::Clone for DIFILEEFFECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIFILEEFFECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIFILEEFFECT").field("dwSize", &self.dwSize).field("GuidEffect", &self.GuidEffect).field("lpDiEffect", &self.lpDiEffect).field("szFriendlyName", &self.szFriendlyName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3827,6 +4134,12 @@ impl ::core::clone::Clone for DIHIDFFINITINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIHIDFFINITINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIHIDFFINITINFO").field("dwSize", &self.dwSize).field("pwszDeviceInterface", &self.pwszDeviceInterface).field("GuidInstance", &self.GuidInstance).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DIHIDFFINITINFO {
     type Abi = Self;
 }
@@ -3871,6 +4184,11 @@ impl ::core::clone::Clone for DIJOYCONFIG {
         *self
     }
 }
+impl ::core::fmt::Debug for DIJOYCONFIG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIJOYCONFIG").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("hwc", &self.hwc).field("dwGain", &self.dwGain).field("wszType", &self.wszType).field("wszCallout", &self.wszCallout).field("guidGameport", &self.guidGameport).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIJOYCONFIG {
     type Abi = Self;
 }
@@ -3899,6 +4217,11 @@ impl ::core::marker::Copy for DIJOYCONFIG_DX5 {}
 impl ::core::clone::Clone for DIJOYCONFIG_DX5 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIJOYCONFIG_DX5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIJOYCONFIG_DX5").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("hwc", &self.hwc).field("dwGain", &self.dwGain).field("wszType", &self.wszType).field("wszCallout", &self.wszCallout).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIJOYCONFIG_DX5 {
@@ -3932,6 +4255,11 @@ impl ::core::marker::Copy for DIJOYSTATE {}
 impl ::core::clone::Clone for DIJOYSTATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIJOYSTATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIJOYSTATE").field("lX", &self.lX).field("lY", &self.lY).field("lZ", &self.lZ).field("lRx", &self.lRx).field("lRy", &self.lRy).field("lRz", &self.lRz).field("rglSlider", &self.rglSlider).field("rgdwPOV", &self.rgdwPOV).field("rgbButtons", &self.rgbButtons).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIJOYSTATE {
@@ -3988,6 +4316,42 @@ impl ::core::clone::Clone for DIJOYSTATE2 {
         *self
     }
 }
+impl ::core::fmt::Debug for DIJOYSTATE2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIJOYSTATE2")
+            .field("lX", &self.lX)
+            .field("lY", &self.lY)
+            .field("lZ", &self.lZ)
+            .field("lRx", &self.lRx)
+            .field("lRy", &self.lRy)
+            .field("lRz", &self.lRz)
+            .field("rglSlider", &self.rglSlider)
+            .field("rgdwPOV", &self.rgdwPOV)
+            .field("rgbButtons", &self.rgbButtons)
+            .field("lVX", &self.lVX)
+            .field("lVY", &self.lVY)
+            .field("lVZ", &self.lVZ)
+            .field("lVRx", &self.lVRx)
+            .field("lVRy", &self.lVRy)
+            .field("lVRz", &self.lVRz)
+            .field("rglVSlider", &self.rglVSlider)
+            .field("lAX", &self.lAX)
+            .field("lAY", &self.lAY)
+            .field("lAZ", &self.lAZ)
+            .field("lARx", &self.lARx)
+            .field("lARy", &self.lARy)
+            .field("lARz", &self.lARz)
+            .field("rglASlider", &self.rglASlider)
+            .field("lFX", &self.lFX)
+            .field("lFY", &self.lFY)
+            .field("lFZ", &self.lFZ)
+            .field("lFRx", &self.lFRx)
+            .field("lFRy", &self.lFRy)
+            .field("lFRz", &self.lFRz)
+            .field("rglFSlider", &self.rglFSlider)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIJOYSTATE2 {
     type Abi = Self;
 }
@@ -4021,6 +4385,11 @@ impl ::core::clone::Clone for DIJOYTYPEINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for DIJOYTYPEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIJOYTYPEINFO").field("dwSize", &self.dwSize).field("hws", &self.hws).field("clsidConfig", &self.clsidConfig).field("wszDisplayName", &self.wszDisplayName).field("wszCallout", &self.wszCallout).field("wszHardwareId", &self.wszHardwareId).field("dwFlags1", &self.dwFlags1).field("dwFlags2", &self.dwFlags2).field("wszMapFile", &self.wszMapFile).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIJOYTYPEINFO {
     type Abi = Self;
 }
@@ -4048,6 +4417,11 @@ impl ::core::marker::Copy for DIJOYTYPEINFO_DX5 {}
 impl ::core::clone::Clone for DIJOYTYPEINFO_DX5 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIJOYTYPEINFO_DX5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIJOYTYPEINFO_DX5").field("dwSize", &self.dwSize).field("hws", &self.hws).field("clsidConfig", &self.clsidConfig).field("wszDisplayName", &self.wszDisplayName).field("wszCallout", &self.wszCallout).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIJOYTYPEINFO_DX5 {
@@ -4081,6 +4455,11 @@ impl ::core::clone::Clone for DIJOYTYPEINFO_DX6 {
         *self
     }
 }
+impl ::core::fmt::Debug for DIJOYTYPEINFO_DX6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIJOYTYPEINFO_DX6").field("dwSize", &self.dwSize).field("hws", &self.hws).field("clsidConfig", &self.clsidConfig).field("wszDisplayName", &self.wszDisplayName).field("wszCallout", &self.wszCallout).field("wszHardwareId", &self.wszHardwareId).field("dwFlags1", &self.dwFlags1).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIJOYTYPEINFO_DX6 {
     type Abi = Self;
 }
@@ -4107,6 +4486,11 @@ impl ::core::marker::Copy for DIJOYUSERVALUES {}
 impl ::core::clone::Clone for DIJOYUSERVALUES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIJOYUSERVALUES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIJOYUSERVALUES").field("dwSize", &self.dwSize).field("ruv", &self.ruv).field("wszGlobalDriver", &self.wszGlobalDriver).field("wszGameportEmulator", &self.wszGameportEmulator).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIJOYUSERVALUES {
@@ -4751,6 +5135,11 @@ impl ::core::clone::Clone for DIMOUSESTATE {
         *self
     }
 }
+impl ::core::fmt::Debug for DIMOUSESTATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIMOUSESTATE").field("lX", &self.lX).field("lY", &self.lY).field("lZ", &self.lZ).field("rgbButtons", &self.rgbButtons).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIMOUSESTATE {
     type Abi = Self;
 }
@@ -4777,6 +5166,11 @@ impl ::core::marker::Copy for DIMOUSESTATE2 {}
 impl ::core::clone::Clone for DIMOUSESTATE2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIMOUSESTATE2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIMOUSESTATE2").field("lX", &self.lX).field("lY", &self.lY).field("lZ", &self.lZ).field("rgbButtons", &self.rgbButtons).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIMOUSESTATE2 {
@@ -4812,6 +5206,11 @@ impl ::core::clone::Clone for DIOBJECTATTRIBUTES {
         *self
     }
 }
+impl ::core::fmt::Debug for DIOBJECTATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIOBJECTATTRIBUTES").field("dwFlags", &self.dwFlags).field("wUsagePage", &self.wUsagePage).field("wUsage", &self.wUsage).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIOBJECTATTRIBUTES {
     type Abi = Self;
 }
@@ -4837,6 +5236,11 @@ impl ::core::marker::Copy for DIOBJECTCALIBRATION {}
 impl ::core::clone::Clone for DIOBJECTCALIBRATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIOBJECTCALIBRATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIOBJECTCALIBRATION").field("lMin", &self.lMin).field("lCenter", &self.lCenter).field("lMax", &self.lMax).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIOBJECTCALIBRATION {
@@ -4867,6 +5271,11 @@ impl ::core::clone::Clone for DIOBJECTDATAFORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for DIOBJECTDATAFORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIOBJECTDATAFORMAT").field("pguid", &self.pguid).field("dwOfs", &self.dwOfs).field("dwType", &self.dwType).field("dwFlags", &self.dwFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIOBJECTDATAFORMAT {
     type Abi = Self;
 }
@@ -4893,6 +5302,11 @@ impl ::core::marker::Copy for DIPERIODIC {}
 impl ::core::clone::Clone for DIPERIODIC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIPERIODIC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIPERIODIC").field("dwMagnitude", &self.dwMagnitude).field("lOffset", &self.lOffset).field("dwPhase", &self.dwPhase).field("dwPeriod", &self.dwPeriod).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIPERIODIC {
@@ -4927,6 +5341,11 @@ impl ::core::marker::Copy for DIPOVCALIBRATION {}
 impl ::core::clone::Clone for DIPOVCALIBRATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIPOVCALIBRATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIPOVCALIBRATION").field("lMin", &self.lMin).field("lMax", &self.lMax).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIPOVCALIBRATION {
@@ -4973,6 +5392,11 @@ impl ::core::clone::Clone for DIPROPCAL {
         *self
     }
 }
+impl ::core::fmt::Debug for DIPROPCAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIPROPCAL").field("diph", &self.diph).field("lMin", &self.lMin).field("lCenter", &self.lCenter).field("lMax", &self.lMax).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIPROPCAL {
     type Abi = Self;
 }
@@ -5004,6 +5428,11 @@ impl ::core::clone::Clone for DIPROPCALPOV {
         *self
     }
 }
+impl ::core::fmt::Debug for DIPROPCALPOV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIPROPCALPOV").field("diph", &self.diph).field("lMin", &self.lMin).field("lMax", &self.lMax).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIPROPCALPOV {
     type Abi = Self;
 }
@@ -5029,6 +5458,11 @@ impl ::core::marker::Copy for DIPROPCPOINTS {}
 impl ::core::clone::Clone for DIPROPCPOINTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIPROPCPOINTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIPROPCPOINTS").field("diph", &self.diph).field("dwCPointsNum", &self.dwCPointsNum).field("cp", &self.cp).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIPROPCPOINTS {
@@ -5057,6 +5491,11 @@ impl ::core::clone::Clone for DIPROPDWORD {
         *self
     }
 }
+impl ::core::fmt::Debug for DIPROPDWORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIPROPDWORD").field("diph", &self.diph).field("dwData", &self.dwData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIPROPDWORD {
     type Abi = Self;
 }
@@ -5082,6 +5521,11 @@ impl ::core::marker::Copy for DIPROPGUIDANDPATH {}
 impl ::core::clone::Clone for DIPROPGUIDANDPATH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIPROPGUIDANDPATH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIPROPGUIDANDPATH").field("diph", &self.diph).field("guidClass", &self.guidClass).field("wszPath", &self.wszPath).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIPROPGUIDANDPATH {
@@ -5112,6 +5556,11 @@ impl ::core::clone::Clone for DIPROPHEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for DIPROPHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIPROPHEADER").field("dwSize", &self.dwSize).field("dwHeaderSize", &self.dwHeaderSize).field("dwObj", &self.dwObj).field("dwHow", &self.dwHow).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIPROPHEADER {
     type Abi = Self;
 }
@@ -5136,6 +5585,11 @@ impl ::core::marker::Copy for DIPROPPOINTER {}
 impl ::core::clone::Clone for DIPROPPOINTER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIPROPPOINTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIPROPPOINTER").field("diph", &self.diph).field("uData", &self.uData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIPROPPOINTER {
@@ -5165,6 +5619,11 @@ impl ::core::clone::Clone for DIPROPRANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for DIPROPRANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIPROPRANGE").field("diph", &self.diph).field("lMin", &self.lMin).field("lMax", &self.lMax).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIPROPRANGE {
     type Abi = Self;
 }
@@ -5191,6 +5650,11 @@ impl ::core::clone::Clone for DIPROPSTRING {
         *self
     }
 }
+impl ::core::fmt::Debug for DIPROPSTRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIPROPSTRING").field("diph", &self.diph).field("wsz", &self.wsz).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIPROPSTRING {
     type Abi = Self;
 }
@@ -5215,6 +5679,11 @@ impl ::core::marker::Copy for DIRAMPFORCE {}
 impl ::core::clone::Clone for DIRAMPFORCE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIRAMPFORCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIRAMPFORCE").field("lStart", &self.lStart).field("lEnd", &self.lEnd).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIRAMPFORCE {
@@ -5521,6 +5990,11 @@ impl ::core::clone::Clone for HIDD_ATTRIBUTES {
         *self
     }
 }
+impl ::core::fmt::Debug for HIDD_ATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HIDD_ATTRIBUTES").field("Size", &self.Size).field("VendorID", &self.VendorID).field("ProductID", &self.ProductID).field("VersionNumber", &self.VersionNumber).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HIDD_ATTRIBUTES {
     type Abi = Self;
 }
@@ -5575,6 +6049,12 @@ impl ::core::marker::Copy for HIDP_BUTTON_ARRAY_DATA {}
 impl ::core::clone::Clone for HIDP_BUTTON_ARRAY_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HIDP_BUTTON_ARRAY_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HIDP_BUTTON_ARRAY_DATA").field("ArrayIndex", &self.ArrayIndex).field("On", &self.On).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5696,6 +6176,12 @@ impl ::core::clone::Clone for HIDP_BUTTON_CAPS_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HIDP_BUTTON_CAPS_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HIDP_BUTTON_CAPS_0_0").field("Usage", &self.Usage).field("Reserved1", &self.Reserved1).field("StringIndex", &self.StringIndex).field("Reserved2", &self.Reserved2).field("DesignatorIndex", &self.DesignatorIndex).field("Reserved3", &self.Reserved3).field("DataIndex", &self.DataIndex).field("Reserved4", &self.Reserved4).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HIDP_BUTTON_CAPS_0_0 {
     type Abi = Self;
 }
@@ -5732,6 +6218,12 @@ impl ::core::marker::Copy for HIDP_BUTTON_CAPS_0_1 {}
 impl ::core::clone::Clone for HIDP_BUTTON_CAPS_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HIDP_BUTTON_CAPS_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HIDP_BUTTON_CAPS_0_1").field("UsageMin", &self.UsageMin).field("UsageMax", &self.UsageMax).field("StringMin", &self.StringMin).field("StringMax", &self.StringMax).field("DesignatorMin", &self.DesignatorMin).field("DesignatorMax", &self.DesignatorMax).field("DataIndexMin", &self.DataIndexMin).field("DataIndexMax", &self.DataIndexMax).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5776,6 +6268,28 @@ impl ::core::marker::Copy for HIDP_CAPS {}
 impl ::core::clone::Clone for HIDP_CAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HIDP_CAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HIDP_CAPS")
+            .field("Usage", &self.Usage)
+            .field("UsagePage", &self.UsagePage)
+            .field("InputReportByteLength", &self.InputReportByteLength)
+            .field("OutputReportByteLength", &self.OutputReportByteLength)
+            .field("FeatureReportByteLength", &self.FeatureReportByteLength)
+            .field("Reserved", &self.Reserved)
+            .field("NumberLinkCollectionNodes", &self.NumberLinkCollectionNodes)
+            .field("NumberInputButtonCaps", &self.NumberInputButtonCaps)
+            .field("NumberInputValueCaps", &self.NumberInputValueCaps)
+            .field("NumberInputDataIndices", &self.NumberInputDataIndices)
+            .field("NumberOutputButtonCaps", &self.NumberOutputButtonCaps)
+            .field("NumberOutputValueCaps", &self.NumberOutputValueCaps)
+            .field("NumberOutputDataIndices", &self.NumberOutputDataIndices)
+            .field("NumberFeatureButtonCaps", &self.NumberFeatureButtonCaps)
+            .field("NumberFeatureValueCaps", &self.NumberFeatureValueCaps)
+            .field("NumberFeatureDataIndices", &self.NumberFeatureDataIndices)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for HIDP_CAPS {
@@ -5955,6 +6469,11 @@ impl ::core::clone::Clone for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HIDP_KEYBOARD_MODIFIER_STATE_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     type Abi = Self;
 }
@@ -6020,6 +6539,11 @@ impl ::core::marker::Copy for HIDP_UNKNOWN_TOKEN {}
 impl ::core::clone::Clone for HIDP_UNKNOWN_TOKEN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HIDP_UNKNOWN_TOKEN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HIDP_UNKNOWN_TOKEN").field("Token", &self.Token).field("Reserved", &self.Reserved).field("BitField", &self.BitField).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HIDP_UNKNOWN_TOKEN {
@@ -6145,6 +6669,12 @@ impl ::core::clone::Clone for HIDP_VALUE_CAPS_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HIDP_VALUE_CAPS_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HIDP_VALUE_CAPS_0_0").field("Usage", &self.Usage).field("Reserved1", &self.Reserved1).field("StringIndex", &self.StringIndex).field("Reserved2", &self.Reserved2).field("DesignatorIndex", &self.DesignatorIndex).field("Reserved3", &self.Reserved3).field("DataIndex", &self.DataIndex).field("Reserved4", &self.Reserved4).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HIDP_VALUE_CAPS_0_0 {
     type Abi = Self;
 }
@@ -6181,6 +6711,12 @@ impl ::core::marker::Copy for HIDP_VALUE_CAPS_0_1 {}
 impl ::core::clone::Clone for HIDP_VALUE_CAPS_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HIDP_VALUE_CAPS_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HIDP_VALUE_CAPS_0_1").field("UsageMin", &self.UsageMin).field("UsageMax", &self.UsageMax).field("StringMin", &self.StringMin).field("StringMax", &self.StringMax).field("DesignatorMin", &self.DesignatorMin).field("DesignatorMax", &self.DesignatorMax).field("DataIndexMin", &self.DataIndexMin).field("DataIndexMax", &self.DataIndexMax).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6221,6 +6757,12 @@ impl ::core::clone::Clone for HID_COLLECTION_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HID_COLLECTION_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HID_COLLECTION_INFORMATION").field("DescriptorSize", &self.DescriptorSize).field("Polled", &self.Polled).field("Reserved1", &self.Reserved1).field("VendorID", &self.VendorID).field("ProductID", &self.ProductID).field("VersionNumber", &self.VersionNumber).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HID_COLLECTION_INFORMATION {
     type Abi = Self;
 }
@@ -6248,6 +6790,11 @@ impl ::core::marker::Copy for HID_DRIVER_CONFIG {}
 impl ::core::clone::Clone for HID_DRIVER_CONFIG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HID_DRIVER_CONFIG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HID_DRIVER_CONFIG").field("Size", &self.Size).field("RingBufferSize", &self.RingBufferSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HID_DRIVER_CONFIG {
@@ -7503,6 +8050,11 @@ impl ::core::clone::Clone for HID_XFER_PACKET {
         *self
     }
 }
+impl ::core::fmt::Debug for HID_XFER_PACKET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HID_XFER_PACKET").field("reportBuffer", &self.reportBuffer).field("reportBufferLen", &self.reportBufferLen).field("reportId", &self.reportId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HID_XFER_PACKET {
     type Abi = Self;
 }
@@ -8275,6 +8827,11 @@ impl ::core::cmp::PartialEq for IDirectInput2A {
     }
 }
 impl ::core::cmp::Eq for IDirectInput2A {}
+impl ::core::fmt::Debug for IDirectInput2A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInput2A").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInput2A {
     type Vtable = IDirectInput2AVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e662_aa8a_11cf_bfc7_444553540000);
@@ -8380,6 +8937,11 @@ impl ::core::cmp::PartialEq for IDirectInput2W {
     }
 }
 impl ::core::cmp::Eq for IDirectInput2W {}
+impl ::core::fmt::Debug for IDirectInput2W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInput2W").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInput2W {
     type Vtable = IDirectInput2WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e663_aa8a_11cf_bfc7_444553540000);
@@ -8509,6 +9071,11 @@ impl ::core::cmp::PartialEq for IDirectInput7A {
     }
 }
 impl ::core::cmp::Eq for IDirectInput7A {}
+impl ::core::fmt::Debug for IDirectInput7A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInput7A").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInput7A {
     type Vtable = IDirectInput7AVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a4cb684_236d_11d3_8e9d_00c04f6844ae);
@@ -8639,6 +9206,11 @@ impl ::core::cmp::PartialEq for IDirectInput7W {
     }
 }
 impl ::core::cmp::Eq for IDirectInput7W {}
+impl ::core::fmt::Debug for IDirectInput7W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInput7W").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInput7W {
     type Vtable = IDirectInput7WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a4cb685_236d_11d3_8e9d_00c04f6844ae);
@@ -8735,6 +9307,11 @@ impl ::core::cmp::PartialEq for IDirectInput8A {
     }
 }
 impl ::core::cmp::Eq for IDirectInput8A {}
+impl ::core::fmt::Debug for IDirectInput8A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInput8A").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInput8A {
     type Vtable = IDirectInput8AVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf798030_483a_4da2_aa99_5d64ed369700);
@@ -8834,6 +9411,11 @@ impl ::core::cmp::PartialEq for IDirectInput8W {
     }
 }
 impl ::core::cmp::Eq for IDirectInput8W {}
+impl ::core::fmt::Debug for IDirectInput8W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInput8W").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInput8W {
     type Vtable = IDirectInput8WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf798031_483a_4da2_aa99_5d64ed369700);
@@ -8918,6 +9500,11 @@ impl ::core::cmp::PartialEq for IDirectInputA {
     }
 }
 impl ::core::cmp::Eq for IDirectInputA {}
+impl ::core::fmt::Debug for IDirectInputA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputA").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputA {
     type Vtable = IDirectInputAVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89521360_aa8a_11cf_bfc7_444553540000);
@@ -9099,6 +9686,11 @@ impl ::core::cmp::PartialEq for IDirectInputDevice2A {
     }
 }
 impl ::core::cmp::Eq for IDirectInputDevice2A {}
+impl ::core::fmt::Debug for IDirectInputDevice2A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputDevice2A").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputDevice2A {
     type Vtable = IDirectInputDevice2AVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e682_c92e_11cf_bfc7_444553540000);
@@ -9303,6 +9895,11 @@ impl ::core::cmp::PartialEq for IDirectInputDevice2W {
     }
 }
 impl ::core::cmp::Eq for IDirectInputDevice2W {}
+impl ::core::fmt::Debug for IDirectInputDevice2W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputDevice2W").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputDevice2W {
     type Vtable = IDirectInputDevice2WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e683_c92e_11cf_bfc7_444553540000);
@@ -9537,6 +10134,11 @@ impl ::core::cmp::PartialEq for IDirectInputDevice7A {
     }
 }
 impl ::core::cmp::Eq for IDirectInputDevice7A {}
+impl ::core::fmt::Debug for IDirectInputDevice7A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputDevice7A").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputDevice7A {
     type Vtable = IDirectInputDevice7AVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57d7c6bc_2356_11d3_8e9d_00c04f6844ae);
@@ -9775,6 +10377,11 @@ impl ::core::cmp::PartialEq for IDirectInputDevice7W {
     }
 }
 impl ::core::cmp::Eq for IDirectInputDevice7W {}
+impl ::core::fmt::Debug for IDirectInputDevice7W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputDevice7W").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputDevice7W {
     type Vtable = IDirectInputDevice7WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57d7c6bd_2356_11d3_8e9d_00c04f6844ae);
@@ -9988,6 +10595,11 @@ impl ::core::cmp::PartialEq for IDirectInputDevice8A {
     }
 }
 impl ::core::cmp::Eq for IDirectInputDevice8A {}
+impl ::core::fmt::Debug for IDirectInputDevice8A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputDevice8A").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputDevice8A {
     type Vtable = IDirectInputDevice8AVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54d41080_dc15_4833_a41b_748f73a38179);
@@ -10207,6 +10819,11 @@ impl ::core::cmp::PartialEq for IDirectInputDevice8W {
     }
 }
 impl ::core::cmp::Eq for IDirectInputDevice8W {}
+impl ::core::fmt::Debug for IDirectInputDevice8W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputDevice8W").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputDevice8W {
     type Vtable = IDirectInputDevice8WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54d41081_dc15_4833_a41b_748f73a38179);
@@ -10362,6 +10979,11 @@ impl ::core::cmp::PartialEq for IDirectInputDeviceA {
     }
 }
 impl ::core::cmp::Eq for IDirectInputDeviceA {}
+impl ::core::fmt::Debug for IDirectInputDeviceA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputDeviceA").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputDeviceA {
     type Vtable = IDirectInputDeviceAVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e680_c92e_11cf_bfc7_444553540000);
@@ -10496,6 +11118,11 @@ impl ::core::cmp::PartialEq for IDirectInputDeviceW {
     }
 }
 impl ::core::cmp::Eq for IDirectInputDeviceW {}
+impl ::core::fmt::Debug for IDirectInputDeviceW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputDeviceW").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputDeviceW {
     type Vtable = IDirectInputDeviceWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e681_c92e_11cf_bfc7_444553540000);
@@ -10604,6 +11231,11 @@ impl ::core::cmp::PartialEq for IDirectInputEffect {
     }
 }
 impl ::core::cmp::Eq for IDirectInputEffect {}
+impl ::core::fmt::Debug for IDirectInputEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputEffect {
     type Vtable = IDirectInputEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7e1f7c0_88d2_11d0_9ad0_00a0c9a06e35);
@@ -10706,6 +11338,11 @@ impl ::core::cmp::PartialEq for IDirectInputEffectDriver {
     }
 }
 impl ::core::cmp::Eq for IDirectInputEffectDriver {}
+impl ::core::fmt::Debug for IDirectInputEffectDriver {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputEffectDriver").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputEffectDriver {
     type Vtable = IDirectInputEffectDriverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02538130_898f_11d0_9ad0_00a0c9a06e35);
@@ -10836,6 +11473,11 @@ impl ::core::cmp::PartialEq for IDirectInputJoyConfig {
     }
 }
 impl ::core::cmp::Eq for IDirectInputJoyConfig {}
+impl ::core::fmt::Debug for IDirectInputJoyConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputJoyConfig").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputJoyConfig {
     type Vtable = IDirectInputJoyConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1de12ab1_c9f5_11cf_bfc7_444553540000);
@@ -10979,6 +11621,11 @@ impl ::core::cmp::PartialEq for IDirectInputJoyConfig8 {
     }
 }
 impl ::core::cmp::Eq for IDirectInputJoyConfig8 {}
+impl ::core::fmt::Debug for IDirectInputJoyConfig8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputJoyConfig8").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputJoyConfig8 {
     type Vtable = IDirectInputJoyConfig8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb0d7dfa_1990_4f27_b4d6_edf2eec4a44c);
@@ -11073,6 +11720,11 @@ impl ::core::cmp::PartialEq for IDirectInputW {
     }
 }
 impl ::core::cmp::Eq for IDirectInputW {}
+impl ::core::fmt::Debug for IDirectInputW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputW").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputW {
     type Vtable = IDirectInputWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89521361_aa8a_11cf_bfc7_444553540000);
@@ -11104,6 +11756,11 @@ impl ::core::clone::Clone for INDICATOR_LIST {
         *self
     }
 }
+impl ::core::fmt::Debug for INDICATOR_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INDICATOR_LIST").field("MakeCode", &self.MakeCode).field("IndicatorFlags", &self.IndicatorFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for INDICATOR_LIST {
     type Abi = Self;
 }
@@ -11131,6 +11788,12 @@ impl ::core::marker::Copy for INPUT_BUTTON_ENABLE_INFO {}
 impl ::core::clone::Clone for INPUT_BUTTON_ENABLE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INPUT_BUTTON_ENABLE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INPUT_BUTTON_ENABLE_INFO").field("ButtonType", &self.ButtonType).field("Enabled", &self.Enabled).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11195,6 +11858,11 @@ impl ::core::clone::Clone for JOYCALIBRATE {
         *self
     }
 }
+impl ::core::fmt::Debug for JOYCALIBRATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOYCALIBRATE").field("wXbase", &self.wXbase).field("wXdelta", &self.wXdelta).field("wYbase", &self.wYbase).field("wYdelta", &self.wYdelta).field("wZbase", &self.wZbase).field("wZdelta", &self.wZdelta).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JOYCALIBRATE {
     type Abi = Self;
 }
@@ -11225,6 +11893,11 @@ impl ::core::clone::Clone for JOYPOS {
         *self
     }
 }
+impl ::core::fmt::Debug for JOYPOS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOYPOS").field("dwX", &self.dwX).field("dwY", &self.dwY).field("dwZ", &self.dwZ).field("dwR", &self.dwR).field("dwU", &self.dwU).field("dwV", &self.dwV).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JOYPOS {
     type Abi = Self;
 }
@@ -11250,6 +11923,11 @@ impl ::core::marker::Copy for JOYRANGE {}
 impl ::core::clone::Clone for JOYRANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JOYRANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOYRANGE").field("jpMin", &self.jpMin).field("jpMax", &self.jpMax).field("jpCenter", &self.jpCenter).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JOYRANGE {
@@ -11281,6 +11959,11 @@ impl ::core::clone::Clone for JOYREGHWCONFIG {
         *self
     }
 }
+impl ::core::fmt::Debug for JOYREGHWCONFIG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOYREGHWCONFIG").field("hws", &self.hws).field("dwUsageSettings", &self.dwUsageSettings).field("hwv", &self.hwv).field("dwType", &self.dwType).field("dwReserved", &self.dwReserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JOYREGHWCONFIG {
     type Abi = Self;
 }
@@ -11305,6 +11988,11 @@ impl ::core::marker::Copy for JOYREGHWSETTINGS {}
 impl ::core::clone::Clone for JOYREGHWSETTINGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JOYREGHWSETTINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOYREGHWSETTINGS").field("dwFlags", &self.dwFlags).field("dwNumButtons", &self.dwNumButtons).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JOYREGHWSETTINGS {
@@ -11334,6 +12022,11 @@ impl ::core::clone::Clone for JOYREGHWVALUES {
         *self
     }
 }
+impl ::core::fmt::Debug for JOYREGHWVALUES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOYREGHWVALUES").field("jrvHardware", &self.jrvHardware).field("dwPOVValues", &self.dwPOVValues).field("dwCalFlags", &self.dwCalFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JOYREGHWVALUES {
     type Abi = Self;
 }
@@ -11359,6 +12052,11 @@ impl ::core::marker::Copy for JOYREGUSERVALUES {}
 impl ::core::clone::Clone for JOYREGUSERVALUES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JOYREGUSERVALUES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOYREGUSERVALUES").field("dwTimeOut", &self.dwTimeOut).field("jrvRanges", &self.jrvRanges).field("jpDeadZone", &self.jpDeadZone).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JOYREGUSERVALUES {
@@ -11559,6 +12257,11 @@ impl ::core::clone::Clone for KEYBOARD_ATTRIBUTES {
         *self
     }
 }
+impl ::core::fmt::Debug for KEYBOARD_ATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KEYBOARD_ATTRIBUTES").field("KeyboardIdentifier", &self.KeyboardIdentifier).field("KeyboardMode", &self.KeyboardMode).field("NumberOfFunctionKeys", &self.NumberOfFunctionKeys).field("NumberOfIndicators", &self.NumberOfIndicators).field("NumberOfKeysTotal", &self.NumberOfKeysTotal).field("InputDataQueueLength", &self.InputDataQueueLength).field("KeyRepeatMinimum", &self.KeyRepeatMinimum).field("KeyRepeatMaximum", &self.KeyRepeatMaximum).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for KEYBOARD_ATTRIBUTES {
     type Abi = Self;
 }
@@ -11594,6 +12297,11 @@ impl ::core::clone::Clone for KEYBOARD_EXTENDED_ATTRIBUTES {
         *self
     }
 }
+impl ::core::fmt::Debug for KEYBOARD_EXTENDED_ATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KEYBOARD_EXTENDED_ATTRIBUTES").field("Version", &self.Version).field("FormFactor", &self.FormFactor).field("KeyType", &self.KeyType).field("PhysicalLayout", &self.PhysicalLayout).field("VendorSpecificPhysicalLayout", &self.VendorSpecificPhysicalLayout).field("IETFLanguageTagIndex", &self.IETFLanguageTagIndex).field("ImplementedInputAssistControls", &self.ImplementedInputAssistControls).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for KEYBOARD_EXTENDED_ATTRIBUTES {
     type Abi = Self;
 }
@@ -11620,6 +12328,11 @@ impl ::core::marker::Copy for KEYBOARD_ID {}
 impl ::core::clone::Clone for KEYBOARD_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for KEYBOARD_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KEYBOARD_ID").field("Type", &self.Type).field("Subtype", &self.Subtype).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KEYBOARD_ID {
@@ -11649,6 +12362,11 @@ impl ::core::clone::Clone for KEYBOARD_IME_STATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for KEYBOARD_IME_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KEYBOARD_IME_STATUS").field("UnitId", &self.UnitId).field("ImeOpen", &self.ImeOpen).field("ImeConvMode", &self.ImeConvMode).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for KEYBOARD_IME_STATUS {
     type Abi = Self;
 }
@@ -11675,6 +12393,11 @@ impl ::core::clone::Clone for KEYBOARD_INDICATOR_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for KEYBOARD_INDICATOR_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KEYBOARD_INDICATOR_PARAMETERS").field("UnitId", &self.UnitId).field("LedFlags", &self.LedFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for KEYBOARD_INDICATOR_PARAMETERS {
     type Abi = Self;
 }
@@ -11699,6 +12422,11 @@ impl ::core::marker::Copy for KEYBOARD_INDICATOR_TRANSLATION {}
 impl ::core::clone::Clone for KEYBOARD_INDICATOR_TRANSLATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for KEYBOARD_INDICATOR_TRANSLATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KEYBOARD_INDICATOR_TRANSLATION").field("NumberOfIndicatorKeys", &self.NumberOfIndicatorKeys).field("IndicatorList", &self.IndicatorList).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KEYBOARD_INDICATOR_TRANSLATION {
@@ -11728,6 +12456,11 @@ impl ::core::marker::Copy for KEYBOARD_INPUT_DATA {}
 impl ::core::clone::Clone for KEYBOARD_INPUT_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for KEYBOARD_INPUT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KEYBOARD_INPUT_DATA").field("UnitId", &self.UnitId).field("MakeCode", &self.MakeCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("ExtraInformation", &self.ExtraInformation).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KEYBOARD_INPUT_DATA {
@@ -11769,6 +12502,11 @@ impl ::core::clone::Clone for KEYBOARD_TYPEMATIC_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for KEYBOARD_TYPEMATIC_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KEYBOARD_TYPEMATIC_PARAMETERS").field("UnitId", &self.UnitId).field("Rate", &self.Rate).field("Delay", &self.Delay).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for KEYBOARD_TYPEMATIC_PARAMETERS {
     type Abi = Self;
 }
@@ -11792,6 +12530,11 @@ impl ::core::marker::Copy for KEYBOARD_UNIT_ID_PARAMETER {}
 impl ::core::clone::Clone for KEYBOARD_UNIT_ID_PARAMETER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for KEYBOARD_UNIT_ID_PARAMETER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KEYBOARD_UNIT_ID_PARAMETER").field("UnitId", &self.UnitId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KEYBOARD_UNIT_ID_PARAMETER {
@@ -11887,6 +12630,11 @@ impl ::core::marker::Copy for MOUSE_ATTRIBUTES {}
 impl ::core::clone::Clone for MOUSE_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MOUSE_ATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MOUSE_ATTRIBUTES").field("MouseIdentifier", &self.MouseIdentifier).field("NumberOfButtons", &self.NumberOfButtons).field("SampleRate", &self.SampleRate).field("InputDataQueueLength", &self.InputDataQueueLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MOUSE_ATTRIBUTES {
@@ -12004,6 +12752,11 @@ impl ::core::clone::Clone for MOUSE_INPUT_DATA_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for MOUSE_INPUT_DATA_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MOUSE_INPUT_DATA_0_0").field("ButtonFlags", &self.ButtonFlags).field("ButtonData", &self.ButtonData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MOUSE_INPUT_DATA_0_0 {
     type Abi = Self;
 }
@@ -12051,6 +12804,11 @@ impl ::core::clone::Clone for MOUSE_UNIT_ID_PARAMETER {
         *self
     }
 }
+impl ::core::fmt::Debug for MOUSE_UNIT_ID_PARAMETER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MOUSE_UNIT_ID_PARAMETER").field("UnitId", &self.UnitId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MOUSE_UNIT_ID_PARAMETER {
     type Abi = Self;
 }
@@ -12085,6 +12843,11 @@ impl ::core::marker::Copy for USAGE_AND_PAGE {}
 impl ::core::clone::Clone for USAGE_AND_PAGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USAGE_AND_PAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USAGE_AND_PAGE").field("Usage", &self.Usage).field("UsagePage", &self.UsagePage).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USAGE_AND_PAGE {

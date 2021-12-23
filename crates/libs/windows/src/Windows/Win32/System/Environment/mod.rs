@@ -189,6 +189,11 @@ impl ::core::clone::Clone for ENCLAVE_VBS_BASIC_KEY_REQUEST {
         *self
     }
 }
+impl ::core::fmt::Debug for ENCLAVE_VBS_BASIC_KEY_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENCLAVE_VBS_BASIC_KEY_REQUEST").field("RequestSize", &self.RequestSize).field("Flags", &self.Flags).field("EnclaveSVN", &self.EnclaveSVN).field("SystemKeyID", &self.SystemKeyID).field("CurrentSystemKeyID", &self.CurrentSystemKeyID).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ENCLAVE_VBS_BASIC_KEY_REQUEST {
     type Abi = Self;
 }
@@ -739,6 +744,11 @@ impl ::core::clone::Clone for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
         *self
     }
 }
+impl ::core::fmt::Debug for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VBS_BASIC_ENCLAVE_EXCEPTION_AMD64").field("ExceptionCode", &self.ExceptionCode).field("NumberParameters", &self.NumberParameters).field("ExceptionInformation", &self.ExceptionInformation).field("ExceptionRAX", &self.ExceptionRAX).field("ExceptionRCX", &self.ExceptionRCX).field("ExceptionRIP", &self.ExceptionRIP).field("ExceptionRFLAGS", &self.ExceptionRFLAGS).field("ExceptionRSP", &self.ExceptionRSP).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     type Abi = Self;
 }
@@ -776,6 +786,25 @@ impl ::core::clone::Clone for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
         *self
     }
 }
+impl ::core::fmt::Debug for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VBS_BASIC_ENCLAVE_SYSCALL_PAGE")
+            .field("ReturnFromEnclave", &self.ReturnFromEnclave.map(|f| f as usize))
+            .field("ReturnFromException", &self.ReturnFromException.map(|f| f as usize))
+            .field("TerminateThread", &self.TerminateThread.map(|f| f as usize))
+            .field("InterruptThread", &self.InterruptThread.map(|f| f as usize))
+            .field("CommitPages", &self.CommitPages.map(|f| f as usize))
+            .field("DecommitPages", &self.DecommitPages.map(|f| f as usize))
+            .field("ProtectPages", &self.ProtectPages.map(|f| f as usize))
+            .field("CreateThread", &self.CreateThread.map(|f| f as usize))
+            .field("GetEnclaveInformation", &self.GetEnclaveInformation.map(|f| f as usize))
+            .field("GenerateKey", &self.GenerateKey.map(|f| f as usize))
+            .field("GenerateReport", &self.GenerateReport.map(|f| f as usize))
+            .field("VerifyReport", &self.VerifyReport.map(|f| f as usize))
+            .field("GenerateRandomData", &self.GenerateRandomData.map(|f| f as usize))
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     type Abi = Self;
 }
@@ -806,6 +835,11 @@ impl ::core::clone::Clone for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
         *self
     }
 }
+impl ::core::fmt::Debug for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32").field("ThreadContext", &self.ThreadContext).field("EntryPoint", &self.EntryPoint).field("StackPointer", &self.StackPointer).field("ExceptionEntryPoint", &self.ExceptionEntryPoint).field("ExceptionStack", &self.ExceptionStack).field("ExceptionActive", &self.ExceptionActive).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     type Abi = Self;
 }
@@ -834,6 +868,11 @@ impl ::core::marker::Copy for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {}
 impl ::core::clone::Clone for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64").field("ThreadContext", &self.ThreadContext).field("EntryPoint", &self.EntryPoint).field("StackPointer", &self.StackPointer).field("ExceptionEntryPoint", &self.ExceptionEntryPoint).field("ExceptionStack", &self.ExceptionStack).field("ExceptionActive", &self.ExceptionActive).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {

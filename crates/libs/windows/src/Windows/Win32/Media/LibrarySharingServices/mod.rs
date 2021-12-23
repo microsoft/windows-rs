@@ -101,6 +101,11 @@ impl ::core::cmp::PartialEq for IWindowsMediaLibrarySharingDevice {
     }
 }
 impl ::core::cmp::Eq for IWindowsMediaLibrarySharingDevice {}
+impl ::core::fmt::Debug for IWindowsMediaLibrarySharingDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowsMediaLibrarySharingDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowsMediaLibrarySharingDevice {
     type Vtable = IWindowsMediaLibrarySharingDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3dccc293_4fd9_4191_a25b_8e57c5d27bd4);
@@ -223,6 +228,11 @@ impl ::core::cmp::PartialEq for IWindowsMediaLibrarySharingDeviceProperties {
     }
 }
 impl ::core::cmp::Eq for IWindowsMediaLibrarySharingDeviceProperties {}
+impl ::core::fmt::Debug for IWindowsMediaLibrarySharingDeviceProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowsMediaLibrarySharingDeviceProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowsMediaLibrarySharingDeviceProperties {
     type Vtable = IWindowsMediaLibrarySharingDevicePropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4623214_6b06_40c5_a623_b2ff4c076bfd);
@@ -340,6 +350,11 @@ impl ::core::cmp::PartialEq for IWindowsMediaLibrarySharingDeviceProperty {
     }
 }
 impl ::core::cmp::Eq for IWindowsMediaLibrarySharingDeviceProperty {}
+impl ::core::fmt::Debug for IWindowsMediaLibrarySharingDeviceProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowsMediaLibrarySharingDeviceProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowsMediaLibrarySharingDeviceProperty {
     type Vtable = IWindowsMediaLibrarySharingDevicePropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81e26927_7a7d_40a7_81d4_bddc02960e3e);
@@ -461,6 +476,11 @@ impl ::core::cmp::PartialEq for IWindowsMediaLibrarySharingDevices {
     }
 }
 impl ::core::cmp::Eq for IWindowsMediaLibrarySharingDevices {}
+impl ::core::fmt::Debug for IWindowsMediaLibrarySharingDevices {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowsMediaLibrarySharingDevices").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowsMediaLibrarySharingDevices {
     type Vtable = IWindowsMediaLibrarySharingDevicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1803f9d6_fe6d_4546_bf5b_992fe8ec12d1);
@@ -658,6 +678,11 @@ impl ::core::cmp::PartialEq for IWindowsMediaLibrarySharingServices {
     }
 }
 impl ::core::cmp::Eq for IWindowsMediaLibrarySharingServices {}
+impl ::core::fmt::Debug for IWindowsMediaLibrarySharingServices {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowsMediaLibrarySharingServices").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowsMediaLibrarySharingServices {
     type Vtable = IWindowsMediaLibrarySharingServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01f5f85e_0a81_40da_a7c8_21ef3af8440c);

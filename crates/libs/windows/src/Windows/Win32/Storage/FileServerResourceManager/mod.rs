@@ -118,6 +118,11 @@ impl ::core::cmp::PartialEq for DIFsrmClassificationEvents {
     }
 }
 impl ::core::cmp::Eq for DIFsrmClassificationEvents {}
+impl ::core::fmt::Debug for DIFsrmClassificationEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DIFsrmClassificationEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for DIFsrmClassificationEvents {
     type Vtable = DIFsrmClassificationEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26942db0_dabf_41d8_bbdd_b129a9f70424);
@@ -1003,6 +1008,11 @@ impl ::core::cmp::PartialEq for IFsrmAccessDeniedRemediationClient {
     }
 }
 impl ::core::cmp::Eq for IFsrmAccessDeniedRemediationClient {}
+impl ::core::fmt::Debug for IFsrmAccessDeniedRemediationClient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmAccessDeniedRemediationClient").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmAccessDeniedRemediationClient {
     type Vtable = IFsrmAccessDeniedRemediationClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40002314_590b_45a5_8e1b_8c05da527e52);
@@ -1129,6 +1139,11 @@ impl ::core::cmp::PartialEq for IFsrmAction {
     }
 }
 impl ::core::cmp::Eq for IFsrmAction {}
+impl ::core::fmt::Debug for IFsrmAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmAction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmAction {
     type Vtable = IFsrmActionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cd6408a_ae60_463b_9ef1_e117534d69dc);
@@ -1347,6 +1362,11 @@ impl ::core::cmp::PartialEq for IFsrmActionCommand {
     }
 }
 impl ::core::cmp::Eq for IFsrmActionCommand {}
+impl ::core::fmt::Debug for IFsrmActionCommand {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmActionCommand").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmActionCommand {
     type Vtable = IFsrmActionCommandVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12937789_e247_4917_9c20_f3ee9c7ee783);
@@ -1593,6 +1613,11 @@ impl ::core::cmp::PartialEq for IFsrmActionEmail {
     }
 }
 impl ::core::cmp::Eq for IFsrmActionEmail {}
+impl ::core::fmt::Debug for IFsrmActionEmail {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmActionEmail").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmActionEmail {
     type Vtable = IFsrmActionEmailVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd646567d_26ae_4caa_9f84_4e0aad207fca);
@@ -1876,6 +1901,11 @@ impl ::core::cmp::PartialEq for IFsrmActionEmail2 {
     }
 }
 impl ::core::cmp::Eq for IFsrmActionEmail2 {}
+impl ::core::fmt::Debug for IFsrmActionEmail2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmActionEmail2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmActionEmail2 {
     type Vtable = IFsrmActionEmail2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8276702f_2532_4839_89bf_4872609a2ea4);
@@ -2075,6 +2105,11 @@ impl ::core::cmp::PartialEq for IFsrmActionEventLog {
     }
 }
 impl ::core::cmp::Eq for IFsrmActionEventLog {}
+impl ::core::fmt::Debug for IFsrmActionEventLog {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmActionEventLog").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmActionEventLog {
     type Vtable = IFsrmActionEventLogVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c8f96c3_5d94_4f37_a4f4_f56ab463546f);
@@ -2252,6 +2287,11 @@ impl ::core::cmp::PartialEq for IFsrmActionReport {
     }
 }
 impl ::core::cmp::Eq for IFsrmActionReport {}
+impl ::core::fmt::Debug for IFsrmActionReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmActionReport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmActionReport {
     type Vtable = IFsrmActionReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dbe63c4_b340_48a0_a5b0_158e07fc567e);
@@ -2548,6 +2588,11 @@ impl ::core::cmp::PartialEq for IFsrmAutoApplyQuota {
     }
 }
 impl ::core::cmp::Eq for IFsrmAutoApplyQuota {}
+impl ::core::fmt::Debug for IFsrmAutoApplyQuota {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmAutoApplyQuota").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmAutoApplyQuota {
     type Vtable = IFsrmAutoApplyQuotaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf82e5729_6aba_4740_bfc7_c7f58f75fb7b);
@@ -2826,6 +2871,11 @@ impl ::core::cmp::PartialEq for IFsrmClassificationManager {
     }
 }
 impl ::core::cmp::Eq for IFsrmClassificationManager {}
+impl ::core::fmt::Debug for IFsrmClassificationManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmClassificationManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmClassificationManager {
     type Vtable = IFsrmClassificationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2dc89da_ee91_48a0_85d8_cc72a56f7d04);
@@ -3134,6 +3184,11 @@ impl ::core::cmp::PartialEq for IFsrmClassificationManager2 {
     }
 }
 impl ::core::cmp::Eq for IFsrmClassificationManager2 {}
+impl ::core::fmt::Debug for IFsrmClassificationManager2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmClassificationManager2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmClassificationManager2 {
     type Vtable = IFsrmClassificationManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0004c1c9_127e_4765_ba07_6a3147bca112);
@@ -3437,6 +3492,11 @@ impl ::core::cmp::PartialEq for IFsrmClassificationRule {
     }
 }
 impl ::core::cmp::Eq for IFsrmClassificationRule {}
+impl ::core::fmt::Debug for IFsrmClassificationRule {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmClassificationRule").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmClassificationRule {
     type Vtable = IFsrmClassificationRuleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafc052c2_5315_45ab_841b_c6db0e120148);
@@ -3769,6 +3829,11 @@ impl ::core::cmp::PartialEq for IFsrmClassifierModuleDefinition {
     }
 }
 impl ::core::cmp::Eq for IFsrmClassifierModuleDefinition {}
+impl ::core::fmt::Debug for IFsrmClassifierModuleDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmClassifierModuleDefinition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmClassifierModuleDefinition {
     type Vtable = IFsrmClassifierModuleDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb36ea26_6318_4b8c_8592_f72dd602e7a5);
@@ -3976,6 +4041,11 @@ impl ::core::cmp::PartialEq for IFsrmClassifierModuleImplementation {
     }
 }
 impl ::core::cmp::Eq for IFsrmClassifierModuleImplementation {}
+impl ::core::fmt::Debug for IFsrmClassifierModuleImplementation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmClassifierModuleImplementation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmClassifierModuleImplementation {
     type Vtable = IFsrmClassifierModuleImplementationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c968fc6_6edb_4051_9c18_73b7291ae106);
@@ -4125,6 +4195,11 @@ impl ::core::cmp::PartialEq for IFsrmCollection {
     }
 }
 impl ::core::cmp::Eq for IFsrmCollection {}
+impl ::core::fmt::Debug for IFsrmCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmCollection {
     type Vtable = IFsrmCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf76fbf3b_8ddd_4b42_b05a_cb1c3ff1fee8);
@@ -4334,6 +4409,11 @@ impl ::core::cmp::PartialEq for IFsrmCommittableCollection {
     }
 }
 impl ::core::cmp::Eq for IFsrmCommittableCollection {}
+impl ::core::fmt::Debug for IFsrmCommittableCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmCommittableCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmCommittableCollection {
     type Vtable = IFsrmCommittableCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96deb3b5_8b91_4a2a_9d93_80a35d8aa847);
@@ -4460,6 +4540,11 @@ impl ::core::cmp::PartialEq for IFsrmDerivedObjectsResult {
     }
 }
 impl ::core::cmp::Eq for IFsrmDerivedObjectsResult {}
+impl ::core::fmt::Debug for IFsrmDerivedObjectsResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmDerivedObjectsResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmDerivedObjectsResult {
     type Vtable = IFsrmDerivedObjectsResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39322a2d_38ee_4d0d_8095_421a80849a82);
@@ -4596,6 +4681,11 @@ impl ::core::cmp::PartialEq for IFsrmExportImport {
     }
 }
 impl ::core::cmp::Eq for IFsrmExportImport {}
+impl ::core::fmt::Debug for IFsrmExportImport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmExportImport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmExportImport {
     type Vtable = IFsrmExportImportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefcb0ab1_16c4_4a79_812c_725614c3306b);
@@ -4718,6 +4808,11 @@ impl ::core::cmp::PartialEq for IFsrmFileCondition {
     }
 }
 impl ::core::cmp::Eq for IFsrmFileCondition {}
+impl ::core::fmt::Debug for IFsrmFileCondition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmFileCondition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmFileCondition {
     type Vtable = IFsrmFileConditionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70684ffc_691a_4a1a_b922_97752e138cc1);
@@ -4899,6 +4994,11 @@ impl ::core::cmp::PartialEq for IFsrmFileConditionProperty {
     }
 }
 impl ::core::cmp::Eq for IFsrmFileConditionProperty {}
+impl ::core::fmt::Debug for IFsrmFileConditionProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmFileConditionProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmFileConditionProperty {
     type Vtable = IFsrmFileConditionPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81926775_b981_4479_988f_da171d627360);
@@ -5089,6 +5189,11 @@ impl ::core::cmp::PartialEq for IFsrmFileGroup {
     }
 }
 impl ::core::cmp::Eq for IFsrmFileGroup {}
+impl ::core::fmt::Debug for IFsrmFileGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmFileGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmFileGroup {
     type Vtable = IFsrmFileGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8dd04909_0e34_4d55_afaa_89e1f1a1bbb9);
@@ -5307,6 +5412,11 @@ impl ::core::cmp::PartialEq for IFsrmFileGroupImported {
     }
 }
 impl ::core::cmp::Eq for IFsrmFileGroupImported {}
+impl ::core::fmt::Debug for IFsrmFileGroupImported {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmFileGroupImported").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmFileGroupImported {
     type Vtable = IFsrmFileGroupImportedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad55f10b_5f11_4be7_94ef_d9ee2e470ded);
@@ -5453,6 +5563,11 @@ impl ::core::cmp::PartialEq for IFsrmFileGroupManager {
     }
 }
 impl ::core::cmp::Eq for IFsrmFileGroupManager {}
+impl ::core::fmt::Debug for IFsrmFileGroupManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmFileGroupManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmFileGroupManager {
     type Vtable = IFsrmFileGroupManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x426677d5_018c_485c_8a51_20b86d00bdc4);
@@ -5850,6 +5965,11 @@ impl ::core::cmp::PartialEq for IFsrmFileManagementJob {
     }
 }
 impl ::core::cmp::Eq for IFsrmFileManagementJob {}
+impl ::core::fmt::Debug for IFsrmFileManagementJob {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmFileManagementJob").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmFileManagementJob {
     type Vtable = IFsrmFileManagementJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0770687e_9f36_4d6f_8778_599d188461c9);
@@ -6055,6 +6175,11 @@ impl ::core::cmp::PartialEq for IFsrmFileManagementJobManager {
     }
 }
 impl ::core::cmp::Eq for IFsrmFileManagementJobManager {}
+impl ::core::fmt::Debug for IFsrmFileManagementJobManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmFileManagementJobManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmFileManagementJobManager {
     type Vtable = IFsrmFileManagementJobManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee321ecb_d95e_48e9_907c_c7685a013235);
@@ -6290,6 +6415,11 @@ impl ::core::cmp::PartialEq for IFsrmFileScreen {
     }
 }
 impl ::core::cmp::Eq for IFsrmFileScreen {}
+impl ::core::fmt::Debug for IFsrmFileScreen {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmFileScreen").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmFileScreen {
     type Vtable = IFsrmFileScreenVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f6325d3_ce88_4733_84c1_2d6aefc5ea07);
@@ -6487,6 +6617,11 @@ impl ::core::cmp::PartialEq for IFsrmFileScreenBase {
     }
 }
 impl ::core::cmp::Eq for IFsrmFileScreenBase {}
+impl ::core::fmt::Debug for IFsrmFileScreenBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmFileScreenBase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmFileScreenBase {
     type Vtable = IFsrmFileScreenBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3637e80_5b22_4a2b_a637_bbb642b41cfc);
@@ -6660,6 +6795,11 @@ impl ::core::cmp::PartialEq for IFsrmFileScreenException {
     }
 }
 impl ::core::cmp::Eq for IFsrmFileScreenException {}
+impl ::core::fmt::Debug for IFsrmFileScreenException {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmFileScreenException").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmFileScreenException {
     type Vtable = IFsrmFileScreenExceptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbee7ce02_df77_4515_9389_78f01c5afc1a);
@@ -6825,6 +6965,11 @@ impl ::core::cmp::PartialEq for IFsrmFileScreenManager {
     }
 }
 impl ::core::cmp::Eq for IFsrmFileScreenManager {}
+impl ::core::fmt::Debug for IFsrmFileScreenManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmFileScreenManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmFileScreenManager {
     type Vtable = IFsrmFileScreenManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff4fa04e_5a94_4bda_a3a0_d5b4d3c52eba);
@@ -7056,6 +7201,11 @@ impl ::core::cmp::PartialEq for IFsrmFileScreenTemplate {
     }
 }
 impl ::core::cmp::Eq for IFsrmFileScreenTemplate {}
+impl ::core::fmt::Debug for IFsrmFileScreenTemplate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmFileScreenTemplate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmFileScreenTemplate {
     type Vtable = IFsrmFileScreenTemplateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x205bebf8_dd93_452a_95a6_32b566b35828);
@@ -7319,6 +7469,11 @@ impl ::core::cmp::PartialEq for IFsrmFileScreenTemplateImported {
     }
 }
 impl ::core::cmp::Eq for IFsrmFileScreenTemplateImported {}
+impl ::core::fmt::Debug for IFsrmFileScreenTemplateImported {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmFileScreenTemplateImported").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmFileScreenTemplateImported {
     type Vtable = IFsrmFileScreenTemplateImportedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1010359_3e5d_4ecd_9fe4_ef48622fdf30);
@@ -7470,6 +7625,11 @@ impl ::core::cmp::PartialEq for IFsrmFileScreenTemplateManager {
     }
 }
 impl ::core::cmp::Eq for IFsrmFileScreenTemplateManager {}
+impl ::core::fmt::Debug for IFsrmFileScreenTemplateManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmFileScreenTemplateManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmFileScreenTemplateManager {
     type Vtable = IFsrmFileScreenTemplateManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfe36cba_1949_4e74_a14f_f1d580ceaf13);
@@ -7653,6 +7813,11 @@ impl ::core::cmp::PartialEq for IFsrmMutableCollection {
     }
 }
 impl ::core::cmp::Eq for IFsrmMutableCollection {}
+impl ::core::fmt::Debug for IFsrmMutableCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmMutableCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmMutableCollection {
     type Vtable = IFsrmMutableCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bb617b8_3886_49dc_af82_a6c90fa35dda);
@@ -7792,6 +7957,11 @@ impl ::core::cmp::PartialEq for IFsrmObject {
     }
 }
 impl ::core::cmp::Eq for IFsrmObject {}
+impl ::core::fmt::Debug for IFsrmObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmObject {
     type Vtable = IFsrmObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22bcef93_4a3f_4183_89f9_2f8b8a628aee);
@@ -7906,6 +8076,11 @@ impl ::core::cmp::PartialEq for IFsrmPathMapper {
     }
 }
 impl ::core::cmp::Eq for IFsrmPathMapper {}
+impl ::core::fmt::Debug for IFsrmPathMapper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmPathMapper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmPathMapper {
     type Vtable = IFsrmPathMapperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f4dbfff_6920_4821_a6c3_b7e94c1fd60c);
@@ -8035,6 +8210,11 @@ impl ::core::cmp::PartialEq for IFsrmPipelineModuleConnector {
     }
 }
 impl ::core::cmp::Eq for IFsrmPipelineModuleConnector {}
+impl ::core::fmt::Debug for IFsrmPipelineModuleConnector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmPipelineModuleConnector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmPipelineModuleConnector {
     type Vtable = IFsrmPipelineModuleConnectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc16014f3_9aa1_46b3_b0a7_ab146eb205f2);
@@ -8285,6 +8465,11 @@ impl ::core::cmp::PartialEq for IFsrmPipelineModuleDefinition {
     }
 }
 impl ::core::cmp::Eq for IFsrmPipelineModuleDefinition {}
+impl ::core::fmt::Debug for IFsrmPipelineModuleDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmPipelineModuleDefinition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmPipelineModuleDefinition {
     type Vtable = IFsrmPipelineModuleDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x515c1277_2c81_440e_8fcf_367921ed4f59);
@@ -8433,6 +8618,11 @@ impl ::core::cmp::PartialEq for IFsrmPipelineModuleImplementation {
     }
 }
 impl ::core::cmp::Eq for IFsrmPipelineModuleImplementation {}
+impl ::core::fmt::Debug for IFsrmPipelineModuleImplementation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmPipelineModuleImplementation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmPipelineModuleImplementation {
     type Vtable = IFsrmPipelineModuleImplementationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7907906_2b02_4cb5_84a9_fdf54613d6cd);
@@ -8559,6 +8749,11 @@ impl ::core::cmp::PartialEq for IFsrmProperty {
     }
 }
 impl ::core::cmp::Eq for IFsrmProperty {}
+impl ::core::fmt::Debug for IFsrmProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmProperty {
     type Vtable = IFsrmPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a73fee4_4102_4fcc_9ffb_38614f9ee768);
@@ -8788,6 +8983,11 @@ impl ::core::cmp::PartialEq for IFsrmPropertyBag {
     }
 }
 impl ::core::cmp::Eq for IFsrmPropertyBag {}
+impl ::core::fmt::Debug for IFsrmPropertyBag {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmPropertyBag").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmPropertyBag {
     type Vtable = IFsrmPropertyBagVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x774589d1_d300_4f7a_9a24_f7b766800250);
@@ -9080,6 +9280,11 @@ impl ::core::cmp::PartialEq for IFsrmPropertyBag2 {
     }
 }
 impl ::core::cmp::Eq for IFsrmPropertyBag2 {}
+impl ::core::fmt::Debug for IFsrmPropertyBag2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmPropertyBag2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmPropertyBag2 {
     type Vtable = IFsrmPropertyBag2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e46bdbd_2402_4fed_9c30_9266e6eb2cc9);
@@ -9258,6 +9463,11 @@ impl ::core::cmp::PartialEq for IFsrmPropertyCondition {
     }
 }
 impl ::core::cmp::Eq for IFsrmPropertyCondition {}
+impl ::core::fmt::Debug for IFsrmPropertyCondition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmPropertyCondition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmPropertyCondition {
     type Vtable = IFsrmPropertyConditionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x326af66f_2ac0_4f68_bf8c_4759f054fa29);
@@ -9467,6 +9677,11 @@ impl ::core::cmp::PartialEq for IFsrmPropertyDefinition {
     }
 }
 impl ::core::cmp::Eq for IFsrmPropertyDefinition {}
+impl ::core::fmt::Debug for IFsrmPropertyDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmPropertyDefinition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmPropertyDefinition {
     type Vtable = IFsrmPropertyDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xede0150f_e9a3_419c_877c_01fe5d24c5d3);
@@ -9736,6 +9951,11 @@ impl ::core::cmp::PartialEq for IFsrmPropertyDefinition2 {
     }
 }
 impl ::core::cmp::Eq for IFsrmPropertyDefinition2 {}
+impl ::core::fmt::Debug for IFsrmPropertyDefinition2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmPropertyDefinition2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmPropertyDefinition2 {
     type Vtable = IFsrmPropertyDefinition2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47782152_d16c_4229_b4e1_0ddfe308b9f6);
@@ -9893,6 +10113,11 @@ impl ::core::cmp::PartialEq for IFsrmPropertyDefinitionValue {
     }
 }
 impl ::core::cmp::Eq for IFsrmPropertyDefinitionValue {}
+impl ::core::fmt::Debug for IFsrmPropertyDefinitionValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmPropertyDefinitionValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmPropertyDefinitionValue {
     type Vtable = IFsrmPropertyDefinitionValueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe946d148_bd67_4178_8e22_1c44925ed710);
@@ -10193,6 +10418,11 @@ impl ::core::cmp::PartialEq for IFsrmQuota {
     }
 }
 impl ::core::cmp::Eq for IFsrmQuota {}
+impl ::core::fmt::Debug for IFsrmQuota {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmQuota").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmQuota {
     type Vtable = IFsrmQuotaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x377f739d_9647_4b8e_97d2_5ffce6d759cd);
@@ -10424,6 +10654,11 @@ impl ::core::cmp::PartialEq for IFsrmQuotaBase {
     }
 }
 impl ::core::cmp::Eq for IFsrmQuotaBase {}
+impl ::core::fmt::Debug for IFsrmQuotaBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmQuotaBase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmQuotaBase {
     type Vtable = IFsrmQuotaBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1568a795_3924_4118_b74b_68d8f0fa5daf);
@@ -10615,6 +10850,11 @@ impl ::core::cmp::PartialEq for IFsrmQuotaManager {
     }
 }
 impl ::core::cmp::Eq for IFsrmQuotaManager {}
+impl ::core::fmt::Debug for IFsrmQuotaManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmQuotaManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmQuotaManager {
     type Vtable = IFsrmQuotaManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bb68c7d_19d8_4ffb_809e_be4fc1734014);
@@ -10835,6 +11075,11 @@ impl ::core::cmp::PartialEq for IFsrmQuotaManagerEx {
     }
 }
 impl ::core::cmp::Eq for IFsrmQuotaManagerEx {}
+impl ::core::fmt::Debug for IFsrmQuotaManagerEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmQuotaManagerEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmQuotaManagerEx {
     type Vtable = IFsrmQuotaManagerExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4846cb01_d430_494f_abb4_b1054999fb09);
@@ -11107,6 +11352,11 @@ impl ::core::cmp::PartialEq for IFsrmQuotaObject {
     }
 }
 impl ::core::cmp::Eq for IFsrmQuotaObject {}
+impl ::core::fmt::Debug for IFsrmQuotaObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmQuotaObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmQuotaObject {
     type Vtable = IFsrmQuotaObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42dc3511_61d5_48ae_b6dc_59fc00c0a8d6);
@@ -11372,6 +11622,11 @@ impl ::core::cmp::PartialEq for IFsrmQuotaTemplate {
     }
 }
 impl ::core::cmp::Eq for IFsrmQuotaTemplate {}
+impl ::core::fmt::Debug for IFsrmQuotaTemplate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmQuotaTemplate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmQuotaTemplate {
     type Vtable = IFsrmQuotaTemplateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2efab31_295e_46bb_b976_e86d58b52e8b);
@@ -11662,6 +11917,11 @@ impl ::core::cmp::PartialEq for IFsrmQuotaTemplateImported {
     }
 }
 impl ::core::cmp::Eq for IFsrmQuotaTemplateImported {}
+impl ::core::fmt::Debug for IFsrmQuotaTemplateImported {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmQuotaTemplateImported").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmQuotaTemplateImported {
     type Vtable = IFsrmQuotaTemplateImportedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a2bf113_a329_44cc_809a_5c00fce8da40);
@@ -11820,6 +12080,11 @@ impl ::core::cmp::PartialEq for IFsrmQuotaTemplateManager {
     }
 }
 impl ::core::cmp::Eq for IFsrmQuotaTemplateManager {}
+impl ::core::fmt::Debug for IFsrmQuotaTemplateManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmQuotaTemplateManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmQuotaTemplateManager {
     type Vtable = IFsrmQuotaTemplateManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4173ac41_172d_4d52_963c_fdc7e415f717);
@@ -11977,6 +12242,11 @@ impl ::core::cmp::PartialEq for IFsrmReport {
     }
 }
 impl ::core::cmp::Eq for IFsrmReport {}
+impl ::core::fmt::Debug for IFsrmReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmReport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmReport {
     type Vtable = IFsrmReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8cc81d9_46b8_4fa4_bfa5_4aa9dec9b638);
@@ -12227,6 +12497,11 @@ impl ::core::cmp::PartialEq for IFsrmReportJob {
     }
 }
 impl ::core::cmp::Eq for IFsrmReportJob {}
+impl ::core::fmt::Debug for IFsrmReportJob {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmReportJob").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmReportJob {
     type Vtable = IFsrmReportJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38e87280_715c_4c7d_a280_ea1651a19fef);
@@ -12416,6 +12691,11 @@ impl ::core::cmp::PartialEq for IFsrmReportManager {
     }
 }
 impl ::core::cmp::Eq for IFsrmReportManager {}
+impl ::core::fmt::Debug for IFsrmReportManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmReportManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmReportManager {
     type Vtable = IFsrmReportManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27b899fe_6ffa_4481_a184_d3daade8a02b);
@@ -12554,6 +12834,11 @@ impl ::core::cmp::PartialEq for IFsrmReportScheduler {
     }
 }
 impl ::core::cmp::Eq for IFsrmReportScheduler {}
+impl ::core::fmt::Debug for IFsrmReportScheduler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmReportScheduler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmReportScheduler {
     type Vtable = IFsrmReportSchedulerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6879caf9_6617_4484_8719_71c3d8645f94);
@@ -12771,6 +13056,11 @@ impl ::core::cmp::PartialEq for IFsrmRule {
     }
 }
 impl ::core::cmp::Eq for IFsrmRule {}
+impl ::core::fmt::Debug for IFsrmRule {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmRule").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmRule {
     type Vtable = IFsrmRuleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb0df960_16f5_4495_9079_3f9360d831df);
@@ -12965,6 +13255,11 @@ impl ::core::cmp::PartialEq for IFsrmSetting {
     }
 }
 impl ::core::cmp::Eq for IFsrmSetting {}
+impl ::core::fmt::Debug for IFsrmSetting {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmSetting").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmSetting {
     type Vtable = IFsrmSettingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf411d4fd_14be_4260_8c40_03b7c95e608a);
@@ -13275,6 +13570,11 @@ impl ::core::cmp::PartialEq for IFsrmStorageModuleDefinition {
     }
 }
 impl ::core::cmp::Eq for IFsrmStorageModuleDefinition {}
+impl ::core::fmt::Debug for IFsrmStorageModuleDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmStorageModuleDefinition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmStorageModuleDefinition {
     type Vtable = IFsrmStorageModuleDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15a81350_497d_4aba_80e9_d4dbcc5521fe);
@@ -13461,6 +13761,11 @@ impl ::core::cmp::PartialEq for IFsrmStorageModuleImplementation {
     }
 }
 impl ::core::cmp::Eq for IFsrmStorageModuleImplementation {}
+impl ::core::fmt::Debug for IFsrmStorageModuleImplementation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFsrmStorageModuleImplementation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFsrmStorageModuleImplementation {
     type Vtable = IFsrmStorageModuleImplementationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0af4a0da_895a_4e50_8712_a96724bcec64);

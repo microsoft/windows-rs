@@ -351,6 +351,12 @@ impl ::core::cmp::PartialEq for SocialFeedChildItem {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SocialFeedChildItem {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SocialFeedChildItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocialFeedChildItem").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SocialFeedChildItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SocialInfo.SocialFeedChildItem;{0b6a985a-d59d-40be-980c-488a2ab30a83})");
 }
@@ -481,6 +487,12 @@ impl ::core::cmp::PartialEq for SocialFeedContent {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SocialFeedContent {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SocialFeedContent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocialFeedContent").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SocialFeedContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SocialInfo.SocialFeedContent;{a234e429-3e39-494d-a37c-f462a2494514})");
@@ -731,6 +743,12 @@ impl ::core::cmp::PartialEq for SocialFeedItem {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SocialFeedItem {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SocialFeedItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocialFeedItem").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SocialFeedItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SocialInfo.SocialFeedItem;{4f1392ab-1f72-4d33-b695-de3e1db60317})");
 }
@@ -825,6 +843,12 @@ impl ::core::cmp::PartialEq for SocialFeedItemStyle {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SocialFeedItemStyle {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SocialFeedItemStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocialFeedItemStyle").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SocialFeedItemStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialFeedItemStyle;i4)");
 }
@@ -862,6 +886,12 @@ impl ::core::cmp::PartialEq for SocialFeedKind {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SocialFeedKind {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SocialFeedKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocialFeedKind").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SocialFeedKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialFeedKind;i4)");
@@ -968,6 +998,12 @@ impl ::core::cmp::PartialEq for SocialFeedSharedItem {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SocialFeedSharedItem {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SocialFeedSharedItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocialFeedSharedItem").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SocialFeedSharedItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SocialInfo.SocialFeedSharedItem;{7bfb9e40-a6aa-45a7-9ff6-54c42105dd1f})");
 }
@@ -1062,6 +1098,12 @@ impl ::core::cmp::PartialEq for SocialFeedUpdateMode {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SocialFeedUpdateMode {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SocialFeedUpdateMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocialFeedUpdateMode").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SocialFeedUpdateMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialFeedUpdateMode;i4)");
 }
@@ -1099,6 +1141,12 @@ impl ::core::cmp::PartialEq for SocialItemBadgeStyle {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SocialItemBadgeStyle {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SocialItemBadgeStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocialItemBadgeStyle").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SocialItemBadgeStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialItemBadgeStyle;i4)");
@@ -1189,6 +1237,12 @@ impl ::core::cmp::PartialEq for SocialItemThumbnail {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SocialItemThumbnail {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SocialItemThumbnail {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocialItemThumbnail").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SocialItemThumbnail {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SocialInfo.SocialItemThumbnail;{5cbf831a-3f08-497f-917f-57e09d84b141})");
@@ -1335,6 +1389,12 @@ impl ::core::cmp::PartialEq for SocialUserInfo {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SocialUserInfo {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SocialUserInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocialUserInfo").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SocialUserInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SocialInfo.SocialUserInfo;{9e5e1bd1-90d0-4e1d-9554-844d46607f61})");

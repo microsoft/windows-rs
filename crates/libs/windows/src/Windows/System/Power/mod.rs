@@ -131,6 +131,11 @@ impl ::core::cmp::PartialEq for BatteryStatus {
     }
 }
 impl ::core::cmp::Eq for BatteryStatus {}
+impl ::core::fmt::Debug for BatteryStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BatteryStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BatteryStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Power.BatteryStatus;i4)");
 }
@@ -160,6 +165,11 @@ impl ::core::cmp::PartialEq for EnergySaverStatus {
     }
 }
 impl ::core::cmp::Eq for EnergySaverStatus {}
+impl ::core::fmt::Debug for EnergySaverStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EnergySaverStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EnergySaverStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Power.EnergySaverStatus;i4)");
 }
@@ -519,6 +529,11 @@ impl ::core::cmp::PartialEq for PowerSupplyStatus {
     }
 }
 impl ::core::cmp::Eq for PowerSupplyStatus {}
+impl ::core::fmt::Debug for PowerSupplyStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PowerSupplyStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PowerSupplyStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Power.PowerSupplyStatus;i4)");
 }

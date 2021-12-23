@@ -62,6 +62,11 @@ impl ::core::cmp::PartialEq for IPrintDocumentSource {
     }
 }
 impl ::core::cmp::Eq for IPrintDocumentSource {}
+impl ::core::fmt::Debug for IPrintDocumentSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintDocumentSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPrintDocumentSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{dedc0c30-f1eb-47df-aae6-ed5427511f01}");
 }
@@ -408,6 +413,11 @@ impl ::core::cmp::PartialEq for IPrintTaskOptionsCore {
     }
 }
 impl ::core::cmp::Eq for IPrintTaskOptionsCore {}
+impl ::core::fmt::Debug for IPrintTaskOptionsCore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintTaskOptionsCore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPrintTaskOptionsCore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1bdbb474-4ed1-41eb-be3c-72d18ed67337}");
 }
@@ -642,6 +652,11 @@ impl ::core::cmp::PartialEq for IPrintTaskOptionsCoreProperties {
     }
 }
 impl ::core::cmp::Eq for IPrintTaskOptionsCoreProperties {}
+impl ::core::fmt::Debug for IPrintTaskOptionsCoreProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintTaskOptionsCoreProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPrintTaskOptionsCoreProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c1b71832-9e93-4e55-814b-3326a59efce1}");
 }
@@ -748,6 +763,11 @@ impl ::core::cmp::PartialEq for IPrintTaskOptionsCoreUIConfiguration {
     }
 }
 impl ::core::cmp::Eq for IPrintTaskOptionsCoreUIConfiguration {}
+impl ::core::fmt::Debug for IPrintTaskOptionsCoreUIConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintTaskOptionsCoreUIConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPrintTaskOptionsCoreUIConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{62e69e23-9a1e-4336-b74f-3cc7f4cff709}");
 }
@@ -1005,6 +1025,11 @@ impl ::core::cmp::PartialEq for PrintBinding {
     }
 }
 impl ::core::cmp::Eq for PrintBinding {}
+impl ::core::fmt::Debug for PrintBinding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintBinding").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintBinding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintBinding;i4)");
 }
@@ -1036,6 +1061,11 @@ impl ::core::cmp::PartialEq for PrintBordering {
     }
 }
 impl ::core::cmp::Eq for PrintBordering {}
+impl ::core::fmt::Debug for PrintBordering {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintBordering").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintBordering {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintBordering;i4)");
 }
@@ -1067,6 +1097,11 @@ impl ::core::cmp::PartialEq for PrintCollation {
     }
 }
 impl ::core::cmp::Eq for PrintCollation {}
+impl ::core::fmt::Debug for PrintCollation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintCollation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintCollation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintCollation;i4)");
 }
@@ -1099,6 +1134,11 @@ impl ::core::cmp::PartialEq for PrintColorMode {
     }
 }
 impl ::core::cmp::Eq for PrintColorMode {}
+impl ::core::fmt::Debug for PrintColorMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintColorMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintColorMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintColorMode;i4)");
 }
@@ -1131,6 +1171,11 @@ impl ::core::cmp::PartialEq for PrintDuplex {
     }
 }
 impl ::core::cmp::Eq for PrintDuplex {}
+impl ::core::fmt::Debug for PrintDuplex {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintDuplex").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintDuplex {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintDuplex;i4)");
 }
@@ -1165,6 +1210,11 @@ impl ::core::cmp::PartialEq for PrintHolePunch {
     }
 }
 impl ::core::cmp::Eq for PrintHolePunch {}
+impl ::core::fmt::Debug for PrintHolePunch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintHolePunch").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintHolePunch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintHolePunch;i4)");
 }
@@ -1234,6 +1284,11 @@ impl ::core::cmp::PartialEq for PrintManager {
     }
 }
 impl ::core::cmp::Eq for PrintManager {}
+impl ::core::fmt::Debug for PrintManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintManager;{ff2a9694-8c99-44fd-ae4a-19d9aa9a0f0a})");
 }
@@ -1479,6 +1534,11 @@ impl ::core::cmp::PartialEq for PrintMediaSize {
     }
 }
 impl ::core::cmp::Eq for PrintMediaSize {}
+impl ::core::fmt::Debug for PrintMediaSize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintMediaSize").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintMediaSize {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintMediaSize;i4)");
 }
@@ -1537,6 +1597,11 @@ impl ::core::cmp::PartialEq for PrintMediaType {
     }
 }
 impl ::core::cmp::Eq for PrintMediaType {}
+impl ::core::fmt::Debug for PrintMediaType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintMediaType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintMediaType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintMediaType;i4)");
 }
@@ -1570,6 +1635,11 @@ impl ::core::cmp::PartialEq for PrintOrientation {
     }
 }
 impl ::core::cmp::Eq for PrintOrientation {}
+impl ::core::fmt::Debug for PrintOrientation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintOrientation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintOrientation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintOrientation;i4)");
 }
@@ -1591,6 +1661,12 @@ impl ::core::marker::Copy for PrintPageDescription {}
 impl ::core::clone::Clone for PrintPageDescription {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for PrintPageDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PrintPageDescription").field("PageSize", &self.PageSize).field("ImageableRect", &self.ImageableRect).field("DpiX", &self.DpiX).field("DpiY", &self.DpiY).finish()
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1709,6 +1785,11 @@ impl ::core::cmp::PartialEq for PrintPageInfo {
     }
 }
 impl ::core::cmp::Eq for PrintPageInfo {}
+impl ::core::fmt::Debug for PrintPageInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintPageInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintPageInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintPageInfo;{dd4be9c9-a6a1-4ada-930e-da872a4f23d3})");
 }
@@ -1812,6 +1893,11 @@ impl ::core::cmp::PartialEq for PrintPageRange {
     }
 }
 impl ::core::cmp::Eq for PrintPageRange {}
+impl ::core::fmt::Debug for PrintPageRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintPageRange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintPageRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintPageRange;{f8a06c54-6e7c-51c5-57fd-0660c2d71513})");
 }
@@ -1919,6 +2005,11 @@ impl ::core::cmp::PartialEq for PrintPageRangeOptions {
     }
 }
 impl ::core::cmp::Eq for PrintPageRangeOptions {}
+impl ::core::fmt::Debug for PrintPageRangeOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintPageRangeOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintPageRangeOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintPageRangeOptions;{ce6db728-1357-46b2-a923-79f995f448fc})");
 }
@@ -2001,6 +2092,11 @@ impl ::core::cmp::PartialEq for PrintQuality {
     }
 }
 impl ::core::cmp::Eq for PrintQuality {}
+impl ::core::fmt::Debug for PrintQuality {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintQuality").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintQuality {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintQuality;i4)");
 }
@@ -2040,6 +2136,11 @@ impl ::core::cmp::PartialEq for PrintStaple {
     }
 }
 impl ::core::cmp::Eq for PrintStaple {}
+impl ::core::fmt::Debug for PrintStaple {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintStaple").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintStaple {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintStaple;i4)");
 }
@@ -2186,6 +2287,11 @@ impl ::core::cmp::PartialEq for PrintTask {
     }
 }
 impl ::core::cmp::Eq for PrintTask {}
+impl ::core::fmt::Debug for PrintTask {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTask").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintTask {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTask;{61d80247-6cf6-4fad-84e2-a5e82e2d4ceb})");
 }
@@ -2262,6 +2368,11 @@ impl ::core::cmp::PartialEq for PrintTaskCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PrintTaskCompletedEventArgs {}
+impl ::core::fmt::Debug for PrintTaskCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTaskCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintTaskCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskCompletedEventArgs;{5bcd34af-24e9-4c10-8d07-14c346ba3fce})");
 }
@@ -2338,6 +2449,11 @@ impl ::core::cmp::PartialEq for PrintTaskCompletion {
     }
 }
 impl ::core::cmp::Eq for PrintTaskCompletion {}
+impl ::core::fmt::Debug for PrintTaskCompletion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTaskCompletion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintTaskCompletion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTaskCompletion;i4)");
 }
@@ -2576,6 +2692,11 @@ impl ::core::cmp::PartialEq for PrintTaskOptions {
     }
 }
 impl ::core::cmp::Eq for PrintTaskOptions {}
+impl ::core::fmt::Debug for PrintTaskOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTaskOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintTaskOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskOptions;{1bdbb474-4ed1-41eb-be3c-72d18ed67337})");
 }
@@ -2718,6 +2839,11 @@ impl ::core::cmp::PartialEq for PrintTaskProgressingEventArgs {
     }
 }
 impl ::core::cmp::Eq for PrintTaskProgressingEventArgs {}
+impl ::core::fmt::Debug for PrintTaskProgressingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTaskProgressingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintTaskProgressingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskProgressingEventArgs;{810cd3cb-b410-4282-a073-5ac378234174})");
 }
@@ -2811,6 +2937,11 @@ impl ::core::cmp::PartialEq for PrintTaskRequest {
     }
 }
 impl ::core::cmp::Eq for PrintTaskRequest {}
+impl ::core::fmt::Debug for PrintTaskRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTaskRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintTaskRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskRequest;{6ff61e2e-2722-4240-a67c-f364849a17f3})");
 }
@@ -2884,6 +3015,11 @@ impl ::core::cmp::PartialEq for PrintTaskRequestedDeferral {
     }
 }
 impl ::core::cmp::Eq for PrintTaskRequestedDeferral {}
+impl ::core::fmt::Debug for PrintTaskRequestedDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTaskRequestedDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintTaskRequestedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskRequestedDeferral;{cfefb3f0-ce3e-42c7-9496-64800c622c44})");
 }
@@ -2960,6 +3096,11 @@ impl ::core::cmp::PartialEq for PrintTaskRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PrintTaskRequestedEventArgs {}
+impl ::core::fmt::Debug for PrintTaskRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTaskRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintTaskRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskRequestedEventArgs;{d0aff924-a31b-454c-a7b6-5d0cc522fc16})");
 }
@@ -3050,6 +3191,11 @@ impl ::core::cmp::PartialEq for PrintTaskSourceRequestedArgs {
     }
 }
 impl ::core::cmp::Eq for PrintTaskSourceRequestedArgs {}
+impl ::core::fmt::Debug for PrintTaskSourceRequestedArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTaskSourceRequestedArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintTaskSourceRequestedArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskSourceRequestedArgs;{f9f067be-f456-41f0-9c98-5ce73e851410})");
 }
@@ -3123,6 +3269,11 @@ impl ::core::cmp::PartialEq for PrintTaskSourceRequestedDeferral {
     }
 }
 impl ::core::cmp::Eq for PrintTaskSourceRequestedDeferral {}
+impl ::core::fmt::Debug for PrintTaskSourceRequestedDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTaskSourceRequestedDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintTaskSourceRequestedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskSourceRequestedDeferral;{4a1560d1-6992-4d9d-8555-4ca4563fb166})");
 }
@@ -3235,6 +3386,11 @@ impl ::core::cmp::PartialEq for PrintTaskSourceRequestedHandler {
     }
 }
 impl ::core::cmp::Eq for PrintTaskSourceRequestedHandler {}
+impl ::core::fmt::Debug for PrintTaskSourceRequestedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTaskSourceRequestedHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for PrintTaskSourceRequestedHandler {
     type Vtable = PrintTaskSourceRequestedHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c109fa8_5cb6_4b3a_8663_f39cb02dc9b4);

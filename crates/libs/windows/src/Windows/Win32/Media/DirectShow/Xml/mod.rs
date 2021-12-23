@@ -51,6 +51,11 @@ impl ::core::cmp::PartialEq for IXMLGraphBuilder {
     }
 }
 impl ::core::cmp::Eq for IXMLGraphBuilder {}
+impl ::core::fmt::Debug for IXMLGraphBuilder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLGraphBuilder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLGraphBuilder {
     type Vtable = IXMLGraphBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bb05960_5fbf_11d2_a521_44df07c10000);

@@ -24,6 +24,11 @@ impl ::core::clone::Clone for D2D1_BEZIER_SEGMENT {
         *self
     }
 }
+impl ::core::fmt::Debug for D2D1_BEZIER_SEGMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_BEZIER_SEGMENT").field("point1", &self.point1).field("point2", &self.point2).field("point3", &self.point3).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_BEZIER_SEGMENT {
     type Abi = Self;
 }
@@ -124,6 +129,11 @@ impl ::core::clone::Clone for D2D1_COLOR_F {
         *self
     }
 }
+impl ::core::fmt::Debug for D2D1_COLOR_F {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_COLOR_F").field("r", &self.r).field("g", &self.g).field("b", &self.b).field("a", &self.a).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_COLOR_F {
     type Abi = Self;
 }
@@ -218,6 +228,12 @@ impl ::core::clone::Clone for D2D1_PIXEL_FORMAT {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D2D1_PIXEL_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_PIXEL_FORMAT").field("format", &self.format).field("alphaMode", &self.alphaMode).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for D2D1_PIXEL_FORMAT {
     type Abi = Self;
 }
@@ -255,6 +271,11 @@ impl ::core::marker::Copy for D2D_COLOR_F {}
 impl ::core::clone::Clone for D2D_COLOR_F {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D2D_COLOR_F {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D_COLOR_F").field("r", &self.r).field("g", &self.g).field("b", &self.b).field("a", &self.a).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D2D_COLOR_F {
@@ -339,6 +360,11 @@ impl ::core::clone::Clone for D2D_MATRIX_3X2_F_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for D2D_MATRIX_3X2_F_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D_MATRIX_3X2_F_0_0").field("m11", &self.m11).field("m12", &self.m12).field("m21", &self.m21).field("m22", &self.m22).field("dx", &self.dx).field("dy", &self.dy).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D2D_MATRIX_3X2_F_0_0 {
     type Abi = Self;
 }
@@ -367,6 +393,11 @@ impl ::core::marker::Copy for D2D_MATRIX_3X2_F_0_1 {}
 impl ::core::clone::Clone for D2D_MATRIX_3X2_F_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D2D_MATRIX_3X2_F_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D_MATRIX_3X2_F_0_1").field("_11", &self._11).field("_12", &self._12).field("_21", &self._21).field("_22", &self._22).field("_31", &self._31).field("_32", &self._32).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D2D_MATRIX_3X2_F_0_1 {
@@ -454,6 +485,11 @@ impl ::core::marker::Copy for D2D_MATRIX_4X3_F_0_0 {}
 impl ::core::clone::Clone for D2D_MATRIX_4X3_F_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D2D_MATRIX_4X3_F_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D_MATRIX_4X3_F_0_0").field("_11", &self._11).field("_12", &self._12).field("_13", &self._13).field("_21", &self._21).field("_22", &self._22).field("_23", &self._23).field("_31", &self._31).field("_32", &self._32).field("_33", &self._33).field("_41", &self._41).field("_42", &self._42).field("_43", &self._43).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D2D_MATRIX_4X3_F_0_0 {
@@ -545,6 +581,11 @@ impl ::core::marker::Copy for D2D_MATRIX_4X4_F_0_0 {}
 impl ::core::clone::Clone for D2D_MATRIX_4X4_F_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D2D_MATRIX_4X4_F_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D_MATRIX_4X4_F_0_0").field("_11", &self._11).field("_12", &self._12).field("_13", &self._13).field("_14", &self._14).field("_21", &self._21).field("_22", &self._22).field("_23", &self._23).field("_24", &self._24).field("_31", &self._31).field("_32", &self._32).field("_33", &self._33).field("_34", &self._34).field("_41", &self._41).field("_42", &self._42).field("_43", &self._43).field("_44", &self._44).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D2D_MATRIX_4X4_F_0_0 {
@@ -642,6 +683,32 @@ impl ::core::clone::Clone for D2D_MATRIX_5X4_F_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for D2D_MATRIX_5X4_F_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D_MATRIX_5X4_F_0_0")
+            .field("_11", &self._11)
+            .field("_12", &self._12)
+            .field("_13", &self._13)
+            .field("_14", &self._14)
+            .field("_21", &self._21)
+            .field("_22", &self._22)
+            .field("_23", &self._23)
+            .field("_24", &self._24)
+            .field("_31", &self._31)
+            .field("_32", &self._32)
+            .field("_33", &self._33)
+            .field("_34", &self._34)
+            .field("_41", &self._41)
+            .field("_42", &self._42)
+            .field("_43", &self._43)
+            .field("_44", &self._44)
+            .field("_51", &self._51)
+            .field("_52", &self._52)
+            .field("_53", &self._53)
+            .field("_54", &self._54)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D2D_MATRIX_5X4_F_0_0 {
     type Abi = Self;
 }
@@ -668,6 +735,11 @@ impl ::core::clone::Clone for D2D_POINT_2F {
         *self
     }
 }
+impl ::core::fmt::Debug for D2D_POINT_2F {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D_POINT_2F").field("x", &self.x).field("y", &self.y).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D2D_POINT_2F {
     type Abi = Self;
 }
@@ -692,6 +764,11 @@ impl ::core::marker::Copy for D2D_POINT_2U {}
 impl ::core::clone::Clone for D2D_POINT_2U {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D2D_POINT_2U {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D_POINT_2U").field("x", &self.x).field("y", &self.y).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D2D_POINT_2U {
@@ -722,6 +799,11 @@ impl ::core::clone::Clone for D2D_RECT_F {
         *self
     }
 }
+impl ::core::fmt::Debug for D2D_RECT_F {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D_RECT_F").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D2D_RECT_F {
     type Abi = Self;
 }
@@ -750,6 +832,11 @@ impl ::core::clone::Clone for D2D_RECT_U {
         *self
     }
 }
+impl ::core::fmt::Debug for D2D_RECT_U {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D_RECT_U").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D2D_RECT_U {
     type Abi = Self;
 }
@@ -774,6 +861,11 @@ impl ::core::marker::Copy for D2D_SIZE_F {}
 impl ::core::clone::Clone for D2D_SIZE_F {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D2D_SIZE_F {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D_SIZE_F").field("width", &self.width).field("height", &self.height).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D2D_SIZE_F {
@@ -802,6 +894,11 @@ impl ::core::clone::Clone for D2D_SIZE_U {
         *self
     }
 }
+impl ::core::fmt::Debug for D2D_SIZE_U {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D_SIZE_U").field("width", &self.width).field("height", &self.height).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D2D_SIZE_U {
     type Abi = Self;
 }
@@ -826,6 +923,11 @@ impl ::core::marker::Copy for D2D_VECTOR_2F {}
 impl ::core::clone::Clone for D2D_VECTOR_2F {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D2D_VECTOR_2F {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D_VECTOR_2F").field("x", &self.x).field("y", &self.y).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D2D_VECTOR_2F {
@@ -855,6 +957,11 @@ impl ::core::clone::Clone for D2D_VECTOR_3F {
         *self
     }
 }
+impl ::core::fmt::Debug for D2D_VECTOR_3F {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D_VECTOR_3F").field("x", &self.x).field("y", &self.y).field("z", &self.z).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D2D_VECTOR_3F {
     type Abi = Self;
 }
@@ -881,6 +988,11 @@ impl ::core::marker::Copy for D2D_VECTOR_4F {}
 impl ::core::clone::Clone for D2D_VECTOR_4F {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D2D_VECTOR_4F {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D_VECTOR_4F").field("x", &self.x).field("y", &self.y).field("z", &self.z).field("w", &self.w).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D2D_VECTOR_4F {
@@ -961,6 +1073,11 @@ impl ::core::cmp::PartialEq for ID2D1SimplifiedGeometrySink {
     }
 }
 impl ::core::cmp::Eq for ID2D1SimplifiedGeometrySink {}
+impl ::core::fmt::Debug for ID2D1SimplifiedGeometrySink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1SimplifiedGeometrySink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1SimplifiedGeometrySink {
     type Vtable = ID2D1SimplifiedGeometrySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd9069e_12e2_11dc_9fed_001143a055f9);

@@ -24,6 +24,11 @@ impl ::core::cmp::PartialEq for CurrentTimeChangeRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for CurrentTimeChangeRequestedEventArgs {}
+impl ::core::fmt::Debug for CurrentTimeChangeRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CurrentTimeChangeRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CurrentTimeChangeRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.CurrentTimeChangeRequestedEventArgs;{99711324-edc7-4bf5-91f6-3c8627db59e5})");
 }
@@ -600,6 +605,11 @@ impl ::core::cmp::PartialEq for MuteChangeRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MuteChangeRequestedEventArgs {}
+impl ::core::fmt::Debug for MuteChangeRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MuteChangeRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MuteChangeRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.MuteChangeRequestedEventArgs;{e4b4f5f6-af1f-4f1e-b437-7da32400e1d4})");
 }
@@ -726,6 +736,12 @@ impl ::core::cmp::PartialEq for PlayToConnection {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PlayToConnection {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PlayToConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayToConnection").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToConnection;{112fbfc8-f235-4fde-8d41-9bf27c9e9a40})");
 }
@@ -823,6 +839,12 @@ impl ::core::cmp::PartialEq for PlayToConnectionError {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PlayToConnectionError {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PlayToConnectionError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayToConnectionError").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToConnectionError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.PlayTo.PlayToConnectionError;i4)");
 }
@@ -869,6 +891,12 @@ impl ::core::cmp::PartialEq for PlayToConnectionErrorEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PlayToConnectionErrorEventArgs {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PlayToConnectionErrorEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayToConnectionErrorEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToConnectionErrorEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToConnectionErrorEventArgs;{bf5eada6-88e6-445f-9d40-d9b9f8939896})");
@@ -965,6 +993,12 @@ impl ::core::cmp::PartialEq for PlayToConnectionState {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PlayToConnectionState {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PlayToConnectionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayToConnectionState").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToConnectionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.PlayTo.PlayToConnectionState;i4)");
 }
@@ -1011,6 +1045,12 @@ impl ::core::cmp::PartialEq for PlayToConnectionStateChangedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PlayToConnectionStateChangedEventArgs {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PlayToConnectionStateChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayToConnectionStateChangedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToConnectionStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToConnectionStateChangedEventArgs;{68c4b50f-0c20-4980-8602-58c62238d423})");
@@ -1115,6 +1155,12 @@ impl ::core::cmp::PartialEq for PlayToConnectionTransferredEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PlayToConnectionTransferredEventArgs {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PlayToConnectionTransferredEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayToConnectionTransferredEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToConnectionTransferredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToConnectionTransferredEventArgs;{fae3193a-0683-47d9-8df0-18cbb48984d8})");
@@ -1265,6 +1311,12 @@ impl ::core::cmp::PartialEq for PlayToManager {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PlayToManager {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PlayToManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayToManager").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToManager;{f56a206e-1b77-42ef-8f0d-b949f8d9b260})");
@@ -1629,6 +1681,11 @@ impl ::core::cmp::PartialEq for PlayToReceiver {
     }
 }
 impl ::core::cmp::Eq for PlayToReceiver {}
+impl ::core::fmt::Debug for PlayToReceiver {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayToReceiver").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayToReceiver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToReceiver;{ac15cf47-a162-4aa6-af1b-3aa35f3b9069})");
 }
@@ -1746,6 +1803,12 @@ impl ::core::cmp::PartialEq for PlayToSource {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PlayToSource {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PlayToSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayToSource").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToSource;{7f138a08-fbb7-4b09-8356-aa5f4e335c31})");
 }
@@ -1837,6 +1900,12 @@ impl ::core::cmp::PartialEq for PlayToSourceDeferral {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PlayToSourceDeferral {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PlayToSourceDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayToSourceDeferral").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToSourceDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToSourceDeferral;{4100891d-278e-4f29-859b-a9e501053e7d})");
@@ -1954,6 +2023,12 @@ impl ::core::cmp::PartialEq for PlayToSourceRequest {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PlayToSourceRequest {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PlayToSourceRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayToSourceRequest").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToSourceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToSourceRequest;{f8584665-64f4-44a0-ac0d-468d2b8fda83})");
 }
@@ -2048,6 +2123,12 @@ impl ::core::cmp::PartialEq for PlayToSourceRequestedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PlayToSourceRequestedEventArgs {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PlayToSourceRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayToSourceRequestedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToSourceRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToSourceRequestedEventArgs;{c5cdc330-29df-4ec6-9da9-9fbdfcfc1b3e})");
@@ -2180,6 +2261,12 @@ impl ::core::cmp::PartialEq for PlayToSourceSelectedEventArgs {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PlayToSourceSelectedEventArgs {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PlayToSourceSelectedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayToSourceSelectedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToSourceSelectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToSourceSelectedEventArgs;{0c9d8511-5202-4dcb-8c67-abda12bb3c12})");
 }
@@ -2268,6 +2355,11 @@ impl ::core::cmp::PartialEq for PlaybackRateChangeRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PlaybackRateChangeRequestedEventArgs {}
+impl ::core::fmt::Debug for PlaybackRateChangeRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlaybackRateChangeRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlaybackRateChangeRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlaybackRateChangeRequestedEventArgs;{0f5661ae-2c88-4cca-8540-d586095d13a5})");
 }
@@ -2419,6 +2511,11 @@ impl ::core::cmp::PartialEq for SourceChangeRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SourceChangeRequestedEventArgs {}
+impl ::core::fmt::Debug for SourceChangeRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SourceChangeRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SourceChangeRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.SourceChangeRequestedEventArgs;{fb3f3a96-7aa6-4a8b-86e7-54f6c6d34f64})");
 }
@@ -2493,6 +2590,11 @@ impl ::core::cmp::PartialEq for VolumeChangeRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for VolumeChangeRequestedEventArgs {}
+impl ::core::fmt::Debug for VolumeChangeRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VolumeChangeRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VolumeChangeRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.VolumeChangeRequestedEventArgs;{6f026d5c-cf75-4c2b-913e-6d7c6c329179})");
 }

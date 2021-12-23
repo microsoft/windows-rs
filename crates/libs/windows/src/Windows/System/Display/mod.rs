@@ -32,6 +32,11 @@ impl ::core::cmp::PartialEq for DisplayRequest {
     }
 }
 impl ::core::cmp::Eq for DisplayRequest {}
+impl ::core::fmt::Debug for DisplayRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Display.DisplayRequest;{e5732044-f49f-4b60-8dd4-5e7e3a632ac0})");
 }

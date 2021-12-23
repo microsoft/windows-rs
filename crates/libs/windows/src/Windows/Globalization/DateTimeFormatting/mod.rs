@@ -259,6 +259,11 @@ impl ::core::cmp::PartialEq for DateTimeFormatter {
     }
 }
 impl ::core::cmp::Eq for DateTimeFormatter {}
+impl ::core::fmt::Debug for DateTimeFormatter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DateTimeFormatter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DateTimeFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.DateTimeFormatting.DateTimeFormatter;{95eeca10-73e0-4e4b-a183-3d6ad0ba35ec})");
 }
@@ -333,6 +338,11 @@ impl ::core::cmp::PartialEq for DayFormat {
     }
 }
 impl ::core::cmp::Eq for DayFormat {}
+impl ::core::fmt::Debug for DayFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DayFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DayFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.DayFormat;i4)");
 }
@@ -363,6 +373,11 @@ impl ::core::cmp::PartialEq for DayOfWeekFormat {
     }
 }
 impl ::core::cmp::Eq for DayOfWeekFormat {}
+impl ::core::fmt::Debug for DayOfWeekFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DayOfWeekFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DayOfWeekFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.DayOfWeekFormat;i4)");
 }
@@ -391,6 +406,11 @@ impl ::core::cmp::PartialEq for HourFormat {
     }
 }
 impl ::core::cmp::Eq for HourFormat {}
+impl ::core::fmt::Debug for HourFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HourFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HourFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.HourFormat;i4)");
 }
@@ -525,6 +545,11 @@ impl ::core::cmp::PartialEq for MinuteFormat {
     }
 }
 impl ::core::cmp::Eq for MinuteFormat {}
+impl ::core::fmt::Debug for MinuteFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MinuteFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MinuteFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.MinuteFormat;i4)");
 }
@@ -556,6 +581,11 @@ impl ::core::cmp::PartialEq for MonthFormat {
     }
 }
 impl ::core::cmp::Eq for MonthFormat {}
+impl ::core::fmt::Debug for MonthFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MonthFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MonthFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.MonthFormat;i4)");
 }
@@ -584,6 +614,11 @@ impl ::core::cmp::PartialEq for SecondFormat {
     }
 }
 impl ::core::cmp::Eq for SecondFormat {}
+impl ::core::fmt::Debug for SecondFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SecondFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.SecondFormat;i4)");
 }
@@ -614,6 +649,11 @@ impl ::core::cmp::PartialEq for YearFormat {
     }
 }
 impl ::core::cmp::Eq for YearFormat {}
+impl ::core::fmt::Debug for YearFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("YearFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for YearFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.YearFormat;i4)");
 }

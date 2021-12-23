@@ -64,6 +64,11 @@ impl ::core::cmp::PartialEq for AggregateContactManager {
     }
 }
 impl ::core::cmp::Eq for AggregateContactManager {}
+impl ::core::fmt::Debug for AggregateContactManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AggregateContactManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AggregateContactManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.AggregateContactManager;{0379d5dd-db5a-4fd3-b54e-4df17917a212})");
 }
@@ -568,6 +573,11 @@ impl ::core::cmp::PartialEq for Contact {
     }
 }
 impl ::core::cmp::Eq for Contact {}
+impl ::core::fmt::Debug for Contact {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Contact").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Contact {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.Contact;{ec0072f3-2118-4049-9ebc-17f0ab692b64})");
 }
@@ -734,6 +744,11 @@ impl ::core::cmp::PartialEq for ContactAddress {
     }
 }
 impl ::core::cmp::Eq for ContactAddress {}
+impl ::core::fmt::Debug for ContactAddress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactAddress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactAddress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactAddress;{9739d39a-42ce-4872-8d70-3063aa584b70})");
 }
@@ -809,6 +824,11 @@ impl ::core::cmp::PartialEq for ContactAddressKind {
     }
 }
 impl ::core::cmp::Eq for ContactAddressKind {}
+impl ::core::fmt::Debug for ContactAddressKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactAddressKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactAddressKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAddressKind;i4)");
 }
@@ -923,6 +943,11 @@ impl ::core::cmp::PartialEq for ContactAnnotation {
     }
 }
 impl ::core::cmp::Eq for ContactAnnotation {}
+impl ::core::fmt::Debug for ContactAnnotation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactAnnotation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactAnnotation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactAnnotation;{821fc2ef-7d41-44a2-84c3-60a281dd7b86})");
 }
@@ -1069,6 +1094,11 @@ impl ::core::cmp::PartialEq for ContactAnnotationList {
     }
 }
 impl ::core::cmp::Eq for ContactAnnotationList {}
+impl ::core::fmt::Debug for ContactAnnotationList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactAnnotationList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactAnnotationList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactAnnotationList;{92a486aa-5c88-45b9-aad0-461888e68d8a})");
 }
@@ -1148,6 +1178,11 @@ impl ::core::cmp::PartialEq for ContactAnnotationOperations {
     }
 }
 impl ::core::cmp::Eq for ContactAnnotationOperations {}
+impl ::core::fmt::Debug for ContactAnnotationOperations {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactAnnotationOperations").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactAnnotationOperations {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationOperations;u4)");
 }
@@ -1251,6 +1286,11 @@ impl ::core::cmp::PartialEq for ContactAnnotationStore {
     }
 }
 impl ::core::cmp::Eq for ContactAnnotationStore {}
+impl ::core::fmt::Debug for ContactAnnotationStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactAnnotationStore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactAnnotationStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactAnnotationStore;{23acf4aa-7a77-457d-8203-987f4b31af09})");
 }
@@ -1325,6 +1365,11 @@ impl ::core::cmp::PartialEq for ContactAnnotationStoreAccessType {
     }
 }
 impl ::core::cmp::Eq for ContactAnnotationStoreAccessType {}
+impl ::core::fmt::Debug for ContactAnnotationStoreAccessType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactAnnotationStoreAccessType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactAnnotationStoreAccessType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationStoreAccessType;i4)");
 }
@@ -1364,6 +1409,11 @@ impl ::core::cmp::PartialEq for ContactBatch {
     }
 }
 impl ::core::cmp::Eq for ContactBatch {}
+impl ::core::fmt::Debug for ContactBatch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactBatch").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactBatch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactBatch;{35d1972d-bfce-46bb-93f8-a5b06ec5e201})");
 }
@@ -1439,6 +1489,11 @@ impl ::core::cmp::PartialEq for ContactBatchStatus {
     }
 }
 impl ::core::cmp::Eq for ContactBatchStatus {}
+impl ::core::fmt::Debug for ContactBatchStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactBatchStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactBatchStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactBatchStatus;i4)");
 }
@@ -1472,6 +1527,11 @@ impl ::core::cmp::PartialEq for ContactCardDelayedDataLoader {
     }
 }
 impl ::core::cmp::Eq for ContactCardDelayedDataLoader {}
+impl ::core::fmt::Debug for ContactCardDelayedDataLoader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactCardDelayedDataLoader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactCardDelayedDataLoader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactCardDelayedDataLoader;{b60af902-1546-434d-869c-6e3520760ef3})");
 }
@@ -1573,6 +1633,11 @@ impl ::core::cmp::PartialEq for ContactCardHeaderKind {
     }
 }
 impl ::core::cmp::Eq for ContactCardHeaderKind {}
+impl ::core::fmt::Debug for ContactCardHeaderKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactCardHeaderKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactCardHeaderKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardHeaderKind;i4)");
 }
@@ -1637,6 +1702,11 @@ impl ::core::cmp::PartialEq for ContactCardOptions {
     }
 }
 impl ::core::cmp::Eq for ContactCardOptions {}
+impl ::core::fmt::Debug for ContactCardOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactCardOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactCardOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactCardOptions;{8c0a4f7e-6ab6-4f3f-be72-817236eeea5b})");
 }
@@ -1715,6 +1785,11 @@ impl ::core::cmp::PartialEq for ContactCardTabKind {
     }
 }
 impl ::core::cmp::Eq for ContactCardTabKind {}
+impl ::core::fmt::Debug for ContactCardTabKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactCardTabKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactCardTabKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardTabKind;i4)");
 }
@@ -1753,6 +1828,11 @@ impl ::core::cmp::PartialEq for ContactChange {
     }
 }
 impl ::core::cmp::Eq for ContactChange {}
+impl ::core::fmt::Debug for ContactChange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactChange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactChange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChange;{951d4b10-6a59-4720-a4e1-363d98c135d5})");
 }
@@ -1840,6 +1920,11 @@ impl ::core::cmp::PartialEq for ContactChangeReader {
     }
 }
 impl ::core::cmp::Eq for ContactChangeReader {}
+impl ::core::fmt::Debug for ContactChangeReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactChangeReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactChangeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChangeReader;{217319fa-2d0c-42e0-a9da-3ecd56a78a47})");
 }
@@ -1934,6 +2019,11 @@ impl ::core::cmp::PartialEq for ContactChangeTracker {
     }
 }
 impl ::core::cmp::Eq for ContactChangeTracker {}
+impl ::core::fmt::Debug for ContactChangeTracker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactChangeTracker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactChangeTracker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChangeTracker;{6e992952-309b-404d-9712-b37bd30278aa})");
 }
@@ -2010,6 +2100,11 @@ impl ::core::cmp::PartialEq for ContactChangeType {
     }
 }
 impl ::core::cmp::Eq for ContactChangeType {}
+impl ::core::fmt::Debug for ContactChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactChangeType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactChangeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactChangeType;i4)");
 }
@@ -2037,6 +2132,11 @@ impl ::core::cmp::PartialEq for ContactChangedDeferral {
     }
 }
 impl ::core::cmp::Eq for ContactChangedDeferral {}
+impl ::core::fmt::Debug for ContactChangedDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactChangedDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactChangedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChangedDeferral;{c5143ae8-1b03-46f8-b694-a523e83cfcb6})");
 }
@@ -2113,6 +2213,11 @@ impl ::core::cmp::PartialEq for ContactChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ContactChangedEventArgs {}
+impl ::core::fmt::Debug for ContactChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChangedEventArgs;{525e7fd1-73f3-4b7d-a918-580be4366121})");
 }
@@ -2214,6 +2319,11 @@ impl ::core::cmp::PartialEq for ContactConnectedServiceAccount {
     }
 }
 impl ::core::cmp::Eq for ContactConnectedServiceAccount {}
+impl ::core::fmt::Debug for ContactConnectedServiceAccount {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactConnectedServiceAccount").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactConnectedServiceAccount {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactConnectedServiceAccount;{f6f83553-aa27-4731-8e4a-3dec5ce9eec9})");
 }
@@ -2360,6 +2470,11 @@ impl ::core::cmp::PartialEq for ContactDate {
     }
 }
 impl ::core::cmp::Eq for ContactDate {}
+impl ::core::fmt::Debug for ContactDate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactDate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactDate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactDate;{fe98ae66-b205-4934-9174-0ff2b0565707})");
 }
@@ -2435,6 +2550,11 @@ impl ::core::cmp::PartialEq for ContactDateKind {
     }
 }
 impl ::core::cmp::Eq for ContactDateKind {}
+impl ::core::fmt::Debug for ContactDateKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactDateKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactDateKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactDateKind;i4)");
 }
@@ -2503,6 +2623,11 @@ impl ::core::cmp::PartialEq for ContactEmail {
     }
 }
 impl ::core::cmp::Eq for ContactEmail {}
+impl ::core::fmt::Debug for ContactEmail {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactEmail").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactEmail {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactEmail;{90a219a9-e3d3-4d63-993b-05b9a5393abf})");
 }
@@ -2578,6 +2703,11 @@ impl ::core::cmp::PartialEq for ContactEmailKind {
     }
 }
 impl ::core::cmp::Eq for ContactEmailKind {}
+impl ::core::fmt::Debug for ContactEmailKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactEmailKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactEmailKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactEmailKind;i4)");
 }
@@ -2658,6 +2788,11 @@ impl ::core::cmp::PartialEq for ContactField {
     }
 }
 impl ::core::cmp::Eq for ContactField {}
+impl ::core::fmt::Debug for ContactField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactField").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactField {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactField;{b176486a-d293-492c-a058-db575b3e3c0f})");
 }
@@ -2757,6 +2892,11 @@ impl ::core::cmp::PartialEq for ContactFieldCategory {
     }
 }
 impl ::core::cmp::Eq for ContactFieldCategory {}
+impl ::core::fmt::Debug for ContactFieldCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactFieldCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactFieldCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldCategory;i4)");
 }
@@ -2859,6 +2999,11 @@ impl ::core::cmp::PartialEq for ContactFieldFactory {
     }
 }
 impl ::core::cmp::Eq for ContactFieldFactory {}
+impl ::core::fmt::Debug for ContactFieldFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactFieldFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactFieldFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactFieldFactory;{85e2913f-0e4a-4a3e-8994-406ae7ed646e})");
 }
@@ -3009,6 +3154,11 @@ impl ::core::cmp::PartialEq for ContactFieldType {
     }
 }
 impl ::core::cmp::Eq for ContactFieldType {}
+impl ::core::fmt::Debug for ContactFieldType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactFieldType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactFieldType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldType;i4)");
 }
@@ -3030,6 +3180,11 @@ impl ::core::cmp::PartialEq for ContactGroup {
     }
 }
 impl ::core::cmp::Eq for ContactGroup {}
+impl ::core::fmt::Debug for ContactGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactGroup;{59bdeb01-9e9a-475d-bfe5-a37b806d852c})");
 }
@@ -3169,6 +3324,11 @@ impl ::core::cmp::PartialEq for ContactInformation {
     }
 }
 impl ::core::cmp::Eq for ContactInformation {}
+impl ::core::fmt::Debug for ContactInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactInformation;{275eb6d4-6a2e-4278-a914-e460d5f088f6})");
 }
@@ -3327,6 +3487,11 @@ impl ::core::cmp::PartialEq for ContactInstantMessageField {
     }
 }
 impl ::core::cmp::Eq for ContactInstantMessageField {}
+impl ::core::fmt::Debug for ContactInstantMessageField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactInstantMessageField").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactInstantMessageField {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactInstantMessageField;{cce33b37-0d85-41fa-b43d-da599c3eb009})");
 }
@@ -3528,6 +3693,11 @@ impl ::core::cmp::PartialEq for ContactJobInfo {
     }
 }
 impl ::core::cmp::Eq for ContactJobInfo {}
+impl ::core::fmt::Debug for ContactJobInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactJobInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactJobInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactJobInfo;{6d117b4c-ce50-4b43-9e69-b18258ea5315})");
 }
@@ -3875,6 +4045,11 @@ impl ::core::cmp::PartialEq for ContactList {
     }
 }
 impl ::core::cmp::Eq for ContactList {}
+impl ::core::fmt::Debug for ContactList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactList;{16ddec75-392c-4845-9dfb-51a3e7ef3e42})");
 }
@@ -3961,6 +4136,11 @@ impl ::core::cmp::PartialEq for ContactListLimitedWriteOperations {
     }
 }
 impl ::core::cmp::Eq for ContactListLimitedWriteOperations {}
+impl ::core::fmt::Debug for ContactListLimitedWriteOperations {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactListLimitedWriteOperations").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactListLimitedWriteOperations {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactListLimitedWriteOperations;{e19813da-4a0b-44b8-9a1f-a0f3d218175f})");
 }
@@ -4037,6 +4217,11 @@ impl ::core::cmp::PartialEq for ContactListOtherAppReadAccess {
     }
 }
 impl ::core::cmp::Eq for ContactListOtherAppReadAccess {}
+impl ::core::fmt::Debug for ContactListOtherAppReadAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactListOtherAppReadAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactListOtherAppReadAccess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppReadAccess;i4)");
 }
@@ -4066,6 +4251,11 @@ impl ::core::cmp::PartialEq for ContactListOtherAppWriteAccess {
     }
 }
 impl ::core::cmp::Eq for ContactListOtherAppWriteAccess {}
+impl ::core::fmt::Debug for ContactListOtherAppWriteAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactListOtherAppWriteAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactListOtherAppWriteAccess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppWriteAccess;i4)");
 }
@@ -4506,6 +4696,11 @@ impl ::core::cmp::PartialEq for ContactListSyncConstraints {
     }
 }
 impl ::core::cmp::Eq for ContactListSyncConstraints {}
+impl ::core::fmt::Debug for ContactListSyncConstraints {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactListSyncConstraints").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactListSyncConstraints {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactListSyncConstraints;{b2b0bf01-3062-4e2e-969d-018d1987f314})");
 }
@@ -4641,6 +4836,11 @@ impl ::core::cmp::PartialEq for ContactListSyncManager {
     }
 }
 impl ::core::cmp::Eq for ContactListSyncManager {}
+impl ::core::fmt::Debug for ContactListSyncManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactListSyncManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactListSyncManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactListSyncManager;{146e83be-7925-4acc-9de5-21ddd06f8674})");
 }
@@ -4720,6 +4920,11 @@ impl ::core::cmp::PartialEq for ContactListSyncStatus {
     }
 }
 impl ::core::cmp::Eq for ContactListSyncStatus {}
+impl ::core::fmt::Debug for ContactListSyncStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactListSyncStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactListSyncStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListSyncStatus;i4)");
 }
@@ -4848,6 +5053,11 @@ impl ::core::cmp::PartialEq for ContactLocationField {
     }
 }
 impl ::core::cmp::Eq for ContactLocationField {}
+impl ::core::fmt::Debug for ContactLocationField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactLocationField").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactLocationField {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactLocationField;{9ec00f82-ab6e-4b36-89e3-b23bc0a1dacc})");
 }
@@ -5201,6 +5411,11 @@ impl ::core::cmp::PartialEq for ContactManagerForUser {
     }
 }
 impl ::core::cmp::Eq for ContactManagerForUser {}
+impl ::core::fmt::Debug for ContactManagerForUser {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactManagerForUser").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactManagerForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactManagerForUser;{b74bba57-1076-4bef-aef3-54686d18387d})");
 }
@@ -5294,6 +5509,11 @@ impl ::core::cmp::PartialEq for ContactMatchReason {
     }
 }
 impl ::core::cmp::Eq for ContactMatchReason {}
+impl ::core::fmt::Debug for ContactMatchReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactMatchReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactMatchReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactMatchReason;{bc922504-e7d8-413e-95f4-b75c54c74077})");
 }
@@ -5372,6 +5592,11 @@ impl ::core::cmp::PartialEq for ContactMatchReasonKind {
     }
 }
 impl ::core::cmp::Eq for ContactMatchReasonKind {}
+impl ::core::fmt::Debug for ContactMatchReasonKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactMatchReasonKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactMatchReasonKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactMatchReasonKind;i4)");
 }
@@ -5400,6 +5625,11 @@ impl ::core::cmp::PartialEq for ContactNameOrder {
     }
 }
 impl ::core::cmp::Eq for ContactNameOrder {}
+impl ::core::fmt::Debug for ContactNameOrder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactNameOrder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactNameOrder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactNameOrder;i4)");
 }
@@ -5472,6 +5702,11 @@ impl ::core::cmp::PartialEq for ContactPanel {
     }
 }
 impl ::core::cmp::Eq for ContactPanel {}
+impl ::core::fmt::Debug for ContactPanel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactPanel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactPanel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPanel;{41bf1265-d2ee-4b97-a80a-7d8d64cca6f5})");
 }
@@ -5549,6 +5784,11 @@ impl ::core::cmp::PartialEq for ContactPanelClosingEventArgs {
     }
 }
 impl ::core::cmp::Eq for ContactPanelClosingEventArgs {}
+impl ::core::fmt::Debug for ContactPanelClosingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactPanelClosingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactPanelClosingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPanelClosingEventArgs;{222174d3-cf4b-46d7-b739-6edc16110bfb})");
 }
@@ -5630,6 +5870,11 @@ impl ::core::cmp::PartialEq for ContactPanelLaunchFullAppRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ContactPanelLaunchFullAppRequestedEventArgs {}
+impl ::core::fmt::Debug for ContactPanelLaunchFullAppRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactPanelLaunchFullAppRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactPanelLaunchFullAppRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPanelLaunchFullAppRequestedEventArgs;{88d61c0e-23b4-4be8-8afc-072c25a4190d})");
 }
@@ -5744,6 +5989,11 @@ impl ::core::cmp::PartialEq for ContactPhone {
     }
 }
 impl ::core::cmp::Eq for ContactPhone {}
+impl ::core::fmt::Debug for ContactPhone {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactPhone").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactPhone {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPhone;{467dab65-2712-4f52-b783-9ea8111c63cd})");
 }
@@ -5826,6 +6076,11 @@ impl ::core::cmp::PartialEq for ContactPhoneKind {
     }
 }
 impl ::core::cmp::Eq for ContactPhoneKind {}
+impl ::core::fmt::Debug for ContactPhoneKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactPhoneKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactPhoneKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactPhoneKind;i4)");
 }
@@ -5965,6 +6220,11 @@ impl ::core::cmp::PartialEq for ContactPicker {
     }
 }
 impl ::core::cmp::Eq for ContactPicker {}
+impl ::core::fmt::Debug for ContactPicker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactPicker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactPicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPicker;{0e09fd91-42f8-4055-90a0-896f96738936})");
 }
@@ -6039,6 +6299,11 @@ impl ::core::cmp::PartialEq for ContactQueryDesiredFields {
     }
 }
 impl ::core::cmp::Eq for ContactQueryDesiredFields {}
+impl ::core::fmt::Debug for ContactQueryDesiredFields {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactQueryDesiredFields").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactQueryDesiredFields {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQueryDesiredFields;u4)");
 }
@@ -6152,6 +6417,11 @@ impl ::core::cmp::PartialEq for ContactQueryOptions {
     }
 }
 impl ::core::cmp::Eq for ContactQueryOptions {}
+impl ::core::fmt::Debug for ContactQueryOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactQueryOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactQueryOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactQueryOptions;{4408cc9e-7d7c-42f0-8ac7-f50733ecdbc1})");
 }
@@ -6229,6 +6499,11 @@ impl ::core::cmp::PartialEq for ContactQuerySearchFields {
     }
 }
 impl ::core::cmp::Eq for ContactQuerySearchFields {}
+impl ::core::fmt::Debug for ContactQuerySearchFields {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactQuerySearchFields").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactQuerySearchFields {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchFields;u4)");
 }
@@ -6257,6 +6532,11 @@ impl ::core::cmp::PartialEq for ContactQuerySearchScope {
     }
 }
 impl ::core::cmp::Eq for ContactQuerySearchScope {}
+impl ::core::fmt::Debug for ContactQuerySearchScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactQuerySearchScope").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactQuerySearchScope {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchScope;i4)");
 }
@@ -6318,6 +6598,11 @@ impl ::core::cmp::PartialEq for ContactQueryTextSearch {
     }
 }
 impl ::core::cmp::Eq for ContactQueryTextSearch {}
+impl ::core::fmt::Debug for ContactQueryTextSearch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactQueryTextSearch").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactQueryTextSearch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactQueryTextSearch;{f7e3f9cb-a957-439b-a0b7-1c02a1963ff0})");
 }
@@ -6404,6 +6689,11 @@ impl ::core::cmp::PartialEq for ContactReader {
     }
 }
 impl ::core::cmp::Eq for ContactReader {}
+impl ::core::fmt::Debug for ContactReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactReader;{d397e42e-1488-42f2-bf64-253f4884bfed})");
 }
@@ -6482,6 +6772,11 @@ impl ::core::cmp::PartialEq for ContactRelationship {
     }
 }
 impl ::core::cmp::Eq for ContactRelationship {}
+impl ::core::fmt::Debug for ContactRelationship {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactRelationship").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactRelationship {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactRelationship;i4)");
 }
@@ -6510,6 +6805,11 @@ impl ::core::cmp::PartialEq for ContactSelectionMode {
     }
 }
 impl ::core::cmp::Eq for ContactSelectionMode {}
+impl ::core::fmt::Debug for ContactSelectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactSelectionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactSelectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactSelectionMode;i4)");
 }
@@ -6578,6 +6878,11 @@ impl ::core::cmp::PartialEq for ContactSignificantOther {
     }
 }
 impl ::core::cmp::Eq for ContactSignificantOther {}
+impl ::core::fmt::Debug for ContactSignificantOther {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactSignificantOther").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactSignificantOther {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactSignificantOther;{8873b5ab-c5fb-46d8-93fe-da3ff1934054})");
 }
@@ -6773,6 +7078,11 @@ impl ::core::cmp::PartialEq for ContactStore {
     }
 }
 impl ::core::cmp::Eq for ContactStore {}
+impl ::core::fmt::Debug for ContactStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactStore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactStore;{2c220b10-3a6c-4293-b9bc-fe987f6e0d52})");
 }
@@ -6848,6 +7158,11 @@ impl ::core::cmp::PartialEq for ContactStoreAccessType {
     }
 }
 impl ::core::cmp::Eq for ContactStoreAccessType {}
+impl ::core::fmt::Debug for ContactStoreAccessType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactStoreAccessType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactStoreAccessType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactStoreAccessType;i4)");
 }
@@ -6869,6 +7184,11 @@ impl ::core::cmp::PartialEq for ContactStoreNotificationTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for ContactStoreNotificationTriggerDetails {}
+impl ::core::fmt::Debug for ContactStoreNotificationTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactStoreNotificationTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactStoreNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactStoreNotificationTriggerDetails;{abb298d6-878a-4f8b-a9ce-46bb7d1c84ce})");
 }
@@ -6985,6 +7305,11 @@ impl ::core::cmp::PartialEq for ContactWebsite {
     }
 }
 impl ::core::cmp::Eq for ContactWebsite {}
+impl ::core::fmt::Debug for ContactWebsite {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactWebsite").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactWebsite {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactWebsite;{9f130176-dc1b-4055-ad66-652f39d990e8})");
 }
@@ -7075,6 +7400,11 @@ impl ::core::cmp::PartialEq for FullContactCardOptions {
     }
 }
 impl ::core::cmp::Eq for FullContactCardOptions {}
+impl ::core::fmt::Debug for FullContactCardOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FullContactCardOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FullContactCardOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.FullContactCardOptions;{8744436c-5cf9-4683-bdca-a1fdebf8dbce})");
 }
@@ -7802,6 +8132,11 @@ impl ::core::cmp::PartialEq for IContactField {
     }
 }
 impl ::core::cmp::Eq for IContactField {}
+impl ::core::fmt::Debug for IContactField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactField").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IContactField {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b176486a-d293-492c-a058-db575b3e3c0f}");
 }
@@ -7903,6 +8238,11 @@ impl ::core::cmp::PartialEq for IContactFieldFactory {
     }
 }
 impl ::core::cmp::Eq for IContactFieldFactory {}
+impl ::core::fmt::Debug for IContactFieldFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactFieldFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IContactFieldFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{85e2913f-0e4a-4a3e-8994-406ae7ed646e}");
 }
@@ -8075,6 +8415,11 @@ impl ::core::cmp::PartialEq for IContactInstantMessageFieldFactory {
     }
 }
 impl ::core::cmp::Eq for IContactInstantMessageFieldFactory {}
+impl ::core::fmt::Debug for IContactInstantMessageFieldFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactInstantMessageFieldFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IContactInstantMessageFieldFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ba0b6794-91a3-4bb2-b1b9-69a5dff0ba09}");
 }
@@ -8543,6 +8888,11 @@ impl ::core::cmp::PartialEq for IContactLocationFieldFactory {
     }
 }
 impl ::core::cmp::Eq for IContactLocationFieldFactory {}
+impl ::core::fmt::Debug for IContactLocationFieldFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactLocationFieldFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IContactLocationFieldFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f79932d7-2fdf-43fe-8f18-41897390bcfe}");
 }
@@ -9447,6 +9797,11 @@ impl ::core::cmp::PartialEq for PinnedContactIdsQueryResult {
     }
 }
 impl ::core::cmp::Eq for PinnedContactIdsQueryResult {}
+impl ::core::fmt::Debug for PinnedContactIdsQueryResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PinnedContactIdsQueryResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PinnedContactIdsQueryResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.PinnedContactIdsQueryResult;{7d9b2552-1579-4ddc-871f-a30a3aea9ba1})");
 }
@@ -9608,6 +9963,11 @@ impl ::core::cmp::PartialEq for PinnedContactManager {
     }
 }
 impl ::core::cmp::Eq for PinnedContactManager {}
+impl ::core::fmt::Debug for PinnedContactManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PinnedContactManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PinnedContactManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.PinnedContactManager;{fcbc740c-e1d6-45c3-b8b6-a35604e167a0})");
 }
@@ -9682,6 +10042,11 @@ impl ::core::cmp::PartialEq for PinnedContactSurface {
     }
 }
 impl ::core::cmp::Eq for PinnedContactSurface {}
+impl ::core::fmt::Debug for PinnedContactSurface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PinnedContactSurface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PinnedContactSurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.PinnedContactSurface;i4)");
 }

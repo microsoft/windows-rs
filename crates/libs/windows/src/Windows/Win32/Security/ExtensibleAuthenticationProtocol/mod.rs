@@ -22,6 +22,11 @@ impl ::core::clone::Clone for EAPHOST_AUTH_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for EAPHOST_AUTH_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAPHOST_AUTH_INFO").field("status", &self.status).field("dwErrorCode", &self.dwErrorCode).field("dwReasonCode", &self.dwReasonCode).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EAPHOST_AUTH_INFO {
     type Abi = Self;
 }
@@ -77,6 +82,24 @@ impl ::core::clone::Clone for EAPHOST_IDENTITY_UI_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EAPHOST_IDENTITY_UI_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAPHOST_IDENTITY_UI_PARAMS")
+            .field("eapMethodType", &self.eapMethodType)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwSizeofConnectionData", &self.dwSizeofConnectionData)
+            .field("pConnectionData", &self.pConnectionData)
+            .field("dwSizeofUserData", &self.dwSizeofUserData)
+            .field("pUserData", &self.pUserData)
+            .field("dwSizeofUserDataOut", &self.dwSizeofUserDataOut)
+            .field("pUserDataOut", &self.pUserDataOut)
+            .field("pwszIdentity", &self.pwszIdentity)
+            .field("dwError", &self.dwError)
+            .field("pEapError", &self.pEapError)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EAPHOST_IDENTITY_UI_PARAMS {
     type Abi = Self;
 }
@@ -114,6 +137,12 @@ impl ::core::clone::Clone for EAPHOST_INTERACTIVE_UI_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EAPHOST_INTERACTIVE_UI_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAPHOST_INTERACTIVE_UI_PARAMS").field("dwSizeofContextData", &self.dwSizeofContextData).field("pContextData", &self.pContextData).field("dwSizeofInteractiveUIData", &self.dwSizeofInteractiveUIData).field("pInteractiveUIData", &self.pInteractiveUIData).field("dwError", &self.dwError).field("pEapError", &self.pEapError).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EAPHOST_INTERACTIVE_UI_PARAMS {
     type Abi = Self;
 }
@@ -148,6 +177,11 @@ impl ::core::clone::Clone for EAP_ATTRIBUTE {
         *self
     }
 }
+impl ::core::fmt::Debug for EAP_ATTRIBUTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAP_ATTRIBUTE").field("eaType", &self.eaType).field("dwLength", &self.dwLength).field("pValue", &self.pValue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EAP_ATTRIBUTE {
     type Abi = Self;
 }
@@ -172,6 +206,11 @@ impl ::core::marker::Copy for EAP_ATTRIBUTES {}
 impl ::core::clone::Clone for EAP_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EAP_ATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAP_ATTRIBUTES").field("dwNumberOfAttributes", &self.dwNumberOfAttributes).field("pAttribs", &self.pAttribs).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EAP_ATTRIBUTES {
@@ -408,6 +447,24 @@ impl ::core::clone::Clone for EAP_AUTHENTICATOR_METHOD_ROUTINES {
         *self
     }
 }
+impl ::core::fmt::Debug for EAP_AUTHENTICATOR_METHOD_ROUTINES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAP_AUTHENTICATOR_METHOD_ROUTINES")
+            .field("dwSizeInBytes", &self.dwSizeInBytes)
+            .field("pEapType", &self.pEapType)
+            .field("EapMethodAuthenticatorInitialize", &self.EapMethodAuthenticatorInitialize)
+            .field("EapMethodAuthenticatorBeginSession", &self.EapMethodAuthenticatorBeginSession)
+            .field("EapMethodAuthenticatorUpdateInnerMethodParams", &self.EapMethodAuthenticatorUpdateInnerMethodParams)
+            .field("EapMethodAuthenticatorReceivePacket", &self.EapMethodAuthenticatorReceivePacket)
+            .field("EapMethodAuthenticatorSendPacket", &self.EapMethodAuthenticatorSendPacket)
+            .field("EapMethodAuthenticatorGetAttributes", &self.EapMethodAuthenticatorGetAttributes)
+            .field("EapMethodAuthenticatorSetAttributes", &self.EapMethodAuthenticatorSetAttributes)
+            .field("EapMethodAuthenticatorGetResult", &self.EapMethodAuthenticatorGetResult)
+            .field("EapMethodAuthenticatorEndSession", &self.EapMethodAuthenticatorEndSession)
+            .field("EapMethodAuthenticatorShutdown", &self.EapMethodAuthenticatorShutdown)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EAP_AUTHENTICATOR_METHOD_ROUTINES {
     type Abi = Self;
 }
@@ -447,6 +504,12 @@ impl ::core::clone::Clone for EAP_CONFIG_INPUT_FIELD_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EAP_CONFIG_INPUT_FIELD_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAP_CONFIG_INPUT_FIELD_ARRAY").field("dwVersion", &self.dwVersion).field("dwNumberOfFields", &self.dwNumberOfFields).field("pFields", &self.pFields).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EAP_CONFIG_INPUT_FIELD_ARRAY {
     type Abi = Self;
 }
@@ -482,6 +545,12 @@ impl ::core::marker::Copy for EAP_CONFIG_INPUT_FIELD_DATA {}
 impl ::core::clone::Clone for EAP_CONFIG_INPUT_FIELD_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EAP_CONFIG_INPUT_FIELD_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAP_CONFIG_INPUT_FIELD_DATA").field("dwSize", &self.dwSize).field("Type", &self.Type).field("dwFlagProps", &self.dwFlagProps).field("pwszLabel", &self.pwszLabel).field("pwszData", &self.pwszData).field("dwMinDataLength", &self.dwMinDataLength).field("dwMaxDataLength", &self.dwMaxDataLength).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -546,6 +615,12 @@ impl ::core::clone::Clone for EAP_CRED_EXPIRY_REQ {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EAP_CRED_EXPIRY_REQ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAP_CRED_EXPIRY_REQ").field("curCreds", &self.curCreds).field("newCreds", &self.newCreds).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EAP_CRED_EXPIRY_REQ {
     type Abi = Self;
 }
@@ -582,6 +657,12 @@ impl ::core::marker::Copy for EAP_ERROR {}
 impl ::core::clone::Clone for EAP_ERROR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EAP_ERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAP_ERROR").field("dwWinError", &self.dwWinError).field("type", &self.r#type).field("dwReasonCode", &self.dwReasonCode).field("rootCauseGuid", &self.rootCauseGuid).field("repairGuid", &self.repairGuid).field("helpLinkGuid", &self.helpLinkGuid).field("pRootCauseString", &self.pRootCauseString).field("pRepairString", &self.pRepairString).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -835,6 +916,12 @@ impl ::core::clone::Clone for EAP_METHOD_AUTHENTICATOR_RESULT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EAP_METHOD_AUTHENTICATOR_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAP_METHOD_AUTHENTICATOR_RESULT").field("fIsSuccess", &self.fIsSuccess).field("dwFailureReason", &self.dwFailureReason).field("pAuthAttribs", &self.pAuthAttribs).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EAP_METHOD_AUTHENTICATOR_RESULT {
     type Abi = Self;
 }
@@ -871,6 +958,12 @@ impl ::core::clone::Clone for EAP_METHOD_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EAP_METHOD_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAP_METHOD_INFO").field("eaptype", &self.eaptype).field("pwszAuthorName", &self.pwszAuthorName).field("pwszFriendlyName", &self.pwszFriendlyName).field("eapProperties", &self.eapProperties).field("pInnerMethodInfo", &self.pInnerMethodInfo).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EAP_METHOD_INFO {
     type Abi = Self;
 }
@@ -901,6 +994,12 @@ impl ::core::marker::Copy for EAP_METHOD_INFO_ARRAY {}
 impl ::core::clone::Clone for EAP_METHOD_INFO_ARRAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EAP_METHOD_INFO_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAP_METHOD_INFO_ARRAY").field("dwNumberOfMethods", &self.dwNumberOfMethods).field("pEapMethods", &self.pEapMethods).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -937,6 +1036,12 @@ impl ::core::clone::Clone for EAP_METHOD_INFO_ARRAY_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EAP_METHOD_INFO_ARRAY_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAP_METHOD_INFO_ARRAY_EX").field("dwNumberOfMethods", &self.dwNumberOfMethods).field("pEapMethods", &self.pEapMethods).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EAP_METHOD_INFO_ARRAY_EX {
     type Abi = Self;
 }
@@ -970,6 +1075,12 @@ impl ::core::marker::Copy for EAP_METHOD_INFO_EX {}
 impl ::core::clone::Clone for EAP_METHOD_INFO_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EAP_METHOD_INFO_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAP_METHOD_INFO_EX").field("eaptype", &self.eaptype).field("pwszAuthorName", &self.pwszAuthorName).field("pwszFriendlyName", &self.pwszFriendlyName).field("eapProperties", &self.eapProperties).field("pInnerMethodInfoArray", &self.pInnerMethodInfoArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1039,6 +1150,12 @@ impl ::core::marker::Copy for EAP_METHOD_PROPERTY_ARRAY {}
 impl ::core::clone::Clone for EAP_METHOD_PROPERTY_ARRAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EAP_METHOD_PROPERTY_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAP_METHOD_PROPERTY_ARRAY").field("dwNumberOfProperties", &self.dwNumberOfProperties).field("pMethodProperty", &self.pMethodProperty).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1173,6 +1290,12 @@ impl ::core::clone::Clone for EAP_METHOD_PROPERTY_VALUE_BOOL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EAP_METHOD_PROPERTY_VALUE_BOOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAP_METHOD_PROPERTY_VALUE_BOOL").field("length", &self.length).field("value", &self.value).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EAP_METHOD_PROPERTY_VALUE_BOOL {
     type Abi = Self;
 }
@@ -1202,6 +1325,11 @@ impl ::core::clone::Clone for EAP_METHOD_PROPERTY_VALUE_DWORD {
         *self
     }
 }
+impl ::core::fmt::Debug for EAP_METHOD_PROPERTY_VALUE_DWORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAP_METHOD_PROPERTY_VALUE_DWORD").field("length", &self.length).field("value", &self.value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EAP_METHOD_PROPERTY_VALUE_DWORD {
     type Abi = Self;
 }
@@ -1226,6 +1354,11 @@ impl ::core::marker::Copy for EAP_METHOD_PROPERTY_VALUE_STRING {}
 impl ::core::clone::Clone for EAP_METHOD_PROPERTY_VALUE_STRING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EAP_METHOD_PROPERTY_VALUE_STRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAP_METHOD_PROPERTY_VALUE_STRING").field("length", &self.length).field("value", &self.value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EAP_METHOD_PROPERTY_VALUE_STRING {
@@ -1260,6 +1393,11 @@ impl ::core::marker::Copy for EAP_METHOD_TYPE {}
 impl ::core::clone::Clone for EAP_METHOD_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EAP_METHOD_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAP_METHOD_TYPE").field("eapType", &self.eapType).field("dwAuthorId", &self.dwAuthorId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EAP_METHOD_TYPE {
@@ -1305,6 +1443,27 @@ impl ::core::clone::Clone for EAP_PEER_METHOD_ROUTINES {
         *self
     }
 }
+impl ::core::fmt::Debug for EAP_PEER_METHOD_ROUTINES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAP_PEER_METHOD_ROUTINES")
+            .field("dwVersion", &self.dwVersion)
+            .field("pEapType", &self.pEapType)
+            .field("EapPeerInitialize", &self.EapPeerInitialize)
+            .field("EapPeerGetIdentity", &self.EapPeerGetIdentity)
+            .field("EapPeerBeginSession", &self.EapPeerBeginSession)
+            .field("EapPeerSetCredentials", &self.EapPeerSetCredentials)
+            .field("EapPeerProcessRequestPacket", &self.EapPeerProcessRequestPacket)
+            .field("EapPeerGetResponsePacket", &self.EapPeerGetResponsePacket)
+            .field("EapPeerGetResult", &self.EapPeerGetResult)
+            .field("EapPeerGetUIContext", &self.EapPeerGetUIContext)
+            .field("EapPeerSetUIContext", &self.EapPeerSetUIContext)
+            .field("EapPeerGetResponseAttributes", &self.EapPeerGetResponseAttributes)
+            .field("EapPeerSetResponseAttributes", &self.EapPeerSetResponseAttributes)
+            .field("EapPeerEndSession", &self.EapPeerEndSession)
+            .field("EapPeerShutdown", &self.EapPeerShutdown)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EAP_PEER_METHOD_ROUTINES {
     type Abi = Self;
 }
@@ -1330,6 +1489,11 @@ impl ::core::marker::Copy for EAP_TYPE {}
 impl ::core::clone::Clone for EAP_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EAP_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EAP_TYPE").field("type", &self.r#type).field("dwVendorId", &self.dwVendorId).field("dwVendorType", &self.dwVendorType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EAP_TYPE {
@@ -1401,6 +1565,12 @@ impl ::core::marker::Copy for EapCertificateCredential {}
 impl ::core::clone::Clone for EapCertificateCredential {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EapCertificateCredential {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EapCertificateCredential").field("certHash", &self.certHash).field("password", &self.password).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1951,6 +2121,25 @@ impl ::core::clone::Clone for EapHostPeerMethodResult {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EapHostPeerMethodResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EapHostPeerMethodResult")
+            .field("fIsSuccess", &self.fIsSuccess)
+            .field("dwFailureReasonCode", &self.dwFailureReasonCode)
+            .field("fSaveConnectionData", &self.fSaveConnectionData)
+            .field("dwSizeofConnectionData", &self.dwSizeofConnectionData)
+            .field("pConnectionData", &self.pConnectionData)
+            .field("fSaveUserData", &self.fSaveUserData)
+            .field("dwSizeofUserData", &self.dwSizeofUserData)
+            .field("pUserData", &self.pUserData)
+            .field("pAttribArray", &self.pAttribArray)
+            .field("isolationState", &self.isolationState)
+            .field("pEapMethodInfo", &self.pEapMethodInfo)
+            .field("pEapError", &self.pEapError)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EapHostPeerMethodResult {
     type Abi = Self;
 }
@@ -2125,6 +2314,11 @@ impl ::core::clone::Clone for EapPacket {
         *self
     }
 }
+impl ::core::fmt::Debug for EapPacket {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EapPacket").field("Code", &self.Code).field("Id", &self.Id).field("Length", &self.Length).field("Data", &self.Data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EapPacket {
     type Abi = Self;
 }
@@ -2152,6 +2346,12 @@ impl ::core::marker::Copy for EapPeerMethodOutput {}
 impl ::core::clone::Clone for EapPeerMethodOutput {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EapPeerMethodOutput {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EapPeerMethodOutput").field("action", &self.action).field("fAllowNotifications", &self.fAllowNotifications).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2212,6 +2412,25 @@ impl ::core::clone::Clone for EapPeerMethodResult {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EapPeerMethodResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EapPeerMethodResult")
+            .field("fIsSuccess", &self.fIsSuccess)
+            .field("dwFailureReasonCode", &self.dwFailureReasonCode)
+            .field("fSaveConnectionData", &self.fSaveConnectionData)
+            .field("dwSizeofConnectionData", &self.dwSizeofConnectionData)
+            .field("pConnectionData", &self.pConnectionData)
+            .field("fSaveUserData", &self.fSaveUserData)
+            .field("dwSizeofUserData", &self.dwSizeofUserData)
+            .field("pUserData", &self.pUserData)
+            .field("pAttribArray", &self.pAttribArray)
+            .field("pEapError", &self.pEapError)
+            .field("pNgcKerbTicket", &self.pNgcKerbTicket)
+            .field("fSaveToCredMan", &self.fSaveToCredMan)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EapPeerMethodResult {
     type Abi = Self;
 }
@@ -2252,6 +2471,12 @@ impl ::core::clone::Clone for EapSimCredential {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EapSimCredential {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EapSimCredential").field("iccID", &self.iccID).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EapSimCredential {
     type Abi = Self;
 }
@@ -2282,6 +2507,12 @@ impl ::core::marker::Copy for EapUsernamePasswordCredential {}
 impl ::core::clone::Clone for EapUsernamePasswordCredential {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EapUsernamePasswordCredential {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EapUsernamePasswordCredential").field("username", &self.username).field("password", &self.password).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2417,6 +2648,11 @@ impl ::core::cmp::PartialEq for IAccountingProviderConfig {
     }
 }
 impl ::core::cmp::Eq for IAccountingProviderConfig {}
+impl ::core::fmt::Debug for IAccountingProviderConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAccountingProviderConfig").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAccountingProviderConfig {
     type Vtable = IAccountingProviderConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66a2db18_d706_11d0_a37b_00c04fc9da04);
@@ -2494,6 +2730,11 @@ impl ::core::cmp::PartialEq for IAuthenticationProviderConfig {
     }
 }
 impl ::core::cmp::Eq for IAuthenticationProviderConfig {}
+impl ::core::fmt::Debug for IAuthenticationProviderConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAuthenticationProviderConfig").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAuthenticationProviderConfig {
     type Vtable = IAuthenticationProviderConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66a2db17_d706_11d0_a37b_00c04fc9da04);
@@ -2573,6 +2814,11 @@ impl ::core::cmp::PartialEq for IEAPProviderConfig {
     }
 }
 impl ::core::cmp::Eq for IEAPProviderConfig {}
+impl ::core::fmt::Debug for IEAPProviderConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEAPProviderConfig").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEAPProviderConfig {
     type Vtable = IEAPProviderConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66a2db19_d706_11d0_a37b_00c04fc9da04);
@@ -2683,6 +2929,11 @@ impl ::core::cmp::PartialEq for IEAPProviderConfig2 {
     }
 }
 impl ::core::cmp::Eq for IEAPProviderConfig2 {}
+impl ::core::fmt::Debug for IEAPProviderConfig2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEAPProviderConfig2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEAPProviderConfig2 {
     type Vtable = IEAPProviderConfig2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd565917a_85c4_4466_856e_671c3742ea9a);
@@ -2821,6 +3072,11 @@ impl ::core::cmp::PartialEq for IEAPProviderConfig3 {
     }
 }
 impl ::core::cmp::Eq for IEAPProviderConfig3 {}
+impl ::core::fmt::Debug for IEAPProviderConfig3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEAPProviderConfig3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEAPProviderConfig3 {
     type Vtable = IEAPProviderConfig3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb78ecd12_68bb_4f86_9bf0_8438dd3be982);
@@ -2892,6 +3148,11 @@ impl ::core::cmp::PartialEq for IRouterProtocolConfig {
     }
 }
 impl ::core::cmp::Eq for IRouterProtocolConfig {}
+impl ::core::fmt::Debug for IRouterProtocolConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRouterProtocolConfig").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRouterProtocolConfig {
     type Vtable = IRouterProtocolConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66a2db16_d706_11d0_a37b_00c04fc9da04);
@@ -2941,6 +3202,23 @@ impl ::core::clone::Clone for LEGACY_IDENTITY_UI_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LEGACY_IDENTITY_UI_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LEGACY_IDENTITY_UI_PARAMS")
+            .field("eapType", &self.eapType)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwSizeofConnectionData", &self.dwSizeofConnectionData)
+            .field("pConnectionData", &self.pConnectionData)
+            .field("dwSizeofUserData", &self.dwSizeofUserData)
+            .field("pUserData", &self.pUserData)
+            .field("dwSizeofUserDataOut", &self.dwSizeofUserDataOut)
+            .field("pUserDataOut", &self.pUserDataOut)
+            .field("pwszIdentity", &self.pwszIdentity)
+            .field("dwError", &self.dwError)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for LEGACY_IDENTITY_UI_PARAMS {
     type Abi = Self;
 }
@@ -2972,6 +3250,11 @@ impl ::core::marker::Copy for LEGACY_INTERACTIVE_UI_PARAMS {}
 impl ::core::clone::Clone for LEGACY_INTERACTIVE_UI_PARAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LEGACY_INTERACTIVE_UI_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LEGACY_INTERACTIVE_UI_PARAMS").field("eapType", &self.eapType).field("dwSizeofContextData", &self.dwSizeofContextData).field("pContextData", &self.pContextData).field("dwSizeofInteractiveUIData", &self.dwSizeofInteractiveUIData).field("pInteractiveUIData", &self.pInteractiveUIData).field("dwError", &self.dwError).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LEGACY_INTERACTIVE_UI_PARAMS {
@@ -3010,6 +3293,12 @@ impl ::core::marker::Copy for NgcTicketContext {}
 impl ::core::clone::Clone for NgcTicketContext {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NgcTicketContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NgcTicketContext").field("wszTicket", &self.wszTicket).field("hKey", &self.hKey).field("hImpersonateToken", &self.hImpersonateToken).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3068,6 +3357,11 @@ impl ::core::clone::Clone for PPP_EAP_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for PPP_EAP_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PPP_EAP_INFO").field("dwSizeInBytes", &self.dwSizeInBytes).field("dwEapTypeId", &self.dwEapTypeId).field("RasEapInitialize", &self.RasEapInitialize).field("RasEapBegin", &self.RasEapBegin).field("RasEapEnd", &self.RasEapEnd).field("RasEapMakeMessage", &self.RasEapMakeMessage).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PPP_EAP_INFO {
     type Abi = Self;
 }
@@ -3117,6 +3411,34 @@ impl ::core::clone::Clone for PPP_EAP_INPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PPP_EAP_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PPP_EAP_INPUT")
+            .field("dwSizeInBytes", &self.dwSizeInBytes)
+            .field("fFlags", &self.fFlags)
+            .field("fAuthenticator", &self.fAuthenticator)
+            .field("pwszIdentity", &self.pwszIdentity)
+            .field("pwszPassword", &self.pwszPassword)
+            .field("bInitialId", &self.bInitialId)
+            .field("pUserAttributes", &self.pUserAttributes)
+            .field("fAuthenticationComplete", &self.fAuthenticationComplete)
+            .field("dwAuthResultCode", &self.dwAuthResultCode)
+            .field("hTokenImpersonateUser", &self.hTokenImpersonateUser)
+            .field("fSuccessPacketReceived", &self.fSuccessPacketReceived)
+            .field("fDataReceivedFromInteractiveUI", &self.fDataReceivedFromInteractiveUI)
+            .field("pDataFromInteractiveUI", &self.pDataFromInteractiveUI)
+            .field("dwSizeOfDataFromInteractiveUI", &self.dwSizeOfDataFromInteractiveUI)
+            .field("pConnectionData", &self.pConnectionData)
+            .field("dwSizeOfConnectionData", &self.dwSizeOfConnectionData)
+            .field("pUserData", &self.pUserData)
+            .field("dwSizeOfUserData", &self.dwSizeOfUserData)
+            .field("hReserved", &self.hReserved)
+            .field("guidConnectionId", &self.guidConnectionId)
+            .field("isVpn", &self.isVpn)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PPP_EAP_INPUT {
     type Abi = Self;
 }
@@ -3163,6 +3485,28 @@ impl ::core::clone::Clone for PPP_EAP_OUTPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PPP_EAP_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PPP_EAP_OUTPUT")
+            .field("dwSizeInBytes", &self.dwSizeInBytes)
+            .field("Action", &self.Action)
+            .field("dwAuthResultCode", &self.dwAuthResultCode)
+            .field("pUserAttributes", &self.pUserAttributes)
+            .field("fInvokeInteractiveUI", &self.fInvokeInteractiveUI)
+            .field("pUIContextData", &self.pUIContextData)
+            .field("dwSizeOfUIContextData", &self.dwSizeOfUIContextData)
+            .field("fSaveConnectionData", &self.fSaveConnectionData)
+            .field("pConnectionData", &self.pConnectionData)
+            .field("dwSizeOfConnectionData", &self.dwSizeOfConnectionData)
+            .field("fSaveUserData", &self.fSaveUserData)
+            .field("pUserData", &self.pUserData)
+            .field("dwSizeOfUserData", &self.dwSizeOfUserData)
+            .field("pNgcKerbTicket", &self.pNgcKerbTicket)
+            .field("fSaveToCredMan", &self.fSaveToCredMan)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PPP_EAP_OUTPUT {
     type Abi = Self;
 }
@@ -3194,6 +3538,11 @@ impl ::core::clone::Clone for PPP_EAP_PACKET {
         *self
     }
 }
+impl ::core::fmt::Debug for PPP_EAP_PACKET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PPP_EAP_PACKET").field("Code", &self.Code).field("Id", &self.Id).field("Length", &self.Length).field("Data", &self.Data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PPP_EAP_PACKET {
     type Abi = Self;
 }
@@ -3219,6 +3568,11 @@ impl ::core::marker::Copy for RAS_AUTH_ATTRIBUTE {}
 impl ::core::clone::Clone for RAS_AUTH_ATTRIBUTE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RAS_AUTH_ATTRIBUTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RAS_AUTH_ATTRIBUTE").field("raaType", &self.raaType).field("dwLength", &self.dwLength).field("Value", &self.Value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RAS_AUTH_ATTRIBUTE {

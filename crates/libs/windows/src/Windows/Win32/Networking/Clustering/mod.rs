@@ -601,6 +601,28 @@ impl ::core::clone::Clone for CLRES_CALLBACK_FUNCTION_TABLE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLRES_CALLBACK_FUNCTION_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLRES_CALLBACK_FUNCTION_TABLE")
+            .field("LogEvent", &self.LogEvent.map(|f| f as usize))
+            .field("SetResourceStatusEx", &self.SetResourceStatusEx.map(|f| f as usize))
+            .field("SetResourceLockedMode", &self.SetResourceLockedMode.map(|f| f as usize))
+            .field("SignalFailure", &self.SignalFailure.map(|f| f as usize))
+            .field("SetResourceInMemoryNodeLocalProperties", &self.SetResourceInMemoryNodeLocalProperties.map(|f| f as usize))
+            .field("EndControlCall", &self.EndControlCall.map(|f| f as usize))
+            .field("EndTypeControlCall", &self.EndTypeControlCall.map(|f| f as usize))
+            .field("ExtendControlCall", &self.ExtendControlCall.map(|f| f as usize))
+            .field("ExtendTypeControlCall", &self.ExtendTypeControlCall.map(|f| f as usize))
+            .field("RaiseResTypeNotification", &self.RaiseResTypeNotification.map(|f| f as usize))
+            .field("ChangeResourceProcessForDumps", &self.ChangeResourceProcessForDumps.map(|f| f as usize))
+            .field("ChangeResTypeProcessForDumps", &self.ChangeResTypeProcessForDumps.map(|f| f as usize))
+            .field("SetInternalState", &self.SetInternalState.map(|f| f as usize))
+            .field("SetResourceLockedModeEx", &self.SetResourceLockedModeEx.map(|f| f as usize))
+            .field("RequestDump", &self.RequestDump.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CLRES_CALLBACK_FUNCTION_TABLE {
     type Abi = Self;
 }
@@ -712,6 +734,24 @@ impl ::core::clone::Clone for CLRES_V1_FUNCTIONS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::fmt::Debug for CLRES_V1_FUNCTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLRES_V1_FUNCTIONS")
+            .field("Open", &self.Open.map(|f| f as usize))
+            .field("Close", &self.Close.map(|f| f as usize))
+            .field("Online", &self.Online.map(|f| f as usize))
+            .field("Offline", &self.Offline.map(|f| f as usize))
+            .field("Terminate", &self.Terminate.map(|f| f as usize))
+            .field("LooksAlive", &self.LooksAlive.map(|f| f as usize))
+            .field("IsAlive", &self.IsAlive.map(|f| f as usize))
+            .field("Arbitrate", &self.Arbitrate.map(|f| f as usize))
+            .field("Release", &self.Release.map(|f| f as usize))
+            .field("ResourceControl", &self.ResourceControl.map(|f| f as usize))
+            .field("ResourceTypeControl", &self.ResourceTypeControl.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::core::Abi for CLRES_V1_FUNCTIONS {
     type Abi = Self;
 }
@@ -752,6 +792,25 @@ impl ::core::marker::Copy for CLRES_V2_FUNCTIONS {}
 impl ::core::clone::Clone for CLRES_V2_FUNCTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::fmt::Debug for CLRES_V2_FUNCTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLRES_V2_FUNCTIONS")
+            .field("Open", &self.Open.map(|f| f as usize))
+            .field("Close", &self.Close.map(|f| f as usize))
+            .field("Online", &self.Online.map(|f| f as usize))
+            .field("Offline", &self.Offline.map(|f| f as usize))
+            .field("Terminate", &self.Terminate.map(|f| f as usize))
+            .field("LooksAlive", &self.LooksAlive.map(|f| f as usize))
+            .field("IsAlive", &self.IsAlive.map(|f| f as usize))
+            .field("Arbitrate", &self.Arbitrate.map(|f| f as usize))
+            .field("Release", &self.Release.map(|f| f as usize))
+            .field("ResourceControl", &self.ResourceControl.map(|f| f as usize))
+            .field("ResourceTypeControl", &self.ResourceTypeControl.map(|f| f as usize))
+            .field("Cancel", &self.Cancel.map(|f| f as usize))
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
@@ -798,6 +857,25 @@ impl ::core::clone::Clone for CLRES_V3_FUNCTIONS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::fmt::Debug for CLRES_V3_FUNCTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLRES_V3_FUNCTIONS")
+            .field("Open", &self.Open.map(|f| f as usize))
+            .field("Close", &self.Close.map(|f| f as usize))
+            .field("Online", &self.Online.map(|f| f as usize))
+            .field("Offline", &self.Offline.map(|f| f as usize))
+            .field("Terminate", &self.Terminate.map(|f| f as usize))
+            .field("LooksAlive", &self.LooksAlive.map(|f| f as usize))
+            .field("IsAlive", &self.IsAlive.map(|f| f as usize))
+            .field("Arbitrate", &self.Arbitrate.map(|f| f as usize))
+            .field("Release", &self.Release.map(|f| f as usize))
+            .field("BeginResourceControl", &self.BeginResourceControl.map(|f| f as usize))
+            .field("BeginResourceTypeControl", &self.BeginResourceTypeControl.map(|f| f as usize))
+            .field("Cancel", &self.Cancel.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::core::Abi for CLRES_V3_FUNCTIONS {
     type Abi = Self;
 }
@@ -840,6 +918,27 @@ impl ::core::marker::Copy for CLRES_V4_FUNCTIONS {}
 impl ::core::clone::Clone for CLRES_V4_FUNCTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::fmt::Debug for CLRES_V4_FUNCTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLRES_V4_FUNCTIONS")
+            .field("Open", &self.Open.map(|f| f as usize))
+            .field("Close", &self.Close.map(|f| f as usize))
+            .field("Online", &self.Online.map(|f| f as usize))
+            .field("Offline", &self.Offline.map(|f| f as usize))
+            .field("Terminate", &self.Terminate.map(|f| f as usize))
+            .field("LooksAlive", &self.LooksAlive.map(|f| f as usize))
+            .field("IsAlive", &self.IsAlive.map(|f| f as usize))
+            .field("Arbitrate", &self.Arbitrate.map(|f| f as usize))
+            .field("Release", &self.Release.map(|f| f as usize))
+            .field("BeginResourceControl", &self.BeginResourceControl.map(|f| f as usize))
+            .field("BeginResourceTypeControl", &self.BeginResourceTypeControl.map(|f| f as usize))
+            .field("Cancel", &self.Cancel.map(|f| f as usize))
+            .field("BeginResourceControlAsUser", &self.BeginResourceControlAsUser.map(|f| f as usize))
+            .field("BeginResourceTypeControlAsUser", &self.BeginResourceTypeControlAsUser.map(|f| f as usize))
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
@@ -1148,6 +1247,12 @@ impl ::core::marker::Copy for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {}
 impl ::core::clone::Clone for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT").field("GetTickCount64", &self.GetTickCount64).field("GetSystemTime", &self.GetSystemTime).field("NodeId", &self.NodeId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1533,6 +1638,11 @@ impl ::core::clone::Clone for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT").field("dwSize", &self.dwSize).field("dwVersion", &self.dwVersion).field("eReason", &self.eReason).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
     type Abi = Self;
 }
@@ -1697,6 +1807,11 @@ impl ::core::marker::Copy for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_
 impl ::core::clone::Clone for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT").field("dwFlags", &self.dwFlags).field("guidPoolFilter", &self.guidPoolFilter).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
@@ -2370,6 +2485,11 @@ impl ::core::clone::Clone for CLUSPROP_SYNTAX_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUSPROP_SYNTAX_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSPROP_SYNTAX_0").field("wFormat", &self.wFormat).field("wType", &self.wType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSPROP_SYNTAX_0 {
     type Abi = Self;
 }
@@ -2564,6 +2684,22 @@ impl ::core::clone::Clone for CLUSTERVERSIONINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUSTERVERSIONINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTERVERSIONINFO")
+            .field("dwVersionInfoSize", &self.dwVersionInfoSize)
+            .field("MajorVersion", &self.MajorVersion)
+            .field("MinorVersion", &self.MinorVersion)
+            .field("BuildNumber", &self.BuildNumber)
+            .field("szVendorId", &self.szVendorId)
+            .field("szCSDVersion", &self.szCSDVersion)
+            .field("dwClusterHighestVersion", &self.dwClusterHighestVersion)
+            .field("dwClusterLowestVersion", &self.dwClusterLowestVersion)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwReserved", &self.dwReserved)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTERVERSIONINFO {
     type Abi = Self;
 }
@@ -2592,6 +2728,11 @@ impl ::core::marker::Copy for CLUSTERVERSIONINFO_NT4 {}
 impl ::core::clone::Clone for CLUSTERVERSIONINFO_NT4 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CLUSTERVERSIONINFO_NT4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTERVERSIONINFO_NT4").field("dwVersionInfoSize", &self.dwVersionInfoSize).field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("BuildNumber", &self.BuildNumber).field("szVendorId", &self.szVendorId).field("szCSDVersion", &self.szCSDVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTERVERSIONINFO_NT4 {
@@ -2623,6 +2764,12 @@ impl ::core::marker::Copy for CLUSTER_AVAILABILITY_SET_CONFIG {}
 impl ::core::clone::Clone for CLUSTER_AVAILABILITY_SET_CONFIG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLUSTER_AVAILABILITY_SET_CONFIG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTER_AVAILABILITY_SET_CONFIG").field("dwVersion", &self.dwVersion).field("dwUpdateDomains", &self.dwUpdateDomains).field("dwFaultDomains", &self.dwFaultDomains).field("bReserveSpareNode", &self.bReserveSpareNode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2661,6 +2808,12 @@ impl ::core::marker::Copy for CLUSTER_BATCH_COMMAND {}
 impl ::core::clone::Clone for CLUSTER_BATCH_COMMAND {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLUSTER_BATCH_COMMAND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTER_BATCH_COMMAND").field("Command", &self.Command).field("dwOptions", &self.dwOptions).field("wzName", &self.wzName).field("lpData", &self.lpData).field("cbData", &self.cbData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3007,6 +3160,11 @@ impl ::core::clone::Clone for CLUSTER_CREATE_GROUP_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUSTER_CREATE_GROUP_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTER_CREATE_GROUP_INFO").field("dwVersion", &self.dwVersion).field("groupType", &self.groupType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_CREATE_GROUP_INFO {
     type Abi = Self;
 }
@@ -3081,6 +3239,12 @@ impl ::core::clone::Clone for CLUSTER_ENUM_ITEM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLUSTER_ENUM_ITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTER_ENUM_ITEM").field("dwVersion", &self.dwVersion).field("dwType", &self.dwType).field("cbId", &self.cbId).field("lpszId", &self.lpszId).field("cbName", &self.cbName).field("lpszName", &self.lpszName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CLUSTER_ENUM_ITEM {
     type Abi = Self;
 }
@@ -3142,6 +3306,26 @@ impl ::core::marker::Copy for CLUSTER_GROUP_ENUM_ITEM {}
 impl ::core::clone::Clone for CLUSTER_GROUP_ENUM_ITEM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLUSTER_GROUP_ENUM_ITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTER_GROUP_ENUM_ITEM")
+            .field("dwVersion", &self.dwVersion)
+            .field("cbId", &self.cbId)
+            .field("lpszId", &self.lpszId)
+            .field("cbName", &self.cbName)
+            .field("lpszName", &self.lpszName)
+            .field("state", &self.state)
+            .field("cbOwnerNode", &self.cbOwnerNode)
+            .field("lpszOwnerNode", &self.lpszOwnerNode)
+            .field("dwFlags", &self.dwFlags)
+            .field("cbProperties", &self.cbProperties)
+            .field("pProperties", &self.pProperties)
+            .field("cbRoProperties", &self.cbRoProperties)
+            .field("pRoProperties", &self.pRoProperties)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3211,6 +3395,12 @@ impl ::core::clone::Clone for CLUSTER_HEALTH_FAULT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLUSTER_HEALTH_FAULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTER_HEALTH_FAULT").field("Id", &self.Id).field("ErrorType", &self.ErrorType).field("ErrorCode", &self.ErrorCode).field("Description", &self.Description).field("Provider", &self.Provider).field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CLUSTER_HEALTH_FAULT {
     type Abi = Self;
 }
@@ -3243,6 +3433,12 @@ impl ::core::marker::Copy for CLUSTER_HEALTH_FAULT_ARRAY {}
 impl ::core::clone::Clone for CLUSTER_HEALTH_FAULT_ARRAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLUSTER_HEALTH_FAULT_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTER_HEALTH_FAULT_ARRAY").field("numFaults", &self.numFaults).field("faults", &self.faults).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3295,6 +3491,12 @@ impl ::core::clone::Clone for CLUSTER_IP_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLUSTER_IP_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTER_IP_ENTRY").field("lpszIpAddress", &self.lpszIpAddress).field("dwPrefixLength", &self.dwPrefixLength).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CLUSTER_IP_ENTRY {
     type Abi = Self;
 }
@@ -3326,6 +3528,12 @@ impl ::core::marker::Copy for CLUSTER_MEMBERSHIP_INFO {}
 impl ::core::clone::Clone for CLUSTER_MEMBERSHIP_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLUSTER_MEMBERSHIP_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTER_MEMBERSHIP_INFO").field("HasQuorum", &self.HasQuorum).field("UpnodesSize", &self.UpnodesSize).field("Upnodes", &self.Upnodes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3660,6 +3868,12 @@ impl ::core::clone::Clone for CLUSTER_READ_BATCH_COMMAND {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLUSTER_READ_BATCH_COMMAND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTER_READ_BATCH_COMMAND").field("Command", &self.Command).field("dwOptions", &self.dwOptions).field("wzSubkeyName", &self.wzSubkeyName).field("wzValueName", &self.wzValueName).field("lpData", &self.lpData).field("cbData", &self.cbData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CLUSTER_READ_BATCH_COMMAND {
     type Abi = Self;
 }
@@ -3787,6 +4001,26 @@ impl ::core::marker::Copy for CLUSTER_RESOURCE_ENUM_ITEM {}
 impl ::core::clone::Clone for CLUSTER_RESOURCE_ENUM_ITEM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLUSTER_RESOURCE_ENUM_ITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTER_RESOURCE_ENUM_ITEM")
+            .field("dwVersion", &self.dwVersion)
+            .field("cbId", &self.cbId)
+            .field("lpszId", &self.lpszId)
+            .field("cbName", &self.cbName)
+            .field("lpszName", &self.lpszName)
+            .field("cbOwnerGroupName", &self.cbOwnerGroupName)
+            .field("lpszOwnerGroupName", &self.lpszOwnerGroupName)
+            .field("cbOwnerGroupId", &self.cbOwnerGroupId)
+            .field("lpszOwnerGroupId", &self.lpszOwnerGroupId)
+            .field("cbProperties", &self.cbProperties)
+            .field("pProperties", &self.pProperties)
+            .field("cbRoProperties", &self.cbRoProperties)
+            .field("pRoProperties", &self.pRoProperties)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4036,6 +4270,12 @@ impl ::core::clone::Clone for CLUSTER_SET_PASSWORD_STATUS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLUSTER_SET_PASSWORD_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTER_SET_PASSWORD_STATUS").field("NodeId", &self.NodeId).field("SetAttempted", &self.SetAttempted).field("ReturnStatus", &self.ReturnStatus).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CLUSTER_SET_PASSWORD_STATUS {
     type Abi = Self;
 }
@@ -4123,6 +4363,11 @@ impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME").field("NewVolumeName", &self.NewVolumeName).field("NewVolumeGuid", &self.NewVolumeGuid).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
     type Abi = Self;
 }
@@ -4146,6 +4391,11 @@ impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {}
 impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME").field("NewVolumeName", &self.NewVolumeName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
@@ -4263,6 +4513,11 @@ impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_STATE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUSTER_SHARED_VOLUME_STATE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTER_SHARED_VOLUME_STATE_INFO").field("szVolumeName", &self.szVolumeName).field("szNodeName", &self.szNodeName).field("VolumeState", &self.VolumeState).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_STATE_INFO {
     type Abi = Self;
 }
@@ -4291,6 +4546,11 @@ impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {}
 impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTER_SHARED_VOLUME_STATE_INFO_EX").field("szVolumeName", &self.szVolumeName).field("szNodeName", &self.szNodeName).field("VolumeState", &self.VolumeState).field("szVolumeFriendlyName", &self.szVolumeFriendlyName).field("RedirectedIOReason", &self.RedirectedIOReason).field("VolumeRedirectedIOReason", &self.VolumeRedirectedIOReason).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
@@ -4344,6 +4604,11 @@ impl ::core::clone::Clone for CLUSTER_VALIDATE_CSV_FILENAME {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUSTER_VALIDATE_CSV_FILENAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTER_VALIDATE_CSV_FILENAME").field("szFileName", &self.szFileName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_VALIDATE_CSV_FILENAME {
     type Abi = Self;
 }
@@ -4367,6 +4632,11 @@ impl ::core::marker::Copy for CLUSTER_VALIDATE_DIRECTORY {}
 impl ::core::clone::Clone for CLUSTER_VALIDATE_DIRECTORY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CLUSTER_VALIDATE_DIRECTORY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTER_VALIDATE_DIRECTORY").field("szPath", &self.szPath).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_VALIDATE_DIRECTORY {
@@ -4394,6 +4664,11 @@ impl ::core::clone::Clone for CLUSTER_VALIDATE_NETNAME {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUSTER_VALIDATE_NETNAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTER_VALIDATE_NETNAME").field("szNetworkName", &self.szNetworkName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_VALIDATE_NETNAME {
     type Abi = Self;
 }
@@ -4417,6 +4692,11 @@ impl ::core::marker::Copy for CLUSTER_VALIDATE_PATH {}
 impl ::core::clone::Clone for CLUSTER_VALIDATE_PATH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CLUSTER_VALIDATE_PATH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTER_VALIDATE_PATH").field("szPath", &self.szPath).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_VALIDATE_PATH {
@@ -4517,6 +4797,11 @@ impl ::core::clone::Clone for CLUS_CHKDSK_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUS_CHKDSK_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_CHKDSK_INFO").field("PartitionNumber", &self.PartitionNumber).field("ChkdskState", &self.ChkdskState).field("FileIdCount", &self.FileIdCount).field("FileIdList", &self.FileIdList).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUS_CHKDSK_INFO {
     type Abi = Self;
 }
@@ -4544,6 +4829,11 @@ impl ::core::clone::Clone for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT").field("FileServerName", &self.FileServerName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
     type Abi = Self;
 }
@@ -4567,6 +4857,11 @@ impl ::core::marker::Copy for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {}
 impl ::core::clone::Clone for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT").field("FileServerName", &self.FileServerName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
@@ -4596,6 +4891,12 @@ impl ::core::marker::Copy for CLUS_CSV_MAINTENANCE_MODE_INFO {}
 impl ::core::clone::Clone for CLUS_CSV_MAINTENANCE_MODE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLUS_CSV_MAINTENANCE_MODE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_CSV_MAINTENANCE_MODE_INFO").field("InMaintenance", &self.InMaintenance).field("VolumeName", &self.VolumeName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4632,6 +4933,11 @@ impl ::core::clone::Clone for CLUS_CSV_VOLUME_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUS_CSV_VOLUME_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_CSV_VOLUME_INFO").field("VolumeOffset", &self.VolumeOffset).field("PartitionNumber", &self.PartitionNumber).field("FaultState", &self.FaultState).field("BackupState", &self.BackupState).field("szVolumeFriendlyName", &self.szVolumeFriendlyName).field("szVolumeName", &self.szVolumeName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUS_CSV_VOLUME_INFO {
     type Abi = Self;
 }
@@ -4659,6 +4965,11 @@ impl ::core::clone::Clone for CLUS_CSV_VOLUME_NAME {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUS_CSV_VOLUME_NAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_CSV_VOLUME_NAME").field("VolumeOffset", &self.VolumeOffset).field("szVolumeName", &self.szVolumeName).field("szRootPath", &self.szRootPath).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUS_CSV_VOLUME_NAME {
     type Abi = Self;
 }
@@ -4683,6 +4994,11 @@ impl ::core::marker::Copy for CLUS_DISK_NUMBER_INFO {}
 impl ::core::clone::Clone for CLUS_DISK_NUMBER_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CLUS_DISK_NUMBER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_DISK_NUMBER_INFO").field("DiskNumber", &self.DiskNumber).field("BytesPerSector", &self.BytesPerSector).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUS_DISK_NUMBER_INFO {
@@ -4715,6 +5031,12 @@ impl ::core::clone::Clone for CLUS_DNN_LEADER_STATUS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLUS_DNN_LEADER_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_DNN_LEADER_STATUS").field("IsOnline", &self.IsOnline).field("IsFileServerPresent", &self.IsFileServerPresent).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CLUS_DNN_LEADER_STATUS {
     type Abi = Self;
 }
@@ -4742,6 +5064,11 @@ impl ::core::marker::Copy for CLUS_DNN_SODAFS_CLONE_STATUS {}
 impl ::core::clone::Clone for CLUS_DNN_SODAFS_CLONE_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CLUS_DNN_SODAFS_CLONE_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_DNN_SODAFS_CLONE_STATUS").field("NodeId", &self.NodeId).field("Status", &self.Status).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUS_DNN_SODAFS_CLONE_STATUS {
@@ -4776,6 +5103,11 @@ impl ::core::clone::Clone for CLUS_FORCE_QUORUM_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUS_FORCE_QUORUM_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_FORCE_QUORUM_INFO").field("dwSize", &self.dwSize).field("dwNodeBitMask", &self.dwNodeBitMask).field("dwMaxNumberofNodes", &self.dwMaxNumberofNodes).field("multiszNodeList", &self.multiszNodeList).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUS_FORCE_QUORUM_INFO {
     type Abi = Self;
 }
@@ -4800,6 +5132,11 @@ impl ::core::marker::Copy for CLUS_FTSET_INFO {}
 impl ::core::clone::Clone for CLUS_FTSET_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CLUS_FTSET_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_FTSET_INFO").field("dwRootSignature", &self.dwRootSignature).field("dwFtType", &self.dwFtType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUS_FTSET_INFO {
@@ -4847,6 +5184,12 @@ impl ::core::clone::Clone for CLUS_MAINTENANCE_MODE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLUS_MAINTENANCE_MODE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_MAINTENANCE_MODE_INFO").field("InMaintenance", &self.InMaintenance).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CLUS_MAINTENANCE_MODE_INFO {
     type Abi = Self;
 }
@@ -4882,6 +5225,12 @@ impl ::core::clone::Clone for CLUS_MAINTENANCE_MODE_INFOEX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLUS_MAINTENANCE_MODE_INFOEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_MAINTENANCE_MODE_INFOEX").field("InMaintenance", &self.InMaintenance).field("MaintainenceModeType", &self.MaintainenceModeType).field("InternalState", &self.InternalState).field("Signature", &self.Signature).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CLUS_MAINTENANCE_MODE_INFOEX {
     type Abi = Self;
 }
@@ -4914,6 +5263,11 @@ impl ::core::clone::Clone for CLUS_NETNAME_IP_INFO_ENTRY {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUS_NETNAME_IP_INFO_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_NETNAME_IP_INFO_ENTRY").field("NodeId", &self.NodeId).field("AddressSize", &self.AddressSize).field("Address", &self.Address).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUS_NETNAME_IP_INFO_ENTRY {
     type Abi = Self;
 }
@@ -4939,6 +5293,11 @@ impl ::core::marker::Copy for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {}
 impl ::core::clone::Clone for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL").field("szName", &self.szName).field("NumEntries", &self.NumEntries).field("IpInfo", &self.IpInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
@@ -4969,6 +5328,11 @@ impl ::core::clone::Clone for CLUS_NETNAME_PWD_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUS_NETNAME_PWD_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_NETNAME_PWD_INFO").field("Flags", &self.Flags).field("Password", &self.Password).field("CreatingDC", &self.CreatingDC).field("ObjectGuid", &self.ObjectGuid).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUS_NETNAME_PWD_INFO {
     type Abi = Self;
 }
@@ -4995,6 +5359,11 @@ impl ::core::marker::Copy for CLUS_NETNAME_PWD_INFOEX {}
 impl ::core::clone::Clone for CLUS_NETNAME_PWD_INFOEX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CLUS_NETNAME_PWD_INFOEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_NETNAME_PWD_INFOEX").field("Flags", &self.Flags).field("Password", &self.Password).field("CreatingDC", &self.CreatingDC).field("ObjectGuid", &self.ObjectGuid).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUS_NETNAME_PWD_INFOEX {
@@ -5025,6 +5394,12 @@ impl ::core::marker::Copy for CLUS_NETNAME_VS_TOKEN_INFO {}
 impl ::core::clone::Clone for CLUS_NETNAME_VS_TOKEN_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLUS_NETNAME_VS_TOKEN_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_NETNAME_VS_TOKEN_INFO").field("ProcessID", &self.ProcessID).field("DesiredAccess", &self.DesiredAccess).field("InheritHandle", &self.InheritHandle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5068,6 +5443,11 @@ impl ::core::clone::Clone for CLUS_PARTITION_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUS_PARTITION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_PARTITION_INFO").field("dwFlags", &self.dwFlags).field("szDeviceName", &self.szDeviceName).field("szVolumeLabel", &self.szVolumeLabel).field("dwSerialNumber", &self.dwSerialNumber).field("rgdwMaximumComponentLength", &self.rgdwMaximumComponentLength).field("dwFileSystemFlags", &self.dwFileSystemFlags).field("szFileSystem", &self.szFileSystem).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUS_PARTITION_INFO {
     type Abi = Self;
 }
@@ -5104,6 +5484,24 @@ impl ::core::clone::Clone for CLUS_PARTITION_INFO_EX {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUS_PARTITION_INFO_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_PARTITION_INFO_EX")
+            .field("dwFlags", &self.dwFlags)
+            .field("szDeviceName", &self.szDeviceName)
+            .field("szVolumeLabel", &self.szVolumeLabel)
+            .field("dwSerialNumber", &self.dwSerialNumber)
+            .field("rgdwMaximumComponentLength", &self.rgdwMaximumComponentLength)
+            .field("dwFileSystemFlags", &self.dwFileSystemFlags)
+            .field("szFileSystem", &self.szFileSystem)
+            .field("TotalSizeInBytes", &self.TotalSizeInBytes)
+            .field("FreeSizeInBytes", &self.FreeSizeInBytes)
+            .field("DeviceNumber", &self.DeviceNumber)
+            .field("PartitionNumber", &self.PartitionNumber)
+            .field("VolumeGuid", &self.VolumeGuid)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUS_PARTITION_INFO_EX {
     type Abi = Self;
 }
@@ -5131,6 +5529,11 @@ impl ::core::clone::Clone for CLUS_PARTITION_INFO_EX2 {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUS_PARTITION_INFO_EX2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_PARTITION_INFO_EX2").field("GptPartitionId", &self.GptPartitionId).field("szPartitionName", &self.szPartitionName).field("EncryptionFlags", &self.EncryptionFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUS_PARTITION_INFO_EX2 {
     type Abi = Self;
 }
@@ -5156,6 +5559,11 @@ impl ::core::marker::Copy for CLUS_PROVIDER_STATE_CHANGE_INFO {}
 impl ::core::clone::Clone for CLUS_PROVIDER_STATE_CHANGE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CLUS_PROVIDER_STATE_CHANGE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_PROVIDER_STATE_CHANGE_INFO").field("dwSize", &self.dwSize).field("resourceState", &self.resourceState).field("szProviderId", &self.szProviderId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUS_PROVIDER_STATE_CHANGE_INFO {
@@ -5384,6 +5792,11 @@ impl ::core::clone::Clone for CLUS_SCSI_ADDRESS_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUS_SCSI_ADDRESS_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_SCSI_ADDRESS_0_0").field("PortNumber", &self.PortNumber).field("PathId", &self.PathId).field("TargetId", &self.TargetId).field("Lun", &self.Lun).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUS_SCSI_ADDRESS_0_0 {
     type Abi = Self;
 }
@@ -5412,6 +5825,12 @@ impl ::core::marker::Copy for CLUS_SET_MAINTENANCE_MODE_INPUT {}
 impl ::core::clone::Clone for CLUS_SET_MAINTENANCE_MODE_INPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLUS_SET_MAINTENANCE_MODE_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_SET_MAINTENANCE_MODE_INPUT").field("InMaintenance", &self.InMaintenance).field("ExtraParameterSize", &self.ExtraParameterSize).field("ExtraParameter", &self.ExtraParameter).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5445,6 +5864,11 @@ impl ::core::clone::Clone for CLUS_SHARED_VOLUME_BACKUP_MODE {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUS_SHARED_VOLUME_BACKUP_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_SHARED_VOLUME_BACKUP_MODE").field("BackupState", &self.BackupState).field("DelayTimerInSecs", &self.DelayTimerInSecs).field("VolumeName", &self.VolumeName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUS_SHARED_VOLUME_BACKUP_MODE {
     type Abi = Self;
 }
@@ -5476,6 +5900,12 @@ impl ::core::clone::Clone for CLUS_STARTING_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLUS_STARTING_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_STARTING_PARAMS").field("dwSize", &self.dwSize).field("bForm", &self.bForm).field("bFirst", &self.bFirst).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CLUS_STARTING_PARAMS {
     type Abi = Self;
 }
@@ -5504,6 +5934,11 @@ impl ::core::clone::Clone for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS").field("AvailDrivelettersMask", &self.AvailDrivelettersMask).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
     type Abi = Self;
 }
@@ -5530,6 +5965,11 @@ impl ::core::clone::Clone for CLUS_STORAGE_REMAP_DRIVELETTER {
         *self
     }
 }
+impl ::core::fmt::Debug for CLUS_STORAGE_REMAP_DRIVELETTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_STORAGE_REMAP_DRIVELETTER").field("CurrentDriveLetterMask", &self.CurrentDriveLetterMask).field("TargetDriveLetterMask", &self.TargetDriveLetterMask).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLUS_STORAGE_REMAP_DRIVELETTER {
     type Abi = Self;
 }
@@ -5554,6 +5994,11 @@ impl ::core::marker::Copy for CLUS_STORAGE_SET_DRIVELETTER {}
 impl ::core::clone::Clone for CLUS_STORAGE_SET_DRIVELETTER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CLUS_STORAGE_SET_DRIVELETTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_STORAGE_SET_DRIVELETTER").field("PartitionNumber", &self.PartitionNumber).field("DriveLetterMask", &self.DriveLetterMask).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUS_STORAGE_SET_DRIVELETTER {
@@ -5583,6 +6028,12 @@ impl ::core::marker::Copy for CLUS_WORKER {}
 impl ::core::clone::Clone for CLUS_WORKER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLUS_WORKER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUS_WORKER").field("hThread", &self.hThread).field("Terminate", &self.Terminate).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5628,6 +6079,12 @@ impl ::core::clone::Clone for CREATE_CLUSTER_CONFIG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CREATE_CLUSTER_CONFIG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CREATE_CLUSTER_CONFIG").field("dwVersion", &self.dwVersion).field("lpszClusterName", &self.lpszClusterName).field("cNodes", &self.cNodes).field("ppszNodeNames", &self.ppszNodeNames).field("cIpEntries", &self.cIpEntries).field("pIpEntries", &self.pIpEntries).field("fEmptyCluster", &self.fEmptyCluster).field("managementPointType", &self.managementPointType).field("managementPointResType", &self.managementPointResType).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CREATE_CLUSTER_CONFIG {
     type Abi = Self;
 }
@@ -5667,6 +6124,12 @@ impl ::core::marker::Copy for CREATE_CLUSTER_NAME_ACCOUNT {}
 impl ::core::clone::Clone for CREATE_CLUSTER_NAME_ACCOUNT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CREATE_CLUSTER_NAME_ACCOUNT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CREATE_CLUSTER_NAME_ACCOUNT").field("dwVersion", &self.dwVersion).field("lpszClusterName", &self.lpszClusterName).field("dwFlags", &self.dwFlags).field("pszUserName", &self.pszUserName).field("pszPassword", &self.pszPassword).field("pszDomain", &self.pszDomain).field("managementPointType", &self.managementPointType).field("managementPointResType", &self.managementPointResType).field("bUpgradeVCOs", &self.bUpgradeVCOs).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7892,6 +8355,11 @@ impl ::core::clone::Clone for FILESHARE_CHANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for FILESHARE_CHANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILESHARE_CHANGE").field("Change", &self.Change).field("ShareName", &self.ShareName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILESHARE_CHANGE {
     type Abi = Self;
 }
@@ -7926,6 +8394,11 @@ impl ::core::marker::Copy for FILESHARE_CHANGE_LIST {}
 impl ::core::clone::Clone for FILESHARE_CHANGE_LIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FILESHARE_CHANGE_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILESHARE_CHANGE_LIST").field("NumEntries", &self.NumEntries).field("ChangeEntry", &self.ChangeEntry).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FILESHARE_CHANGE_LIST {
@@ -8014,6 +8487,11 @@ impl ::core::clone::Clone for GET_OPERATION_CONTEXT_PARAMS {
         *self
     }
 }
+impl ::core::fmt::Debug for GET_OPERATION_CONTEXT_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GET_OPERATION_CONTEXT_PARAMS").field("Size", &self.Size).field("Version", &self.Version).field("Type", &self.Type).field("Priority", &self.Priority).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GET_OPERATION_CONTEXT_PARAMS {
     type Abi = Self;
 }
@@ -8048,6 +8526,11 @@ impl ::core::clone::Clone for GROUP_FAILURE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for GROUP_FAILURE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GROUP_FAILURE_INFO").field("dwFailoverAttemptsRemaining", &self.dwFailoverAttemptsRemaining).field("dwFailoverPeriodRemaining", &self.dwFailoverPeriodRemaining).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GROUP_FAILURE_INFO {
     type Abi = Self;
 }
@@ -8072,6 +8555,11 @@ impl ::core::marker::Copy for GROUP_FAILURE_INFO_BUFFER {}
 impl ::core::clone::Clone for GROUP_FAILURE_INFO_BUFFER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GROUP_FAILURE_INFO_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GROUP_FAILURE_INFO_BUFFER").field("dwVersion", &self.dwVersion).field("Info", &self.Info).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GROUP_FAILURE_INFO_BUFFER {
@@ -8595,6 +9083,11 @@ impl ::core::cmp::PartialEq for IGetClusterDataInfo {
     }
 }
 impl ::core::cmp::Eq for IGetClusterDataInfo {}
+impl ::core::fmt::Debug for IGetClusterDataInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetClusterDataInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGetClusterDataInfo {
     type Vtable = IGetClusterDataInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede51_fc6b_11cf_b5f5_00a0c90ab505);
@@ -8650,6 +9143,11 @@ impl ::core::cmp::PartialEq for IGetClusterGroupInfo {
     }
 }
 impl ::core::cmp::Eq for IGetClusterGroupInfo {}
+impl ::core::fmt::Debug for IGetClusterGroupInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetClusterGroupInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGetClusterGroupInfo {
     type Vtable = IGetClusterGroupInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede54_fc6b_11cf_b5f5_00a0c90ab505);
@@ -8697,6 +9195,11 @@ impl ::core::cmp::PartialEq for IGetClusterNetInterfaceInfo {
     }
 }
 impl ::core::cmp::Eq for IGetClusterNetInterfaceInfo {}
+impl ::core::fmt::Debug for IGetClusterNetInterfaceInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetClusterNetInterfaceInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGetClusterNetInterfaceInfo {
     type Vtable = IGetClusterNetInterfaceInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede57_fc6b_11cf_b5f5_00a0c90ab505);
@@ -8744,6 +9247,11 @@ impl ::core::cmp::PartialEq for IGetClusterNetworkInfo {
     }
 }
 impl ::core::cmp::Eq for IGetClusterNetworkInfo {}
+impl ::core::fmt::Debug for IGetClusterNetworkInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetClusterNetworkInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGetClusterNetworkInfo {
     type Vtable = IGetClusterNetworkInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede56_fc6b_11cf_b5f5_00a0c90ab505);
@@ -8791,6 +9299,11 @@ impl ::core::cmp::PartialEq for IGetClusterNodeInfo {
     }
 }
 impl ::core::cmp::Eq for IGetClusterNodeInfo {}
+impl ::core::fmt::Debug for IGetClusterNodeInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetClusterNodeInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGetClusterNodeInfo {
     type Vtable = IGetClusterNodeInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede53_fc6b_11cf_b5f5_00a0c90ab505);
@@ -8843,6 +9356,11 @@ impl ::core::cmp::PartialEq for IGetClusterObjectInfo {
     }
 }
 impl ::core::cmp::Eq for IGetClusterObjectInfo {}
+impl ::core::fmt::Debug for IGetClusterObjectInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetClusterObjectInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGetClusterObjectInfo {
     type Vtable = IGetClusterObjectInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede52_fc6b_11cf_b5f5_00a0c90ab505);
@@ -8907,6 +9425,11 @@ impl ::core::cmp::PartialEq for IGetClusterResourceInfo {
     }
 }
 impl ::core::cmp::Eq for IGetClusterResourceInfo {}
+impl ::core::fmt::Debug for IGetClusterResourceInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetClusterResourceInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGetClusterResourceInfo {
     type Vtable = IGetClusterResourceInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede55_fc6b_11cf_b5f5_00a0c90ab505);
@@ -8978,6 +9501,11 @@ impl ::core::cmp::PartialEq for IGetClusterUIInfo {
     }
 }
 impl ::core::cmp::Eq for IGetClusterUIInfo {}
+impl ::core::fmt::Debug for IGetClusterUIInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetClusterUIInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGetClusterUIInfo {
     type Vtable = IGetClusterUIInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede50_fc6b_11cf_b5f5_00a0c90ab505);
@@ -9095,6 +9623,11 @@ impl ::core::cmp::PartialEq for ISClusApplication {
     }
 }
 impl ::core::cmp::Eq for ISClusApplication {}
+impl ::core::fmt::Debug for ISClusApplication {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusApplication").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusApplication {
     type Vtable = ISClusApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606e6_2631_11d1_89f1_00a0c90d061e);
@@ -9231,6 +9764,11 @@ impl ::core::cmp::PartialEq for ISClusCryptoKeys {
     }
 }
 impl ::core::cmp::Eq for ISClusCryptoKeys {}
+impl ::core::fmt::Debug for ISClusCryptoKeys {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusCryptoKeys").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusCryptoKeys {
     type Vtable = ISClusCryptoKeysVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6072c_2631_11d1_89f1_00a0c90d061e);
@@ -9361,6 +9899,11 @@ impl ::core::cmp::PartialEq for ISClusDisk {
     }
 }
 impl ::core::cmp::Eq for ISClusDisk {}
+impl ::core::fmt::Debug for ISClusDisk {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusDisk").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusDisk {
     type Vtable = ISClusDiskVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60724_2631_11d1_89f1_00a0c90d061e);
@@ -9482,6 +10025,11 @@ impl ::core::cmp::PartialEq for ISClusDisks {
     }
 }
 impl ::core::cmp::Eq for ISClusDisks {}
+impl ::core::fmt::Debug for ISClusDisks {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusDisks").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusDisks {
     type Vtable = ISClusDisksVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60726_2631_11d1_89f1_00a0c90d061e);
@@ -9628,6 +10176,11 @@ impl ::core::cmp::PartialEq for ISClusNetInterface {
     }
 }
 impl ::core::cmp::Eq for ISClusNetInterface {}
+impl ::core::fmt::Debug for ISClusNetInterface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusNetInterface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusNetInterface {
     type Vtable = ISClusNetInterfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606ee_2631_11d1_89f1_00a0c90d061e);
@@ -9758,6 +10311,11 @@ impl ::core::cmp::PartialEq for ISClusNetInterfaces {
     }
 }
 impl ::core::cmp::Eq for ISClusNetInterfaces {}
+impl ::core::fmt::Debug for ISClusNetInterfaces {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusNetInterfaces").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusNetInterfaces {
     type Vtable = ISClusNetInterfacesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606f0_2631_11d1_89f1_00a0c90d061e);
@@ -9921,6 +10479,11 @@ impl ::core::cmp::PartialEq for ISClusNetwork {
     }
 }
 impl ::core::cmp::Eq for ISClusNetwork {}
+impl ::core::fmt::Debug for ISClusNetwork {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusNetwork").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusNetwork {
     type Vtable = ISClusNetworkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606f2_2631_11d1_89f1_00a0c90d061e);
@@ -10056,6 +10619,11 @@ impl ::core::cmp::PartialEq for ISClusNetworkNetInterfaces {
     }
 }
 impl ::core::cmp::Eq for ISClusNetworkNetInterfaces {}
+impl ::core::fmt::Debug for ISClusNetworkNetInterfaces {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusNetworkNetInterfaces").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusNetworkNetInterfaces {
     type Vtable = ISClusNetworkNetInterfacesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606f6_2631_11d1_89f1_00a0c90d061e);
@@ -10182,6 +10750,11 @@ impl ::core::cmp::PartialEq for ISClusNetworks {
     }
 }
 impl ::core::cmp::Eq for ISClusNetworks {}
+impl ::core::fmt::Debug for ISClusNetworks {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusNetworks").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusNetworks {
     type Vtable = ISClusNetworksVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606f4_2631_11d1_89f1_00a0c90d061e);
@@ -10357,6 +10930,11 @@ impl ::core::cmp::PartialEq for ISClusNode {
     }
 }
 impl ::core::cmp::Eq for ISClusNode {}
+impl ::core::fmt::Debug for ISClusNode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusNode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusNode {
     type Vtable = ISClusNodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606f8_2631_11d1_89f1_00a0c90d061e);
@@ -10494,6 +11072,11 @@ impl ::core::cmp::PartialEq for ISClusNodeNetInterfaces {
     }
 }
 impl ::core::cmp::Eq for ISClusNodeNetInterfaces {}
+impl ::core::fmt::Debug for ISClusNodeNetInterfaces {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusNodeNetInterfaces").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusNodeNetInterfaces {
     type Vtable = ISClusNodeNetInterfacesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606fc_2631_11d1_89f1_00a0c90d061e);
@@ -10620,6 +11203,11 @@ impl ::core::cmp::PartialEq for ISClusNodes {
     }
 }
 impl ::core::cmp::Eq for ISClusNodes {}
+impl ::core::fmt::Debug for ISClusNodes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusNodes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusNodes {
     type Vtable = ISClusNodesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606fa_2631_11d1_89f1_00a0c90d061e);
@@ -10764,6 +11352,11 @@ impl ::core::cmp::PartialEq for ISClusPartition {
     }
 }
 impl ::core::cmp::Eq for ISClusPartition {}
+impl ::core::fmt::Debug for ISClusPartition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusPartition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusPartition {
     type Vtable = ISClusPartitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60720_2631_11d1_89f1_00a0c90d061e);
@@ -10959,6 +11552,11 @@ impl ::core::cmp::PartialEq for ISClusPartitionEx {
     }
 }
 impl ::core::cmp::Eq for ISClusPartitionEx {}
+impl ::core::fmt::Debug for ISClusPartitionEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusPartitionEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusPartitionEx {
     type Vtable = ISClusPartitionExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8802d4fe_b32e_4ad1_9dbd_64f18e1166ce);
@@ -11092,6 +11690,11 @@ impl ::core::cmp::PartialEq for ISClusPartitions {
     }
 }
 impl ::core::cmp::Eq for ISClusPartitions {}
+impl ::core::fmt::Debug for ISClusPartitions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusPartitions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusPartitions {
     type Vtable = ISClusPartitionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60722_2631_11d1_89f1_00a0c90d061e);
@@ -11258,6 +11861,11 @@ impl ::core::cmp::PartialEq for ISClusProperties {
     }
 }
 impl ::core::cmp::Eq for ISClusProperties {}
+impl ::core::fmt::Debug for ISClusProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusProperties {
     type Vtable = ISClusPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60700_2631_11d1_89f1_00a0c90d061e);
@@ -11456,6 +12064,11 @@ impl ::core::cmp::PartialEq for ISClusProperty {
     }
 }
 impl ::core::cmp::Eq for ISClusProperty {}
+impl ::core::fmt::Debug for ISClusProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusProperty {
     type Vtable = ISClusPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606fe_2631_11d1_89f1_00a0c90d061e);
@@ -11623,6 +12236,11 @@ impl ::core::cmp::PartialEq for ISClusPropertyValue {
     }
 }
 impl ::core::cmp::Eq for ISClusPropertyValue {}
+impl ::core::fmt::Debug for ISClusPropertyValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusPropertyValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusPropertyValue {
     type Vtable = ISClusPropertyValueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6071a_2631_11d1_89f1_00a0c90d061e);
@@ -11762,6 +12380,11 @@ impl ::core::cmp::PartialEq for ISClusPropertyValueData {
     }
 }
 impl ::core::cmp::Eq for ISClusPropertyValueData {}
+impl ::core::fmt::Debug for ISClusPropertyValueData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusPropertyValueData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusPropertyValueData {
     type Vtable = ISClusPropertyValueDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6071e_2631_11d1_89f1_00a0c90d061e);
@@ -11898,6 +12521,11 @@ impl ::core::cmp::PartialEq for ISClusPropertyValues {
     }
 }
 impl ::core::cmp::Eq for ISClusPropertyValues {}
+impl ::core::fmt::Debug for ISClusPropertyValues {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusPropertyValues").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusPropertyValues {
     type Vtable = ISClusPropertyValuesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6071c_2631_11d1_89f1_00a0c90d061e);
@@ -12012,6 +12640,11 @@ impl ::core::cmp::PartialEq for ISClusRefObject {
     }
 }
 impl ::core::cmp::Eq for ISClusRefObject {}
+impl ::core::fmt::Debug for ISClusRefObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusRefObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusRefObject {
     type Vtable = ISClusRefObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60702_2631_11d1_89f1_00a0c90d061e);
@@ -12144,6 +12777,11 @@ impl ::core::cmp::PartialEq for ISClusRegistryKeys {
     }
 }
 impl ::core::cmp::Eq for ISClusRegistryKeys {}
+impl ::core::fmt::Debug for ISClusRegistryKeys {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusRegistryKeys").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusRegistryKeys {
     type Vtable = ISClusRegistryKeysVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6072a_2631_11d1_89f1_00a0c90d061e);
@@ -12294,6 +12932,11 @@ impl ::core::cmp::PartialEq for ISClusResDependencies {
     }
 }
 impl ::core::cmp::Eq for ISClusResDependencies {}
+impl ::core::fmt::Debug for ISClusResDependencies {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResDependencies").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResDependencies {
     type Vtable = ISClusResDependenciesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60704_2631_11d1_89f1_00a0c90d061e);
@@ -12447,6 +13090,11 @@ impl ::core::cmp::PartialEq for ISClusResDependents {
     }
 }
 impl ::core::cmp::Eq for ISClusResDependents {}
+impl ::core::fmt::Debug for ISClusResDependents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResDependents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResDependents {
     type Vtable = ISClusResDependentsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6072e_2631_11d1_89f1_00a0c90d061e);
@@ -12643,6 +13291,11 @@ impl ::core::cmp::PartialEq for ISClusResGroup {
     }
 }
 impl ::core::cmp::Eq for ISClusResGroup {}
+impl ::core::fmt::Debug for ISClusResGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResGroup {
     type Vtable = ISClusResGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60706_2631_11d1_89f1_00a0c90d061e);
@@ -12808,6 +13461,11 @@ impl ::core::cmp::PartialEq for ISClusResGroupPreferredOwnerNodes {
     }
 }
 impl ::core::cmp::Eq for ISClusResGroupPreferredOwnerNodes {}
+impl ::core::fmt::Debug for ISClusResGroupPreferredOwnerNodes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResGroupPreferredOwnerNodes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResGroupPreferredOwnerNodes {
     type Vtable = ISClusResGroupPreferredOwnerNodesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606e8_2631_11d1_89f1_00a0c90d061e);
@@ -12952,6 +13610,11 @@ impl ::core::cmp::PartialEq for ISClusResGroupResources {
     }
 }
 impl ::core::cmp::Eq for ISClusResGroupResources {}
+impl ::core::fmt::Debug for ISClusResGroupResources {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResGroupResources").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResGroupResources {
     type Vtable = ISClusResGroupResourcesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606ea_2631_11d1_89f1_00a0c90d061e);
@@ -13093,6 +13756,11 @@ impl ::core::cmp::PartialEq for ISClusResGroups {
     }
 }
 impl ::core::cmp::Eq for ISClusResGroups {}
+impl ::core::fmt::Debug for ISClusResGroups {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResGroups").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResGroups {
     type Vtable = ISClusResGroupsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60708_2631_11d1_89f1_00a0c90d061e);
@@ -13238,6 +13906,11 @@ impl ::core::cmp::PartialEq for ISClusResPossibleOwnerNodes {
     }
 }
 impl ::core::cmp::Eq for ISClusResPossibleOwnerNodes {}
+impl ::core::fmt::Debug for ISClusResPossibleOwnerNodes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResPossibleOwnerNodes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResPossibleOwnerNodes {
     type Vtable = ISClusResPossibleOwnerNodesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6070e_2631_11d1_89f1_00a0c90d061e);
@@ -13399,6 +14072,11 @@ impl ::core::cmp::PartialEq for ISClusResType {
     }
 }
 impl ::core::cmp::Eq for ISClusResType {}
+impl ::core::fmt::Debug for ISClusResType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResType {
     type Vtable = ISClusResTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60710_2631_11d1_89f1_00a0c90d061e);
@@ -13531,6 +14209,11 @@ impl ::core::cmp::PartialEq for ISClusResTypePossibleOwnerNodes {
     }
 }
 impl ::core::cmp::Eq for ISClusResTypePossibleOwnerNodes {}
+impl ::core::fmt::Debug for ISClusResTypePossibleOwnerNodes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResTypePossibleOwnerNodes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResTypePossibleOwnerNodes {
     type Vtable = ISClusResTypePossibleOwnerNodesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60718_2631_11d1_89f1_00a0c90d061e);
@@ -13668,6 +14351,11 @@ impl ::core::cmp::PartialEq for ISClusResTypeResources {
     }
 }
 impl ::core::cmp::Eq for ISClusResTypeResources {}
+impl ::core::fmt::Debug for ISClusResTypeResources {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResTypeResources").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResTypeResources {
     type Vtable = ISClusResTypeResourcesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60714_2631_11d1_89f1_00a0c90d061e);
@@ -13809,6 +14497,11 @@ impl ::core::cmp::PartialEq for ISClusResTypes {
     }
 }
 impl ::core::cmp::Eq for ISClusResTypes {}
+impl ::core::fmt::Debug for ISClusResTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResTypes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResTypes {
     type Vtable = ISClusResTypesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60712_2631_11d1_89f1_00a0c90d061e);
@@ -14080,6 +14773,11 @@ impl ::core::cmp::PartialEq for ISClusResource {
     }
 }
 impl ::core::cmp::Eq for ISClusResource {}
+impl ::core::fmt::Debug for ISClusResource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResource {
     type Vtable = ISClusResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6070a_2631_11d1_89f1_00a0c90d061e);
@@ -14253,6 +14951,11 @@ impl ::core::cmp::PartialEq for ISClusResources {
     }
 }
 impl ::core::cmp::Eq for ISClusResources {}
+impl ::core::fmt::Debug for ISClusResources {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResources").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResources {
     type Vtable = ISClusResourcesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6070c_2631_11d1_89f1_00a0c90d061e);
@@ -14387,6 +15090,11 @@ impl ::core::cmp::PartialEq for ISClusScsiAddress {
     }
 }
 impl ::core::cmp::Eq for ISClusScsiAddress {}
+impl ::core::fmt::Debug for ISClusScsiAddress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusScsiAddress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusScsiAddress {
     type Vtable = ISClusScsiAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60728_2631_11d1_89f1_00a0c90d061e);
@@ -14550,6 +15258,11 @@ impl ::core::cmp::PartialEq for ISClusVersion {
     }
 }
 impl ::core::cmp::Eq for ISClusVersion {}
+impl ::core::fmt::Debug for ISClusVersion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusVersion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusVersion {
     type Vtable = ISClusVersionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60716_2631_11d1_89f1_00a0c90d061e);
@@ -14770,6 +15483,11 @@ impl ::core::cmp::PartialEq for ISCluster {
     }
 }
 impl ::core::cmp::Eq for ISCluster {}
+impl ::core::fmt::Debug for ISCluster {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISCluster").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISCluster {
     type Vtable = ISClusterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606e4_2631_11d1_89f1_00a0c90d061e);
@@ -14923,6 +15641,11 @@ impl ::core::cmp::PartialEq for ISClusterNames {
     }
 }
 impl ::core::cmp::Eq for ISClusterNames {}
+impl ::core::fmt::Debug for ISClusterNames {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusterNames").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusterNames {
     type Vtable = ISClusterNamesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606ec_2631_11d1_89f1_00a0c90d061e);
@@ -15051,6 +15774,11 @@ impl ::core::cmp::PartialEq for ISDomainNames {
     }
 }
 impl ::core::cmp::Eq for ISDomainNames {}
+impl ::core::fmt::Debug for ISDomainNames {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISDomainNames").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISDomainNames {
     type Vtable = ISDomainNamesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606e2_2631_11d1_89f1_00a0c90d061e);
@@ -15116,6 +15844,11 @@ impl ::core::cmp::PartialEq for IWCContextMenuCallback {
     }
 }
 impl ::core::cmp::Eq for IWCContextMenuCallback {}
+impl ::core::fmt::Debug for IWCContextMenuCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWCContextMenuCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWCContextMenuCallback {
     type Vtable = IWCContextMenuCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede64_fc6b_11cf_b5f5_00a0c90ab505);
@@ -15169,6 +15902,11 @@ impl ::core::cmp::PartialEq for IWCPropertySheetCallback {
     }
 }
 impl ::core::cmp::Eq for IWCPropertySheetCallback {}
+impl ::core::fmt::Debug for IWCPropertySheetCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWCPropertySheetCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWCPropertySheetCallback {
     type Vtable = IWCPropertySheetCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede60_fc6b_11cf_b5f5_00a0c90ab505);
@@ -15221,6 +15959,11 @@ impl ::core::cmp::PartialEq for IWCWizard97Callback {
     }
 }
 impl ::core::cmp::Eq for IWCWizard97Callback {}
+impl ::core::fmt::Debug for IWCWizard97Callback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWCWizard97Callback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWCWizard97Callback {
     type Vtable = IWCWizard97CallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede67_fc6b_11cf_b5f5_00a0c90ab505);
@@ -15280,6 +16023,11 @@ impl ::core::cmp::PartialEq for IWCWizardCallback {
     }
 }
 impl ::core::cmp::Eq for IWCWizardCallback {}
+impl ::core::fmt::Debug for IWCWizardCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWCWizardCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWCWizardCallback {
     type Vtable = IWCWizardCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede62_fc6b_11cf_b5f5_00a0c90ab505);
@@ -15334,6 +16082,11 @@ impl ::core::cmp::PartialEq for IWEExtendContextMenu {
     }
 }
 impl ::core::cmp::Eq for IWEExtendContextMenu {}
+impl ::core::fmt::Debug for IWEExtendContextMenu {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWEExtendContextMenu").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWEExtendContextMenu {
     type Vtable = IWEExtendContextMenuVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede65_fc6b_11cf_b5f5_00a0c90ab505);
@@ -15381,6 +16134,11 @@ impl ::core::cmp::PartialEq for IWEExtendPropertySheet {
     }
 }
 impl ::core::cmp::Eq for IWEExtendPropertySheet {}
+impl ::core::fmt::Debug for IWEExtendPropertySheet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWEExtendPropertySheet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWEExtendPropertySheet {
     type Vtable = IWEExtendPropertySheetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede61_fc6b_11cf_b5f5_00a0c90ab505);
@@ -15428,6 +16186,11 @@ impl ::core::cmp::PartialEq for IWEExtendWizard {
     }
 }
 impl ::core::cmp::Eq for IWEExtendWizard {}
+impl ::core::fmt::Debug for IWEExtendWizard {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWEExtendWizard").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWEExtendWizard {
     type Vtable = IWEExtendWizardVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede63_fc6b_11cf_b5f5_00a0c90ab505);
@@ -15475,6 +16238,11 @@ impl ::core::cmp::PartialEq for IWEExtendWizard97 {
     }
 }
 impl ::core::cmp::Eq for IWEExtendWizard97 {}
+impl ::core::fmt::Debug for IWEExtendWizard97 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWEExtendWizard97").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWEExtendWizard97 {
     type Vtable = IWEExtendWizard97Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede68_fc6b_11cf_b5f5_00a0c90ab505);
@@ -15522,6 +16290,11 @@ impl ::core::cmp::PartialEq for IWEInvokeCommand {
     }
 }
 impl ::core::cmp::Eq for IWEInvokeCommand {}
+impl ::core::fmt::Debug for IWEInvokeCommand {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWEInvokeCommand").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWEInvokeCommand {
     type Vtable = IWEInvokeCommandVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede66_fc6b_11cf_b5f5_00a0c90ab505);
@@ -15636,6 +16409,12 @@ impl ::core::clone::Clone for MONITOR_STATE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MONITOR_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONITOR_STATE").field("LastUpdate", &self.LastUpdate).field("State", &self.State).field("ActiveResource", &self.ActiveResource).field("ResmonStop", &self.ResmonStop).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MONITOR_STATE {
     type Abi = Self;
 }
@@ -15709,6 +16488,11 @@ impl ::core::clone::Clone for NOTIFY_FILTER_AND_TYPE {
         *self
     }
 }
+impl ::core::fmt::Debug for NOTIFY_FILTER_AND_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NOTIFY_FILTER_AND_TYPE").field("dwObjectType", &self.dwObjectType).field("FilterFlags", &self.FilterFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NOTIFY_FILTER_AND_TYPE {
     type Abi = Self;
 }
@@ -15758,6 +16542,11 @@ impl ::core::marker::Copy for NodeUtilizationInfoElement {}
 impl ::core::clone::Clone for NodeUtilizationInfoElement {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NodeUtilizationInfoElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NodeUtilizationInfoElement").field("Id", &self.Id).field("AvailableMemory", &self.AvailableMemory).field("AvailableMemoryAfterReclamation", &self.AvailableMemoryAfterReclamation).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NodeUtilizationInfoElement {
@@ -16788,6 +17577,11 @@ impl ::core::clone::Clone for POST_UPGRADE_VERSION_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for POST_UPGRADE_VERSION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POST_UPGRADE_VERSION_INFO").field("newMajorVersion", &self.newMajorVersion).field("newUpgradeVersion", &self.newUpgradeVersion).field("oldMajorVersion", &self.oldMajorVersion).field("oldUpgradeVersion", &self.oldUpgradeVersion).field("reserved", &self.reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for POST_UPGRADE_VERSION_INFO {
     type Abi = Self;
 }
@@ -17149,6 +17943,25 @@ impl ::core::clone::Clone for PaxosTagCStruct {
         *self
     }
 }
+impl ::core::fmt::Debug for PaxosTagCStruct {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PaxosTagCStruct")
+            .field("__padding__PaxosTagVtable", &self.__padding__PaxosTagVtable)
+            .field("__padding__NextEpochVtable", &self.__padding__NextEpochVtable)
+            .field("__padding__NextEpoch_DateTimeVtable", &self.__padding__NextEpoch_DateTimeVtable)
+            .field("NextEpoch_DateTime_ticks", &self.NextEpoch_DateTime_ticks)
+            .field("NextEpoch_Value", &self.NextEpoch_Value)
+            .field("__padding__BoundryNextEpoch", &self.__padding__BoundryNextEpoch)
+            .field("__padding__EpochVtable", &self.__padding__EpochVtable)
+            .field("__padding__Epoch_DateTimeVtable", &self.__padding__Epoch_DateTimeVtable)
+            .field("Epoch_DateTime_ticks", &self.Epoch_DateTime_ticks)
+            .field("Epoch_Value", &self.Epoch_Value)
+            .field("__padding__BoundryEpoch", &self.__padding__BoundryEpoch)
+            .field("Sequence", &self.Sequence)
+            .field("__padding__BoundrySequence", &self.__padding__BoundrySequence)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PaxosTagCStruct {
     type Abi = Self;
 }
@@ -17214,6 +18027,11 @@ impl ::core::clone::Clone for RESOURCE_FAILURE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for RESOURCE_FAILURE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESOURCE_FAILURE_INFO").field("dwRestartAttemptsRemaining", &self.dwRestartAttemptsRemaining).field("dwRestartPeriodRemaining", &self.dwRestartPeriodRemaining).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RESOURCE_FAILURE_INFO {
     type Abi = Self;
 }
@@ -17238,6 +18056,11 @@ impl ::core::marker::Copy for RESOURCE_FAILURE_INFO_BUFFER {}
 impl ::core::clone::Clone for RESOURCE_FAILURE_INFO_BUFFER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RESOURCE_FAILURE_INFO_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESOURCE_FAILURE_INFO_BUFFER").field("dwVersion", &self.dwVersion).field("Info", &self.Info).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RESOURCE_FAILURE_INFO_BUFFER {
@@ -17308,6 +18131,12 @@ impl ::core::clone::Clone for RESOURCE_STATUS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RESOURCE_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESOURCE_STATUS").field("ResourceState", &self.ResourceState).field("CheckPoint", &self.CheckPoint).field("WaitHint", &self.WaitHint).field("EventHandle", &self.EventHandle).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RESOURCE_STATUS {
     type Abi = Self;
 }
@@ -17345,6 +18174,12 @@ impl ::core::clone::Clone for RESOURCE_STATUS_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RESOURCE_STATUS_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESOURCE_STATUS_EX").field("ResourceState", &self.ResourceState).field("CheckPoint", &self.CheckPoint).field("EventHandle", &self.EventHandle).field("ApplicationSpecificErrorCode", &self.ApplicationSpecificErrorCode).field("Flags", &self.Flags).field("WaitHint", &self.WaitHint).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RESOURCE_STATUS_EX {
     type Abi = Self;
 }
@@ -17375,6 +18210,12 @@ impl ::core::marker::Copy for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {}
 impl ::core::clone::Clone for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESOURCE_TERMINAL_FAILURE_INFO_BUFFER").field("isTerminalFailure", &self.isTerminalFailure).field("restartPeriodRemaining", &self.restartPeriodRemaining).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17416,6 +18257,12 @@ impl ::core::clone::Clone for RESUTIL_FILETIME_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RESUTIL_FILETIME_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESUTIL_FILETIME_DATA").field("Default", &self.Default).field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RESUTIL_FILETIME_DATA {
     type Abi = Self;
 }
@@ -17444,6 +18291,11 @@ impl ::core::marker::Copy for RESUTIL_LARGEINT_DATA {}
 impl ::core::clone::Clone for RESUTIL_LARGEINT_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RESUTIL_LARGEINT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESUTIL_LARGEINT_DATA").field("Default", &self.Default).field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RESUTIL_LARGEINT_DATA {
@@ -17555,6 +18407,11 @@ impl ::core::marker::Copy for RESUTIL_ULARGEINT_DATA {}
 impl ::core::clone::Clone for RESUTIL_ULARGEINT_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RESUTIL_ULARGEINT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESUTIL_ULARGEINT_DATA").field("Default", &self.Default).field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RESUTIL_ULARGEINT_DATA {
@@ -19256,6 +20113,11 @@ impl ::core::clone::Clone for ResourceUtilizationInfoElement {
         *self
     }
 }
+impl ::core::fmt::Debug for ResourceUtilizationInfoElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ResourceUtilizationInfoElement").field("PhysicalNumaId", &self.PhysicalNumaId).field("CurrentMemory", &self.CurrentMemory).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ResourceUtilizationInfoElement {
     type Abi = Self;
 }
@@ -19404,6 +20266,25 @@ impl ::core::clone::Clone for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP")
+            .field("ReplicationGroupName", &self.ReplicationGroupName)
+            .field("Description", &self.Description)
+            .field("LogPath", &self.LogPath)
+            .field("MaxLogSizeInBytes", &self.MaxLogSizeInBytes)
+            .field("LogType", &self.LogType)
+            .field("ReplicationMode", &self.ReplicationMode)
+            .field("MinimumPartnersInSync", &self.MinimumPartnersInSync)
+            .field("EnableWriteConsistency", &self.EnableWriteConsistency)
+            .field("EnableEncryption", &self.EnableEncryption)
+            .field("CertificateThumbprint", &self.CertificateThumbprint)
+            .field("VolumeNameCount", &self.VolumeNameCount)
+            .field("VolumeNames", &self.VolumeNames)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     type Abi = Self;
 }
@@ -19433,6 +20314,11 @@ impl ::core::clone::Clone for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
         *self
     }
 }
+impl ::core::fmt::Debug for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT").field("Result", &self.Result).field("ErrorString", &self.ErrorString).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
     type Abi = Self;
 }
@@ -19459,6 +20345,11 @@ impl ::core::clone::Clone for SR_RESOURCE_TYPE_DISK_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for SR_RESOURCE_TYPE_DISK_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SR_RESOURCE_TYPE_DISK_INFO").field("Reason", &self.Reason).field("DiskGuid", &self.DiskGuid).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SR_RESOURCE_TYPE_DISK_INFO {
     type Abi = Self;
 }
@@ -19483,6 +20374,11 @@ impl ::core::marker::Copy for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {}
 impl ::core::clone::Clone for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT").field("Count", &self.Count).field("DiskInfo", &self.DiskInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
@@ -19512,6 +20408,12 @@ impl ::core::marker::Copy for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {}
 impl ::core::clone::Clone for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS").field("DataDiskGuid", &self.DataDiskGuid).field("IncludeOfflineDisks", &self.IncludeOfflineDisks).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19545,6 +20447,12 @@ impl ::core::marker::Copy for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
 impl ::core::clone::Clone for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS").field("DataDiskGuid", &self.DataDiskGuid).field("IncludeAvailableStoargeDisks", &self.IncludeAvailableStoargeDisks).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19583,6 +20491,12 @@ impl ::core::clone::Clone for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS").field("SourceDataDiskGuid", &self.SourceDataDiskGuid).field("TargetReplicationGroupGuid", &self.TargetReplicationGroupGuid).field("SkipConnectivityCheck", &self.SkipConnectivityCheck).field("IncludeOfflineDisks", &self.IncludeOfflineDisks).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
     type Abi = Self;
 }
@@ -19614,6 +20528,11 @@ impl ::core::clone::Clone for SR_RESOURCE_TYPE_REPLICATED_DISK {
         *self
     }
 }
+impl ::core::fmt::Debug for SR_RESOURCE_TYPE_REPLICATED_DISK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SR_RESOURCE_TYPE_REPLICATED_DISK").field("Type", &self.Type).field("ClusterDiskResourceGuid", &self.ClusterDiskResourceGuid).field("ReplicationGroupId", &self.ReplicationGroupId).field("ReplicationGroupName", &self.ReplicationGroupName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SR_RESOURCE_TYPE_REPLICATED_DISK {
     type Abi = Self;
 }
@@ -19638,6 +20557,11 @@ impl ::core::marker::Copy for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {}
 impl ::core::clone::Clone for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT").field("Count", &self.Count).field("ReplicatedDisks", &self.ReplicatedDisks).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
@@ -19666,6 +20590,11 @@ impl ::core::clone::Clone for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
         *self
     }
 }
+impl ::core::fmt::Debug for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY").field("Count", &self.Count).field("PartitionArray", &self.PartitionArray).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
     type Abi = Self;
 }
@@ -19690,6 +20619,11 @@ impl ::core::marker::Copy for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {}
 impl ::core::clone::Clone for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO").field("PartitionOffset", &self.PartitionOffset).field("Capabilities", &self.Capabilities).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
@@ -19922,6 +20856,11 @@ impl ::core::clone::Clone for WitnessTagHelper {
         *self
     }
 }
+impl ::core::fmt::Debug for WitnessTagHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WitnessTagHelper").field("Version", &self.Version).field("paxosToValidate", &self.paxosToValidate).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WitnessTagHelper {
     type Abi = Self;
 }
@@ -19947,6 +20886,11 @@ impl ::core::marker::Copy for WitnessTagUpdateHelper {}
 impl ::core::clone::Clone for WitnessTagUpdateHelper {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WitnessTagUpdateHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WitnessTagUpdateHelper").field("Version", &self.Version).field("paxosToSet", &self.paxosToSet).field("paxosToValidate", &self.paxosToValidate).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WitnessTagUpdateHelper {

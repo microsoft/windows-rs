@@ -9,6 +9,11 @@ impl ::core::clone::Clone for DateTime {
         *self
     }
 }
+impl ::core::fmt::Debug for DateTime {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DateTime").field("UniversalTime", &self.UniversalTime).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DateTime {
     type Abi = Self;
 }
@@ -300,6 +305,11 @@ impl ::core::cmp::PartialEq for IPropertyValue {
     }
 }
 impl ::core::cmp::Eq for IPropertyValue {}
+impl ::core::fmt::Debug for IPropertyValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPropertyValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4bd682dd-7554-40e9-9a9b-82654ede7e62}");
 }
@@ -498,6 +508,11 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IRefe
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IReference<T> {}
+impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IReference<T> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IReference<T,>").field(&self.0).finish()
+    }
+}
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IReference<T> {
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{61c17706-2d65-11e0-9ae8-d48564015472}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
@@ -581,6 +596,11 @@ impl ::core::cmp::PartialEq for IStringable {
     }
 }
 impl ::core::cmp::Eq for IStringable {}
+impl ::core::fmt::Debug for IStringable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStringable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStringable {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{96369f54-8eb6-48f0-abce-c1b211e627c3}");
 }
@@ -608,6 +628,11 @@ impl ::core::marker::Copy for Point {}
 impl ::core::clone::Clone for Point {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for Point {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Point").field("X", &self.X).field("Y", &self.Y).finish()
     }
 }
 unsafe impl ::windows::core::Abi for Point {
@@ -690,6 +715,11 @@ impl ::core::cmp::PartialEq for PropertyType {
     }
 }
 impl ::core::cmp::Eq for PropertyType {}
+impl ::core::fmt::Debug for PropertyType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PropertyType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PropertyType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.PropertyType;i4)");
 }
@@ -953,6 +983,11 @@ impl ::core::clone::Clone for Rect {
         *self
     }
 }
+impl ::core::fmt::Debug for Rect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Rect").field("X", &self.X).field("Y", &self.Y).field("Width", &self.Width).field("Height", &self.Height).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Rect {
     type Abi = Self;
 }
@@ -984,6 +1019,11 @@ impl ::core::clone::Clone for Size {
         *self
     }
 }
+impl ::core::fmt::Debug for Size {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Size").field("Width", &self.Width).field("Height", &self.Height).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Size {
     type Abi = Self;
 }
@@ -1012,6 +1052,11 @@ impl ::core::marker::Copy for TimeSpan {}
 impl ::core::clone::Clone for TimeSpan {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TimeSpan {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TimeSpan").field("Duration", &self.Duration).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TimeSpan {
@@ -1092,6 +1137,11 @@ impl ::core::cmp::PartialEq for BOOL {
     }
 }
 impl ::core::cmp::Eq for BOOL {}
+impl ::core::fmt::Debug for BOOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BOOL").field(&self.0).finish()
+    }
+}
 impl ::core::convert::From<BOOL> for bool {
     fn from(value: BOOL) -> Self {
         value.as_bool()
@@ -1336,6 +1386,11 @@ impl ::core::cmp::PartialEq for HANDLE {
     }
 }
 impl ::core::cmp::Eq for HANDLE {}
+impl ::core::fmt::Debug for HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HANDLE").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HANDLE {
     type Abi = Self;
 }
@@ -1364,6 +1419,11 @@ impl ::core::cmp::PartialEq for PSTR {
     }
 }
 impl ::core::cmp::Eq for PSTR {}
+impl ::core::fmt::Debug for PSTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PSTR").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PSTR {
     type Abi = Self;
     #[cfg(feature = "alloc")]
@@ -1411,6 +1471,11 @@ impl ::core::cmp::PartialEq for PWSTR {
     }
 }
 impl ::core::cmp::Eq for PWSTR {}
+impl ::core::fmt::Debug for PWSTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PWSTR").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PWSTR {
     type Abi = Self;
     #[cfg(feature = "alloc")]
@@ -1498,6 +1563,11 @@ impl ::core::marker::Copy for SECURITY_ATTRIBUTES {}
 impl ::core::clone::Clone for SECURITY_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SECURITY_ATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SECURITY_ATTRIBUTES").field("nLength", &self.nLength).field("lpSecurityDescriptor", &self.lpSecurityDescriptor).field("bInheritHandle", &self.bInheritHandle).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SECURITY_ATTRIBUTES {
@@ -1602,6 +1672,11 @@ impl ::core::cmp::PartialEq for IAgileObject {
     }
 }
 impl ::core::cmp::Eq for IAgileObject {}
+impl ::core::fmt::Debug for IAgileObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAgileObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAgileObject {
     type Vtable = IAgileObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94ea2b94_e9cc_49e0_c0ff_ee64ca8f5b90);
@@ -1664,6 +1739,11 @@ impl ::core::cmp::PartialEq for IErrorInfo {
     }
 }
 impl ::core::cmp::Eq for IErrorInfo {}
+impl ::core::fmt::Debug for IErrorInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IErrorInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IErrorInfo {
     type Vtable = IErrorInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cf2b120_547d_101b_8e65_08002b2bd119);
@@ -1888,6 +1968,11 @@ impl ::core::cmp::PartialEq for ILanguageExceptionErrorInfo {
     }
 }
 impl ::core::cmp::Eq for ILanguageExceptionErrorInfo {}
+impl ::core::fmt::Debug for ILanguageExceptionErrorInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILanguageExceptionErrorInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ILanguageExceptionErrorInfo {
     type Vtable = ILanguageExceptionErrorInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04a2dbf3_df83_116c_0946_0812abf6e07d);
@@ -1965,6 +2050,11 @@ impl ::core::cmp::PartialEq for ILanguageExceptionErrorInfo2 {
     }
 }
 impl ::core::cmp::Eq for ILanguageExceptionErrorInfo2 {}
+impl ::core::fmt::Debug for ILanguageExceptionErrorInfo2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILanguageExceptionErrorInfo2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ILanguageExceptionErrorInfo2 {
     type Vtable = ILanguageExceptionErrorInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5746e5c4_5b97_424c_b620_2822915734dd);
@@ -2022,6 +2112,11 @@ impl ::core::cmp::PartialEq for IRestrictedErrorInfo {
     }
 }
 impl ::core::cmp::Eq for IRestrictedErrorInfo {}
+impl ::core::fmt::Debug for IRestrictedErrorInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRestrictedErrorInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::core::marker::Send for IRestrictedErrorInfo {}
 unsafe impl ::core::marker::Sync for IRestrictedErrorInfo {}
 unsafe impl ::windows::core::Interface for IRestrictedErrorInfo {
@@ -2076,6 +2171,11 @@ impl ::core::cmp::PartialEq for IWeakReference {
     }
 }
 impl ::core::cmp::Eq for IWeakReference {}
+impl ::core::fmt::Debug for IWeakReference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWeakReference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWeakReference {
     type Vtable = IWeakReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000037_0000_0000_c000_000000000046);
@@ -2122,6 +2222,11 @@ impl ::core::cmp::PartialEq for IWeakReferenceSource {
     }
 }
 impl ::core::cmp::Eq for IWeakReferenceSource {}
+impl ::core::fmt::Debug for IWeakReferenceSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWeakReferenceSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWeakReferenceSource {
     type Vtable = IWeakReferenceSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000038_0000_0000_c000_000000000046);

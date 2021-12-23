@@ -358,6 +358,11 @@ impl ::core::cmp::PartialEq for IWICBitmap {
     }
 }
 impl ::core::cmp::Eq for IWICBitmap {}
+impl ::core::fmt::Debug for IWICBitmap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICBitmap").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICBitmap {
     type Vtable = IWICBitmapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000121_a8f2_4877_ba0a_fd2b6645fb94);
@@ -458,6 +463,11 @@ impl ::core::cmp::PartialEq for IWICBitmapClipper {
     }
 }
 impl ::core::cmp::Eq for IWICBitmapClipper {}
+impl ::core::fmt::Debug for IWICBitmapClipper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICBitmapClipper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICBitmapClipper {
     type Vtable = IWICBitmapClipperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4fbcf03_223d_4e81_9333_d635556dd1b5);
@@ -635,6 +645,11 @@ impl ::core::cmp::PartialEq for IWICBitmapCodecInfo {
     }
 }
 impl ::core::cmp::Eq for IWICBitmapCodecInfo {}
+impl ::core::fmt::Debug for IWICBitmapCodecInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICBitmapCodecInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICBitmapCodecInfo {
     type Vtable = IWICBitmapCodecInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe87a44c4_b76e_4c47_8b09_298eb12a2714);
@@ -720,6 +735,11 @@ impl ::core::cmp::PartialEq for IWICBitmapCodecProgressNotification {
     }
 }
 impl ::core::cmp::Eq for IWICBitmapCodecProgressNotification {}
+impl ::core::fmt::Debug for IWICBitmapCodecProgressNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICBitmapCodecProgressNotification").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICBitmapCodecProgressNotification {
     type Vtable = IWICBitmapCodecProgressNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64c1024e_c3cf_4462_8078_88c2b11c46d9);
@@ -822,6 +842,11 @@ impl ::core::cmp::PartialEq for IWICBitmapDecoder {
     }
 }
 impl ::core::cmp::Eq for IWICBitmapDecoder {}
+impl ::core::fmt::Debug for IWICBitmapDecoder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICBitmapDecoder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICBitmapDecoder {
     type Vtable = IWICBitmapDecoderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9edde9e7_8dee_47ea_99df_e6faf2ed44bf);
@@ -1042,6 +1067,11 @@ impl ::core::cmp::PartialEq for IWICBitmapDecoderInfo {
     }
 }
 impl ::core::cmp::Eq for IWICBitmapDecoderInfo {}
+impl ::core::fmt::Debug for IWICBitmapDecoderInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICBitmapDecoderInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICBitmapDecoderInfo {
     type Vtable = IWICBitmapDecoderInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8cd007f_d08f_4191_9bfc_236ea7f0e4b5);
@@ -1173,6 +1203,11 @@ impl ::core::cmp::PartialEq for IWICBitmapEncoder {
     }
 }
 impl ::core::cmp::Eq for IWICBitmapEncoder {}
+impl ::core::fmt::Debug for IWICBitmapEncoder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICBitmapEncoder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICBitmapEncoder {
     type Vtable = IWICBitmapEncoderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000103_a8f2_4877_ba0a_fd2b6645fb94);
@@ -1381,6 +1416,11 @@ impl ::core::cmp::PartialEq for IWICBitmapEncoderInfo {
     }
 }
 impl ::core::cmp::Eq for IWICBitmapEncoderInfo {}
+impl ::core::fmt::Debug for IWICBitmapEncoderInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICBitmapEncoderInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICBitmapEncoderInfo {
     type Vtable = IWICBitmapEncoderInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94c9b4ee_a09f_4f92_8a1e_4a9bce7e76fb);
@@ -1508,6 +1548,11 @@ impl ::core::cmp::PartialEq for IWICBitmapFlipRotator {
     }
 }
 impl ::core::cmp::Eq for IWICBitmapFlipRotator {}
+impl ::core::fmt::Debug for IWICBitmapFlipRotator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICBitmapFlipRotator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICBitmapFlipRotator {
     type Vtable = IWICBitmapFlipRotatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5009834f_2d6a_41ce_9e1b_17c5aff7a782);
@@ -1616,6 +1661,11 @@ impl ::core::cmp::PartialEq for IWICBitmapFrameDecode {
     }
 }
 impl ::core::cmp::Eq for IWICBitmapFrameDecode {}
+impl ::core::fmt::Debug for IWICBitmapFrameDecode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICBitmapFrameDecode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICBitmapFrameDecode {
     type Vtable = IWICBitmapFrameDecodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b16811b_6a43_4ec9_a813_3d930c13b940);
@@ -1717,6 +1767,11 @@ impl ::core::cmp::PartialEq for IWICBitmapFrameEncode {
     }
 }
 impl ::core::cmp::Eq for IWICBitmapFrameEncode {}
+impl ::core::fmt::Debug for IWICBitmapFrameEncode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICBitmapFrameEncode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICBitmapFrameEncode {
     type Vtable = IWICBitmapFrameEncodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000105_a8f2_4877_ba0a_fd2b6645fb94);
@@ -1794,6 +1849,11 @@ impl ::core::cmp::PartialEq for IWICBitmapLock {
     }
 }
 impl ::core::cmp::Eq for IWICBitmapLock {}
+impl ::core::fmt::Debug for IWICBitmapLock {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICBitmapLock").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICBitmapLock {
     type Vtable = IWICBitmapLockVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000123_a8f2_4877_ba0a_fd2b6645fb94);
@@ -1890,6 +1950,11 @@ impl ::core::cmp::PartialEq for IWICBitmapScaler {
     }
 }
 impl ::core::cmp::Eq for IWICBitmapScaler {}
+impl ::core::fmt::Debug for IWICBitmapScaler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICBitmapScaler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICBitmapScaler {
     type Vtable = IWICBitmapScalerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000302_a8f2_4877_ba0a_fd2b6645fb94);
@@ -1964,6 +2029,11 @@ impl ::core::cmp::PartialEq for IWICBitmapSource {
     }
 }
 impl ::core::cmp::Eq for IWICBitmapSource {}
+impl ::core::fmt::Debug for IWICBitmapSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICBitmapSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICBitmapSource {
     type Vtable = IWICBitmapSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000120_a8f2_4877_ba0a_fd2b6645fb94);
@@ -2034,6 +2104,11 @@ impl ::core::cmp::PartialEq for IWICBitmapSourceTransform {
     }
 }
 impl ::core::cmp::Eq for IWICBitmapSourceTransform {}
+impl ::core::fmt::Debug for IWICBitmapSourceTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICBitmapSourceTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICBitmapSourceTransform {
     type Vtable = IWICBitmapSourceTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b16811b_6a43_4ec9_b713_3d5a0c13b940);
@@ -2113,6 +2188,11 @@ impl ::core::cmp::PartialEq for IWICColorContext {
     }
 }
 impl ::core::cmp::Eq for IWICColorContext {}
+impl ::core::fmt::Debug for IWICColorContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICColorContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICColorContext {
     type Vtable = IWICColorContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c613a02_34b2_44ea_9a7c_45aea9c6fd6d);
@@ -2212,6 +2292,11 @@ impl ::core::cmp::PartialEq for IWICColorTransform {
     }
 }
 impl ::core::cmp::Eq for IWICColorTransform {}
+impl ::core::fmt::Debug for IWICColorTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICColorTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICColorTransform {
     type Vtable = IWICColorTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb66f034f_d0e2_40ab_b436_6de39e321a94);
@@ -2453,6 +2538,11 @@ impl ::core::cmp::PartialEq for IWICComponentFactory {
     }
 }
 impl ::core::cmp::Eq for IWICComponentFactory {}
+impl ::core::fmt::Debug for IWICComponentFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICComponentFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICComponentFactory {
     type Vtable = IWICComponentFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x412d0c3a_9650_44fa_af5b_dd2a06c8e8fb);
@@ -2580,6 +2670,11 @@ impl ::core::cmp::PartialEq for IWICComponentInfo {
     }
 }
 impl ::core::cmp::Eq for IWICComponentInfo {}
+impl ::core::fmt::Debug for IWICComponentInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICComponentInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICComponentInfo {
     type Vtable = IWICComponentInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23bc3f0a_698b_4357_886b_f24d50671334);
@@ -2650,6 +2745,11 @@ impl ::core::cmp::PartialEq for IWICDdsDecoder {
     }
 }
 impl ::core::cmp::Eq for IWICDdsDecoder {}
+impl ::core::fmt::Debug for IWICDdsDecoder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICDdsDecoder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICDdsDecoder {
     type Vtable = IWICDdsDecoderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x409cd537_8532_40cb_9774_e2feb2df4e9c);
@@ -2715,6 +2815,11 @@ impl ::core::cmp::PartialEq for IWICDdsEncoder {
     }
 }
 impl ::core::cmp::Eq for IWICDdsEncoder {}
+impl ::core::fmt::Debug for IWICDdsEncoder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICDdsEncoder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICDdsEncoder {
     type Vtable = IWICDdsEncoderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cacdb4c_407e_41b3_b936_d0f010cd6732);
@@ -2781,6 +2886,11 @@ impl ::core::cmp::PartialEq for IWICDdsFrameDecode {
     }
 }
 impl ::core::cmp::Eq for IWICDdsFrameDecode {}
+impl ::core::fmt::Debug for IWICDdsFrameDecode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICDdsFrameDecode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICDdsFrameDecode {
     type Vtable = IWICDdsFrameDecodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d4c0c61_18a4_41e4_bd80_481a4fc9f464);
@@ -3048,6 +3158,11 @@ impl ::core::cmp::PartialEq for IWICDevelopRaw {
     }
 }
 impl ::core::cmp::Eq for IWICDevelopRaw {}
+impl ::core::fmt::Debug for IWICDevelopRaw {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICDevelopRaw").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICDevelopRaw {
     type Vtable = IWICDevelopRawVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbec5e44_f7be_4b65_b7f8_c0c81fef026d);
@@ -3140,6 +3255,11 @@ impl ::core::cmp::PartialEq for IWICDevelopRawNotificationCallback {
     }
 }
 impl ::core::cmp::Eq for IWICDevelopRawNotificationCallback {}
+impl ::core::fmt::Debug for IWICDevelopRawNotificationCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICDevelopRawNotificationCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICDevelopRawNotificationCallback {
     type Vtable = IWICDevelopRawNotificationCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95c75a6e_3e8c_4ec2_85a8_aebcc551e59b);
@@ -3201,6 +3321,11 @@ impl ::core::cmp::PartialEq for IWICEnumMetadataItem {
     }
 }
 impl ::core::cmp::Eq for IWICEnumMetadataItem {}
+impl ::core::fmt::Debug for IWICEnumMetadataItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICEnumMetadataItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICEnumMetadataItem {
     type Vtable = IWICEnumMetadataItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc2bb46d_3f07_481e_8625_220c4aedbb33);
@@ -3262,6 +3387,11 @@ impl ::core::cmp::PartialEq for IWICFastMetadataEncoder {
     }
 }
 impl ::core::cmp::Eq for IWICFastMetadataEncoder {}
+impl ::core::fmt::Debug for IWICFastMetadataEncoder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICFastMetadataEncoder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICFastMetadataEncoder {
     type Vtable = IWICFastMetadataEncoderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb84e2c09_78c9_4ac4_8bd3_524ae1663a2f);
@@ -3362,6 +3492,11 @@ impl ::core::cmp::PartialEq for IWICFormatConverter {
     }
 }
 impl ::core::cmp::Eq for IWICFormatConverter {}
+impl ::core::fmt::Debug for IWICFormatConverter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICFormatConverter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICFormatConverter {
     type Vtable = IWICFormatConverterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000301_a8f2_4877_ba0a_fd2b6645fb94);
@@ -3486,6 +3621,11 @@ impl ::core::cmp::PartialEq for IWICFormatConverterInfo {
     }
 }
 impl ::core::cmp::Eq for IWICFormatConverterInfo {}
+impl ::core::fmt::Debug for IWICFormatConverterInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICFormatConverterInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICFormatConverterInfo {
     type Vtable = IWICFormatConverterInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f34fb65_13f4_4f15_bc57_3726b5e53d9f);
@@ -3677,6 +3817,11 @@ impl ::core::cmp::PartialEq for IWICImagingFactory {
     }
 }
 impl ::core::cmp::Eq for IWICImagingFactory {}
+impl ::core::fmt::Debug for IWICImagingFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICImagingFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICImagingFactory {
     type Vtable = IWICImagingFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec5ec8a9_c395_4314_9c77_54d7a935ff70);
@@ -3804,6 +3949,11 @@ impl ::core::cmp::PartialEq for IWICJpegFrameDecode {
     }
 }
 impl ::core::cmp::Eq for IWICJpegFrameDecode {}
+impl ::core::fmt::Debug for IWICJpegFrameDecode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICJpegFrameDecode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICJpegFrameDecode {
     type Vtable = IWICJpegFrameDecodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8939f66e_c46a_4c21_a9d1_98b327ce1679);
@@ -3887,6 +4037,11 @@ impl ::core::cmp::PartialEq for IWICJpegFrameEncode {
     }
 }
 impl ::core::cmp::Eq for IWICJpegFrameEncode {}
+impl ::core::fmt::Debug for IWICJpegFrameEncode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICJpegFrameEncode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICJpegFrameEncode {
     type Vtable = IWICJpegFrameEncodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f0c601f_d2c6_468c_abfa_49495d983ed1);
@@ -3962,6 +4117,11 @@ impl ::core::cmp::PartialEq for IWICMetadataBlockReader {
     }
 }
 impl ::core::cmp::Eq for IWICMetadataBlockReader {}
+impl ::core::fmt::Debug for IWICMetadataBlockReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICMetadataBlockReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICMetadataBlockReader {
     type Vtable = IWICMetadataBlockReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfeaa2a8d_b3f3_43e4_b25c_d1de990a1ae1);
@@ -4076,6 +4236,11 @@ impl ::core::cmp::PartialEq for IWICMetadataBlockWriter {
     }
 }
 impl ::core::cmp::Eq for IWICMetadataBlockWriter {}
+impl ::core::fmt::Debug for IWICMetadataBlockWriter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICMetadataBlockWriter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICMetadataBlockWriter {
     type Vtable = IWICMetadataBlockWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08fb9676_b444_41e8_8dbe_6a53a542bff1);
@@ -4230,6 +4395,11 @@ impl ::core::cmp::PartialEq for IWICMetadataHandlerInfo {
     }
 }
 impl ::core::cmp::Eq for IWICMetadataHandlerInfo {}
+impl ::core::fmt::Debug for IWICMetadataHandlerInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICMetadataHandlerInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICMetadataHandlerInfo {
     type Vtable = IWICMetadataHandlerInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaba958bf_c672_44d1_8d61_ce6df2e682c2);
@@ -4322,6 +4492,11 @@ impl ::core::cmp::PartialEq for IWICMetadataQueryReader {
     }
 }
 impl ::core::cmp::Eq for IWICMetadataQueryReader {}
+impl ::core::fmt::Debug for IWICMetadataQueryReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICMetadataQueryReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICMetadataQueryReader {
     type Vtable = IWICMetadataQueryReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30989668_e1c9_4597_b395_458eedb808df);
@@ -4427,6 +4602,11 @@ impl ::core::cmp::PartialEq for IWICMetadataQueryWriter {
     }
 }
 impl ::core::cmp::Eq for IWICMetadataQueryWriter {}
+impl ::core::fmt::Debug for IWICMetadataQueryWriter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICMetadataQueryWriter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICMetadataQueryWriter {
     type Vtable = IWICMetadataQueryWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa721791a_0def_4d06_bd91_2118bf1db10b);
@@ -4515,6 +4695,11 @@ impl ::core::cmp::PartialEq for IWICMetadataReader {
     }
 }
 impl ::core::cmp::Eq for IWICMetadataReader {}
+impl ::core::fmt::Debug for IWICMetadataReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICMetadataReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICMetadataReader {
     type Vtable = IWICMetadataReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9204fe99_d8fc_4fd5_a001_9536b067a899);
@@ -4702,6 +4887,11 @@ impl ::core::cmp::PartialEq for IWICMetadataReaderInfo {
     }
 }
 impl ::core::cmp::Eq for IWICMetadataReaderInfo {}
+impl ::core::fmt::Debug for IWICMetadataReaderInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICMetadataReaderInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICMetadataReaderInfo {
     type Vtable = IWICMetadataReaderInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeebf1f5b_07c1_4447_a3ab_22acaf78a804);
@@ -4846,6 +5036,11 @@ impl ::core::cmp::PartialEq for IWICMetadataWriter {
     }
 }
 impl ::core::cmp::Eq for IWICMetadataWriter {}
+impl ::core::fmt::Debug for IWICMetadataWriter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICMetadataWriter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICMetadataWriter {
     type Vtable = IWICMetadataWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7836e16_3be0_470b_86bb_160d0aecd7de);
@@ -5034,6 +5229,11 @@ impl ::core::cmp::PartialEq for IWICMetadataWriterInfo {
     }
 }
 impl ::core::cmp::Eq for IWICMetadataWriterInfo {}
+impl ::core::fmt::Debug for IWICMetadataWriterInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICMetadataWriterInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICMetadataWriterInfo {
     type Vtable = IWICMetadataWriterInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb22e3fba_3925_4323_b5c1_9ebfc430f236);
@@ -5157,6 +5357,11 @@ impl ::core::cmp::PartialEq for IWICPalette {
     }
 }
 impl ::core::cmp::Eq for IWICPalette {}
+impl ::core::fmt::Debug for IWICPalette {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICPalette").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICPalette {
     type Vtable = IWICPaletteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000040_a8f2_4877_ba0a_fd2b6645fb94);
@@ -5304,6 +5509,11 @@ impl ::core::cmp::PartialEq for IWICPersistStream {
     }
 }
 impl ::core::cmp::Eq for IWICPersistStream {}
+impl ::core::fmt::Debug for IWICPersistStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICPersistStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICPersistStream {
     type Vtable = IWICPersistStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00675040_6908_45f8_86a3_49c7dfd6d9ad);
@@ -5449,6 +5659,11 @@ impl ::core::cmp::PartialEq for IWICPixelFormatInfo {
     }
 }
 impl ::core::cmp::Eq for IWICPixelFormatInfo {}
+impl ::core::fmt::Debug for IWICPixelFormatInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICPixelFormatInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICPixelFormatInfo {
     type Vtable = IWICPixelFormatInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8eda601_3d48_431a_ab44_69059be88bbe);
@@ -5628,6 +5843,11 @@ impl ::core::cmp::PartialEq for IWICPixelFormatInfo2 {
     }
 }
 impl ::core::cmp::Eq for IWICPixelFormatInfo2 {}
+impl ::core::fmt::Debug for IWICPixelFormatInfo2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICPixelFormatInfo2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICPixelFormatInfo2 {
     type Vtable = IWICPixelFormatInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9db33a2_af5f_43c7_b679_74f5984b5aa4);
@@ -5703,6 +5923,11 @@ impl ::core::cmp::PartialEq for IWICPlanarBitmapFrameEncode {
     }
 }
 impl ::core::cmp::Eq for IWICPlanarBitmapFrameEncode {}
+impl ::core::fmt::Debug for IWICPlanarBitmapFrameEncode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICPlanarBitmapFrameEncode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICPlanarBitmapFrameEncode {
     type Vtable = IWICPlanarBitmapFrameEncodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf928b7b8_2221_40c1_b72e_7e82f1974d1a);
@@ -5761,6 +5986,11 @@ impl ::core::cmp::PartialEq for IWICPlanarBitmapSourceTransform {
     }
 }
 impl ::core::cmp::Eq for IWICPlanarBitmapSourceTransform {}
+impl ::core::fmt::Debug for IWICPlanarBitmapSourceTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICPlanarBitmapSourceTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICPlanarBitmapSourceTransform {
     type Vtable = IWICPlanarBitmapSourceTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3aff9cce_be95_4303_b927_e7d16ff4a613);
@@ -5862,6 +6092,11 @@ impl ::core::cmp::PartialEq for IWICPlanarFormatConverter {
     }
 }
 impl ::core::cmp::Eq for IWICPlanarFormatConverter {}
+impl ::core::fmt::Debug for IWICPlanarFormatConverter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICPlanarFormatConverter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICPlanarFormatConverter {
     type Vtable = IWICPlanarFormatConverterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbebee9cb_83b0_4dcc_8132_b0aaa55eac96);
@@ -5921,6 +6156,11 @@ impl ::core::cmp::PartialEq for IWICProgressCallback {
     }
 }
 impl ::core::cmp::Eq for IWICProgressCallback {}
+impl ::core::fmt::Debug for IWICProgressCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICProgressCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICProgressCallback {
     type Vtable = IWICProgressCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4776f9cd_9517_45fa_bf24_e89c5ec5c60c);
@@ -5978,6 +6218,11 @@ impl ::core::cmp::PartialEq for IWICProgressiveLevelControl {
     }
 }
 impl ::core::cmp::Eq for IWICProgressiveLevelControl {}
+impl ::core::fmt::Debug for IWICProgressiveLevelControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICProgressiveLevelControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICProgressiveLevelControl {
     type Vtable = IWICProgressiveLevelControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaac296f_7aa5_4dbf_8d15_225c5976f891);
@@ -6153,6 +6398,11 @@ impl ::core::cmp::PartialEq for IWICStream {
     }
 }
 impl ::core::cmp::Eq for IWICStream {}
+impl ::core::fmt::Debug for IWICStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICStream {
     type Vtable = IWICStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x135ff860_22b7_4ddf_b0f6_218f4f299a43);
@@ -6249,6 +6499,11 @@ impl ::core::cmp::PartialEq for IWICStreamProvider {
     }
 }
 impl ::core::cmp::Eq for IWICStreamProvider {}
+impl ::core::fmt::Debug for IWICStreamProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICStreamProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICStreamProvider {
     type Vtable = IWICStreamProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x449494bc_b468_4927_96d7_ba90d31ab505);
@@ -6442,6 +6697,12 @@ impl ::core::clone::Clone for WICBitmapPattern {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WICBitmapPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICBitmapPattern").field("Position", &self.Position).field("Length", &self.Length).field("Pattern", &self.Pattern).field("Mask", &self.Mask).field("EndOfStream", &self.EndOfStream).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WICBitmapPattern {
     type Abi = Self;
 }
@@ -6473,6 +6734,11 @@ impl ::core::clone::Clone for WICBitmapPlane {
         *self
     }
 }
+impl ::core::fmt::Debug for WICBitmapPlane {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICBitmapPlane").field("Format", &self.Format).field("pbBuffer", &self.pbBuffer).field("cbStride", &self.cbStride).field("cbBufferSize", &self.cbBufferSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WICBitmapPlane {
     type Abi = Self;
 }
@@ -6498,6 +6764,11 @@ impl ::core::marker::Copy for WICBitmapPlaneDescription {}
 impl ::core::clone::Clone for WICBitmapPlaneDescription {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WICBitmapPlaneDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICBitmapPlaneDescription").field("Format", &self.Format).field("Width", &self.Width).field("Height", &self.Height).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WICBitmapPlaneDescription {
@@ -6673,6 +6944,12 @@ impl ::core::clone::Clone for WICDdsFormatInfo {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for WICDdsFormatInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICDdsFormatInfo").field("DxgiFormat", &self.DxgiFormat).field("BytesPerBlock", &self.BytesPerBlock).field("BlockWidth", &self.BlockWidth).field("BlockHeight", &self.BlockHeight).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for WICDdsFormatInfo {
     type Abi = Self;
 }
@@ -6709,6 +6986,12 @@ impl ::core::marker::Copy for WICDdsParameters {}
 impl ::core::clone::Clone for WICDdsParameters {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for WICDdsParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICDdsParameters").field("Width", &self.Width).field("Height", &self.Height).field("Depth", &self.Depth).field("MipLevels", &self.MipLevels).field("ArraySize", &self.ArraySize).field("DxgiFormat", &self.DxgiFormat).field("Dimension", &self.Dimension).field("AlphaMode", &self.AlphaMode).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -6863,6 +7146,12 @@ impl ::core::clone::Clone for WICImageParameters {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for WICImageParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICImageParameters").field("PixelFormat", &self.PixelFormat).field("DpiX", &self.DpiX).field("DpiY", &self.DpiY).field("Top", &self.Top).field("Left", &self.Left).field("PixelWidth", &self.PixelWidth).field("PixelHeight", &self.PixelHeight).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for WICImageParameters {
     type Abi = Self;
 }
@@ -6910,6 +7199,11 @@ impl ::core::clone::Clone for WICJpegFrameHeader {
         *self
     }
 }
+impl ::core::fmt::Debug for WICJpegFrameHeader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICJpegFrameHeader").field("Width", &self.Width).field("Height", &self.Height).field("TransferMatrix", &self.TransferMatrix).field("ScanType", &self.ScanType).field("cComponents", &self.cComponents).field("ComponentIdentifiers", &self.ComponentIdentifiers).field("SampleFactors", &self.SampleFactors).field("QuantizationTableIndices", &self.QuantizationTableIndices).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WICJpegFrameHeader {
     type Abi = Self;
 }
@@ -6954,6 +7248,20 @@ impl ::core::marker::Copy for WICJpegScanHeader {}
 impl ::core::clone::Clone for WICJpegScanHeader {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WICJpegScanHeader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICJpegScanHeader")
+            .field("cComponents", &self.cComponents)
+            .field("RestartInterval", &self.RestartInterval)
+            .field("ComponentSelectors", &self.ComponentSelectors)
+            .field("HuffmanTableIndices", &self.HuffmanTableIndices)
+            .field("StartSpectralSelection", &self.StartSpectralSelection)
+            .field("EndSpectralSelection", &self.EndSpectralSelection)
+            .field("SuccessiveApproximationHigh", &self.SuccessiveApproximationHigh)
+            .field("SuccessiveApproximationLow", &self.SuccessiveApproximationLow)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for WICJpegScanHeader {
@@ -7088,6 +7396,11 @@ impl ::core::clone::Clone for WICMetadataHeader {
         *self
     }
 }
+impl ::core::fmt::Debug for WICMetadataHeader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICMetadataHeader").field("Position", &self.Position).field("Length", &self.Length).field("Header", &self.Header).field("DataOffset", &self.DataOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WICMetadataHeader {
     type Abi = Self;
 }
@@ -7115,6 +7428,11 @@ impl ::core::marker::Copy for WICMetadataPattern {}
 impl ::core::clone::Clone for WICMetadataPattern {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WICMetadataPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICMetadataPattern").field("Position", &self.Position).field("Length", &self.Length).field("Pattern", &self.Pattern).field("Mask", &self.Mask).field("DataOffset", &self.DataOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WICMetadataPattern {
@@ -7357,6 +7675,30 @@ impl ::core::clone::Clone for WICRawCapabilitiesInfo {
         *self
     }
 }
+impl ::core::fmt::Debug for WICRawCapabilitiesInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICRawCapabilitiesInfo")
+            .field("cbSize", &self.cbSize)
+            .field("CodecMajorVersion", &self.CodecMajorVersion)
+            .field("CodecMinorVersion", &self.CodecMinorVersion)
+            .field("ExposureCompensationSupport", &self.ExposureCompensationSupport)
+            .field("ContrastSupport", &self.ContrastSupport)
+            .field("RGBWhitePointSupport", &self.RGBWhitePointSupport)
+            .field("NamedWhitePointSupport", &self.NamedWhitePointSupport)
+            .field("NamedWhitePointSupportMask", &self.NamedWhitePointSupportMask)
+            .field("KelvinWhitePointSupport", &self.KelvinWhitePointSupport)
+            .field("GammaSupport", &self.GammaSupport)
+            .field("TintSupport", &self.TintSupport)
+            .field("SaturationSupport", &self.SaturationSupport)
+            .field("SharpnessSupport", &self.SharpnessSupport)
+            .field("NoiseReductionSupport", &self.NoiseReductionSupport)
+            .field("DestinationColorProfileSupport", &self.DestinationColorProfileSupport)
+            .field("ToneCurveSupport", &self.ToneCurveSupport)
+            .field("RotationSupport", &self.RotationSupport)
+            .field("RenderModeSupport", &self.RenderModeSupport)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WICRawCapabilitiesInfo {
     type Abi = Self;
 }
@@ -7443,6 +7785,11 @@ impl ::core::clone::Clone for WICRawToneCurve {
         *self
     }
 }
+impl ::core::fmt::Debug for WICRawToneCurve {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICRawToneCurve").field("cPoints", &self.cPoints).field("aPoints", &self.aPoints).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WICRawToneCurve {
     type Abi = Self;
 }
@@ -7467,6 +7814,11 @@ impl ::core::marker::Copy for WICRawToneCurvePoint {}
 impl ::core::clone::Clone for WICRawToneCurvePoint {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WICRawToneCurvePoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICRawToneCurvePoint").field("Input", &self.Input).field("Output", &self.Output).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WICRawToneCurvePoint {
@@ -7495,6 +7847,11 @@ impl ::core::marker::Copy for WICRect {}
 impl ::core::clone::Clone for WICRect {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WICRect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICRect").field("X", &self.X).field("Y", &self.Y).field("Width", &self.Width).field("Height", &self.Height).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WICRect {

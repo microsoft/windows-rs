@@ -452,6 +452,11 @@ impl ::core::cmp::PartialEq for KeyboardCapabilities {
     }
 }
 impl ::core::cmp::Eq for KeyboardCapabilities {}
+impl ::core::fmt::Debug for KeyboardCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyboardCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for KeyboardCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.KeyboardCapabilities;{3a3f9b56-6798-4bbc-833e-0f34b17c65ff})");
 }
@@ -567,6 +572,11 @@ impl ::core::cmp::PartialEq for MouseCapabilities {
     }
 }
 impl ::core::cmp::Eq for MouseCapabilities {}
+impl ::core::fmt::Debug for MouseCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MouseCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MouseCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.MouseCapabilities;{bca5e023-7dd9-4b6b-9a92-55d43cb38f73})");
 }
@@ -629,6 +639,11 @@ impl ::core::marker::Copy for MouseDelta {}
 impl ::core::clone::Clone for MouseDelta {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MouseDelta {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MouseDelta").field("X", &self.X).field("Y", &self.Y).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MouseDelta {
@@ -694,6 +709,11 @@ impl ::core::cmp::PartialEq for MouseDevice {
     }
 }
 impl ::core::cmp::Eq for MouseDevice {}
+impl ::core::fmt::Debug for MouseDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MouseDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MouseDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.MouseDevice;{88edf458-f2c8-49f4-be1f-c256b388bc11})");
 }
@@ -768,6 +788,11 @@ impl ::core::cmp::PartialEq for MouseEventArgs {
     }
 }
 impl ::core::cmp::Eq for MouseEventArgs {}
+impl ::core::fmt::Debug for MouseEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MouseEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MouseEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.MouseEventArgs;{f625aa5d-2354-4cc7-9230-96941c969fde})");
 }
@@ -914,6 +939,11 @@ impl ::core::cmp::PartialEq for PenButtonListener {
     }
 }
 impl ::core::cmp::Eq for PenButtonListener {}
+impl ::core::fmt::Debug for PenButtonListener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PenButtonListener").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PenButtonListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenButtonListener;{8245c376-1ee3-53f7-b1f7-8334a16f2815})");
 }
@@ -1011,6 +1041,11 @@ impl ::core::cmp::PartialEq for PenDevice {
     }
 }
 impl ::core::cmp::Eq for PenDevice {}
+impl ::core::fmt::Debug for PenDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PenDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PenDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenDevice;{31856eba-a738-5a8c-b8f6-f97ef68d18ef})");
 }
@@ -1144,6 +1179,11 @@ impl ::core::cmp::PartialEq for PenDockListener {
     }
 }
 impl ::core::cmp::Eq for PenDockListener {}
+impl ::core::fmt::Debug for PenDockListener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PenDockListener").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PenDockListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenDockListener;{759f4d90-1dc0-55cb-ad18-b9101456f592})");
 }
@@ -1211,6 +1251,11 @@ impl ::core::cmp::PartialEq for PenDockedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PenDockedEventArgs {}
+impl ::core::fmt::Debug for PenDockedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PenDockedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PenDockedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenDockedEventArgs;{fd4277c6-ca63-5d4e-9ed3-a28a54521c8c})");
 }
@@ -1278,6 +1323,11 @@ impl ::core::cmp::PartialEq for PenTailButtonClickedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PenTailButtonClickedEventArgs {}
+impl ::core::fmt::Debug for PenTailButtonClickedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PenTailButtonClickedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PenTailButtonClickedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenTailButtonClickedEventArgs;{5d2fb7b6-6ad3-5d3e-ab29-05ea2410e390})");
 }
@@ -1345,6 +1395,11 @@ impl ::core::cmp::PartialEq for PenTailButtonDoubleClickedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PenTailButtonDoubleClickedEventArgs {}
+impl ::core::fmt::Debug for PenTailButtonDoubleClickedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PenTailButtonDoubleClickedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PenTailButtonDoubleClickedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenTailButtonDoubleClickedEventArgs;{846321a2-618a-5478-b04c-b358231da4a7})");
 }
@@ -1412,6 +1467,11 @@ impl ::core::cmp::PartialEq for PenTailButtonLongPressedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PenTailButtonLongPressedEventArgs {}
+impl ::core::fmt::Debug for PenTailButtonLongPressedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PenTailButtonLongPressedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PenTailButtonLongPressedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenTailButtonLongPressedEventArgs;{f37c606e-c60a-5f42-b818-a53112406c13})");
 }
@@ -1479,6 +1539,11 @@ impl ::core::cmp::PartialEq for PenUndockedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PenUndockedEventArgs {}
+impl ::core::fmt::Debug for PenUndockedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PenUndockedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PenUndockedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenUndockedEventArgs;{ccd09150-261b-59e6-a5d4-c1964cd03feb})");
 }
@@ -1626,6 +1691,11 @@ impl ::core::cmp::PartialEq for PointerDevice {
     }
 }
 impl ::core::cmp::Eq for PointerDevice {}
+impl ::core::fmt::Debug for PointerDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointerDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PointerDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PointerDevice;{93c9bafc-ebcb-467e-82c6-276feae36b5a})");
 }
@@ -1699,6 +1769,11 @@ impl ::core::cmp::PartialEq for PointerDeviceType {
     }
 }
 impl ::core::cmp::Eq for PointerDeviceType {}
+impl ::core::fmt::Debug for PointerDeviceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointerDeviceType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PointerDeviceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Input.PointerDeviceType;i4)");
 }
@@ -1721,6 +1796,11 @@ impl ::core::marker::Copy for PointerDeviceUsage {}
 impl ::core::clone::Clone for PointerDeviceUsage {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PointerDeviceUsage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PointerDeviceUsage").field("UsagePage", &self.UsagePage).field("Usage", &self.Usage).field("MinLogical", &self.MinLogical).field("MaxLogical", &self.MaxLogical).field("MinPhysical", &self.MinPhysical).field("MaxPhysical", &self.MaxPhysical).field("Unit", &self.Unit).field("PhysicalMultiplier", &self.PhysicalMultiplier).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PointerDeviceUsage {
@@ -1782,6 +1862,11 @@ impl ::core::cmp::PartialEq for TouchCapabilities {
     }
 }
 impl ::core::cmp::Eq for TouchCapabilities {}
+impl ::core::fmt::Debug for TouchCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TouchCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TouchCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.TouchCapabilities;{20dd55f9-13f1-46c8-9285-2c05fa3eda6f})");
 }

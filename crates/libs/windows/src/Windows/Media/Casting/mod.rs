@@ -98,6 +98,11 @@ impl ::core::cmp::PartialEq for CastingConnection {
     }
 }
 impl ::core::cmp::Eq for CastingConnection {}
+impl ::core::fmt::Debug for CastingConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CastingConnection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CastingConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingConnection;{cd951653-c2f1-4498-8b78-5fb4cd3640dd})");
 }
@@ -208,6 +213,11 @@ impl ::core::cmp::PartialEq for CastingConnectionErrorOccurredEventArgs {
     }
 }
 impl ::core::cmp::Eq for CastingConnectionErrorOccurredEventArgs {}
+impl ::core::fmt::Debug for CastingConnectionErrorOccurredEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CastingConnectionErrorOccurredEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CastingConnectionErrorOccurredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingConnectionErrorOccurredEventArgs;{a7fb3c69-8719-4f00-81fb-961863c79a32})");
 }
@@ -287,6 +297,11 @@ impl ::core::cmp::PartialEq for CastingConnectionErrorStatus {
     }
 }
 impl ::core::cmp::Eq for CastingConnectionErrorStatus {}
+impl ::core::fmt::Debug for CastingConnectionErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CastingConnectionErrorStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CastingConnectionErrorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionErrorStatus;i4)");
 }
@@ -318,6 +333,11 @@ impl ::core::cmp::PartialEq for CastingConnectionState {
     }
 }
 impl ::core::cmp::Eq for CastingConnectionState {}
+impl ::core::fmt::Debug for CastingConnectionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CastingConnectionState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CastingConnectionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionState;i4)");
 }
@@ -418,6 +438,11 @@ impl ::core::cmp::PartialEq for CastingDevice {
     }
 }
 impl ::core::cmp::Eq for CastingDevice {}
+impl ::core::fmt::Debug for CastingDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CastingDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CastingDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDevice;{de721c83-4a43-4ad1-a6d2-2492a796c3f2})");
 }
@@ -557,6 +582,11 @@ impl ::core::cmp::PartialEq for CastingDevicePicker {
     }
 }
 impl ::core::cmp::Eq for CastingDevicePicker {}
+impl ::core::fmt::Debug for CastingDevicePicker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CastingDevicePicker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CastingDevicePicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDevicePicker;{dcd39924-0591-49be-aacb-4b82ee756a95})");
 }
@@ -673,6 +703,11 @@ impl ::core::cmp::PartialEq for CastingDevicePickerFilter {
     }
 }
 impl ::core::cmp::Eq for CastingDevicePickerFilter {}
+impl ::core::fmt::Debug for CastingDevicePickerFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CastingDevicePickerFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CastingDevicePickerFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDevicePickerFilter;{be8c619c-b563-4354-ae33-9fdaad8c6291})");
 }
@@ -749,6 +784,11 @@ impl ::core::cmp::PartialEq for CastingDeviceSelectedEventArgs {
     }
 }
 impl ::core::cmp::Eq for CastingDeviceSelectedEventArgs {}
+impl ::core::fmt::Debug for CastingDeviceSelectedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CastingDeviceSelectedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CastingDeviceSelectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDeviceSelectedEventArgs;{dc439e86-dd57-4d0d-9400-af45e4fb3663})");
 }
@@ -825,6 +865,11 @@ impl ::core::cmp::PartialEq for CastingPlaybackTypes {
     }
 }
 impl ::core::cmp::Eq for CastingPlaybackTypes {}
+impl ::core::fmt::Debug for CastingPlaybackTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CastingPlaybackTypes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CastingPlaybackTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingPlaybackTypes;u4)");
 }
@@ -862,6 +907,11 @@ impl ::core::cmp::PartialEq for CastingSource {
     }
 }
 impl ::core::cmp::Eq for CastingSource {}
+impl ::core::fmt::Debug for CastingSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CastingSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CastingSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingSource;{f429ea72-3467-47e6-a027-522923e9d727})");
 }

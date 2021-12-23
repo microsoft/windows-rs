@@ -385,6 +385,11 @@ impl ::core::cmp::PartialEq for IFhConfigMgr {
     }
 }
 impl ::core::cmp::Eq for IFhConfigMgr {}
+impl ::core::fmt::Debug for IFhConfigMgr {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFhConfigMgr").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFhConfigMgr {
     type Vtable = IFhConfigMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a5fea5b_bf8f_4ee5_b8c3_44d8a0d7331c);
@@ -478,6 +483,11 @@ impl ::core::cmp::PartialEq for IFhReassociation {
     }
 }
 impl ::core::cmp::Eq for IFhReassociation {}
+impl ::core::fmt::Debug for IFhReassociation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFhReassociation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFhReassociation {
     type Vtable = IFhReassociationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6544a28a_f68d_47ac_91ef_16b2b36aa3ee);
@@ -544,6 +554,11 @@ impl ::core::cmp::PartialEq for IFhScopeIterator {
     }
 }
 impl ::core::cmp::Eq for IFhScopeIterator {}
+impl ::core::fmt::Debug for IFhScopeIterator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFhScopeIterator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFhScopeIterator {
     type Vtable = IFhScopeIteratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3197abce_532a_44c6_8615_f3666566a720);
@@ -605,6 +620,11 @@ impl ::core::cmp::PartialEq for IFhTarget {
     }
 }
 impl ::core::cmp::Eq for IFhTarget {}
+impl ::core::fmt::Debug for IFhTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFhTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFhTarget {
     type Vtable = IFhTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd87965fd_2bad_4657_bd3b_9567eb300ced);

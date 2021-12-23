@@ -33,6 +33,12 @@ impl ::core::clone::Clone for DS3DBUFFER {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::fmt::Debug for DS3DBUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS3DBUFFER").field("dwSize", &self.dwSize).field("vPosition", &self.vPosition).field("vVelocity", &self.vVelocity).field("dwInsideConeAngle", &self.dwInsideConeAngle).field("dwOutsideConeAngle", &self.dwOutsideConeAngle).field("vConeOrientation", &self.vConeOrientation).field("lConeOutsideVolume", &self.lConeOutsideVolume).field("flMinDistance", &self.flMinDistance).field("flMaxDistance", &self.flMaxDistance).field("dwMode", &self.dwMode).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 unsafe impl ::windows::core::Abi for DS3DBUFFER {
     type Abi = Self;
 }
@@ -69,6 +75,12 @@ impl ::core::marker::Copy for DS3DLISTENER {}
 impl ::core::clone::Clone for DS3DLISTENER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::fmt::Debug for DS3DLISTENER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS3DLISTENER").field("dwSize", &self.dwSize).field("vPosition", &self.vPosition).field("vVelocity", &self.vVelocity).field("vOrientFront", &self.vOrientFront).field("vOrientTop", &self.vOrientTop).field("flDistanceFactor", &self.flDistanceFactor).field("flRolloffFactor", &self.flRolloffFactor).field("flDopplerFactor", &self.flDopplerFactor).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -138,6 +150,11 @@ impl ::core::marker::Copy for DSBCAPS {}
 impl ::core::clone::Clone for DSBCAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DSBCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSBCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwUnlockTransferRate", &self.dwUnlockTransferRate).field("dwPlayCpuOverhead", &self.dwPlayCpuOverhead).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DSBCAPS {
@@ -234,6 +251,12 @@ impl ::core::clone::Clone for DSBPOSITIONNOTIFY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSBPOSITIONNOTIFY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSBPOSITIONNOTIFY").field("dwOffset", &self.dwOffset).field("hEventNotify", &self.hEventNotify).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DSBPOSITIONNOTIFY {
     type Abi = Self;
 }
@@ -285,6 +308,11 @@ impl ::core::clone::Clone for DSBUFFERDESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DSBUFFERDESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSBUFFERDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).field("guid3DAlgorithm", &self.guid3DAlgorithm).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DSBUFFERDESC {
     type Abi = Self;
 }
@@ -312,6 +340,11 @@ impl ::core::marker::Copy for DSBUFFERDESC1 {}
 impl ::core::clone::Clone for DSBUFFERDESC1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DSBUFFERDESC1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSBUFFERDESC1").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DSBUFFERDESC1 {
@@ -366,6 +399,36 @@ impl ::core::clone::Clone for DSCAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for DSCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCAPS")
+            .field("dwSize", &self.dwSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwMinSecondarySampleRate", &self.dwMinSecondarySampleRate)
+            .field("dwMaxSecondarySampleRate", &self.dwMaxSecondarySampleRate)
+            .field("dwPrimaryBuffers", &self.dwPrimaryBuffers)
+            .field("dwMaxHwMixingAllBuffers", &self.dwMaxHwMixingAllBuffers)
+            .field("dwMaxHwMixingStaticBuffers", &self.dwMaxHwMixingStaticBuffers)
+            .field("dwMaxHwMixingStreamingBuffers", &self.dwMaxHwMixingStreamingBuffers)
+            .field("dwFreeHwMixingAllBuffers", &self.dwFreeHwMixingAllBuffers)
+            .field("dwFreeHwMixingStaticBuffers", &self.dwFreeHwMixingStaticBuffers)
+            .field("dwFreeHwMixingStreamingBuffers", &self.dwFreeHwMixingStreamingBuffers)
+            .field("dwMaxHw3DAllBuffers", &self.dwMaxHw3DAllBuffers)
+            .field("dwMaxHw3DStaticBuffers", &self.dwMaxHw3DStaticBuffers)
+            .field("dwMaxHw3DStreamingBuffers", &self.dwMaxHw3DStreamingBuffers)
+            .field("dwFreeHw3DAllBuffers", &self.dwFreeHw3DAllBuffers)
+            .field("dwFreeHw3DStaticBuffers", &self.dwFreeHw3DStaticBuffers)
+            .field("dwFreeHw3DStreamingBuffers", &self.dwFreeHw3DStreamingBuffers)
+            .field("dwTotalHwMemBytes", &self.dwTotalHwMemBytes)
+            .field("dwFreeHwMemBytes", &self.dwFreeHwMemBytes)
+            .field("dwMaxContigFreeHwMemBytes", &self.dwMaxContigFreeHwMemBytes)
+            .field("dwUnlockTransferRateHwBuffers", &self.dwUnlockTransferRateHwBuffers)
+            .field("dwPlayCpuOverheadSwBuffers", &self.dwPlayCpuOverheadSwBuffers)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("dwReserved2", &self.dwReserved2)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DSCAPS {
     type Abi = Self;
 }
@@ -416,6 +479,11 @@ impl ::core::clone::Clone for DSCBCAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for DSCBCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCBCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DSCBCAPS {
     type Abi = Self;
 }
@@ -459,6 +527,11 @@ impl ::core::clone::Clone for DSCBUFFERDESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DSCBUFFERDESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCBUFFERDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).field("dwFXCount", &self.dwFXCount).field("lpDSCFXDesc", &self.lpDSCFXDesc).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DSCBUFFERDESC {
     type Abi = Self;
 }
@@ -488,6 +561,11 @@ impl ::core::clone::Clone for DSCBUFFERDESC1 {
         *self
     }
 }
+impl ::core::fmt::Debug for DSCBUFFERDESC1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCBUFFERDESC1").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DSCBUFFERDESC1 {
     type Abi = Self;
 }
@@ -514,6 +592,11 @@ impl ::core::marker::Copy for DSCCAPS {}
 impl ::core::clone::Clone for DSCCAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DSCCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwFormats", &self.dwFormats).field("dwChannels", &self.dwChannels).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DSCCAPS {
@@ -552,6 +635,11 @@ impl ::core::clone::Clone for DSCEFFECTDESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DSCEFFECTDESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCEFFECTDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidDSCFXClass", &self.guidDSCFXClass).field("guidDSCFXInstance", &self.guidDSCFXInstance).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DSCEFFECTDESC {
     type Abi = Self;
 }
@@ -580,6 +668,12 @@ impl ::core::marker::Copy for DSCFXAec {}
 impl ::core::clone::Clone for DSCFXAec {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSCFXAec {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCFXAec").field("fEnable", &self.fEnable).field("fNoiseFill", &self.fNoiseFill).field("dwMode", &self.dwMode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -612,6 +706,12 @@ impl ::core::marker::Copy for DSCFXNoiseSuppress {}
 impl ::core::clone::Clone for DSCFXNoiseSuppress {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSCFXNoiseSuppress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCFXNoiseSuppress").field("fEnable", &self.fEnable).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -671,6 +771,11 @@ impl ::core::marker::Copy for DSEFFECTDESC {}
 impl ::core::clone::Clone for DSEFFECTDESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DSEFFECTDESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSEFFECTDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidDSFXClass", &self.guidDSFXClass).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DSEFFECTDESC {
@@ -766,6 +871,11 @@ impl ::core::clone::Clone for DSFXChorus {
         *self
     }
 }
+impl ::core::fmt::Debug for DSFXChorus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXChorus").field("fWetDryMix", &self.fWetDryMix).field("fDepth", &self.fDepth).field("fFeedback", &self.fFeedback).field("fFrequency", &self.fFrequency).field("lWaveform", &self.lWaveform).field("fDelay", &self.fDelay).field("lPhase", &self.lPhase).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DSFXChorus {
     type Abi = Self;
 }
@@ -794,6 +904,11 @@ impl ::core::marker::Copy for DSFXCompressor {}
 impl ::core::clone::Clone for DSFXCompressor {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DSFXCompressor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXCompressor").field("fGain", &self.fGain).field("fAttack", &self.fAttack).field("fRelease", &self.fRelease).field("fThreshold", &self.fThreshold).field("fRatio", &self.fRatio).field("fPredelay", &self.fPredelay).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DSFXCompressor {
@@ -845,6 +960,11 @@ impl ::core::clone::Clone for DSFXDistortion {
         *self
     }
 }
+impl ::core::fmt::Debug for DSFXDistortion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXDistortion").field("fGain", &self.fGain).field("fEdge", &self.fEdge).field("fPostEQCenterFrequency", &self.fPostEQCenterFrequency).field("fPostEQBandwidth", &self.fPostEQBandwidth).field("fPreLowpassCutoff", &self.fPreLowpassCutoff).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DSFXDistortion {
     type Abi = Self;
 }
@@ -892,6 +1012,11 @@ impl ::core::marker::Copy for DSFXEcho {}
 impl ::core::clone::Clone for DSFXEcho {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DSFXEcho {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXEcho").field("fWetDryMix", &self.fWetDryMix).field("fFeedback", &self.fFeedback).field("fLeftDelay", &self.fLeftDelay).field("fRightDelay", &self.fRightDelay).field("lPanDelay", &self.lPanDelay).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DSFXEcho {
@@ -963,6 +1088,11 @@ impl ::core::clone::Clone for DSFXFlanger {
         *self
     }
 }
+impl ::core::fmt::Debug for DSFXFlanger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXFlanger").field("fWetDryMix", &self.fWetDryMix).field("fDepth", &self.fDepth).field("fFeedback", &self.fFeedback).field("fFrequency", &self.fFrequency).field("lWaveform", &self.lWaveform).field("fDelay", &self.fDelay).field("lPhase", &self.lPhase).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DSFXFlanger {
     type Abi = Self;
 }
@@ -995,6 +1125,11 @@ impl ::core::marker::Copy for DSFXGargle {}
 impl ::core::clone::Clone for DSFXGargle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DSFXGargle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXGargle").field("dwRateHz", &self.dwRateHz).field("dwWaveShape", &self.dwWaveShape).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DSFXGargle {
@@ -1031,6 +1166,24 @@ impl ::core::marker::Copy for DSFXI3DL2Reverb {}
 impl ::core::clone::Clone for DSFXI3DL2Reverb {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DSFXI3DL2Reverb {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXI3DL2Reverb")
+            .field("lRoom", &self.lRoom)
+            .field("lRoomHF", &self.lRoomHF)
+            .field("flRoomRolloffFactor", &self.flRoomRolloffFactor)
+            .field("flDecayTime", &self.flDecayTime)
+            .field("flDecayHFRatio", &self.flDecayHFRatio)
+            .field("lReflections", &self.lReflections)
+            .field("flReflectionsDelay", &self.flReflectionsDelay)
+            .field("lReverb", &self.lReverb)
+            .field("flReverbDelay", &self.flReverbDelay)
+            .field("flDiffusion", &self.flDiffusion)
+            .field("flDensity", &self.flDensity)
+            .field("flHFReference", &self.flHFReference)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for DSFXI3DL2Reverb {
@@ -1070,6 +1223,11 @@ impl ::core::marker::Copy for DSFXParamEq {}
 impl ::core::clone::Clone for DSFXParamEq {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DSFXParamEq {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXParamEq").field("fCenter", &self.fCenter).field("fBandwidth", &self.fBandwidth).field("fGain", &self.fGain).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DSFXParamEq {
@@ -1112,6 +1270,11 @@ impl ::core::marker::Copy for DSFXWavesReverb {}
 impl ::core::clone::Clone for DSFXWavesReverb {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DSFXWavesReverb {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXWavesReverb").field("fInGain", &self.fInGain).field("fReverbMix", &self.fReverbMix).field("fReverbTime", &self.fReverbTime).field("fHighFreqRTRatio", &self.fHighFreqRTRatio).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DSFXWavesReverb {
@@ -1590,6 +1753,11 @@ impl ::core::cmp::PartialEq for IDirectSound {
     }
 }
 impl ::core::cmp::Eq for IDirectSound {}
+impl ::core::fmt::Debug for IDirectSound {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSound").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSound {
     type Vtable = IDirectSoundVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x279afa83_4981_11ce_a521_0020af0be560);
@@ -1731,6 +1899,11 @@ impl ::core::cmp::PartialEq for IDirectSound3DBuffer {
     }
 }
 impl ::core::cmp::Eq for IDirectSound3DBuffer {}
+impl ::core::fmt::Debug for IDirectSound3DBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSound3DBuffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSound3DBuffer {
     type Vtable = IDirectSound3DBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x279afa86_4981_11ce_a521_0020af0be560);
@@ -1872,6 +2045,11 @@ impl ::core::cmp::PartialEq for IDirectSound3DListener {
     }
 }
 impl ::core::cmp::Eq for IDirectSound3DListener {}
+impl ::core::fmt::Debug for IDirectSound3DListener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSound3DListener").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSound3DListener {
     type Vtable = IDirectSound3DListenerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x279afa84_4981_11ce_a521_0020af0be560);
@@ -2000,6 +2178,11 @@ impl ::core::cmp::PartialEq for IDirectSound8 {
     }
 }
 impl ::core::cmp::Eq for IDirectSound8 {}
+impl ::core::fmt::Debug for IDirectSound8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSound8").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSound8 {
     type Vtable = IDirectSound8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc50a7e93_f395_4834_9ef6_7fa99de50966);
@@ -2134,6 +2317,11 @@ impl ::core::cmp::PartialEq for IDirectSoundBuffer {
     }
 }
 impl ::core::cmp::Eq for IDirectSoundBuffer {}
+impl ::core::fmt::Debug for IDirectSoundBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSoundBuffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSoundBuffer {
     type Vtable = IDirectSoundBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x279afa85_4981_11ce_a521_0020af0be560);
@@ -2308,6 +2496,11 @@ impl ::core::cmp::PartialEq for IDirectSoundBuffer8 {
     }
 }
 impl ::core::cmp::Eq for IDirectSoundBuffer8 {}
+impl ::core::fmt::Debug for IDirectSoundBuffer8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSoundBuffer8").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSoundBuffer8 {
     type Vtable = IDirectSoundBuffer8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6825a449_7524_4d82_920f_50e36ab3ab1e);
@@ -2389,6 +2582,11 @@ impl ::core::cmp::PartialEq for IDirectSoundCapture {
     }
 }
 impl ::core::cmp::Eq for IDirectSoundCapture {}
+impl ::core::fmt::Debug for IDirectSoundCapture {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSoundCapture").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSoundCapture {
     type Vtable = IDirectSoundCaptureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0210781_89cd_11d0_af08_00a0c925cd16);
@@ -2477,6 +2675,11 @@ impl ::core::cmp::PartialEq for IDirectSoundCaptureBuffer {
     }
 }
 impl ::core::cmp::Eq for IDirectSoundCaptureBuffer {}
+impl ::core::fmt::Debug for IDirectSoundCaptureBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSoundCaptureBuffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSoundCaptureBuffer {
     type Vtable = IDirectSoundCaptureBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0210782_89cd_11d0_af08_00a0c925cd16);
@@ -2599,6 +2802,11 @@ impl ::core::cmp::PartialEq for IDirectSoundCaptureBuffer8 {
     }
 }
 impl ::core::cmp::Eq for IDirectSoundCaptureBuffer8 {}
+impl ::core::fmt::Debug for IDirectSoundCaptureBuffer8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSoundCaptureBuffer8").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSoundCaptureBuffer8 {
     type Vtable = IDirectSoundCaptureBuffer8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00990df4_0dbb_4872_833e_6d303e80aeb6);
@@ -2677,6 +2885,11 @@ impl ::core::cmp::PartialEq for IDirectSoundCaptureFXAec {
     }
 }
 impl ::core::cmp::Eq for IDirectSoundCaptureFXAec {}
+impl ::core::fmt::Debug for IDirectSoundCaptureFXAec {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSoundCaptureFXAec").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSoundCaptureFXAec {
     type Vtable = IDirectSoundCaptureFXAecVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad74143d_903d_4ab7_8066_28d363036d65);
@@ -2745,6 +2958,11 @@ impl ::core::cmp::PartialEq for IDirectSoundCaptureFXNoiseSuppress {
     }
 }
 impl ::core::cmp::Eq for IDirectSoundCaptureFXNoiseSuppress {}
+impl ::core::fmt::Debug for IDirectSoundCaptureFXNoiseSuppress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSoundCaptureFXNoiseSuppress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSoundCaptureFXNoiseSuppress {
     type Vtable = IDirectSoundCaptureFXNoiseSuppressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed311e41_fbae_4175_9625_cd0854f693ca);
@@ -2806,6 +3024,11 @@ impl ::core::cmp::PartialEq for IDirectSoundFXChorus {
     }
 }
 impl ::core::cmp::Eq for IDirectSoundFXChorus {}
+impl ::core::fmt::Debug for IDirectSoundFXChorus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSoundFXChorus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSoundFXChorus {
     type Vtable = IDirectSoundFXChorusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x880842e3_145f_43e6_a934_a71806e50547);
@@ -2864,6 +3087,11 @@ impl ::core::cmp::PartialEq for IDirectSoundFXCompressor {
     }
 }
 impl ::core::cmp::Eq for IDirectSoundFXCompressor {}
+impl ::core::fmt::Debug for IDirectSoundFXCompressor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSoundFXCompressor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSoundFXCompressor {
     type Vtable = IDirectSoundFXCompressorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bbd1154_62f6_4e2c_a15c_d3b6c417f7a0);
@@ -2922,6 +3150,11 @@ impl ::core::cmp::PartialEq for IDirectSoundFXDistortion {
     }
 }
 impl ::core::cmp::Eq for IDirectSoundFXDistortion {}
+impl ::core::fmt::Debug for IDirectSoundFXDistortion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSoundFXDistortion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSoundFXDistortion {
     type Vtable = IDirectSoundFXDistortionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ecf4326_455f_4d8b_bda9_8d5d3e9e3e0b);
@@ -2980,6 +3213,11 @@ impl ::core::cmp::PartialEq for IDirectSoundFXEcho {
     }
 }
 impl ::core::cmp::Eq for IDirectSoundFXEcho {}
+impl ::core::fmt::Debug for IDirectSoundFXEcho {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSoundFXEcho").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSoundFXEcho {
     type Vtable = IDirectSoundFXEchoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bd28edf_50db_4e92_a2bd_445488d1ed42);
@@ -3038,6 +3276,11 @@ impl ::core::cmp::PartialEq for IDirectSoundFXFlanger {
     }
 }
 impl ::core::cmp::Eq for IDirectSoundFXFlanger {}
+impl ::core::fmt::Debug for IDirectSoundFXFlanger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSoundFXFlanger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSoundFXFlanger {
     type Vtable = IDirectSoundFXFlangerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x903e9878_2c92_4072_9b2c_ea68f5396783);
@@ -3096,6 +3339,11 @@ impl ::core::cmp::PartialEq for IDirectSoundFXGargle {
     }
 }
 impl ::core::cmp::Eq for IDirectSoundFXGargle {}
+impl ::core::fmt::Debug for IDirectSoundFXGargle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSoundFXGargle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSoundFXGargle {
     type Vtable = IDirectSoundFXGargleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd616f352_d622_11ce_aac5_0020af0b99a3);
@@ -3172,6 +3420,11 @@ impl ::core::cmp::PartialEq for IDirectSoundFXI3DL2Reverb {
     }
 }
 impl ::core::cmp::Eq for IDirectSoundFXI3DL2Reverb {}
+impl ::core::fmt::Debug for IDirectSoundFXI3DL2Reverb {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSoundFXI3DL2Reverb").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSoundFXI3DL2Reverb {
     type Vtable = IDirectSoundFXI3DL2ReverbVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b166a6a_0d66_43f3_80e3_ee6280dee1a4);
@@ -3234,6 +3487,11 @@ impl ::core::cmp::PartialEq for IDirectSoundFXParamEq {
     }
 }
 impl ::core::cmp::Eq for IDirectSoundFXParamEq {}
+impl ::core::fmt::Debug for IDirectSoundFXParamEq {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSoundFXParamEq").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSoundFXParamEq {
     type Vtable = IDirectSoundFXParamEqVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc03ca9fe_fe90_4204_8078_82334cd177da);
@@ -3292,6 +3550,11 @@ impl ::core::cmp::PartialEq for IDirectSoundFXWavesReverb {
     }
 }
 impl ::core::cmp::Eq for IDirectSoundFXWavesReverb {}
+impl ::core::fmt::Debug for IDirectSoundFXWavesReverb {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSoundFXWavesReverb").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSoundFXWavesReverb {
     type Vtable = IDirectSoundFXWavesReverbVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46858c3a_0dc6_45e3_b760_d4eef16cb325);
@@ -3346,6 +3609,11 @@ impl ::core::cmp::PartialEq for IDirectSoundFullDuplex {
     }
 }
 impl ::core::cmp::Eq for IDirectSoundFullDuplex {}
+impl ::core::fmt::Debug for IDirectSoundFullDuplex {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSoundFullDuplex").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSoundFullDuplex {
     type Vtable = IDirectSoundFullDuplexVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedcb4c7a_daab_4216_a42e_6c50596ddc1d);
@@ -3400,6 +3668,11 @@ impl ::core::cmp::PartialEq for IDirectSoundNotify {
     }
 }
 impl ::core::cmp::Eq for IDirectSoundNotify {}
+impl ::core::fmt::Debug for IDirectSoundNotify {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectSoundNotify").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectSoundNotify {
     type Vtable = IDirectSoundNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0210783_89cd_11d0_af08_00a0c925cd16);

@@ -67,6 +67,11 @@ impl ::core::cmp::PartialEq for CausalityRelation {
     }
 }
 impl ::core::cmp::Eq for CausalityRelation {}
+impl ::core::fmt::Debug for CausalityRelation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CausalityRelation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CausalityRelation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalityRelation;i4)");
 }
@@ -96,6 +101,11 @@ impl ::core::cmp::PartialEq for CausalitySource {
     }
 }
 impl ::core::cmp::Eq for CausalitySource {}
+impl ::core::fmt::Debug for CausalitySource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CausalitySource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CausalitySource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalitySource;i4)");
 }
@@ -125,6 +135,11 @@ impl ::core::cmp::PartialEq for CausalitySynchronousWork {
     }
 }
 impl ::core::cmp::Eq for CausalitySynchronousWork {}
+impl ::core::fmt::Debug for CausalitySynchronousWork {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CausalitySynchronousWork").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CausalitySynchronousWork {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalitySynchronousWork;i4)");
 }
@@ -154,6 +169,11 @@ impl ::core::cmp::PartialEq for CausalityTraceLevel {
     }
 }
 impl ::core::cmp::Eq for CausalityTraceLevel {}
+impl ::core::fmt::Debug for CausalityTraceLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CausalityTraceLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CausalityTraceLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalityTraceLevel;i4)");
 }
@@ -212,6 +232,11 @@ impl ::core::cmp::PartialEq for ErrorDetails {
     }
 }
 impl ::core::cmp::Eq for ErrorDetails {}
+impl ::core::fmt::Debug for ErrorDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ErrorDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ErrorDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.ErrorDetails;{378cbb01-2cc9-428f-8c55-2c990d463e8f})");
 }
@@ -289,6 +314,11 @@ impl ::core::cmp::PartialEq for ErrorOptions {
     }
 }
 impl ::core::cmp::Eq for ErrorOptions {}
+impl ::core::fmt::Debug for ErrorOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ErrorOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ErrorOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.ErrorOptions;u4)");
 }
@@ -373,6 +403,11 @@ impl ::core::cmp::PartialEq for FileLoggingSession {
     }
 }
 impl ::core::cmp::Eq for FileLoggingSession {}
+impl ::core::fmt::Debug for FileLoggingSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileLoggingSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileLoggingSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.FileLoggingSession;{24c74216-fed2-404c-895f-1f9699cb02f7})");
 }
@@ -600,6 +635,11 @@ impl ::core::cmp::PartialEq for IErrorReportingSettings {
     }
 }
 impl ::core::cmp::Eq for IErrorReportingSettings {}
+impl ::core::fmt::Debug for IErrorReportingSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IErrorReportingSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IErrorReportingSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{16369792-b03e-4ba1-8bb8-d28f4ab4d2c0}");
 }
@@ -747,6 +787,11 @@ impl ::core::cmp::PartialEq for IFileLoggingSession {
     }
 }
 impl ::core::cmp::Eq for IFileLoggingSession {}
+impl ::core::fmt::Debug for IFileLoggingSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFileLoggingSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IFileLoggingSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{24c74216-fed2-404c-895f-1f9699cb02f7}");
 }
@@ -1008,6 +1053,11 @@ impl ::core::cmp::PartialEq for ILoggingChannel {
     }
 }
 impl ::core::cmp::Eq for ILoggingChannel {}
+impl ::core::fmt::Debug for ILoggingChannel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILoggingChannel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ILoggingChannel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e9a50343-11d7-4f01-b5ca-cf495278c0a8}");
 }
@@ -1421,6 +1471,11 @@ impl ::core::cmp::PartialEq for ILoggingSession {
     }
 }
 impl ::core::cmp::Eq for ILoggingSession {}
+impl ::core::fmt::Debug for ILoggingSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILoggingSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ILoggingSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6221f306-9380-4ad7-baf5-41ea9310d768}");
 }
@@ -1594,6 +1649,11 @@ impl ::core::cmp::PartialEq for ILoggingTarget {
     }
 }
 impl ::core::cmp::Eq for ILoggingTarget {}
+impl ::core::fmt::Debug for ILoggingTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILoggingTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ILoggingTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{65f16c35-e388-4e26-b17a-f51cd3a83916}");
 }
@@ -1666,6 +1726,11 @@ impl ::core::cmp::PartialEq for LogFileGeneratedEventArgs {
     }
 }
 impl ::core::cmp::Eq for LogFileGeneratedEventArgs {}
+impl ::core::fmt::Debug for LogFileGeneratedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LogFileGeneratedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LogFileGeneratedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LogFileGeneratedEventArgs;{269e976f-0d38-4c1a-b53f-b395d881df84})");
 }
@@ -1873,6 +1938,11 @@ impl ::core::cmp::PartialEq for LoggingActivity {
     }
 }
 impl ::core::cmp::Eq for LoggingActivity {}
+impl ::core::fmt::Debug for LoggingActivity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoggingActivity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LoggingActivity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingActivity;{bc032941-b766-4cb5-9848-97ac6ba6d60c})");
 }
@@ -2163,6 +2233,11 @@ impl ::core::cmp::PartialEq for LoggingChannel {
     }
 }
 impl ::core::cmp::Eq for LoggingChannel {}
+impl ::core::fmt::Debug for LoggingChannel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoggingChannel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LoggingChannel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingChannel;{e9a50343-11d7-4f01-b5ca-cf495278c0a8})");
 }
@@ -2329,6 +2404,11 @@ impl ::core::cmp::PartialEq for LoggingChannelOptions {
     }
 }
 impl ::core::cmp::Eq for LoggingChannelOptions {}
+impl ::core::fmt::Debug for LoggingChannelOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoggingChannelOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LoggingChannelOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingChannelOptions;{c3e847ff-0ebb-4a53-8c54-dec24926cb2c})");
 }
@@ -2420,6 +2500,11 @@ impl ::core::cmp::PartialEq for LoggingFieldFormat {
     }
 }
 impl ::core::cmp::Eq for LoggingFieldFormat {}
+impl ::core::fmt::Debug for LoggingFieldFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoggingFieldFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LoggingFieldFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingFieldFormat;i4)");
 }
@@ -3024,6 +3109,11 @@ impl ::core::cmp::PartialEq for LoggingFields {
     }
 }
 impl ::core::cmp::Eq for LoggingFields {}
+impl ::core::fmt::Debug for LoggingFields {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoggingFields").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LoggingFields {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingFields;{d7f6b7af-762d-4579-83bd-52c23bc333bc})");
 }
@@ -3101,6 +3191,11 @@ impl ::core::cmp::PartialEq for LoggingLevel {
     }
 }
 impl ::core::cmp::Eq for LoggingLevel {}
+impl ::core::fmt::Debug for LoggingLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoggingLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LoggingLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingLevel;i4)");
 }
@@ -3134,6 +3229,11 @@ impl ::core::cmp::PartialEq for LoggingOpcode {
     }
 }
 impl ::core::cmp::Eq for LoggingOpcode {}
+impl ::core::fmt::Debug for LoggingOpcode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoggingOpcode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LoggingOpcode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingOpcode;i4)");
 }
@@ -3253,6 +3353,11 @@ impl ::core::cmp::PartialEq for LoggingOptions {
     }
 }
 impl ::core::cmp::Eq for LoggingOptions {}
+impl ::core::fmt::Debug for LoggingOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoggingOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LoggingOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingOptions;{90bc7850-0192-4f5d-ac26-006adaca12d8})");
 }
@@ -3370,6 +3475,11 @@ impl ::core::cmp::PartialEq for LoggingSession {
     }
 }
 impl ::core::cmp::Eq for LoggingSession {}
+impl ::core::fmt::Debug for LoggingSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoggingSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LoggingSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingSession;{6221f306-9380-4ad7-baf5-41ea9310d768})");
 }
@@ -3502,6 +3612,11 @@ impl ::core::cmp::PartialEq for RuntimeBrokerErrorSettings {
     }
 }
 impl ::core::cmp::Eq for RuntimeBrokerErrorSettings {}
+impl ::core::fmt::Debug for RuntimeBrokerErrorSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RuntimeBrokerErrorSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RuntimeBrokerErrorSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.RuntimeBrokerErrorSettings;{16369792-b03e-4ba1-8bb8-d28f4ab4d2c0})");
 }
@@ -3608,6 +3723,11 @@ impl ::core::cmp::PartialEq for TracingStatusChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for TracingStatusChangedEventArgs {}
+impl ::core::fmt::Debug for TracingStatusChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TracingStatusChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TracingStatusChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.TracingStatusChangedEventArgs;{410b7711-ff3b-477f-9c9a-d2efda302dc3})");
 }

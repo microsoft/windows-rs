@@ -70,6 +70,11 @@ impl ::core::cmp::PartialEq for DataProtectionProvider {
     }
 }
 impl ::core::cmp::Eq for DataProtectionProvider {}
+impl ::core::fmt::Debug for DataProtectionProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataProtectionProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataProtectionProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.DataProtection.DataProtectionProvider;{09639948-ed22-4270-bd1c-6d72c00f8787})");
 }

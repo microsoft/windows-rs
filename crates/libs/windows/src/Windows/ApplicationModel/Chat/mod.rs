@@ -55,6 +55,11 @@ impl ::core::cmp::PartialEq for ChatCapabilities {
     }
 }
 impl ::core::cmp::Eq for ChatCapabilities {}
+impl ::core::fmt::Debug for ChatCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatCapabilities;{3aff77bc-39c9-4dd1-ad2d-3964dd9d403f})");
 }
@@ -329,6 +334,11 @@ impl ::core::cmp::PartialEq for ChatConversation {
     }
 }
 impl ::core::cmp::Eq for ChatConversation {}
+impl ::core::fmt::Debug for ChatConversation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatConversation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatConversation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatConversation;{a58c080d-1a6f-46dc-8f3d-f5028660b6ee})");
 }
@@ -437,6 +447,11 @@ impl ::core::cmp::PartialEq for ChatConversationReader {
     }
 }
 impl ::core::cmp::Eq for ChatConversationReader {}
+impl ::core::fmt::Debug for ChatConversationReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatConversationReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatConversationReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatConversationReader;{055136d2-de32-4a47-a93a-b3dc0833852b})");
 }
@@ -573,6 +588,11 @@ impl ::core::cmp::PartialEq for ChatConversationThreadingInfo {
     }
 }
 impl ::core::cmp::Eq for ChatConversationThreadingInfo {}
+impl ::core::fmt::Debug for ChatConversationThreadingInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatConversationThreadingInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatConversationThreadingInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatConversationThreadingInfo;{331c21dc-7a07-4422-a32c-24be7c6dab24})");
 }
@@ -649,6 +669,11 @@ impl ::core::cmp::PartialEq for ChatConversationThreadingKind {
     }
 }
 impl ::core::cmp::Eq for ChatConversationThreadingKind {}
+impl ::core::fmt::Debug for ChatConversationThreadingKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatConversationThreadingKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatConversationThreadingKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatConversationThreadingKind;i4)");
 }
@@ -677,6 +702,11 @@ impl ::core::cmp::PartialEq for ChatItemKind {
     }
 }
 impl ::core::cmp::Eq for ChatItemKind {}
+impl ::core::fmt::Debug for ChatItemKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatItemKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatItemKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatItemKind;i4)");
 }
@@ -1046,6 +1076,11 @@ impl ::core::cmp::PartialEq for ChatMessage {
     }
 }
 impl ::core::cmp::Eq for ChatMessage {}
+impl ::core::fmt::Debug for ChatMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessage;{4b39052a-1142-5089-76da-f2db3d17cd05})");
 }
@@ -1244,6 +1279,11 @@ impl ::core::cmp::PartialEq for ChatMessageAttachment {
     }
 }
 impl ::core::cmp::Eq for ChatMessageAttachment {}
+impl ::core::fmt::Debug for ChatMessageAttachment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageAttachment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageAttachment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageAttachment;{c7c4fd74-bf63-58eb-508c-8b863ff16b67})");
 }
@@ -1348,6 +1388,11 @@ impl ::core::cmp::PartialEq for ChatMessageChange {
     }
 }
 impl ::core::cmp::Eq for ChatMessageChange {}
+impl ::core::fmt::Debug for ChatMessageChange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageChange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageChange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChange;{1c18c355-421e-54b8-6d38-6b3a6c82fccc})");
 }
@@ -1435,6 +1480,11 @@ impl ::core::cmp::PartialEq for ChatMessageChangeReader {
     }
 }
 impl ::core::cmp::Eq for ChatMessageChangeReader {}
+impl ::core::fmt::Debug for ChatMessageChangeReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageChangeReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageChangeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangeReader;{14267020-28ce-5f26-7b05-9a5c7cce87ca})");
 }
@@ -1521,6 +1571,11 @@ impl ::core::cmp::PartialEq for ChatMessageChangeTracker {
     }
 }
 impl ::core::cmp::Eq for ChatMessageChangeTracker {}
+impl ::core::fmt::Debug for ChatMessageChangeTracker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageChangeTracker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageChangeTracker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangeTracker;{60b7f066-70a0-5224-508c-242ef7c1d06f})");
 }
@@ -1597,6 +1652,11 @@ impl ::core::cmp::PartialEq for ChatMessageChangeType {
     }
 }
 impl ::core::cmp::Eq for ChatMessageChangeType {}
+impl ::core::fmt::Debug for ChatMessageChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageChangeType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageChangeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageChangeType;i4)");
 }
@@ -1624,6 +1684,11 @@ impl ::core::cmp::PartialEq for ChatMessageChangedDeferral {
     }
 }
 impl ::core::cmp::Eq for ChatMessageChangedDeferral {}
+impl ::core::fmt::Debug for ChatMessageChangedDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageChangedDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageChangedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangedDeferral;{fbc6b30c-788c-4dcc-ace7-6282382968cf})");
 }
@@ -1700,6 +1765,11 @@ impl ::core::cmp::PartialEq for ChatMessageChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ChatMessageChangedEventArgs {}
+impl ::core::fmt::Debug for ChatMessageChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangedEventArgs;{b6b73e2d-691c-4edf-8660-6eb9896892e3})");
 }
@@ -1779,6 +1849,11 @@ impl ::core::cmp::PartialEq for ChatMessageKind {
     }
 }
 impl ::core::cmp::Eq for ChatMessageKind {}
+impl ::core::fmt::Debug for ChatMessageKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageKind;i4)");
 }
@@ -1915,6 +1990,11 @@ impl ::core::cmp::PartialEq for ChatMessageNotificationTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for ChatMessageNotificationTriggerDetails {}
+impl ::core::fmt::Debug for ChatMessageNotificationTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageNotificationTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageNotificationTriggerDetails;{fd344dfb-3063-4e17-8586-c6c08262e6c0})");
 }
@@ -1991,6 +2071,11 @@ impl ::core::cmp::PartialEq for ChatMessageOperatorKind {
     }
 }
 impl ::core::cmp::Eq for ChatMessageOperatorKind {}
+impl ::core::fmt::Debug for ChatMessageOperatorKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageOperatorKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageOperatorKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageOperatorKind;i4)");
 }
@@ -2031,6 +2116,11 @@ impl ::core::cmp::PartialEq for ChatMessageReader {
     }
 }
 impl ::core::cmp::Eq for ChatMessageReader {}
+impl ::core::fmt::Debug for ChatMessageReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageReader;{b6ea78ce-4489-56f9-76aa-e204682514cf})");
 }
@@ -2117,6 +2207,11 @@ impl ::core::cmp::PartialEq for ChatMessageStatus {
     }
 }
 impl ::core::cmp::Eq for ChatMessageStatus {}
+impl ::core::fmt::Debug for ChatMessageStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageStatus;i4)");
 }
@@ -2398,6 +2493,11 @@ impl ::core::cmp::PartialEq for ChatMessageStore {
     }
 }
 impl ::core::cmp::Eq for ChatMessageStore {}
+impl ::core::fmt::Debug for ChatMessageStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageStore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageStore;{31f2fd01-ccf6-580b-4976-0a07dd5d3b47})");
 }
@@ -2482,6 +2582,11 @@ impl ::core::cmp::PartialEq for ChatMessageStoreChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ChatMessageStoreChangedEventArgs {}
+impl ::core::fmt::Debug for ChatMessageStoreChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageStoreChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageStoreChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageStoreChangedEventArgs;{65c66fac-fe8c-46d4-9119-57b8410311d5})");
 }
@@ -2607,6 +2712,11 @@ impl ::core::cmp::PartialEq for ChatMessageTransport {
     }
 }
 impl ::core::cmp::Eq for ChatMessageTransport {}
+impl ::core::fmt::Debug for ChatMessageTransport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageTransport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageTransport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageTransport;{63a9dbf8-e6b3-5c9a-5f85-d47925b9bd18})");
 }
@@ -2717,6 +2827,11 @@ impl ::core::cmp::PartialEq for ChatMessageTransportConfiguration {
     }
 }
 impl ::core::cmp::Eq for ChatMessageTransportConfiguration {}
+impl ::core::fmt::Debug for ChatMessageTransportConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageTransportConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageTransportConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageTransportConfiguration;{879ff725-1a08-4aca-a075-3355126312e6})");
 }
@@ -2793,6 +2908,11 @@ impl ::core::cmp::PartialEq for ChatMessageTransportKind {
     }
 }
 impl ::core::cmp::Eq for ChatMessageTransportKind {}
+impl ::core::fmt::Debug for ChatMessageTransportKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageTransportKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageTransportKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageTransportKind;i4)");
 }
@@ -2850,6 +2970,11 @@ impl ::core::cmp::PartialEq for ChatMessageValidationResult {
     }
 }
 impl ::core::cmp::Eq for ChatMessageValidationResult {}
+impl ::core::fmt::Debug for ChatMessageValidationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageValidationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageValidationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageValidationResult;{25e93a03-28ec-5889-569b-7e486b126f18})");
 }
@@ -2936,6 +3061,11 @@ impl ::core::cmp::PartialEq for ChatMessageValidationStatus {
     }
 }
 impl ::core::cmp::Eq for ChatMessageValidationStatus {}
+impl ::core::fmt::Debug for ChatMessageValidationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageValidationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageValidationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageValidationStatus;i4)");
 }
@@ -2978,6 +3108,11 @@ impl ::core::cmp::PartialEq for ChatQueryOptions {
     }
 }
 impl ::core::cmp::Eq for ChatQueryOptions {}
+impl ::core::fmt::Debug for ChatQueryOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatQueryOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatQueryOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatQueryOptions;{2fd364a6-bf36-42f7-b7e7-923c0aabfe16})");
 }
@@ -3136,6 +3271,11 @@ impl ::core::cmp::PartialEq for ChatRecipientDeliveryInfo {
     }
 }
 impl ::core::cmp::Eq for ChatRecipientDeliveryInfo {}
+impl ::core::fmt::Debug for ChatRecipientDeliveryInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatRecipientDeliveryInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatRecipientDeliveryInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo;{ffc7b2a2-283c-4c0a-8a0e-8c33bdbf0545})");
 }
@@ -3211,6 +3351,11 @@ impl ::core::cmp::PartialEq for ChatRestoreHistorySpan {
     }
 }
 impl ::core::cmp::Eq for ChatRestoreHistorySpan {}
+impl ::core::fmt::Debug for ChatRestoreHistorySpan {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatRestoreHistorySpan").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatRestoreHistorySpan {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatRestoreHistorySpan;i4)");
 }
@@ -3251,6 +3396,11 @@ impl ::core::cmp::PartialEq for ChatSearchReader {
     }
 }
 impl ::core::cmp::Eq for ChatSearchReader {}
+impl ::core::fmt::Debug for ChatSearchReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatSearchReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatSearchReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatSearchReader;{4665fe49-9020-4752-980d-39612325f589})");
 }
@@ -3331,6 +3481,11 @@ impl ::core::cmp::PartialEq for ChatStoreChangedEventKind {
     }
 }
 impl ::core::cmp::Eq for ChatStoreChangedEventKind {}
+impl ::core::fmt::Debug for ChatStoreChangedEventKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatStoreChangedEventKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatStoreChangedEventKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatStoreChangedEventKind;i4)");
 }
@@ -3379,6 +3534,11 @@ impl ::core::cmp::PartialEq for ChatSyncConfiguration {
     }
 }
 impl ::core::cmp::Eq for ChatSyncConfiguration {}
+impl ::core::fmt::Debug for ChatSyncConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatSyncConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatSyncConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatSyncConfiguration;{09f869b2-69f4-4aff-82b6-06992ff402d2})");
 }
@@ -3496,6 +3656,11 @@ impl ::core::cmp::PartialEq for ChatSyncManager {
     }
 }
 impl ::core::cmp::Eq for ChatSyncManager {}
+impl ::core::fmt::Debug for ChatSyncManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatSyncManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatSyncManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatSyncManager;{7ba52c63-2650-486f-b4b4-6bd9d3d63c84})");
 }
@@ -3572,6 +3737,11 @@ impl ::core::cmp::PartialEq for ChatTransportErrorCodeCategory {
     }
 }
 impl ::core::cmp::Eq for ChatTransportErrorCodeCategory {}
+impl ::core::fmt::Debug for ChatTransportErrorCodeCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatTransportErrorCodeCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatTransportErrorCodeCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatTransportErrorCodeCategory;i4)");
 }
@@ -3604,6 +3774,11 @@ impl ::core::cmp::PartialEq for ChatTransportInterpretedErrorCode {
     }
 }
 impl ::core::cmp::Eq for ChatTransportInterpretedErrorCode {}
+impl ::core::fmt::Debug for ChatTransportInterpretedErrorCode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatTransportInterpretedErrorCode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatTransportInterpretedErrorCode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatTransportInterpretedErrorCode;i4)");
 }
@@ -3847,6 +4022,11 @@ impl ::core::cmp::PartialEq for IChatItem {
     }
 }
 impl ::core::cmp::Eq for IChatItem {}
+impl ::core::fmt::Debug for IChatItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IChatItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IChatItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8751d000-ceb1-4243-b803-15d45a1dd428}");
 }
@@ -4965,6 +5145,11 @@ impl ::core::cmp::PartialEq for RcsEndUserMessage {
     }
 }
 impl ::core::cmp::Eq for RcsEndUserMessage {}
+impl ::core::fmt::Debug for RcsEndUserMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RcsEndUserMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RcsEndUserMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessage;{d7cda5eb-cbd7-4f3b-8526-b506dec35c53})");
 }
@@ -5041,6 +5226,11 @@ impl ::core::cmp::PartialEq for RcsEndUserMessageAction {
     }
 }
 impl ::core::cmp::Eq for RcsEndUserMessageAction {}
+impl ::core::fmt::Debug for RcsEndUserMessageAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RcsEndUserMessageAction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RcsEndUserMessageAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageAction;{92378737-9b42-46d3-9d5e-3c1b2dae7cb8})");
 }
@@ -5125,6 +5315,11 @@ impl ::core::cmp::PartialEq for RcsEndUserMessageAvailableEventArgs {
     }
 }
 impl ::core::cmp::Eq for RcsEndUserMessageAvailableEventArgs {}
+impl ::core::fmt::Debug for RcsEndUserMessageAvailableEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RcsEndUserMessageAvailableEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RcsEndUserMessageAvailableEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableEventArgs;{2d45ae01-3f89-41ea-9702-9e9ed411aa98})");
 }
@@ -5209,6 +5404,11 @@ impl ::core::cmp::PartialEq for RcsEndUserMessageAvailableTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for RcsEndUserMessageAvailableTriggerDetails {}
+impl ::core::fmt::Debug for RcsEndUserMessageAvailableTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RcsEndUserMessageAvailableTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RcsEndUserMessageAvailableTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableTriggerDetails;{5b97742d-351f-4692-b41e-1b035dc18986})");
 }
@@ -5292,6 +5492,11 @@ impl ::core::cmp::PartialEq for RcsEndUserMessageManager {
     }
 }
 impl ::core::cmp::Eq for RcsEndUserMessageManager {}
+impl ::core::fmt::Debug for RcsEndUserMessageManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RcsEndUserMessageManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RcsEndUserMessageManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageManager;{3054ae5a-4d1f-4b59-9433-126c734e86a6})");
 }
@@ -5429,6 +5634,11 @@ impl ::core::cmp::PartialEq for RcsServiceKind {
     }
 }
 impl ::core::cmp::Eq for RcsServiceKind {}
+impl ::core::fmt::Debug for RcsServiceKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RcsServiceKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RcsServiceKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.RcsServiceKind;i4)");
 }
@@ -5459,6 +5669,11 @@ impl ::core::cmp::PartialEq for RcsServiceKindSupportedChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RcsServiceKindSupportedChangedEventArgs {}
+impl ::core::fmt::Debug for RcsServiceKindSupportedChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RcsServiceKindSupportedChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RcsServiceKindSupportedChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsServiceKindSupportedChangedEventArgs;{f47ea244-e783-4866-b3a7-4e5ccf023070})");
 }
@@ -5599,6 +5814,11 @@ impl ::core::cmp::PartialEq for RcsTransport {
     }
 }
 impl ::core::cmp::Eq for RcsTransport {}
+impl ::core::fmt::Debug for RcsTransport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RcsTransport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RcsTransport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsTransport;{fea34759-f37c-4319-8546-ec84d21d30ff})");
 }
@@ -5715,6 +5935,11 @@ impl ::core::cmp::PartialEq for RcsTransportConfiguration {
     }
 }
 impl ::core::cmp::Eq for RcsTransportConfiguration {}
+impl ::core::fmt::Debug for RcsTransportConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RcsTransportConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RcsTransportConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsTransportConfiguration;{1fccb102-2472-4bb9-9988-c1211c83e8a9})");
 }
@@ -5807,6 +6032,11 @@ impl ::core::cmp::PartialEq for RemoteParticipantComposingChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RemoteParticipantComposingChangedEventArgs {}
+impl ::core::fmt::Debug for RemoteParticipantComposingChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteParticipantComposingChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteParticipantComposingChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RemoteParticipantComposingChangedEventArgs;{1ec045a7-cfc9-45c9-9876-449f2bc180f5})");
 }

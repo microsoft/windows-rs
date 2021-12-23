@@ -181,6 +181,11 @@ impl ::core::cmp::PartialEq for ISideShowBulkCapabilities {
     }
 }
 impl ::core::cmp::Eq for ISideShowBulkCapabilities {}
+impl ::core::fmt::Debug for ISideShowBulkCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISideShowBulkCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISideShowBulkCapabilities {
     type Vtable = ISideShowBulkCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a2b7fbc_3ad5_48bd_bbf1_0e6cfbd10807);
@@ -236,6 +241,11 @@ impl ::core::cmp::PartialEq for ISideShowCapabilities {
     }
 }
 impl ::core::cmp::Eq for ISideShowCapabilities {}
+impl ::core::fmt::Debug for ISideShowCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISideShowCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISideShowCapabilities {
     type Vtable = ISideShowCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x535e1379_c09e_4a54_a511_597bab3a72b8);
@@ -295,6 +305,11 @@ impl ::core::cmp::PartialEq for ISideShowCapabilitiesCollection {
     }
 }
 impl ::core::cmp::Eq for ISideShowCapabilitiesCollection {}
+impl ::core::fmt::Debug for ISideShowCapabilitiesCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISideShowCapabilitiesCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISideShowCapabilitiesCollection {
     type Vtable = ISideShowCapabilitiesCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50305597_5e0d_4ff7_b3af_33d0d9bd52dd);
@@ -359,6 +374,11 @@ impl ::core::cmp::PartialEq for ISideShowContent {
     }
 }
 impl ::core::cmp::Eq for ISideShowContent {}
+impl ::core::fmt::Debug for ISideShowContent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISideShowContent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISideShowContent {
     type Vtable = ISideShowContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc18552ed_74ff_4fec_be07_4cfed29d4887);
@@ -431,6 +451,11 @@ impl ::core::cmp::PartialEq for ISideShowContentManager {
     }
 }
 impl ::core::cmp::Eq for ISideShowContentManager {}
+impl ::core::fmt::Debug for ISideShowContentManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISideShowContentManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISideShowContentManager {
     type Vtable = ISideShowContentManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5d5b66b_eef9_41db_8d7e_e17c33ab10b0);
@@ -500,6 +525,11 @@ impl ::core::cmp::PartialEq for ISideShowEvents {
     }
 }
 impl ::core::cmp::Eq for ISideShowEvents {}
+impl ::core::fmt::Debug for ISideShowEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISideShowEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISideShowEvents {
     type Vtable = ISideShowEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61feca4c_deb4_4a7e_8d75_51f1132d615b);
@@ -573,6 +603,11 @@ impl ::core::cmp::PartialEq for ISideShowKeyCollection {
     }
 }
 impl ::core::cmp::Eq for ISideShowKeyCollection {}
+impl ::core::fmt::Debug for ISideShowKeyCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISideShowKeyCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISideShowKeyCollection {
     type Vtable = ISideShowKeyCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x045473bc_a37b_4957_b144_68105411ed8e);
@@ -680,6 +715,11 @@ impl ::core::cmp::PartialEq for ISideShowNotification {
     }
 }
 impl ::core::cmp::Eq for ISideShowNotification {}
+impl ::core::fmt::Debug for ISideShowNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISideShowNotification").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISideShowNotification {
     type Vtable = ISideShowNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03c93300_8ab2_41c5_9b79_46127a30e148);
@@ -757,6 +797,11 @@ impl ::core::cmp::PartialEq for ISideShowNotificationManager {
     }
 }
 impl ::core::cmp::Eq for ISideShowNotificationManager {}
+impl ::core::fmt::Debug for ISideShowNotificationManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISideShowNotificationManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISideShowNotificationManager {
     type Vtable = ISideShowNotificationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63cea909_f2b9_4302_b5e1_c68e6d9ab833);
@@ -829,6 +874,11 @@ impl ::core::cmp::PartialEq for ISideShowPropVariantCollection {
     }
 }
 impl ::core::cmp::Eq for ISideShowPropVariantCollection {}
+impl ::core::fmt::Debug for ISideShowPropVariantCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISideShowPropVariantCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISideShowPropVariantCollection {
     type Vtable = ISideShowPropVariantCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ea7a549_7bff_4aae_bab0_22d43111de49);
@@ -893,6 +943,11 @@ impl ::core::cmp::PartialEq for ISideShowSession {
     }
 }
 impl ::core::cmp::Eq for ISideShowSession {}
+impl ::core::fmt::Debug for ISideShowSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISideShowSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISideShowSession {
     type Vtable = ISideShowSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe22331ee_9e7d_4922_9fc2_ab7aa41ce491);
@@ -973,6 +1028,11 @@ impl ::core::clone::Clone for SCF_CONTEXTMENU_EVENT {
         *self
     }
 }
+impl ::core::fmt::Debug for SCF_CONTEXTMENU_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCF_CONTEXTMENU_EVENT").field("PreviousPage", &self.PreviousPage).field("TargetPage", &self.TargetPage).field("PreviousItemId", &self.PreviousItemId).field("MenuPage", &self.MenuPage).field("MenuItemId", &self.MenuItemId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCF_CONTEXTMENU_EVENT {
     type Abi = Self;
 }
@@ -997,6 +1057,11 @@ impl ::core::marker::Copy for SCF_EVENT_HEADER {}
 impl ::core::clone::Clone for SCF_EVENT_HEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCF_EVENT_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCF_EVENT_HEADER").field("PreviousPage", &self.PreviousPage).field("TargetPage", &self.TargetPage).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCF_EVENT_HEADER {
@@ -1035,6 +1100,11 @@ impl ::core::clone::Clone for SCF_MENUACTION_EVENT {
         *self
     }
 }
+impl ::core::fmt::Debug for SCF_MENUACTION_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCF_MENUACTION_EVENT").field("PreviousPage", &self.PreviousPage).field("TargetPage", &self.TargetPage).field("Button", &self.Button).field("ItemId", &self.ItemId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCF_MENUACTION_EVENT {
     type Abi = Self;
 }
@@ -1060,6 +1130,11 @@ impl ::core::marker::Copy for SCF_NAVIGATION_EVENT {}
 impl ::core::clone::Clone for SCF_NAVIGATION_EVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCF_NAVIGATION_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCF_NAVIGATION_EVENT").field("PreviousPage", &self.PreviousPage).field("TargetPage", &self.TargetPage).field("Button", &self.Button).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCF_NAVIGATION_EVENT {

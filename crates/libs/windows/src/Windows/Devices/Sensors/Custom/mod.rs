@@ -108,6 +108,11 @@ impl ::core::cmp::PartialEq for CustomSensor {
     }
 }
 impl ::core::cmp::Eq for CustomSensor {}
+impl ::core::fmt::Debug for CustomSensor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CustomSensor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CustomSensor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Custom.CustomSensor;{a136f9ad-4034-4b4d-99dd-531aac649c09})");
 }
@@ -203,6 +208,11 @@ impl ::core::cmp::PartialEq for CustomSensorReading {
     }
 }
 impl ::core::cmp::Eq for CustomSensorReading {}
+impl ::core::fmt::Debug for CustomSensorReading {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CustomSensorReading").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CustomSensorReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Custom.CustomSensorReading;{64004f4d-446a-4366-a87a-5f963268ec53})");
 }
@@ -279,6 +289,11 @@ impl ::core::cmp::PartialEq for CustomSensorReadingChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for CustomSensorReadingChangedEventArgs {}
+impl ::core::fmt::Debug for CustomSensorReadingChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CustomSensorReadingChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CustomSensorReadingChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Custom.CustomSensorReadingChangedEventArgs;{6b202023-cffd-4cc1-8ff0-e21823d76fcc})");
 }

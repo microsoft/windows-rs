@@ -11,6 +11,11 @@ impl ::core::clone::Clone for NV_MEMORY_RANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for NV_MEMORY_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NV_MEMORY_RANGE").field("BaseAddress", &self.BaseAddress).field("Length", &self.Length).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NV_MEMORY_RANGE {
     type Abi = Self;
 }

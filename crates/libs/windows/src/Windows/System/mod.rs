@@ -55,6 +55,11 @@ impl ::core::cmp::PartialEq for AppActivationResult {
     }
 }
 impl ::core::cmp::Eq for AppActivationResult {}
+impl ::core::fmt::Debug for AppActivationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppActivationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppActivationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppActivationResult;{6b528900-f46e-4eb0-aa6c-38af557cf9ed})");
 }
@@ -215,6 +220,11 @@ impl ::core::cmp::PartialEq for AppDiagnosticInfo {
     }
 }
 impl ::core::cmp::Eq for AppDiagnosticInfo {}
+impl ::core::fmt::Debug for AppDiagnosticInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppDiagnosticInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppDiagnosticInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppDiagnosticInfo;{e348a69a-8889-4ca3-be07-d5ffff5f0804})");
 }
@@ -361,6 +371,11 @@ impl ::core::cmp::PartialEq for AppDiagnosticInfoWatcher {
     }
 }
 impl ::core::cmp::Eq for AppDiagnosticInfoWatcher {}
+impl ::core::fmt::Debug for AppDiagnosticInfoWatcher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppDiagnosticInfoWatcher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppDiagnosticInfoWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppDiagnosticInfoWatcher;{75575070-01d3-489a-9325-52f9cc6ede0a})");
 }
@@ -437,6 +452,11 @@ impl ::core::cmp::PartialEq for AppDiagnosticInfoWatcherEventArgs {
     }
 }
 impl ::core::cmp::Eq for AppDiagnosticInfoWatcherEventArgs {}
+impl ::core::fmt::Debug for AppDiagnosticInfoWatcherEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppDiagnosticInfoWatcherEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppDiagnosticInfoWatcherEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppDiagnosticInfoWatcherEventArgs;{7017c716-e1da-4c65-99df-046dff5be71a})");
 }
@@ -515,6 +535,11 @@ impl ::core::cmp::PartialEq for AppDiagnosticInfoWatcherStatus {
     }
 }
 impl ::core::cmp::Eq for AppDiagnosticInfoWatcherStatus {}
+impl ::core::fmt::Debug for AppDiagnosticInfoWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppDiagnosticInfoWatcherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppDiagnosticInfoWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.AppDiagnosticInfoWatcherStatus;i4)");
 }
@@ -545,6 +570,11 @@ impl ::core::cmp::PartialEq for AppExecutionStateChangeResult {
     }
 }
 impl ::core::cmp::Eq for AppExecutionStateChangeResult {}
+impl ::core::fmt::Debug for AppExecutionStateChangeResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppExecutionStateChangeResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppExecutionStateChangeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppExecutionStateChangeResult;{6f039bf0-f91b-4df8-ae77-3033ccb69114})");
 }
@@ -653,6 +683,11 @@ impl ::core::cmp::PartialEq for AppMemoryReport {
     }
 }
 impl ::core::cmp::Eq for AppMemoryReport {}
+impl ::core::fmt::Debug for AppMemoryReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppMemoryReport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppMemoryReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppMemoryReport;{6d65339b-4d6f-45bc-9c5e-e49b3ff2758d})");
 }
@@ -729,6 +764,11 @@ impl ::core::cmp::PartialEq for AppMemoryUsageLevel {
     }
 }
 impl ::core::cmp::Eq for AppMemoryUsageLevel {}
+impl ::core::fmt::Debug for AppMemoryUsageLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppMemoryUsageLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppMemoryUsageLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.AppMemoryUsageLevel;i4)");
 }
@@ -767,6 +807,11 @@ impl ::core::cmp::PartialEq for AppMemoryUsageLimitChangingEventArgs {
     }
 }
 impl ::core::cmp::Eq for AppMemoryUsageLimitChangingEventArgs {}
+impl ::core::fmt::Debug for AppMemoryUsageLimitChangingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppMemoryUsageLimitChangingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppMemoryUsageLimitChangingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppMemoryUsageLimitChangingEventArgs;{79f86664-feca-4da5-9e40-2bc63efdc979})");
 }
@@ -867,6 +912,11 @@ impl ::core::cmp::PartialEq for AppResourceGroupBackgroundTaskReport {
     }
 }
 impl ::core::cmp::Eq for AppResourceGroupBackgroundTaskReport {}
+impl ::core::fmt::Debug for AppResourceGroupBackgroundTaskReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppResourceGroupBackgroundTaskReport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppResourceGroupBackgroundTaskReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppResourceGroupBackgroundTaskReport;{2566e74e-b05d-40c2-9dc1-1a4f039ea120})");
 }
@@ -942,6 +992,11 @@ impl ::core::cmp::PartialEq for AppResourceGroupEnergyQuotaState {
     }
 }
 impl ::core::cmp::Eq for AppResourceGroupEnergyQuotaState {}
+impl ::core::fmt::Debug for AppResourceGroupEnergyQuotaState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppResourceGroupEnergyQuotaState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppResourceGroupEnergyQuotaState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.AppResourceGroupEnergyQuotaState;i4)");
 }
@@ -973,6 +1028,11 @@ impl ::core::cmp::PartialEq for AppResourceGroupExecutionState {
     }
 }
 impl ::core::cmp::Eq for AppResourceGroupExecutionState {}
+impl ::core::fmt::Debug for AppResourceGroupExecutionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppResourceGroupExecutionState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppResourceGroupExecutionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.AppResourceGroupExecutionState;i4)");
 }
@@ -1072,6 +1132,11 @@ impl ::core::cmp::PartialEq for AppResourceGroupInfo {
     }
 }
 impl ::core::cmp::Eq for AppResourceGroupInfo {}
+impl ::core::fmt::Debug for AppResourceGroupInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppResourceGroupInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppResourceGroupInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppResourceGroupInfo;{b913f77a-e807-49f4-845e-7b8bdcfe8ee7})");
 }
@@ -1233,6 +1298,11 @@ impl ::core::cmp::PartialEq for AppResourceGroupInfoWatcher {
     }
 }
 impl ::core::cmp::Eq for AppResourceGroupInfoWatcher {}
+impl ::core::fmt::Debug for AppResourceGroupInfoWatcher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppResourceGroupInfoWatcher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppResourceGroupInfoWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppResourceGroupInfoWatcher;{d9b0a0fd-6e5a-4c72-8b17-09fec4a212bd})");
 }
@@ -1318,6 +1388,11 @@ impl ::core::cmp::PartialEq for AppResourceGroupInfoWatcherEventArgs {
     }
 }
 impl ::core::cmp::Eq for AppResourceGroupInfoWatcherEventArgs {}
+impl ::core::fmt::Debug for AppResourceGroupInfoWatcherEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppResourceGroupInfoWatcherEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppResourceGroupInfoWatcherEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppResourceGroupInfoWatcherEventArgs;{7a787637-6302-4d2f-bf89-1c12d0b2a6b9})");
 }
@@ -1403,6 +1478,11 @@ impl ::core::cmp::PartialEq for AppResourceGroupInfoWatcherExecutionStateChanged
     }
 }
 impl ::core::cmp::Eq for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
+impl ::core::fmt::Debug for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppResourceGroupInfoWatcherExecutionStateChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppResourceGroupInfoWatcherExecutionStateChangedEventArgs;{1bdbedd7-fee6-4fd4-98dd-e92a2cc299f3})");
 }
@@ -1481,6 +1561,11 @@ impl ::core::cmp::PartialEq for AppResourceGroupInfoWatcherStatus {
     }
 }
 impl ::core::cmp::Eq for AppResourceGroupInfoWatcherStatus {}
+impl ::core::fmt::Debug for AppResourceGroupInfoWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppResourceGroupInfoWatcherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppResourceGroupInfoWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.AppResourceGroupInfoWatcherStatus;i4)");
 }
@@ -1535,6 +1620,11 @@ impl ::core::cmp::PartialEq for AppResourceGroupMemoryReport {
     }
 }
 impl ::core::cmp::Eq for AppResourceGroupMemoryReport {}
+impl ::core::fmt::Debug for AppResourceGroupMemoryReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppResourceGroupMemoryReport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppResourceGroupMemoryReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppResourceGroupMemoryReport;{2c8c06b1-7db1-4c51-a225-7fae2d49e431})");
 }
@@ -1619,6 +1709,11 @@ impl ::core::cmp::PartialEq for AppResourceGroupStateReport {
     }
 }
 impl ::core::cmp::Eq for AppResourceGroupStateReport {}
+impl ::core::fmt::Debug for AppResourceGroupStateReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppResourceGroupStateReport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppResourceGroupStateReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppResourceGroupStateReport;{52849f18-2f70-4236-ab40-d04db0c7b931})");
 }
@@ -1732,6 +1827,11 @@ impl ::core::cmp::PartialEq for AppUriHandlerHost {
     }
 }
 impl ::core::cmp::Eq for AppUriHandlerHost {}
+impl ::core::fmt::Debug for AppUriHandlerHost {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppUriHandlerHost").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppUriHandlerHost {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppUriHandlerHost;{5d50cac5-92d2-5409-b56f-7f73e10ea4c3})");
 }
@@ -1857,6 +1957,11 @@ impl ::core::cmp::PartialEq for AppUriHandlerRegistration {
     }
 }
 impl ::core::cmp::Eq for AppUriHandlerRegistration {}
+impl ::core::fmt::Debug for AppUriHandlerRegistration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppUriHandlerRegistration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppUriHandlerRegistration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppUriHandlerRegistration;{6f73aeb1-4569-5c3f-9ba0-99123eea32c3})");
 }
@@ -1987,6 +2092,11 @@ impl ::core::cmp::PartialEq for AppUriHandlerRegistrationManager {
     }
 }
 impl ::core::cmp::Eq for AppUriHandlerRegistrationManager {}
+impl ::core::fmt::Debug for AppUriHandlerRegistrationManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppUriHandlerRegistrationManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppUriHandlerRegistrationManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppUriHandlerRegistrationManager;{e62c9a52-ac94-5750-ac1b-6cfb6f250263})");
 }
@@ -2062,6 +2172,11 @@ impl ::core::cmp::PartialEq for AutoUpdateTimeZoneStatus {
     }
 }
 impl ::core::cmp::Eq for AutoUpdateTimeZoneStatus {}
+impl ::core::fmt::Debug for AutoUpdateTimeZoneStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutoUpdateTimeZoneStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutoUpdateTimeZoneStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.AutoUpdateTimeZoneStatus;i4)");
 }
@@ -2109,6 +2224,11 @@ impl ::core::cmp::PartialEq for DiagnosticAccessStatus {
     }
 }
 impl ::core::cmp::Eq for DiagnosticAccessStatus {}
+impl ::core::fmt::Debug for DiagnosticAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DiagnosticAccessStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DiagnosticAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.DiagnosticAccessStatus;i4)");
 }
@@ -2205,6 +2325,11 @@ impl ::core::cmp::PartialEq for DispatcherQueue {
     }
 }
 impl ::core::cmp::Eq for DispatcherQueue {}
+impl ::core::fmt::Debug for DispatcherQueue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DispatcherQueue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DispatcherQueue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.DispatcherQueue;{603e88e4-a338-4ffe-a457-a5cfb9ceb899})");
 }
@@ -2302,6 +2427,11 @@ impl ::core::cmp::PartialEq for DispatcherQueueController {
     }
 }
 impl ::core::cmp::Eq for DispatcherQueueController {}
+impl ::core::fmt::Debug for DispatcherQueueController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DispatcherQueueController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DispatcherQueueController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.DispatcherQueueController;{22f34e66-50db-4e36-a98d-61c01b384d20})");
 }
@@ -2414,6 +2544,11 @@ impl ::core::cmp::PartialEq for DispatcherQueueHandler {
     }
 }
 impl ::core::cmp::Eq for DispatcherQueueHandler {}
+impl ::core::fmt::Debug for DispatcherQueueHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DispatcherQueueHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for DispatcherQueueHandler {
     type Vtable = DispatcherQueueHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfa2dc9c_1a2d_4917_98f2_939af1d6e0c8);
@@ -2447,6 +2582,11 @@ impl ::core::cmp::PartialEq for DispatcherQueuePriority {
     }
 }
 impl ::core::cmp::Eq for DispatcherQueuePriority {}
+impl ::core::fmt::Debug for DispatcherQueuePriority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DispatcherQueuePriority").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DispatcherQueuePriority {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.DispatcherQueuePriority;i4)");
 }
@@ -2478,6 +2618,11 @@ impl ::core::cmp::PartialEq for DispatcherQueueShutdownStartingEventArgs {
     }
 }
 impl ::core::cmp::Eq for DispatcherQueueShutdownStartingEventArgs {}
+impl ::core::fmt::Debug for DispatcherQueueShutdownStartingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DispatcherQueueShutdownStartingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DispatcherQueueShutdownStartingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.DispatcherQueueShutdownStartingEventArgs;{c4724c4c-ff97-40c0-a226-cc0aaa545e89})");
 }
@@ -2607,6 +2752,11 @@ impl ::core::cmp::PartialEq for DispatcherQueueTimer {
     }
 }
 impl ::core::cmp::Eq for DispatcherQueueTimer {}
+impl ::core::fmt::Debug for DispatcherQueueTimer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DispatcherQueueTimer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DispatcherQueueTimer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.DispatcherQueueTimer;{5feabb1d-a31c-4727-b1ac-37454649d56a})");
 }
@@ -2706,6 +2856,11 @@ impl ::core::cmp::PartialEq for FolderLauncherOptions {
     }
 }
 impl ::core::cmp::Eq for FolderLauncherOptions {}
+impl ::core::fmt::Debug for FolderLauncherOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FolderLauncherOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FolderLauncherOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.FolderLauncherOptions;{bb91c27d-6b87-432a-bd04-776c6f5fb2ab})");
 }
@@ -3984,6 +4139,11 @@ impl ::core::cmp::PartialEq for ILauncherViewOptions {
     }
 }
 impl ::core::cmp::Eq for ILauncherViewOptions {}
+impl ::core::fmt::Debug for ILauncherViewOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILauncherViewOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ILauncherViewOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8a9b29f1-7ca7-49de-9bd3-3c5b7184f616}");
 }
@@ -4735,6 +4895,11 @@ impl ::core::cmp::PartialEq for LaunchFileStatus {
     }
 }
 impl ::core::cmp::Eq for LaunchFileStatus {}
+impl ::core::fmt::Debug for LaunchFileStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LaunchFileStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LaunchFileStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.LaunchFileStatus;i4)");
 }
@@ -4766,6 +4931,11 @@ impl ::core::cmp::PartialEq for LaunchQuerySupportStatus {
     }
 }
 impl ::core::cmp::Eq for LaunchQuerySupportStatus {}
+impl ::core::fmt::Debug for LaunchQuerySupportStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LaunchQuerySupportStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LaunchQuerySupportStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.LaunchQuerySupportStatus;i4)");
 }
@@ -4794,6 +4964,11 @@ impl ::core::cmp::PartialEq for LaunchQuerySupportType {
     }
 }
 impl ::core::cmp::Eq for LaunchQuerySupportType {}
+impl ::core::fmt::Debug for LaunchQuerySupportType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LaunchQuerySupportType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LaunchQuerySupportType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.LaunchQuerySupportType;i4)");
 }
@@ -4833,6 +5008,11 @@ impl ::core::cmp::PartialEq for LaunchUriResult {
     }
 }
 impl ::core::cmp::Eq for LaunchUriResult {}
+impl ::core::fmt::Debug for LaunchUriResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LaunchUriResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LaunchUriResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.LaunchUriResult;{ec27a8df-f6d5-45ca-913a-70a40c5c8221})");
 }
@@ -4909,6 +5089,11 @@ impl ::core::cmp::PartialEq for LaunchUriStatus {
     }
 }
 impl ::core::cmp::Eq for LaunchUriStatus {}
+impl ::core::fmt::Debug for LaunchUriStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LaunchUriStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LaunchUriStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.LaunchUriStatus;i4)");
 }
@@ -5351,6 +5536,11 @@ impl ::core::cmp::PartialEq for LauncherOptions {
     }
 }
 impl ::core::cmp::Eq for LauncherOptions {}
+impl ::core::fmt::Debug for LauncherOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LauncherOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LauncherOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.LauncherOptions;{bafa21d8-b071-4cd8-853e-341203e557d3})");
 }
@@ -5486,6 +5676,11 @@ impl ::core::cmp::PartialEq for LauncherUIOptions {
     }
 }
 impl ::core::cmp::Eq for LauncherUIOptions {}
+impl ::core::fmt::Debug for LauncherUIOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LauncherUIOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LauncherUIOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.LauncherUIOptions;{1b25da6e-8aa6-41e9-8251-4165f5985f49})");
 }
@@ -5675,6 +5870,11 @@ impl ::core::cmp::PartialEq for PowerState {
     }
 }
 impl ::core::cmp::Eq for PowerState {}
+impl ::core::fmt::Debug for PowerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PowerState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PowerState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.PowerState;i4)");
 }
@@ -5790,6 +5990,11 @@ impl ::core::cmp::PartialEq for ProcessLauncherOptions {
     }
 }
 impl ::core::cmp::Eq for ProcessLauncherOptions {}
+impl ::core::fmt::Debug for ProcessLauncherOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProcessLauncherOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProcessLauncherOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.ProcessLauncherOptions;{3080b9cf-f444-4a83-beaf-a549a0f3229c})");
 }
@@ -5866,6 +6071,11 @@ impl ::core::cmp::PartialEq for ProcessLauncherResult {
     }
 }
 impl ::core::cmp::Eq for ProcessLauncherResult {}
+impl ::core::fmt::Debug for ProcessLauncherResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProcessLauncherResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProcessLauncherResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.ProcessLauncherResult;{544c8934-86d8-4991-8e75-ece8a43b6b6d})");
 }
@@ -5950,6 +6160,11 @@ impl ::core::cmp::PartialEq for ProcessMemoryReport {
     }
 }
 impl ::core::cmp::Eq for ProcessMemoryReport {}
+impl ::core::fmt::Debug for ProcessMemoryReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProcessMemoryReport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProcessMemoryReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.ProcessMemoryReport;{087305a8-9b70-4782-8741-3a982b6ce5e4})");
 }
@@ -6029,6 +6244,11 @@ impl ::core::cmp::PartialEq for ProcessorArchitecture {
     }
 }
 impl ::core::cmp::Eq for ProcessorArchitecture {}
+impl ::core::fmt::Debug for ProcessorArchitecture {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProcessorArchitecture").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProcessorArchitecture {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.ProcessorArchitecture;i4)");
 }
@@ -6057,6 +6277,11 @@ impl ::core::cmp::PartialEq for ProtocolForResultsOperation {
     }
 }
 impl ::core::cmp::Eq for ProtocolForResultsOperation {}
+impl ::core::fmt::Debug for ProtocolForResultsOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtocolForResultsOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProtocolForResultsOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.ProtocolForResultsOperation;{d581293a-6de9-4d28-9378-f86782e182bb})");
 }
@@ -6137,6 +6362,11 @@ impl ::core::cmp::PartialEq for RemoteLaunchUriStatus {
     }
 }
 impl ::core::cmp::Eq for RemoteLaunchUriStatus {}
+impl ::core::fmt::Debug for RemoteLaunchUriStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteLaunchUriStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteLaunchUriStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteLaunchUriStatus;i4)");
 }
@@ -6226,6 +6456,11 @@ impl ::core::cmp::PartialEq for RemoteLauncherOptions {
     }
 }
 impl ::core::cmp::Eq for RemoteLauncherOptions {}
+impl ::core::fmt::Debug for RemoteLauncherOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteLauncherOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteLauncherOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteLauncherOptions;{9e3a2788-2891-4cdf-a2d6-9dff7d02e693})");
 }
@@ -6300,6 +6535,11 @@ impl ::core::cmp::PartialEq for ShutdownKind {
     }
 }
 impl ::core::cmp::Eq for ShutdownKind {}
+impl ::core::fmt::Debug for ShutdownKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ShutdownKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ShutdownKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.ShutdownKind;i4)");
 }
@@ -6530,6 +6770,11 @@ impl ::core::cmp::PartialEq for User {
     }
 }
 impl ::core::cmp::Eq for User {}
+impl ::core::fmt::Debug for User {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("User").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for User {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.User;{df9a26c6-e746-4bcd-b5d4-120103c4209b})");
 }
@@ -6605,6 +6850,11 @@ impl ::core::cmp::PartialEq for UserAgeConsentGroup {
     }
 }
 impl ::core::cmp::Eq for UserAgeConsentGroup {}
+impl ::core::fmt::Debug for UserAgeConsentGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserAgeConsentGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserAgeConsentGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserAgeConsentGroup;i4)");
 }
@@ -6636,6 +6886,11 @@ impl ::core::cmp::PartialEq for UserAgeConsentResult {
     }
 }
 impl ::core::cmp::Eq for UserAgeConsentResult {}
+impl ::core::fmt::Debug for UserAgeConsentResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserAgeConsentResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserAgeConsentResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserAgeConsentResult;i4)");
 }
@@ -6665,6 +6920,11 @@ impl ::core::cmp::PartialEq for UserAuthenticationStatus {
     }
 }
 impl ::core::cmp::Eq for UserAuthenticationStatus {}
+impl ::core::fmt::Debug for UserAuthenticationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserAuthenticationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserAuthenticationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserAuthenticationStatus;i4)");
 }
@@ -6692,6 +6952,11 @@ impl ::core::cmp::PartialEq for UserAuthenticationStatusChangeDeferral {
     }
 }
 impl ::core::cmp::Eq for UserAuthenticationStatusChangeDeferral {}
+impl ::core::fmt::Debug for UserAuthenticationStatusChangeDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserAuthenticationStatusChangeDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserAuthenticationStatusChangeDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserAuthenticationStatusChangeDeferral;{88b59568-bb30-42fb-a270-e9902e40efa7})");
 }
@@ -6792,6 +7057,11 @@ impl ::core::cmp::PartialEq for UserAuthenticationStatusChangingEventArgs {
     }
 }
 impl ::core::cmp::Eq for UserAuthenticationStatusChangingEventArgs {}
+impl ::core::fmt::Debug for UserAuthenticationStatusChangingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserAuthenticationStatusChangingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserAuthenticationStatusChangingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserAuthenticationStatusChangingEventArgs;{8c030f28-a711-4c1e-ab48-04179c15938f})");
 }
@@ -6877,6 +7147,11 @@ impl ::core::cmp::PartialEq for UserChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for UserChangedEventArgs {}
+impl ::core::fmt::Debug for UserChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserChangedEventArgs;{086459dc-18c6-48db-bc99-724fb9203ccc})");
 }
@@ -7001,6 +7276,11 @@ impl ::core::cmp::PartialEq for UserDeviceAssociationChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for UserDeviceAssociationChangedEventArgs {}
+impl ::core::fmt::Debug for UserDeviceAssociationChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDeviceAssociationChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDeviceAssociationChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserDeviceAssociationChangedEventArgs;{bd1f6f6c-bb5d-4d7b-a5f0-c8cd11a38d42})");
 }
@@ -7123,6 +7403,11 @@ impl ::core::cmp::PartialEq for UserPicker {
     }
 }
 impl ::core::cmp::Eq for UserPicker {}
+impl ::core::fmt::Debug for UserPicker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserPicker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserPicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserPicker;{7d548008-f1e3-4a6c-8ddc-a9bb0f488aed})");
 }
@@ -7199,6 +7484,11 @@ impl ::core::cmp::PartialEq for UserPictureSize {
     }
 }
 impl ::core::cmp::Eq for UserPictureSize {}
+impl ::core::fmt::Debug for UserPictureSize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserPictureSize").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserPictureSize {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserPictureSize;i4)");
 }
@@ -7230,6 +7520,11 @@ impl ::core::cmp::PartialEq for UserType {
     }
 }
 impl ::core::cmp::Eq for UserType {}
+impl ::core::fmt::Debug for UserType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserType;i4)");
 }
@@ -7375,6 +7670,11 @@ impl ::core::cmp::PartialEq for UserWatcher {
     }
 }
 impl ::core::cmp::Eq for UserWatcher {}
+impl ::core::fmt::Debug for UserWatcher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserWatcher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserWatcher;{155eb23b-242a-45e0-a2e9-3171fc6a7fbb})");
 }
@@ -7453,6 +7753,11 @@ impl ::core::cmp::PartialEq for UserWatcherStatus {
     }
 }
 impl ::core::cmp::Eq for UserWatcherStatus {}
+impl ::core::fmt::Debug for UserWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserWatcherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserWatcherStatus;i4)");
 }
@@ -7481,6 +7786,11 @@ impl ::core::cmp::PartialEq for UserWatcherUpdateKind {
     }
 }
 impl ::core::cmp::Eq for UserWatcherUpdateKind {}
+impl ::core::fmt::Debug for UserWatcherUpdateKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserWatcherUpdateKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserWatcherUpdateKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserWatcherUpdateKind;i4)");
 }
@@ -7679,6 +7989,11 @@ impl ::core::cmp::PartialEq for VirtualKey {
     }
 }
 impl ::core::cmp::Eq for VirtualKey {}
+impl ::core::fmt::Debug for VirtualKey {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VirtualKey").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VirtualKey {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.VirtualKey;i4)");
 }
@@ -7710,6 +8025,11 @@ impl ::core::cmp::PartialEq for VirtualKeyModifiers {
     }
 }
 impl ::core::cmp::Eq for VirtualKeyModifiers {}
+impl ::core::fmt::Debug for VirtualKeyModifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VirtualKeyModifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VirtualKeyModifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.VirtualKeyModifiers;u4)");
 }

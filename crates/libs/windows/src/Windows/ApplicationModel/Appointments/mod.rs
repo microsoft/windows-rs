@@ -372,6 +372,11 @@ impl ::core::cmp::PartialEq for Appointment {
     }
 }
 impl ::core::cmp::Eq for Appointment {}
+impl ::core::fmt::Debug for Appointment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Appointment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Appointment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.Appointment;{dd002f2f-2bdd-4076-90a3-22c275312965})");
 }
@@ -449,6 +454,11 @@ impl ::core::cmp::PartialEq for AppointmentBusyStatus {
     }
 }
 impl ::core::cmp::Eq for AppointmentBusyStatus {}
+impl ::core::fmt::Debug for AppointmentBusyStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentBusyStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentBusyStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentBusyStatus;i4)");
 }
@@ -867,6 +877,11 @@ impl ::core::cmp::PartialEq for AppointmentCalendar {
     }
 }
 impl ::core::cmp::Eq for AppointmentCalendar {}
+impl ::core::fmt::Debug for AppointmentCalendar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentCalendar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentCalendar;{5273819d-8339-3d4f-a02f-64084452bb5d})");
 }
@@ -943,6 +958,11 @@ impl ::core::cmp::PartialEq for AppointmentCalendarOtherAppReadAccess {
     }
 }
 impl ::core::cmp::Eq for AppointmentCalendarOtherAppReadAccess {}
+impl ::core::fmt::Debug for AppointmentCalendarOtherAppReadAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentCalendarOtherAppReadAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarOtherAppReadAccess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarOtherAppReadAccess;i4)");
 }
@@ -972,6 +992,11 @@ impl ::core::cmp::PartialEq for AppointmentCalendarOtherAppWriteAccess {
     }
 }
 impl ::core::cmp::Eq for AppointmentCalendarOtherAppWriteAccess {}
+impl ::core::fmt::Debug for AppointmentCalendarOtherAppWriteAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentCalendarOtherAppWriteAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarOtherAppWriteAccess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarOtherAppWriteAccess;i4)");
 }
@@ -1061,6 +1086,11 @@ impl ::core::cmp::PartialEq for AppointmentCalendarSyncManager {
     }
 }
 impl ::core::cmp::Eq for AppointmentCalendarSyncManager {}
+impl ::core::fmt::Debug for AppointmentCalendarSyncManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentCalendarSyncManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarSyncManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentCalendarSyncManager;{2b21b3a0-4aff-4392-bc5f-5645ffcffb17})");
 }
@@ -1140,6 +1170,11 @@ impl ::core::cmp::PartialEq for AppointmentCalendarSyncStatus {
     }
 }
 impl ::core::cmp::Eq for AppointmentCalendarSyncStatus {}
+impl ::core::fmt::Debug for AppointmentCalendarSyncStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentCalendarSyncStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarSyncStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarSyncStatus;i4)");
 }
@@ -1179,6 +1214,11 @@ impl ::core::cmp::PartialEq for AppointmentConflictResult {
     }
 }
 impl ::core::cmp::Eq for AppointmentConflictResult {}
+impl ::core::fmt::Debug for AppointmentConflictResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentConflictResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentConflictResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentConflictResult;{d5cdf0be-2f2f-3b7d-af0a-a7e20f3a46e3})");
 }
@@ -1254,6 +1294,11 @@ impl ::core::cmp::PartialEq for AppointmentConflictType {
     }
 }
 impl ::core::cmp::Eq for AppointmentConflictType {}
+impl ::core::fmt::Debug for AppointmentConflictType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentConflictType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentConflictType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentConflictType;i4)");
 }
@@ -1288,6 +1333,11 @@ impl ::core::cmp::PartialEq for AppointmentDaysOfWeek {
     }
 }
 impl ::core::cmp::Eq for AppointmentDaysOfWeek {}
+impl ::core::fmt::Debug for AppointmentDaysOfWeek {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentDaysOfWeek").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentDaysOfWeek {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentDaysOfWeek;u4)");
 }
@@ -1316,6 +1366,11 @@ impl ::core::cmp::PartialEq for AppointmentDetailsKind {
     }
 }
 impl ::core::cmp::Eq for AppointmentDetailsKind {}
+impl ::core::fmt::Debug for AppointmentDetailsKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentDetailsKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentDetailsKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentDetailsKind;i4)");
 }
@@ -1363,6 +1418,11 @@ impl ::core::cmp::PartialEq for AppointmentException {
     }
 }
 impl ::core::cmp::Eq for AppointmentException {}
+impl ::core::fmt::Debug for AppointmentException {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentException").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentException {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentException;{a2076767-16f6-4bce-9f5a-8600b8019fcb})");
 }
@@ -1490,6 +1550,11 @@ impl ::core::cmp::PartialEq for AppointmentInvitee {
     }
 }
 impl ::core::cmp::Eq for AppointmentInvitee {}
+impl ::core::fmt::Debug for AppointmentInvitee {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentInvitee").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentInvitee {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentInvitee;{13bf0796-9842-495b-b0e7-ef8f79c0701d})");
 }
@@ -1840,6 +1905,11 @@ impl ::core::cmp::PartialEq for AppointmentManagerForUser {
     }
 }
 impl ::core::cmp::Eq for AppointmentManagerForUser {}
+impl ::core::fmt::Debug for AppointmentManagerForUser {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentManagerForUser").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentManagerForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentManagerForUser;{70261423-73cc-4660-b318-b01365302a03})");
 }
@@ -1941,6 +2011,11 @@ impl ::core::cmp::PartialEq for AppointmentOrganizer {
     }
 }
 impl ::core::cmp::Eq for AppointmentOrganizer {}
+impl ::core::fmt::Debug for AppointmentOrganizer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentOrganizer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentOrganizer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentOrganizer;{615e2902-9718-467b-83fb-b293a19121de})");
 }
@@ -2040,6 +2115,11 @@ impl ::core::cmp::PartialEq for AppointmentParticipantResponse {
     }
 }
 impl ::core::cmp::Eq for AppointmentParticipantResponse {}
+impl ::core::fmt::Debug for AppointmentParticipantResponse {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentParticipantResponse").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentParticipantResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentParticipantResponse;i4)");
 }
@@ -2069,6 +2149,11 @@ impl ::core::cmp::PartialEq for AppointmentParticipantRole {
     }
 }
 impl ::core::cmp::Eq for AppointmentParticipantRole {}
+impl ::core::fmt::Debug for AppointmentParticipantRole {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentParticipantRole").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentParticipantRole {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentParticipantRole;i4)");
 }
@@ -2435,6 +2520,11 @@ impl ::core::cmp::PartialEq for AppointmentRecurrence {
     }
 }
 impl ::core::cmp::Eq for AppointmentRecurrence {}
+impl ::core::fmt::Debug for AppointmentRecurrence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentRecurrence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentRecurrence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentRecurrence;{d87b3e83-15a6-487b-b959-0c361e60e954})");
 }
@@ -2513,6 +2603,11 @@ impl ::core::cmp::PartialEq for AppointmentRecurrenceUnit {
     }
 }
 impl ::core::cmp::Eq for AppointmentRecurrenceUnit {}
+impl ::core::fmt::Debug for AppointmentRecurrenceUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentRecurrenceUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentRecurrenceUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentRecurrenceUnit;i4)");
 }
@@ -2541,6 +2636,11 @@ impl ::core::cmp::PartialEq for AppointmentSensitivity {
     }
 }
 impl ::core::cmp::Eq for AppointmentSensitivity {}
+impl ::core::fmt::Debug for AppointmentSensitivity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentSensitivity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentSensitivity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentSensitivity;i4)");
 }
@@ -2783,6 +2883,11 @@ impl ::core::cmp::PartialEq for AppointmentStore {
     }
 }
 impl ::core::cmp::Eq for AppointmentStore {}
+impl ::core::fmt::Debug for AppointmentStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentStore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStore;{a461918c-7a47-4d96-96c9-15cd8a05a735})");
 }
@@ -2858,6 +2963,11 @@ impl ::core::cmp::PartialEq for AppointmentStoreAccessType {
     }
 }
 impl ::core::cmp::Eq for AppointmentStoreAccessType {}
+impl ::core::fmt::Debug for AppointmentStoreAccessType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentStoreAccessType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreAccessType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentStoreAccessType;i4)");
 }
@@ -2904,6 +3014,11 @@ impl ::core::cmp::PartialEq for AppointmentStoreChange {
     }
 }
 impl ::core::cmp::Eq for AppointmentStoreChange {}
+impl ::core::fmt::Debug for AppointmentStoreChange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentStoreChange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreChange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChange;{a5a6e035-0a33-3654-8463-b543e90c3b79})");
 }
@@ -2991,6 +3106,11 @@ impl ::core::cmp::PartialEq for AppointmentStoreChangeReader {
     }
 }
 impl ::core::cmp::Eq for AppointmentStoreChangeReader {}
+impl ::core::fmt::Debug for AppointmentStoreChangeReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentStoreChangeReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangeReader;{8b2409f1-65f3-42a0-961d-4c209bf30370})");
 }
@@ -3085,6 +3205,11 @@ impl ::core::cmp::PartialEq for AppointmentStoreChangeTracker {
     }
 }
 impl ::core::cmp::Eq for AppointmentStoreChangeTracker {}
+impl ::core::fmt::Debug for AppointmentStoreChangeTracker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentStoreChangeTracker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangeTracker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangeTracker;{1b25f4b1-8ece-4f17-93c8-e6412458fd5c})");
 }
@@ -3164,6 +3289,11 @@ impl ::core::cmp::PartialEq for AppointmentStoreChangeType {
     }
 }
 impl ::core::cmp::Eq for AppointmentStoreChangeType {}
+impl ::core::fmt::Debug for AppointmentStoreChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentStoreChangeType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentStoreChangeType;i4)");
 }
@@ -3191,6 +3321,11 @@ impl ::core::cmp::PartialEq for AppointmentStoreChangedDeferral {
     }
 }
 impl ::core::cmp::Eq for AppointmentStoreChangedDeferral {}
+impl ::core::fmt::Debug for AppointmentStoreChangedDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentStoreChangedDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangedDeferral;{4cb82026-fedb-4bc3-9662-95a9befdf4df})");
 }
@@ -3267,6 +3402,11 @@ impl ::core::cmp::PartialEq for AppointmentStoreChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for AppointmentStoreChangedEventArgs {}
+impl ::core::fmt::Debug for AppointmentStoreChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentStoreChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangedEventArgs;{2285f8b9-0791-417e-bfea-cc6d41636c8c})");
 }
@@ -3334,6 +3474,11 @@ impl ::core::cmp::PartialEq for AppointmentStoreNotificationTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for AppointmentStoreNotificationTriggerDetails {}
+impl ::core::fmt::Debug for AppointmentStoreNotificationTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentStoreNotificationTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreNotificationTriggerDetails;{9b33cb11-c301-421e-afef-047ecfa76adb})");
 }
@@ -3408,6 +3553,11 @@ impl ::core::cmp::PartialEq for AppointmentSummaryCardView {
     }
 }
 impl ::core::cmp::Eq for AppointmentSummaryCardView {}
+impl ::core::fmt::Debug for AppointmentSummaryCardView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentSummaryCardView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentSummaryCardView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentSummaryCardView;i4)");
 }
@@ -3439,6 +3589,11 @@ impl ::core::cmp::PartialEq for AppointmentWeekOfMonth {
     }
 }
 impl ::core::cmp::Eq for AppointmentWeekOfMonth {}
+impl ::core::fmt::Debug for AppointmentWeekOfMonth {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentWeekOfMonth").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentWeekOfMonth {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentWeekOfMonth;i4)");
 }
@@ -3467,6 +3622,11 @@ impl ::core::cmp::PartialEq for FindAppointmentCalendarsOptions {
     }
 }
 impl ::core::cmp::Eq for FindAppointmentCalendarsOptions {}
+impl ::core::fmt::Debug for FindAppointmentCalendarsOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FindAppointmentCalendarsOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FindAppointmentCalendarsOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.FindAppointmentCalendarsOptions;u4)");
 }
@@ -3540,6 +3700,11 @@ impl ::core::cmp::PartialEq for FindAppointmentsOptions {
     }
 }
 impl ::core::cmp::Eq for FindAppointmentsOptions {}
+impl ::core::fmt::Debug for FindAppointmentsOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FindAppointmentsOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FindAppointmentsOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.FindAppointmentsOptions;{55f7dc55-9942-3086-82b5-2cb29f64d5f5})");
 }
@@ -4148,6 +4313,11 @@ impl ::core::cmp::PartialEq for IAppointmentParticipant {
     }
 }
 impl ::core::cmp::Eq for IAppointmentParticipant {}
+impl ::core::fmt::Debug for IAppointmentParticipant {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppointmentParticipant").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IAppointmentParticipant {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{615e2902-9718-467b-83fb-b293a19121de}");
 }
@@ -4601,6 +4771,11 @@ impl ::core::cmp::PartialEq for RecurrenceType {
     }
 }
 impl ::core::cmp::Eq for RecurrenceType {}
+impl ::core::fmt::Debug for RecurrenceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RecurrenceType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RecurrenceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.RecurrenceType;i4)");
 }

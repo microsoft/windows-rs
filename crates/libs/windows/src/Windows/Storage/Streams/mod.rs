@@ -69,6 +69,11 @@ impl ::core::cmp::PartialEq for Buffer {
     }
 }
 impl ::core::cmp::Eq for Buffer {}
+impl ::core::fmt::Debug for Buffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Buffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Buffer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.Buffer;{905a0fe0-bc53-11df-8c49-001e4fc686da})");
 }
@@ -165,6 +170,11 @@ impl ::core::cmp::PartialEq for ByteOrder {
     }
 }
 impl ::core::cmp::Eq for ByteOrder {}
+impl ::core::fmt::Debug for ByteOrder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ByteOrder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ByteOrder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.ByteOrder;i4)");
 }
@@ -416,6 +426,11 @@ impl ::core::cmp::PartialEq for DataReader {
     }
 }
 impl ::core::cmp::Eq for DataReader {}
+impl ::core::fmt::Debug for DataReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataReader;{e2b50029-b4c1-4314-a4b8-fb813a2f275e})");
 }
@@ -600,6 +615,12 @@ impl ::core::cmp::PartialEq for DataReaderLoadOperation {
 }
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::Eq for DataReaderLoadOperation {}
+#[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for DataReaderLoadOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataReaderLoadOperation").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::RuntimeType for DataReaderLoadOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataReaderLoadOperation;pinterface({9fc2b0bb-e446-44e2-aa61-9cab8f636af2};u4))");
@@ -955,6 +976,11 @@ impl ::core::cmp::PartialEq for DataWriter {
     }
 }
 impl ::core::cmp::Eq for DataWriter {}
+impl ::core::fmt::Debug for DataWriter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataWriter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataWriter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataWriter;{64b89265-d341-4922-b38a-dd4af8808c4e})");
 }
@@ -1140,6 +1166,12 @@ impl ::core::cmp::PartialEq for DataWriterStoreOperation {
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::Eq for DataWriterStoreOperation {}
 #[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for DataWriterStoreOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataWriterStoreOperation").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::RuntimeType for DataWriterStoreOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataWriterStoreOperation;pinterface({9fc2b0bb-e446-44e2-aa61-9cab8f636af2};u4))");
 }
@@ -1318,6 +1350,11 @@ impl ::core::cmp::PartialEq for FileInputStream {
     }
 }
 impl ::core::cmp::Eq for FileInputStream {}
+impl ::core::fmt::Debug for FileInputStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileInputStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileInputStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.FileInputStream;{905a0fe2-bc53-11df-8c49-001e4fc686da})");
 }
@@ -1443,6 +1480,11 @@ impl ::core::cmp::PartialEq for FileOpenDisposition {
     }
 }
 impl ::core::cmp::Eq for FileOpenDisposition {}
+impl ::core::fmt::Debug for FileOpenDisposition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileOpenDisposition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileOpenDisposition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.FileOpenDisposition;i4)");
 }
@@ -1489,6 +1531,11 @@ impl ::core::cmp::PartialEq for FileOutputStream {
     }
 }
 impl ::core::cmp::Eq for FileOutputStream {}
+impl ::core::fmt::Debug for FileOutputStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileOutputStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileOutputStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.FileOutputStream;{905a0fe6-bc53-11df-8c49-001e4fc686da})");
 }
@@ -1773,6 +1820,11 @@ impl ::core::cmp::PartialEq for FileRandomAccessStream {
     }
 }
 impl ::core::cmp::Eq for FileRandomAccessStream {}
+impl ::core::fmt::Debug for FileRandomAccessStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileRandomAccessStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileRandomAccessStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.FileRandomAccessStream;{905a0fe1-bc53-11df-8c49-001e4fc686da})");
 }
@@ -1994,6 +2046,11 @@ impl ::core::cmp::PartialEq for IBuffer {
     }
 }
 impl ::core::cmp::Eq for IBuffer {}
+impl ::core::fmt::Debug for IBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBuffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBuffer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{905a0fe0-bc53-11df-8c49-001e4fc686da}");
 }
@@ -2117,6 +2174,11 @@ impl ::core::cmp::PartialEq for IContentTypeProvider {
     }
 }
 impl ::core::cmp::Eq for IContentTypeProvider {}
+impl ::core::fmt::Debug for IContentTypeProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContentTypeProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IContentTypeProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{97d098a5-3b99-4de9-88a5-e11d2f50c795}");
 }
@@ -2390,6 +2452,11 @@ impl ::core::cmp::PartialEq for IDataReader {
     }
 }
 impl ::core::cmp::Eq for IDataReader {}
+impl ::core::fmt::Debug for IDataReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDataReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IDataReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e2b50029-b4c1-4314-a4b8-fb813a2f275e}");
 }
@@ -2694,6 +2761,11 @@ impl ::core::cmp::PartialEq for IDataWriter {
     }
 }
 impl ::core::cmp::Eq for IDataWriter {}
+impl ::core::fmt::Debug for IDataWriter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDataWriter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IDataWriter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{64b89265-d341-4922-b38a-dd4af8808c4e}");
 }
@@ -2890,6 +2962,11 @@ impl ::core::cmp::PartialEq for IInputStream {
     }
 }
 impl ::core::cmp::Eq for IInputStream {}
+impl ::core::fmt::Debug for IInputStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInputStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IInputStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{905a0fe2-bc53-11df-8c49-001e4fc686da}");
 }
@@ -2974,6 +3051,11 @@ impl ::core::cmp::PartialEq for IInputStreamReference {
     }
 }
 impl ::core::cmp::Eq for IInputStreamReference {}
+impl ::core::fmt::Debug for IInputStreamReference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInputStreamReference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IInputStreamReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{43929d18-5ec9-4b5a-919c-4205b0c804b6}");
 }
@@ -3099,6 +3181,11 @@ impl ::core::cmp::PartialEq for IOutputStream {
     }
 }
 impl ::core::cmp::Eq for IOutputStream {}
+impl ::core::fmt::Debug for IOutputStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOutputStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IOutputStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{905a0fe6-bc53-11df-8c49-001e4fc686da}");
 }
@@ -3191,6 +3278,11 @@ impl ::core::cmp::PartialEq for IPropertySetSerializer {
     }
 }
 impl ::core::cmp::Eq for IPropertySetSerializer {}
+impl ::core::fmt::Debug for IPropertySetSerializer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertySetSerializer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPropertySetSerializer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6e8ebf1c-ef3d-4376-b20e-5be638aeac77}");
 }
@@ -3437,6 +3529,11 @@ impl ::core::cmp::PartialEq for IRandomAccessStream {
     }
 }
 impl ::core::cmp::Eq for IRandomAccessStream {}
+impl ::core::fmt::Debug for IRandomAccessStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRandomAccessStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IRandomAccessStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{905a0fe1-bc53-11df-8c49-001e4fc686da}");
 }
@@ -3528,6 +3625,11 @@ impl ::core::cmp::PartialEq for IRandomAccessStreamReference {
     }
 }
 impl ::core::cmp::Eq for IRandomAccessStreamReference {}
+impl ::core::fmt::Debug for IRandomAccessStreamReference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRandomAccessStreamReference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IRandomAccessStreamReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{33ee3134-1dd6-4e3a-8067-d1c162e8642b}");
 }
@@ -3868,6 +3970,11 @@ impl ::core::cmp::PartialEq for IRandomAccessStreamWithContentType {
     }
 }
 impl ::core::cmp::Eq for IRandomAccessStreamWithContentType {}
+impl ::core::fmt::Debug for IRandomAccessStreamWithContentType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRandomAccessStreamWithContentType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IRandomAccessStreamWithContentType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cc254827-4b3d-438f-9232-10c76bc7e038}");
 }
@@ -4007,6 +4114,11 @@ impl ::core::cmp::PartialEq for InMemoryRandomAccessStream {
     }
 }
 impl ::core::cmp::Eq for InMemoryRandomAccessStream {}
+impl ::core::fmt::Debug for InMemoryRandomAccessStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InMemoryRandomAccessStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InMemoryRandomAccessStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.InMemoryRandomAccessStream;{905a0fe1-bc53-11df-8c49-001e4fc686da})");
 }
@@ -4174,6 +4286,11 @@ impl ::core::cmp::PartialEq for InputStreamOptions {
     }
 }
 impl ::core::cmp::Eq for InputStreamOptions {}
+impl ::core::fmt::Debug for InputStreamOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InputStreamOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InputStreamOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.InputStreamOptions;u4)");
 }
@@ -4211,6 +4328,11 @@ impl ::core::cmp::PartialEq for InputStreamOverStream {
     }
 }
 impl ::core::cmp::Eq for InputStreamOverStream {}
+impl ::core::fmt::Debug for InputStreamOverStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InputStreamOverStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InputStreamOverStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.InputStreamOverStream;{905a0fe2-bc53-11df-8c49-001e4fc686da})");
 }
@@ -4351,6 +4473,11 @@ impl ::core::cmp::PartialEq for OutputStreamOverStream {
     }
 }
 impl ::core::cmp::Eq for OutputStreamOverStream {}
+impl ::core::fmt::Debug for OutputStreamOverStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OutputStreamOverStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for OutputStreamOverStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.OutputStreamOverStream;{905a0fe6-bc53-11df-8c49-001e4fc686da})");
 }
@@ -4602,6 +4729,11 @@ impl ::core::cmp::PartialEq for RandomAccessStreamOverStream {
     }
 }
 impl ::core::cmp::Eq for RandomAccessStreamOverStream {}
+impl ::core::fmt::Debug for RandomAccessStreamOverStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RandomAccessStreamOverStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RandomAccessStreamOverStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.RandomAccessStreamOverStream;{905a0fe1-bc53-11df-8c49-001e4fc686da})");
 }
@@ -4798,6 +4930,11 @@ impl ::core::cmp::PartialEq for RandomAccessStreamReference {
     }
 }
 impl ::core::cmp::Eq for RandomAccessStreamReference {}
+impl ::core::fmt::Debug for RandomAccessStreamReference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RandomAccessStreamReference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RandomAccessStreamReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.RandomAccessStreamReference;{33ee3134-1dd6-4e3a-8067-d1c162e8642b})");
 }
@@ -4895,6 +5032,11 @@ impl ::core::cmp::PartialEq for UnicodeEncoding {
     }
 }
 impl ::core::cmp::Eq for UnicodeEncoding {}
+impl ::core::fmt::Debug for UnicodeEncoding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnicodeEncoding").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UnicodeEncoding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.UnicodeEncoding;i4)");
 }

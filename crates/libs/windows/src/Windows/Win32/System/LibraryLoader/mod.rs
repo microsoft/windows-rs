@@ -92,6 +92,11 @@ impl ::core::clone::Clone for ENUMUILANG {
         *self
     }
 }
+impl ::core::fmt::Debug for ENUMUILANG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENUMUILANG").field("NumOfEnumUILang", &self.NumOfEnumUILang).field("SizeOfEnumUIBuffer", &self.SizeOfEnumUIBuffer).field("pEnumUIBuffer", &self.pEnumUIBuffer).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ENUMUILANG {
     type Abi = Self;
 }
@@ -742,6 +747,12 @@ impl ::core::clone::Clone for REDIRECTION_DESCRIPTOR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for REDIRECTION_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REDIRECTION_DESCRIPTOR").field("Version", &self.Version).field("FunctionCount", &self.FunctionCount).field("Redirections", &self.Redirections).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for REDIRECTION_DESCRIPTOR {
     type Abi = Self;
 }
@@ -773,6 +784,12 @@ impl ::core::marker::Copy for REDIRECTION_FUNCTION_DESCRIPTOR {}
 impl ::core::clone::Clone for REDIRECTION_FUNCTION_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for REDIRECTION_FUNCTION_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REDIRECTION_FUNCTION_DESCRIPTOR").field("DllName", &self.DllName).field("FunctionName", &self.FunctionName).field("RedirectionTarget", &self.RedirectionTarget).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

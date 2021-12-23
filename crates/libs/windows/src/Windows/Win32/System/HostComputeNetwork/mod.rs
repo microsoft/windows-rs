@@ -67,6 +67,11 @@ impl ::core::clone::Clone for HCN_PORT_RANGE_ENTRY {
         *self
     }
 }
+impl ::core::fmt::Debug for HCN_PORT_RANGE_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HCN_PORT_RANGE_ENTRY").field("OwningPartitionId", &self.OwningPartitionId).field("TargetPartitionId", &self.TargetPartitionId).field("Protocol", &self.Protocol).field("Priority", &self.Priority).field("ReservationType", &self.ReservationType).field("SharingFlags", &self.SharingFlags).field("DeliveryMode", &self.DeliveryMode).field("StartingPort", &self.StartingPort).field("EndingPort", &self.EndingPort).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HCN_PORT_RANGE_ENTRY {
     type Abi = Self;
 }
@@ -91,6 +96,11 @@ impl ::core::marker::Copy for HCN_PORT_RANGE_RESERVATION {}
 impl ::core::clone::Clone for HCN_PORT_RANGE_RESERVATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HCN_PORT_RANGE_RESERVATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HCN_PORT_RANGE_RESERVATION").field("startingPort", &self.startingPort).field("endingPort", &self.endingPort).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HCN_PORT_RANGE_RESERVATION {

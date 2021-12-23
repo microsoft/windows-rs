@@ -27,6 +27,11 @@ impl ::core::clone::Clone for DATE_TIME {
         *self
     }
 }
+impl ::core::fmt::Debug for DATE_TIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DATE_TIME").field("dwLowDateTime", &self.dwLowDateTime).field("dwHighDateTime", &self.dwHighDateTime).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DATE_TIME {
     type Abi = Self;
 }
@@ -60,6 +65,12 @@ impl ::core::clone::Clone for DHCPAPI_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCPAPI_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCPAPI_PARAMS").field("Flags", &self.Flags).field("OptionId", &self.OptionId).field("IsVendor", &self.IsVendor).field("Data", &self.Data).field("nBytesData", &self.nBytesData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCPAPI_PARAMS {
     type Abi = Self;
 }
@@ -88,6 +99,11 @@ impl ::core::marker::Copy for DHCPCAPI_CLASSID {}
 impl ::core::clone::Clone for DHCPCAPI_CLASSID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DHCPCAPI_CLASSID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCPCAPI_CLASSID").field("Flags", &self.Flags).field("Data", &self.Data).field("nBytesData", &self.nBytesData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DHCPCAPI_CLASSID {
@@ -119,6 +135,12 @@ impl ::core::marker::Copy for DHCPCAPI_PARAMS_ARRAY {}
 impl ::core::clone::Clone for DHCPCAPI_PARAMS_ARRAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCPCAPI_PARAMS_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCPCAPI_PARAMS_ARRAY").field("nParams", &self.nParams).field("Params", &self.Params).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -172,6 +194,12 @@ impl ::core::clone::Clone for DHCPDS_SERVER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCPDS_SERVER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCPDS_SERVER").field("Version", &self.Version).field("ServerName", &self.ServerName).field("ServerAddress", &self.ServerAddress).field("Flags", &self.Flags).field("State", &self.State).field("DsLocation", &self.DsLocation).field("DsLocType", &self.DsLocType).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCPDS_SERVER {
     type Abi = Self;
 }
@@ -203,6 +231,12 @@ impl ::core::marker::Copy for DHCPDS_SERVERS {}
 impl ::core::clone::Clone for DHCPDS_SERVERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCPDS_SERVERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCPDS_SERVERS").field("Flags", &self.Flags).field("NumElements", &self.NumElements).field("Servers", &self.Servers).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -258,6 +292,34 @@ impl ::core::clone::Clone for DHCPV4_FAILOVER_CLIENT_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCPV4_FAILOVER_CLIENT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCPV4_FAILOVER_CLIENT_INFO")
+            .field("ClientIpAddress", &self.ClientIpAddress)
+            .field("SubnetMask", &self.SubnetMask)
+            .field("ClientHardwareAddress", &self.ClientHardwareAddress)
+            .field("ClientName", &self.ClientName)
+            .field("ClientComment", &self.ClientComment)
+            .field("ClientLeaseExpires", &self.ClientLeaseExpires)
+            .field("OwnerHost", &self.OwnerHost)
+            .field("bClientType", &self.bClientType)
+            .field("AddressState", &self.AddressState)
+            .field("Status", &self.Status)
+            .field("ProbationEnds", &self.ProbationEnds)
+            .field("QuarantineCapable", &self.QuarantineCapable)
+            .field("SentPotExpTime", &self.SentPotExpTime)
+            .field("AckPotExpTime", &self.AckPotExpTime)
+            .field("RecvPotExpTime", &self.RecvPotExpTime)
+            .field("StartTime", &self.StartTime)
+            .field("CltLastTransTime", &self.CltLastTransTime)
+            .field("LastBndUpdTime", &self.LastBndUpdTime)
+            .field("BndMsgStatus", &self.BndMsgStatus)
+            .field("PolicyName", &self.PolicyName)
+            .field("Flags", &self.Flags)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCPV4_FAILOVER_CLIENT_INFO {
     type Abi = Self;
 }
@@ -288,6 +350,12 @@ impl ::core::marker::Copy for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {}
 impl ::core::clone::Clone for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCPV4_FAILOVER_CLIENT_INFO_ARRAY").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -344,6 +412,35 @@ impl ::core::clone::Clone for DHCPV4_FAILOVER_CLIENT_INFO_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCPV4_FAILOVER_CLIENT_INFO_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCPV4_FAILOVER_CLIENT_INFO_EX")
+            .field("ClientIpAddress", &self.ClientIpAddress)
+            .field("SubnetMask", &self.SubnetMask)
+            .field("ClientHardwareAddress", &self.ClientHardwareAddress)
+            .field("ClientName", &self.ClientName)
+            .field("ClientComment", &self.ClientComment)
+            .field("ClientLeaseExpires", &self.ClientLeaseExpires)
+            .field("OwnerHost", &self.OwnerHost)
+            .field("bClientType", &self.bClientType)
+            .field("AddressState", &self.AddressState)
+            .field("Status", &self.Status)
+            .field("ProbationEnds", &self.ProbationEnds)
+            .field("QuarantineCapable", &self.QuarantineCapable)
+            .field("SentPotExpTime", &self.SentPotExpTime)
+            .field("AckPotExpTime", &self.AckPotExpTime)
+            .field("RecvPotExpTime", &self.RecvPotExpTime)
+            .field("StartTime", &self.StartTime)
+            .field("CltLastTransTime", &self.CltLastTransTime)
+            .field("LastBndUpdTime", &self.LastBndUpdTime)
+            .field("BndMsgStatus", &self.BndMsgStatus)
+            .field("PolicyName", &self.PolicyName)
+            .field("Flags", &self.Flags)
+            .field("AddressStateEx", &self.AddressStateEx)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCPV4_FAILOVER_CLIENT_INFO_EX {
     type Abi = Self;
 }
@@ -372,6 +469,11 @@ impl ::core::marker::Copy for DHCPV6CAPI_CLASSID {}
 impl ::core::clone::Clone for DHCPV6CAPI_CLASSID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DHCPV6CAPI_CLASSID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCPV6CAPI_CLASSID").field("Flags", &self.Flags).field("Data", &self.Data).field("nBytesData", &self.nBytesData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DHCPV6CAPI_CLASSID {
@@ -404,6 +506,12 @@ impl ::core::marker::Copy for DHCPV6CAPI_PARAMS {}
 impl ::core::clone::Clone for DHCPV6CAPI_PARAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCPV6CAPI_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCPV6CAPI_PARAMS").field("Flags", &self.Flags).field("OptionId", &self.OptionId).field("IsVendor", &self.IsVendor).field("Data", &self.Data).field("nBytesData", &self.nBytesData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -440,6 +548,12 @@ impl ::core::clone::Clone for DHCPV6CAPI_PARAMS_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCPV6CAPI_PARAMS_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCPV6CAPI_PARAMS_ARRAY").field("nParams", &self.nParams).field("Params", &self.Params).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCPV6CAPI_PARAMS_ARRAY {
     type Abi = Self;
 }
@@ -470,6 +584,11 @@ impl ::core::marker::Copy for DHCPV6Prefix {}
 impl ::core::clone::Clone for DHCPV6Prefix {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DHCPV6Prefix {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCPV6Prefix").field("prefix", &self.prefix).field("prefixLength", &self.prefixLength).field("preferredLifeTime", &self.preferredLifeTime).field("validLifeTime", &self.validLifeTime).field("status", &self.status).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DHCPV6Prefix {
@@ -504,6 +623,11 @@ impl ::core::marker::Copy for DHCPV6PrefixLeaseInformation {}
 impl ::core::clone::Clone for DHCPV6PrefixLeaseInformation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DHCPV6PrefixLeaseInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCPV6PrefixLeaseInformation").field("nPrefixes", &self.nPrefixes).field("prefixArray", &self.prefixArray).field("iaid", &self.iaid).field("T1", &self.T1).field("T2", &self.T2).field("MaxLeaseExpirationTime", &self.MaxLeaseExpirationTime).field("LastRenewalTime", &self.LastRenewalTime).field("status", &self.status).field("ServerId", &self.ServerId).field("ServerIdLen", &self.ServerIdLen).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DHCPV6PrefixLeaseInformation {
@@ -542,6 +666,12 @@ impl ::core::clone::Clone for DHCPV6_BIND_ELEMENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCPV6_BIND_ELEMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCPV6_BIND_ELEMENT").field("Flags", &self.Flags).field("fBoundToDHCPServer", &self.fBoundToDHCPServer).field("AdapterPrimaryAddress", &self.AdapterPrimaryAddress).field("AdapterSubnetAddress", &self.AdapterSubnetAddress).field("IfDescription", &self.IfDescription).field("IpV6IfIndex", &self.IpV6IfIndex).field("IfIdSize", &self.IfIdSize).field("IfId", &self.IfId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCPV6_BIND_ELEMENT {
     type Abi = Self;
 }
@@ -575,6 +705,12 @@ impl ::core::clone::Clone for DHCPV6_BIND_ELEMENT_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCPV6_BIND_ELEMENT_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCPV6_BIND_ELEMENT_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCPV6_BIND_ELEMENT_ARRAY {
     type Abi = Self;
 }
@@ -602,6 +738,11 @@ impl ::core::marker::Copy for DHCPV6_IP_ARRAY {}
 impl ::core::clone::Clone for DHCPV6_IP_ARRAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DHCPV6_IP_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCPV6_IP_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DHCPV6_IP_ARRAY {
@@ -676,6 +817,12 @@ impl ::core::clone::Clone for DHCPV6_STATELESS_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCPV6_STATELESS_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCPV6_STATELESS_PARAMS").field("Status", &self.Status).field("PurgeInterval", &self.PurgeInterval).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCPV6_STATELESS_PARAMS {
     type Abi = Self;
 }
@@ -712,6 +859,11 @@ impl ::core::clone::Clone for DHCPV6_STATELESS_SCOPE_STATS {
         *self
     }
 }
+impl ::core::fmt::Debug for DHCPV6_STATELESS_SCOPE_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCPV6_STATELESS_SCOPE_STATS").field("SubnetAddress", &self.SubnetAddress).field("NumStatelessClientsAdded", &self.NumStatelessClientsAdded).field("NumStatelessClientsRemoved", &self.NumStatelessClientsRemoved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DHCPV6_STATELESS_SCOPE_STATS {
     type Abi = Self;
 }
@@ -736,6 +888,11 @@ impl ::core::marker::Copy for DHCPV6_STATELESS_STATS {}
 impl ::core::clone::Clone for DHCPV6_STATELESS_STATS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DHCPV6_STATELESS_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCPV6_STATELESS_STATS").field("NumScopes", &self.NumScopes).field("ScopeStats", &self.ScopeStats).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DHCPV6_STATELESS_STATS {
@@ -768,6 +925,12 @@ impl ::core::marker::Copy for DHCP_ADDR_PATTERN {}
 impl ::core::clone::Clone for DHCP_ADDR_PATTERN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_ADDR_PATTERN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_ADDR_PATTERN").field("MatchHWType", &self.MatchHWType).field("HWType", &self.HWType).field("IsWildcard", &self.IsWildcard).field("Length", &self.Length).field("Pattern", &self.Pattern).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -806,6 +969,12 @@ impl ::core::clone::Clone for DHCP_ALL_OPTIONS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_ALL_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_ALL_OPTIONS").field("Flags", &self.Flags).field("NonVendorOptions", &self.NonVendorOptions).field("NumVendorOptions", &self.NumVendorOptions).field("VendorOptions", &self.VendorOptions).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_ALL_OPTIONS {
     type Abi = Self;
 }
@@ -840,6 +1009,12 @@ impl ::core::clone::Clone for DHCP_ALL_OPTIONS_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_ALL_OPTIONS_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_ALL_OPTIONS_0").field("Option", &self.Option).field("VendorName", &self.VendorName).field("ClassName", &self.ClassName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_ALL_OPTIONS_0 {
     type Abi = Self;
 }
@@ -871,6 +1046,12 @@ impl ::core::marker::Copy for DHCP_ALL_OPTION_VALUES {}
 impl ::core::clone::Clone for DHCP_ALL_OPTION_VALUES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_ALL_OPTION_VALUES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_ALL_OPTION_VALUES").field("Flags", &self.Flags).field("NumElements", &self.NumElements).field("Options", &self.Options).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -909,6 +1090,12 @@ impl ::core::clone::Clone for DHCP_ALL_OPTION_VALUES_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_ALL_OPTION_VALUES_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_ALL_OPTION_VALUES_0").field("ClassName", &self.ClassName).field("VendorName", &self.VendorName).field("IsVendor", &self.IsVendor).field("OptionsArray", &self.OptionsArray).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_ALL_OPTION_VALUES_0 {
     type Abi = Self;
 }
@@ -940,6 +1127,12 @@ impl ::core::marker::Copy for DHCP_ALL_OPTION_VALUES_PB {}
 impl ::core::clone::Clone for DHCP_ALL_OPTION_VALUES_PB {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_ALL_OPTION_VALUES_PB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_ALL_OPTION_VALUES_PB").field("Flags", &self.Flags).field("NumElements", &self.NumElements).field("Options", &self.Options).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -975,6 +1168,12 @@ impl ::core::marker::Copy for DHCP_ALL_OPTION_VALUES_PB_0 {}
 impl ::core::clone::Clone for DHCP_ALL_OPTION_VALUES_PB_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_ALL_OPTION_VALUES_PB_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_ALL_OPTION_VALUES_PB_0").field("PolicyName", &self.PolicyName).field("VendorName", &self.VendorName).field("IsVendor", &self.IsVendor).field("OptionsArray", &self.OptionsArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1078,6 +1277,12 @@ impl ::core::clone::Clone for DHCP_ATTRIB_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_ATTRIB_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_ATTRIB_ARRAY").field("NumElements", &self.NumElements).field("DhcpAttribs", &self.DhcpAttribs).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_ATTRIB_ARRAY {
     type Abi = Self;
 }
@@ -1123,6 +1328,11 @@ impl ::core::clone::Clone for DHCP_BINARY_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for DHCP_BINARY_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_BINARY_DATA").field("DataLength", &self.DataLength).field("Data", &self.Data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_BINARY_DATA {
     type Abi = Self;
 }
@@ -1155,6 +1365,12 @@ impl ::core::marker::Copy for DHCP_BIND_ELEMENT {}
 impl ::core::clone::Clone for DHCP_BIND_ELEMENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_BIND_ELEMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_BIND_ELEMENT").field("Flags", &self.Flags).field("fBoundToDHCPServer", &self.fBoundToDHCPServer).field("AdapterPrimaryAddress", &self.AdapterPrimaryAddress).field("AdapterSubnetAddress", &self.AdapterSubnetAddress).field("IfDescription", &self.IfDescription).field("IfIdSize", &self.IfIdSize).field("IfId", &self.IfId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1191,6 +1407,12 @@ impl ::core::clone::Clone for DHCP_BIND_ELEMENT_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_BIND_ELEMENT_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_BIND_ELEMENT_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_BIND_ELEMENT_ARRAY {
     type Abi = Self;
 }
@@ -1220,6 +1442,11 @@ impl ::core::marker::Copy for DHCP_BOOTP_IP_RANGE {}
 impl ::core::clone::Clone for DHCP_BOOTP_IP_RANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DHCP_BOOTP_IP_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_BOOTP_IP_RANGE").field("StartAddress", &self.StartAddress).field("EndAddress", &self.EndAddress).field("BootpAllocated", &self.BootpAllocated).field("MaxBootpAllowed", &self.MaxBootpAllowed).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_BOOTP_IP_RANGE {
@@ -1260,6 +1487,23 @@ impl ::core::clone::Clone for DHCP_CALLOUT_TABLE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_CALLOUT_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_CALLOUT_TABLE")
+            .field("DhcpControlHook", &self.DhcpControlHook.map(|f| f as usize))
+            .field("DhcpNewPktHook", &self.DhcpNewPktHook.map(|f| f as usize))
+            .field("DhcpPktDropHook", &self.DhcpPktDropHook.map(|f| f as usize))
+            .field("DhcpPktSendHook", &self.DhcpPktSendHook.map(|f| f as usize))
+            .field("DhcpAddressDelHook", &self.DhcpAddressDelHook.map(|f| f as usize))
+            .field("DhcpAddressOfferHook", &self.DhcpAddressOfferHook.map(|f| f as usize))
+            .field("DhcpHandleOptionsHook", &self.DhcpHandleOptionsHook.map(|f| f as usize))
+            .field("DhcpDeleteClientHook", &self.DhcpDeleteClientHook.map(|f| f as usize))
+            .field("DhcpExtensionHook", &self.DhcpExtensionHook)
+            .field("DhcpReservedHook", &self.DhcpReservedHook)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_CALLOUT_TABLE {
     type Abi = Self;
 }
@@ -1297,6 +1541,12 @@ impl ::core::clone::Clone for DHCP_CLASS_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_CLASS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_CLASS_INFO").field("ClassName", &self.ClassName).field("ClassComment", &self.ClassComment).field("ClassDataLength", &self.ClassDataLength).field("IsVendor", &self.IsVendor).field("Flags", &self.Flags).field("ClassData", &self.ClassData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_CLASS_INFO {
     type Abi = Self;
 }
@@ -1330,6 +1580,12 @@ impl ::core::clone::Clone for DHCP_CLASS_INFO_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_CLASS_INFO_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_CLASS_INFO_ARRAY").field("NumElements", &self.NumElements).field("Classes", &self.Classes).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_CLASS_INFO_ARRAY {
     type Abi = Self;
 }
@@ -1360,6 +1616,12 @@ impl ::core::marker::Copy for DHCP_CLASS_INFO_ARRAY_V6 {}
 impl ::core::clone::Clone for DHCP_CLASS_INFO_ARRAY_V6 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_CLASS_INFO_ARRAY_V6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_CLASS_INFO_ARRAY_V6").field("NumElements", &self.NumElements).field("Classes", &self.Classes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1398,6 +1660,12 @@ impl ::core::marker::Copy for DHCP_CLASS_INFO_V6 {}
 impl ::core::clone::Clone for DHCP_CLASS_INFO_V6 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_CLASS_INFO_V6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_CLASS_INFO_V6").field("ClassName", &self.ClassName).field("ClassComment", &self.ClassComment).field("ClassDataLength", &self.ClassDataLength).field("IsVendor", &self.IsVendor).field("EnterpriseNumber", &self.EnterpriseNumber).field("Flags", &self.Flags).field("ClassData", &self.ClassData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1449,6 +1717,26 @@ impl ::core::clone::Clone for DHCP_CLIENT_FILTER_STATUS_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_CLIENT_FILTER_STATUS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_CLIENT_FILTER_STATUS_INFO")
+            .field("ClientIpAddress", &self.ClientIpAddress)
+            .field("SubnetMask", &self.SubnetMask)
+            .field("ClientHardwareAddress", &self.ClientHardwareAddress)
+            .field("ClientName", &self.ClientName)
+            .field("ClientComment", &self.ClientComment)
+            .field("ClientLeaseExpires", &self.ClientLeaseExpires)
+            .field("OwnerHost", &self.OwnerHost)
+            .field("bClientType", &self.bClientType)
+            .field("AddressState", &self.AddressState)
+            .field("Status", &self.Status)
+            .field("ProbationEnds", &self.ProbationEnds)
+            .field("QuarantineCapable", &self.QuarantineCapable)
+            .field("FilterStatus", &self.FilterStatus)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_CLIENT_FILTER_STATUS_INFO {
     type Abi = Self;
 }
@@ -1479,6 +1767,12 @@ impl ::core::marker::Copy for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {}
 impl ::core::clone::Clone for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1520,6 +1814,12 @@ impl ::core::clone::Clone for DHCP_CLIENT_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_CLIENT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_CLIENT_INFO").field("ClientIpAddress", &self.ClientIpAddress).field("SubnetMask", &self.SubnetMask).field("ClientHardwareAddress", &self.ClientHardwareAddress).field("ClientName", &self.ClientName).field("ClientComment", &self.ClientComment).field("ClientLeaseExpires", &self.ClientLeaseExpires).field("OwnerHost", &self.OwnerHost).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO {
     type Abi = Self;
 }
@@ -1550,6 +1850,12 @@ impl ::core::marker::Copy for DHCP_CLIENT_INFO_ARRAY {}
 impl ::core::clone::Clone for DHCP_CLIENT_INFO_ARRAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_CLIENT_INFO_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_CLIENT_INFO_ARRAY").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1586,6 +1892,12 @@ impl ::core::clone::Clone for DHCP_CLIENT_INFO_ARRAY_V4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_CLIENT_INFO_ARRAY_V4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_CLIENT_INFO_ARRAY_V4").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY_V4 {
     type Abi = Self;
 }
@@ -1616,6 +1928,12 @@ impl ::core::marker::Copy for DHCP_CLIENT_INFO_ARRAY_V5 {}
 impl ::core::clone::Clone for DHCP_CLIENT_INFO_ARRAY_V5 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_CLIENT_INFO_ARRAY_V5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_CLIENT_INFO_ARRAY_V5").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1652,6 +1970,12 @@ impl ::core::clone::Clone for DHCP_CLIENT_INFO_ARRAY_V6 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_CLIENT_INFO_ARRAY_V6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_CLIENT_INFO_ARRAY_V6").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY_V6 {
     type Abi = Self;
 }
@@ -1682,6 +2006,12 @@ impl ::core::marker::Copy for DHCP_CLIENT_INFO_ARRAY_VQ {}
 impl ::core::clone::Clone for DHCP_CLIENT_INFO_ARRAY_VQ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_CLIENT_INFO_ARRAY_VQ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_CLIENT_INFO_ARRAY_VQ").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1731,6 +2061,28 @@ impl ::core::clone::Clone for DHCP_CLIENT_INFO_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_CLIENT_INFO_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_CLIENT_INFO_EX")
+            .field("ClientIpAddress", &self.ClientIpAddress)
+            .field("SubnetMask", &self.SubnetMask)
+            .field("ClientHardwareAddress", &self.ClientHardwareAddress)
+            .field("ClientName", &self.ClientName)
+            .field("ClientComment", &self.ClientComment)
+            .field("ClientLeaseExpires", &self.ClientLeaseExpires)
+            .field("OwnerHost", &self.OwnerHost)
+            .field("bClientType", &self.bClientType)
+            .field("AddressState", &self.AddressState)
+            .field("Status", &self.Status)
+            .field("ProbationEnds", &self.ProbationEnds)
+            .field("QuarantineCapable", &self.QuarantineCapable)
+            .field("FilterStatus", &self.FilterStatus)
+            .field("PolicyName", &self.PolicyName)
+            .field("Properties", &self.Properties)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_EX {
     type Abi = Self;
 }
@@ -1761,6 +2113,12 @@ impl ::core::marker::Copy for DHCP_CLIENT_INFO_EX_ARRAY {}
 impl ::core::clone::Clone for DHCP_CLIENT_INFO_EX_ARRAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_CLIENT_INFO_EX_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_CLIENT_INFO_EX_ARRAY").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1809,6 +2167,27 @@ impl ::core::clone::Clone for DHCP_CLIENT_INFO_PB {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_CLIENT_INFO_PB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_CLIENT_INFO_PB")
+            .field("ClientIpAddress", &self.ClientIpAddress)
+            .field("SubnetMask", &self.SubnetMask)
+            .field("ClientHardwareAddress", &self.ClientHardwareAddress)
+            .field("ClientName", &self.ClientName)
+            .field("ClientComment", &self.ClientComment)
+            .field("ClientLeaseExpires", &self.ClientLeaseExpires)
+            .field("OwnerHost", &self.OwnerHost)
+            .field("bClientType", &self.bClientType)
+            .field("AddressState", &self.AddressState)
+            .field("Status", &self.Status)
+            .field("ProbationEnds", &self.ProbationEnds)
+            .field("QuarantineCapable", &self.QuarantineCapable)
+            .field("FilterStatus", &self.FilterStatus)
+            .field("PolicyName", &self.PolicyName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_PB {
     type Abi = Self;
 }
@@ -1839,6 +2218,12 @@ impl ::core::marker::Copy for DHCP_CLIENT_INFO_PB_ARRAY {}
 impl ::core::clone::Clone for DHCP_CLIENT_INFO_PB_ARRAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_CLIENT_INFO_PB_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_CLIENT_INFO_PB_ARRAY").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1878,6 +2263,12 @@ impl ::core::marker::Copy for DHCP_CLIENT_INFO_V4 {}
 impl ::core::clone::Clone for DHCP_CLIENT_INFO_V4 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_CLIENT_INFO_V4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_CLIENT_INFO_V4").field("ClientIpAddress", &self.ClientIpAddress).field("SubnetMask", &self.SubnetMask).field("ClientHardwareAddress", &self.ClientHardwareAddress).field("ClientName", &self.ClientName).field("ClientComment", &self.ClientComment).field("ClientLeaseExpires", &self.ClientLeaseExpires).field("OwnerHost", &self.OwnerHost).field("bClientType", &self.bClientType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1921,6 +2312,12 @@ impl ::core::clone::Clone for DHCP_CLIENT_INFO_V5 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_CLIENT_INFO_V5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_CLIENT_INFO_V5").field("ClientIpAddress", &self.ClientIpAddress).field("SubnetMask", &self.SubnetMask).field("ClientHardwareAddress", &self.ClientHardwareAddress).field("ClientName", &self.ClientName).field("ClientComment", &self.ClientComment).field("ClientLeaseExpires", &self.ClientLeaseExpires).field("OwnerHost", &self.OwnerHost).field("bClientType", &self.bClientType).field("AddressState", &self.AddressState).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_V5 {
     type Abi = Self;
 }
@@ -1958,6 +2355,12 @@ impl ::core::marker::Copy for DHCP_CLIENT_INFO_V6 {}
 impl ::core::clone::Clone for DHCP_CLIENT_INFO_V6 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_CLIENT_INFO_V6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_CLIENT_INFO_V6").field("ClientIpAddress", &self.ClientIpAddress).field("ClientDUID", &self.ClientDUID).field("AddressType", &self.AddressType).field("IAID", &self.IAID).field("ClientName", &self.ClientName).field("ClientComment", &self.ClientComment).field("ClientValidLeaseExpires", &self.ClientValidLeaseExpires).field("ClientPrefLeaseExpires", &self.ClientPrefLeaseExpires).field("OwnerHost", &self.OwnerHost).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2001,6 +2404,25 @@ impl ::core::marker::Copy for DHCP_CLIENT_INFO_VQ {}
 impl ::core::clone::Clone for DHCP_CLIENT_INFO_VQ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_CLIENT_INFO_VQ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_CLIENT_INFO_VQ")
+            .field("ClientIpAddress", &self.ClientIpAddress)
+            .field("SubnetMask", &self.SubnetMask)
+            .field("ClientHardwareAddress", &self.ClientHardwareAddress)
+            .field("ClientName", &self.ClientName)
+            .field("ClientComment", &self.ClientComment)
+            .field("ClientLeaseExpires", &self.ClientLeaseExpires)
+            .field("OwnerHost", &self.OwnerHost)
+            .field("bClientType", &self.bClientType)
+            .field("AddressState", &self.AddressState)
+            .field("Status", &self.Status)
+            .field("ProbationEnds", &self.ProbationEnds)
+            .field("QuarantineCapable", &self.QuarantineCapable)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2097,6 +2519,27 @@ impl ::core::clone::Clone for DHCP_FAILOVER_RELATIONSHIP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_FAILOVER_RELATIONSHIP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_FAILOVER_RELATIONSHIP")
+            .field("PrimaryServer", &self.PrimaryServer)
+            .field("SecondaryServer", &self.SecondaryServer)
+            .field("Mode", &self.Mode)
+            .field("ServerType", &self.ServerType)
+            .field("State", &self.State)
+            .field("PrevState", &self.PrevState)
+            .field("Mclt", &self.Mclt)
+            .field("SafePeriod", &self.SafePeriod)
+            .field("RelationshipName", &self.RelationshipName)
+            .field("PrimaryServerName", &self.PrimaryServerName)
+            .field("SecondaryServerName", &self.SecondaryServerName)
+            .field("pScopes", &self.pScopes)
+            .field("Percentage", &self.Percentage)
+            .field("SharedSecret", &self.SharedSecret)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_FAILOVER_RELATIONSHIP {
     type Abi = Self;
 }
@@ -2127,6 +2570,12 @@ impl ::core::marker::Copy for DHCP_FAILOVER_RELATIONSHIP_ARRAY {}
 impl ::core::clone::Clone for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_FAILOVER_RELATIONSHIP_ARRAY").field("NumElements", &self.NumElements).field("pRelationships", &self.pRelationships).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2170,6 +2619,11 @@ impl ::core::clone::Clone for DHCP_FAILOVER_STATISTICS {
         *self
     }
 }
+impl ::core::fmt::Debug for DHCP_FAILOVER_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_FAILOVER_STATISTICS").field("NumAddr", &self.NumAddr).field("AddrFree", &self.AddrFree).field("AddrInUse", &self.AddrInUse).field("PartnerAddrFree", &self.PartnerAddrFree).field("ThisAddrFree", &self.ThisAddrFree).field("PartnerAddrInUse", &self.PartnerAddrInUse).field("ThisAddrInUse", &self.ThisAddrInUse).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_FAILOVER_STATISTICS {
     type Abi = Self;
 }
@@ -2198,6 +2652,12 @@ impl ::core::marker::Copy for DHCP_FILTER_ADD_INFO {}
 impl ::core::clone::Clone for DHCP_FILTER_ADD_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_FILTER_ADD_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_FILTER_ADD_INFO").field("AddrPatt", &self.AddrPatt).field("Comment", &self.Comment).field("ListType", &self.ListType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2234,6 +2694,12 @@ impl ::core::clone::Clone for DHCP_FILTER_ENUM_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_FILTER_ENUM_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_FILTER_ENUM_INFO").field("NumElements", &self.NumElements).field("pEnumRecords", &self.pEnumRecords).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_FILTER_ENUM_INFO {
     type Abi = Self;
 }
@@ -2264,6 +2730,12 @@ impl ::core::marker::Copy for DHCP_FILTER_GLOBAL_INFO {}
 impl ::core::clone::Clone for DHCP_FILTER_GLOBAL_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_FILTER_GLOBAL_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_FILTER_GLOBAL_INFO").field("EnforceAllowList", &self.EnforceAllowList).field("EnforceDenyList", &self.EnforceDenyList).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2303,6 +2775,12 @@ impl ::core::marker::Copy for DHCP_FILTER_RECORD {}
 impl ::core::clone::Clone for DHCP_FILTER_RECORD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_FILTER_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_FILTER_RECORD").field("AddrPatt", &self.AddrPatt).field("Comment", &self.Comment).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2358,6 +2836,12 @@ impl ::core::clone::Clone for DHCP_HOST_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_HOST_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_HOST_INFO").field("IpAddress", &self.IpAddress).field("NetBiosName", &self.NetBiosName).field("HostName", &self.HostName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_HOST_INFO {
     type Abi = Self;
 }
@@ -2392,6 +2876,12 @@ impl ::core::clone::Clone for DHCP_HOST_INFO_V6 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_HOST_INFO_V6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_HOST_INFO_V6").field("IpAddress", &self.IpAddress).field("NetBiosName", &self.NetBiosName).field("HostName", &self.HostName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_HOST_INFO_V6 {
     type Abi = Self;
 }
@@ -2421,6 +2911,11 @@ impl ::core::clone::Clone for DHCP_IPV6_ADDRESS {
         *self
     }
 }
+impl ::core::fmt::Debug for DHCP_IPV6_ADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_IPV6_ADDRESS").field("HighOrderBits", &self.HighOrderBits).field("LowOrderBits", &self.LowOrderBits).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_IPV6_ADDRESS {
     type Abi = Self;
 }
@@ -2445,6 +2940,11 @@ impl ::core::marker::Copy for DHCP_IP_ARRAY {}
 impl ::core::clone::Clone for DHCP_IP_ARRAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DHCP_IP_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_IP_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_IP_ARRAY {
@@ -2473,6 +2973,11 @@ impl ::core::clone::Clone for DHCP_IP_CLUSTER {
         *self
     }
 }
+impl ::core::fmt::Debug for DHCP_IP_CLUSTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_IP_CLUSTER").field("ClusterAddress", &self.ClusterAddress).field("ClusterMask", &self.ClusterMask).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_IP_CLUSTER {
     type Abi = Self;
 }
@@ -2497,6 +3002,11 @@ impl ::core::marker::Copy for DHCP_IP_RANGE {}
 impl ::core::clone::Clone for DHCP_IP_RANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DHCP_IP_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_IP_RANGE").field("StartAddress", &self.StartAddress).field("EndAddress", &self.EndAddress).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_IP_RANGE {
@@ -2525,6 +3035,11 @@ impl ::core::clone::Clone for DHCP_IP_RANGE_ARRAY {
         *self
     }
 }
+impl ::core::fmt::Debug for DHCP_IP_RANGE_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_IP_RANGE_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_IP_RANGE_ARRAY {
     type Abi = Self;
 }
@@ -2551,6 +3066,11 @@ impl ::core::clone::Clone for DHCP_IP_RANGE_V6 {
         *self
     }
 }
+impl ::core::fmt::Debug for DHCP_IP_RANGE_V6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_IP_RANGE_V6").field("StartAddress", &self.StartAddress).field("EndAddress", &self.EndAddress).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_IP_RANGE_V6 {
     type Abi = Self;
 }
@@ -2575,6 +3095,11 @@ impl ::core::marker::Copy for DHCP_IP_RESERVATION {}
 impl ::core::clone::Clone for DHCP_IP_RESERVATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DHCP_IP_RESERVATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_IP_RESERVATION").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedForClient", &self.ReservedForClient).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_IP_RESERVATION {
@@ -2611,6 +3136,12 @@ impl ::core::clone::Clone for DHCP_IP_RESERVATION_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_IP_RESERVATION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_IP_RESERVATION_INFO").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedForClient", &self.ReservedForClient).field("ReservedClientName", &self.ReservedClientName).field("ReservedClientDesc", &self.ReservedClientDesc).field("bAllowedClientTypes", &self.bAllowedClientTypes).field("fOptionsPresent", &self.fOptionsPresent).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_IP_RESERVATION_INFO {
     type Abi = Self;
 }
@@ -2641,6 +3172,11 @@ impl ::core::clone::Clone for DHCP_IP_RESERVATION_V4 {
         *self
     }
 }
+impl ::core::fmt::Debug for DHCP_IP_RESERVATION_V4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_IP_RESERVATION_V4").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedForClient", &self.ReservedForClient).field("bAllowedClientTypes", &self.bAllowedClientTypes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_IP_RESERVATION_V4 {
     type Abi = Self;
 }
@@ -2666,6 +3202,11 @@ impl ::core::marker::Copy for DHCP_IP_RESERVATION_V6 {}
 impl ::core::clone::Clone for DHCP_IP_RESERVATION_V6 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DHCP_IP_RESERVATION_V6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_IP_RESERVATION_V6").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedForClient", &self.ReservedForClient).field("InterfaceId", &self.InterfaceId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_IP_RESERVATION_V6 {
@@ -2702,6 +3243,11 @@ impl ::core::marker::Copy for DHCP_MIB_INFO {}
 impl ::core::clone::Clone for DHCP_MIB_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DHCP_MIB_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_MIB_INFO").field("Discovers", &self.Discovers).field("Offers", &self.Offers).field("Requests", &self.Requests).field("Acks", &self.Acks).field("Naks", &self.Naks).field("Declines", &self.Declines).field("Releases", &self.Releases).field("ServerStartTime", &self.ServerStartTime).field("Scopes", &self.Scopes).field("ScopeInfo", &self.ScopeInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_MIB_INFO {
@@ -2747,6 +3293,31 @@ impl ::core::clone::Clone for DHCP_MIB_INFO_V5 {
         *self
     }
 }
+impl ::core::fmt::Debug for DHCP_MIB_INFO_V5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_MIB_INFO_V5")
+            .field("Discovers", &self.Discovers)
+            .field("Offers", &self.Offers)
+            .field("Requests", &self.Requests)
+            .field("Acks", &self.Acks)
+            .field("Naks", &self.Naks)
+            .field("Declines", &self.Declines)
+            .field("Releases", &self.Releases)
+            .field("ServerStartTime", &self.ServerStartTime)
+            .field("QtnNumLeases", &self.QtnNumLeases)
+            .field("QtnPctQtnLeases", &self.QtnPctQtnLeases)
+            .field("QtnProbationLeases", &self.QtnProbationLeases)
+            .field("QtnNonQtnLeases", &self.QtnNonQtnLeases)
+            .field("QtnExemptLeases", &self.QtnExemptLeases)
+            .field("QtnCapableClients", &self.QtnCapableClients)
+            .field("QtnIASErrors", &self.QtnIASErrors)
+            .field("DelayedOffers", &self.DelayedOffers)
+            .field("ScopesWithDelayedOffers", &self.ScopesWithDelayedOffers)
+            .field("Scopes", &self.Scopes)
+            .field("ScopeInfo", &self.ScopeInfo)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_MIB_INFO_V5 {
     type Abi = Self;
 }
@@ -2782,6 +3353,25 @@ impl ::core::marker::Copy for DHCP_MIB_INFO_V6 {}
 impl ::core::clone::Clone for DHCP_MIB_INFO_V6 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DHCP_MIB_INFO_V6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_MIB_INFO_V6")
+            .field("Solicits", &self.Solicits)
+            .field("Advertises", &self.Advertises)
+            .field("Requests", &self.Requests)
+            .field("Renews", &self.Renews)
+            .field("Rebinds", &self.Rebinds)
+            .field("Replies", &self.Replies)
+            .field("Confirms", &self.Confirms)
+            .field("Declines", &self.Declines)
+            .field("Releases", &self.Releases)
+            .field("Informs", &self.Informs)
+            .field("ServerStartTime", &self.ServerStartTime)
+            .field("Scopes", &self.Scopes)
+            .field("ScopeInfo", &self.ScopeInfo)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_MIB_INFO_V6 {
@@ -2825,6 +3415,29 @@ impl ::core::clone::Clone for DHCP_MIB_INFO_VQ {
         *self
     }
 }
+impl ::core::fmt::Debug for DHCP_MIB_INFO_VQ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_MIB_INFO_VQ")
+            .field("Discovers", &self.Discovers)
+            .field("Offers", &self.Offers)
+            .field("Requests", &self.Requests)
+            .field("Acks", &self.Acks)
+            .field("Naks", &self.Naks)
+            .field("Declines", &self.Declines)
+            .field("Releases", &self.Releases)
+            .field("ServerStartTime", &self.ServerStartTime)
+            .field("QtnNumLeases", &self.QtnNumLeases)
+            .field("QtnPctQtnLeases", &self.QtnPctQtnLeases)
+            .field("QtnProbationLeases", &self.QtnProbationLeases)
+            .field("QtnNonQtnLeases", &self.QtnNonQtnLeases)
+            .field("QtnExemptLeases", &self.QtnExemptLeases)
+            .field("QtnCapableClients", &self.QtnCapableClients)
+            .field("QtnIASErrors", &self.QtnIASErrors)
+            .field("Scopes", &self.Scopes)
+            .field("ScopeInfo", &self.ScopeInfo)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_MIB_INFO_VQ {
     type Abi = Self;
 }
@@ -2857,6 +3470,12 @@ impl ::core::marker::Copy for DHCP_OPTION {}
 impl ::core::clone::Clone for DHCP_OPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_OPTION").field("OptionID", &self.OptionID).field("OptionName", &self.OptionName).field("OptionComment", &self.OptionComment).field("DefaultValue", &self.DefaultValue).field("OptionType", &self.OptionType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2893,6 +3512,12 @@ impl ::core::clone::Clone for DHCP_OPTION_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_OPTION_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_OPTION_ARRAY").field("NumElements", &self.NumElements).field("Options", &self.Options).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_OPTION_ARRAY {
     type Abi = Self;
 }
@@ -2923,6 +3548,12 @@ impl ::core::marker::Copy for DHCP_OPTION_DATA {}
 impl ::core::clone::Clone for DHCP_OPTION_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_OPTION_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_OPTION_DATA").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3051,6 +3682,12 @@ impl ::core::marker::Copy for DHCP_OPTION_LIST {}
 impl ::core::clone::Clone for DHCP_OPTION_LIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_OPTION_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_OPTION_LIST").field("NumOptions", &self.NumOptions).field("Options", &self.Options).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3239,6 +3876,12 @@ impl ::core::clone::Clone for DHCP_OPTION_VALUE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_OPTION_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_OPTION_VALUE").field("OptionID", &self.OptionID).field("Value", &self.Value).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_OPTION_VALUE {
     type Abi = Self;
 }
@@ -3269,6 +3912,12 @@ impl ::core::marker::Copy for DHCP_OPTION_VALUE_ARRAY {}
 impl ::core::clone::Clone for DHCP_OPTION_VALUE_ARRAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_OPTION_VALUE_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_OPTION_VALUE_ARRAY").field("NumElements", &self.NumElements).field("Values", &self.Values).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3322,6 +3971,31 @@ impl ::core::clone::Clone for DHCP_PERF_STATS {
         *self
     }
 }
+impl ::core::fmt::Debug for DHCP_PERF_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_PERF_STATS")
+            .field("dwNumPacketsReceived", &self.dwNumPacketsReceived)
+            .field("dwNumPacketsDuplicate", &self.dwNumPacketsDuplicate)
+            .field("dwNumPacketsExpired", &self.dwNumPacketsExpired)
+            .field("dwNumMilliSecondsProcessed", &self.dwNumMilliSecondsProcessed)
+            .field("dwNumPacketsInActiveQueue", &self.dwNumPacketsInActiveQueue)
+            .field("dwNumPacketsInPingQueue", &self.dwNumPacketsInPingQueue)
+            .field("dwNumDiscoversReceived", &self.dwNumDiscoversReceived)
+            .field("dwNumOffersSent", &self.dwNumOffersSent)
+            .field("dwNumRequestsReceived", &self.dwNumRequestsReceived)
+            .field("dwNumInformsReceived", &self.dwNumInformsReceived)
+            .field("dwNumAcksSent", &self.dwNumAcksSent)
+            .field("dwNumNacksSent", &self.dwNumNacksSent)
+            .field("dwNumDeclinesReceived", &self.dwNumDeclinesReceived)
+            .field("dwNumReleasesReceived", &self.dwNumReleasesReceived)
+            .field("dwNumDelayedOfferInQueue", &self.dwNumDelayedOfferInQueue)
+            .field("dwNumPacketsProcessed", &self.dwNumPacketsProcessed)
+            .field("dwNumPacketsInQuarWaitingQueue", &self.dwNumPacketsInQuarWaitingQueue)
+            .field("dwNumPacketsInQuarReadyQueue", &self.dwNumPacketsInQuarReadyQueue)
+            .field("dwNumPacketsInQuarDecisionQueue", &self.dwNumPacketsInQuarDecisionQueue)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_PERF_STATS {
     type Abi = Self;
 }
@@ -3359,6 +4033,12 @@ impl ::core::clone::Clone for DHCP_POLICY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_POLICY").field("PolicyName", &self.PolicyName).field("IsGlobalPolicy", &self.IsGlobalPolicy).field("Subnet", &self.Subnet).field("ProcessingOrder", &self.ProcessingOrder).field("Conditions", &self.Conditions).field("Expressions", &self.Expressions).field("Ranges", &self.Ranges).field("Description", &self.Description).field("Enabled", &self.Enabled).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_POLICY {
     type Abi = Self;
 }
@@ -3389,6 +4069,12 @@ impl ::core::marker::Copy for DHCP_POLICY_ARRAY {}
 impl ::core::clone::Clone for DHCP_POLICY_ARRAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_POLICY_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_POLICY_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3433,6 +4119,12 @@ impl ::core::clone::Clone for DHCP_POLICY_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_POLICY_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_POLICY_EX").field("PolicyName", &self.PolicyName).field("IsGlobalPolicy", &self.IsGlobalPolicy).field("Subnet", &self.Subnet).field("ProcessingOrder", &self.ProcessingOrder).field("Conditions", &self.Conditions).field("Expressions", &self.Expressions).field("Ranges", &self.Ranges).field("Description", &self.Description).field("Enabled", &self.Enabled).field("Properties", &self.Properties).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_POLICY_EX {
     type Abi = Self;
 }
@@ -3463,6 +4155,12 @@ impl ::core::marker::Copy for DHCP_POLICY_EX_ARRAY {}
 impl ::core::clone::Clone for DHCP_POLICY_EX_ARRAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_POLICY_EX_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_POLICY_EX_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3547,6 +4245,12 @@ impl ::core::clone::Clone for DHCP_POL_COND {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_POL_COND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_POL_COND").field("ParentExpr", &self.ParentExpr).field("Type", &self.Type).field("OptionID", &self.OptionID).field("SubOptionID", &self.SubOptionID).field("VendorName", &self.VendorName).field("Operator", &self.Operator).field("Value", &self.Value).field("ValueLength", &self.ValueLength).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_POL_COND {
     type Abi = Self;
 }
@@ -3580,6 +4284,12 @@ impl ::core::clone::Clone for DHCP_POL_COND_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_POL_COND_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_POL_COND_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_POL_COND_ARRAY {
     type Abi = Self;
 }
@@ -3609,6 +4319,11 @@ impl ::core::clone::Clone for DHCP_POL_EXPR {
         *self
     }
 }
+impl ::core::fmt::Debug for DHCP_POL_EXPR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_POL_EXPR").field("ParentExpr", &self.ParentExpr).field("Operator", &self.Operator).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_POL_EXPR {
     type Abi = Self;
 }
@@ -3633,6 +4348,11 @@ impl ::core::marker::Copy for DHCP_POL_EXPR_ARRAY {}
 impl ::core::clone::Clone for DHCP_POL_EXPR_ARRAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DHCP_POL_EXPR_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_POL_EXPR_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_POL_EXPR_ARRAY {
@@ -3749,6 +4469,12 @@ impl ::core::clone::Clone for DHCP_PROPERTY_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_PROPERTY_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_PROPERTY_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_PROPERTY_ARRAY {
     type Abi = Self;
 }
@@ -3800,6 +4526,12 @@ impl ::core::clone::Clone for DHCP_RESERVATION_INFO_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_RESERVATION_INFO_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_RESERVATION_INFO_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_RESERVATION_INFO_ARRAY {
     type Abi = Self;
 }
@@ -3829,6 +4561,11 @@ impl ::core::clone::Clone for DHCP_RESERVED_SCOPE {
         *self
     }
 }
+impl ::core::fmt::Debug for DHCP_RESERVED_SCOPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_RESERVED_SCOPE").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedIpSubnetAddress", &self.ReservedIpSubnetAddress).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_RESERVED_SCOPE {
     type Abi = Self;
 }
@@ -3853,6 +4590,11 @@ impl ::core::marker::Copy for DHCP_RESERVED_SCOPE6 {}
 impl ::core::clone::Clone for DHCP_RESERVED_SCOPE6 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DHCP_RESERVED_SCOPE6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_RESERVED_SCOPE6").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedIpSubnetAddress", &self.ReservedIpSubnetAddress).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_RESERVED_SCOPE6 {
@@ -3887,6 +4629,11 @@ impl ::core::clone::Clone for DHCP_SCAN_ITEM {
         *self
     }
 }
+impl ::core::fmt::Debug for DHCP_SCAN_ITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_SCAN_ITEM").field("IpAddress", &self.IpAddress).field("ScanFlag", &self.ScanFlag).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_SCAN_ITEM {
     type Abi = Self;
 }
@@ -3911,6 +4658,11 @@ impl ::core::marker::Copy for DHCP_SCAN_LIST {}
 impl ::core::clone::Clone for DHCP_SCAN_LIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DHCP_SCAN_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_SCAN_LIST").field("NumScanItems", &self.NumScanItems).field("ScanItems", &self.ScanItems).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_SCAN_LIST {
@@ -4102,6 +4854,12 @@ impl ::core::clone::Clone for DHCP_SERVER_CONFIG_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_SERVER_CONFIG_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_SERVER_CONFIG_INFO").field("APIProtocolSupport", &self.APIProtocolSupport).field("DatabaseName", &self.DatabaseName).field("DatabasePath", &self.DatabasePath).field("BackupPath", &self.BackupPath).field("BackupInterval", &self.BackupInterval).field("DatabaseLoggingFlag", &self.DatabaseLoggingFlag).field("RestoreFlag", &self.RestoreFlag).field("DatabaseCleanupInterval", &self.DatabaseCleanupInterval).field("DebugFlag", &self.DebugFlag).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_SERVER_CONFIG_INFO {
     type Abi = Self;
 }
@@ -4146,6 +4904,26 @@ impl ::core::clone::Clone for DHCP_SERVER_CONFIG_INFO_V4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_SERVER_CONFIG_INFO_V4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_SERVER_CONFIG_INFO_V4")
+            .field("APIProtocolSupport", &self.APIProtocolSupport)
+            .field("DatabaseName", &self.DatabaseName)
+            .field("DatabasePath", &self.DatabasePath)
+            .field("BackupPath", &self.BackupPath)
+            .field("BackupInterval", &self.BackupInterval)
+            .field("DatabaseLoggingFlag", &self.DatabaseLoggingFlag)
+            .field("RestoreFlag", &self.RestoreFlag)
+            .field("DatabaseCleanupInterval", &self.DatabaseCleanupInterval)
+            .field("DebugFlag", &self.DebugFlag)
+            .field("dwPingRetries", &self.dwPingRetries)
+            .field("cbBootTableString", &self.cbBootTableString)
+            .field("wszBootTableString", &self.wszBootTableString)
+            .field("fAuditLog", &self.fAuditLog)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_SERVER_CONFIG_INFO_V4 {
     type Abi = Self;
 }
@@ -4183,6 +4961,12 @@ impl ::core::marker::Copy for DHCP_SERVER_CONFIG_INFO_V6 {}
 impl ::core::clone::Clone for DHCP_SERVER_CONFIG_INFO_V6 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_SERVER_CONFIG_INFO_V6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_SERVER_CONFIG_INFO_V6").field("UnicastFlag", &self.UnicastFlag).field("RapidCommitFlag", &self.RapidCommitFlag).field("PreferredLifetime", &self.PreferredLifetime).field("ValidLifetime", &self.ValidLifetime).field("T1", &self.T1).field("T2", &self.T2).field("PreferredLifetimeIATA", &self.PreferredLifetimeIATA).field("ValidLifetimeIATA", &self.ValidLifetimeIATA).field("fAuditLog", &self.fAuditLog).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4230,6 +5014,29 @@ impl ::core::marker::Copy for DHCP_SERVER_CONFIG_INFO_VQ {}
 impl ::core::clone::Clone for DHCP_SERVER_CONFIG_INFO_VQ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_SERVER_CONFIG_INFO_VQ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_SERVER_CONFIG_INFO_VQ")
+            .field("APIProtocolSupport", &self.APIProtocolSupport)
+            .field("DatabaseName", &self.DatabaseName)
+            .field("DatabasePath", &self.DatabasePath)
+            .field("BackupPath", &self.BackupPath)
+            .field("BackupInterval", &self.BackupInterval)
+            .field("DatabaseLoggingFlag", &self.DatabaseLoggingFlag)
+            .field("RestoreFlag", &self.RestoreFlag)
+            .field("DatabaseCleanupInterval", &self.DatabaseCleanupInterval)
+            .field("DebugFlag", &self.DebugFlag)
+            .field("dwPingRetries", &self.dwPingRetries)
+            .field("cbBootTableString", &self.cbBootTableString)
+            .field("wszBootTableString", &self.wszBootTableString)
+            .field("fAuditLog", &self.fAuditLog)
+            .field("QuarantineOn", &self.QuarantineOn)
+            .field("QuarDefFail", &self.QuarDefFail)
+            .field("QuarRuntimeStatus", &self.QuarRuntimeStatus)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4293,6 +5100,39 @@ impl ::core::clone::Clone for DHCP_SERVER_OPTIONS {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_SERVER_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_SERVER_OPTIONS")
+            .field("MessageType", &self.MessageType)
+            .field("SubnetMask", &self.SubnetMask)
+            .field("RequestedAddress", &self.RequestedAddress)
+            .field("RequestLeaseTime", &self.RequestLeaseTime)
+            .field("OverlayFields", &self.OverlayFields)
+            .field("RouterAddress", &self.RouterAddress)
+            .field("Server", &self.Server)
+            .field("ParameterRequestList", &self.ParameterRequestList)
+            .field("ParameterRequestListLength", &self.ParameterRequestListLength)
+            .field("MachineName", &self.MachineName)
+            .field("MachineNameLength", &self.MachineNameLength)
+            .field("ClientHardwareAddressType", &self.ClientHardwareAddressType)
+            .field("ClientHardwareAddressLength", &self.ClientHardwareAddressLength)
+            .field("ClientHardwareAddress", &self.ClientHardwareAddress)
+            .field("ClassIdentifier", &self.ClassIdentifier)
+            .field("ClassIdentifierLength", &self.ClassIdentifierLength)
+            .field("VendorClass", &self.VendorClass)
+            .field("VendorClassLength", &self.VendorClassLength)
+            .field("DNSFlags", &self.DNSFlags)
+            .field("DNSNameLength", &self.DNSNameLength)
+            .field("DNSName", &self.DNSName)
+            .field("DSDomainNameRequested", &self.DSDomainNameRequested)
+            .field("DSDomainName", &self.DSDomainName)
+            .field("DSDomainNameLen", &self.DSDomainNameLen)
+            .field("ScopeId", &self.ScopeId)
+            .finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_SERVER_OPTIONS {
     type Abi = Self;
 }
@@ -4356,6 +5196,39 @@ impl ::core::clone::Clone for DHCP_SERVER_OPTIONS {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_SERVER_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_SERVER_OPTIONS")
+            .field("MessageType", &self.MessageType)
+            .field("SubnetMask", &self.SubnetMask)
+            .field("RequestedAddress", &self.RequestedAddress)
+            .field("RequestLeaseTime", &self.RequestLeaseTime)
+            .field("OverlayFields", &self.OverlayFields)
+            .field("RouterAddress", &self.RouterAddress)
+            .field("Server", &self.Server)
+            .field("ParameterRequestList", &self.ParameterRequestList)
+            .field("ParameterRequestListLength", &self.ParameterRequestListLength)
+            .field("MachineName", &self.MachineName)
+            .field("MachineNameLength", &self.MachineNameLength)
+            .field("ClientHardwareAddressType", &self.ClientHardwareAddressType)
+            .field("ClientHardwareAddressLength", &self.ClientHardwareAddressLength)
+            .field("ClientHardwareAddress", &self.ClientHardwareAddress)
+            .field("ClassIdentifier", &self.ClassIdentifier)
+            .field("ClassIdentifierLength", &self.ClassIdentifierLength)
+            .field("VendorClass", &self.VendorClass)
+            .field("VendorClassLength", &self.VendorClassLength)
+            .field("DNSFlags", &self.DNSFlags)
+            .field("DNSNameLength", &self.DNSNameLength)
+            .field("DNSName", &self.DNSName)
+            .field("DSDomainNameRequested", &self.DSDomainNameRequested)
+            .field("DSDomainName", &self.DSDomainName)
+            .field("DSDomainNameLen", &self.DSDomainNameLen)
+            .field("ScopeId", &self.ScopeId)
+            .finish()
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_SERVER_OPTIONS {
     type Abi = Self;
 }
@@ -4389,6 +5262,12 @@ impl ::core::marker::Copy for DHCP_SERVER_SPECIFIC_STRINGS {}
 impl ::core::clone::Clone for DHCP_SERVER_SPECIFIC_STRINGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_SERVER_SPECIFIC_STRINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_SERVER_SPECIFIC_STRINGS").field("DefaultVendorClassName", &self.DefaultVendorClassName).field("DefaultUserClassName", &self.DefaultUserClassName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4685,6 +5564,12 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_SUBNET_ELEMENT_INFO_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
     type Abi = Self;
 }
@@ -4715,6 +5600,12 @@ impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {}
 impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4751,6 +5642,12 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
     type Abi = Self;
 }
@@ -4778,6 +5675,11 @@ impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {}
 impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
@@ -4846,6 +5748,12 @@ impl ::core::clone::Clone for DHCP_SUBNET_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_SUBNET_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_SUBNET_INFO").field("SubnetAddress", &self.SubnetAddress).field("SubnetMask", &self.SubnetMask).field("SubnetName", &self.SubnetName).field("SubnetComment", &self.SubnetComment).field("PrimaryHost", &self.PrimaryHost).field("SubnetState", &self.SubnetState).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_SUBNET_INFO {
     type Abi = Self;
 }
@@ -4881,6 +5789,12 @@ impl ::core::marker::Copy for DHCP_SUBNET_INFO_V6 {}
 impl ::core::clone::Clone for DHCP_SUBNET_INFO_V6 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_SUBNET_INFO_V6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_SUBNET_INFO_V6").field("SubnetAddress", &self.SubnetAddress).field("Prefix", &self.Prefix).field("Preference", &self.Preference).field("SubnetName", &self.SubnetName).field("SubnetComment", &self.SubnetComment).field("State", &self.State).field("ScopeId", &self.ScopeId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4923,6 +5837,12 @@ impl ::core::marker::Copy for DHCP_SUBNET_INFO_VQ {}
 impl ::core::clone::Clone for DHCP_SUBNET_INFO_VQ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_SUBNET_INFO_VQ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_SUBNET_INFO_VQ").field("SubnetAddress", &self.SubnetAddress).field("SubnetMask", &self.SubnetMask).field("SubnetName", &self.SubnetName).field("SubnetComment", &self.SubnetComment).field("PrimaryHost", &self.PrimaryHost).field("SubnetState", &self.SubnetState).field("QuarantineOn", &self.QuarantineOn).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4973,6 +5893,12 @@ impl ::core::clone::Clone for DHCP_SUPER_SCOPE_TABLE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_SUPER_SCOPE_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_SUPER_SCOPE_TABLE").field("cEntries", &self.cEntries).field("pEntries", &self.pEntries).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_SUPER_SCOPE_TABLE {
     type Abi = Self;
 }
@@ -5005,6 +5931,12 @@ impl ::core::marker::Copy for DHCP_SUPER_SCOPE_TABLE_ENTRY {}
 impl ::core::clone::Clone for DHCP_SUPER_SCOPE_TABLE_ENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DHCP_SUPER_SCOPE_TABLE_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DHCP_SUPER_SCOPE_TABLE_ENTRY").field("SubnetAddress", &self.SubnetAddress).field("SuperScopeNumber", &self.SuperScopeNumber).field("NextInSuperScope", &self.NextInSuperScope).field("SuperScopeName", &self.SuperScopeName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5049,6 +5981,11 @@ impl ::core::marker::Copy for DWORD_DWORD {}
 impl ::core::clone::Clone for DWORD_DWORD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWORD_DWORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWORD_DWORD").field("DWord1", &self.DWord1).field("DWord2", &self.DWord2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWORD_DWORD {
@@ -8682,6 +9619,11 @@ impl ::core::clone::Clone for SCOPE_MIB_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for SCOPE_MIB_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCOPE_MIB_INFO").field("Subnet", &self.Subnet).field("NumAddressesInuse", &self.NumAddressesInuse).field("NumAddressesFree", &self.NumAddressesFree).field("NumPendingOffers", &self.NumPendingOffers).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCOPE_MIB_INFO {
     type Abi = Self;
 }
@@ -8710,6 +9652,11 @@ impl ::core::clone::Clone for SCOPE_MIB_INFO_V5 {
         *self
     }
 }
+impl ::core::fmt::Debug for SCOPE_MIB_INFO_V5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCOPE_MIB_INFO_V5").field("Subnet", &self.Subnet).field("NumAddressesInuse", &self.NumAddressesInuse).field("NumAddressesFree", &self.NumAddressesFree).field("NumPendingOffers", &self.NumPendingOffers).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCOPE_MIB_INFO_V5 {
     type Abi = Self;
 }
@@ -8736,6 +9683,11 @@ impl ::core::marker::Copy for SCOPE_MIB_INFO_V6 {}
 impl ::core::clone::Clone for SCOPE_MIB_INFO_V6 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCOPE_MIB_INFO_V6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCOPE_MIB_INFO_V6").field("Subnet", &self.Subnet).field("NumAddressesInuse", &self.NumAddressesInuse).field("NumAddressesFree", &self.NumAddressesFree).field("NumPendingAdvertises", &self.NumPendingAdvertises).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCOPE_MIB_INFO_V6 {
@@ -8770,6 +9722,22 @@ impl ::core::marker::Copy for SCOPE_MIB_INFO_VQ {}
 impl ::core::clone::Clone for SCOPE_MIB_INFO_VQ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCOPE_MIB_INFO_VQ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCOPE_MIB_INFO_VQ")
+            .field("Subnet", &self.Subnet)
+            .field("NumAddressesInuse", &self.NumAddressesInuse)
+            .field("NumAddressesFree", &self.NumAddressesFree)
+            .field("NumPendingOffers", &self.NumPendingOffers)
+            .field("QtnNumLeases", &self.QtnNumLeases)
+            .field("QtnPctQtnLeases", &self.QtnPctQtnLeases)
+            .field("QtnProbationLeases", &self.QtnProbationLeases)
+            .field("QtnNonQtnLeases", &self.QtnNonQtnLeases)
+            .field("QtnExemptLeases", &self.QtnExemptLeases)
+            .field("QtnCapableClients", &self.QtnCapableClients)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCOPE_MIB_INFO_VQ {

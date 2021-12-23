@@ -87,6 +87,11 @@ impl ::core::cmp::PartialEq for InstalledClassicAppInfo {
     }
 }
 impl ::core::cmp::Eq for InstalledClassicAppInfo {}
+impl ::core::fmt::Debug for InstalledClassicAppInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InstalledClassicAppInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InstalledClassicAppInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.Preview.InstalledClassicAppInfo;{0a7d3da3-65d0-4086-80d6-0610d760207d})");
 }

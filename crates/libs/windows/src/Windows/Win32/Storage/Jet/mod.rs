@@ -80,6 +80,12 @@ impl ::core::clone::Clone for CONVERT_A_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CONVERT_A_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONVERT_A_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CONVERT_A_0_0 {
     type Abi = Self;
 }
@@ -175,6 +181,12 @@ impl ::core::marker::Copy for CONVERT_W_0_0 {}
 impl ::core::clone::Clone for CONVERT_W_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CONVERT_W_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONVERT_W_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -352,6 +364,12 @@ impl ::core::clone::Clone for JET_BKLOGTIME_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JET_BKLOGTIME_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_BKLOGTIME_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_BKLOGTIME_0_0 {
     type Abi = Self;
 }
@@ -417,6 +435,12 @@ impl ::core::clone::Clone for JET_BKLOGTIME_1_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JET_BKLOGTIME_1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_BKLOGTIME_1_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_BKLOGTIME_1_0 {
     type Abi = Self;
 }
@@ -462,6 +486,12 @@ impl ::core::clone::Clone for JET_COLUMNBASE_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JET_COLUMNBASE_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_COLUMNBASE_A").field("cbStruct", &self.cbStruct).field("columnid", &self.columnid).field("coltyp", &self.coltyp).field("wCountry", &self.wCountry).field("langid", &self.langid).field("cp", &self.cp).field("wFiller", &self.wFiller).field("cbMax", &self.cbMax).field("grbit", &self.grbit).field("szBaseTableName", &self.szBaseTableName).field("szBaseColumnName", &self.szBaseColumnName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_COLUMNBASE_A {
     type Abi = Self;
 }
@@ -500,6 +530,11 @@ impl ::core::clone::Clone for JET_COLUMNBASE_W {
         *self
     }
 }
+impl ::core::fmt::Debug for JET_COLUMNBASE_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_COLUMNBASE_W").field("cbStruct", &self.cbStruct).field("columnid", &self.columnid).field("coltyp", &self.coltyp).field("wCountry", &self.wCountry).field("langid", &self.langid).field("cp", &self.cp).field("wFiller", &self.wFiller).field("cbMax", &self.cbMax).field("grbit", &self.grbit).field("szBaseTableName", &self.szBaseTableName).field("szBaseColumnName", &self.szBaseColumnName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JET_COLUMNBASE_W {
     type Abi = Self;
 }
@@ -535,6 +570,12 @@ impl ::core::marker::Copy for JET_COLUMNCREATE_A {}
 impl ::core::clone::Clone for JET_COLUMNCREATE_A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JET_COLUMNCREATE_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_COLUMNCREATE_A").field("cbStruct", &self.cbStruct).field("szColumnName", &self.szColumnName).field("coltyp", &self.coltyp).field("cbMax", &self.cbMax).field("grbit", &self.grbit).field("pvDefault", &self.pvDefault).field("cbDefault", &self.cbDefault).field("cp", &self.cp).field("columnid", &self.columnid).field("err", &self.err).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -579,6 +620,12 @@ impl ::core::clone::Clone for JET_COLUMNCREATE_W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JET_COLUMNCREATE_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_COLUMNCREATE_W").field("cbStruct", &self.cbStruct).field("szColumnName", &self.szColumnName).field("coltyp", &self.coltyp).field("cbMax", &self.cbMax).field("grbit", &self.grbit).field("pvDefault", &self.pvDefault).field("cbDefault", &self.cbDefault).field("cp", &self.cp).field("columnid", &self.columnid).field("err", &self.err).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_COLUMNCREATE_W {
     type Abi = Self;
 }
@@ -613,6 +660,11 @@ impl ::core::marker::Copy for JET_COLUMNDEF {}
 impl ::core::clone::Clone for JET_COLUMNDEF {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JET_COLUMNDEF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_COLUMNDEF").field("cbStruct", &self.cbStruct).field("columnid", &self.columnid).field("coltyp", &self.coltyp).field("wCountry", &self.wCountry).field("langid", &self.langid).field("cp", &self.cp).field("wCollate", &self.wCollate).field("cbMax", &self.cbMax).field("grbit", &self.grbit).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JET_COLUMNDEF {
@@ -657,6 +709,30 @@ impl ::core::marker::Copy for JET_COLUMNLIST {}
 impl ::core::clone::Clone for JET_COLUMNLIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
+impl ::core::fmt::Debug for JET_COLUMNLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_COLUMNLIST")
+            .field("cbStruct", &self.cbStruct)
+            .field("tableid", &self.tableid)
+            .field("cRecord", &self.cRecord)
+            .field("columnidPresentationOrder", &self.columnidPresentationOrder)
+            .field("columnidcolumnname", &self.columnidcolumnname)
+            .field("columnidcolumnid", &self.columnidcolumnid)
+            .field("columnidcoltyp", &self.columnidcoltyp)
+            .field("columnidCountry", &self.columnidCountry)
+            .field("columnidLangid", &self.columnidLangid)
+            .field("columnidCp", &self.columnidCp)
+            .field("columnidCollate", &self.columnidCollate)
+            .field("columnidcbMax", &self.columnidcbMax)
+            .field("columnidgrbit", &self.columnidgrbit)
+            .field("columnidDefault", &self.columnidDefault)
+            .field("columnidBaseTableName", &self.columnidBaseTableName)
+            .field("columnidBaseColumnName", &self.columnidBaseColumnName)
+            .field("columnidDefinitionName", &self.columnidDefinitionName)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -776,6 +852,12 @@ impl ::core::clone::Clone for JET_CONDITIONALCOLUMN_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JET_CONDITIONALCOLUMN_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_CONDITIONALCOLUMN_A").field("cbStruct", &self.cbStruct).field("szColumnName", &self.szColumnName).field("grbit", &self.grbit).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_CONDITIONALCOLUMN_A {
     type Abi = Self;
 }
@@ -807,6 +889,12 @@ impl ::core::marker::Copy for JET_CONDITIONALCOLUMN_W {}
 impl ::core::clone::Clone for JET_CONDITIONALCOLUMN_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JET_CONDITIONALCOLUMN_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_CONDITIONALCOLUMN_W").field("cbStruct", &self.cbStruct).field("szColumnName", &self.szColumnName).field("grbit", &self.grbit).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1158,6 +1246,11 @@ impl ::core::clone::Clone for JET_DBINFOUPGRADE_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for JET_DBINFOUPGRADE_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_DBINFOUPGRADE_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JET_DBINFOUPGRADE_0_0 {
     type Abi = Self;
 }
@@ -1277,6 +1370,11 @@ impl ::core::clone::Clone for JET_ENUMCOLUMN_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for JET_ENUMCOLUMN_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_ENUMCOLUMN_0_0").field("cEnumColumnValue", &self.cEnumColumnValue).field("rgEnumColumnValue", &self.rgEnumColumnValue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JET_ENUMCOLUMN_0_0 {
     type Abi = Self;
 }
@@ -1301,6 +1399,11 @@ impl ::core::marker::Copy for JET_ENUMCOLUMN_0_1 {}
 impl ::core::clone::Clone for JET_ENUMCOLUMN_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JET_ENUMCOLUMN_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_ENUMCOLUMN_0_1").field("cbData", &self.cbData).field("pvData", &self.pvData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JET_ENUMCOLUMN_0_1 {
@@ -1330,6 +1433,11 @@ impl ::core::clone::Clone for JET_ENUMCOLUMNID {
         *self
     }
 }
+impl ::core::fmt::Debug for JET_ENUMCOLUMNID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_ENUMCOLUMNID").field("columnid", &self.columnid).field("ctagSequence", &self.ctagSequence).field("rgtagSequence", &self.rgtagSequence).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JET_ENUMCOLUMNID {
     type Abi = Self;
 }
@@ -1356,6 +1464,11 @@ impl ::core::marker::Copy for JET_ENUMCOLUMNVALUE {}
 impl ::core::clone::Clone for JET_ENUMCOLUMNVALUE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JET_ENUMCOLUMNVALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_ENUMCOLUMNVALUE").field("itagSequence", &self.itagSequence).field("err", &self.err).field("cbData", &self.cbData).field("pvData", &self.pvData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JET_ENUMCOLUMNVALUE {
@@ -1424,6 +1537,11 @@ impl ::core::marker::Copy for JET_ERRINFOBASIC_W {}
 impl ::core::clone::Clone for JET_ERRINFOBASIC_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JET_ERRINFOBASIC_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_ERRINFOBASIC_W").field("cbStruct", &self.cbStruct).field("errValue", &self.errValue).field("errcatMostSpecific", &self.errcatMostSpecific).field("rgCategoricalHierarchy", &self.rgCategoricalHierarchy).field("lSourceLine", &self.lSourceLine).field("rgszSourceFile", &self.rgszSourceFile).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JET_ERRINFOBASIC_W {
@@ -2076,6 +2194,12 @@ impl ::core::clone::Clone for JET_INDEXID {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for JET_INDEXID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_INDEXID").field("cbStruct", &self.cbStruct).field("rgbIndexId", &self.rgbIndexId).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for JET_INDEXID {
     type Abi = Self;
 }
@@ -2106,6 +2230,12 @@ impl ::core::marker::Copy for JET_INDEXID {}
 impl ::core::clone::Clone for JET_INDEXID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::core::fmt::Debug for JET_INDEXID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_INDEXID").field("cbStruct", &self.cbStruct).field("rgbIndexId", &self.rgbIndexId).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -2159,6 +2289,32 @@ impl ::core::clone::Clone for JET_INDEXLIST {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+impl ::core::fmt::Debug for JET_INDEXLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_INDEXLIST")
+            .field("cbStruct", &self.cbStruct)
+            .field("tableid", &self.tableid)
+            .field("cRecord", &self.cRecord)
+            .field("columnidindexname", &self.columnidindexname)
+            .field("columnidgrbitIndex", &self.columnidgrbitIndex)
+            .field("columnidcKey", &self.columnidcKey)
+            .field("columnidcEntry", &self.columnidcEntry)
+            .field("columnidcPage", &self.columnidcPage)
+            .field("columnidcColumn", &self.columnidcColumn)
+            .field("columnidiColumn", &self.columnidiColumn)
+            .field("columnidcolumnid", &self.columnidcolumnid)
+            .field("columnidcoltyp", &self.columnidcoltyp)
+            .field("columnidCountry", &self.columnidCountry)
+            .field("columnidLangid", &self.columnidLangid)
+            .field("columnidCp", &self.columnidCp)
+            .field("columnidCollate", &self.columnidCollate)
+            .field("columnidgrbitColumn", &self.columnidgrbitColumn)
+            .field("columnidcolumnname", &self.columnidcolumnname)
+            .field("columnidLCMapFlags", &self.columnidLCMapFlags)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 unsafe impl ::windows::core::Abi for JET_INDEXLIST {
     type Abi = Self;
 }
@@ -2190,6 +2346,12 @@ impl ::core::marker::Copy for JET_INDEXRANGE {}
 impl ::core::clone::Clone for JET_INDEXRANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
+impl ::core::fmt::Debug for JET_INDEXRANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_INDEXRANGE").field("cbStruct", &self.cbStruct).field("tableid", &self.tableid).field("grbit", &self.grbit).finish()
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -2225,6 +2387,11 @@ impl ::core::clone::Clone for JET_INDEX_COLUMN {
         *self
     }
 }
+impl ::core::fmt::Debug for JET_INDEX_COLUMN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_INDEX_COLUMN").field("columnid", &self.columnid).field("relop", &self.relop).field("pv", &self.pv).field("cb", &self.cb).field("grbit", &self.grbit).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JET_INDEX_COLUMN {
     type Abi = Self;
 }
@@ -2251,6 +2418,11 @@ impl ::core::marker::Copy for JET_INDEX_RANGE {}
 impl ::core::clone::Clone for JET_INDEX_RANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JET_INDEX_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_INDEX_RANGE").field("rgStartColumns", &self.rgStartColumns).field("cStartColumns", &self.cStartColumns).field("rgEndColumns", &self.rgEndColumns).field("cEndColumns", &self.cEndColumns).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JET_INDEX_RANGE {
@@ -2284,6 +2456,12 @@ impl ::core::marker::Copy for JET_INSTANCE_INFO_A {}
 impl ::core::clone::Clone for JET_INSTANCE_INFO_A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+impl ::core::fmt::Debug for JET_INSTANCE_INFO_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_INSTANCE_INFO_A").field("hInstanceId", &self.hInstanceId).field("szInstanceName", &self.szInstanceName).field("cDatabases", &self.cDatabases).field("szDatabaseFileName", &self.szDatabaseFileName).field("szDatabaseDisplayName", &self.szDatabaseDisplayName).field("szDatabaseSLVFileName_Obsolete", &self.szDatabaseSLVFileName_Obsolete).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -2321,6 +2499,12 @@ impl ::core::marker::Copy for JET_INSTANCE_INFO_W {}
 impl ::core::clone::Clone for JET_INSTANCE_INFO_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+impl ::core::fmt::Debug for JET_INSTANCE_INFO_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_INSTANCE_INFO_W").field("hInstanceId", &self.hInstanceId).field("szInstanceName", &self.szInstanceName).field("cDatabases", &self.cDatabases).field("szDatabaseFileName", &self.szDatabaseFileName).field("szDatabaseDisplayName", &self.szDatabaseDisplayName).field("szDatabaseSLVFileName_Obsolete", &self.szDatabaseSLVFileName_Obsolete).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -2390,6 +2574,12 @@ impl ::core::clone::Clone for JET_LOGINFO_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JET_LOGINFO_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_LOGINFO_A").field("cbSize", &self.cbSize).field("ulGenLow", &self.ulGenLow).field("ulGenHigh", &self.ulGenHigh).field("szBaseName", &self.szBaseName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_LOGINFO_A {
     type Abi = Self;
 }
@@ -2419,6 +2609,11 @@ impl ::core::marker::Copy for JET_LOGINFO_W {}
 impl ::core::clone::Clone for JET_LOGINFO_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JET_LOGINFO_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_LOGINFO_W").field("cbSize", &self.cbSize).field("ulGenLow", &self.ulGenLow).field("ulGenHigh", &self.ulGenHigh).field("szBaseName", &self.szBaseName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JET_LOGINFO_W {
@@ -2522,6 +2717,12 @@ impl ::core::clone::Clone for JET_LOGTIME_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JET_LOGTIME_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_LOGTIME_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_LOGTIME_0_0 {
     type Abi = Self;
 }
@@ -2587,6 +2788,12 @@ impl ::core::clone::Clone for JET_LOGTIME_1_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JET_LOGTIME_1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_LOGTIME_1_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_LOGTIME_1_0 {
     type Abi = Self;
 }
@@ -2632,6 +2839,12 @@ impl ::core::marker::Copy for JET_OBJECTINFO {}
 impl ::core::clone::Clone for JET_OBJECTINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for JET_OBJECTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_OBJECTINFO").field("cbStruct", &self.cbStruct).field("objtyp", &self.objtyp).field("dtCreate", &self.dtCreate).field("dtUpdate", &self.dtUpdate).field("grbit", &self.grbit).field("flags", &self.flags).field("cRecord", &self.cRecord).field("cPage", &self.cPage).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2717,6 +2930,25 @@ impl ::core::clone::Clone for JET_OBJECTLIST {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+impl ::core::fmt::Debug for JET_OBJECTLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_OBJECTLIST")
+            .field("cbStruct", &self.cbStruct)
+            .field("tableid", &self.tableid)
+            .field("cRecord", &self.cRecord)
+            .field("columnidcontainername", &self.columnidcontainername)
+            .field("columnidobjectname", &self.columnidobjectname)
+            .field("columnidobjtyp", &self.columnidobjtyp)
+            .field("columniddtCreate", &self.columniddtCreate)
+            .field("columniddtUpdate", &self.columniddtUpdate)
+            .field("columnidgrbit", &self.columnidgrbit)
+            .field("columnidflags", &self.columnidflags)
+            .field("columnidcRecord", &self.columnidcRecord)
+            .field("columnidcPage", &self.columnidcPage)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 unsafe impl ::windows::core::Abi for JET_OBJECTLIST {
     type Abi = Self;
 }
@@ -2754,6 +2986,12 @@ impl ::core::marker::Copy for JET_OPENTEMPORARYTABLE {}
 impl ::core::clone::Clone for JET_OPENTEMPORARYTABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
+impl ::core::fmt::Debug for JET_OPENTEMPORARYTABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_OPENTEMPORARYTABLE").field("cbStruct", &self.cbStruct).field("prgcolumndef", &self.prgcolumndef).field("ccolumn", &self.ccolumn).field("pidxunicode", &self.pidxunicode).field("grbit", &self.grbit).field("prgcolumnid", &self.prgcolumnid).field("cbKeyMost", &self.cbKeyMost).field("cbVarSegMac", &self.cbVarSegMac).field("tableid", &self.tableid).finish()
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -2797,6 +3035,12 @@ impl ::core::clone::Clone for JET_OPENTEMPORARYTABLE2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+impl ::core::fmt::Debug for JET_OPENTEMPORARYTABLE2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_OPENTEMPORARYTABLE2").field("cbStruct", &self.cbStruct).field("prgcolumndef", &self.prgcolumndef).field("ccolumn", &self.ccolumn).field("pidxunicode", &self.pidxunicode).field("grbit", &self.grbit).field("prgcolumnid", &self.prgcolumnid).field("cbKeyMost", &self.cbKeyMost).field("cbVarSegMac", &self.cbVarSegMac).field("tableid", &self.tableid).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for JET_OPENTEMPORARYTABLE2 {
     type Abi = Self;
 }
@@ -2827,6 +3071,11 @@ impl ::core::marker::Copy for JET_OPERATIONCONTEXT {}
 impl ::core::clone::Clone for JET_OPERATIONCONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JET_OPERATIONCONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_OPERATIONCONTEXT").field("ulUserID", &self.ulUserID).field("nOperationID", &self.nOperationID).field("nOperationType", &self.nOperationType).field("nClientType", &self.nClientType).field("fFlags", &self.fFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JET_OPERATIONCONTEXT {
@@ -3058,6 +3307,12 @@ impl ::core::clone::Clone for JET_RECORDLIST {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+impl ::core::fmt::Debug for JET_RECORDLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_RECORDLIST").field("cbStruct", &self.cbStruct).field("tableid", &self.tableid).field("cRecord", &self.cRecord).field("columnidBookmark", &self.columnidBookmark).finish()
+    }
+}
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 unsafe impl ::windows::core::Abi for JET_RECORDLIST {
     type Abi = Self;
 }
@@ -3087,6 +3342,11 @@ impl ::core::marker::Copy for JET_RECPOS {}
 impl ::core::clone::Clone for JET_RECPOS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JET_RECPOS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_RECPOS").field("cbStruct", &self.cbStruct).field("centriesLT", &self.centriesLT).field("centriesInRange", &self.centriesInRange).field("centriesTotal", &self.centriesTotal).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JET_RECPOS {
@@ -3122,6 +3382,12 @@ impl ::core::marker::Copy for JET_RECSIZE {}
 impl ::core::clone::Clone for JET_RECSIZE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for JET_RECSIZE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_RECSIZE").field("cbData", &self.cbData).field("cbLongValueData", &self.cbLongValueData).field("cbOverhead", &self.cbOverhead).field("cbLongValueOverhead", &self.cbLongValueOverhead).field("cNonTaggedColumns", &self.cNonTaggedColumns).field("cTaggedColumns", &self.cTaggedColumns).field("cLongValues", &self.cLongValues).field("cMultiValues", &self.cMultiValues).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -3203,6 +3469,24 @@ impl ::core::marker::Copy for JET_RECSIZE2 {}
 impl ::core::clone::Clone for JET_RECSIZE2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for JET_RECSIZE2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_RECSIZE2")
+            .field("cbData", &self.cbData)
+            .field("cbLongValueData", &self.cbLongValueData)
+            .field("cbOverhead", &self.cbOverhead)
+            .field("cbLongValueOverhead", &self.cbLongValueOverhead)
+            .field("cNonTaggedColumns", &self.cNonTaggedColumns)
+            .field("cTaggedColumns", &self.cTaggedColumns)
+            .field("cLongValues", &self.cLongValues)
+            .field("cMultiValues", &self.cMultiValues)
+            .field("cCompressedColumns", &self.cCompressedColumns)
+            .field("cbDataCompressed", &self.cbDataCompressed)
+            .field("cbLongValueDataCompressed", &self.cbLongValueDataCompressed)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -3299,6 +3583,11 @@ impl ::core::clone::Clone for JET_RETINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for JET_RETINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_RETINFO").field("cbStruct", &self.cbStruct).field("ibLongValue", &self.ibLongValue).field("itagSequence", &self.itagSequence).field("columnidNextTagged", &self.columnidNextTagged).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JET_RETINFO {
     type Abi = Self;
 }
@@ -3330,6 +3619,11 @@ impl ::core::marker::Copy for JET_RETRIEVECOLUMN {}
 impl ::core::clone::Clone for JET_RETRIEVECOLUMN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JET_RETRIEVECOLUMN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_RETRIEVECOLUMN").field("columnid", &self.columnid).field("pvData", &self.pvData).field("cbData", &self.cbData).field("cbActual", &self.cbActual).field("grbit", &self.grbit).field("ibLongValue", &self.ibLongValue).field("itagSequence", &self.itagSequence).field("columnidNextTagged", &self.columnidNextTagged).field("err", &self.err).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JET_RETRIEVECOLUMN {
@@ -3436,6 +3730,12 @@ impl ::core::clone::Clone for JET_RSTMAP_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JET_RSTMAP_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_RSTMAP_A").field("szDatabaseName", &self.szDatabaseName).field("szNewDatabaseName", &self.szNewDatabaseName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_RSTMAP_A {
     type Abi = Self;
 }
@@ -3466,6 +3766,12 @@ impl ::core::marker::Copy for JET_RSTMAP_W {}
 impl ::core::clone::Clone for JET_RSTMAP_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JET_RSTMAP_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_RSTMAP_W").field("szDatabaseName", &self.szDatabaseName).field("szNewDatabaseName", &self.szNewDatabaseName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3503,6 +3809,11 @@ impl ::core::clone::Clone for JET_SETCOLUMN {
         *self
     }
 }
+impl ::core::fmt::Debug for JET_SETCOLUMN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_SETCOLUMN").field("columnid", &self.columnid).field("pvData", &self.pvData).field("cbData", &self.cbData).field("grbit", &self.grbit).field("ibLongValue", &self.ibLongValue).field("itagSequence", &self.itagSequence).field("err", &self.err).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JET_SETCOLUMN {
     type Abi = Self;
 }
@@ -3528,6 +3839,11 @@ impl ::core::marker::Copy for JET_SETINFO {}
 impl ::core::clone::Clone for JET_SETINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JET_SETINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_SETINFO").field("cbStruct", &self.cbStruct).field("ibLongValue", &self.ibLongValue).field("itagSequence", &self.itagSequence).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JET_SETINFO {
@@ -3559,6 +3875,12 @@ impl ::core::marker::Copy for JET_SETSYSPARAM_A {}
 impl ::core::clone::Clone for JET_SETSYSPARAM_A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+impl ::core::fmt::Debug for JET_SETSYSPARAM_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_SETSYSPARAM_A").field("paramid", &self.paramid).field("lParam", &self.lParam).field("sz", &self.sz).field("err", &self.err).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -3594,6 +3916,12 @@ impl ::core::marker::Copy for JET_SETSYSPARAM_W {}
 impl ::core::clone::Clone for JET_SETSYSPARAM_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+impl ::core::fmt::Debug for JET_SETSYSPARAM_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_SETSYSPARAM_W").field("paramid", &self.paramid).field("lParam", &self.lParam).field("sz", &self.sz).field("err", &self.err).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -3661,6 +3989,11 @@ impl ::core::clone::Clone for JET_SNPROG {
         *self
     }
 }
+impl ::core::fmt::Debug for JET_SNPROG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_SNPROG").field("cbStruct", &self.cbStruct).field("cunitDone", &self.cunitDone).field("cunitTotal", &self.cunitTotal).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JET_SNPROG {
     type Abi = Self;
 }
@@ -3691,6 +4024,11 @@ impl ::core::marker::Copy for JET_SPACEHINTS {}
 impl ::core::clone::Clone for JET_SPACEHINTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JET_SPACEHINTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_SPACEHINTS").field("cbStruct", &self.cbStruct).field("ulInitialDensity", &self.ulInitialDensity).field("cbInitial", &self.cbInitial).field("grbit", &self.grbit).field("ulMaintDensity", &self.ulMaintDensity).field("ulGrowth", &self.ulGrowth).field("cbMinExtent", &self.cbMinExtent).field("cbMaxExtent", &self.cbMaxExtent).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JET_SPACEHINTS {
@@ -3732,6 +4070,27 @@ impl ::core::marker::Copy for JET_TABLECREATE2_A {}
 impl ::core::clone::Clone for JET_TABLECREATE2_A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+impl ::core::fmt::Debug for JET_TABLECREATE2_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_TABLECREATE2_A")
+            .field("cbStruct", &self.cbStruct)
+            .field("szTableName", &self.szTableName)
+            .field("szTemplateTableName", &self.szTemplateTableName)
+            .field("ulPages", &self.ulPages)
+            .field("ulDensity", &self.ulDensity)
+            .field("rgcolumncreate", &self.rgcolumncreate)
+            .field("cColumns", &self.cColumns)
+            .field("rgindexcreate", &self.rgindexcreate)
+            .field("cIndexes", &self.cIndexes)
+            .field("szCallback", &self.szCallback)
+            .field("cbtyp", &self.cbtyp)
+            .field("grbit", &self.grbit)
+            .field("tableid", &self.tableid)
+            .field("cCreated", &self.cCreated)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -3777,6 +4136,27 @@ impl ::core::marker::Copy for JET_TABLECREATE2_W {}
 impl ::core::clone::Clone for JET_TABLECREATE2_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+impl ::core::fmt::Debug for JET_TABLECREATE2_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_TABLECREATE2_W")
+            .field("cbStruct", &self.cbStruct)
+            .field("szTableName", &self.szTableName)
+            .field("szTemplateTableName", &self.szTemplateTableName)
+            .field("ulPages", &self.ulPages)
+            .field("ulDensity", &self.ulDensity)
+            .field("rgcolumncreate", &self.rgcolumncreate)
+            .field("cColumns", &self.cColumns)
+            .field("rgindexcreate", &self.rgindexcreate)
+            .field("cIndexes", &self.cIndexes)
+            .field("szCallback", &self.szCallback)
+            .field("cbtyp", &self.cbtyp)
+            .field("grbit", &self.grbit)
+            .field("tableid", &self.tableid)
+            .field("cCreated", &self.cCreated)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -3828,6 +4208,30 @@ impl ::core::clone::Clone for JET_TABLECREATE3_A {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+impl ::core::fmt::Debug for JET_TABLECREATE3_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_TABLECREATE3_A")
+            .field("cbStruct", &self.cbStruct)
+            .field("szTableName", &self.szTableName)
+            .field("szTemplateTableName", &self.szTemplateTableName)
+            .field("ulPages", &self.ulPages)
+            .field("ulDensity", &self.ulDensity)
+            .field("rgcolumncreate", &self.rgcolumncreate)
+            .field("cColumns", &self.cColumns)
+            .field("rgindexcreate", &self.rgindexcreate)
+            .field("cIndexes", &self.cIndexes)
+            .field("szCallback", &self.szCallback)
+            .field("cbtyp", &self.cbtyp)
+            .field("grbit", &self.grbit)
+            .field("pSeqSpacehints", &self.pSeqSpacehints)
+            .field("pLVSpacehints", &self.pLVSpacehints)
+            .field("cbSeparateLV", &self.cbSeparateLV)
+            .field("tableid", &self.tableid)
+            .field("cCreated", &self.cCreated)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for JET_TABLECREATE3_A {
     type Abi = Self;
 }
@@ -3873,6 +4277,30 @@ impl ::core::marker::Copy for JET_TABLECREATE3_W {}
 impl ::core::clone::Clone for JET_TABLECREATE3_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+impl ::core::fmt::Debug for JET_TABLECREATE3_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_TABLECREATE3_W")
+            .field("cbStruct", &self.cbStruct)
+            .field("szTableName", &self.szTableName)
+            .field("szTemplateTableName", &self.szTemplateTableName)
+            .field("ulPages", &self.ulPages)
+            .field("ulDensity", &self.ulDensity)
+            .field("rgcolumncreate", &self.rgcolumncreate)
+            .field("cColumns", &self.cColumns)
+            .field("rgindexcreate", &self.rgindexcreate)
+            .field("cIndexes", &self.cIndexes)
+            .field("szCallback", &self.szCallback)
+            .field("cbtyp", &self.cbtyp)
+            .field("grbit", &self.grbit)
+            .field("pSeqSpacehints", &self.pSeqSpacehints)
+            .field("pLVSpacehints", &self.pLVSpacehints)
+            .field("cbSeparateLV", &self.cbSeparateLV)
+            .field("tableid", &self.tableid)
+            .field("cCreated", &self.cCreated)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -3924,6 +4352,30 @@ impl ::core::clone::Clone for JET_TABLECREATE4_A {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+impl ::core::fmt::Debug for JET_TABLECREATE4_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_TABLECREATE4_A")
+            .field("cbStruct", &self.cbStruct)
+            .field("szTableName", &self.szTableName)
+            .field("szTemplateTableName", &self.szTemplateTableName)
+            .field("ulPages", &self.ulPages)
+            .field("ulDensity", &self.ulDensity)
+            .field("rgcolumncreate", &self.rgcolumncreate)
+            .field("cColumns", &self.cColumns)
+            .field("rgindexcreate", &self.rgindexcreate)
+            .field("cIndexes", &self.cIndexes)
+            .field("szCallback", &self.szCallback)
+            .field("cbtyp", &self.cbtyp)
+            .field("grbit", &self.grbit)
+            .field("pSeqSpacehints", &self.pSeqSpacehints)
+            .field("pLVSpacehints", &self.pLVSpacehints)
+            .field("cbSeparateLV", &self.cbSeparateLV)
+            .field("tableid", &self.tableid)
+            .field("cCreated", &self.cCreated)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for JET_TABLECREATE4_A {
     type Abi = Self;
 }
@@ -3972,6 +4424,30 @@ impl ::core::clone::Clone for JET_TABLECREATE4_W {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+impl ::core::fmt::Debug for JET_TABLECREATE4_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_TABLECREATE4_W")
+            .field("cbStruct", &self.cbStruct)
+            .field("szTableName", &self.szTableName)
+            .field("szTemplateTableName", &self.szTemplateTableName)
+            .field("ulPages", &self.ulPages)
+            .field("ulDensity", &self.ulDensity)
+            .field("rgcolumncreate", &self.rgcolumncreate)
+            .field("cColumns", &self.cColumns)
+            .field("rgindexcreate", &self.rgindexcreate)
+            .field("cIndexes", &self.cIndexes)
+            .field("szCallback", &self.szCallback)
+            .field("cbtyp", &self.cbtyp)
+            .field("grbit", &self.grbit)
+            .field("pSeqSpacehints", &self.pSeqSpacehints)
+            .field("pLVSpacehints", &self.pLVSpacehints)
+            .field("cbSeparateLV", &self.cbSeparateLV)
+            .field("tableid", &self.tableid)
+            .field("cCreated", &self.cCreated)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for JET_TABLECREATE4_W {
     type Abi = Self;
 }
@@ -4012,6 +4488,25 @@ impl ::core::marker::Copy for JET_TABLECREATE_A {}
 impl ::core::clone::Clone for JET_TABLECREATE_A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+impl ::core::fmt::Debug for JET_TABLECREATE_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_TABLECREATE_A")
+            .field("cbStruct", &self.cbStruct)
+            .field("szTableName", &self.szTableName)
+            .field("szTemplateTableName", &self.szTemplateTableName)
+            .field("ulPages", &self.ulPages)
+            .field("ulDensity", &self.ulDensity)
+            .field("rgcolumncreate", &self.rgcolumncreate)
+            .field("cColumns", &self.cColumns)
+            .field("rgindexcreate", &self.rgindexcreate)
+            .field("cIndexes", &self.cIndexes)
+            .field("grbit", &self.grbit)
+            .field("tableid", &self.tableid)
+            .field("cCreated", &self.cCreated)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -4058,6 +4553,25 @@ impl ::core::clone::Clone for JET_TABLECREATE_W {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+impl ::core::fmt::Debug for JET_TABLECREATE_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_TABLECREATE_W")
+            .field("cbStruct", &self.cbStruct)
+            .field("szTableName", &self.szTableName)
+            .field("szTemplateTableName", &self.szTemplateTableName)
+            .field("ulPages", &self.ulPages)
+            .field("ulDensity", &self.ulDensity)
+            .field("rgcolumncreate", &self.rgcolumncreate)
+            .field("cColumns", &self.cColumns)
+            .field("rgindexcreate", &self.rgindexcreate)
+            .field("cIndexes", &self.cIndexes)
+            .field("grbit", &self.grbit)
+            .field("tableid", &self.tableid)
+            .field("cCreated", &self.cCreated)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for JET_TABLECREATE_W {
     type Abi = Self;
 }
@@ -4091,6 +4605,11 @@ impl ::core::marker::Copy for JET_THREADSTATS {}
 impl ::core::clone::Clone for JET_THREADSTATS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JET_THREADSTATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_THREADSTATS").field("cbStruct", &self.cbStruct).field("cPageReferenced", &self.cPageReferenced).field("cPageRead", &self.cPageRead).field("cPagePreread", &self.cPagePreread).field("cPageDirtied", &self.cPageDirtied).field("cPageRedirtied", &self.cPageRedirtied).field("cLogRecord", &self.cLogRecord).field("cbLogRecord", &self.cbLogRecord).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JET_THREADSTATS {
@@ -4128,6 +4647,12 @@ impl ::core::marker::Copy for JET_THREADSTATS2 {}
 impl ::core::clone::Clone for JET_THREADSTATS2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for JET_THREADSTATS2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_THREADSTATS2").field("cbStruct", &self.cbStruct).field("cPageReferenced", &self.cPageReferenced).field("cPageRead", &self.cPageRead).field("cPagePreread", &self.cPagePreread).field("cPageDirtied", &self.cPageDirtied).field("cPageRedirtied", &self.cPageRedirtied).field("cLogRecord", &self.cLogRecord).field("cbLogRecord", &self.cbLogRecord).field("cusecPageCacheMiss", &self.cusecPageCacheMiss).field("cPageCacheMiss", &self.cPageCacheMiss).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -4204,6 +4729,11 @@ impl ::core::clone::Clone for JET_TUPLELIMITS {
         *self
     }
 }
+impl ::core::fmt::Debug for JET_TUPLELIMITS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_TUPLELIMITS").field("chLengthMin", &self.chLengthMin).field("chLengthMax", &self.chLengthMax).field("chToIndexMax", &self.chToIndexMax).field("cchIncrement", &self.cchIncrement).field("ichStart", &self.ichStart).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JET_TUPLELIMITS {
     type Abi = Self;
 }
@@ -4228,6 +4758,11 @@ impl ::core::marker::Copy for JET_UNICODEINDEX {}
 impl ::core::clone::Clone for JET_UNICODEINDEX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JET_UNICODEINDEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_UNICODEINDEX").field("lcid", &self.lcid).field("dwMapFlags", &self.dwMapFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JET_UNICODEINDEX {
@@ -4257,6 +4792,12 @@ impl ::core::marker::Copy for JET_UNICODEINDEX2 {}
 impl ::core::clone::Clone for JET_UNICODEINDEX2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JET_UNICODEINDEX2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_UNICODEINDEX2").field("szLocaleName", &self.szLocaleName).field("dwMapFlags", &self.dwMapFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4295,6 +4836,12 @@ impl ::core::clone::Clone for JET_USERDEFINEDDEFAULT_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JET_USERDEFINEDDEFAULT_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_USERDEFINEDDEFAULT_A").field("szCallback", &self.szCallback).field("pbUserData", &self.pbUserData).field("cbUserData", &self.cbUserData).field("szDependantColumns", &self.szDependantColumns).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_USERDEFINEDDEFAULT_A {
     type Abi = Self;
 }
@@ -4327,6 +4874,12 @@ impl ::core::marker::Copy for JET_USERDEFINEDDEFAULT_W {}
 impl ::core::clone::Clone for JET_USERDEFINEDDEFAULT_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JET_USERDEFINEDDEFAULT_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_USERDEFINEDDEFAULT_W").field("szCallback", &self.szCallback).field("pbUserData", &self.pbUserData).field("cbUserData", &self.cbUserData).field("szDependantColumns", &self.szDependantColumns).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

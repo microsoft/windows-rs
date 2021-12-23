@@ -52,6 +52,13 @@ impl ::core::clone::Clone for CHOOSECOLORA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CHOOSECOLORA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHOOSECOLORA").field("lStructSize", &self.lStructSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("rgbResult", &self.rgbResult).field("lpCustColors", &self.lpCustColors).field("Flags", &self.Flags).field("lCustData", &self.lCustData).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lpTemplateName", &self.lpTemplateName).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHOOSECOLORA {
     type Abi = Self;
 }
@@ -142,6 +149,13 @@ impl ::core::marker::Copy for CHOOSECOLORW {}
 impl ::core::clone::Clone for CHOOSECOLORW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CHOOSECOLORW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHOOSECOLORW").field("lStructSize", &self.lStructSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("rgbResult", &self.rgbResult).field("lpCustColors", &self.lpCustColors).field("Flags", &self.Flags).field("lCustData", &self.lCustData).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lpTemplateName", &self.lpTemplateName).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -243,6 +257,30 @@ impl ::core::marker::Copy for CHOOSEFONTA {}
 impl ::core::clone::Clone for CHOOSEFONTA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for CHOOSEFONTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHOOSEFONTA")
+            .field("lStructSize", &self.lStructSize)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("hDC", &self.hDC)
+            .field("lpLogFont", &self.lpLogFont)
+            .field("iPointSize", &self.iPointSize)
+            .field("Flags", &self.Flags)
+            .field("rgbColors", &self.rgbColors)
+            .field("lCustData", &self.lCustData)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lpTemplateName", &self.lpTemplateName)
+            .field("hInstance", &self.hInstance)
+            .field("lpszStyle", &self.lpszStyle)
+            .field("nFontType", &self.nFontType)
+            .field("___MISSING_ALIGNMENT__", &self.___MISSING_ALIGNMENT__)
+            .field("nSizeMin", &self.nSizeMin)
+            .field("nSizeMax", &self.nSizeMax)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -351,6 +389,30 @@ impl ::core::marker::Copy for CHOOSEFONTW {}
 impl ::core::clone::Clone for CHOOSEFONTW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for CHOOSEFONTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHOOSEFONTW")
+            .field("lStructSize", &self.lStructSize)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("hDC", &self.hDC)
+            .field("lpLogFont", &self.lpLogFont)
+            .field("iPointSize", &self.iPointSize)
+            .field("Flags", &self.Flags)
+            .field("rgbColors", &self.rgbColors)
+            .field("lCustData", &self.lCustData)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lpTemplateName", &self.lpTemplateName)
+            .field("hInstance", &self.hInstance)
+            .field("lpszStyle", &self.lpszStyle)
+            .field("nFontType", &self.nFontType)
+            .field("___MISSING_ALIGNMENT__", &self.___MISSING_ALIGNMENT__)
+            .field("nSizeMin", &self.nSizeMin)
+            .field("nSizeMax", &self.nSizeMax)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -731,6 +793,12 @@ impl ::core::clone::Clone for DEVNAMES {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for DEVNAMES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVNAMES").field("wDriverOffset", &self.wDriverOffset).field("wDeviceOffset", &self.wDeviceOffset).field("wOutputOffset", &self.wOutputOffset).field("wDefault", &self.wDefault).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for DEVNAMES {
     type Abi = Self;
 }
@@ -812,6 +880,25 @@ impl ::core::marker::Copy for FINDREPLACEA {}
 impl ::core::clone::Clone for FINDREPLACEA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FINDREPLACEA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FINDREPLACEA")
+            .field("lStructSize", &self.lStructSize)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("hInstance", &self.hInstance)
+            .field("Flags", &self.Flags)
+            .field("lpstrFindWhat", &self.lpstrFindWhat)
+            .field("lpstrReplaceWith", &self.lpstrReplaceWith)
+            .field("wFindWhatLen", &self.wFindWhatLen)
+            .field("wReplaceWithLen", &self.wReplaceWithLen)
+            .field("lCustData", &self.lCustData)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lpTemplateName", &self.lpTemplateName)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -910,6 +997,25 @@ impl ::core::marker::Copy for FINDREPLACEW {}
 impl ::core::clone::Clone for FINDREPLACEW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FINDREPLACEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FINDREPLACEW")
+            .field("lStructSize", &self.lStructSize)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("hInstance", &self.hInstance)
+            .field("Flags", &self.Flags)
+            .field("lpstrFindWhat", &self.lpstrFindWhat)
+            .field("lpstrReplaceWith", &self.lpstrReplaceWith)
+            .field("wFindWhatLen", &self.wFindWhatLen)
+            .field("wReplaceWithLen", &self.wReplaceWithLen)
+            .field("lCustData", &self.lCustData)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lpTemplateName", &self.lpTemplateName)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1204,6 +1310,11 @@ impl ::core::cmp::PartialEq for IPrintDialogCallback {
     }
 }
 impl ::core::cmp::Eq for IPrintDialogCallback {}
+impl ::core::fmt::Debug for IPrintDialogCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintDialogCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintDialogCallback {
     type Vtable = IPrintDialogCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5852a2c3_6530_11d1_b6a3_0000f8757bf9);
@@ -1270,6 +1381,11 @@ impl ::core::cmp::PartialEq for IPrintDialogServices {
     }
 }
 impl ::core::cmp::Eq for IPrintDialogServices {}
+impl ::core::fmt::Debug for IPrintDialogServices {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintDialogServices").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintDialogServices {
     type Vtable = IPrintDialogServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x509aaeda_5639_11d1_b6a1_0000f8757bf9);
@@ -1332,6 +1448,13 @@ impl ::core::marker::Copy for OFNOTIFYA {}
 impl ::core::clone::Clone for OFNOTIFYA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OFNOTIFYA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OFNOTIFYA").field("hdr", &self.hdr).field("lpOFN", &self.lpOFN).field("pszFile", &self.pszFile).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1415,6 +1538,13 @@ impl ::core::marker::Copy for OFNOTIFYEXA {}
 impl ::core::clone::Clone for OFNOTIFYEXA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OFNOTIFYEXA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OFNOTIFYEXA").field("hdr", &self.hdr).field("lpOFN", &self.lpOFN).field("psf", &self.psf).field("pidl", &self.pidl).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1499,6 +1629,13 @@ impl ::core::marker::Copy for OFNOTIFYEXW {}
 impl ::core::clone::Clone for OFNOTIFYEXW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OFNOTIFYEXW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OFNOTIFYEXW").field("hdr", &self.hdr).field("lpOFN", &self.lpOFN).field("psf", &self.psf).field("pidl", &self.pidl).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1582,6 +1719,13 @@ impl ::core::marker::Copy for OFNOTIFYW {}
 impl ::core::clone::Clone for OFNOTIFYW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OFNOTIFYW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OFNOTIFYW").field("hdr", &self.hdr).field("lpOFN", &self.lpOFN).field("pszFile", &self.pszFile).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1690,6 +1834,37 @@ impl ::core::marker::Copy for OPENFILENAMEA {}
 impl ::core::clone::Clone for OPENFILENAMEA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OPENFILENAMEA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPENFILENAMEA")
+            .field("lStructSize", &self.lStructSize)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("hInstance", &self.hInstance)
+            .field("lpstrFilter", &self.lpstrFilter)
+            .field("lpstrCustomFilter", &self.lpstrCustomFilter)
+            .field("nMaxCustFilter", &self.nMaxCustFilter)
+            .field("nFilterIndex", &self.nFilterIndex)
+            .field("lpstrFile", &self.lpstrFile)
+            .field("nMaxFile", &self.nMaxFile)
+            .field("lpstrFileTitle", &self.lpstrFileTitle)
+            .field("nMaxFileTitle", &self.nMaxFileTitle)
+            .field("lpstrInitialDir", &self.lpstrInitialDir)
+            .field("lpstrTitle", &self.lpstrTitle)
+            .field("Flags", &self.Flags)
+            .field("nFileOffset", &self.nFileOffset)
+            .field("nFileExtension", &self.nFileExtension)
+            .field("lpstrDefExt", &self.lpstrDefExt)
+            .field("lCustData", &self.lCustData)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lpTemplateName", &self.lpTemplateName)
+            .field("pvReserved", &self.pvReserved)
+            .field("dwReserved", &self.dwReserved)
+            .field("FlagsEx", &self.FlagsEx)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1812,6 +1987,37 @@ impl ::core::marker::Copy for OPENFILENAMEW {}
 impl ::core::clone::Clone for OPENFILENAMEW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OPENFILENAMEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPENFILENAMEW")
+            .field("lStructSize", &self.lStructSize)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("hInstance", &self.hInstance)
+            .field("lpstrFilter", &self.lpstrFilter)
+            .field("lpstrCustomFilter", &self.lpstrCustomFilter)
+            .field("nMaxCustFilter", &self.nMaxCustFilter)
+            .field("nFilterIndex", &self.nFilterIndex)
+            .field("lpstrFile", &self.lpstrFile)
+            .field("nMaxFile", &self.nMaxFile)
+            .field("lpstrFileTitle", &self.lpstrFileTitle)
+            .field("nMaxFileTitle", &self.nMaxFileTitle)
+            .field("lpstrInitialDir", &self.lpstrInitialDir)
+            .field("lpstrTitle", &self.lpstrTitle)
+            .field("Flags", &self.Flags)
+            .field("nFileOffset", &self.nFileOffset)
+            .field("nFileExtension", &self.nFileExtension)
+            .field("lpstrDefExt", &self.lpstrDefExt)
+            .field("lCustData", &self.lCustData)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lpTemplateName", &self.lpTemplateName)
+            .field("pvReserved", &self.pvReserved)
+            .field("dwReserved", &self.dwReserved)
+            .field("FlagsEx", &self.FlagsEx)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1931,6 +2137,34 @@ impl ::core::marker::Copy for OPENFILENAME_NT4A {}
 impl ::core::clone::Clone for OPENFILENAME_NT4A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OPENFILENAME_NT4A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPENFILENAME_NT4A")
+            .field("lStructSize", &self.lStructSize)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("hInstance", &self.hInstance)
+            .field("lpstrFilter", &self.lpstrFilter)
+            .field("lpstrCustomFilter", &self.lpstrCustomFilter)
+            .field("nMaxCustFilter", &self.nMaxCustFilter)
+            .field("nFilterIndex", &self.nFilterIndex)
+            .field("lpstrFile", &self.lpstrFile)
+            .field("nMaxFile", &self.nMaxFile)
+            .field("lpstrFileTitle", &self.lpstrFileTitle)
+            .field("nMaxFileTitle", &self.nMaxFileTitle)
+            .field("lpstrInitialDir", &self.lpstrInitialDir)
+            .field("lpstrTitle", &self.lpstrTitle)
+            .field("Flags", &self.Flags)
+            .field("nFileOffset", &self.nFileOffset)
+            .field("nFileExtension", &self.nFileExtension)
+            .field("lpstrDefExt", &self.lpstrDefExt)
+            .field("lCustData", &self.lCustData)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lpTemplateName", &self.lpTemplateName)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2047,6 +2281,34 @@ impl ::core::marker::Copy for OPENFILENAME_NT4W {}
 impl ::core::clone::Clone for OPENFILENAME_NT4W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OPENFILENAME_NT4W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPENFILENAME_NT4W")
+            .field("lStructSize", &self.lStructSize)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("hInstance", &self.hInstance)
+            .field("lpstrFilter", &self.lpstrFilter)
+            .field("lpstrCustomFilter", &self.lpstrCustomFilter)
+            .field("nMaxCustFilter", &self.nMaxCustFilter)
+            .field("nFilterIndex", &self.nFilterIndex)
+            .field("lpstrFile", &self.lpstrFile)
+            .field("nMaxFile", &self.nMaxFile)
+            .field("lpstrFileTitle", &self.lpstrFileTitle)
+            .field("nMaxFileTitle", &self.nMaxFileTitle)
+            .field("lpstrInitialDir", &self.lpstrInitialDir)
+            .field("lpstrTitle", &self.lpstrTitle)
+            .field("Flags", &self.Flags)
+            .field("nFileOffset", &self.nFileOffset)
+            .field("nFileExtension", &self.nFileExtension)
+            .field("lpstrDefExt", &self.lpstrDefExt)
+            .field("lCustData", &self.lCustData)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lpTemplateName", &self.lpTemplateName)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2221,6 +2483,28 @@ impl ::core::clone::Clone for PAGESETUPDLGA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PAGESETUPDLGA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PAGESETUPDLGA")
+            .field("lStructSize", &self.lStructSize)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("hDevMode", &self.hDevMode)
+            .field("hDevNames", &self.hDevNames)
+            .field("Flags", &self.Flags)
+            .field("ptPaperSize", &self.ptPaperSize)
+            .field("rtMinMargin", &self.rtMinMargin)
+            .field("rtMargin", &self.rtMargin)
+            .field("hInstance", &self.hInstance)
+            .field("lCustData", &self.lCustData)
+            .field("lpfnPageSetupHook", &self.lpfnPageSetupHook.map(|f| f as usize))
+            .field("lpfnPagePaintHook", &self.lpfnPagePaintHook.map(|f| f as usize))
+            .field("lpPageSetupTemplateName", &self.lpPageSetupTemplateName)
+            .field("hPageSetupTemplate", &self.hPageSetupTemplate)
+            .finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PAGESETUPDLGA {
     type Abi = Self;
 }
@@ -2321,6 +2605,28 @@ impl ::core::marker::Copy for PAGESETUPDLGW {}
 impl ::core::clone::Clone for PAGESETUPDLGW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PAGESETUPDLGW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PAGESETUPDLGW")
+            .field("lStructSize", &self.lStructSize)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("hDevMode", &self.hDevMode)
+            .field("hDevNames", &self.hDevNames)
+            .field("Flags", &self.Flags)
+            .field("ptPaperSize", &self.ptPaperSize)
+            .field("rtMinMargin", &self.rtMinMargin)
+            .field("rtMargin", &self.rtMargin)
+            .field("hInstance", &self.hInstance)
+            .field("lCustData", &self.lCustData)
+            .field("lpfnPageSetupHook", &self.lpfnPageSetupHook.map(|f| f as usize))
+            .field("lpfnPagePaintHook", &self.lpfnPagePaintHook.map(|f| f as usize))
+            .field("lpPageSetupTemplateName", &self.lpPageSetupTemplateName)
+            .field("hPageSetupTemplate", &self.hPageSetupTemplate)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2480,6 +2786,33 @@ impl ::core::clone::Clone for PRINTDLGA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for PRINTDLGA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTDLGA")
+            .field("lStructSize", &self.lStructSize)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("hDevMode", &self.hDevMode)
+            .field("hDevNames", &self.hDevNames)
+            .field("hDC", &self.hDC)
+            .field("Flags", &self.Flags)
+            .field("nFromPage", &self.nFromPage)
+            .field("nToPage", &self.nToPage)
+            .field("nMinPage", &self.nMinPage)
+            .field("nMaxPage", &self.nMaxPage)
+            .field("nCopies", &self.nCopies)
+            .field("hInstance", &self.hInstance)
+            .field("lCustData", &self.lCustData)
+            .field("lpfnPrintHook", &self.lpfnPrintHook.map(|f| f as usize))
+            .field("lpfnSetupHook", &self.lpfnSetupHook.map(|f| f as usize))
+            .field("lpPrintTemplateName", &self.lpPrintTemplateName)
+            .field("lpSetupTemplateName", &self.lpSetupTemplateName)
+            .field("hPrintTemplate", &self.hPrintTemplate)
+            .field("hSetupTemplate", &self.hSetupTemplate)
+            .finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTDLGA {
     type Abi = Self;
 }
@@ -2611,6 +2944,35 @@ impl ::core::clone::Clone for PRINTDLGEXA {
             nStartPage: self.nStartPage,
             dwResultAction: self.dwResultAction,
         }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for PRINTDLGEXA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTDLGEXA")
+            .field("lStructSize", &self.lStructSize)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("hDevMode", &self.hDevMode)
+            .field("hDevNames", &self.hDevNames)
+            .field("hDC", &self.hDC)
+            .field("Flags", &self.Flags)
+            .field("Flags2", &self.Flags2)
+            .field("ExclusionFlags", &self.ExclusionFlags)
+            .field("nPageRanges", &self.nPageRanges)
+            .field("nMaxPageRanges", &self.nMaxPageRanges)
+            .field("lpPageRanges", &self.lpPageRanges)
+            .field("nMinPage", &self.nMinPage)
+            .field("nMaxPage", &self.nMaxPage)
+            .field("nCopies", &self.nCopies)
+            .field("hInstance", &self.hInstance)
+            .field("lpPrintTemplateName", &self.lpPrintTemplateName)
+            .field("lpCallback", &self.lpCallback)
+            .field("nPropertyPages", &self.nPropertyPages)
+            .field("lphPropertyPages", &self.lphPropertyPages)
+            .field("nStartPage", &self.nStartPage)
+            .field("dwResultAction", &self.dwResultAction)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2758,6 +3120,35 @@ impl ::core::clone::Clone for PRINTDLGEXW {
             nStartPage: self.nStartPage,
             dwResultAction: self.dwResultAction,
         }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for PRINTDLGEXW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTDLGEXW")
+            .field("lStructSize", &self.lStructSize)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("hDevMode", &self.hDevMode)
+            .field("hDevNames", &self.hDevNames)
+            .field("hDC", &self.hDC)
+            .field("Flags", &self.Flags)
+            .field("Flags2", &self.Flags2)
+            .field("ExclusionFlags", &self.ExclusionFlags)
+            .field("nPageRanges", &self.nPageRanges)
+            .field("nMaxPageRanges", &self.nMaxPageRanges)
+            .field("lpPageRanges", &self.lpPageRanges)
+            .field("nMinPage", &self.nMinPage)
+            .field("nMaxPage", &self.nMaxPage)
+            .field("nCopies", &self.nCopies)
+            .field("hInstance", &self.hInstance)
+            .field("lpPrintTemplateName", &self.lpPrintTemplateName)
+            .field("lpCallback", &self.lpCallback)
+            .field("nPropertyPages", &self.nPropertyPages)
+            .field("lphPropertyPages", &self.lphPropertyPages)
+            .field("nStartPage", &self.nStartPage)
+            .field("dwResultAction", &self.dwResultAction)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2946,6 +3337,33 @@ impl ::core::clone::Clone for PRINTDLGW {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for PRINTDLGW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTDLGW")
+            .field("lStructSize", &self.lStructSize)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("hDevMode", &self.hDevMode)
+            .field("hDevNames", &self.hDevNames)
+            .field("hDC", &self.hDC)
+            .field("Flags", &self.Flags)
+            .field("nFromPage", &self.nFromPage)
+            .field("nToPage", &self.nToPage)
+            .field("nMinPage", &self.nMinPage)
+            .field("nMaxPage", &self.nMaxPage)
+            .field("nCopies", &self.nCopies)
+            .field("hInstance", &self.hInstance)
+            .field("lCustData", &self.lCustData)
+            .field("lpfnPrintHook", &self.lpfnPrintHook.map(|f| f as usize))
+            .field("lpfnSetupHook", &self.lpfnSetupHook.map(|f| f as usize))
+            .field("lpPrintTemplateName", &self.lpPrintTemplateName)
+            .field("lpSetupTemplateName", &self.lpSetupTemplateName)
+            .field("hPrintTemplate", &self.hPrintTemplate)
+            .field("hSetupTemplate", &self.hSetupTemplate)
+            .finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTDLGW {
     type Abi = Self;
 }
@@ -3036,6 +3454,12 @@ impl ::core::marker::Copy for PRINTPAGERANGE {}
 impl ::core::clone::Clone for PRINTPAGERANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for PRINTPAGERANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTPAGERANGE").field("nFromPage", &self.nFromPage).field("nToPage", &self.nToPage).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]

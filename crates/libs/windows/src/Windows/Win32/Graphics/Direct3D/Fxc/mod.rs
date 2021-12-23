@@ -542,6 +542,11 @@ impl ::core::clone::Clone for D3D_SHADER_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D_SHADER_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D_SHADER_DATA").field("pBytecode", &self.pBytecode).field("BytecodeLength", &self.BytecodeLength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D_SHADER_DATA {
     type Abi = Self;
 }

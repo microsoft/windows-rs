@@ -62,6 +62,12 @@ impl ::core::clone::Clone for DxcArgPair {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DxcArgPair {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DxcArgPair").field("pName", &self.pName).field("pValue", &self.pValue).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DxcArgPair {
     type Abi = Self;
 }
@@ -90,6 +96,11 @@ impl ::core::marker::Copy for DxcBuffer {}
 impl ::core::clone::Clone for DxcBuffer {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DxcBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DxcBuffer").field("Ptr", &self.Ptr).field("Size", &self.Size).field("Encoding", &self.Encoding).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DxcBuffer {
@@ -156,6 +167,12 @@ impl ::core::clone::Clone for DxcDefine {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DxcDefine {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DxcDefine").field("Name", &self.Name).field("Value", &self.Value).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DxcDefine {
     type Abi = Self;
 }
@@ -183,6 +200,11 @@ impl ::core::marker::Copy for DxcShaderHash {}
 impl ::core::clone::Clone for DxcShaderHash {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DxcShaderHash {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DxcShaderHash").field("Flags", &self.Flags).field("HashDigest", &self.HashDigest).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DxcShaderHash {
@@ -256,6 +278,11 @@ impl ::core::cmp::PartialEq for IDxcAssembler {
     }
 }
 impl ::core::cmp::Eq for IDxcAssembler {}
+impl ::core::fmt::Debug for IDxcAssembler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcAssembler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcAssembler {
     type Vtable = IDxcAssemblerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x091f7a26_1c1f_4948_904b_e6e3a8a771d5);
@@ -307,6 +334,11 @@ impl ::core::cmp::PartialEq for IDxcBlob {
     }
 }
 impl ::core::cmp::Eq for IDxcBlob {}
+impl ::core::fmt::Debug for IDxcBlob {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcBlob").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcBlob {
     type Vtable = IDxcBlobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
@@ -383,6 +415,11 @@ impl ::core::cmp::PartialEq for IDxcBlobEncoding {
     }
 }
 impl ::core::cmp::Eq for IDxcBlobEncoding {}
+impl ::core::fmt::Debug for IDxcBlobEncoding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcBlobEncoding").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcBlobEncoding {
     type Vtable = IDxcBlobEncodingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7241d424_2646_4191_97c0_98e96e42fc68);
@@ -496,6 +533,11 @@ impl ::core::cmp::PartialEq for IDxcBlobUtf16 {
     }
 }
 impl ::core::cmp::Eq for IDxcBlobUtf16 {}
+impl ::core::fmt::Debug for IDxcBlobUtf16 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcBlobUtf16").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcBlobUtf16 {
     type Vtable = IDxcBlobUtf16Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3f84eab_0faa_497e_a39c_ee6ed60b2d84);
@@ -612,6 +654,11 @@ impl ::core::cmp::PartialEq for IDxcBlobUtf8 {
     }
 }
 impl ::core::cmp::Eq for IDxcBlobUtf8 {}
+impl ::core::fmt::Debug for IDxcBlobUtf8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcBlobUtf8").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcBlobUtf8 {
     type Vtable = IDxcBlobUtf8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3da636c9_ba71_4024_a301_30cbf125305b);
@@ -683,6 +730,11 @@ impl ::core::cmp::PartialEq for IDxcCompiler {
     }
 }
 impl ::core::cmp::Eq for IDxcCompiler {}
+impl ::core::fmt::Debug for IDxcCompiler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcCompiler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcCompiler {
     type Vtable = IDxcCompilerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c210bf3_011f_4422_8d70_6f9acb8db617);
@@ -791,6 +843,11 @@ impl ::core::cmp::PartialEq for IDxcCompiler2 {
     }
 }
 impl ::core::cmp::Eq for IDxcCompiler2 {}
+impl ::core::fmt::Debug for IDxcCompiler2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcCompiler2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcCompiler2 {
     type Vtable = IDxcCompiler2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa005a9d9_b8bb_4594_b5c9_0e633bec4d37);
@@ -854,6 +911,11 @@ impl ::core::cmp::PartialEq for IDxcCompiler3 {
     }
 }
 impl ::core::cmp::Eq for IDxcCompiler3 {}
+impl ::core::fmt::Debug for IDxcCompiler3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcCompiler3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcCompiler3 {
     type Vtable = IDxcCompiler3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x228b4687_5a6a_4730_900c_9702b2203f54);
@@ -928,6 +990,11 @@ impl ::core::cmp::PartialEq for IDxcCompilerArgs {
     }
 }
 impl ::core::cmp::Eq for IDxcCompilerArgs {}
+impl ::core::fmt::Debug for IDxcCompilerArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcCompilerArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcCompilerArgs {
     type Vtable = IDxcCompilerArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73effe2a_70dc_45f8_9690_eff64c02429d);
@@ -1001,6 +1068,11 @@ impl ::core::cmp::PartialEq for IDxcContainerBuilder {
     }
 }
 impl ::core::cmp::Eq for IDxcContainerBuilder {}
+impl ::core::fmt::Debug for IDxcContainerBuilder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcContainerBuilder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcContainerBuilder {
     type Vtable = IDxcContainerBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x334b1f50_2292_4b35_99a1_25588d8c17fe);
@@ -1080,6 +1152,11 @@ impl ::core::cmp::PartialEq for IDxcContainerReflection {
     }
 }
 impl ::core::cmp::Eq for IDxcContainerReflection {}
+impl ::core::fmt::Debug for IDxcContainerReflection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcContainerReflection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcContainerReflection {
     type Vtable = IDxcContainerReflectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2c21b26_8350_4bdc_976a_331ce6f4c54c);
@@ -1141,6 +1218,11 @@ impl ::core::cmp::PartialEq for IDxcExtraOutputs {
     }
 }
 impl ::core::cmp::Eq for IDxcExtraOutputs {}
+impl ::core::fmt::Debug for IDxcExtraOutputs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcExtraOutputs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcExtraOutputs {
     type Vtable = IDxcExtraOutputsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x319b37a2_a5c2_494a_a5de_4801b2faf989);
@@ -1196,6 +1278,11 @@ impl ::core::cmp::PartialEq for IDxcIncludeHandler {
     }
 }
 impl ::core::cmp::Eq for IDxcIncludeHandler {}
+impl ::core::fmt::Debug for IDxcIncludeHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcIncludeHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcIncludeHandler {
     type Vtable = IDxcIncludeHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f61fc7d_950d_467f_b3e3_3c02fb49187c);
@@ -1298,6 +1385,11 @@ impl ::core::cmp::PartialEq for IDxcLibrary {
     }
 }
 impl ::core::cmp::Eq for IDxcLibrary {}
+impl ::core::fmt::Debug for IDxcLibrary {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcLibrary").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcLibrary {
     type Vtable = IDxcLibraryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5204dc7_d18c_4c3c_bdfb_851673980fe7);
@@ -1370,6 +1462,11 @@ impl ::core::cmp::PartialEq for IDxcLinker {
     }
 }
 impl ::core::cmp::Eq for IDxcLinker {}
+impl ::core::fmt::Debug for IDxcLinker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcLinker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcLinker {
     type Vtable = IDxcLinkerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1b5be2a_62dd_4327_a1c2_42ac1e1e78e6);
@@ -1436,6 +1533,11 @@ impl ::core::cmp::PartialEq for IDxcOperationResult {
     }
 }
 impl ::core::cmp::Eq for IDxcOperationResult {}
+impl ::core::fmt::Debug for IDxcOperationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcOperationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcOperationResult {
     type Vtable = IDxcOperationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcedb484a_d4e9_445a_b991_ca21ca157dc2);
@@ -1501,6 +1603,11 @@ impl ::core::cmp::PartialEq for IDxcOptimizer {
     }
 }
 impl ::core::cmp::Eq for IDxcOptimizer {}
+impl ::core::fmt::Debug for IDxcOptimizer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcOptimizer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcOptimizer {
     type Vtable = IDxcOptimizerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25740e2e_9cba_401b_9119_4fb42f39f270);
@@ -1581,6 +1688,11 @@ impl ::core::cmp::PartialEq for IDxcOptimizerPass {
     }
 }
 impl ::core::cmp::Eq for IDxcOptimizerPass {}
+impl ::core::fmt::Debug for IDxcOptimizerPass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcOptimizerPass").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcOptimizerPass {
     type Vtable = IDxcOptimizerPassVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae2cd79f_cc22_453f_9b6b_b124e7a5204c);
@@ -1763,6 +1875,11 @@ impl ::core::cmp::PartialEq for IDxcPdbUtils {
     }
 }
 impl ::core::cmp::Eq for IDxcPdbUtils {}
+impl ::core::fmt::Debug for IDxcPdbUtils {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcPdbUtils").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcPdbUtils {
     type Vtable = IDxcPdbUtilsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6c9647e_9d6a_4c3b_b94c_524b5a6c343d);
@@ -1902,6 +2019,11 @@ impl ::core::cmp::PartialEq for IDxcResult {
     }
 }
 impl ::core::cmp::Eq for IDxcResult {}
+impl ::core::fmt::Debug for IDxcResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcResult {
     type Vtable = IDxcResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58346cda_dde7_4497_9461_6f87af5e0659);
@@ -2024,6 +2146,11 @@ impl ::core::cmp::PartialEq for IDxcUtils {
     }
 }
 impl ::core::cmp::Eq for IDxcUtils {}
+impl ::core::fmt::Debug for IDxcUtils {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcUtils").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcUtils {
     type Vtable = IDxcUtilsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4605c4cb_2019_492a_ada4_65f20bb7d67f);
@@ -2093,6 +2220,11 @@ impl ::core::cmp::PartialEq for IDxcValidator {
     }
 }
 impl ::core::cmp::Eq for IDxcValidator {}
+impl ::core::fmt::Debug for IDxcValidator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcValidator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcValidator {
     type Vtable = IDxcValidatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6e82bd2_1fd7_4826_9811_2857e797f49a);
@@ -2166,6 +2298,11 @@ impl ::core::cmp::PartialEq for IDxcValidator2 {
     }
 }
 impl ::core::cmp::Eq for IDxcValidator2 {}
+impl ::core::fmt::Debug for IDxcValidator2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcValidator2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcValidator2 {
     type Vtable = IDxcValidator2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x458e1fd1_b1b2_4750_a6e1_9c10f03bed92);
@@ -2224,6 +2361,11 @@ impl ::core::cmp::PartialEq for IDxcVersionInfo {
     }
 }
 impl ::core::cmp::Eq for IDxcVersionInfo {}
+impl ::core::fmt::Debug for IDxcVersionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcVersionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcVersionInfo {
     type Vtable = IDxcVersionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb04f5b50_2059_4f12_a8ff_a1e0cde1cc7e);
@@ -2306,6 +2448,11 @@ impl ::core::cmp::PartialEq for IDxcVersionInfo2 {
     }
 }
 impl ::core::cmp::Eq for IDxcVersionInfo2 {}
+impl ::core::fmt::Debug for IDxcVersionInfo2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcVersionInfo2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcVersionInfo2 {
     type Vtable = IDxcVersionInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6904c4_42f0_4b62_9c46_983af7da7c83);
@@ -2361,6 +2508,11 @@ impl ::core::cmp::PartialEq for IDxcVersionInfo3 {
     }
 }
 impl ::core::cmp::Eq for IDxcVersionInfo3 {}
+impl ::core::fmt::Debug for IDxcVersionInfo3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDxcVersionInfo3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcVersionInfo3 {
     type Vtable = IDxcVersionInfo3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e13e843_9d25_473c_9ad2_03b2d0b44b1e);

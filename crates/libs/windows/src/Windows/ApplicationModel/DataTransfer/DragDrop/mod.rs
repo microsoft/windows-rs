@@ -28,6 +28,11 @@ impl ::core::cmp::PartialEq for DragDropModifiers {
     }
 }
 impl ::core::cmp::Eq for DragDropModifiers {}
+impl ::core::fmt::Debug for DragDropModifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DragDropModifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DragDropModifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DragDrop.DragDropModifiers;u4)");
 }

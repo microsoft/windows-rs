@@ -17,6 +17,12 @@ impl ::core::clone::Clone for DRT_ADDRESS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for DRT_ADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRT_ADDRESS").field("socketAddress", &self.socketAddress).field("flags", &self.flags).field("nearness", &self.nearness).field("latency", &self.latency).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for DRT_ADDRESS {
     type Abi = Self;
 }
@@ -68,6 +74,12 @@ impl ::core::clone::Clone for DRT_ADDRESS_LIST {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for DRT_ADDRESS_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRT_ADDRESS_LIST").field("AddressCount", &self.AddressCount).field("AddressList", &self.AddressList).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for DRT_ADDRESS_LIST {
     type Abi = Self;
 }
@@ -103,6 +115,11 @@ impl ::core::clone::Clone for DRT_BOOTSTRAP_PROVIDER {
         *self
     }
 }
+impl ::core::fmt::Debug for DRT_BOOTSTRAP_PROVIDER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRT_BOOTSTRAP_PROVIDER").field("pvContext", &self.pvContext).field("Attach", &self.Attach).field("Detach", &self.Detach).field("InitResolve", &self.InitResolve).field("IssueResolve", &self.IssueResolve).field("EndResolve", &self.EndResolve).field("Register", &self.Register).field("Unregister", &self.Unregister).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DRT_BOOTSTRAP_PROVIDER {
     type Abi = Self;
 }
@@ -130,6 +147,11 @@ impl ::core::marker::Copy for DRT_DATA {}
 impl ::core::clone::Clone for DRT_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DRT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRT_DATA").field("cb", &self.cb).field("pb", &self.pb).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DRT_DATA {
@@ -232,6 +254,12 @@ impl ::core::clone::Clone for DRT_EVENT_DATA_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for DRT_EVENT_DATA_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRT_EVENT_DATA_0_0").field("change", &self.change).field("localKey", &self.localKey).field("remoteKey", &self.remoteKey).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for DRT_EVENT_DATA_0_0 {
     type Abi = Self;
 }
@@ -262,6 +290,12 @@ impl ::core::marker::Copy for DRT_EVENT_DATA_0_1 {}
 impl ::core::clone::Clone for DRT_EVENT_DATA_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for DRT_EVENT_DATA_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRT_EVENT_DATA_0_1").field("state", &self.state).field("localKey", &self.localKey).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -298,6 +332,12 @@ impl ::core::clone::Clone for DRT_EVENT_DATA_0_2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for DRT_EVENT_DATA_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRT_EVENT_DATA_0_2").field("status", &self.status).field("bootstrapAddresses", &self.bootstrapAddresses).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for DRT_EVENT_DATA_0_2 {
     type Abi = Self;
 }
@@ -328,6 +368,12 @@ impl ::core::marker::Copy for DRT_EVENT_DATA_0_2_0 {}
 impl ::core::clone::Clone for DRT_EVENT_DATA_0_2_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for DRT_EVENT_DATA_0_2_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRT_EVENT_DATA_0_2_0").field("cntAddress", &self.cntAddress).field("pAddresses", &self.pAddresses).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -476,6 +522,11 @@ impl ::core::clone::Clone for DRT_REGISTRATION {
         *self
     }
 }
+impl ::core::fmt::Debug for DRT_REGISTRATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRT_REGISTRATION").field("key", &self.key).field("appData", &self.appData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DRT_REGISTRATION {
     type Abi = Self;
 }
@@ -523,6 +574,12 @@ impl ::core::clone::Clone for DRT_SEARCH_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRT_SEARCH_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRT_SEARCH_INFO").field("dwSize", &self.dwSize).field("fIterative", &self.fIterative).field("fAllowCurrentInstanceMatch", &self.fAllowCurrentInstanceMatch).field("fAnyMatchInRange", &self.fAnyMatchInRange).field("cMaxEndpoints", &self.cMaxEndpoints).field("pMaximumKey", &self.pMaximumKey).field("pMinimumKey", &self.pMinimumKey).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DRT_SEARCH_INFO {
     type Abi = Self;
 }
@@ -552,6 +609,11 @@ impl ::core::marker::Copy for DRT_SEARCH_RESULT {}
 impl ::core::clone::Clone for DRT_SEARCH_RESULT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DRT_SEARCH_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRT_SEARCH_RESULT").field("dwSize", &self.dwSize).field("type", &self.r#type).field("pvContext", &self.pvContext).field("registration", &self.registration).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DRT_SEARCH_RESULT {
@@ -600,6 +662,26 @@ impl ::core::clone::Clone for DRT_SECURITY_PROVIDER {
         *self
     }
 }
+impl ::core::fmt::Debug for DRT_SECURITY_PROVIDER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRT_SECURITY_PROVIDER")
+            .field("pvContext", &self.pvContext)
+            .field("Attach", &self.Attach)
+            .field("Detach", &self.Detach)
+            .field("RegisterKey", &self.RegisterKey)
+            .field("UnregisterKey", &self.UnregisterKey)
+            .field("ValidateAndUnpackPayload", &self.ValidateAndUnpackPayload)
+            .field("SecureAndPackPayload", &self.SecureAndPackPayload)
+            .field("FreeData", &self.FreeData)
+            .field("EncryptData", &self.EncryptData)
+            .field("DecryptData", &self.DecryptData)
+            .field("GetSerializedCredential", &self.GetSerializedCredential)
+            .field("ValidateRemoteCredential", &self.ValidateRemoteCredential)
+            .field("SignData", &self.SignData)
+            .field("VerifyData", &self.VerifyData)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DRT_SECURITY_PROVIDER {
     type Abi = Self;
 }
@@ -635,6 +717,23 @@ impl ::core::marker::Copy for DRT_SETTINGS {}
 impl ::core::clone::Clone for DRT_SETTINGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRT_SETTINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRT_SETTINGS")
+            .field("dwSize", &self.dwSize)
+            .field("cbKey", &self.cbKey)
+            .field("bProtocolMajorVersion", &self.bProtocolMajorVersion)
+            .field("bProtocolMinorVersion", &self.bProtocolMinorVersion)
+            .field("ulMaxRoutingAddresses", &self.ulMaxRoutingAddresses)
+            .field("pwzDrtInstancePrefix", &self.pwzDrtInstancePrefix)
+            .field("hTransport", &self.hTransport)
+            .field("pSecurityProvider", &self.pSecurityProvider)
+            .field("pBootstrapProvider", &self.pBootstrapProvider)
+            .field("eSecurityMode", &self.eSecurityMode)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1087,6 +1186,12 @@ impl ::core::clone::Clone for PEERDIST_CLIENT_BASIC_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PEERDIST_CLIENT_BASIC_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEERDIST_CLIENT_BASIC_INFO").field("fFlashCrowd", &self.fFlashCrowd).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PEERDIST_CLIENT_BASIC_INFO {
     type Abi = Self;
 }
@@ -1121,6 +1226,11 @@ impl ::core::clone::Clone for PEERDIST_CONTENT_TAG {
         *self
     }
 }
+impl ::core::fmt::Debug for PEERDIST_CONTENT_TAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEERDIST_CONTENT_TAG").field("Data", &self.Data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PEERDIST_CONTENT_TAG {
     type Abi = Self;
 }
@@ -1145,6 +1255,11 @@ impl ::core::marker::Copy for PEERDIST_PUBLICATION_OPTIONS {}
 impl ::core::clone::Clone for PEERDIST_PUBLICATION_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PEERDIST_PUBLICATION_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEERDIST_PUBLICATION_OPTIONS").field("dwVersion", &self.dwVersion).field("dwFlags", &self.dwFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PEERDIST_PUBLICATION_OPTIONS {
@@ -1183,6 +1298,11 @@ impl ::core::marker::Copy for PEERDIST_RETRIEVAL_OPTIONS {}
 impl ::core::clone::Clone for PEERDIST_RETRIEVAL_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PEERDIST_RETRIEVAL_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEERDIST_RETRIEVAL_OPTIONS").field("cbSize", &self.cbSize).field("dwContentInfoMinVersion", &self.dwContentInfoMinVersion).field("dwContentInfoMaxVersion", &self.dwContentInfoMaxVersion).field("dwReserved", &self.dwReserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PEERDIST_RETRIEVAL_OPTIONS {
@@ -1227,6 +1347,11 @@ impl ::core::marker::Copy for PEERDIST_STATUS_INFO {}
 impl ::core::clone::Clone for PEERDIST_STATUS_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PEERDIST_STATUS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEERDIST_STATUS_INFO").field("cbSize", &self.cbSize).field("status", &self.status).field("dwMinVer", &self.dwMinVer).field("dwMaxVer", &self.dwMaxVer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PEERDIST_STATUS_INFO {
@@ -1293,6 +1418,12 @@ impl ::core::clone::Clone for PEER_APPLICATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PEER_APPLICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_APPLICATION").field("id", &self.id).field("data", &self.data).field("pwzDescription", &self.pwzDescription).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PEER_APPLICATION {
     type Abi = Self;
 }
@@ -1325,6 +1456,12 @@ impl ::core::marker::Copy for PEER_APPLICATION_REGISTRATION_INFO {}
 impl ::core::clone::Clone for PEER_APPLICATION_REGISTRATION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PEER_APPLICATION_REGISTRATION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_APPLICATION_REGISTRATION_INFO").field("application", &self.application).field("pwzApplicationToLaunch", &self.pwzApplicationToLaunch).field("pwzApplicationArguments", &self.pwzApplicationArguments).field("dwPublicationScope", &self.dwPublicationScope).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1365,6 +1502,12 @@ impl ::core::marker::Copy for PEER_APP_LAUNCH_INFO {}
 impl ::core::clone::Clone for PEER_APP_LAUNCH_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for PEER_APP_LAUNCH_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_APP_LAUNCH_INFO").field("pContact", &self.pContact).field("pEndpoint", &self.pEndpoint).field("pInvitation", &self.pInvitation).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -1474,6 +1617,11 @@ impl ::core::marker::Copy for PEER_COLLAB_EVENT_REGISTRATION {}
 impl ::core::clone::Clone for PEER_COLLAB_EVENT_REGISTRATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PEER_COLLAB_EVENT_REGISTRATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_COLLAB_EVENT_REGISTRATION").field("eventType", &self.eventType).field("pInstance", &self.pInstance).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PEER_COLLAB_EVENT_REGISTRATION {
@@ -1587,6 +1735,12 @@ impl ::core::clone::Clone for PEER_CONTACT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PEER_CONTACT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_CONTACT").field("pwzPeerName", &self.pwzPeerName).field("pwzNickName", &self.pwzNickName).field("pwzDisplayName", &self.pwzDisplayName).field("pwzEmailAddress", &self.pwzEmailAddress).field("fWatch", &self.fWatch).field("WatcherPermissions", &self.WatcherPermissions).field("credentials", &self.credentials).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PEER_CONTACT {
     type Abi = Self;
 }
@@ -1628,6 +1782,12 @@ impl ::core::clone::Clone for PEER_CREDENTIAL_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::fmt::Debug for PEER_CREDENTIAL_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_CREDENTIAL_INFO").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("pwzFriendlyName", &self.pwzFriendlyName).field("pPublicKey", &self.pPublicKey).field("pwzIssuerPeerName", &self.pwzIssuerPeerName).field("pwzIssuerFriendlyName", &self.pwzIssuerFriendlyName).field("ftValidityStart", &self.ftValidityStart).field("ftValidityEnd", &self.ftValidityEnd).field("cRoles", &self.cRoles).field("pRoles", &self.pRoles).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::core::Abi for PEER_CREDENTIAL_INFO {
     type Abi = Self;
 }
@@ -1655,6 +1815,11 @@ impl ::core::marker::Copy for PEER_DATA {}
 impl ::core::clone::Clone for PEER_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PEER_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_DATA").field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PEER_DATA {
@@ -1722,6 +1887,12 @@ impl ::core::clone::Clone for PEER_EVENT_APPLICATION_CHANGED_DATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for PEER_EVENT_APPLICATION_CHANGED_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_EVENT_APPLICATION_CHANGED_DATA").field("pContact", &self.pContact).field("pEndpoint", &self.pEndpoint).field("changeType", &self.changeType).field("pApplication", &self.pApplication).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for PEER_EVENT_APPLICATION_CHANGED_DATA {
     type Abi = Self;
 }
@@ -1755,6 +1926,11 @@ impl ::core::clone::Clone for PEER_EVENT_CONNECTION_CHANGE_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for PEER_EVENT_CONNECTION_CHANGE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_EVENT_CONNECTION_CHANGE_DATA").field("dwSize", &self.dwSize).field("status", &self.status).field("ullConnectionId", &self.ullConnectionId).field("ullNodeId", &self.ullNodeId).field("ullNextConnectionId", &self.ullNextConnectionId).field("hrConnectionFailedReason", &self.hrConnectionFailedReason).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PEER_EVENT_CONNECTION_CHANGE_DATA {
     type Abi = Self;
 }
@@ -1782,6 +1958,12 @@ impl ::core::marker::Copy for PEER_EVENT_ENDPOINT_CHANGED_DATA {}
 impl ::core::clone::Clone for PEER_EVENT_ENDPOINT_CHANGED_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for PEER_EVENT_ENDPOINT_CHANGED_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_EVENT_ENDPOINT_CHANGED_DATA").field("pContact", &self.pContact).field("pEndpoint", &self.pEndpoint).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -1816,6 +1998,11 @@ impl ::core::clone::Clone for PEER_EVENT_INCOMING_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for PEER_EVENT_INCOMING_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_EVENT_INCOMING_DATA").field("dwSize", &self.dwSize).field("ullConnectionId", &self.ullConnectionId).field("type", &self.r#type).field("data", &self.data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PEER_EVENT_INCOMING_DATA {
     type Abi = Self;
 }
@@ -1844,6 +2031,12 @@ impl ::core::marker::Copy for PEER_EVENT_MEMBER_CHANGE_DATA {}
 impl ::core::clone::Clone for PEER_EVENT_MEMBER_CHANGE_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PEER_EVENT_MEMBER_CHANGE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_EVENT_MEMBER_CHANGE_DATA").field("dwSize", &self.dwSize).field("changeType", &self.changeType).field("pwzIdentity", &self.pwzIdentity).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1882,6 +2075,12 @@ impl ::core::clone::Clone for PEER_EVENT_NODE_CHANGE_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PEER_EVENT_NODE_CHANGE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_EVENT_NODE_CHANGE_DATA").field("dwSize", &self.dwSize).field("changeType", &self.changeType).field("ullNodeId", &self.ullNodeId).field("pwzPeerId", &self.pwzPeerId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PEER_EVENT_NODE_CHANGE_DATA {
     type Abi = Self;
 }
@@ -1917,6 +2116,12 @@ impl ::core::clone::Clone for PEER_EVENT_OBJECT_CHANGED_DATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for PEER_EVENT_OBJECT_CHANGED_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_EVENT_OBJECT_CHANGED_DATA").field("pContact", &self.pContact).field("pEndpoint", &self.pEndpoint).field("changeType", &self.changeType).field("pObject", &self.pObject).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for PEER_EVENT_OBJECT_CHANGED_DATA {
     type Abi = Self;
 }
@@ -1947,6 +2152,12 @@ impl ::core::marker::Copy for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {}
 impl ::core::clone::Clone for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA").field("changeType", &self.changeType).field("pPeopleNearMe", &self.pPeopleNearMe).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -1985,6 +2196,12 @@ impl ::core::clone::Clone for PEER_EVENT_PRESENCE_CHANGED_DATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for PEER_EVENT_PRESENCE_CHANGED_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_EVENT_PRESENCE_CHANGED_DATA").field("pContact", &self.pContact).field("pEndpoint", &self.pEndpoint).field("changeType", &self.changeType).field("pPresenceInfo", &self.pPresenceInfo).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for PEER_EVENT_PRESENCE_CHANGED_DATA {
     type Abi = Self;
 }
@@ -2014,6 +2231,11 @@ impl ::core::marker::Copy for PEER_EVENT_RECORD_CHANGE_DATA {}
 impl ::core::clone::Clone for PEER_EVENT_RECORD_CHANGE_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PEER_EVENT_RECORD_CHANGE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_EVENT_RECORD_CHANGE_DATA").field("dwSize", &self.dwSize).field("changeType", &self.changeType).field("recordId", &self.recordId).field("recordType", &self.recordType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PEER_EVENT_RECORD_CHANGE_DATA {
@@ -2046,6 +2268,12 @@ impl ::core::clone::Clone for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_EVENT_REQUEST_STATUS_CHANGED_DATA").field("pEndpoint", &self.pEndpoint).field("hrChange", &self.hrChange).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
     type Abi = Self;
 }
@@ -2075,6 +2303,11 @@ impl ::core::clone::Clone for PEER_EVENT_SYNCHRONIZED_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for PEER_EVENT_SYNCHRONIZED_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_EVENT_SYNCHRONIZED_DATA").field("dwSize", &self.dwSize).field("recordType", &self.recordType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PEER_EVENT_SYNCHRONIZED_DATA {
     type Abi = Self;
 }
@@ -2102,6 +2335,12 @@ impl ::core::marker::Copy for PEER_EVENT_WATCHLIST_CHANGED_DATA {}
 impl ::core::clone::Clone for PEER_EVENT_WATCHLIST_CHANGED_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PEER_EVENT_WATCHLIST_CHANGED_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_EVENT_WATCHLIST_CHANGED_DATA").field("pContact", &self.pContact).field("changeType", &self.changeType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2226,6 +2465,11 @@ impl ::core::clone::Clone for PEER_GRAPH_EVENT_REGISTRATION {
         *self
     }
 }
+impl ::core::fmt::Debug for PEER_GRAPH_EVENT_REGISTRATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_GRAPH_EVENT_REGISTRATION").field("eventType", &self.eventType).field("pType", &self.pType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PEER_GRAPH_EVENT_REGISTRATION {
     type Abi = Self;
 }
@@ -2281,6 +2525,12 @@ impl ::core::marker::Copy for PEER_GRAPH_PROPERTIES {}
 impl ::core::clone::Clone for PEER_GRAPH_PROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PEER_GRAPH_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_GRAPH_PROPERTIES").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwScope", &self.dwScope).field("dwMaxRecordSize", &self.dwMaxRecordSize).field("pwzGraphId", &self.pwzGraphId).field("pwzCreatorId", &self.pwzCreatorId).field("pwzFriendlyName", &self.pwzFriendlyName).field("pwzComment", &self.pwzComment).field("ulPresenceLifetime", &self.ulPresenceLifetime).field("cPresenceMax", &self.cPresenceMax).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2415,6 +2665,11 @@ impl ::core::clone::Clone for PEER_GROUP_EVENT_REGISTRATION {
         *self
     }
 }
+impl ::core::fmt::Debug for PEER_GROUP_EVENT_REGISTRATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_GROUP_EVENT_REGISTRATION").field("eventType", &self.eventType).field("pType", &self.pType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PEER_GROUP_EVENT_REGISTRATION {
     type Abi = Self;
 }
@@ -2480,6 +2735,26 @@ impl ::core::clone::Clone for PEER_GROUP_PROPERTIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PEER_GROUP_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_GROUP_PROPERTIES")
+            .field("dwSize", &self.dwSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("pwzCloud", &self.pwzCloud)
+            .field("pwzClassifier", &self.pwzClassifier)
+            .field("pwzGroupPeerName", &self.pwzGroupPeerName)
+            .field("pwzCreatorPeerName", &self.pwzCreatorPeerName)
+            .field("pwzFriendlyName", &self.pwzFriendlyName)
+            .field("pwzComment", &self.pwzComment)
+            .field("ulMemberDataLifetime", &self.ulMemberDataLifetime)
+            .field("ulPresenceLifetime", &self.ulPresenceLifetime)
+            .field("dwAuthenticationSchemes", &self.dwAuthenticationSchemes)
+            .field("pwzGroupPassword", &self.pwzGroupPassword)
+            .field("groupPasswordRole", &self.groupPasswordRole)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PEER_GROUP_PROPERTIES {
     type Abi = Self;
 }
@@ -2528,6 +2803,12 @@ impl ::core::marker::Copy for PEER_INVITATION {}
 impl ::core::clone::Clone for PEER_INVITATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PEER_INVITATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_INVITATION").field("applicationId", &self.applicationId).field("applicationData", &self.applicationData).field("pwzMessage", &self.pwzMessage).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2581,6 +2862,32 @@ impl ::core::clone::Clone for PEER_INVITATION_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::fmt::Debug for PEER_INVITATION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_INVITATION_INFO")
+            .field("dwSize", &self.dwSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("pwzCloudName", &self.pwzCloudName)
+            .field("dwScope", &self.dwScope)
+            .field("dwCloudFlags", &self.dwCloudFlags)
+            .field("pwzGroupPeerName", &self.pwzGroupPeerName)
+            .field("pwzIssuerPeerName", &self.pwzIssuerPeerName)
+            .field("pwzSubjectPeerName", &self.pwzSubjectPeerName)
+            .field("pwzGroupFriendlyName", &self.pwzGroupFriendlyName)
+            .field("pwzIssuerFriendlyName", &self.pwzIssuerFriendlyName)
+            .field("pwzSubjectFriendlyName", &self.pwzSubjectFriendlyName)
+            .field("ftValidityStart", &self.ftValidityStart)
+            .field("ftValidityEnd", &self.ftValidityEnd)
+            .field("cRoles", &self.cRoles)
+            .field("pRoles", &self.pRoles)
+            .field("cClassifiers", &self.cClassifiers)
+            .field("ppwzClassifiers", &self.ppwzClassifiers)
+            .field("pSubjectPublicKey", &self.pSubjectPublicKey)
+            .field("authScheme", &self.authScheme)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::core::Abi for PEER_INVITATION_INFO {
     type Abi = Self;
 }
@@ -2612,6 +2919,12 @@ impl ::core::marker::Copy for PEER_INVITATION_RESPONSE {}
 impl ::core::clone::Clone for PEER_INVITATION_RESPONSE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PEER_INVITATION_RESPONSE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_INVITATION_RESPONSE").field("action", &self.action).field("pwzMessage", &self.pwzMessage).field("hrExtendedInfo", &self.hrExtendedInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2661,6 +2974,12 @@ impl ::core::marker::Copy for PEER_MEMBER {}
 impl ::core::clone::Clone for PEER_MEMBER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+impl ::core::fmt::Debug for PEER_MEMBER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_MEMBER").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("pwzIdentity", &self.pwzIdentity).field("pwzAttributes", &self.pwzAttributes).field("ullNodeId", &self.ullNodeId).field("cAddresses", &self.cAddresses).field("pAddresses", &self.pAddresses).field("pCredentialInfo", &self.pCredentialInfo).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
@@ -2714,6 +3033,12 @@ impl ::core::clone::Clone for PEER_NAME_PAIR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PEER_NAME_PAIR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_NAME_PAIR").field("dwSize", &self.dwSize).field("pwzPeerName", &self.pwzPeerName).field("pwzFriendlyName", &self.pwzFriendlyName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PEER_NAME_PAIR {
     type Abi = Self;
 }
@@ -2759,6 +3084,12 @@ impl ::core::clone::Clone for PEER_NODE_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for PEER_NODE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_NODE_INFO").field("dwSize", &self.dwSize).field("ullNodeId", &self.ullNodeId).field("pwzPeerId", &self.pwzPeerId).field("cAddresses", &self.cAddresses).field("pAddresses", &self.pAddresses).field("pwzAttributes", &self.pwzAttributes).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for PEER_NODE_INFO {
     type Abi = Self;
 }
@@ -2787,6 +3118,11 @@ impl ::core::marker::Copy for PEER_OBJECT {}
 impl ::core::clone::Clone for PEER_OBJECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PEER_OBJECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_OBJECT").field("id", &self.id).field("data", &self.data).field("dwPublicationScope", &self.dwPublicationScope).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PEER_OBJECT {
@@ -2854,6 +3190,12 @@ impl ::core::clone::Clone for PEER_PNRP_CLOUD_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PEER_PNRP_CLOUD_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_PNRP_CLOUD_INFO").field("pwzCloudName", &self.pwzCloudName).field("dwScope", &self.dwScope).field("dwScopeId", &self.dwScopeId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PEER_PNRP_CLOUD_INFO {
     type Abi = Self;
 }
@@ -2887,6 +3229,12 @@ impl ::core::marker::Copy for PEER_PNRP_ENDPOINT_INFO {}
 impl ::core::clone::Clone for PEER_PNRP_ENDPOINT_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for PEER_PNRP_ENDPOINT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_PNRP_ENDPOINT_INFO").field("pwzPeerName", &self.pwzPeerName).field("cAddresses", &self.cAddresses).field("ppAddresses", &self.ppAddresses).field("pwzComment", &self.pwzComment).field("payload", &self.payload).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -2928,6 +3276,12 @@ impl ::core::clone::Clone for PEER_PNRP_REGISTRATION_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for PEER_PNRP_REGISTRATION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_PNRP_REGISTRATION_INFO").field("pwzCloudName", &self.pwzCloudName).field("pwzPublishingIdentity", &self.pwzPublishingIdentity).field("cAddresses", &self.cAddresses).field("ppAddresses", &self.ppAddresses).field("wPort", &self.wPort).field("pwzComment", &self.pwzComment).field("payload", &self.payload).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for PEER_PNRP_REGISTRATION_INFO {
     type Abi = Self;
 }
@@ -2958,6 +3312,12 @@ impl ::core::marker::Copy for PEER_PRESENCE_INFO {}
 impl ::core::clone::Clone for PEER_PRESENCE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PEER_PRESENCE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_PRESENCE_INFO").field("status", &self.status).field("pwzDescriptiveText", &self.pwzDescriptiveText).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3033,6 +3393,26 @@ impl ::core::clone::Clone for PEER_RECORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PEER_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_RECORD")
+            .field("dwSize", &self.dwSize)
+            .field("type", &self.r#type)
+            .field("id", &self.id)
+            .field("dwVersion", &self.dwVersion)
+            .field("dwFlags", &self.dwFlags)
+            .field("pwzCreatorId", &self.pwzCreatorId)
+            .field("pwzModifiedById", &self.pwzModifiedById)
+            .field("pwzAttributes", &self.pwzAttributes)
+            .field("ftCreation", &self.ftCreation)
+            .field("ftExpiration", &self.ftExpiration)
+            .field("ftLastModified", &self.ftLastModified)
+            .field("securityData", &self.securityData)
+            .field("data", &self.data)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PEER_RECORD {
     type Abi = Self;
 }
@@ -3090,6 +3470,23 @@ impl ::core::clone::Clone for PEER_SECURITY_INTERFACE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PEER_SECURITY_INTERFACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_SECURITY_INTERFACE")
+            .field("dwSize", &self.dwSize)
+            .field("pwzSspFilename", &self.pwzSspFilename)
+            .field("pwzPackageName", &self.pwzPackageName)
+            .field("cbSecurityInfo", &self.cbSecurityInfo)
+            .field("pbSecurityInfo", &self.pbSecurityInfo)
+            .field("pvContext", &self.pvContext)
+            .field("pfnValidateRecord", &self.pfnValidateRecord.map(|f| f as usize))
+            .field("pfnSecureRecord", &self.pfnSecureRecord.map(|f| f as usize))
+            .field("pfnFreeSecurityData", &self.pfnFreeSecurityData.map(|f| f as usize))
+            .field("pfnAuthFailed", &self.pfnAuthFailed.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PEER_SECURITY_INTERFACE {
     type Abi = Self;
 }
@@ -3127,6 +3524,11 @@ impl ::core::marker::Copy for PEER_VERSION_DATA {}
 impl ::core::clone::Clone for PEER_VERSION_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PEER_VERSION_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEER_VERSION_DATA").field("wVersion", &self.wVersion).field("wHighestVersion", &self.wHighestVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PEER_VERSION_DATA {
@@ -3173,6 +3575,11 @@ impl ::core::clone::Clone for PNRPCLOUDINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for PNRPCLOUDINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PNRPCLOUDINFO").field("dwSize", &self.dwSize).field("Cloud", &self.Cloud).field("enCloudState", &self.enCloudState).field("enCloudFlags", &self.enCloudFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PNRPCLOUDINFO {
     type Abi = Self;
 }
@@ -3209,6 +3616,12 @@ impl ::core::marker::Copy for PNRPINFO_V1 {}
 impl ::core::clone::Clone for PNRPINFO_V1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for PNRPINFO_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PNRPINFO_V1").field("dwSize", &self.dwSize).field("lpwszIdentity", &self.lpwszIdentity).field("nMaxResolve", &self.nMaxResolve).field("dwTimeout", &self.dwTimeout).field("dwLifetime", &self.dwLifetime).field("enResolveCriteria", &self.enResolveCriteria).field("dwFlags", &self.dwFlags).field("saHint", &self.saHint).field("enNameState", &self.enNameState).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3325,6 +3738,11 @@ impl ::core::marker::Copy for PNRP_CLOUD_ID {}
 impl ::core::clone::Clone for PNRP_CLOUD_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PNRP_CLOUD_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PNRP_CLOUD_ID").field("AddressFamily", &self.AddressFamily).field("Scope", &self.Scope).field("ScopeId", &self.ScopeId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PNRP_CLOUD_ID {

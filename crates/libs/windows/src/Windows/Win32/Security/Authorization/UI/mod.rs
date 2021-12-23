@@ -42,6 +42,12 @@ impl ::core::clone::Clone for EFFPERM_RESULT_LIST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EFFPERM_RESULT_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EFFPERM_RESULT_LIST").field("fEvaluated", &self.fEvaluated).field("cObjectTypeListLength", &self.cObjectTypeListLength).field("pObjectTypeList", &self.pObjectTypeList).field("pGrantedAccessList", &self.pGrantedAccessList).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EFFPERM_RESULT_LIST {
     type Abi = Self;
 }
@@ -130,6 +136,11 @@ impl ::core::cmp::PartialEq for IEffectivePermission {
     }
 }
 impl ::core::cmp::Eq for IEffectivePermission {}
+impl ::core::fmt::Debug for IEffectivePermission {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEffectivePermission").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEffectivePermission {
     type Vtable = IEffectivePermissionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3853dc76_9f35_407c_88a1_d19344365fbc);
@@ -217,6 +228,11 @@ impl ::core::cmp::PartialEq for IEffectivePermission2 {
     }
 }
 impl ::core::cmp::Eq for IEffectivePermission2 {}
+impl ::core::fmt::Debug for IEffectivePermission2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEffectivePermission2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEffectivePermission2 {
     type Vtable = IEffectivePermission2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x941fabca_dd47_4fca_90bb_b0e10255f20d);
@@ -317,6 +333,11 @@ impl ::core::cmp::PartialEq for ISecurityInformation {
     }
 }
 impl ::core::cmp::Eq for ISecurityInformation {}
+impl ::core::fmt::Debug for ISecurityInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISecurityInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISecurityInformation {
     type Vtable = ISecurityInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x965fc360_16ff_11d0_91cb_00aa00bbb723);
@@ -387,6 +408,11 @@ impl ::core::cmp::PartialEq for ISecurityInformation2 {
     }
 }
 impl ::core::cmp::Eq for ISecurityInformation2 {}
+impl ::core::fmt::Debug for ISecurityInformation2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISecurityInformation2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISecurityInformation2 {
     type Vtable = ISecurityInformation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3ccfdb4_6f88_11d2_a3ce_00c04fb1782a);
@@ -449,6 +475,11 @@ impl ::core::cmp::PartialEq for ISecurityInformation3 {
     }
 }
 impl ::core::cmp::Eq for ISecurityInformation3 {}
+impl ::core::fmt::Debug for ISecurityInformation3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISecurityInformation3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISecurityInformation3 {
     type Vtable = ISecurityInformation3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2cdc9cc_31bd_4f8f_8c8b_b641af516a1a);
@@ -505,6 +536,11 @@ impl ::core::cmp::PartialEq for ISecurityInformation4 {
     }
 }
 impl ::core::cmp::Eq for ISecurityInformation4 {}
+impl ::core::fmt::Debug for ISecurityInformation4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISecurityInformation4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISecurityInformation4 {
     type Vtable = ISecurityInformation4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea961070_cd14_4621_ace4_f63c03e583e4);
@@ -559,6 +595,11 @@ impl ::core::cmp::PartialEq for ISecurityObjectTypeInfo {
     }
 }
 impl ::core::cmp::Eq for ISecurityObjectTypeInfo {}
+impl ::core::fmt::Debug for ISecurityObjectTypeInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISecurityObjectTypeInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISecurityObjectTypeInfo {
     type Vtable = ISecurityObjectTypeInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc3066eb_79ef_444b_9111_d18a75ebf2fa);
@@ -598,6 +639,12 @@ impl ::core::marker::Copy for SECURITY_OBJECT {}
 impl ::core::clone::Clone for SECURITY_OBJECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SECURITY_OBJECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SECURITY_OBJECT").field("pwszName", &self.pwszName).field("pData", &self.pData).field("cbData", &self.cbData).field("pData2", &self.pData2).field("cbData2", &self.cbData2).field("Id", &self.Id).field("fWellKnown", &self.fWellKnown).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -644,6 +691,12 @@ impl ::core::clone::Clone for SID_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SID_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SID_INFO").field("pSid", &self.pSid).field("pwzCommonName", &self.pwzCommonName).field("pwzClass", &self.pwzClass).field("pwzUPN", &self.pwzUPN).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SID_INFO {
     type Abi = Self;
 }
@@ -674,6 +727,12 @@ impl ::core::marker::Copy for SID_INFO_LIST {}
 impl ::core::clone::Clone for SID_INFO_LIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SID_INFO_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SID_INFO_LIST").field("cItems", &self.cItems).field("aSidInfo", &self.aSidInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -709,6 +768,12 @@ impl ::core::marker::Copy for SI_ACCESS {}
 impl ::core::clone::Clone for SI_ACCESS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SI_ACCESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SI_ACCESS").field("pguid", &self.pguid).field("mask", &self.mask).field("pszName", &self.pszName).field("dwFlags", &self.dwFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -760,6 +825,12 @@ impl ::core::clone::Clone for SI_INHERIT_TYPE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SI_INHERIT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SI_INHERIT_TYPE").field("pguid", &self.pguid).field("dwFlags", &self.dwFlags).field("pszName", &self.pszName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SI_INHERIT_TYPE {
     type Abi = Self;
 }
@@ -800,6 +871,12 @@ impl ::core::marker::Copy for SI_OBJECT_INFO {}
 impl ::core::clone::Clone for SI_OBJECT_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SI_OBJECT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SI_OBJECT_INFO").field("dwFlags", &self.dwFlags).field("hInstance", &self.hInstance).field("pszServerName", &self.pszServerName).field("pszObjectName", &self.pszObjectName).field("pszPageTitle", &self.pszPageTitle).field("guidObjectType", &self.guidObjectType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

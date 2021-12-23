@@ -21,6 +21,11 @@ impl ::core::cmp::PartialEq for ForegroundText {
     }
 }
 impl ::core::cmp::Eq for ForegroundText {}
+impl ::core::fmt::Debug for ForegroundText {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ForegroundText").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ForegroundText {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.ForegroundText;i4)");
 }
@@ -628,6 +633,11 @@ impl ::core::cmp::PartialEq for JumpList {
     }
 }
 impl ::core::cmp::Eq for JumpList {}
+impl ::core::fmt::Debug for JumpList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JumpList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for JumpList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.JumpList;{b0234c3e-cd6f-4cb6-a611-61fd505f3ed1})");
 }
@@ -793,6 +803,11 @@ impl ::core::cmp::PartialEq for JumpListItem {
     }
 }
 impl ::core::cmp::Eq for JumpListItem {}
+impl ::core::fmt::Debug for JumpListItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JumpListItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for JumpListItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.JumpListItem;{7adb6717-8b5d-4820-995b-9b418dbe48b0})");
 }
@@ -867,6 +882,11 @@ impl ::core::cmp::PartialEq for JumpListItemKind {
     }
 }
 impl ::core::cmp::Eq for JumpListItemKind {}
+impl ::core::fmt::Debug for JumpListItemKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JumpListItemKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for JumpListItemKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.JumpListItemKind;i4)");
 }
@@ -896,6 +916,11 @@ impl ::core::cmp::PartialEq for JumpListSystemGroupKind {
     }
 }
 impl ::core::cmp::Eq for JumpListSystemGroupKind {}
+impl ::core::fmt::Debug for JumpListSystemGroupKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JumpListSystemGroupKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for JumpListSystemGroupKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.JumpListSystemGroupKind;i4)");
 }
@@ -1304,6 +1329,11 @@ impl ::core::cmp::PartialEq for SecondaryTile {
     }
 }
 impl ::core::cmp::Eq for SecondaryTile {}
+impl ::core::fmt::Debug for SecondaryTile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryTile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SecondaryTile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.SecondaryTile;{9e9e51e0-2bb5-4bc0-bb8d-42b23abcc88d})");
 }
@@ -1550,6 +1580,11 @@ impl ::core::cmp::PartialEq for SecondaryTileVisualElements {
     }
 }
 impl ::core::cmp::Eq for SecondaryTileVisualElements {}
+impl ::core::fmt::Debug for SecondaryTileVisualElements {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryTileVisualElements").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SecondaryTileVisualElements {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.SecondaryTileVisualElements;{1d8df333-815e-413f-9f50-a81da70a96b2})");
 }
@@ -1692,6 +1727,11 @@ impl ::core::cmp::PartialEq for StartScreenManager {
     }
 }
 impl ::core::cmp::Eq for StartScreenManager {}
+impl ::core::fmt::Debug for StartScreenManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StartScreenManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StartScreenManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.StartScreenManager;{4a1dcbcb-26e9-4eb4-8933-859eb6ecdb29})");
 }
@@ -1803,6 +1843,11 @@ impl ::core::cmp::PartialEq for TileMixedRealityModel {
     }
 }
 impl ::core::cmp::Eq for TileMixedRealityModel {}
+impl ::core::fmt::Debug for TileMixedRealityModel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileMixedRealityModel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TileMixedRealityModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.TileMixedRealityModel;{b0764e5b-887d-4242-9a19-3d0a4ea78031})");
 }
@@ -1877,6 +1922,11 @@ impl ::core::cmp::PartialEq for TileMixedRealityModelActivationBehavior {
     }
 }
 impl ::core::cmp::Eq for TileMixedRealityModelActivationBehavior {}
+impl ::core::fmt::Debug for TileMixedRealityModelActivationBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileMixedRealityModelActivationBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TileMixedRealityModelActivationBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileMixedRealityModelActivationBehavior;i4)");
 }
@@ -1907,6 +1957,11 @@ impl ::core::cmp::PartialEq for TileOptions {
     }
 }
 impl ::core::cmp::Eq for TileOptions {}
+impl ::core::fmt::Debug for TileOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TileOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileOptions;u4)");
 }
@@ -1941,6 +1996,11 @@ impl ::core::cmp::PartialEq for TileSize {
     }
 }
 impl ::core::cmp::Eq for TileSize {}
+impl ::core::fmt::Debug for TileSize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileSize").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TileSize {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileSize;i4)");
 }
@@ -1997,6 +2057,11 @@ impl ::core::cmp::PartialEq for VisualElementsRequest {
     }
 }
 impl ::core::cmp::Eq for VisualElementsRequest {}
+impl ::core::fmt::Debug for VisualElementsRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VisualElementsRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VisualElementsRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.VisualElementsRequest;{c138333a-9308-4072-88cc-d068db347c68})");
 }
@@ -2070,6 +2135,11 @@ impl ::core::cmp::PartialEq for VisualElementsRequestDeferral {
     }
 }
 impl ::core::cmp::Eq for VisualElementsRequestDeferral {}
+impl ::core::fmt::Debug for VisualElementsRequestDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VisualElementsRequestDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VisualElementsRequestDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.VisualElementsRequestDeferral;{a1656eb0-0126-4357-8204-bd82bb2a046d})");
 }
@@ -2146,6 +2216,11 @@ impl ::core::cmp::PartialEq for VisualElementsRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for VisualElementsRequestedEventArgs {}
+impl ::core::fmt::Debug for VisualElementsRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VisualElementsRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VisualElementsRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.VisualElementsRequestedEventArgs;{7b6fc982-3a0d-4ece-af96-cd17e1b00b2d})");
 }

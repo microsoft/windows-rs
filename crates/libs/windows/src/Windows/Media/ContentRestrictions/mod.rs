@@ -23,6 +23,11 @@ impl ::core::cmp::PartialEq for ContentAccessRestrictionLevel {
     }
 }
 impl ::core::cmp::Eq for ContentAccessRestrictionLevel {}
+impl ::core::fmt::Debug for ContentAccessRestrictionLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContentAccessRestrictionLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContentAccessRestrictionLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.ContentAccessRestrictionLevel;i4)");
 }
@@ -71,6 +76,11 @@ impl ::core::cmp::PartialEq for ContentRestrictionsBrowsePolicy {
     }
 }
 impl ::core::cmp::Eq for ContentRestrictionsBrowsePolicy {}
+impl ::core::fmt::Debug for ContentRestrictionsBrowsePolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContentRestrictionsBrowsePolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContentRestrictionsBrowsePolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.ContentRestrictions.ContentRestrictionsBrowsePolicy;{8c0133a4-442e-461a-8757-fad2f5bd37e4})");
 }
@@ -265,6 +275,11 @@ impl ::core::cmp::PartialEq for RatedContentCategory {
     }
 }
 impl ::core::cmp::Eq for RatedContentCategory {}
+impl ::core::fmt::Debug for RatedContentCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RatedContentCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RatedContentCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.RatedContentCategory;i4)");
 }
@@ -368,6 +383,11 @@ impl ::core::cmp::PartialEq for RatedContentDescription {
     }
 }
 impl ::core::cmp::Eq for RatedContentDescription {}
+impl ::core::fmt::Debug for RatedContentDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RatedContentDescription").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RatedContentDescription {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.ContentRestrictions.RatedContentDescription;{694866df-66b2-4dc3-96b1-f090eedee255})");
 }
@@ -497,6 +517,11 @@ impl ::core::cmp::PartialEq for RatedContentRestrictions {
     }
 }
 impl ::core::cmp::Eq for RatedContentRestrictions {}
+impl ::core::fmt::Debug for RatedContentRestrictions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RatedContentRestrictions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RatedContentRestrictions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.ContentRestrictions.RatedContentRestrictions;{3f7f23cb-ba07-4401-a49d-8b9222205723})");
 }

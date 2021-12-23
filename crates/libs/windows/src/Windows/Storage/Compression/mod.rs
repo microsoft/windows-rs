@@ -25,6 +25,11 @@ impl ::core::cmp::PartialEq for CompressAlgorithm {
     }
 }
 impl ::core::cmp::Eq for CompressAlgorithm {}
+impl ::core::fmt::Debug for CompressAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompressAlgorithm").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompressAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Compression.CompressAlgorithm;i4)");
 }
@@ -110,6 +115,11 @@ impl ::core::cmp::PartialEq for Compressor {
     }
 }
 impl ::core::cmp::Eq for Compressor {}
+impl ::core::fmt::Debug for Compressor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Compressor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Compressor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Compression.Compressor;{0ac3645a-57ac-4ee1-b702-84d39d5424e0})");
 }
@@ -267,6 +277,11 @@ impl ::core::cmp::PartialEq for Decompressor {
     }
 }
 impl ::core::cmp::Eq for Decompressor {}
+impl ::core::fmt::Debug for Decompressor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Decompressor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Decompressor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Compression.Decompressor;{b883fe46-d68a-4c8b-ada0-4ee813fc5283})");
 }

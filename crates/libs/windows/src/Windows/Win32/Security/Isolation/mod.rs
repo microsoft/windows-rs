@@ -150,6 +150,11 @@ impl ::core::cmp::PartialEq for IIsolatedAppLauncher {
     }
 }
 impl ::core::cmp::Eq for IIsolatedAppLauncher {}
+impl ::core::fmt::Debug for IIsolatedAppLauncher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IIsolatedAppLauncher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IIsolatedAppLauncher {
     type Vtable = IIsolatedAppLauncherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf686878f_7b42_4cc4_96fb_f4f3b6e3d24d);
@@ -225,6 +230,12 @@ impl ::core::marker::Copy for IsolatedAppLauncherTelemetryParameters {}
 impl ::core::clone::Clone for IsolatedAppLauncherTelemetryParameters {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for IsolatedAppLauncherTelemetryParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IsolatedAppLauncherTelemetryParameters").field("EnableForLaunch", &self.EnableForLaunch).field("CorrelationGUID", &self.CorrelationGUID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

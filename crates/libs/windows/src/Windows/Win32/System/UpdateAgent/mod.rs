@@ -216,6 +216,11 @@ impl ::core::cmp::PartialEq for IAutomaticUpdates {
     }
 }
 impl ::core::cmp::Eq for IAutomaticUpdates {}
+impl ::core::fmt::Debug for IAutomaticUpdates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAutomaticUpdates").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAutomaticUpdates {
     type Vtable = IAutomaticUpdatesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x673425bf_c082_4c7c_bdfd_569464b8e0ce);
@@ -379,6 +384,11 @@ impl ::core::cmp::PartialEq for IAutomaticUpdates2 {
     }
 }
 impl ::core::cmp::Eq for IAutomaticUpdates2 {}
+impl ::core::fmt::Debug for IAutomaticUpdates2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAutomaticUpdates2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAutomaticUpdates2 {
     type Vtable = IAutomaticUpdates2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a2f5c31_cfd9_410e_b7fb_29a653973a0f);
@@ -500,6 +510,11 @@ impl ::core::cmp::PartialEq for IAutomaticUpdatesResults {
     }
 }
 impl ::core::cmp::Eq for IAutomaticUpdatesResults {}
+impl ::core::fmt::Debug for IAutomaticUpdatesResults {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAutomaticUpdatesResults").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAutomaticUpdatesResults {
     type Vtable = IAutomaticUpdatesResultsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7a4d634_7942_4dd9_a111_82228ba33901);
@@ -650,6 +665,11 @@ impl ::core::cmp::PartialEq for IAutomaticUpdatesSettings {
     }
 }
 impl ::core::cmp::Eq for IAutomaticUpdatesSettings {}
+impl ::core::fmt::Debug for IAutomaticUpdatesSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAutomaticUpdatesSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAutomaticUpdatesSettings {
     type Vtable = IAutomaticUpdatesSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ee48f22_af3c_405f_8970_f71be12ee9a2);
@@ -840,6 +860,11 @@ impl ::core::cmp::PartialEq for IAutomaticUpdatesSettings2 {
     }
 }
 impl ::core::cmp::Eq for IAutomaticUpdatesSettings2 {}
+impl ::core::fmt::Debug for IAutomaticUpdatesSettings2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAutomaticUpdatesSettings2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAutomaticUpdatesSettings2 {
     type Vtable = IAutomaticUpdatesSettings2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6abc136a_c3ca_4384_8171_cb2b1e59b8dc);
@@ -1071,6 +1096,11 @@ impl ::core::cmp::PartialEq for IAutomaticUpdatesSettings3 {
     }
 }
 impl ::core::cmp::Eq for IAutomaticUpdatesSettings3 {}
+impl ::core::fmt::Debug for IAutomaticUpdatesSettings3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAutomaticUpdatesSettings3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAutomaticUpdatesSettings3 {
     type Vtable = IAutomaticUpdatesSettings3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb587f5c3_f57e_485f_bbf5_0d181c5cd0dc);
@@ -1238,6 +1268,11 @@ impl ::core::cmp::PartialEq for ICategory {
     }
 }
 impl ::core::cmp::Eq for ICategory {}
+impl ::core::fmt::Debug for ICategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICategory {
     type Vtable = ICategoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81ddc1b8_9d35_47a6_b471_5b80f519223b);
@@ -1367,6 +1402,11 @@ impl ::core::cmp::PartialEq for ICategoryCollection {
     }
 }
 impl ::core::cmp::Eq for ICategoryCollection {}
+impl ::core::fmt::Debug for ICategoryCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICategoryCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICategoryCollection {
     type Vtable = ICategoryCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a56bfb8_576c_43f7_9335_fe4838fd7e37);
@@ -1429,6 +1469,11 @@ impl ::core::cmp::PartialEq for IDownloadCompletedCallback {
     }
 }
 impl ::core::cmp::Eq for IDownloadCompletedCallback {}
+impl ::core::fmt::Debug for IDownloadCompletedCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDownloadCompletedCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDownloadCompletedCallback {
     type Vtable = IDownloadCompletedCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77254866_9f5b_4c8e_b9e2_c77a8530d64b);
@@ -1518,6 +1563,11 @@ impl ::core::cmp::PartialEq for IDownloadCompletedCallbackArgs {
     }
 }
 impl ::core::cmp::Eq for IDownloadCompletedCallbackArgs {}
+impl ::core::fmt::Debug for IDownloadCompletedCallbackArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDownloadCompletedCallbackArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDownloadCompletedCallbackArgs {
     type Vtable = IDownloadCompletedCallbackArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa565b23_498c_47a0_979d_e7d5b1813360);
@@ -1648,6 +1698,11 @@ impl ::core::cmp::PartialEq for IDownloadJob {
     }
 }
 impl ::core::cmp::Eq for IDownloadJob {}
+impl ::core::fmt::Debug for IDownloadJob {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDownloadJob").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDownloadJob {
     type Vtable = IDownloadJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc574de85_7358_43f6_aae8_8697e62d8ba7);
@@ -1805,6 +1860,11 @@ impl ::core::cmp::PartialEq for IDownloadProgress {
     }
 }
 impl ::core::cmp::Eq for IDownloadProgress {}
+impl ::core::fmt::Debug for IDownloadProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDownloadProgress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDownloadProgress {
     type Vtable = IDownloadProgressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd31a5bac_f719_4178_9dbb_5e2cb47fd18a);
@@ -1877,6 +1937,11 @@ impl ::core::cmp::PartialEq for IDownloadProgressChangedCallback {
     }
 }
 impl ::core::cmp::Eq for IDownloadProgressChangedCallback {}
+impl ::core::fmt::Debug for IDownloadProgressChangedCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDownloadProgressChangedCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDownloadProgressChangedCallback {
     type Vtable = IDownloadProgressChangedCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c3f1cdd_6173_4591_aebd_a56a53ca77c1);
@@ -1971,6 +2036,11 @@ impl ::core::cmp::PartialEq for IDownloadProgressChangedCallbackArgs {
     }
 }
 impl ::core::cmp::Eq for IDownloadProgressChangedCallbackArgs {}
+impl ::core::fmt::Debug for IDownloadProgressChangedCallbackArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDownloadProgressChangedCallbackArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDownloadProgressChangedCallbackArgs {
     type Vtable = IDownloadProgressChangedCallbackArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x324ff2c6_4981_4b04_9412_57481745ab24);
@@ -2088,6 +2158,11 @@ impl ::core::cmp::PartialEq for IDownloadResult {
     }
 }
 impl ::core::cmp::Eq for IDownloadResult {}
+impl ::core::fmt::Debug for IDownloadResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDownloadResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDownloadResult {
     type Vtable = IDownloadResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaa4fdd0_4727_4dbe_a1e7_745dca317144);
@@ -2214,6 +2289,11 @@ impl ::core::cmp::PartialEq for IImageInformation {
     }
 }
 impl ::core::cmp::Eq for IImageInformation {}
+impl ::core::fmt::Debug for IImageInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IImageInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IImageInformation {
     type Vtable = IImageInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c907864_346c_4aeb_8f3f_57da289f969f);
@@ -2326,6 +2406,11 @@ impl ::core::cmp::PartialEq for IInstallationAgent {
     }
 }
 impl ::core::cmp::Eq for IInstallationAgent {}
+impl ::core::fmt::Debug for IInstallationAgent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInstallationAgent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInstallationAgent {
     type Vtable = IInstallationAgentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x925cbc18_a2ea_4648_bf1c_ec8badcfe20a);
@@ -2449,6 +2534,11 @@ impl ::core::cmp::PartialEq for IInstallationBehavior {
     }
 }
 impl ::core::cmp::Eq for IInstallationBehavior {}
+impl ::core::fmt::Debug for IInstallationBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInstallationBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInstallationBehavior {
     type Vtable = IInstallationBehaviorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9a59339_e245_4dbd_9686_4d5763e39624);
@@ -2512,6 +2602,11 @@ impl ::core::cmp::PartialEq for IInstallationCompletedCallback {
     }
 }
 impl ::core::cmp::Eq for IInstallationCompletedCallback {}
+impl ::core::fmt::Debug for IInstallationCompletedCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInstallationCompletedCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInstallationCompletedCallback {
     type Vtable = IInstallationCompletedCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45f4f6f3_d602_4f98_9a8a_3efa152ad2d3);
@@ -2601,6 +2696,11 @@ impl ::core::cmp::PartialEq for IInstallationCompletedCallbackArgs {
     }
 }
 impl ::core::cmp::Eq for IInstallationCompletedCallbackArgs {}
+impl ::core::fmt::Debug for IInstallationCompletedCallbackArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInstallationCompletedCallbackArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInstallationCompletedCallbackArgs {
     type Vtable = IInstallationCompletedCallbackArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x250e2106_8efb_4705_9653_ef13c581b6a1);
@@ -2731,6 +2831,11 @@ impl ::core::cmp::PartialEq for IInstallationJob {
     }
 }
 impl ::core::cmp::Eq for IInstallationJob {}
+impl ::core::fmt::Debug for IInstallationJob {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInstallationJob").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInstallationJob {
     type Vtable = IInstallationJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c209f0b_bad5_432a_9556_4699bed2638a);
@@ -2859,6 +2964,11 @@ impl ::core::cmp::PartialEq for IInstallationProgress {
     }
 }
 impl ::core::cmp::Eq for IInstallationProgress {}
+impl ::core::fmt::Debug for IInstallationProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInstallationProgress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInstallationProgress {
     type Vtable = IInstallationProgressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x345c8244_43a3_4e32_a368_65f073b76f36);
@@ -2922,6 +3032,11 @@ impl ::core::cmp::PartialEq for IInstallationProgressChangedCallback {
     }
 }
 impl ::core::cmp::Eq for IInstallationProgressChangedCallback {}
+impl ::core::fmt::Debug for IInstallationProgressChangedCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInstallationProgressChangedCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInstallationProgressChangedCallback {
     type Vtable = IInstallationProgressChangedCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe01402d5_f8da_43ba_a012_38894bd048f1);
@@ -3016,6 +3131,11 @@ impl ::core::cmp::PartialEq for IInstallationProgressChangedCallbackArgs {
     }
 }
 impl ::core::cmp::Eq for IInstallationProgressChangedCallbackArgs {}
+impl ::core::fmt::Debug for IInstallationProgressChangedCallbackArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInstallationProgressChangedCallbackArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInstallationProgressChangedCallbackArgs {
     type Vtable = IInstallationProgressChangedCallbackArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4f14e1e_689d_4218_a0b9_bc189c484a01);
@@ -3138,6 +3258,11 @@ impl ::core::cmp::PartialEq for IInstallationResult {
     }
 }
 impl ::core::cmp::Eq for IInstallationResult {}
+impl ::core::fmt::Debug for IInstallationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInstallationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInstallationResult {
     type Vtable = IInstallationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa43c56d6_7451_48d4_af96_b6cd2d0d9b7a);
@@ -3285,6 +3410,11 @@ impl ::core::cmp::PartialEq for IInvalidProductLicenseException {
     }
 }
 impl ::core::cmp::Eq for IInvalidProductLicenseException {}
+impl ::core::fmt::Debug for IInvalidProductLicenseException {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInvalidProductLicenseException").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInvalidProductLicenseException {
     type Vtable = IInvalidProductLicenseExceptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa37d00f5_7bb0_4953_b414_f9e98326f2e8);
@@ -3350,6 +3480,11 @@ impl ::core::cmp::PartialEq for ISearchCompletedCallback {
     }
 }
 impl ::core::cmp::Eq for ISearchCompletedCallback {}
+impl ::core::fmt::Debug for ISearchCompletedCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISearchCompletedCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISearchCompletedCallback {
     type Vtable = ISearchCompletedCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88aee058_d4b0_4725_a2f1_814a67ae964c);
@@ -3439,6 +3574,11 @@ impl ::core::cmp::PartialEq for ISearchCompletedCallbackArgs {
     }
 }
 impl ::core::cmp::Eq for ISearchCompletedCallbackArgs {}
+impl ::core::fmt::Debug for ISearchCompletedCallbackArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISearchCompletedCallbackArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISearchCompletedCallbackArgs {
     type Vtable = ISearchCompletedCallbackArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa700a634_2850_4c47_938a_9e4b6e5af9a6);
@@ -3559,6 +3699,11 @@ impl ::core::cmp::PartialEq for ISearchJob {
     }
 }
 impl ::core::cmp::Eq for ISearchJob {}
+impl ::core::fmt::Debug for ISearchJob {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISearchJob").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISearchJob {
     type Vtable = ISearchJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7366ea16_7a1a_4ea2_b042_973d3e9cd99b);
@@ -3685,6 +3830,11 @@ impl ::core::cmp::PartialEq for ISearchResult {
     }
 }
 impl ::core::cmp::Eq for ISearchResult {}
+impl ::core::fmt::Debug for ISearchResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISearchResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISearchResult {
     type Vtable = ISearchResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd40cff62_e08c_4498_941a_01e25f0fd33c);
@@ -3840,6 +3990,11 @@ impl ::core::cmp::PartialEq for IStringCollection {
     }
 }
 impl ::core::cmp::Eq for IStringCollection {}
+impl ::core::fmt::Debug for IStringCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStringCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IStringCollection {
     type Vtable = IStringCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeff90582_2ddc_480f_a06d_60f3fbc362c3);
@@ -3966,6 +4121,11 @@ impl ::core::cmp::PartialEq for ISystemInformation {
     }
 }
 impl ::core::cmp::Eq for ISystemInformation {}
+impl ::core::fmt::Debug for ISystemInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISystemInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISystemInformation {
     type Vtable = ISystemInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xade87bf7_7b56_4275_8fab_b9b0e591844b);
@@ -4304,6 +4464,11 @@ impl ::core::cmp::PartialEq for IUpdate {
     }
 }
 impl ::core::cmp::Eq for IUpdate {}
+impl ::core::fmt::Debug for IUpdate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdate {
     type Vtable = IUpdateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a92b07a_d821_4682_b423_5c805022cc4d);
@@ -4735,6 +4900,11 @@ impl ::core::cmp::PartialEq for IUpdate2 {
     }
 }
 impl ::core::cmp::Eq for IUpdate2 {}
+impl ::core::fmt::Debug for IUpdate2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdate2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdate2 {
     type Vtable = IUpdate2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x144fe9b0_d23d_4a8b_8634_fb4457533b7a);
@@ -5195,6 +5365,11 @@ impl ::core::cmp::PartialEq for IUpdate3 {
     }
 }
 impl ::core::cmp::Eq for IUpdate3 {}
+impl ::core::fmt::Debug for IUpdate3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdate3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdate3 {
     type Vtable = IUpdate3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x112eda6b_95b3_476f_9d90_aee82c6b8181);
@@ -5681,6 +5856,11 @@ impl ::core::cmp::PartialEq for IUpdate4 {
     }
 }
 impl ::core::cmp::Eq for IUpdate4 {}
+impl ::core::fmt::Debug for IUpdate4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdate4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdate4 {
     type Vtable = IUpdate4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27e94b0d_5139_49a2_9a61_93522dc54652);
@@ -6198,6 +6378,11 @@ impl ::core::cmp::PartialEq for IUpdate5 {
     }
 }
 impl ::core::cmp::Eq for IUpdate5 {}
+impl ::core::fmt::Debug for IUpdate5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdate5").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdate5 {
     type Vtable = IUpdate5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1c2f21a_d2f4_4902_b5c6_8a081c19a890);
@@ -6410,6 +6595,11 @@ impl ::core::cmp::PartialEq for IUpdateCollection {
     }
 }
 impl ::core::cmp::Eq for IUpdateCollection {}
+impl ::core::fmt::Debug for IUpdateCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateCollection {
     type Vtable = IUpdateCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07f7438c_7709_4ca5_b518_91279288134e);
@@ -6527,6 +6717,11 @@ impl ::core::cmp::PartialEq for IUpdateDownloadContent {
     }
 }
 impl ::core::cmp::Eq for IUpdateDownloadContent {}
+impl ::core::fmt::Debug for IUpdateDownloadContent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateDownloadContent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateDownloadContent {
     type Vtable = IUpdateDownloadContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54a2cb2d_9a0c_48b6_8a50_9abb69ee2d02);
@@ -6661,6 +6856,11 @@ impl ::core::cmp::PartialEq for IUpdateDownloadContent2 {
     }
 }
 impl ::core::cmp::Eq for IUpdateDownloadContent2 {}
+impl ::core::fmt::Debug for IUpdateDownloadContent2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateDownloadContent2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateDownloadContent2 {
     type Vtable = IUpdateDownloadContent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc97ad11b_f257_420b_9d9f_377f733f6f68);
@@ -6780,6 +6980,11 @@ impl ::core::cmp::PartialEq for IUpdateDownloadContentCollection {
     }
 }
 impl ::core::cmp::Eq for IUpdateDownloadContentCollection {}
+impl ::core::fmt::Debug for IUpdateDownloadContentCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateDownloadContentCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateDownloadContentCollection {
     type Vtable = IUpdateDownloadContentCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc5513c8_b3b8_4bf7_a4d4_361c0d8c88ba);
@@ -6894,6 +7099,11 @@ impl ::core::cmp::PartialEq for IUpdateDownloadResult {
     }
 }
 impl ::core::cmp::Eq for IUpdateDownloadResult {}
+impl ::core::fmt::Debug for IUpdateDownloadResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateDownloadResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateDownloadResult {
     type Vtable = IUpdateDownloadResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf99af76_b575_42ad_8aa4_33cbb5477af1);
@@ -7051,6 +7261,11 @@ impl ::core::cmp::PartialEq for IUpdateDownloader {
     }
 }
 impl ::core::cmp::Eq for IUpdateDownloader {}
+impl ::core::fmt::Debug for IUpdateDownloader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateDownloader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateDownloader {
     type Vtable = IUpdateDownloaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68f1c6f9_7ecc_4666_a464_247fe12496c3);
@@ -7182,6 +7397,11 @@ impl ::core::cmp::PartialEq for IUpdateException {
     }
 }
 impl ::core::cmp::Eq for IUpdateException {}
+impl ::core::fmt::Debug for IUpdateException {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateException").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateException {
     type Vtable = IUpdateExceptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa376dd5e_09d4_427f_af7c_fed5b6e1c1d6);
@@ -7302,6 +7522,11 @@ impl ::core::cmp::PartialEq for IUpdateExceptionCollection {
     }
 }
 impl ::core::cmp::Eq for IUpdateExceptionCollection {}
+impl ::core::fmt::Debug for IUpdateExceptionCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateExceptionCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateExceptionCollection {
     type Vtable = IUpdateExceptionCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x503626a3_8e14_4729_9355_0fe664bd2321);
@@ -7482,6 +7707,11 @@ impl ::core::cmp::PartialEq for IUpdateHistoryEntry {
     }
 }
 impl ::core::cmp::Eq for IUpdateHistoryEntry {}
+impl ::core::fmt::Debug for IUpdateHistoryEntry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateHistoryEntry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateHistoryEntry {
     type Vtable = IUpdateHistoryEntryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe56a644_af0e_4e0e_a311_c1d8e695cbff);
@@ -7704,6 +7934,11 @@ impl ::core::cmp::PartialEq for IUpdateHistoryEntry2 {
     }
 }
 impl ::core::cmp::Eq for IUpdateHistoryEntry2 {}
+impl ::core::fmt::Debug for IUpdateHistoryEntry2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateHistoryEntry2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateHistoryEntry2 {
     type Vtable = IUpdateHistoryEntry2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2bfb780_4539_4132_ab8c_0a8772013ab6);
@@ -7841,6 +8076,11 @@ impl ::core::cmp::PartialEq for IUpdateHistoryEntryCollection {
     }
 }
 impl ::core::cmp::Eq for IUpdateHistoryEntryCollection {}
+impl ::core::fmt::Debug for IUpdateHistoryEntryCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateHistoryEntryCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateHistoryEntryCollection {
     type Vtable = IUpdateHistoryEntryCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7f04f3c_a290_435b_aadf_a116c3357a5c);
@@ -7956,6 +8196,11 @@ impl ::core::cmp::PartialEq for IUpdateIdentity {
     }
 }
 impl ::core::cmp::Eq for IUpdateIdentity {}
+impl ::core::fmt::Debug for IUpdateIdentity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateIdentity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateIdentity {
     type Vtable = IUpdateIdentityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46297823_9940_4c09_aed9_cd3ea6d05968);
@@ -8075,6 +8320,11 @@ impl ::core::cmp::PartialEq for IUpdateInstallationResult {
     }
 }
 impl ::core::cmp::Eq for IUpdateInstallationResult {}
+impl ::core::fmt::Debug for IUpdateInstallationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateInstallationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateInstallationResult {
     type Vtable = IUpdateInstallationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd940f0f8_3cbb_4fd0_993f_471e7f2328ad);
@@ -8285,6 +8535,11 @@ impl ::core::cmp::PartialEq for IUpdateInstaller {
     }
 }
 impl ::core::cmp::Eq for IUpdateInstaller {}
+impl ::core::fmt::Debug for IUpdateInstaller {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateInstaller").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateInstaller {
     type Vtable = IUpdateInstallerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b929c68_ccdc_4226_96b1_8724600b54c2);
@@ -8549,6 +8804,11 @@ impl ::core::cmp::PartialEq for IUpdateInstaller2 {
     }
 }
 impl ::core::cmp::Eq for IUpdateInstaller2 {}
+impl ::core::fmt::Debug for IUpdateInstaller2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateInstaller2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateInstaller2 {
     type Vtable = IUpdateInstaller2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3442d4fe_224d_4cee_98cf_30e0c4d229e6);
@@ -8844,6 +9104,11 @@ impl ::core::cmp::PartialEq for IUpdateInstaller3 {
     }
 }
 impl ::core::cmp::Eq for IUpdateInstaller3 {}
+impl ::core::fmt::Debug for IUpdateInstaller3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateInstaller3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateInstaller3 {
     type Vtable = IUpdateInstaller3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16d11c35_099a_48d0_8338_5fae64047f8e);
@@ -9165,6 +9430,11 @@ impl ::core::cmp::PartialEq for IUpdateInstaller4 {
     }
 }
 impl ::core::cmp::Eq for IUpdateInstaller4 {}
+impl ::core::fmt::Debug for IUpdateInstaller4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateInstaller4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateInstaller4 {
     type Vtable = IUpdateInstaller4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef8208ea_2304_492d_9109_23813b0958e1);
@@ -9257,6 +9527,11 @@ impl ::core::cmp::PartialEq for IUpdateLockdown {
     }
 }
 impl ::core::cmp::Eq for IUpdateLockdown {}
+impl ::core::fmt::Debug for IUpdateLockdown {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateLockdown").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateLockdown {
     type Vtable = IUpdateLockdownVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa976c28d_75a1_42aa_94ae_8af8b872089a);
@@ -9437,6 +9712,11 @@ impl ::core::cmp::PartialEq for IUpdateSearcher {
     }
 }
 impl ::core::cmp::Eq for IUpdateSearcher {}
+impl ::core::fmt::Debug for IUpdateSearcher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateSearcher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateSearcher {
     type Vtable = IUpdateSearcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f45abf1_f9ae_4b95_a933_f0f66e5056ea);
@@ -9683,6 +9963,11 @@ impl ::core::cmp::PartialEq for IUpdateSearcher2 {
     }
 }
 impl ::core::cmp::Eq for IUpdateSearcher2 {}
+impl ::core::fmt::Debug for IUpdateSearcher2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateSearcher2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateSearcher2 {
     type Vtable = IUpdateSearcher2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cbdcb2d_1589_4beb_bd1c_3e582ff0add0);
@@ -9960,6 +10245,11 @@ impl ::core::cmp::PartialEq for IUpdateSearcher3 {
     }
 }
 impl ::core::cmp::Eq for IUpdateSearcher3 {}
+impl ::core::fmt::Debug for IUpdateSearcher3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateSearcher3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateSearcher3 {
     type Vtable = IUpdateSearcher3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04c6895d_eaf2_4034_97f3_311de9be413a);
@@ -10160,6 +10450,11 @@ impl ::core::cmp::PartialEq for IUpdateService {
     }
 }
 impl ::core::cmp::Eq for IUpdateService {}
+impl ::core::fmt::Debug for IUpdateService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateService").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateService {
     type Vtable = IUpdateServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76b3b17e_aed6_4da5_85f0_83587f81abe3);
@@ -10374,6 +10669,11 @@ impl ::core::cmp::PartialEq for IUpdateService2 {
     }
 }
 impl ::core::cmp::Eq for IUpdateService2 {}
+impl ::core::fmt::Debug for IUpdateService2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateService2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateService2 {
     type Vtable = IUpdateService2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1518b460_6518_4172_940f_c75883b24ceb);
@@ -10509,6 +10809,11 @@ impl ::core::cmp::PartialEq for IUpdateServiceCollection {
     }
 }
 impl ::core::cmp::Eq for IUpdateServiceCollection {}
+impl ::core::fmt::Debug for IUpdateServiceCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateServiceCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateServiceCollection {
     type Vtable = IUpdateServiceCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b0353aa_0e52_44ff_b8b0_1f7fa0437f88);
@@ -10650,6 +10955,11 @@ impl ::core::cmp::PartialEq for IUpdateServiceManager {
     }
 }
 impl ::core::cmp::Eq for IUpdateServiceManager {}
+impl ::core::fmt::Debug for IUpdateServiceManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateServiceManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateServiceManager {
     type Vtable = IUpdateServiceManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23857e3c_02ba_44a3_9423_b1c900805f37);
@@ -10844,6 +11154,11 @@ impl ::core::cmp::PartialEq for IUpdateServiceManager2 {
     }
 }
 impl ::core::cmp::Eq for IUpdateServiceManager2 {}
+impl ::core::fmt::Debug for IUpdateServiceManager2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateServiceManager2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateServiceManager2 {
     type Vtable = IUpdateServiceManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bb8531d_7e8d_424f_986c_a0b8f60a3e7b);
@@ -10987,6 +11302,11 @@ impl ::core::cmp::PartialEq for IUpdateServiceRegistration {
     }
 }
 impl ::core::cmp::Eq for IUpdateServiceRegistration {}
+impl ::core::fmt::Debug for IUpdateServiceRegistration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateServiceRegistration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateServiceRegistration {
     type Vtable = IUpdateServiceRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdde02280_12b3_4e0b_937b_6747f6acb286);
@@ -11133,6 +11453,11 @@ impl ::core::cmp::PartialEq for IUpdateSession {
     }
 }
 impl ::core::cmp::Eq for IUpdateSession {}
+impl ::core::fmt::Debug for IUpdateSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateSession {
     type Vtable = IUpdateSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x816858a4_260d_4260_933a_2585f1abc76b);
@@ -11313,6 +11638,11 @@ impl ::core::cmp::PartialEq for IUpdateSession2 {
     }
 }
 impl ::core::cmp::Eq for IUpdateSession2 {}
+impl ::core::fmt::Debug for IUpdateSession2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateSession2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateSession2 {
     type Vtable = IUpdateSession2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91caf7b0_eb23_49ed_9937_c52d817f46f7);
@@ -11526,6 +11856,11 @@ impl ::core::cmp::PartialEq for IUpdateSession3 {
     }
 }
 impl ::core::cmp::Eq for IUpdateSession3 {}
+impl ::core::fmt::Debug for IUpdateSession3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUpdateSession3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUpdateSession3 {
     type Vtable = IUpdateSession3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x918efd1e_b5d8_4c90_8540_aeb9bdc56f9d);
@@ -11711,6 +12046,11 @@ impl ::core::cmp::PartialEq for IWebProxy {
     }
 }
 impl ::core::cmp::Eq for IWebProxy {}
+impl ::core::fmt::Debug for IWebProxy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebProxy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWebProxy {
     type Vtable = IWebProxyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x174c81fe_aecd_4dae_b8a0_2c6318dd86a8);
@@ -12132,6 +12472,11 @@ impl ::core::cmp::PartialEq for IWindowsDriverUpdate {
     }
 }
 impl ::core::cmp::Eq for IWindowsDriverUpdate {}
+impl ::core::fmt::Debug for IWindowsDriverUpdate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowsDriverUpdate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowsDriverUpdate {
     type Vtable = IWindowsDriverUpdateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb383cd1a_5ce9_4504_9f63_764b1236f191);
@@ -12641,6 +12986,11 @@ impl ::core::cmp::PartialEq for IWindowsDriverUpdate2 {
     }
 }
 impl ::core::cmp::Eq for IWindowsDriverUpdate2 {}
+impl ::core::fmt::Debug for IWindowsDriverUpdate2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowsDriverUpdate2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowsDriverUpdate2 {
     type Vtable = IWindowsDriverUpdate2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x615c4269_7a48_43bd_96b7_bf6ca27d6c3e);
@@ -13179,6 +13529,11 @@ impl ::core::cmp::PartialEq for IWindowsDriverUpdate3 {
     }
 }
 impl ::core::cmp::Eq for IWindowsDriverUpdate3 {}
+impl ::core::fmt::Debug for IWindowsDriverUpdate3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowsDriverUpdate3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowsDriverUpdate3 {
     type Vtable = IWindowsDriverUpdate3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49ebd502_4a96_41bd_9e3e_4c5057f4250c);
@@ -13748,6 +14103,11 @@ impl ::core::cmp::PartialEq for IWindowsDriverUpdate4 {
     }
 }
 impl ::core::cmp::Eq for IWindowsDriverUpdate4 {}
+impl ::core::fmt::Debug for IWindowsDriverUpdate4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowsDriverUpdate4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowsDriverUpdate4 {
     type Vtable = IWindowsDriverUpdate4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x004c6a2b_0c19_4c69_9f5c_a269b2560db9);
@@ -14349,6 +14709,11 @@ impl ::core::cmp::PartialEq for IWindowsDriverUpdate5 {
     }
 }
 impl ::core::cmp::Eq for IWindowsDriverUpdate5 {}
+impl ::core::fmt::Debug for IWindowsDriverUpdate5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowsDriverUpdate5").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowsDriverUpdate5 {
     type Vtable = IWindowsDriverUpdate5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70cf5c82_8642_42bb_9dbc_0cfd263c6c4f);
@@ -14574,6 +14939,11 @@ impl ::core::cmp::PartialEq for IWindowsDriverUpdateEntry {
     }
 }
 impl ::core::cmp::Eq for IWindowsDriverUpdateEntry {}
+impl ::core::fmt::Debug for IWindowsDriverUpdateEntry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowsDriverUpdateEntry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowsDriverUpdateEntry {
     type Vtable = IWindowsDriverUpdateEntryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed8bfe40_a60b_42ea_9652_817dfcfa23ec);
@@ -14703,6 +15073,11 @@ impl ::core::cmp::PartialEq for IWindowsDriverUpdateEntryCollection {
     }
 }
 impl ::core::cmp::Eq for IWindowsDriverUpdateEntryCollection {}
+impl ::core::fmt::Debug for IWindowsDriverUpdateEntryCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowsDriverUpdateEntryCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowsDriverUpdateEntryCollection {
     type Vtable = IWindowsDriverUpdateEntryCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d521700_a372_4bef_828b_3d00c10adebd);
@@ -14813,6 +15188,11 @@ impl ::core::cmp::PartialEq for IWindowsUpdateAgentInfo {
     }
 }
 impl ::core::cmp::Eq for IWindowsUpdateAgentInfo {}
+impl ::core::fmt::Debug for IWindowsUpdateAgentInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowsUpdateAgentInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowsUpdateAgentInfo {
     type Vtable = IWindowsUpdateAgentInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85713fa1_7796_4fa2_be3b_e2d6124dd373);

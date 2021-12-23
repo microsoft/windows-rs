@@ -527,6 +527,11 @@ impl ::core::cmp::PartialEq for IRemoteSystemFilter {
     }
 }
 impl ::core::cmp::Eq for IRemoteSystemFilter {}
+impl ::core::fmt::Debug for IRemoteSystemFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRemoteSystemFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IRemoteSystemFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4a3ba9e4-99eb-45eb-ba16-0367728ff374}");
 }
@@ -1633,6 +1638,11 @@ impl ::core::cmp::PartialEq for RemoteSystem {
     }
 }
 impl ::core::cmp::Eq for RemoteSystem {}
+impl ::core::fmt::Debug for RemoteSystem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystem;{ed5838cd-1e10-4a8c-b4a6-4e5fd6f97721})");
 }
@@ -1709,6 +1719,11 @@ impl ::core::cmp::PartialEq for RemoteSystemAccessStatus {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemAccessStatus {}
+impl ::core::fmt::Debug for RemoteSystemAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemAccessStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemAccessStatus;i4)");
 }
@@ -1739,6 +1754,11 @@ impl ::core::cmp::PartialEq for RemoteSystemAddedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemAddedEventArgs {}
+impl ::core::fmt::Debug for RemoteSystemAddedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemAddedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemAddedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemAddedEventArgs;{8f39560f-e534-4697-8836-7abea151516e})");
 }
@@ -1864,6 +1884,11 @@ impl ::core::cmp::PartialEq for RemoteSystemApp {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemApp {}
+impl ::core::fmt::Debug for RemoteSystemApp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemApp").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemApp {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemApp;{80e5bcbd-d54d-41b1-9b16-6810a871ed4f})");
 }
@@ -1977,6 +2002,11 @@ impl ::core::cmp::PartialEq for RemoteSystemAppRegistration {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemAppRegistration {}
+impl ::core::fmt::Debug for RemoteSystemAppRegistration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemAppRegistration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemAppRegistration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemAppRegistration;{b47947b5-7035-4a5a-b8df-962d8f8431f4})");
 }
@@ -2051,6 +2081,11 @@ impl ::core::cmp::PartialEq for RemoteSystemAuthorizationKind {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemAuthorizationKind {}
+impl ::core::fmt::Debug for RemoteSystemAuthorizationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemAuthorizationKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemAuthorizationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemAuthorizationKind;i4)");
 }
@@ -2093,6 +2128,11 @@ impl ::core::cmp::PartialEq for RemoteSystemAuthorizationKindFilter {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemAuthorizationKindFilter {}
+impl ::core::fmt::Debug for RemoteSystemAuthorizationKindFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemAuthorizationKindFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemAuthorizationKindFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemAuthorizationKindFilter;{6b0dde8e-04d0-40f4-a27f-c2acbbd6b734})");
 }
@@ -2204,6 +2244,11 @@ impl ::core::cmp::PartialEq for RemoteSystemConnectionInfo {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemConnectionInfo {}
+impl ::core::fmt::Debug for RemoteSystemConnectionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemConnectionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemConnectionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemConnectionInfo;{23278bc3-0d09-52cb-9c6a-eed2940bee43})");
 }
@@ -2339,6 +2384,11 @@ impl ::core::cmp::PartialEq for RemoteSystemConnectionRequest {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemConnectionRequest {}
+impl ::core::fmt::Debug for RemoteSystemConnectionRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemConnectionRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemConnectionRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemConnectionRequest;{84ed4104-8d5e-4d72-8238-7621576c7a67})");
 }
@@ -2415,6 +2465,11 @@ impl ::core::cmp::PartialEq for RemoteSystemDiscoveryType {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemDiscoveryType {}
+impl ::core::fmt::Debug for RemoteSystemDiscoveryType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemDiscoveryType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemDiscoveryType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemDiscoveryType;i4)");
 }
@@ -2457,6 +2512,11 @@ impl ::core::cmp::PartialEq for RemoteSystemDiscoveryTypeFilter {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemDiscoveryTypeFilter {}
+impl ::core::fmt::Debug for RemoteSystemDiscoveryTypeFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemDiscoveryTypeFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemDiscoveryTypeFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemDiscoveryTypeFilter;{42d9041f-ee5a-43da-ac6a-6fee25460741})");
 }
@@ -2546,6 +2606,11 @@ impl ::core::cmp::PartialEq for RemoteSystemEnumerationCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemEnumerationCompletedEventArgs {}
+impl ::core::fmt::Debug for RemoteSystemEnumerationCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemEnumerationCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemEnumerationCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemEnumerationCompletedEventArgs;{c6e83d5f-4030-4354-a060-14f1b22c545d})");
 }
@@ -2636,6 +2701,11 @@ impl ::core::cmp::PartialEq for RemoteSystemKindFilter {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemKindFilter {}
+impl ::core::fmt::Debug for RemoteSystemKindFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemKindFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemKindFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemKindFilter;{38e1c9ec-22c3-4ef6-901a-bbb1c7aad4ed})");
 }
@@ -2808,6 +2878,11 @@ impl ::core::cmp::PartialEq for RemoteSystemPlatform {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemPlatform {}
+impl ::core::fmt::Debug for RemoteSystemPlatform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemPlatform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemPlatform {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemPlatform;i4)");
 }
@@ -2838,6 +2913,11 @@ impl ::core::cmp::PartialEq for RemoteSystemRemovedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemRemovedEventArgs {}
+impl ::core::fmt::Debug for RemoteSystemRemovedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemRemovedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemRemovedEventArgs;{8b3d16bb-7306-49ea-b7df-67d5714cb013})");
 }
@@ -2980,6 +3060,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSession {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSession {}
+impl ::core::fmt::Debug for RemoteSystemSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSession;{69476a01-9ada-490f-9549-d31cb14c9e95})");
 }
@@ -3082,6 +3167,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionAddedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionAddedEventArgs {}
+impl ::core::fmt::Debug for RemoteSystemSessionAddedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionAddedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionAddedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionAddedEventArgs;{d585d754-bc97-4c39-99b4-beca76e04c3f})");
 }
@@ -3202,6 +3292,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionController {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionController {}
+impl ::core::fmt::Debug for RemoteSystemSessionController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionController;{e48b2dd2-6820-4867-b425-d89c0a3ef7ba})");
 }
@@ -3286,6 +3381,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionCreationResult {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionCreationResult {}
+impl ::core::fmt::Debug for RemoteSystemSessionCreationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionCreationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionCreationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionCreationResult;{a79812c2-37de-448c-8b83-a30aa3c4ead6})");
 }
@@ -3361,6 +3461,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionCreationStatus {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionCreationStatus {}
+impl ::core::fmt::Debug for RemoteSystemSessionCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionCreationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionCreationStatus;i4)");
 }
@@ -3391,6 +3496,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionDisconnectedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionDisconnectedEventArgs {}
+impl ::core::fmt::Debug for RemoteSystemSessionDisconnectedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionDisconnectedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionDisconnectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionDisconnectedEventArgs;{de0bc69b-77c5-461c-8209-7c6c5d3111ab})");
 }
@@ -3466,6 +3576,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionDisconnectedReason {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionDisconnectedReason {}
+impl ::core::fmt::Debug for RemoteSystemSessionDisconnectedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionDisconnectedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionDisconnectedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionDisconnectedReason;i4)");
 }
@@ -3513,6 +3628,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionInfo {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionInfo {}
+impl ::core::fmt::Debug for RemoteSystemSessionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionInfo;{ff4df648-8b0a-4e9a-9905-69e4b841c588})");
 }
@@ -3597,6 +3717,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionInvitation {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionInvitation {}
+impl ::core::fmt::Debug for RemoteSystemSessionInvitation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionInvitation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionInvitation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionInvitation;{3e32cc91-51d7-4766-a121-25516c3b8294})");
 }
@@ -3687,6 +3812,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionInvitationListener {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionInvitationListener {}
+impl ::core::fmt::Debug for RemoteSystemSessionInvitationListener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionInvitationListener").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionInvitationListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionInvitationListener;{08f4003f-bc71-49e1-874a-31ddff9a27b9})");
 }
@@ -3763,6 +3893,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionInvitationReceivedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionInvitationReceivedEventArgs {}
+impl ::core::fmt::Debug for RemoteSystemSessionInvitationReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionInvitationReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionInvitationReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionInvitationReceivedEventArgs;{5e964a2d-a10d-4edb-8dea-54d20ac19543})");
 }
@@ -3844,6 +3979,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionJoinRequest {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionJoinRequest {}
+impl ::core::fmt::Debug for RemoteSystemSessionJoinRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionJoinRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionJoinRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionJoinRequest;{20600068-7994-4331-86d1-d89d882585ee})");
 }
@@ -3929,6 +4069,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionJoinRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionJoinRequestedEventArgs {}
+impl ::core::fmt::Debug for RemoteSystemSessionJoinRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionJoinRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionJoinRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionJoinRequestedEventArgs;{dbca4fc3-82b9-4816-9c24-e40e61774bd8})");
 }
@@ -4013,6 +4158,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionJoinResult {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionJoinResult {}
+impl ::core::fmt::Debug for RemoteSystemSessionJoinResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionJoinResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionJoinResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionJoinResult;{ce7b1f04-a03e-41a4-900b-1e79328c1267})");
 }
@@ -4090,6 +4240,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionJoinStatus {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionJoinStatus {}
+impl ::core::fmt::Debug for RemoteSystemSessionJoinStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionJoinStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionJoinStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionJoinStatus;i4)");
 }
@@ -4181,6 +4336,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionMessageChannel {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionMessageChannel {}
+impl ::core::fmt::Debug for RemoteSystemSessionMessageChannel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionMessageChannel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionMessageChannel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionMessageChannel;{9524d12a-73d9-4c10-b751-c26784437127})");
 }
@@ -4255,6 +4415,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionMessageChannelReliability {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionMessageChannelReliability {}
+impl ::core::fmt::Debug for RemoteSystemSessionMessageChannelReliability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionMessageChannelReliability").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionMessageChannelReliability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionMessageChannelReliability;i4)");
 }
@@ -4297,6 +4462,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionOptions {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionOptions {}
+impl ::core::fmt::Debug for RemoteSystemSessionOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionOptions;{740ed755-8418-4f01-9353-e21c9ecc6cfc})");
 }
@@ -4382,6 +4552,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionParticipant {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionParticipant {}
+impl ::core::fmt::Debug for RemoteSystemSessionParticipant {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionParticipant").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionParticipant {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionParticipant;{7e90058c-acf9-4729-8a17-44e7baed5dcc})");
 }
@@ -4458,6 +4633,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionParticipantAddedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionParticipantAddedEventArgs {}
+impl ::core::fmt::Debug for RemoteSystemSessionParticipantAddedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionParticipantAddedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionParticipantAddedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionParticipantAddedEventArgs;{d35a57d8-c9a1-4bb7-b6b0-79bb91adf93d})");
 }
@@ -4534,6 +4714,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionParticipantRemovedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionParticipantRemovedEventArgs {}
+impl ::core::fmt::Debug for RemoteSystemSessionParticipantRemovedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionParticipantRemovedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionParticipantRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionParticipantRemovedEventArgs;{866ef088-de68-4abf-88a1-f90d16274192})");
 }
@@ -4665,6 +4850,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionParticipantWatcher {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionParticipantWatcher {}
+impl ::core::fmt::Debug for RemoteSystemSessionParticipantWatcher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionParticipantWatcher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionParticipantWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionParticipantWatcher;{dcdd02cc-aa87-4d79-b6cc-4459b3e92075})");
 }
@@ -4743,6 +4933,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionParticipantWatcherStatus {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionParticipantWatcherStatus {}
+impl ::core::fmt::Debug for RemoteSystemSessionParticipantWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionParticipantWatcherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionParticipantWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionParticipantWatcherStatus;i4)");
 }
@@ -4773,6 +4968,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionRemovedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionRemovedEventArgs {}
+impl ::core::fmt::Debug for RemoteSystemSessionRemovedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionRemovedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionRemovedEventArgs;{af82914e-39a1-4dea-9d63-43798d5bbbd0})");
 }
@@ -4849,6 +5049,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionUpdatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionUpdatedEventArgs {}
+impl ::core::fmt::Debug for RemoteSystemSessionUpdatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionUpdatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionUpdatedEventArgs;{16875069-231e-4c91-8ec8-b3a39d9e55a3})");
 }
@@ -4934,6 +5139,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionValueSetReceivedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionValueSetReceivedEventArgs {}
+impl ::core::fmt::Debug for RemoteSystemSessionValueSetReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionValueSetReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionValueSetReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionValueSetReceivedEventArgs;{06f31785-2da5-4e58-a78f-9e8d0784ee25})");
 }
@@ -5065,6 +5275,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionWatcher {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionWatcher {}
+impl ::core::fmt::Debug for RemoteSystemSessionWatcher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionWatcher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionWatcher;{8003e340-0c41-4a62-b6d7-bdbe2b19be2d})");
 }
@@ -5143,6 +5358,11 @@ impl ::core::cmp::PartialEq for RemoteSystemSessionWatcherStatus {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemSessionWatcherStatus {}
+impl ::core::fmt::Debug for RemoteSystemSessionWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionWatcherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionWatcherStatus;i4)");
 }
@@ -5173,6 +5393,11 @@ impl ::core::cmp::PartialEq for RemoteSystemStatus {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemStatus {}
+impl ::core::fmt::Debug for RemoteSystemStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemStatus;i4)");
 }
@@ -5201,6 +5426,11 @@ impl ::core::cmp::PartialEq for RemoteSystemStatusType {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemStatusType {}
+impl ::core::fmt::Debug for RemoteSystemStatusType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemStatusType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemStatusType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemStatusType;i4)");
 }
@@ -5243,6 +5473,11 @@ impl ::core::cmp::PartialEq for RemoteSystemStatusTypeFilter {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemStatusTypeFilter {}
+impl ::core::fmt::Debug for RemoteSystemStatusTypeFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemStatusTypeFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemStatusTypeFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemStatusTypeFilter;{0c39514e-cbb6-4777-8534-2e0c521affa2})");
 }
@@ -5341,6 +5576,11 @@ impl ::core::cmp::PartialEq for RemoteSystemUpdatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemUpdatedEventArgs {}
+impl ::core::fmt::Debug for RemoteSystemUpdatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemUpdatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemUpdatedEventArgs;{7502ff0e-dbcb-4155-b4ca-b30a04f27627})");
 }
@@ -5502,6 +5742,11 @@ impl ::core::cmp::PartialEq for RemoteSystemWatcher {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemWatcher {}
+impl ::core::fmt::Debug for RemoteSystemWatcher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemWatcher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemWatcher;{5d600c7e-2c07-48c5-889c-455d2b099771})");
 }
@@ -5577,6 +5822,11 @@ impl ::core::cmp::PartialEq for RemoteSystemWatcherError {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemWatcherError {}
+impl ::core::fmt::Debug for RemoteSystemWatcherError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemWatcherError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemWatcherError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemWatcherError;i4)");
 }
@@ -5607,6 +5857,11 @@ impl ::core::cmp::PartialEq for RemoteSystemWatcherErrorOccurredEventArgs {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemWatcherErrorOccurredEventArgs {}
+impl ::core::fmt::Debug for RemoteSystemWatcherErrorOccurredEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemWatcherErrorOccurredEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemWatcherErrorOccurredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemWatcherErrorOccurredEventArgs;{74c5c6af-5114-4426-9216-20d81f8519ae})");
 }
@@ -5697,6 +5952,11 @@ impl ::core::cmp::PartialEq for RemoteSystemWebAccountFilter {
     }
 }
 impl ::core::cmp::Eq for RemoteSystemWebAccountFilter {}
+impl ::core::fmt::Debug for RemoteSystemWebAccountFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemWebAccountFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemWebAccountFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemWebAccountFilter;{3fb75873-87c8-5d8f-977e-f69f96d67238})");
 }

@@ -184,6 +184,11 @@ impl ::core::clone::Clone for INPUT_MESSAGE_SOURCE {
         *self
     }
 }
+impl ::core::fmt::Debug for INPUT_MESSAGE_SOURCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INPUT_MESSAGE_SOURCE").field("deviceType", &self.deviceType).field("originId", &self.originId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for INPUT_MESSAGE_SOURCE {
     type Abi = Self;
 }
@@ -209,6 +214,11 @@ impl ::core::marker::Copy for RAWHID {}
 impl ::core::clone::Clone for RAWHID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RAWHID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RAWHID").field("dwSizeHid", &self.dwSizeHid).field("dwCount", &self.dwCount).field("bRawData", &self.bRawData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RAWHID {
@@ -310,6 +320,12 @@ impl ::core::clone::Clone for RAWINPUTDEVICE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RAWINPUTDEVICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RAWINPUTDEVICE").field("usUsagePage", &self.usUsagePage).field("usUsage", &self.usUsage).field("dwFlags", &self.dwFlags).field("hwndTarget", &self.hwndTarget).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RAWINPUTDEVICE {
     type Abi = Self;
 }
@@ -340,6 +356,12 @@ impl ::core::marker::Copy for RAWINPUTDEVICELIST {}
 impl ::core::clone::Clone for RAWINPUTDEVICELIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RAWINPUTDEVICELIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RAWINPUTDEVICELIST").field("hDevice", &self.hDevice).field("dwType", &self.dwType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -400,6 +422,12 @@ impl ::core::clone::Clone for RAWINPUTHEADER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RAWINPUTHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RAWINPUTHEADER").field("dwType", &self.dwType).field("dwSize", &self.dwSize).field("hDevice", &self.hDevice).field("wParam", &self.wParam).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RAWINPUTHEADER {
     type Abi = Self;
 }
@@ -431,6 +459,11 @@ impl ::core::marker::Copy for RAWKEYBOARD {}
 impl ::core::clone::Clone for RAWKEYBOARD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RAWKEYBOARD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RAWKEYBOARD").field("MakeCode", &self.MakeCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("VKey", &self.VKey).field("Message", &self.Message).field("ExtraInformation", &self.ExtraInformation).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RAWKEYBOARD {
@@ -513,6 +546,11 @@ impl ::core::marker::Copy for RAWMOUSE_0_0 {}
 impl ::core::clone::Clone for RAWMOUSE_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RAWMOUSE_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RAWMOUSE_0_0").field("usButtonFlags", &self.usButtonFlags).field("usButtonData", &self.usButtonData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RAWMOUSE_0_0 {
@@ -626,6 +664,11 @@ impl ::core::clone::Clone for RID_DEVICE_INFO_HID {
         *self
     }
 }
+impl ::core::fmt::Debug for RID_DEVICE_INFO_HID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RID_DEVICE_INFO_HID").field("dwVendorId", &self.dwVendorId).field("dwProductId", &self.dwProductId).field("dwVersionNumber", &self.dwVersionNumber).field("usUsagePage", &self.usUsagePage).field("usUsage", &self.usUsage).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RID_DEVICE_INFO_HID {
     type Abi = Self;
 }
@@ -654,6 +697,11 @@ impl ::core::marker::Copy for RID_DEVICE_INFO_KEYBOARD {}
 impl ::core::clone::Clone for RID_DEVICE_INFO_KEYBOARD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RID_DEVICE_INFO_KEYBOARD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RID_DEVICE_INFO_KEYBOARD").field("dwType", &self.dwType).field("dwSubType", &self.dwSubType).field("dwKeyboardMode", &self.dwKeyboardMode).field("dwNumberOfFunctionKeys", &self.dwNumberOfFunctionKeys).field("dwNumberOfIndicators", &self.dwNumberOfIndicators).field("dwNumberOfKeysTotal", &self.dwNumberOfKeysTotal).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RID_DEVICE_INFO_KEYBOARD {
@@ -685,6 +733,12 @@ impl ::core::marker::Copy for RID_DEVICE_INFO_MOUSE {}
 impl ::core::clone::Clone for RID_DEVICE_INFO_MOUSE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RID_DEVICE_INFO_MOUSE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RID_DEVICE_INFO_MOUSE").field("dwId", &self.dwId).field("dwNumberOfButtons", &self.dwNumberOfButtons).field("dwSampleRate", &self.dwSampleRate).field("fHasHorizontalWheel", &self.fHasHorizontalWheel).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

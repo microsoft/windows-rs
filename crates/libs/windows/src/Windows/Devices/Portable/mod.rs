@@ -91,6 +91,11 @@ impl ::core::cmp::PartialEq for ServiceDeviceType {
     }
 }
 impl ::core::cmp::Eq for ServiceDeviceType {}
+impl ::core::fmt::Debug for ServiceDeviceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ServiceDeviceType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ServiceDeviceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Portable.ServiceDeviceType;i4)");
 }

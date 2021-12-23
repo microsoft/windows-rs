@@ -24,6 +24,11 @@ impl ::core::cmp::PartialEq for AccessCacheOptions {
     }
 }
 impl ::core::cmp::Eq for AccessCacheOptions {}
+impl ::core::fmt::Debug for AccessCacheOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccessCacheOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AccessCacheOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.AccessCache.AccessCacheOptions;u4)");
 }
@@ -39,6 +44,11 @@ pub struct AccessListEntry {
 impl ::core::clone::Clone for AccessListEntry {
     fn clone(&self) -> Self {
         Self { Token: self.Token.clone(), Metadata: self.Metadata.clone() }
+    }
+}
+impl ::core::fmt::Debug for AccessListEntry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AccessListEntry").field("Token", &self.Token).field("Metadata", &self.Metadata).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AccessListEntry {
@@ -127,6 +137,12 @@ impl ::core::cmp::PartialEq for AccessListEntryView {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for AccessListEntryView {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for AccessListEntryView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccessListEntryView").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for AccessListEntryView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.AccessListEntryView;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};struct(Windows.Storage.AccessCache.AccessListEntry;string;string)))");
@@ -493,6 +509,11 @@ impl ::core::cmp::PartialEq for IStorageItemAccessList {
     }
 }
 impl ::core::cmp::Eq for IStorageItemAccessList {}
+impl ::core::fmt::Debug for IStorageItemAccessList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageItemAccessList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStorageItemAccessList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2caff6ad-de90-47f5-b2c3-dd36c9fdd453}");
 }
@@ -597,6 +618,11 @@ impl ::core::cmp::PartialEq for ItemRemovedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ItemRemovedEventArgs {}
+impl ::core::fmt::Debug for ItemRemovedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ItemRemovedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ItemRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.ItemRemovedEventArgs;{59677e5c-55be-4c66-ba66-5eaea79d2631})");
 }
@@ -669,6 +695,11 @@ impl ::core::cmp::PartialEq for RecentStorageItemVisibility {
     }
 }
 impl ::core::cmp::Eq for RecentStorageItemVisibility {}
+impl ::core::fmt::Debug for RecentStorageItemVisibility {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RecentStorageItemVisibility").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RecentStorageItemVisibility {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.AccessCache.RecentStorageItemVisibility;i4)");
 }
@@ -861,6 +892,11 @@ impl ::core::cmp::PartialEq for StorageItemAccessList {
     }
 }
 impl ::core::cmp::Eq for StorageItemAccessList {}
+impl ::core::fmt::Debug for StorageItemAccessList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageItemAccessList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageItemAccessList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.StorageItemAccessList;{2caff6ad-de90-47f5-b2c3-dd36c9fdd453})");
 }
@@ -1100,6 +1136,11 @@ impl ::core::cmp::PartialEq for StorageItemMostRecentlyUsedList {
     }
 }
 impl ::core::cmp::Eq for StorageItemMostRecentlyUsedList {}
+impl ::core::fmt::Debug for StorageItemMostRecentlyUsedList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageItemMostRecentlyUsedList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageItemMostRecentlyUsedList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.StorageItemMostRecentlyUsedList;{016239d5-510d-411e-8cf1-c3d1effa4c33})");
 }

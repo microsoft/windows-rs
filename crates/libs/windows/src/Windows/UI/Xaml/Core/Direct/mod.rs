@@ -139,6 +139,11 @@ impl ::core::cmp::PartialEq for IXamlDirectObject {
     }
 }
 impl ::core::cmp::Eq for IXamlDirectObject {}
+impl ::core::fmt::Debug for IXamlDirectObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXamlDirectObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IXamlDirectObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{10614a82-cee4-4645-ba25-d071ce778355}");
 }
@@ -553,6 +558,11 @@ impl ::core::cmp::PartialEq for XamlDirect {
     }
 }
 impl ::core::cmp::Eq for XamlDirect {}
+impl ::core::fmt::Debug for XamlDirect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XamlDirect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XamlDirect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Core.Direct.XamlDirect;{5ffa1295-add2-590f-a051-70989b866ade})");
 }
@@ -763,6 +773,11 @@ impl ::core::cmp::PartialEq for XamlEventIndex {
     }
 }
 impl ::core::cmp::Eq for XamlEventIndex {}
+impl ::core::fmt::Debug for XamlEventIndex {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XamlEventIndex").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XamlEventIndex {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Core.Direct.XamlEventIndex;i4)");
 }
@@ -2458,6 +2473,11 @@ impl ::core::cmp::PartialEq for XamlPropertyIndex {
     }
 }
 impl ::core::cmp::Eq for XamlPropertyIndex {}
+impl ::core::fmt::Debug for XamlPropertyIndex {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XamlPropertyIndex").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XamlPropertyIndex {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Core.Direct.XamlPropertyIndex;i4)");
 }
@@ -2734,6 +2754,11 @@ impl ::core::cmp::PartialEq for XamlTypeIndex {
     }
 }
 impl ::core::cmp::Eq for XamlTypeIndex {}
+impl ::core::fmt::Debug for XamlTypeIndex {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XamlTypeIndex").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XamlTypeIndex {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Core.Direct.XamlTypeIndex;i4)");
 }

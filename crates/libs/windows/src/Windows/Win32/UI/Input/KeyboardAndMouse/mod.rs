@@ -74,6 +74,11 @@ impl ::core::clone::Clone for DEADKEY {
         *self
     }
 }
+impl ::core::fmt::Debug for DEADKEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEADKEY").field("dwBoth", &self.dwBoth).field("wchComposed", &self.wchComposed).field("uFlags", &self.uFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DEADKEY {
     type Abi = Self;
 }
@@ -418,6 +423,11 @@ impl ::core::clone::Clone for HARDWAREINPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for HARDWAREINPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HARDWAREINPUT").field("uMsg", &self.uMsg).field("wParamL", &self.wParamL).field("wParamH", &self.wParamH).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HARDWAREINPUT {
     type Abi = Self;
 }
@@ -595,6 +605,11 @@ impl ::core::clone::Clone for KBDTABLE_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for KBDTABLE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KBDTABLE_DESC").field("wszDllName", &self.wszDllName).field("dwType", &self.dwType).field("dwSubType", &self.dwSubType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for KBDTABLE_DESC {
     type Abi = Self;
 }
@@ -619,6 +634,11 @@ impl ::core::marker::Copy for KBDTABLE_MULTI {}
 impl ::core::clone::Clone for KBDTABLE_MULTI {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for KBDTABLE_MULTI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KBDTABLE_MULTI").field("nTables", &self.nTables).field("aKbdTables", &self.aKbdTables).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KBDTABLE_MULTI {
@@ -652,6 +672,11 @@ impl ::core::clone::Clone for KBD_TYPE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for KBD_TYPE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KBD_TYPE_INFO").field("dwVersion", &self.dwVersion).field("dwType", &self.dwType).field("dwSubType", &self.dwSubType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for KBD_TYPE_INFO {
     type Abi = Self;
 }
@@ -681,6 +706,11 @@ impl ::core::marker::Copy for KEYBDINPUT {}
 impl ::core::clone::Clone for KEYBDINPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for KEYBDINPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KEYBDINPUT").field("wVk", &self.wVk).field("wScan", &self.wScan).field("dwFlags", &self.dwFlags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KEYBDINPUT {
@@ -735,6 +765,11 @@ impl ::core::clone::Clone for LASTINPUTINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for LASTINPUTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LASTINPUTINFO").field("cbSize", &self.cbSize).field("dwTime", &self.dwTime).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LASTINPUTINFO {
     type Abi = Self;
 }
@@ -760,6 +795,11 @@ impl ::core::marker::Copy for LIGATURE1 {}
 impl ::core::clone::Clone for LIGATURE1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LIGATURE1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LIGATURE1").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LIGATURE1 {
@@ -789,6 +829,11 @@ impl ::core::clone::Clone for LIGATURE2 {
         *self
     }
 }
+impl ::core::fmt::Debug for LIGATURE2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LIGATURE2").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LIGATURE2 {
     type Abi = Self;
 }
@@ -814,6 +859,11 @@ impl ::core::marker::Copy for LIGATURE3 {}
 impl ::core::clone::Clone for LIGATURE3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LIGATURE3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LIGATURE3").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LIGATURE3 {
@@ -843,6 +893,11 @@ impl ::core::clone::Clone for LIGATURE4 {
         *self
     }
 }
+impl ::core::fmt::Debug for LIGATURE4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LIGATURE4").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LIGATURE4 {
     type Abi = Self;
 }
@@ -868,6 +923,11 @@ impl ::core::marker::Copy for LIGATURE5 {}
 impl ::core::clone::Clone for LIGATURE5 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LIGATURE5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LIGATURE5").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LIGATURE5 {
@@ -949,6 +1009,11 @@ impl ::core::clone::Clone for MODIFIERS {
         *self
     }
 }
+impl ::core::fmt::Debug for MODIFIERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MODIFIERS").field("pVkToBit", &self.pVkToBit).field("wMaxModBits", &self.wMaxModBits).field("ModNumber", &self.ModNumber).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MODIFIERS {
     type Abi = Self;
 }
@@ -979,6 +1044,11 @@ impl ::core::clone::Clone for MOUSEINPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for MOUSEINPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MOUSEINPUT").field("dx", &self.dx).field("dy", &self.dy).field("mouseData", &self.mouseData).field("dwFlags", &self.dwFlags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MOUSEINPUT {
     type Abi = Self;
 }
@@ -1005,6 +1075,11 @@ impl ::core::marker::Copy for MOUSEMOVEPOINT {}
 impl ::core::clone::Clone for MOUSEMOVEPOINT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MOUSEMOVEPOINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MOUSEMOVEPOINT").field("x", &self.x).field("y", &self.y).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MOUSEMOVEPOINT {
@@ -1344,6 +1419,12 @@ impl ::core::marker::Copy for TRACKMOUSEEVENT {}
 impl ::core::clone::Clone for TRACKMOUSEEVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TRACKMOUSEEVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACKMOUSEEVENT").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("hwndTrack", &self.hwndTrack).field("dwHoverTime", &self.dwHoverTime).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1988,6 +2069,11 @@ impl ::core::clone::Clone for VK_TO_BIT {
         *self
     }
 }
+impl ::core::fmt::Debug for VK_TO_BIT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VK_TO_BIT").field("Vk", &self.Vk).field("ModBits", &self.ModBits).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VK_TO_BIT {
     type Abi = Self;
 }
@@ -2013,6 +2099,11 @@ impl ::core::marker::Copy for VK_TO_WCHARS1 {}
 impl ::core::clone::Clone for VK_TO_WCHARS1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VK_TO_WCHARS1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VK_TO_WCHARS1").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VK_TO_WCHARS1 {
@@ -2042,6 +2133,11 @@ impl ::core::clone::Clone for VK_TO_WCHARS10 {
         *self
     }
 }
+impl ::core::fmt::Debug for VK_TO_WCHARS10 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VK_TO_WCHARS10").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VK_TO_WCHARS10 {
     type Abi = Self;
 }
@@ -2067,6 +2163,11 @@ impl ::core::marker::Copy for VK_TO_WCHARS2 {}
 impl ::core::clone::Clone for VK_TO_WCHARS2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VK_TO_WCHARS2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VK_TO_WCHARS2").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VK_TO_WCHARS2 {
@@ -2096,6 +2197,11 @@ impl ::core::clone::Clone for VK_TO_WCHARS3 {
         *self
     }
 }
+impl ::core::fmt::Debug for VK_TO_WCHARS3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VK_TO_WCHARS3").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VK_TO_WCHARS3 {
     type Abi = Self;
 }
@@ -2121,6 +2227,11 @@ impl ::core::marker::Copy for VK_TO_WCHARS4 {}
 impl ::core::clone::Clone for VK_TO_WCHARS4 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VK_TO_WCHARS4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VK_TO_WCHARS4").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VK_TO_WCHARS4 {
@@ -2150,6 +2261,11 @@ impl ::core::clone::Clone for VK_TO_WCHARS5 {
         *self
     }
 }
+impl ::core::fmt::Debug for VK_TO_WCHARS5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VK_TO_WCHARS5").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VK_TO_WCHARS5 {
     type Abi = Self;
 }
@@ -2175,6 +2291,11 @@ impl ::core::marker::Copy for VK_TO_WCHARS6 {}
 impl ::core::clone::Clone for VK_TO_WCHARS6 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VK_TO_WCHARS6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VK_TO_WCHARS6").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VK_TO_WCHARS6 {
@@ -2204,6 +2325,11 @@ impl ::core::clone::Clone for VK_TO_WCHARS7 {
         *self
     }
 }
+impl ::core::fmt::Debug for VK_TO_WCHARS7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VK_TO_WCHARS7").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VK_TO_WCHARS7 {
     type Abi = Self;
 }
@@ -2229,6 +2355,11 @@ impl ::core::marker::Copy for VK_TO_WCHARS8 {}
 impl ::core::clone::Clone for VK_TO_WCHARS8 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VK_TO_WCHARS8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VK_TO_WCHARS8").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VK_TO_WCHARS8 {
@@ -2258,6 +2389,11 @@ impl ::core::clone::Clone for VK_TO_WCHARS9 {
         *self
     }
 }
+impl ::core::fmt::Debug for VK_TO_WCHARS9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VK_TO_WCHARS9").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VK_TO_WCHARS9 {
     type Abi = Self;
 }
@@ -2285,6 +2421,11 @@ impl ::core::clone::Clone for VK_TO_WCHAR_TABLE {
         *self
     }
 }
+impl ::core::fmt::Debug for VK_TO_WCHAR_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VK_TO_WCHAR_TABLE").field("pVkToWchars", &self.pVkToWchars).field("nModifications", &self.nModifications).field("cbSize", &self.cbSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VK_TO_WCHAR_TABLE {
     type Abi = Self;
 }
@@ -2309,6 +2450,11 @@ impl ::core::marker::Copy for VK_VSC {}
 impl ::core::clone::Clone for VK_VSC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VK_VSC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VK_VSC").field("Vk", &self.Vk).field("Vsc", &self.Vsc).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VK_VSC {
@@ -2343,6 +2489,12 @@ impl ::core::clone::Clone for VSC_LPWSTR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VSC_LPWSTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSC_LPWSTR").field("vsc", &self.vsc).field("pwsz", &self.pwsz).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for VSC_LPWSTR {
     type Abi = Self;
 }
@@ -2370,6 +2522,11 @@ impl ::core::marker::Copy for VSC_VK {}
 impl ::core::clone::Clone for VSC_VK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VSC_VK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSC_VK").field("Vsc", &self.Vsc).field("Vk", &self.Vk).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VSC_VK {
@@ -2478,6 +2635,11 @@ impl ::core::clone::Clone for _VK_FUNCTION_PARAM {
         *self
     }
 }
+impl ::core::fmt::Debug for _VK_FUNCTION_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_VK_FUNCTION_PARAM").field("NLSFEProcIndex", &self.NLSFEProcIndex).field("NLSFEProcParam", &self.NLSFEProcParam).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _VK_FUNCTION_PARAM {
     type Abi = Self;
 }
@@ -2506,6 +2668,11 @@ impl ::core::marker::Copy for _VK_TO_FUNCTION_TABLE {}
 impl ::core::clone::Clone for _VK_TO_FUNCTION_TABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _VK_TO_FUNCTION_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_VK_TO_FUNCTION_TABLE").field("Vk", &self.Vk).field("NLSFEProcType", &self.NLSFEProcType).field("NLSFEProcCurrent", &self.NLSFEProcCurrent).field("NLSFEProcSwitch", &self.NLSFEProcSwitch).field("NLSFEProc", &self.NLSFEProc).field("NLSFEProcAlt", &self.NLSFEProcAlt).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _VK_TO_FUNCTION_TABLE {
@@ -2580,6 +2747,29 @@ impl ::core::clone::Clone for tagKbdLayer {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for tagKbdLayer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("tagKbdLayer")
+            .field("pCharModifiers", &self.pCharModifiers)
+            .field("pVkToWcharTable", &self.pVkToWcharTable)
+            .field("pDeadKey", &self.pDeadKey)
+            .field("pKeyNames", &self.pKeyNames)
+            .field("pKeyNamesExt", &self.pKeyNamesExt)
+            .field("pKeyNamesDead", &self.pKeyNamesDead)
+            .field("pusVSCtoVK", &self.pusVSCtoVK)
+            .field("bMaxVSCtoVK", &self.bMaxVSCtoVK)
+            .field("pVSCtoVK_E0", &self.pVSCtoVK_E0)
+            .field("pVSCtoVK_E1", &self.pVSCtoVK_E1)
+            .field("fLocaleFlags", &self.fLocaleFlags)
+            .field("nLgMax", &self.nLgMax)
+            .field("cbLgEntry", &self.cbLgEntry)
+            .field("pLigature", &self.pLigature)
+            .field("dwType", &self.dwType)
+            .field("dwSubType", &self.dwSubType)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for tagKbdLayer {
     type Abi = Self;
 }
@@ -2611,6 +2801,11 @@ impl ::core::marker::Copy for tagKbdNlsLayer {}
 impl ::core::clone::Clone for tagKbdNlsLayer {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for tagKbdNlsLayer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("tagKbdNlsLayer").field("OEMIdentifier", &self.OEMIdentifier).field("LayoutInformation", &self.LayoutInformation).field("NumOfVkToF", &self.NumOfVkToF).field("pVkToF", &self.pVkToF).field("NumOfMouseVKey", &self.NumOfMouseVKey).field("pusMouseVKey", &self.pusMouseVKey).finish()
     }
 }
 unsafe impl ::windows::core::Abi for tagKbdNlsLayer {

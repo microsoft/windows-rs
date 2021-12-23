@@ -137,6 +137,23 @@ impl ::core::clone::Clone for DRMBOUNDLICENSEPARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRMBOUNDLICENSEPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRMBOUNDLICENSEPARAMS")
+            .field("uVersion", &self.uVersion)
+            .field("hEnablingPrincipal", &self.hEnablingPrincipal)
+            .field("hSecureStore", &self.hSecureStore)
+            .field("wszRightsRequested", &self.wszRightsRequested)
+            .field("wszRightsGroup", &self.wszRightsGroup)
+            .field("idResource", &self.idResource)
+            .field("cAuthenticatorCount", &self.cAuthenticatorCount)
+            .field("rghAuthenticators", &self.rghAuthenticators)
+            .field("wszDefaultEnablingPrincipalCredentials", &self.wszDefaultEnablingPrincipalCredentials)
+            .field("dwFlags", &self.dwFlags)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DRMBOUNDLICENSEPARAMS {
     type Abi = Self;
 }
@@ -1121,6 +1138,12 @@ impl ::core::clone::Clone for DRMID {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRMID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRMID").field("uVersion", &self.uVersion).field("wszIDType", &self.wszIDType).field("wszID", &self.wszID).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DRMID {
     type Abi = Self;
 }
@@ -1457,6 +1480,12 @@ impl ::core::clone::Clone for DRM_ACTSERV_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRM_ACTSERV_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRM_ACTSERV_INFO").field("uVersion", &self.uVersion).field("wszPubKey", &self.wszPubKey).field("wszURL", &self.wszURL).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DRM_ACTSERV_INFO {
     type Abi = Self;
 }
@@ -1509,6 +1538,11 @@ impl ::core::marker::Copy for DRM_CLIENT_VERSION_INFO {}
 impl ::core::clone::Clone for DRM_CLIENT_VERSION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DRM_CLIENT_VERSION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRM_CLIENT_VERSION_INFO").field("uStructVersion", &self.uStructVersion).field("dwVersion", &self.dwVersion).field("wszHierarchy", &self.wszHierarchy).field("wszProductId", &self.wszProductId).field("wszProductDescription", &self.wszProductDescription).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DRM_CLIENT_VERSION_INFO {
@@ -1582,6 +1616,12 @@ impl ::core::marker::Copy for DRM_LICENSE_ACQ_DATA {}
 impl ::core::clone::Clone for DRM_LICENSE_ACQ_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRM_LICENSE_ACQ_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRM_LICENSE_ACQ_DATA").field("uVersion", &self.uVersion).field("wszURL", &self.wszURL).field("wszLocalFilename", &self.wszLocalFilename).field("pbPostData", &self.pbPostData).field("dwPostDataSize", &self.dwPostDataSize).field("wszFriendlyName", &self.wszFriendlyName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

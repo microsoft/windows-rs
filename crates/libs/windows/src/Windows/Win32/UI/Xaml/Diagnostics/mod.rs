@@ -49,6 +49,12 @@ impl ::core::clone::Clone for BitmapDescription {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for BitmapDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BitmapDescription").field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).field("AlphaMode", &self.AlphaMode).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for BitmapDescription {
     type Abi = Self;
 }
@@ -79,6 +85,12 @@ pub struct CollectionElementValue {
 impl ::core::clone::Clone for CollectionElementValue {
     fn clone(&self) -> Self {
         Self { Index: self.Index, ValueType: self.ValueType.clone(), Value: self.Value.clone(), MetadataBits: self.MetadataBits }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CollectionElementValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CollectionElementValue").field("Index", &self.Index).field("ValueType", &self.ValueType).field("Value", &self.Value).field("MetadataBits", &self.MetadataBits).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -113,6 +125,12 @@ pub struct EnumType {
 impl ::core::clone::Clone for EnumType {
     fn clone(&self) -> Self {
         Self { Name: self.Name.clone(), ValueInts: self.ValueInts, ValueStrings: self.ValueStrings }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for EnumType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EnumType").field("Name", &self.Name).field("ValueInts", &self.ValueInts).field("ValueStrings", &self.ValueStrings).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -190,6 +208,11 @@ impl ::core::cmp::PartialEq for IBitmapData {
     }
 }
 impl ::core::cmp::Eq for IBitmapData {}
+impl ::core::fmt::Debug for IBitmapData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBitmapData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBitmapData {
     type Vtable = IBitmapDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1a34ef2_cad8_4635_a3d2_fcda8d3f3caf);
@@ -297,6 +320,11 @@ impl ::core::cmp::PartialEq for IVisualTreeService {
     }
 }
 impl ::core::cmp::Eq for IVisualTreeService {}
+impl ::core::fmt::Debug for IVisualTreeService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVisualTreeService").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVisualTreeService {
     type Vtable = IVisualTreeServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa593b11a_d17f_48bb_8f66_83910731c8a5);
@@ -454,6 +482,11 @@ impl ::core::cmp::PartialEq for IVisualTreeService2 {
     }
 }
 impl ::core::cmp::Eq for IVisualTreeService2 {}
+impl ::core::fmt::Debug for IVisualTreeService2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVisualTreeService2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVisualTreeService2 {
     type Vtable = IVisualTreeService2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x130f5136_ec43_4f61_89c7_9801a36d2e95);
@@ -655,6 +688,11 @@ impl ::core::cmp::PartialEq for IVisualTreeService3 {
     }
 }
 impl ::core::cmp::Eq for IVisualTreeService3 {}
+impl ::core::fmt::Debug for IVisualTreeService3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVisualTreeService3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVisualTreeService3 {
     type Vtable = IVisualTreeService3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e79c6e0_85a0_4be8_b41a_655cf1fd19bd);
@@ -734,6 +772,11 @@ impl ::core::cmp::PartialEq for IVisualTreeServiceCallback {
     }
 }
 impl ::core::cmp::Eq for IVisualTreeServiceCallback {}
+impl ::core::fmt::Debug for IVisualTreeServiceCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVisualTreeServiceCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVisualTreeServiceCallback {
     type Vtable = IVisualTreeServiceCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa7a8931_80e4_4fec_8f3b_553f87b4966e);
@@ -813,6 +856,11 @@ impl ::core::cmp::PartialEq for IVisualTreeServiceCallback2 {
     }
 }
 impl ::core::cmp::Eq for IVisualTreeServiceCallback2 {}
+impl ::core::fmt::Debug for IVisualTreeServiceCallback2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVisualTreeServiceCallback2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVisualTreeServiceCallback2 {
     type Vtable = IVisualTreeServiceCallback2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad9eb88_ae77_4397_b948_5fa2db0a19ea);
@@ -905,6 +953,11 @@ impl ::core::cmp::PartialEq for IXamlDiagnostics {
     }
 }
 impl ::core::cmp::Eq for IXamlDiagnostics {}
+impl ::core::fmt::Debug for IXamlDiagnostics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXamlDiagnostics").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXamlDiagnostics {
     type Vtable = IXamlDiagnosticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18c9e2b6_3f43_4116_9f2b_ff935d7770d2);
@@ -984,6 +1037,11 @@ impl ::core::cmp::PartialEq for MetadataBit {
     }
 }
 impl ::core::cmp::Eq for MetadataBit {}
+impl ::core::fmt::Debug for MetadataBit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MetadataBit").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub struct ParentChildRelation {
@@ -995,6 +1053,11 @@ impl ::core::marker::Copy for ParentChildRelation {}
 impl ::core::clone::Clone for ParentChildRelation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ParentChildRelation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ParentChildRelation").field("Parent", &self.Parent).field("Child", &self.Child).field("ChildIndex", &self.ChildIndex).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ParentChildRelation {
@@ -1025,6 +1088,12 @@ pub struct PropertyChainSource {
 impl ::core::clone::Clone for PropertyChainSource {
     fn clone(&self) -> Self {
         Self { Handle: self.Handle, TargetType: self.TargetType.clone(), Name: self.Name.clone(), Source: self.Source, SrcInfo: self.SrcInfo.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PropertyChainSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PropertyChainSource").field("Handle", &self.Handle).field("TargetType", &self.TargetType).field("Name", &self.Name).field("Source", &self.Source).field("SrcInfo", &self.SrcInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1075,6 +1144,12 @@ impl ::core::clone::Clone for PropertyChainValue {
             PropertyName: self.PropertyName.clone(),
             PropertyChainIndex: self.PropertyChainIndex,
         }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PropertyChainValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PropertyChainValue").field("Index", &self.Index).field("Type", &self.Type).field("DeclaringType", &self.DeclaringType).field("ValueType", &self.ValueType).field("ItemType", &self.ItemType).field("Value", &self.Value).field("Overridden", &self.Overridden).field("MetadataBits", &self.MetadataBits).field("PropertyName", &self.PropertyName).field("PropertyChainIndex", &self.PropertyChainIndex).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1130,6 +1205,12 @@ impl ::core::clone::Clone for SourceInfo {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SourceInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SourceInfo").field("FileName", &self.FileName).field("LineNumber", &self.LineNumber).field("ColumnNumber", &self.ColumnNumber).field("CharPosition", &self.CharPosition).field("Hash", &self.Hash).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SourceInfo {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -1161,6 +1242,12 @@ pub struct VisualElement {
 impl ::core::clone::Clone for VisualElement {
     fn clone(&self) -> Self {
         Self { Handle: self.Handle, SrcInfo: self.SrcInfo.clone(), Type: self.Type.clone(), Name: self.Name.clone(), NumChildren: self.NumChildren }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VisualElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VisualElement").field("Handle", &self.Handle).field("SrcInfo", &self.SrcInfo).field("Type", &self.Type).field("Name", &self.Name).field("NumChildren", &self.NumChildren).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -942,6 +942,11 @@ impl ::core::cmp::PartialEq for Print3DManager {
     }
 }
 impl ::core::cmp::Eq for Print3DManager {}
+impl ::core::fmt::Debug for Print3DManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Print3DManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DManager;{4d2fcb0a-7366-4971-8bd5-17c4e3e8c6c0})");
 }
@@ -1063,6 +1068,11 @@ impl ::core::cmp::PartialEq for Print3DTask {
     }
 }
 impl ::core::cmp::Eq for Print3DTask {}
+impl ::core::fmt::Debug for Print3DTask {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DTask").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Print3DTask {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTask;{8ce3d080-2118-4c28-80de-f426d70191ae})");
 }
@@ -1147,6 +1157,11 @@ impl ::core::cmp::PartialEq for Print3DTaskCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for Print3DTaskCompletedEventArgs {}
+impl ::core::fmt::Debug for Print3DTaskCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DTaskCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Print3DTaskCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskCompletedEventArgs;{cc1914af-2614-4f1d-accc-d6fc4fda5455})");
 }
@@ -1224,6 +1239,11 @@ impl ::core::cmp::PartialEq for Print3DTaskCompletion {
     }
 }
 impl ::core::cmp::Eq for Print3DTaskCompletion {}
+impl ::core::fmt::Debug for Print3DTaskCompletion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DTaskCompletion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Print3DTaskCompletion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskCompletion;i4)");
 }
@@ -1257,6 +1277,11 @@ impl ::core::cmp::PartialEq for Print3DTaskDetail {
     }
 }
 impl ::core::cmp::Eq for Print3DTaskDetail {}
+impl ::core::fmt::Debug for Print3DTaskDetail {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DTaskDetail").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Print3DTaskDetail {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskDetail;i4)");
 }
@@ -1287,6 +1312,11 @@ impl ::core::cmp::PartialEq for Print3DTaskRequest {
     }
 }
 impl ::core::cmp::Eq for Print3DTaskRequest {}
+impl ::core::fmt::Debug for Print3DTaskRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DTaskRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Print3DTaskRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskRequest;{2595c46f-2245-4c5a-8731-0d604dc6bc3c})");
 }
@@ -1363,6 +1393,11 @@ impl ::core::cmp::PartialEq for Print3DTaskRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for Print3DTaskRequestedEventArgs {}
+impl ::core::fmt::Debug for Print3DTaskRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DTaskRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Print3DTaskRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskRequestedEventArgs;{150cb77f-18c5-40d7-9f40-fab3096e05a9})");
 }
@@ -1439,6 +1474,11 @@ impl ::core::cmp::PartialEq for Print3DTaskSourceChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for Print3DTaskSourceChangedEventArgs {}
+impl ::core::fmt::Debug for Print3DTaskSourceChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DTaskSourceChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Print3DTaskSourceChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskSourceChangedEventArgs;{5bcd34af-24e9-4c10-8d07-14c346ba3fcf})");
 }
@@ -1512,6 +1552,11 @@ impl ::core::cmp::PartialEq for Print3DTaskSourceRequestedArgs {
     }
 }
 impl ::core::cmp::Eq for Print3DTaskSourceRequestedArgs {}
+impl ::core::fmt::Debug for Print3DTaskSourceRequestedArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DTaskSourceRequestedArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Print3DTaskSourceRequestedArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskSourceRequestedArgs;{c77c9aba-24af-424d-a3bf-92250c355602})");
 }
@@ -1624,6 +1669,11 @@ impl ::core::cmp::PartialEq for Print3DTaskSourceRequestedHandler {
     }
 }
 impl ::core::cmp::Eq for Print3DTaskSourceRequestedHandler {}
+impl ::core::fmt::Debug for Print3DTaskSourceRequestedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DTaskSourceRequestedHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for Print3DTaskSourceRequestedHandler {
     type Vtable = Print3DTaskSourceRequestedHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9175e70_c917_46de_bb51_d9a94db3711f);
@@ -1762,6 +1812,11 @@ impl ::core::cmp::PartialEq for Printing3D3MFPackage {
     }
 }
 impl ::core::cmp::Eq for Printing3D3MFPackage {}
+impl ::core::fmt::Debug for Printing3D3MFPackage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3D3MFPackage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3D3MFPackage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3D3MFPackage;{f64dd5c8-2ab7-45a9-a1b7-267e948d5b18})");
 }
@@ -1882,6 +1937,11 @@ impl ::core::cmp::PartialEq for Printing3DBaseMaterial {
     }
 }
 impl ::core::cmp::Eq for Printing3DBaseMaterial {}
+impl ::core::fmt::Debug for Printing3DBaseMaterial {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DBaseMaterial").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DBaseMaterial {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DBaseMaterial;{d0f0e743-c50c-4bcb-9d04-fc16adcea2c9})");
 }
@@ -1979,6 +2039,11 @@ impl ::core::cmp::PartialEq for Printing3DBaseMaterialGroup {
     }
 }
 impl ::core::cmp::Eq for Printing3DBaseMaterialGroup {}
+impl ::core::fmt::Debug for Printing3DBaseMaterialGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DBaseMaterialGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DBaseMaterialGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DBaseMaterialGroup;{94f070b8-2515-4a8d-a1f0-d0fc13d06021})");
 }
@@ -2043,6 +2108,11 @@ impl ::core::clone::Clone for Printing3DBufferDescription {
         *self
     }
 }
+impl ::core::fmt::Debug for Printing3DBufferDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Printing3DBufferDescription").field("Format", &self.Format).field("Stride", &self.Stride).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Printing3DBufferDescription {
     type Abi = Self;
 }
@@ -2090,6 +2160,11 @@ impl ::core::cmp::PartialEq for Printing3DBufferFormat {
     }
 }
 impl ::core::cmp::Eq for Printing3DBufferFormat {}
+impl ::core::fmt::Debug for Printing3DBufferFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DBufferFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DBufferFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DBufferFormat;i4)");
 }
@@ -2147,6 +2222,11 @@ impl ::core::cmp::PartialEq for Printing3DColorMaterial {
     }
 }
 impl ::core::cmp::Eq for Printing3DColorMaterial {}
+impl ::core::fmt::Debug for Printing3DColorMaterial {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DColorMaterial").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DColorMaterial {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DColorMaterial;{e1899928-7ce7-4285-a35d-f145c9510c7b})");
 }
@@ -2244,6 +2324,11 @@ impl ::core::cmp::PartialEq for Printing3DColorMaterialGroup {
     }
 }
 impl ::core::cmp::Eq for Printing3DColorMaterialGroup {}
+impl ::core::fmt::Debug for Printing3DColorMaterialGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DColorMaterialGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DColorMaterialGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DColorMaterialGroup;{001a6bd0-aadf-4226-afe9-f369a0b45004})");
 }
@@ -2393,6 +2478,11 @@ impl ::core::cmp::PartialEq for Printing3DComponent {
     }
 }
 impl ::core::cmp::Eq for Printing3DComponent {}
+impl ::core::fmt::Debug for Printing3DComponent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DComponent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DComponent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DComponent;{7e287845-bf7f-4cdb-a27f-30a01437fede})");
 }
@@ -2496,6 +2586,11 @@ impl ::core::cmp::PartialEq for Printing3DComponentWithMatrix {
     }
 }
 impl ::core::cmp::Eq for Printing3DComponentWithMatrix {}
+impl ::core::fmt::Debug for Printing3DComponentWithMatrix {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DComponentWithMatrix").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DComponentWithMatrix {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DComponentWithMatrix;{3279f335-0ef0-456b-9a21-49bebe8b51c2})");
 }
@@ -2580,6 +2675,11 @@ impl ::core::cmp::PartialEq for Printing3DCompositeMaterial {
     }
 }
 impl ::core::cmp::Eq for Printing3DCompositeMaterial {}
+impl ::core::fmt::Debug for Printing3DCompositeMaterial {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DCompositeMaterial").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DCompositeMaterial {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DCompositeMaterial;{462238dd-562e-4f6c-882d-f4d841fd63c7})");
 }
@@ -2699,6 +2799,11 @@ impl ::core::cmp::PartialEq for Printing3DCompositeMaterialGroup {
     }
 }
 impl ::core::cmp::Eq for Printing3DCompositeMaterialGroup {}
+impl ::core::fmt::Debug for Printing3DCompositeMaterialGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DCompositeMaterialGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DCompositeMaterialGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DCompositeMaterialGroup;{8d946a5b-40f1-496d-a5fb-340a5a678e30})");
 }
@@ -2813,6 +2918,11 @@ impl ::core::cmp::PartialEq for Printing3DFaceReductionOptions {
     }
 }
 impl ::core::cmp::Eq for Printing3DFaceReductionOptions {}
+impl ::core::fmt::Debug for Printing3DFaceReductionOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DFaceReductionOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DFaceReductionOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DFaceReductionOptions;{bbfed397-2d74-46f7-be85-99a67bbb6629})");
 }
@@ -2933,6 +3043,11 @@ impl ::core::cmp::PartialEq for Printing3DMaterial {
     }
 }
 impl ::core::cmp::Eq for Printing3DMaterial {}
+impl ::core::fmt::Debug for Printing3DMaterial {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DMaterial").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DMaterial {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DMaterial;{378db256-ed62-4952-b85b-03567d7c465e})");
 }
@@ -3169,6 +3284,11 @@ impl ::core::cmp::PartialEq for Printing3DMesh {
     }
 }
 impl ::core::cmp::Eq for Printing3DMesh {}
+impl ::core::fmt::Debug for Printing3DMesh {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DMesh").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DMesh {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DMesh;{192e90dc-0228-2e01-bc20-c5290cbf32c4})");
 }
@@ -3243,6 +3363,11 @@ impl ::core::cmp::PartialEq for Printing3DMeshVerificationMode {
     }
 }
 impl ::core::cmp::Eq for Printing3DMeshVerificationMode {}
+impl ::core::fmt::Debug for Printing3DMeshVerificationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DMeshVerificationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DMeshVerificationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DMeshVerificationMode;i4)");
 }
@@ -3291,6 +3416,11 @@ impl ::core::cmp::PartialEq for Printing3DMeshVerificationResult {
     }
 }
 impl ::core::cmp::Eq for Printing3DMeshVerificationResult {}
+impl ::core::fmt::Debug for Printing3DMeshVerificationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DMeshVerificationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DMeshVerificationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DMeshVerificationResult;{195671ba-e93a-4e8a-a46f-dea8e852197e})");
 }
@@ -3534,6 +3664,11 @@ impl ::core::cmp::PartialEq for Printing3DModel {
     }
 }
 impl ::core::cmp::Eq for Printing3DModel {}
+impl ::core::fmt::Debug for Printing3DModel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DModel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DModel;{2d012ef0-52fb-919a-77b0-4b1a3b80324f})");
 }
@@ -3648,6 +3783,11 @@ impl ::core::cmp::PartialEq for Printing3DModelTexture {
     }
 }
 impl ::core::cmp::Eq for Printing3DModelTexture {}
+impl ::core::fmt::Debug for Printing3DModelTexture {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DModelTexture").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DModelTexture {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DModelTexture;{5dafcf01-b59d-483c-97bb-a4d546d1c75c})");
 }
@@ -3726,6 +3866,11 @@ impl ::core::cmp::PartialEq for Printing3DModelUnit {
     }
 }
 impl ::core::cmp::Eq for Printing3DModelUnit {}
+impl ::core::fmt::Debug for Printing3DModelUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DModelUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DModelUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DModelUnit;i4)");
 }
@@ -3764,6 +3909,11 @@ impl ::core::cmp::PartialEq for Printing3DMultiplePropertyMaterial {
     }
 }
 impl ::core::cmp::Eq for Printing3DMultiplePropertyMaterial {}
+impl ::core::fmt::Debug for Printing3DMultiplePropertyMaterial {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DMultiplePropertyMaterial").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DMultiplePropertyMaterial {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterial;{25a6254b-c6e9-484d-a214-a25e5776ba62})");
 }
@@ -3870,6 +4020,11 @@ impl ::core::cmp::PartialEq for Printing3DMultiplePropertyMaterialGroup {
     }
 }
 impl ::core::cmp::Eq for Printing3DMultiplePropertyMaterialGroup {}
+impl ::core::fmt::Debug for Printing3DMultiplePropertyMaterialGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DMultiplePropertyMaterialGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DMultiplePropertyMaterialGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterialGroup;{f0950519-aeb9-4515-a39b-a088fbbb277c})");
 }
@@ -3945,6 +4100,11 @@ impl ::core::cmp::PartialEq for Printing3DObjectType {
     }
 }
 impl ::core::cmp::Eq for Printing3DObjectType {}
+impl ::core::fmt::Debug for Printing3DObjectType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DObjectType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DObjectType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DObjectType;i4)");
 }
@@ -3974,6 +4134,11 @@ impl ::core::cmp::PartialEq for Printing3DPackageCompression {
     }
 }
 impl ::core::cmp::Eq for Printing3DPackageCompression {}
+impl ::core::fmt::Debug for Printing3DPackageCompression {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DPackageCompression").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DPackageCompression {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DPackageCompression;i4)");
 }
@@ -4042,6 +4207,11 @@ impl ::core::cmp::PartialEq for Printing3DTexture2CoordMaterial {
     }
 }
 impl ::core::cmp::Eq for Printing3DTexture2CoordMaterial {}
+impl ::core::fmt::Debug for Printing3DTexture2CoordMaterial {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DTexture2CoordMaterial").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DTexture2CoordMaterial {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterial;{8d844bfb-07e9-4986-9833-8dd3d48c6859})");
 }
@@ -4152,6 +4322,11 @@ impl ::core::cmp::PartialEq for Printing3DTexture2CoordMaterialGroup {
     }
 }
 impl ::core::cmp::Eq for Printing3DTexture2CoordMaterialGroup {}
+impl ::core::fmt::Debug for Printing3DTexture2CoordMaterialGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DTexture2CoordMaterialGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DTexture2CoordMaterialGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterialGroup;{627d7ca7-6d90-4fb9-9fc4-9feff3dfa892})");
 }
@@ -4228,6 +4403,11 @@ impl ::core::cmp::PartialEq for Printing3DTextureEdgeBehavior {
     }
 }
 impl ::core::cmp::Eq for Printing3DTextureEdgeBehavior {}
+impl ::core::fmt::Debug for Printing3DTextureEdgeBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DTextureEdgeBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DTextureEdgeBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DTextureEdgeBehavior;i4)");
 }
@@ -4285,6 +4465,11 @@ impl ::core::cmp::PartialEq for Printing3DTextureResource {
     }
 }
 impl ::core::cmp::Eq for Printing3DTextureResource {}
+impl ::core::fmt::Debug for Printing3DTextureResource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DTextureResource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DTextureResource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DTextureResource;{a70df32d-6ab1-44ae-bc45-a27382c0d38c})");
 }

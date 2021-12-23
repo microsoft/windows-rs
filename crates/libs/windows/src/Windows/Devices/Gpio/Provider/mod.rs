@@ -35,6 +35,11 @@ impl ::core::cmp::PartialEq for GpioPinProviderValueChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for GpioPinProviderValueChangedEventArgs {}
+impl ::core::fmt::Debug for GpioPinProviderValueChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GpioPinProviderValueChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GpioPinProviderValueChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.Provider.GpioPinProviderValueChangedEventArgs;{32a6d6f2-3d5b-44cd-8fbe-13a69f2edb24})");
 }
@@ -159,6 +164,11 @@ impl ::core::cmp::PartialEq for IGpioControllerProvider {
     }
 }
 impl ::core::cmp::Eq for IGpioControllerProvider {}
+impl ::core::fmt::Debug for IGpioControllerProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGpioControllerProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IGpioControllerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ad11cec7-19ea-4b21-874f-b91aed4a25db}");
 }
@@ -314,6 +324,11 @@ impl ::core::cmp::PartialEq for IGpioPinProvider {
     }
 }
 impl ::core::cmp::Eq for IGpioPinProvider {}
+impl ::core::fmt::Debug for IGpioPinProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGpioPinProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IGpioPinProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{42344cb7-6abc-40ff-9ce7-73b85301b900}");
 }
@@ -447,6 +462,11 @@ impl ::core::cmp::PartialEq for IGpioProvider {
     }
 }
 impl ::core::cmp::Eq for IGpioProvider {}
+impl ::core::fmt::Debug for IGpioProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGpioProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IGpioProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{44e82707-08ca-434a-afe0-d61580446f7e}");
 }
@@ -494,6 +514,11 @@ impl ::core::cmp::PartialEq for ProviderGpioPinDriveMode {
     }
 }
 impl ::core::cmp::Eq for ProviderGpioPinDriveMode {}
+impl ::core::fmt::Debug for ProviderGpioPinDriveMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderGpioPinDriveMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProviderGpioPinDriveMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioPinDriveMode;i4)");
 }
@@ -522,6 +547,11 @@ impl ::core::cmp::PartialEq for ProviderGpioPinEdge {
     }
 }
 impl ::core::cmp::Eq for ProviderGpioPinEdge {}
+impl ::core::fmt::Debug for ProviderGpioPinEdge {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderGpioPinEdge").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProviderGpioPinEdge {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioPinEdge;i4)");
 }
@@ -550,6 +580,11 @@ impl ::core::cmp::PartialEq for ProviderGpioPinValue {
     }
 }
 impl ::core::cmp::Eq for ProviderGpioPinValue {}
+impl ::core::fmt::Debug for ProviderGpioPinValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderGpioPinValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProviderGpioPinValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioPinValue;i4)");
 }
@@ -578,6 +613,11 @@ impl ::core::cmp::PartialEq for ProviderGpioSharingMode {
     }
 }
 impl ::core::cmp::Eq for ProviderGpioSharingMode {}
+impl ::core::fmt::Debug for ProviderGpioSharingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderGpioSharingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProviderGpioSharingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioSharingMode;i4)");
 }

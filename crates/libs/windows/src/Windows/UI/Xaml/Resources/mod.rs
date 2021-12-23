@@ -43,6 +43,11 @@ impl ::core::cmp::PartialEq for CustomXamlResourceLoader {
     }
 }
 impl ::core::cmp::Eq for CustomXamlResourceLoader {}
+impl ::core::fmt::Debug for CustomXamlResourceLoader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CustomXamlResourceLoader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CustomXamlResourceLoader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Resources.CustomXamlResourceLoader;{511a84ab-4a88-419f-852e-54083b90b078})");
 }

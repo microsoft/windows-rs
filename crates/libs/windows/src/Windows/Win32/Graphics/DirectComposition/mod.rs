@@ -24,6 +24,11 @@ impl ::core::clone::Clone for COMPOSITION_FRAME_STATS {
         *self
     }
 }
+impl ::core::fmt::Debug for COMPOSITION_FRAME_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMPOSITION_FRAME_STATS").field("startTime", &self.startTime).field("targetTime", &self.targetTime).field("framePeriod", &self.framePeriod).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for COMPOSITION_FRAME_STATS {
     type Abi = Self;
 }
@@ -50,6 +55,11 @@ impl ::core::marker::Copy for COMPOSITION_STATS {}
 impl ::core::clone::Clone for COMPOSITION_STATS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for COMPOSITION_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMPOSITION_STATS").field("presentCount", &self.presentCount).field("refreshCount", &self.refreshCount).field("virtualRefreshCount", &self.virtualRefreshCount).field("time", &self.time).finish()
     }
 }
 unsafe impl ::windows::core::Abi for COMPOSITION_STATS {
@@ -87,6 +97,12 @@ impl ::core::clone::Clone for COMPOSITION_TARGET_ID {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for COMPOSITION_TARGET_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMPOSITION_TARGET_ID").field("displayAdapterLuid", &self.displayAdapterLuid).field("renderAdapterLuid", &self.renderAdapterLuid).field("vidPnSourceId", &self.vidPnSourceId).field("vidPnTargetId", &self.vidPnTargetId).field("uniqueId", &self.uniqueId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for COMPOSITION_TARGET_ID {
     type Abi = Self;
 }
@@ -117,6 +133,11 @@ impl ::core::marker::Copy for COMPOSITION_TARGET_STATS {}
 impl ::core::clone::Clone for COMPOSITION_TARGET_STATS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for COMPOSITION_TARGET_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMPOSITION_TARGET_STATS").field("outstandingPresents", &self.outstandingPresents).field("presentTime", &self.presentTime).field("vblankDuration", &self.vblankDuration).field("presentedStats", &self.presentedStats).field("completedStats", &self.completedStats).finish()
     }
 }
 unsafe impl ::windows::core::Abi for COMPOSITION_TARGET_STATS {
@@ -193,6 +214,12 @@ impl ::core::marker::Copy for DCOMPOSITION_FRAME_STATISTICS {}
 impl ::core::clone::Clone for DCOMPOSITION_FRAME_STATISTICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for DCOMPOSITION_FRAME_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DCOMPOSITION_FRAME_STATISTICS").field("lastFrameTime", &self.lastFrameTime).field("currentCompositionRate", &self.currentCompositionRate).field("currentTime", &self.currentTime).field("timeFrequency", &self.timeFrequency).field("nextEstimatedFrameTime", &self.nextEstimatedFrameTime).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -386,6 +413,11 @@ impl ::core::clone::Clone for DCompositionInkTrailPoint {
         *self
     }
 }
+impl ::core::fmt::Debug for DCompositionInkTrailPoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DCompositionInkTrailPoint").field("x", &self.x).field("y", &self.y).field("radius", &self.radius).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DCompositionInkTrailPoint {
     type Abi = Self;
 }
@@ -525,6 +557,11 @@ impl ::core::cmp::PartialEq for IDCompositionAffineTransform2DEffect {
     }
 }
 impl ::core::cmp::Eq for IDCompositionAffineTransform2DEffect {}
+impl ::core::fmt::Debug for IDCompositionAffineTransform2DEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionAffineTransform2DEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionAffineTransform2DEffect {
     type Vtable = IDCompositionAffineTransform2DEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b74b9e8_cdd6_492f_bbbc_5ed32157026d);
@@ -606,6 +643,11 @@ impl ::core::cmp::PartialEq for IDCompositionAnimation {
     }
 }
 impl ::core::cmp::Eq for IDCompositionAnimation {}
+impl ::core::fmt::Debug for IDCompositionAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionAnimation {
     type Vtable = IDCompositionAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbfd91d9_51b2_45e4_b3de_d19ccfb863c5);
@@ -745,6 +787,11 @@ impl ::core::cmp::PartialEq for IDCompositionArithmeticCompositeEffect {
     }
 }
 impl ::core::cmp::Eq for IDCompositionArithmeticCompositeEffect {}
+impl ::core::fmt::Debug for IDCompositionArithmeticCompositeEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionArithmeticCompositeEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionArithmeticCompositeEffect {
     type Vtable = IDCompositionArithmeticCompositeEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b67dfa8_e3dd_4e61_b640_46c2f3d739dc);
@@ -854,6 +901,11 @@ impl ::core::cmp::PartialEq for IDCompositionBlendEffect {
     }
 }
 impl ::core::cmp::Eq for IDCompositionBlendEffect {}
+impl ::core::fmt::Debug for IDCompositionBlendEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionBlendEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionBlendEffect {
     type Vtable = IDCompositionBlendEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33ecdc0a_578a_4a11_9c14_0cb90517f9c5);
@@ -990,6 +1042,11 @@ impl ::core::cmp::PartialEq for IDCompositionBrightnessEffect {
     }
 }
 impl ::core::cmp::Eq for IDCompositionBrightnessEffect {}
+impl ::core::fmt::Debug for IDCompositionBrightnessEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionBrightnessEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionBrightnessEffect {
     type Vtable = IDCompositionBrightnessEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6027496e_cb3a_49ab_934f_d798da4f7da6);
@@ -1049,6 +1106,11 @@ impl ::core::cmp::PartialEq for IDCompositionClip {
     }
 }
 impl ::core::cmp::Eq for IDCompositionClip {}
+impl ::core::fmt::Debug for IDCompositionClip {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionClip").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionClip {
     type Vtable = IDCompositionClipVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64ac3703_9d3f_45ec_a109_7cac0e7a13a7);
@@ -1159,6 +1221,11 @@ impl ::core::cmp::PartialEq for IDCompositionColorMatrixEffect {
     }
 }
 impl ::core::cmp::Eq for IDCompositionColorMatrixEffect {}
+impl ::core::fmt::Debug for IDCompositionColorMatrixEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionColorMatrixEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionColorMatrixEffect {
     type Vtable = IDCompositionColorMatrixEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1170a22_3ce2_4966_90d4_55408bfc84c4);
@@ -1264,6 +1331,11 @@ impl ::core::cmp::PartialEq for IDCompositionCompositeEffect {
     }
 }
 impl ::core::cmp::Eq for IDCompositionCompositeEffect {}
+impl ::core::fmt::Debug for IDCompositionCompositeEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionCompositeEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionCompositeEffect {
     type Vtable = IDCompositionCompositeEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x576616c0_a231_494d_a38d_00fd5ec4db46);
@@ -1333,6 +1405,11 @@ impl ::core::cmp::PartialEq for IDCompositionDelegatedInkTrail {
     }
 }
 impl ::core::cmp::Eq for IDCompositionDelegatedInkTrail {}
+impl ::core::fmt::Debug for IDCompositionDelegatedInkTrail {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionDelegatedInkTrail").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionDelegatedInkTrail {
     type Vtable = IDCompositionDelegatedInkTrailVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2448e9b_547d_4057_8cf5_8144ede1c2da);
@@ -1529,6 +1606,11 @@ impl ::core::cmp::PartialEq for IDCompositionDesktopDevice {
     }
 }
 impl ::core::cmp::Eq for IDCompositionDesktopDevice {}
+impl ::core::fmt::Debug for IDCompositionDesktopDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionDesktopDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionDesktopDevice {
     type Vtable = IDCompositionDesktopDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f4633fe_1e08_4cb8_8c75_ce24333f5602);
@@ -1731,6 +1813,11 @@ impl ::core::cmp::PartialEq for IDCompositionDevice {
     }
 }
 impl ::core::cmp::Eq for IDCompositionDevice {}
+impl ::core::fmt::Debug for IDCompositionDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionDevice {
     type Vtable = IDCompositionDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc37ea93a_e7aa_450d_b16f_9746cb0407f3);
@@ -1915,6 +2002,11 @@ impl ::core::cmp::PartialEq for IDCompositionDevice2 {
     }
 }
 impl ::core::cmp::Eq for IDCompositionDevice2 {}
+impl ::core::fmt::Debug for IDCompositionDevice2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionDevice2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionDevice2 {
     type Vtable = IDCompositionDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75f6468d_1b8e_447c_9bc6_75fea80b5b25);
@@ -2177,6 +2269,11 @@ impl ::core::cmp::PartialEq for IDCompositionDevice3 {
     }
 }
 impl ::core::cmp::Eq for IDCompositionDevice3 {}
+impl ::core::fmt::Debug for IDCompositionDevice3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionDevice3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionDevice3 {
     type Vtable = IDCompositionDevice3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0987cb06_f916_48bf_8d35_ce7641781bd9);
@@ -2269,6 +2366,11 @@ impl ::core::cmp::PartialEq for IDCompositionDeviceDebug {
     }
 }
 impl ::core::cmp::Eq for IDCompositionDeviceDebug {}
+impl ::core::fmt::Debug for IDCompositionDeviceDebug {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionDeviceDebug").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionDeviceDebug {
     type Vtable = IDCompositionDeviceDebugVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1a3c64a_224f_4a81_9773_4f03a89d3c6c);
@@ -2317,6 +2419,11 @@ impl ::core::cmp::PartialEq for IDCompositionEffect {
     }
 }
 impl ::core::cmp::Eq for IDCompositionEffect {}
+impl ::core::fmt::Debug for IDCompositionEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionEffect {
     type Vtable = IDCompositionEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec81b08f_bfcb_4e8d_b193_a915587999e8);
@@ -2392,6 +2499,11 @@ impl ::core::cmp::PartialEq for IDCompositionEffectGroup {
     }
 }
 impl ::core::cmp::Eq for IDCompositionEffectGroup {}
+impl ::core::fmt::Debug for IDCompositionEffectGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionEffectGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionEffectGroup {
     type Vtable = IDCompositionEffectGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7929a74_e6b2_4bd6_8b95_4040119ca34d);
@@ -2466,6 +2578,11 @@ impl ::core::cmp::PartialEq for IDCompositionFilterEffect {
     }
 }
 impl ::core::cmp::Eq for IDCompositionFilterEffect {}
+impl ::core::fmt::Debug for IDCompositionFilterEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionFilterEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionFilterEffect {
     type Vtable = IDCompositionFilterEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30c421d5_8cb2_4e9f_b133_37be270d4ac2);
@@ -2566,6 +2683,11 @@ impl ::core::cmp::PartialEq for IDCompositionGaussianBlurEffect {
     }
 }
 impl ::core::cmp::Eq for IDCompositionGaussianBlurEffect {}
+impl ::core::fmt::Debug for IDCompositionGaussianBlurEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionGaussianBlurEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionGaussianBlurEffect {
     type Vtable = IDCompositionGaussianBlurEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45d4d0b7_1bd4_454e_8894_2bfa68443033);
@@ -2670,6 +2792,11 @@ impl ::core::cmp::PartialEq for IDCompositionHueRotationEffect {
     }
 }
 impl ::core::cmp::Eq for IDCompositionHueRotationEffect {}
+impl ::core::fmt::Debug for IDCompositionHueRotationEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionHueRotationEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionHueRotationEffect {
     type Vtable = IDCompositionHueRotationEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6db9f920_0770_4781_b0c6_381912f9d167);
@@ -2730,6 +2857,11 @@ impl ::core::cmp::PartialEq for IDCompositionInkTrailDevice {
     }
 }
 impl ::core::cmp::Eq for IDCompositionInkTrailDevice {}
+impl ::core::fmt::Debug for IDCompositionInkTrailDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionInkTrailDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionInkTrailDevice {
     type Vtable = IDCompositionInkTrailDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf0c7cec_cdeb_4d4a_b91c_721bf22f4e6c);
@@ -2912,6 +3044,11 @@ impl ::core::cmp::PartialEq for IDCompositionLinearTransferEffect {
     }
 }
 impl ::core::cmp::Eq for IDCompositionLinearTransferEffect {}
+impl ::core::fmt::Debug for IDCompositionLinearTransferEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionLinearTransferEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionLinearTransferEffect {
     type Vtable = IDCompositionLinearTransferEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4305ee5b_c4a0_4c88_9385_67124e017683);
@@ -3059,6 +3196,11 @@ impl ::core::cmp::PartialEq for IDCompositionMatrixTransform {
     }
 }
 impl ::core::cmp::Eq for IDCompositionMatrixTransform {}
+impl ::core::fmt::Debug for IDCompositionMatrixTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionMatrixTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionMatrixTransform {
     type Vtable = IDCompositionMatrixTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16cdff07_c503_419c_83f2_0965c7af1fa6);
@@ -3163,6 +3305,11 @@ impl ::core::cmp::PartialEq for IDCompositionMatrixTransform3D {
     }
 }
 impl ::core::cmp::Eq for IDCompositionMatrixTransform3D {}
+impl ::core::fmt::Debug for IDCompositionMatrixTransform3D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionMatrixTransform3D").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionMatrixTransform3D {
     type Vtable = IDCompositionMatrixTransform3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b3363f0_643b_41b7_b6e0_ccf22d34467c);
@@ -3330,6 +3477,11 @@ impl ::core::cmp::PartialEq for IDCompositionRectangleClip {
     }
 }
 impl ::core::cmp::Eq for IDCompositionRectangleClip {}
+impl ::core::fmt::Debug for IDCompositionRectangleClip {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionRectangleClip").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionRectangleClip {
     type Vtable = IDCompositionRectangleClipVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9842ad7d_d9cf_4908_aed7_48b51da5e7c2);
@@ -3485,6 +3637,11 @@ impl ::core::cmp::PartialEq for IDCompositionRotateTransform {
     }
 }
 impl ::core::cmp::Eq for IDCompositionRotateTransform {}
+impl ::core::fmt::Debug for IDCompositionRotateTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionRotateTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionRotateTransform {
     type Vtable = IDCompositionRotateTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x641ed83c_ae96_46c5_90dc_32774cc5c6d5);
@@ -3634,6 +3791,11 @@ impl ::core::cmp::PartialEq for IDCompositionRotateTransform3D {
     }
 }
 impl ::core::cmp::Eq for IDCompositionRotateTransform3D {}
+impl ::core::fmt::Debug for IDCompositionRotateTransform3D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionRotateTransform3D").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionRotateTransform3D {
     type Vtable = IDCompositionRotateTransform3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8f5b23f_d429_4a91_b55a_d2f45fd75b18);
@@ -3747,6 +3909,11 @@ impl ::core::cmp::PartialEq for IDCompositionSaturationEffect {
     }
 }
 impl ::core::cmp::Eq for IDCompositionSaturationEffect {}
+impl ::core::fmt::Debug for IDCompositionSaturationEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionSaturationEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionSaturationEffect {
     type Vtable = IDCompositionSaturationEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa08debda_3258_4fa4_9f16_9174d3fe93b1);
@@ -3889,6 +4056,11 @@ impl ::core::cmp::PartialEq for IDCompositionScaleTransform {
     }
 }
 impl ::core::cmp::Eq for IDCompositionScaleTransform {}
+impl ::core::fmt::Debug for IDCompositionScaleTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionScaleTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionScaleTransform {
     type Vtable = IDCompositionScaleTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71fde914_40ef_45ef_bd51_68b037c339f9);
@@ -4032,6 +4204,11 @@ impl ::core::cmp::PartialEq for IDCompositionScaleTransform3D {
     }
 }
 impl ::core::cmp::Eq for IDCompositionScaleTransform3D {}
+impl ::core::fmt::Debug for IDCompositionScaleTransform3D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionScaleTransform3D").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionScaleTransform3D {
     type Vtable = IDCompositionScaleTransform3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a9e9ead_364b_4b15_a7c4_a1997f78b389);
@@ -4180,6 +4357,11 @@ impl ::core::cmp::PartialEq for IDCompositionShadowEffect {
     }
 }
 impl ::core::cmp::Eq for IDCompositionShadowEffect {}
+impl ::core::fmt::Debug for IDCompositionShadowEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionShadowEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionShadowEffect {
     type Vtable = IDCompositionShadowEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ad18ac0_cfd2_4c2f_bb62_96e54fdb6879);
@@ -4332,6 +4514,11 @@ impl ::core::cmp::PartialEq for IDCompositionSkewTransform {
     }
 }
 impl ::core::cmp::Eq for IDCompositionSkewTransform {}
+impl ::core::fmt::Debug for IDCompositionSkewTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionSkewTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionSkewTransform {
     type Vtable = IDCompositionSkewTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe57aa735_dcdb_4c72_9c61_0591f58889ee);
@@ -4409,6 +4596,11 @@ impl ::core::cmp::PartialEq for IDCompositionSurface {
     }
 }
 impl ::core::cmp::Eq for IDCompositionSurface {}
+impl ::core::fmt::Debug for IDCompositionSurface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionSurface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionSurface {
     type Vtable = IDCompositionSurfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb8a4953_2c99_4f5a_96f5_4819027fa3ac);
@@ -4475,6 +4667,11 @@ impl ::core::cmp::PartialEq for IDCompositionSurfaceFactory {
     }
 }
 impl ::core::cmp::Eq for IDCompositionSurfaceFactory {}
+impl ::core::fmt::Debug for IDCompositionSurfaceFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionSurfaceFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionSurfaceFactory {
     type Vtable = IDCompositionSurfaceFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe334bc12_3937_4e02_85eb_fcf4eb30d2c8);
@@ -4643,6 +4840,11 @@ impl ::core::cmp::PartialEq for IDCompositionTableTransferEffect {
     }
 }
 impl ::core::cmp::Eq for IDCompositionTableTransferEffect {}
+impl ::core::fmt::Debug for IDCompositionTableTransferEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionTableTransferEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionTableTransferEffect {
     type Vtable = IDCompositionTableTransferEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e82e2_69c5_4eb4_a5f5_a7033f5132cd);
@@ -4717,6 +4919,11 @@ impl ::core::cmp::PartialEq for IDCompositionTarget {
     }
 }
 impl ::core::cmp::Eq for IDCompositionTarget {}
+impl ::core::fmt::Debug for IDCompositionTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionTarget {
     type Vtable = IDCompositionTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeacdd04c_117e_4e17_88f4_d1b12b0e3d89);
@@ -4799,6 +5006,11 @@ impl ::core::cmp::PartialEq for IDCompositionTransform {
     }
 }
 impl ::core::cmp::Eq for IDCompositionTransform {}
+impl ::core::fmt::Debug for IDCompositionTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionTransform {
     type Vtable = IDCompositionTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd55faa7_37e0_4c20_95d2_9be45bc33f55);
@@ -4861,6 +5073,11 @@ impl ::core::cmp::PartialEq for IDCompositionTransform3D {
     }
 }
 impl ::core::cmp::Eq for IDCompositionTransform3D {}
+impl ::core::fmt::Debug for IDCompositionTransform3D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionTransform3D").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionTransform3D {
     type Vtable = IDCompositionTransform3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71185722_246b_41f2_aad1_0443f7f4bfc2);
@@ -4980,6 +5197,11 @@ impl ::core::cmp::PartialEq for IDCompositionTranslateTransform {
     }
 }
 impl ::core::cmp::Eq for IDCompositionTranslateTransform {}
+impl ::core::fmt::Debug for IDCompositionTranslateTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionTranslateTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionTranslateTransform {
     type Vtable = IDCompositionTranslateTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06791122_c6f0_417d_8323_269e987f5954);
@@ -5095,6 +5317,11 @@ impl ::core::cmp::PartialEq for IDCompositionTranslateTransform3D {
     }
 }
 impl ::core::cmp::Eq for IDCompositionTranslateTransform3D {}
+impl ::core::fmt::Debug for IDCompositionTranslateTransform3D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionTranslateTransform3D").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionTranslateTransform3D {
     type Vtable = IDCompositionTranslateTransform3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91636d4b_9ba1_4532_aaf7_e3344994d788);
@@ -5225,6 +5452,11 @@ impl ::core::cmp::PartialEq for IDCompositionTurbulenceEffect {
     }
 }
 impl ::core::cmp::Eq for IDCompositionTurbulenceEffect {}
+impl ::core::fmt::Debug for IDCompositionTurbulenceEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionTurbulenceEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionTurbulenceEffect {
     type Vtable = IDCompositionTurbulenceEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6a55bda_c09c_49f3_9193_a41922c89715);
@@ -5336,6 +5568,11 @@ impl ::core::cmp::PartialEq for IDCompositionVirtualSurface {
     }
 }
 impl ::core::cmp::Eq for IDCompositionVirtualSurface {}
+impl ::core::fmt::Debug for IDCompositionVirtualSurface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionVirtualSurface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionVirtualSurface {
     type Vtable = IDCompositionVirtualSurfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae471c51_5f53_4a24_8d3e_d0c39c30b3f0);
@@ -5464,6 +5701,11 @@ impl ::core::cmp::PartialEq for IDCompositionVisual {
     }
 }
 impl ::core::cmp::Eq for IDCompositionVisual {}
+impl ::core::fmt::Debug for IDCompositionVisual {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionVisual").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionVisual {
     type Vtable = IDCompositionVisualVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d93059d_097b_4651_9a60_f0f25116e2f3);
@@ -5630,6 +5872,11 @@ impl ::core::cmp::PartialEq for IDCompositionVisual2 {
     }
 }
 impl ::core::cmp::Eq for IDCompositionVisual2 {}
+impl ::core::fmt::Debug for IDCompositionVisual2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionVisual2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionVisual2 {
     type Vtable = IDCompositionVisual2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8de1639_4331_4b26_bc5f_6a321d347a85);
@@ -5889,6 +6136,11 @@ impl ::core::cmp::PartialEq for IDCompositionVisual3 {
     }
 }
 impl ::core::cmp::Eq for IDCompositionVisual3 {}
+impl ::core::fmt::Debug for IDCompositionVisual3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionVisual3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionVisual3 {
     type Vtable = IDCompositionVisual3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2775f462_b6c1_4015_b0be_b3e7d6a4976d);
@@ -6109,6 +6361,11 @@ impl ::core::cmp::PartialEq for IDCompositionVisualDebug {
     }
 }
 impl ::core::cmp::Eq for IDCompositionVisualDebug {}
+impl ::core::fmt::Debug for IDCompositionVisualDebug {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDCompositionVisualDebug").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDCompositionVisualDebug {
     type Vtable = IDCompositionVisualDebugVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfed2b808_5eb4_43a0_aea3_35f65280f91b);

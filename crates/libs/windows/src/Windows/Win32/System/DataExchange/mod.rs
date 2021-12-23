@@ -71,6 +71,12 @@ impl ::core::clone::Clone for CONVCONTEXT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for CONVCONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONVCONTEXT").field("cb", &self.cb).field("wFlags", &self.wFlags).field("wCountryID", &self.wCountryID).field("iCodePage", &self.iCodePage).field("dwLangID", &self.dwLangID).field("dwSecurity", &self.dwSecurity).field("qos", &self.qos).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for CONVCONTEXT {
     type Abi = Self;
 }
@@ -115,6 +121,29 @@ impl ::core::marker::Copy for CONVINFO {}
 impl ::core::clone::Clone for CONVINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for CONVINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONVINFO")
+            .field("cb", &self.cb)
+            .field("hUser", &self.hUser)
+            .field("hConvPartner", &self.hConvPartner)
+            .field("hszSvcPartner", &self.hszSvcPartner)
+            .field("hszServiceReq", &self.hszServiceReq)
+            .field("hszTopic", &self.hszTopic)
+            .field("hszItem", &self.hszItem)
+            .field("wFmt", &self.wFmt)
+            .field("wType", &self.wType)
+            .field("wStatus", &self.wStatus)
+            .field("wConvst", &self.wConvst)
+            .field("wLastError", &self.wLastError)
+            .field("hConvList", &self.hConvList)
+            .field("ConvCtxt", &self.ConvCtxt)
+            .field("hwnd", &self.hwnd)
+            .field("hwndPartner", &self.hwndPartner)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -204,6 +233,11 @@ impl ::core::clone::Clone for COPYDATASTRUCT {
         *self
     }
 }
+impl ::core::fmt::Debug for COPYDATASTRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COPYDATASTRUCT").field("dwData", &self.dwData).field("cbData", &self.cbData).field("lpData", &self.lpData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for COPYDATASTRUCT {
     type Abi = Self;
 }
@@ -279,6 +313,11 @@ impl ::core::clone::Clone for DDEACK {
         *self
     }
 }
+impl ::core::fmt::Debug for DDEACK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDEACK").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDEACK {
     type Abi = Self;
 }
@@ -303,6 +342,11 @@ impl ::core::marker::Copy for DDEADVISE {}
 impl ::core::clone::Clone for DDEADVISE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDEADVISE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDEADVISE").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDEADVISE {
@@ -332,6 +376,11 @@ impl ::core::clone::Clone for DDEDATA {
         *self
     }
 }
+impl ::core::fmt::Debug for DDEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDEDATA").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).field("Value", &self.Value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDEDATA {
     type Abi = Self;
 }
@@ -356,6 +405,11 @@ impl ::core::marker::Copy for DDELN {}
 impl ::core::clone::Clone for DDELN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDELN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDELN").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDELN {
@@ -386,6 +440,11 @@ impl ::core::clone::Clone for DDEML_MSG_HOOK_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for DDEML_MSG_HOOK_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDEML_MSG_HOOK_DATA").field("uiLo", &self.uiLo).field("uiHi", &self.uiHi).field("cbData", &self.cbData).field("Data", &self.Data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDEML_MSG_HOOK_DATA {
     type Abi = Self;
 }
@@ -413,6 +472,11 @@ impl ::core::clone::Clone for DDEPOKE {
         *self
     }
 }
+impl ::core::fmt::Debug for DDEPOKE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDEPOKE").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).field("Value", &self.Value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDEPOKE {
     type Abi = Self;
 }
@@ -438,6 +502,11 @@ impl ::core::marker::Copy for DDEUP {}
 impl ::core::clone::Clone for DDEUP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDEUP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDEUP").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).field("rgb", &self.rgb).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDEUP {
@@ -1483,6 +1552,11 @@ impl ::core::clone::Clone for HSZPAIR {
         *self
     }
 }
+impl ::core::fmt::Debug for HSZPAIR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSZPAIR").field("hszSvc", &self.hszSvc).field("hszTopic", &self.hszTopic).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HSZPAIR {
     type Abi = Self;
 }
@@ -1562,6 +1636,12 @@ impl ::core::clone::Clone for METAFILEPICT {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for METAFILEPICT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("METAFILEPICT").field("mm", &self.mm).field("xExt", &self.xExt).field("yExt", &self.yExt).field("hMF", &self.hMF).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::core::Abi for METAFILEPICT {
     type Abi = Self;
 }
@@ -1618,6 +1698,12 @@ impl ::core::clone::Clone for MONCBSTRUCT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for MONCBSTRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONCBSTRUCT").field("cb", &self.cb).field("dwTime", &self.dwTime).field("hTask", &self.hTask).field("dwRet", &self.dwRet).field("wType", &self.wType).field("wFmt", &self.wFmt).field("hConv", &self.hConv).field("hsz1", &self.hsz1).field("hsz2", &self.hsz2).field("hData", &self.hData).field("dwData1", &self.dwData1).field("dwData2", &self.dwData2).field("cc", &self.cc).field("cbData", &self.cbData).field("Data", &self.Data).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for MONCBSTRUCT {
     type Abi = Self;
 }
@@ -1657,6 +1743,12 @@ impl ::core::clone::Clone for MONCONVSTRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MONCONVSTRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONCONVSTRUCT").field("cb", &self.cb).field("fConnect", &self.fConnect).field("dwTime", &self.dwTime).field("hTask", &self.hTask).field("hszSvc", &self.hszSvc).field("hszTopic", &self.hszTopic).field("hConvClient", &self.hConvClient).field("hConvServer", &self.hConvServer).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MONCONVSTRUCT {
     type Abi = Self;
 }
@@ -1689,6 +1781,12 @@ impl ::core::marker::Copy for MONERRSTRUCT {}
 impl ::core::clone::Clone for MONERRSTRUCT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MONERRSTRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONERRSTRUCT").field("cb", &self.cb).field("wLastError", &self.wLastError).field("dwTime", &self.dwTime).field("hTask", &self.hTask).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1729,6 +1827,12 @@ impl ::core::clone::Clone for MONHSZSTRUCTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MONHSZSTRUCTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONHSZSTRUCTA").field("cb", &self.cb).field("fsAction", &self.fsAction).field("dwTime", &self.dwTime).field("hsz", &self.hsz).field("hTask", &self.hTask).field("str", &self.str).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MONHSZSTRUCTA {
     type Abi = Self;
 }
@@ -1763,6 +1867,12 @@ impl ::core::marker::Copy for MONHSZSTRUCTW {}
 impl ::core::clone::Clone for MONHSZSTRUCTW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MONHSZSTRUCTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONHSZSTRUCTW").field("cb", &self.cb).field("fsAction", &self.fsAction).field("dwTime", &self.dwTime).field("hsz", &self.hsz).field("hTask", &self.hTask).field("str", &self.str).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1809,6 +1919,12 @@ impl ::core::clone::Clone for MONLINKSTRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MONLINKSTRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONLINKSTRUCT").field("cb", &self.cb).field("dwTime", &self.dwTime).field("hTask", &self.hTask).field("fEstablished", &self.fEstablished).field("fNoData", &self.fNoData).field("hszSvc", &self.hszSvc).field("hszTopic", &self.hszTopic).field("hszItem", &self.hszItem).field("wFmt", &self.wFmt).field("fServer", &self.fServer).field("hConvServer", &self.hConvServer).field("hConvClient", &self.hConvClient).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MONLINKSTRUCT {
     type Abi = Self;
 }
@@ -1845,6 +1961,12 @@ impl ::core::marker::Copy for MONMSGSTRUCT {}
 impl ::core::clone::Clone for MONMSGSTRUCT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MONMSGSTRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONMSGSTRUCT").field("cb", &self.cb).field("hwndTo", &self.hwndTo).field("dwTime", &self.dwTime).field("hTask", &self.hTask).field("wMsg", &self.wMsg).field("wParam", &self.wParam).field("lParam", &self.lParam).field("dmhd", &self.dmhd).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

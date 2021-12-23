@@ -19,6 +19,12 @@ impl ::core::clone::Clone for ACCESSRECTLIST {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for ACCESSRECTLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACCESSRECTLIST").field("lpLink", &self.lpLink).field("rDest", &self.rDest).field("lpOwner", &self.lpOwner).field("lpSurfaceData", &self.lpSurfaceData).field("dwFlags", &self.dwFlags).field("lpHeapAliasInfo", &self.lpHeapAliasInfo).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for ACCESSRECTLIST {
     type Abi = Self;
 }
@@ -57,6 +63,12 @@ impl ::core::marker::Copy for ATTACHLIST {}
 impl ::core::clone::Clone for ATTACHLIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for ATTACHLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ATTACHLIST").field("dwFlags", &self.dwFlags).field("lpLink", &self.lpLink).field("lpAttached", &self.lpAttached).field("lpIAttached", &self.lpIAttached).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -160,6 +172,12 @@ impl ::core::clone::Clone for DBLNODE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DBLNODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DBLNODE").field("next", &self.next).field("prev", &self.prev).field("object", &self.object).field("object_int", &self.object_int).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DBLNODE {
     type Abi = Self;
 }
@@ -196,6 +214,12 @@ impl ::core::clone::Clone for DD32BITDRIVERDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD32BITDRIVERDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD32BITDRIVERDATA").field("szName", &self.szName).field("szEntryPoint", &self.szEntryPoint).field("dwContext", &self.dwContext).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD32BITDRIVERDATA {
     type Abi = Self;
 }
@@ -229,6 +253,11 @@ impl ::core::marker::Copy for DDARGB {}
 impl ::core::clone::Clone for DDARGB {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDARGB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDARGB").field("blue", &self.blue).field("green", &self.green).field("red", &self.red).field("alpha", &self.alpha).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDARGB {
@@ -273,6 +302,12 @@ pub struct DDBLTBATCH {
 impl ::core::clone::Clone for DDBLTBATCH {
     fn clone(&self) -> Self {
         Self { lprDest: self.lprDest, lpDDSSrc: self.lpDDSSrc.clone(), lprSrc: self.lprSrc, dwFlags: self.dwFlags, lpDDBltFx: self.lpDDBltFx }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DDBLTBATCH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDBLTBATCH").field("lprDest", &self.lprDest).field("lpDDSSrc", &self.lpDDSSrc).field("lprSrc", &self.lprSrc).field("dwFlags", &self.dwFlags).field("lpDDBltFx", &self.lpDDBltFx).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -615,6 +650,11 @@ impl ::core::clone::Clone for DDBOBNEXTFIELDINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for DDBOBNEXTFIELDINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDBOBNEXTFIELDINFO").field("lpSurface", &self.lpSurface).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDBOBNEXTFIELDINFO {
     type Abi = Self;
 }
@@ -773,6 +813,48 @@ impl ::core::clone::Clone for DDCAPS_DX1 {
         *self
     }
 }
+impl ::core::fmt::Debug for DDCAPS_DX1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDCAPS_DX1")
+            .field("dwSize", &self.dwSize)
+            .field("dwCaps", &self.dwCaps)
+            .field("dwCaps2", &self.dwCaps2)
+            .field("dwCKeyCaps", &self.dwCKeyCaps)
+            .field("dwFXCaps", &self.dwFXCaps)
+            .field("dwFXAlphaCaps", &self.dwFXAlphaCaps)
+            .field("dwPalCaps", &self.dwPalCaps)
+            .field("dwSVCaps", &self.dwSVCaps)
+            .field("dwAlphaBltConstBitDepths", &self.dwAlphaBltConstBitDepths)
+            .field("dwAlphaBltPixelBitDepths", &self.dwAlphaBltPixelBitDepths)
+            .field("dwAlphaBltSurfaceBitDepths", &self.dwAlphaBltSurfaceBitDepths)
+            .field("dwAlphaOverlayConstBitDepths", &self.dwAlphaOverlayConstBitDepths)
+            .field("dwAlphaOverlayPixelBitDepths", &self.dwAlphaOverlayPixelBitDepths)
+            .field("dwAlphaOverlaySurfaceBitDepths", &self.dwAlphaOverlaySurfaceBitDepths)
+            .field("dwZBufferBitDepths", &self.dwZBufferBitDepths)
+            .field("dwVidMemTotal", &self.dwVidMemTotal)
+            .field("dwVidMemFree", &self.dwVidMemFree)
+            .field("dwMaxVisibleOverlays", &self.dwMaxVisibleOverlays)
+            .field("dwCurrVisibleOverlays", &self.dwCurrVisibleOverlays)
+            .field("dwNumFourCCCodes", &self.dwNumFourCCCodes)
+            .field("dwAlignBoundarySrc", &self.dwAlignBoundarySrc)
+            .field("dwAlignSizeSrc", &self.dwAlignSizeSrc)
+            .field("dwAlignBoundaryDest", &self.dwAlignBoundaryDest)
+            .field("dwAlignSizeDest", &self.dwAlignSizeDest)
+            .field("dwAlignStrideAlign", &self.dwAlignStrideAlign)
+            .field("dwRops", &self.dwRops)
+            .field("ddsCaps", &self.ddsCaps)
+            .field("dwMinOverlayStretch", &self.dwMinOverlayStretch)
+            .field("dwMaxOverlayStretch", &self.dwMaxOverlayStretch)
+            .field("dwMinLiveVideoStretch", &self.dwMinLiveVideoStretch)
+            .field("dwMaxLiveVideoStretch", &self.dwMaxLiveVideoStretch)
+            .field("dwMinHwCodecStretch", &self.dwMinHwCodecStretch)
+            .field("dwMaxHwCodecStretch", &self.dwMaxHwCodecStretch)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("dwReserved2", &self.dwReserved2)
+            .field("dwReserved3", &self.dwReserved3)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDCAPS_DX1 {
     type Abi = Self;
 }
@@ -846,6 +928,63 @@ impl ::core::marker::Copy for DDCAPS_DX3 {}
 impl ::core::clone::Clone for DDCAPS_DX3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDCAPS_DX3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDCAPS_DX3")
+            .field("dwSize", &self.dwSize)
+            .field("dwCaps", &self.dwCaps)
+            .field("dwCaps2", &self.dwCaps2)
+            .field("dwCKeyCaps", &self.dwCKeyCaps)
+            .field("dwFXCaps", &self.dwFXCaps)
+            .field("dwFXAlphaCaps", &self.dwFXAlphaCaps)
+            .field("dwPalCaps", &self.dwPalCaps)
+            .field("dwSVCaps", &self.dwSVCaps)
+            .field("dwAlphaBltConstBitDepths", &self.dwAlphaBltConstBitDepths)
+            .field("dwAlphaBltPixelBitDepths", &self.dwAlphaBltPixelBitDepths)
+            .field("dwAlphaBltSurfaceBitDepths", &self.dwAlphaBltSurfaceBitDepths)
+            .field("dwAlphaOverlayConstBitDepths", &self.dwAlphaOverlayConstBitDepths)
+            .field("dwAlphaOverlayPixelBitDepths", &self.dwAlphaOverlayPixelBitDepths)
+            .field("dwAlphaOverlaySurfaceBitDepths", &self.dwAlphaOverlaySurfaceBitDepths)
+            .field("dwZBufferBitDepths", &self.dwZBufferBitDepths)
+            .field("dwVidMemTotal", &self.dwVidMemTotal)
+            .field("dwVidMemFree", &self.dwVidMemFree)
+            .field("dwMaxVisibleOverlays", &self.dwMaxVisibleOverlays)
+            .field("dwCurrVisibleOverlays", &self.dwCurrVisibleOverlays)
+            .field("dwNumFourCCCodes", &self.dwNumFourCCCodes)
+            .field("dwAlignBoundarySrc", &self.dwAlignBoundarySrc)
+            .field("dwAlignSizeSrc", &self.dwAlignSizeSrc)
+            .field("dwAlignBoundaryDest", &self.dwAlignBoundaryDest)
+            .field("dwAlignSizeDest", &self.dwAlignSizeDest)
+            .field("dwAlignStrideAlign", &self.dwAlignStrideAlign)
+            .field("dwRops", &self.dwRops)
+            .field("ddsCaps", &self.ddsCaps)
+            .field("dwMinOverlayStretch", &self.dwMinOverlayStretch)
+            .field("dwMaxOverlayStretch", &self.dwMaxOverlayStretch)
+            .field("dwMinLiveVideoStretch", &self.dwMinLiveVideoStretch)
+            .field("dwMaxLiveVideoStretch", &self.dwMaxLiveVideoStretch)
+            .field("dwMinHwCodecStretch", &self.dwMinHwCodecStretch)
+            .field("dwMaxHwCodecStretch", &self.dwMaxHwCodecStretch)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("dwReserved2", &self.dwReserved2)
+            .field("dwReserved3", &self.dwReserved3)
+            .field("dwSVBCaps", &self.dwSVBCaps)
+            .field("dwSVBCKeyCaps", &self.dwSVBCKeyCaps)
+            .field("dwSVBFXCaps", &self.dwSVBFXCaps)
+            .field("dwSVBRops", &self.dwSVBRops)
+            .field("dwVSBCaps", &self.dwVSBCaps)
+            .field("dwVSBCKeyCaps", &self.dwVSBCKeyCaps)
+            .field("dwVSBFXCaps", &self.dwVSBFXCaps)
+            .field("dwVSBRops", &self.dwVSBRops)
+            .field("dwSSBCaps", &self.dwSSBCaps)
+            .field("dwSSBCKeyCaps", &self.dwSSBCKeyCaps)
+            .field("dwSSBFXCaps", &self.dwSSBFXCaps)
+            .field("dwSSBRops", &self.dwSSBRops)
+            .field("dwReserved4", &self.dwReserved4)
+            .field("dwReserved5", &self.dwReserved5)
+            .field("dwReserved6", &self.dwReserved6)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDCAPS_DX3 {
@@ -926,6 +1065,68 @@ impl ::core::marker::Copy for DDCAPS_DX5 {}
 impl ::core::clone::Clone for DDCAPS_DX5 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDCAPS_DX5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDCAPS_DX5")
+            .field("dwSize", &self.dwSize)
+            .field("dwCaps", &self.dwCaps)
+            .field("dwCaps2", &self.dwCaps2)
+            .field("dwCKeyCaps", &self.dwCKeyCaps)
+            .field("dwFXCaps", &self.dwFXCaps)
+            .field("dwFXAlphaCaps", &self.dwFXAlphaCaps)
+            .field("dwPalCaps", &self.dwPalCaps)
+            .field("dwSVCaps", &self.dwSVCaps)
+            .field("dwAlphaBltConstBitDepths", &self.dwAlphaBltConstBitDepths)
+            .field("dwAlphaBltPixelBitDepths", &self.dwAlphaBltPixelBitDepths)
+            .field("dwAlphaBltSurfaceBitDepths", &self.dwAlphaBltSurfaceBitDepths)
+            .field("dwAlphaOverlayConstBitDepths", &self.dwAlphaOverlayConstBitDepths)
+            .field("dwAlphaOverlayPixelBitDepths", &self.dwAlphaOverlayPixelBitDepths)
+            .field("dwAlphaOverlaySurfaceBitDepths", &self.dwAlphaOverlaySurfaceBitDepths)
+            .field("dwZBufferBitDepths", &self.dwZBufferBitDepths)
+            .field("dwVidMemTotal", &self.dwVidMemTotal)
+            .field("dwVidMemFree", &self.dwVidMemFree)
+            .field("dwMaxVisibleOverlays", &self.dwMaxVisibleOverlays)
+            .field("dwCurrVisibleOverlays", &self.dwCurrVisibleOverlays)
+            .field("dwNumFourCCCodes", &self.dwNumFourCCCodes)
+            .field("dwAlignBoundarySrc", &self.dwAlignBoundarySrc)
+            .field("dwAlignSizeSrc", &self.dwAlignSizeSrc)
+            .field("dwAlignBoundaryDest", &self.dwAlignBoundaryDest)
+            .field("dwAlignSizeDest", &self.dwAlignSizeDest)
+            .field("dwAlignStrideAlign", &self.dwAlignStrideAlign)
+            .field("dwRops", &self.dwRops)
+            .field("ddsCaps", &self.ddsCaps)
+            .field("dwMinOverlayStretch", &self.dwMinOverlayStretch)
+            .field("dwMaxOverlayStretch", &self.dwMaxOverlayStretch)
+            .field("dwMinLiveVideoStretch", &self.dwMinLiveVideoStretch)
+            .field("dwMaxLiveVideoStretch", &self.dwMaxLiveVideoStretch)
+            .field("dwMinHwCodecStretch", &self.dwMinHwCodecStretch)
+            .field("dwMaxHwCodecStretch", &self.dwMaxHwCodecStretch)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("dwReserved2", &self.dwReserved2)
+            .field("dwReserved3", &self.dwReserved3)
+            .field("dwSVBCaps", &self.dwSVBCaps)
+            .field("dwSVBCKeyCaps", &self.dwSVBCKeyCaps)
+            .field("dwSVBFXCaps", &self.dwSVBFXCaps)
+            .field("dwSVBRops", &self.dwSVBRops)
+            .field("dwVSBCaps", &self.dwVSBCaps)
+            .field("dwVSBCKeyCaps", &self.dwVSBCKeyCaps)
+            .field("dwVSBFXCaps", &self.dwVSBFXCaps)
+            .field("dwVSBRops", &self.dwVSBRops)
+            .field("dwSSBCaps", &self.dwSSBCaps)
+            .field("dwSSBCKeyCaps", &self.dwSSBCKeyCaps)
+            .field("dwSSBFXCaps", &self.dwSSBFXCaps)
+            .field("dwSSBRops", &self.dwSSBRops)
+            .field("dwMaxVideoPorts", &self.dwMaxVideoPorts)
+            .field("dwCurrVideoPorts", &self.dwCurrVideoPorts)
+            .field("dwSVBCaps2", &self.dwSVBCaps2)
+            .field("dwNLVBCaps", &self.dwNLVBCaps)
+            .field("dwNLVBCaps2", &self.dwNLVBCaps2)
+            .field("dwNLVBCKeyCaps", &self.dwNLVBCKeyCaps)
+            .field("dwNLVBFXCaps", &self.dwNLVBFXCaps)
+            .field("dwNLVBRops", &self.dwNLVBRops)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDCAPS_DX5 {
@@ -1198,6 +1399,11 @@ impl ::core::clone::Clone for DDCOLORCONTROL {
         *self
     }
 }
+impl ::core::fmt::Debug for DDCOLORCONTROL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDCOLORCONTROL").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("lBrightness", &self.lBrightness).field("lContrast", &self.lContrast).field("lHue", &self.lHue).field("lSaturation", &self.lSaturation).field("lSharpness", &self.lSharpness).field("lGamma", &self.lGamma).field("lColorEnable", &self.lColorEnable).field("dwReserved1", &self.dwReserved1).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDCOLORCONTROL {
     type Abi = Self;
 }
@@ -1222,6 +1428,11 @@ impl ::core::marker::Copy for DDCOLORKEY {}
 impl ::core::clone::Clone for DDCOLORKEY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDCOLORKEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDCOLORKEY").field("dwColorSpaceLowValue", &self.dwColorSpaceLowValue).field("dwColorSpaceHighValue", &self.dwColorSpaceHighValue).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDCOLORKEY {
@@ -1344,6 +1555,63 @@ impl ::core::clone::Clone for DDCORECAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for DDCORECAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDCORECAPS")
+            .field("dwSize", &self.dwSize)
+            .field("dwCaps", &self.dwCaps)
+            .field("dwCaps2", &self.dwCaps2)
+            .field("dwCKeyCaps", &self.dwCKeyCaps)
+            .field("dwFXCaps", &self.dwFXCaps)
+            .field("dwFXAlphaCaps", &self.dwFXAlphaCaps)
+            .field("dwPalCaps", &self.dwPalCaps)
+            .field("dwSVCaps", &self.dwSVCaps)
+            .field("dwAlphaBltConstBitDepths", &self.dwAlphaBltConstBitDepths)
+            .field("dwAlphaBltPixelBitDepths", &self.dwAlphaBltPixelBitDepths)
+            .field("dwAlphaBltSurfaceBitDepths", &self.dwAlphaBltSurfaceBitDepths)
+            .field("dwAlphaOverlayConstBitDepths", &self.dwAlphaOverlayConstBitDepths)
+            .field("dwAlphaOverlayPixelBitDepths", &self.dwAlphaOverlayPixelBitDepths)
+            .field("dwAlphaOverlaySurfaceBitDepths", &self.dwAlphaOverlaySurfaceBitDepths)
+            .field("dwZBufferBitDepths", &self.dwZBufferBitDepths)
+            .field("dwVidMemTotal", &self.dwVidMemTotal)
+            .field("dwVidMemFree", &self.dwVidMemFree)
+            .field("dwMaxVisibleOverlays", &self.dwMaxVisibleOverlays)
+            .field("dwCurrVisibleOverlays", &self.dwCurrVisibleOverlays)
+            .field("dwNumFourCCCodes", &self.dwNumFourCCCodes)
+            .field("dwAlignBoundarySrc", &self.dwAlignBoundarySrc)
+            .field("dwAlignSizeSrc", &self.dwAlignSizeSrc)
+            .field("dwAlignBoundaryDest", &self.dwAlignBoundaryDest)
+            .field("dwAlignSizeDest", &self.dwAlignSizeDest)
+            .field("dwAlignStrideAlign", &self.dwAlignStrideAlign)
+            .field("dwRops", &self.dwRops)
+            .field("ddsCaps", &self.ddsCaps)
+            .field("dwMinOverlayStretch", &self.dwMinOverlayStretch)
+            .field("dwMaxOverlayStretch", &self.dwMaxOverlayStretch)
+            .field("dwMinLiveVideoStretch", &self.dwMinLiveVideoStretch)
+            .field("dwMaxLiveVideoStretch", &self.dwMaxLiveVideoStretch)
+            .field("dwMinHwCodecStretch", &self.dwMinHwCodecStretch)
+            .field("dwMaxHwCodecStretch", &self.dwMaxHwCodecStretch)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("dwReserved2", &self.dwReserved2)
+            .field("dwReserved3", &self.dwReserved3)
+            .field("dwSVBCaps", &self.dwSVBCaps)
+            .field("dwSVBCKeyCaps", &self.dwSVBCKeyCaps)
+            .field("dwSVBFXCaps", &self.dwSVBFXCaps)
+            .field("dwSVBRops", &self.dwSVBRops)
+            .field("dwVSBCaps", &self.dwVSBCaps)
+            .field("dwVSBCKeyCaps", &self.dwVSBCKeyCaps)
+            .field("dwVSBFXCaps", &self.dwVSBFXCaps)
+            .field("dwVSBRops", &self.dwVSBRops)
+            .field("dwSSBCaps", &self.dwSSBCaps)
+            .field("dwSSBCKeyCaps", &self.dwSSBCKeyCaps)
+            .field("dwSSBFXCaps", &self.dwSSBFXCaps)
+            .field("dwSSBRops", &self.dwSSBRops)
+            .field("dwMaxVideoPorts", &self.dwMaxVideoPorts)
+            .field("dwCurrVideoPorts", &self.dwCurrVideoPorts)
+            .field("dwSVBCaps2", &self.dwSVBCaps2)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDCORECAPS {
     type Abi = Self;
 }
@@ -1383,6 +1651,12 @@ impl ::core::marker::Copy for DDDEVICEIDENTIFIER {}
 impl ::core::clone::Clone for DDDEVICEIDENTIFIER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DDDEVICEIDENTIFIER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDDEVICEIDENTIFIER").field("szDriver", &self.szDriver).field("szDescription", &self.szDescription).field("liDriverVersion", &self.liDriverVersion).field("dwVendorId", &self.dwVendorId).field("dwDeviceId", &self.dwDeviceId).field("dwSubSysId", &self.dwSubSysId).field("dwRevision", &self.dwRevision).field("guidDeviceIdentifier", &self.guidDeviceIdentifier).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1426,6 +1700,12 @@ impl ::core::clone::Clone for DDDEVICEIDENTIFIER2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DDDEVICEIDENTIFIER2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDDEVICEIDENTIFIER2").field("szDriver", &self.szDriver).field("szDescription", &self.szDescription).field("liDriverVersion", &self.liDriverVersion).field("dwVendorId", &self.dwVendorId).field("dwDeviceId", &self.dwDeviceId).field("dwSubSysId", &self.dwSubSysId).field("dwRevision", &self.dwRevision).field("guidDeviceIdentifier", &self.guidDeviceIdentifier).field("dwWHQLLevel", &self.dwWHQLLevel).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DDDEVICEIDENTIFIER2 {
     type Abi = Self;
 }
@@ -1463,6 +1743,11 @@ impl ::core::marker::Copy for DDENABLEIRQINFO {}
 impl ::core::clone::Clone for DDENABLEIRQINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDENABLEIRQINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDENABLEIRQINFO").field("dwIRQSources", &self.dwIRQSources).field("dwLine", &self.dwLine).field("IRQCallback", &self.IRQCallback.map(|f| f as usize)).field("lpIRQData", &self.lpIRQData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDENABLEIRQINFO {
@@ -1518,6 +1803,11 @@ impl ::core::clone::Clone for DDFLIPOVERLAYINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for DDFLIPOVERLAYINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDFLIPOVERLAYINFO").field("lpCurrentSurface", &self.lpCurrentSurface).field("lpTargetSurface", &self.lpTargetSurface).field("dwFlags", &self.dwFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDFLIPOVERLAYINFO {
     type Abi = Self;
 }
@@ -1544,6 +1834,11 @@ impl ::core::marker::Copy for DDFLIPVIDEOPORTINFO {}
 impl ::core::clone::Clone for DDFLIPVIDEOPORTINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDFLIPVIDEOPORTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDFLIPVIDEOPORTINFO").field("lpVideoPortData", &self.lpVideoPortData).field("lpCurrentSurface", &self.lpCurrentSurface).field("lpTargetSurface", &self.lpTargetSurface).field("dwFlipVPFlags", &self.dwFlipVPFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDFLIPVIDEOPORTINFO {
@@ -1673,6 +1968,11 @@ impl ::core::clone::Clone for DDGAMMARAMP {
         *self
     }
 }
+impl ::core::fmt::Debug for DDGAMMARAMP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDGAMMARAMP").field("red", &self.red).field("green", &self.green).field("blue", &self.blue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDGAMMARAMP {
     type Abi = Self;
 }
@@ -1706,6 +2006,11 @@ impl ::core::clone::Clone for DDGETCURRENTAUTOFLIPININFO {
         *self
     }
 }
+impl ::core::fmt::Debug for DDGETCURRENTAUTOFLIPININFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDGETCURRENTAUTOFLIPININFO").field("lpVideoPortData", &self.lpVideoPortData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDGETCURRENTAUTOFLIPININFO {
     type Abi = Self;
 }
@@ -1730,6 +2035,11 @@ impl ::core::marker::Copy for DDGETCURRENTAUTOFLIPOUTINFO {}
 impl ::core::clone::Clone for DDGETCURRENTAUTOFLIPOUTINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDGETCURRENTAUTOFLIPOUTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDGETCURRENTAUTOFLIPOUTINFO").field("dwSurfaceIndex", &self.dwSurfaceIndex).field("dwVBISurfaceIndex", &self.dwVBISurfaceIndex).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDGETCURRENTAUTOFLIPOUTINFO {
@@ -1757,6 +2067,11 @@ impl ::core::clone::Clone for DDGETIRQINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for DDGETIRQINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDGETIRQINFO").field("dwFlags", &self.dwFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDGETIRQINFO {
     type Abi = Self;
 }
@@ -1780,6 +2095,11 @@ impl ::core::marker::Copy for DDGETPOLARITYININFO {}
 impl ::core::clone::Clone for DDGETPOLARITYININFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDGETPOLARITYININFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDGETPOLARITYININFO").field("lpVideoPortData", &self.lpVideoPortData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDGETPOLARITYININFO {
@@ -1807,6 +2127,11 @@ impl ::core::clone::Clone for DDGETPOLARITYOUTINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for DDGETPOLARITYOUTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDGETPOLARITYOUTINFO").field("bPolarity", &self.bPolarity).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDGETPOLARITYOUTINFO {
     type Abi = Self;
 }
@@ -1830,6 +2155,11 @@ impl ::core::marker::Copy for DDGETPREVIOUSAUTOFLIPININFO {}
 impl ::core::clone::Clone for DDGETPREVIOUSAUTOFLIPININFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDGETPREVIOUSAUTOFLIPININFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDGETPREVIOUSAUTOFLIPININFO").field("lpVideoPortData", &self.lpVideoPortData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDGETPREVIOUSAUTOFLIPININFO {
@@ -1858,6 +2188,11 @@ impl ::core::clone::Clone for DDGETPREVIOUSAUTOFLIPOUTINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for DDGETPREVIOUSAUTOFLIPOUTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDGETPREVIOUSAUTOFLIPOUTINFO").field("dwSurfaceIndex", &self.dwSurfaceIndex).field("dwVBISurfaceIndex", &self.dwVBISurfaceIndex).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDGETPREVIOUSAUTOFLIPOUTINFO {
     type Abi = Self;
 }
@@ -1881,6 +2216,11 @@ impl ::core::marker::Copy for DDGETTRANSFERSTATUSOUTINFO {}
 impl ::core::clone::Clone for DDGETTRANSFERSTATUSOUTINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDGETTRANSFERSTATUSOUTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDGETTRANSFERSTATUSOUTINFO").field("dwTransferID", &self.dwTransferID).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDGETTRANSFERSTATUSOUTINFO {
@@ -1916,6 +2256,12 @@ impl ::core::marker::Copy for DDHALDDRAWFNS {}
 impl ::core::clone::Clone for DDHALDDRAWFNS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHALDDRAWFNS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHALDDRAWFNS").field("dwSize", &self.dwSize).field("lpSetInfo", &self.lpSetInfo.map(|f| f as usize)).field("lpVidMemAlloc", &self.lpVidMemAlloc.map(|f| f as usize)).field("lpVidMemFree", &self.lpVidMemFree.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2013,6 +2359,11 @@ impl ::core::clone::Clone for DDHALMODEINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for DDHALMODEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHALMODEINFO").field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("lPitch", &self.lPitch).field("dwBPP", &self.dwBPP).field("wFlags", &self.wFlags).field("wRefreshRate", &self.wRefreshRate).field("dwRBitMask", &self.dwRBitMask).field("dwGBitMask", &self.dwGBitMask).field("dwBBitMask", &self.dwBBitMask).field("dwAlphaBitMask", &self.dwAlphaBitMask).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDHALMODEINFO {
     type Abi = Self;
 }
@@ -2043,6 +2394,12 @@ impl ::core::marker::Copy for DDHAL_ADDATTACHEDSURFACEDATA {}
 impl ::core::clone::Clone for DDHAL_ADDATTACHEDSURFACEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_ADDATTACHEDSURFACEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_ADDATTACHEDSURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("lpSurfAttached", &self.lpSurfAttached).field("ddRVal", &self.ddRVal).field("AddAttachedSurface", &self.AddAttachedSurface.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2083,6 +2440,12 @@ impl ::core::marker::Copy for DDHAL_BEGINMOCOMPFRAMEDATA {}
 impl ::core::clone::Clone for DDHAL_BEGINMOCOMPFRAMEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_BEGINMOCOMPFRAMEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_BEGINMOCOMPFRAMEDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("lpDestSurface", &self.lpDestSurface).field("dwInputDataSize", &self.dwInputDataSize).field("lpInputData", &self.lpInputData).field("dwOutputDataSize", &self.dwOutputDataSize).field("lpOutputData", &self.lpOutputData).field("ddRVal", &self.ddRVal).field("BeginMoCompFrame", &self.BeginMoCompFrame.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2199,6 +2562,35 @@ impl ::core::clone::Clone for DDHAL_CALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_CALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_CALLBACKS")
+            .field("cbDDCallbacks", &self.cbDDCallbacks)
+            .field("cbDDSurfaceCallbacks", &self.cbDDSurfaceCallbacks)
+            .field("cbDDPaletteCallbacks", &self.cbDDPaletteCallbacks)
+            .field("HALDD", &self.HALDD)
+            .field("HALDDSurface", &self.HALDDSurface)
+            .field("HALDDPalette", &self.HALDDPalette)
+            .field("HELDD", &self.HELDD)
+            .field("HELDDSurface", &self.HELDDSurface)
+            .field("HELDDPalette", &self.HELDDPalette)
+            .field("cbDDExeBufCallbacks", &self.cbDDExeBufCallbacks)
+            .field("HALDDExeBuf", &self.HALDDExeBuf)
+            .field("HELDDExeBuf", &self.HELDDExeBuf)
+            .field("cbDDVideoPortCallbacks", &self.cbDDVideoPortCallbacks)
+            .field("HALDDVideoPort", &self.HALDDVideoPort)
+            .field("cbDDColorControlCallbacks", &self.cbDDColorControlCallbacks)
+            .field("HALDDColorControl", &self.HALDDColorControl)
+            .field("cbDDMiscellaneousCallbacks", &self.cbDDMiscellaneousCallbacks)
+            .field("HALDDMiscellaneous", &self.HALDDMiscellaneous)
+            .field("cbDDKernelCallbacks", &self.cbDDKernelCallbacks)
+            .field("HALDDKernel", &self.HALDDKernel)
+            .field("cbDDMotionCompCallbacks", &self.cbDDMotionCompCallbacks)
+            .field("HALDDMotionComp", &self.HALDDMotionComp)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_CALLBACKS {
     type Abi = Self;
 }
@@ -2235,6 +2627,12 @@ impl ::core::clone::Clone for DDHAL_CANCREATESURFACEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_CANCREATESURFACEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_CANCREATESURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurfaceDesc", &self.lpDDSurfaceDesc).field("bIsDifferentPixelFormat", &self.bIsDifferentPixelFormat).field("ddRVal", &self.ddRVal).field("CanCreateSurface", &self.CanCreateSurface.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_CANCREATESURFACEDATA {
     type Abi = Self;
 }
@@ -2267,6 +2665,12 @@ impl ::core::marker::Copy for DDHAL_CANCREATEVPORTDATA {}
 impl ::core::clone::Clone for DDHAL_CANCREATEVPORTDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_CANCREATEVPORTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_CANCREATEVPORTDATA").field("lpDD", &self.lpDD).field("lpDDVideoPortDesc", &self.lpDDVideoPortDesc).field("ddRVal", &self.ddRVal).field("CanCreateVideoPort", &self.CanCreateVideoPort.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2326,6 +2730,12 @@ impl ::core::marker::Copy for DDHAL_COLORCONTROLDATA {}
 impl ::core::clone::Clone for DDHAL_COLORCONTROLDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_COLORCONTROLDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_COLORCONTROLDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("lpColorData", &self.lpColorData).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).field("ColorControl", &self.ColorControl.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2409,6 +2819,12 @@ impl ::core::clone::Clone for DDHAL_CREATEPALETTEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_CREATEPALETTEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_CREATEPALETTEDATA").field("lpDD", &self.lpDD).field("lpDDPalette", &self.lpDDPalette).field("lpColorTable", &self.lpColorTable).field("ddRVal", &self.ddRVal).field("CreatePalette", &self.CreatePalette.map(|f| f as usize)).field("is_excl", &self.is_excl).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_CREATEPALETTEDATA {
     type Abi = Self;
 }
@@ -2443,6 +2859,12 @@ impl ::core::marker::Copy for DDHAL_CREATESURFACEDATA {}
 impl ::core::clone::Clone for DDHAL_CREATESURFACEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_CREATESURFACEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_CREATESURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurfaceDesc", &self.lpDDSurfaceDesc).field("lplpSList", &self.lplpSList).field("dwSCnt", &self.dwSCnt).field("ddRVal", &self.ddRVal).field("CreateSurface", &self.CreateSurface.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2481,6 +2903,12 @@ impl ::core::clone::Clone for DDHAL_CREATESURFACEEXDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_CREATESURFACEEXDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_CREATESURFACEEXDATA").field("dwFlags", &self.dwFlags).field("lpDDLcl", &self.lpDDLcl).field("lpDDSLcl", &self.lpDDSLcl).field("ddRVal", &self.ddRVal).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_CREATESURFACEEXDATA {
     type Abi = Self;
 }
@@ -2516,6 +2944,12 @@ impl ::core::marker::Copy for DDHAL_CREATEVPORTDATA {}
 impl ::core::clone::Clone for DDHAL_CREATEVPORTDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_CREATEVPORTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_CREATEVPORTDATA").field("lpDD", &self.lpDD).field("lpDDVideoPortDesc", &self.lpDDVideoPortDesc).field("lpVideoPort", &self.lpVideoPort).field("ddRVal", &self.ddRVal).field("CreateVideoPort", &self.CreateVideoPort.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2572,6 +3006,25 @@ impl ::core::clone::Clone for DDHAL_DDCALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_DDCALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_DDCALLBACKS")
+            .field("dwSize", &self.dwSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("DestroyDriver", &self.DestroyDriver.map(|f| f as usize))
+            .field("CreateSurface", &self.CreateSurface.map(|f| f as usize))
+            .field("SetColorKey", &self.SetColorKey.map(|f| f as usize))
+            .field("SetMode", &self.SetMode.map(|f| f as usize))
+            .field("WaitForVerticalBlank", &self.WaitForVerticalBlank.map(|f| f as usize))
+            .field("CanCreateSurface", &self.CanCreateSurface.map(|f| f as usize))
+            .field("CreatePalette", &self.CreatePalette.map(|f| f as usize))
+            .field("GetScanLine", &self.GetScanLine.map(|f| f as usize))
+            .field("SetExclusiveMode", &self.SetExclusiveMode.map(|f| f as usize))
+            .field("FlipToGDISurface", &self.FlipToGDISurface.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_DDCALLBACKS {
     type Abi = Self;
 }
@@ -2603,6 +3056,12 @@ impl ::core::marker::Copy for DDHAL_DDCOLORCONTROLCALLBACKS {}
 impl ::core::clone::Clone for DDHAL_DDCOLORCONTROLCALLBACKS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_DDCOLORCONTROLCALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_DDCOLORCONTROLCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("ColorControl", &self.ColorControl.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2644,6 +3103,20 @@ impl ::core::clone::Clone for DDHAL_DDEXEBUFCALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_DDEXEBUFCALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_DDEXEBUFCALLBACKS")
+            .field("dwSize", &self.dwSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("CanCreateExecuteBuffer", &self.CanCreateExecuteBuffer.map(|f| f as usize))
+            .field("CreateExecuteBuffer", &self.CreateExecuteBuffer.map(|f| f as usize))
+            .field("DestroyExecuteBuffer", &self.DestroyExecuteBuffer.map(|f| f as usize))
+            .field("LockExecuteBuffer", &self.LockExecuteBuffer.map(|f| f as usize))
+            .field("UnlockExecuteBuffer", &self.UnlockExecuteBuffer.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_DDEXEBUFCALLBACKS {
     type Abi = Self;
 }
@@ -2676,6 +3149,12 @@ impl ::core::marker::Copy for DDHAL_DDKERNELCALLBACKS {}
 impl ::core::clone::Clone for DDHAL_DDKERNELCALLBACKS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_DDKERNELCALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_DDKERNELCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("SyncSurfaceData", &self.SyncSurfaceData.map(|f| f as usize)).field("SyncVideoPortData", &self.SyncVideoPortData.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2716,6 +3195,12 @@ impl ::core::clone::Clone for DDHAL_DDMISCELLANEOUS2CALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_DDMISCELLANEOUS2CALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_DDMISCELLANEOUS2CALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("Reserved", &self.Reserved).field("CreateSurfaceEx", &self.CreateSurfaceEx.map(|f| f as usize)).field("GetDriverState", &self.GetDriverState.map(|f| f as usize)).field("DestroyDDLocal", &self.DestroyDDLocal.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_DDMISCELLANEOUS2CALLBACKS {
     type Abi = Self;
 }
@@ -2750,6 +3235,12 @@ impl ::core::marker::Copy for DDHAL_DDMISCELLANEOUSCALLBACKS {}
 impl ::core::clone::Clone for DDHAL_DDMISCELLANEOUSCALLBACKS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_DDMISCELLANEOUSCALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_DDMISCELLANEOUSCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("GetAvailDriverMemory", &self.GetAvailDriverMemory.map(|f| f as usize)).field("UpdateNonLocalHeap", &self.UpdateNonLocalHeap.map(|f| f as usize)).field("GetHeapAlignment", &self.GetHeapAlignment.map(|f| f as usize)).field("GetSysmemBltStatus", &self.GetSysmemBltStatus.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2796,6 +3287,25 @@ impl ::core::clone::Clone for DDHAL_DDMOTIONCOMPCALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_DDMOTIONCOMPCALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_DDMOTIONCOMPCALLBACKS")
+            .field("dwSize", &self.dwSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("GetMoCompGuids", &self.GetMoCompGuids.map(|f| f as usize))
+            .field("GetMoCompFormats", &self.GetMoCompFormats.map(|f| f as usize))
+            .field("CreateMoComp", &self.CreateMoComp.map(|f| f as usize))
+            .field("GetMoCompBuffInfo", &self.GetMoCompBuffInfo.map(|f| f as usize))
+            .field("GetInternalMoCompInfo", &self.GetInternalMoCompInfo.map(|f| f as usize))
+            .field("BeginMoCompFrame", &self.BeginMoCompFrame.map(|f| f as usize))
+            .field("EndMoCompFrame", &self.EndMoCompFrame.map(|f| f as usize))
+            .field("RenderMoComp", &self.RenderMoComp.map(|f| f as usize))
+            .field("QueryMoCompStatus", &self.QueryMoCompStatus.map(|f| f as usize))
+            .field("DestroyMoComp", &self.DestroyMoComp.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_DDMOTIONCOMPCALLBACKS {
     type Abi = Self;
 }
@@ -2828,6 +3338,12 @@ impl ::core::marker::Copy for DDHAL_DDPALETTECALLBACKS {}
 impl ::core::clone::Clone for DDHAL_DDPALETTECALLBACKS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_DDPALETTECALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_DDPALETTECALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("DestroyPalette", &self.DestroyPalette.map(|f| f as usize)).field("SetEntries", &self.SetEntries.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2875,6 +3391,29 @@ impl ::core::marker::Copy for DDHAL_DDSURFACECALLBACKS {}
 impl ::core::clone::Clone for DDHAL_DDSURFACECALLBACKS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_DDSURFACECALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_DDSURFACECALLBACKS")
+            .field("dwSize", &self.dwSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("DestroySurface", &self.DestroySurface.map(|f| f as usize))
+            .field("Flip", &self.Flip.map(|f| f as usize))
+            .field("SetClipList", &self.SetClipList.map(|f| f as usize))
+            .field("Lock", &self.Lock.map(|f| f as usize))
+            .field("Unlock", &self.Unlock.map(|f| f as usize))
+            .field("Blt", &self.Blt.map(|f| f as usize))
+            .field("SetColorKey", &self.SetColorKey.map(|f| f as usize))
+            .field("AddAttachedSurface", &self.AddAttachedSurface.map(|f| f as usize))
+            .field("GetBltStatus", &self.GetBltStatus.map(|f| f as usize))
+            .field("GetFlipStatus", &self.GetFlipStatus.map(|f| f as usize))
+            .field("UpdateOverlay", &self.UpdateOverlay.map(|f| f as usize))
+            .field("SetOverlayPosition", &self.SetOverlayPosition.map(|f| f as usize))
+            .field("reserved4", &self.reserved4)
+            .field("SetPalette", &self.SetPalette.map(|f| f as usize))
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2927,6 +3466,31 @@ impl ::core::clone::Clone for DDHAL_DDVIDEOPORTCALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_DDVIDEOPORTCALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_DDVIDEOPORTCALLBACKS")
+            .field("dwSize", &self.dwSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("CanCreateVideoPort", &self.CanCreateVideoPort.map(|f| f as usize))
+            .field("CreateVideoPort", &self.CreateVideoPort.map(|f| f as usize))
+            .field("FlipVideoPort", &self.FlipVideoPort.map(|f| f as usize))
+            .field("GetVideoPortBandwidth", &self.GetVideoPortBandwidth.map(|f| f as usize))
+            .field("GetVideoPortInputFormats", &self.GetVideoPortInputFormats.map(|f| f as usize))
+            .field("GetVideoPortOutputFormats", &self.GetVideoPortOutputFormats.map(|f| f as usize))
+            .field("lpReserved1", &self.lpReserved1)
+            .field("GetVideoPortField", &self.GetVideoPortField.map(|f| f as usize))
+            .field("GetVideoPortLine", &self.GetVideoPortLine.map(|f| f as usize))
+            .field("GetVideoPortConnectInfo", &self.GetVideoPortConnectInfo.map(|f| f as usize))
+            .field("DestroyVideoPort", &self.DestroyVideoPort.map(|f| f as usize))
+            .field("GetVideoPortFlipStatus", &self.GetVideoPortFlipStatus.map(|f| f as usize))
+            .field("UpdateVideoPort", &self.UpdateVideoPort.map(|f| f as usize))
+            .field("WaitForVideoPortSync", &self.WaitForVideoPortSync.map(|f| f as usize))
+            .field("GetVideoSignalStatus", &self.GetVideoSignalStatus.map(|f| f as usize))
+            .field("ColorControl", &self.ColorControl.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_DDVIDEOPORTCALLBACKS {
     type Abi = Self;
 }
@@ -2961,6 +3525,12 @@ impl ::core::clone::Clone for DDHAL_DESTROYDDLOCALDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_DESTROYDDLOCALDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_DESTROYDDLOCALDATA").field("dwFlags", &self.dwFlags).field("pDDLcl", &self.pDDLcl).field("ddRVal", &self.ddRVal).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_DESTROYDDLOCALDATA {
     type Abi = Self;
 }
@@ -2992,6 +3562,12 @@ impl ::core::marker::Copy for DDHAL_DESTROYDRIVERDATA {}
 impl ::core::clone::Clone for DDHAL_DESTROYDRIVERDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_DESTROYDRIVERDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_DESTROYDRIVERDATA").field("lpDD", &self.lpDD).field("ddRVal", &self.ddRVal).field("DestroyDriver", &self.DestroyDriver.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3030,6 +3606,12 @@ impl ::core::clone::Clone for DDHAL_DESTROYMOCOMPDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_DESTROYMOCOMPDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_DESTROYMOCOMPDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("ddRVal", &self.ddRVal).field("DestroyMoComp", &self.DestroyMoComp.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_DESTROYMOCOMPDATA {
     type Abi = Self;
 }
@@ -3062,6 +3644,12 @@ impl ::core::marker::Copy for DDHAL_DESTROYPALETTEDATA {}
 impl ::core::clone::Clone for DDHAL_DESTROYPALETTEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_DESTROYPALETTEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_DESTROYPALETTEDATA").field("lpDD", &self.lpDD).field("lpDDPalette", &self.lpDDPalette).field("ddRVal", &self.ddRVal).field("DestroyPalette", &self.DestroyPalette.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3100,6 +3688,12 @@ impl ::core::clone::Clone for DDHAL_DESTROYSURFACEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_DESTROYSURFACEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_DESTROYSURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("ddRVal", &self.ddRVal).field("DestroySurface", &self.DestroySurface.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_DESTROYSURFACEDATA {
     type Abi = Self;
 }
@@ -3132,6 +3726,12 @@ impl ::core::marker::Copy for DDHAL_DESTROYVPORTDATA {}
 impl ::core::clone::Clone for DDHAL_DESTROYVPORTDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_DESTROYVPORTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_DESTROYVPORTDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("ddRVal", &self.ddRVal).field("DestroyVideoPort", &self.DestroyVideoPort.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3177,6 +3777,12 @@ impl ::core::clone::Clone for DDHAL_DRVSETCOLORKEYDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_DRVSETCOLORKEYDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_DRVSETCOLORKEYDATA").field("lpDDSurface", &self.lpDDSurface).field("dwFlags", &self.dwFlags).field("ckNew", &self.ckNew).field("ddRVal", &self.ddRVal).field("SetColorKey", &self.SetColorKey.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_DRVSETCOLORKEYDATA {
     type Abi = Self;
 }
@@ -3211,6 +3817,12 @@ impl ::core::marker::Copy for DDHAL_ENDMOCOMPFRAMEDATA {}
 impl ::core::clone::Clone for DDHAL_ENDMOCOMPFRAMEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_ENDMOCOMPFRAMEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_ENDMOCOMPFRAMEDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("lpInputData", &self.lpInputData).field("dwInputDataSize", &self.dwInputDataSize).field("ddRVal", &self.ddRVal).field("EndMoCompFrame", &self.EndMoCompFrame.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3263,6 +3875,12 @@ impl ::core::clone::Clone for DDHAL_FLIPDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_FLIPDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_FLIPDATA").field("lpDD", &self.lpDD).field("lpSurfCurr", &self.lpSurfCurr).field("lpSurfTarg", &self.lpSurfTarg).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).field("Flip", &self.Flip.map(|f| f as usize)).field("lpSurfCurrLeft", &self.lpSurfCurrLeft).field("lpSurfTargLeft", &self.lpSurfTargLeft).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_FLIPDATA {
     type Abi = Self;
 }
@@ -3296,6 +3914,12 @@ impl ::core::marker::Copy for DDHAL_FLIPTOGDISURFACEDATA {}
 impl ::core::clone::Clone for DDHAL_FLIPTOGDISURFACEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_FLIPTOGDISURFACEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_FLIPTOGDISURFACEDATA").field("lpDD", &self.lpDD).field("dwToGDI", &self.dwToGDI).field("dwReserved", &self.dwReserved).field("ddRVal", &self.ddRVal).field("FlipToGDISurface", &self.FlipToGDISurface.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3333,6 +3957,12 @@ impl ::core::marker::Copy for DDHAL_FLIPVPORTDATA {}
 impl ::core::clone::Clone for DDHAL_FLIPVPORTDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_FLIPVPORTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_FLIPVPORTDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("lpSurfCurr", &self.lpSurfCurr).field("lpSurfTarg", &self.lpSurfTarg).field("ddRVal", &self.ddRVal).field("FlipVideoPort", &self.FlipVideoPort.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3410,6 +4040,12 @@ impl ::core::clone::Clone for DDHAL_GETBLTSTATUSDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_GETBLTSTATUSDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_GETBLTSTATUSDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).field("GetBltStatus", &self.GetBltStatus.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_GETBLTSTATUSDATA {
     type Abi = Self;
 }
@@ -3443,6 +4079,11 @@ impl ::core::marker::Copy for DDHAL_GETDRIVERINFODATA {}
 impl ::core::clone::Clone for DDHAL_GETDRIVERINFODATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDHAL_GETDRIVERINFODATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_GETDRIVERINFODATA").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidInfo", &self.guidInfo).field("dwExpectedSize", &self.dwExpectedSize).field("lpvData", &self.lpvData).field("dwActualSize", &self.dwActualSize).field("ddRVal", &self.ddRVal).field("dwContext", &self.dwContext).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDHAL_GETDRIVERINFODATA {
@@ -3529,6 +4170,12 @@ impl ::core::marker::Copy for DDHAL_GETFLIPSTATUSDATA {}
 impl ::core::clone::Clone for DDHAL_GETFLIPSTATUSDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_GETFLIPSTATUSDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_GETFLIPSTATUSDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).field("GetFlipStatus", &self.GetFlipStatus.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3677,6 +4324,12 @@ impl ::core::clone::Clone for DDHAL_GETMOCOMPFORMATSDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_GETMOCOMPFORMATSDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_GETMOCOMPFORMATSDATA").field("lpDD", &self.lpDD).field("lpGuid", &self.lpGuid).field("dwNumFormats", &self.dwNumFormats).field("lpFormats", &self.lpFormats).field("ddRVal", &self.ddRVal).field("GetMoCompFormats", &self.GetMoCompFormats.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_GETMOCOMPFORMATSDATA {
     type Abi = Self;
 }
@@ -3713,6 +4366,12 @@ impl ::core::clone::Clone for DDHAL_GETMOCOMPGUIDSDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_GETMOCOMPGUIDSDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_GETMOCOMPGUIDSDATA").field("lpDD", &self.lpDD).field("dwNumGuids", &self.dwNumGuids).field("lpGuids", &self.lpGuids).field("ddRVal", &self.ddRVal).field("GetMoCompGuids", &self.GetMoCompGuids.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_GETMOCOMPGUIDSDATA {
     type Abi = Self;
 }
@@ -3745,6 +4404,12 @@ impl ::core::marker::Copy for DDHAL_GETSCANLINEDATA {}
 impl ::core::clone::Clone for DDHAL_GETSCANLINEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_GETSCANLINEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_GETSCANLINEDATA").field("lpDD", &self.lpDD).field("dwScanLine", &self.dwScanLine).field("ddRVal", &self.ddRVal).field("GetScanLine", &self.GetScanLine.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3788,6 +4453,12 @@ impl ::core::clone::Clone for DDHAL_GETVPORTBANDWIDTHDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_GETVPORTBANDWIDTHDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_GETVPORTBANDWIDTHDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("lpddpfFormat", &self.lpddpfFormat).field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("dwFlags", &self.dwFlags).field("lpBandwidth", &self.lpBandwidth).field("ddRVal", &self.ddRVal).field("GetVideoPortBandwidth", &self.GetVideoPortBandwidth.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_GETVPORTBANDWIDTHDATA {
     type Abi = Self;
 }
@@ -3822,6 +4493,12 @@ impl ::core::marker::Copy for DDHAL_GETVPORTCONNECTDATA {}
 impl ::core::clone::Clone for DDHAL_GETVPORTCONNECTDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_GETVPORTCONNECTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_GETVPORTCONNECTDATA").field("lpDD", &self.lpDD).field("dwPortId", &self.dwPortId).field("lpConnect", &self.lpConnect).field("dwNumEntries", &self.dwNumEntries).field("ddRVal", &self.ddRVal).field("GetVideoPortConnectInfo", &self.GetVideoPortConnectInfo.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3861,6 +4538,12 @@ impl ::core::clone::Clone for DDHAL_GETVPORTFIELDDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_GETVPORTFIELDDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_GETVPORTFIELDDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("bField", &self.bField).field("ddRVal", &self.ddRVal).field("GetVideoPortField", &self.GetVideoPortField.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_GETVPORTFIELDDATA {
     type Abi = Self;
 }
@@ -3893,6 +4576,12 @@ impl ::core::marker::Copy for DDHAL_GETVPORTFLIPSTATUSDATA {}
 impl ::core::clone::Clone for DDHAL_GETVPORTFLIPSTATUSDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_GETVPORTFLIPSTATUSDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_GETVPORTFLIPSTATUSDATA").field("lpDD", &self.lpDD).field("fpSurface", &self.fpSurface).field("ddRVal", &self.ddRVal).field("GetVideoPortFlipStatus", &self.GetVideoPortFlipStatus.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3934,6 +4623,12 @@ impl ::core::clone::Clone for DDHAL_GETVPORTINPUTFORMATDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_GETVPORTINPUTFORMATDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_GETVPORTINPUTFORMATDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwFlags", &self.dwFlags).field("lpddpfFormat", &self.lpddpfFormat).field("dwNumFormats", &self.dwNumFormats).field("ddRVal", &self.ddRVal).field("GetVideoPortInputFormats", &self.GetVideoPortInputFormats.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_GETVPORTINPUTFORMATDATA {
     type Abi = Self;
 }
@@ -3967,6 +4662,12 @@ impl ::core::marker::Copy for DDHAL_GETVPORTLINEDATA {}
 impl ::core::clone::Clone for DDHAL_GETVPORTLINEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_GETVPORTLINEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_GETVPORTLINEDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwLine", &self.dwLine).field("ddRVal", &self.ddRVal).field("GetVideoPortLine", &self.GetVideoPortLine.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4009,6 +4710,12 @@ impl ::core::clone::Clone for DDHAL_GETVPORTOUTPUTFORMATDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_GETVPORTOUTPUTFORMATDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_GETVPORTOUTPUTFORMATDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwFlags", &self.dwFlags).field("lpddpfInputFormat", &self.lpddpfInputFormat).field("lpddpfOutputFormats", &self.lpddpfOutputFormats).field("dwNumFormats", &self.dwNumFormats).field("ddRVal", &self.ddRVal).field("GetVideoPortOutputFormats", &self.GetVideoPortOutputFormats.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_GETVPORTOUTPUTFORMATDATA {
     type Abi = Self;
 }
@@ -4042,6 +4749,12 @@ impl ::core::marker::Copy for DDHAL_GETVPORTSIGNALDATA {}
 impl ::core::clone::Clone for DDHAL_GETVPORTSIGNALDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_GETVPORTSIGNALDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_GETVPORTSIGNALDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwStatus", &self.dwStatus).field("ddRVal", &self.ddRVal).field("GetVideoSignalStatus", &self.GetVideoSignalStatus.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4085,6 +4798,12 @@ impl ::core::marker::Copy for DDHAL_LOCKDATA {}
 impl ::core::clone::Clone for DDHAL_LOCKDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_LOCKDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_LOCKDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("bHasRect", &self.bHasRect).field("rArea", &self.rArea).field("lpSurfData", &self.lpSurfData).field("ddRVal", &self.ddRVal).field("Lock", &self.Lock.map(|f| f as usize)).field("dwFlags", &self.dwFlags).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4183,6 +4902,12 @@ impl ::core::clone::Clone for DDHAL_QUERYMOCOMPSTATUSDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_QUERYMOCOMPSTATUSDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_QUERYMOCOMPSTATUSDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("lpSurface", &self.lpSurface).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).field("QueryMoCompStatus", &self.QueryMoCompStatus.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_QUERYMOCOMPSTATUSDATA {
     type Abi = Self;
 }
@@ -4225,6 +4950,24 @@ impl ::core::clone::Clone for DDHAL_RENDERMOCOMPDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_RENDERMOCOMPDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_RENDERMOCOMPDATA")
+            .field("lpDD", &self.lpDD)
+            .field("lpMoComp", &self.lpMoComp)
+            .field("dwNumBuffers", &self.dwNumBuffers)
+            .field("lpBufferInfo", &self.lpBufferInfo)
+            .field("dwFunction", &self.dwFunction)
+            .field("lpInputData", &self.lpInputData)
+            .field("dwInputDataSize", &self.dwInputDataSize)
+            .field("lpOutputData", &self.lpOutputData)
+            .field("dwOutputDataSize", &self.dwOutputDataSize)
+            .field("ddRVal", &self.ddRVal)
+            .field("RenderMoComp", &self.RenderMoComp.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_RENDERMOCOMPDATA {
     type Abi = Self;
 }
@@ -4257,6 +5000,12 @@ impl ::core::marker::Copy for DDHAL_SETCLIPLISTDATA {}
 impl ::core::clone::Clone for DDHAL_SETCLIPLISTDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_SETCLIPLISTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_SETCLIPLISTDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("ddRVal", &self.ddRVal).field("SetClipList", &self.SetClipList.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4294,6 +5043,12 @@ impl ::core::marker::Copy for DDHAL_SETCOLORKEYDATA {}
 impl ::core::clone::Clone for DDHAL_SETCOLORKEYDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_SETCOLORKEYDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_SETCOLORKEYDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("dwFlags", &self.dwFlags).field("ckNew", &self.ckNew).field("ddRVal", &self.ddRVal).field("SetColorKey", &self.SetColorKey.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4335,6 +5090,12 @@ impl ::core::clone::Clone for DDHAL_SETENTRIESDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_SETENTRIESDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_SETENTRIESDATA").field("lpDD", &self.lpDD).field("lpDDPalette", &self.lpDDPalette).field("dwBase", &self.dwBase).field("dwNumEntries", &self.dwNumEntries).field("lpEntries", &self.lpEntries).field("ddRVal", &self.ddRVal).field("SetEntries", &self.SetEntries.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_SETENTRIESDATA {
     type Abi = Self;
 }
@@ -4368,6 +5129,12 @@ impl ::core::marker::Copy for DDHAL_SETEXCLUSIVEMODEDATA {}
 impl ::core::clone::Clone for DDHAL_SETEXCLUSIVEMODEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_SETEXCLUSIVEMODEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_SETEXCLUSIVEMODEDATA").field("lpDD", &self.lpDD).field("dwEnterExcl", &self.dwEnterExcl).field("dwReserved", &self.dwReserved).field("ddRVal", &self.ddRVal).field("SetExclusiveMode", &self.SetExclusiveMode.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4405,6 +5172,12 @@ impl ::core::marker::Copy for DDHAL_SETMODEDATA {}
 impl ::core::clone::Clone for DDHAL_SETMODEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_SETMODEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_SETMODEDATA").field("lpDD", &self.lpDD).field("dwModeIndex", &self.dwModeIndex).field("ddRVal", &self.ddRVal).field("SetMode", &self.SetMode.map(|f| f as usize)).field("inexcl", &self.inexcl).field("useRefreshRate", &self.useRefreshRate).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4446,6 +5219,12 @@ impl ::core::clone::Clone for DDHAL_SETOVERLAYPOSITIONDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_SETOVERLAYPOSITIONDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_SETOVERLAYPOSITIONDATA").field("lpDD", &self.lpDD).field("lpDDSrcSurface", &self.lpDDSrcSurface).field("lpDDDestSurface", &self.lpDDDestSurface).field("lXPos", &self.lXPos).field("lYPos", &self.lYPos).field("ddRVal", &self.ddRVal).field("SetOverlayPosition", &self.SetOverlayPosition.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_SETOVERLAYPOSITIONDATA {
     type Abi = Self;
 }
@@ -4480,6 +5259,12 @@ impl ::core::marker::Copy for DDHAL_SETPALETTEDATA {}
 impl ::core::clone::Clone for DDHAL_SETPALETTEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_SETPALETTEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_SETPALETTEDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("lpDDPalette", &self.lpDDPalette).field("ddRVal", &self.ddRVal).field("SetPalette", &self.SetPalette.map(|f| f as usize)).field("Attach", &self.Attach).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4557,6 +5342,28 @@ impl ::core::clone::Clone for DDHAL_SYNCSURFACEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_SYNCSURFACEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_SYNCSURFACEDATA")
+            .field("dwSize", &self.dwSize)
+            .field("lpDD", &self.lpDD)
+            .field("lpDDSurface", &self.lpDDSurface)
+            .field("dwSurfaceOffset", &self.dwSurfaceOffset)
+            .field("fpLockPtr", &self.fpLockPtr)
+            .field("lPitch", &self.lPitch)
+            .field("dwOverlayOffset", &self.dwOverlayOffset)
+            .field("dwOverlaySrcWidth", &self.dwOverlaySrcWidth)
+            .field("dwOverlaySrcHeight", &self.dwOverlaySrcHeight)
+            .field("dwOverlayDestWidth", &self.dwOverlayDestWidth)
+            .field("dwOverlayDestHeight", &self.dwOverlayDestHeight)
+            .field("dwDriverReserved1", &self.dwDriverReserved1)
+            .field("dwDriverReserved2", &self.dwDriverReserved2)
+            .field("dwDriverReserved3", &self.dwDriverReserved3)
+            .field("ddRVal", &self.ddRVal)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_SYNCSURFACEDATA {
     type Abi = Self;
 }
@@ -4598,6 +5405,12 @@ impl ::core::clone::Clone for DDHAL_SYNCVIDEOPORTDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_SYNCVIDEOPORTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_SYNCVIDEOPORTDATA").field("dwSize", &self.dwSize).field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwOriginOffset", &self.dwOriginOffset).field("dwHeight", &self.dwHeight).field("dwVBIHeight", &self.dwVBIHeight).field("dwDriverReserved1", &self.dwDriverReserved1).field("dwDriverReserved2", &self.dwDriverReserved2).field("dwDriverReserved3", &self.dwDriverReserved3).field("ddRVal", &self.ddRVal).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_SYNCVIDEOPORTDATA {
     type Abi = Self;
 }
@@ -4630,6 +5443,12 @@ impl ::core::marker::Copy for DDHAL_UNLOCKDATA {}
 impl ::core::clone::Clone for DDHAL_UNLOCKDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_UNLOCKDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_UNLOCKDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("ddRVal", &self.ddRVal).field("Unlock", &self.Unlock.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4668,6 +5487,12 @@ impl ::core::marker::Copy for DDHAL_UPDATENONLOCALHEAPDATA {}
 impl ::core::clone::Clone for DDHAL_UPDATENONLOCALHEAPDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_UPDATENONLOCALHEAPDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_UPDATENONLOCALHEAPDATA").field("lpDD", &self.lpDD).field("dwHeap", &self.dwHeap).field("fpGARTLin", &self.fpGARTLin).field("fpGARTDev", &self.fpGARTDev).field("ulPolicyMaxBytes", &self.ulPolicyMaxBytes).field("ddRVal", &self.ddRVal).field("UpdateNonLocalHeap", &self.UpdateNonLocalHeap.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4760,6 +5585,12 @@ impl ::core::clone::Clone for DDHAL_UPDATEVPORTDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_UPDATEVPORTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_UPDATEVPORTDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("lplpDDSurface", &self.lplpDDSurface).field("lplpDDVBISurface", &self.lplpDDVBISurface).field("lpVideoInfo", &self.lpVideoInfo).field("dwFlags", &self.dwFlags).field("dwNumAutoflip", &self.dwNumAutoflip).field("dwNumVBIAutoflip", &self.dwNumVBIAutoflip).field("ddRVal", &self.ddRVal).field("UpdateVideoPort", &self.UpdateVideoPort.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_UPDATEVPORTDATA {
     type Abi = Self;
 }
@@ -4829,6 +5660,12 @@ impl ::core::clone::Clone for DDHAL_VPORTCOLORDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_VPORTCOLORDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_VPORTCOLORDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwFlags", &self.dwFlags).field("lpColorData", &self.lpColorData).field("ddRVal", &self.ddRVal).field("ColorControl", &self.ColorControl.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_VPORTCOLORDATA {
     type Abi = Self;
 }
@@ -4863,6 +5700,12 @@ impl ::core::marker::Copy for DDHAL_WAITFORVERTICALBLANKDATA {}
 impl ::core::clone::Clone for DDHAL_WAITFORVERTICALBLANKDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_WAITFORVERTICALBLANKDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_WAITFORVERTICALBLANKDATA").field("lpDD", &self.lpDD).field("dwFlags", &self.dwFlags).field("bIsInVB", &self.bIsInVB).field("hEvent", &self.hEvent).field("ddRVal", &self.ddRVal).field("WaitForVerticalBlank", &self.WaitForVerticalBlank.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4901,6 +5744,12 @@ impl ::core::marker::Copy for DDHAL_WAITFORVPORTSYNCDATA {}
 impl ::core::clone::Clone for DDHAL_WAITFORVPORTSYNCDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDHAL_WAITFORVPORTSYNCDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDHAL_WAITFORVPORTSYNCDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwFlags", &self.dwFlags).field("dwLine", &self.dwLine).field("dwTimeOut", &self.dwTimeOut).field("ddRVal", &self.ddRVal).field("WaitForVideoPortSync", &self.WaitForVideoPortSync.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4980,6 +5829,11 @@ impl ::core::clone::Clone for DDKERNELCAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for DDKERNELCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDKERNELCAPS").field("dwSize", &self.dwSize).field("dwCaps", &self.dwCaps).field("dwIRQCaps", &self.dwIRQCaps).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDKERNELCAPS {
     type Abi = Self;
 }
@@ -5025,6 +5879,11 @@ impl ::core::clone::Clone for DDLOCKININFO {
         *self
     }
 }
+impl ::core::fmt::Debug for DDLOCKININFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDLOCKININFO").field("lpSurfaceData", &self.lpSurfaceData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDLOCKININFO {
     type Abi = Self;
 }
@@ -5048,6 +5907,11 @@ impl ::core::marker::Copy for DDLOCKOUTINFO {}
 impl ::core::clone::Clone for DDLOCKOUTINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDLOCKOUTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDLOCKOUTINFO").field("dwSurfacePtr", &self.dwSurfacePtr).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDLOCKOUTINFO {
@@ -5104,6 +5968,12 @@ impl ::core::marker::Copy for DDMCBUFFERINFO {}
 impl ::core::clone::Clone for DDMCBUFFERINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDMCBUFFERINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDMCBUFFERINFO").field("dwSize", &self.dwSize).field("lpCompSurface", &self.lpCompSurface).field("dwDataOffset", &self.dwDataOffset).field("dwDataSize", &self.dwDataSize).field("lpPrivate", &self.lpPrivate).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5176,6 +6046,12 @@ impl ::core::clone::Clone for DDMOCOMPBUFFERINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DDMOCOMPBUFFERINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDMOCOMPBUFFERINFO").field("dwSize", &self.dwSize).field("lpCompSurface", &self.lpCompSurface).field("dwDataOffset", &self.dwDataOffset).field("dwDataSize", &self.dwDataSize).field("lpPrivate", &self.lpPrivate).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DDMOCOMPBUFFERINFO {
     type Abi = Self;
 }
@@ -5225,6 +6101,24 @@ impl ::core::marker::Copy for DDMONITORINFO {}
 impl ::core::clone::Clone for DDMONITORINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDMONITORINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDMONITORINFO")
+            .field("Manufacturer", &self.Manufacturer)
+            .field("Product", &self.Product)
+            .field("SerialNumber", &self.SerialNumber)
+            .field("DeviceIdentifier", &self.DeviceIdentifier)
+            .field("Mode640x480", &self.Mode640x480)
+            .field("Mode800x600", &self.Mode800x600)
+            .field("Mode1024x768", &self.Mode1024x768)
+            .field("Mode1280x1024", &self.Mode1280x1024)
+            .field("Mode1600x1200", &self.Mode1600x1200)
+            .field("ModeReserved1", &self.ModeReserved1)
+            .field("ModeReserved2", &self.ModeReserved2)
+            .field("ModeReserved3", &self.ModeReserved3)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDMONITORINFO {
@@ -5312,6 +6206,11 @@ impl ::core::clone::Clone for DDNONLOCALVIDMEMCAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for DDNONLOCALVIDMEMCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDNONLOCALVIDMEMCAPS").field("dwSize", &self.dwSize).field("dwNLVBCaps", &self.dwNLVBCaps).field("dwNLVBCaps2", &self.dwNLVBCaps2).field("dwNLVBCKeyCaps", &self.dwNLVBCKeyCaps).field("dwNLVBFXCaps", &self.dwNLVBFXCaps).field("dwNLVBRops", &self.dwNLVBRops).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDNONLOCALVIDMEMCAPS {
     type Abi = Self;
 }
@@ -5387,6 +6286,63 @@ impl ::core::clone::Clone for DDNTCORECAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for DDNTCORECAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDNTCORECAPS")
+            .field("dwSize", &self.dwSize)
+            .field("dwCaps", &self.dwCaps)
+            .field("dwCaps2", &self.dwCaps2)
+            .field("dwCKeyCaps", &self.dwCKeyCaps)
+            .field("dwFXCaps", &self.dwFXCaps)
+            .field("dwFXAlphaCaps", &self.dwFXAlphaCaps)
+            .field("dwPalCaps", &self.dwPalCaps)
+            .field("dwSVCaps", &self.dwSVCaps)
+            .field("dwAlphaBltConstBitDepths", &self.dwAlphaBltConstBitDepths)
+            .field("dwAlphaBltPixelBitDepths", &self.dwAlphaBltPixelBitDepths)
+            .field("dwAlphaBltSurfaceBitDepths", &self.dwAlphaBltSurfaceBitDepths)
+            .field("dwAlphaOverlayConstBitDepths", &self.dwAlphaOverlayConstBitDepths)
+            .field("dwAlphaOverlayPixelBitDepths", &self.dwAlphaOverlayPixelBitDepths)
+            .field("dwAlphaOverlaySurfaceBitDepths", &self.dwAlphaOverlaySurfaceBitDepths)
+            .field("dwZBufferBitDepths", &self.dwZBufferBitDepths)
+            .field("dwVidMemTotal", &self.dwVidMemTotal)
+            .field("dwVidMemFree", &self.dwVidMemFree)
+            .field("dwMaxVisibleOverlays", &self.dwMaxVisibleOverlays)
+            .field("dwCurrVisibleOverlays", &self.dwCurrVisibleOverlays)
+            .field("dwNumFourCCCodes", &self.dwNumFourCCCodes)
+            .field("dwAlignBoundarySrc", &self.dwAlignBoundarySrc)
+            .field("dwAlignSizeSrc", &self.dwAlignSizeSrc)
+            .field("dwAlignBoundaryDest", &self.dwAlignBoundaryDest)
+            .field("dwAlignSizeDest", &self.dwAlignSizeDest)
+            .field("dwAlignStrideAlign", &self.dwAlignStrideAlign)
+            .field("dwRops", &self.dwRops)
+            .field("ddsCaps", &self.ddsCaps)
+            .field("dwMinOverlayStretch", &self.dwMinOverlayStretch)
+            .field("dwMaxOverlayStretch", &self.dwMaxOverlayStretch)
+            .field("dwMinLiveVideoStretch", &self.dwMinLiveVideoStretch)
+            .field("dwMaxLiveVideoStretch", &self.dwMaxLiveVideoStretch)
+            .field("dwMinHwCodecStretch", &self.dwMinHwCodecStretch)
+            .field("dwMaxHwCodecStretch", &self.dwMaxHwCodecStretch)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("dwReserved2", &self.dwReserved2)
+            .field("dwReserved3", &self.dwReserved3)
+            .field("dwSVBCaps", &self.dwSVBCaps)
+            .field("dwSVBCKeyCaps", &self.dwSVBCKeyCaps)
+            .field("dwSVBFXCaps", &self.dwSVBFXCaps)
+            .field("dwSVBRops", &self.dwSVBRops)
+            .field("dwVSBCaps", &self.dwVSBCaps)
+            .field("dwVSBCKeyCaps", &self.dwVSBCKeyCaps)
+            .field("dwVSBFXCaps", &self.dwVSBFXCaps)
+            .field("dwVSBRops", &self.dwVSBRops)
+            .field("dwSSBCaps", &self.dwSSBCaps)
+            .field("dwSSBCKeyCaps", &self.dwSSBCKeyCaps)
+            .field("dwSSBFXCaps", &self.dwSSBFXCaps)
+            .field("dwSSBRops", &self.dwSSBRops)
+            .field("dwMaxVideoPorts", &self.dwMaxVideoPorts)
+            .field("dwCurrVideoPorts", &self.dwCurrVideoPorts)
+            .field("dwSVBCaps2", &self.dwSVBCaps2)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDNTCORECAPS {
     type Abi = Self;
 }
@@ -5440,6 +6396,11 @@ impl ::core::marker::Copy for DDOSCAPS {}
 impl ::core::clone::Clone for DDOSCAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDOSCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDOSCAPS").field("dwCaps", &self.dwCaps).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDOSCAPS {
@@ -5844,6 +6805,11 @@ impl ::core::clone::Clone for DDPIXELFORMAT_2_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for DDPIXELFORMAT_2_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDPIXELFORMAT_2_0").field("wFlipMSTypes", &self.wFlipMSTypes).field("wBltMSTypes", &self.wBltMSTypes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDPIXELFORMAT_2_0 {
     type Abi = Self;
 }
@@ -6141,6 +7107,12 @@ impl ::core::clone::Clone for DDRAWI_DDMOTIONCOMP_INT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDRAWI_DDMOTIONCOMP_INT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDRAWI_DDMOTIONCOMP_INT").field("lpVtbl", &self.lpVtbl).field("lpLcl", &self.lpLcl).field("lpLink", &self.lpLink).field("dwIntRefCnt", &self.dwIntRefCnt).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDRAWI_DDMOTIONCOMP_INT {
     type Abi = Self;
 }
@@ -6225,6 +7197,12 @@ impl ::core::clone::Clone for DDRAWI_DDRAWCLIPPER_GBL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDRAWI_DDRAWCLIPPER_GBL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDRAWI_DDRAWCLIPPER_GBL").field("dwRefCnt", &self.dwRefCnt).field("dwFlags", &self.dwFlags).field("lpDD", &self.lpDD).field("dwProcessId", &self.dwProcessId).field("dwReserved1", &self.dwReserved1).field("hWnd", &self.hWnd).field("lpStaticClipList", &self.lpStaticClipList).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDRAWI_DDRAWCLIPPER_GBL {
     type Abi = Self;
 }
@@ -6257,6 +7235,12 @@ impl ::core::marker::Copy for DDRAWI_DDRAWCLIPPER_INT {}
 impl ::core::clone::Clone for DDRAWI_DDRAWCLIPPER_INT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDRAWI_DDRAWCLIPPER_INT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDRAWI_DDRAWCLIPPER_INT").field("lpVtbl", &self.lpVtbl).field("lpLcl", &self.lpLcl).field("lpLink", &self.lpLink).field("dwIntRefCnt", &self.dwIntRefCnt).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6303,6 +7287,12 @@ impl ::core::clone::Clone for DDRAWI_DDRAWCLIPPER_LCL {
             dwReserved1: self.dwReserved1,
             pAddrefedThisOwner: self.pAddrefedThisOwner.clone(),
         }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDRAWI_DDRAWCLIPPER_LCL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDRAWI_DDRAWCLIPPER_LCL").field("lpClipMore", &self.lpClipMore).field("lpGbl", &self.lpGbl).field("lpDD_lcl", &self.lpDD_lcl).field("dwLocalRefCnt", &self.dwLocalRefCnt).field("pUnkOuter", &self.pUnkOuter).field("lpDD_int", &self.lpDD_int).field("dwReserved1", &self.dwReserved1).field("pAddrefedThisOwner", &self.pAddrefedThisOwner).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6417,6 +7407,12 @@ impl ::core::clone::Clone for DDRAWI_DDRAWPALETTE_INT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDRAWI_DDRAWPALETTE_INT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDRAWI_DDRAWPALETTE_INT").field("lpVtbl", &self.lpVtbl).field("lpLcl", &self.lpLcl).field("lpLink", &self.lpLink).field("dwIntRefCnt", &self.dwIntRefCnt).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDRAWI_DDRAWPALETTE_INT {
     type Abi = Self;
 }
@@ -6464,6 +7460,12 @@ impl ::core::clone::Clone for DDRAWI_DDRAWPALETTE_LCL {
             dwDDRAWReserved2: self.dwDDRAWReserved2,
             dwDDRAWReserved3: self.dwDDRAWReserved3,
         }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDRAWI_DDRAWPALETTE_LCL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDRAWI_DDRAWPALETTE_LCL").field("lpPalMore", &self.lpPalMore).field("lpGbl", &self.lpGbl).field("dwUnused0", &self.dwUnused0).field("dwLocalRefCnt", &self.dwLocalRefCnt).field("pUnkOuter", &self.pUnkOuter).field("lpDD_lcl", &self.lpDD_lcl).field("dwReserved1", &self.dwReserved1).field("dwDDRAWReserved1", &self.dwDDRAWReserved1).field("dwDDRAWReserved2", &self.dwDDRAWReserved2).field("dwDDRAWReserved3", &self.dwDDRAWReserved3).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6747,6 +7749,12 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_INT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDRAWI_DDRAWSURFACE_INT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDRAWI_DDRAWSURFACE_INT").field("lpVtbl", &self.lpVtbl).field("lpLcl", &self.lpLcl).field("lpLink", &self.lpLink).field("dwIntRefCnt", &self.dwIntRefCnt).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDRAWI_DDRAWSURFACE_INT {
     type Abi = Self;
 }
@@ -6969,6 +7977,12 @@ impl ::core::clone::Clone for DDRAWI_DDVIDEOPORT_INT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDRAWI_DDVIDEOPORT_INT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDRAWI_DDVIDEOPORT_INT").field("lpVtbl", &self.lpVtbl).field("lpLcl", &self.lpLcl).field("lpLink", &self.lpLink).field("dwIntRefCnt", &self.dwIntRefCnt).field("dwFlags", &self.dwFlags).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDRAWI_DDVIDEOPORT_INT {
     type Abi = Self;
 }
@@ -7019,6 +8033,35 @@ impl ::core::marker::Copy for DDRAWI_DDVIDEOPORT_LCL {}
 impl ::core::clone::Clone for DDRAWI_DDVIDEOPORT_LCL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDRAWI_DDVIDEOPORT_LCL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDRAWI_DDVIDEOPORT_LCL")
+            .field("lpDD", &self.lpDD)
+            .field("ddvpDesc", &self.ddvpDesc)
+            .field("ddvpInfo", &self.ddvpInfo)
+            .field("lpSurface", &self.lpSurface)
+            .field("lpVBISurface", &self.lpVBISurface)
+            .field("lpFlipInts", &self.lpFlipInts)
+            .field("dwNumAutoflip", &self.dwNumAutoflip)
+            .field("dwProcessID", &self.dwProcessID)
+            .field("dwStateFlags", &self.dwStateFlags)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwRefCnt", &self.dwRefCnt)
+            .field("fpLastFlip", &self.fpLastFlip)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("dwReserved2", &self.dwReserved2)
+            .field("hDDVideoPort", &self.hDDVideoPort)
+            .field("dwNumVBIAutoflip", &self.dwNumVBIAutoflip)
+            .field("lpVBIDesc", &self.lpVBIDesc)
+            .field("lpVideoDesc", &self.lpVideoDesc)
+            .field("lpVBIInfo", &self.lpVBIInfo)
+            .field("lpVideoInfo", &self.lpVideoInfo)
+            .field("dwVBIProcessID", &self.dwVBIProcessID)
+            .field("lpVPNotify", &self.lpVPNotify)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7158,6 +8201,12 @@ impl ::core::clone::Clone for DDRAWI_DIRECTDRAW_INT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDRAWI_DIRECTDRAW_INT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDRAWI_DIRECTDRAW_INT").field("lpVtbl", &self.lpVtbl).field("lpLcl", &self.lpLcl).field("lpLink", &self.lpLink).field("dwIntRefCnt", &self.dwIntRefCnt).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDRAWI_DIRECTDRAW_INT {
     type Abi = Self;
 }
@@ -7237,6 +8286,39 @@ impl ::core::clone::Clone for DDRAWI_DIRECTDRAW_LCL {
             hGammaCalibrator: self.hGammaCalibrator,
             lpGammaCalibrator: self.lpGammaCalibrator,
         }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DDRAWI_DIRECTDRAW_LCL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDRAWI_DIRECTDRAW_LCL")
+            .field("lpDDMore", &self.lpDDMore)
+            .field("lpGbl", &self.lpGbl)
+            .field("dwUnused0", &self.dwUnused0)
+            .field("dwLocalFlags", &self.dwLocalFlags)
+            .field("dwLocalRefCnt", &self.dwLocalRefCnt)
+            .field("dwProcessId", &self.dwProcessId)
+            .field("pUnkOuter", &self.pUnkOuter)
+            .field("dwObsolete1", &self.dwObsolete1)
+            .field("hWnd", &self.hWnd)
+            .field("hDC", &self.hDC)
+            .field("dwErrorMode", &self.dwErrorMode)
+            .field("lpPrimary", &self.lpPrimary)
+            .field("lpCB", &self.lpCB)
+            .field("dwPreferredMode", &self.dwPreferredMode)
+            .field("hD3DInstance", &self.hD3DInstance)
+            .field("pD3DIUnknown", &self.pD3DIUnknown)
+            .field("lpDDCB", &self.lpDDCB)
+            .field("hDDVxd", &self.hDDVxd)
+            .field("dwAppHackFlags", &self.dwAppHackFlags)
+            .field("hFocusWnd", &self.hFocusWnd)
+            .field("dwHotTracking", &self.dwHotTracking)
+            .field("dwIMEState", &self.dwIMEState)
+            .field("hWndPopup", &self.hWndPopup)
+            .field("hDD", &self.hDD)
+            .field("hGammaCalibrator", &self.hGammaCalibrator)
+            .field("lpGammaCalibrator", &self.lpGammaCalibrator.map(|f| f as usize))
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7362,6 +8444,11 @@ impl ::core::clone::Clone for DDRGBA {
         *self
     }
 }
+impl ::core::fmt::Debug for DDRGBA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDRGBA").field("red", &self.red).field("green", &self.green).field("blue", &self.blue).field("alpha", &self.alpha).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDRGBA {
     type Abi = Self;
 }
@@ -7385,6 +8472,11 @@ impl ::core::marker::Copy for DDSCAPS {}
 impl ::core::clone::Clone for DDSCAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDSCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDSCAPS").field("dwCaps", &self.dwCaps).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDSCAPS {
@@ -7744,6 +8836,11 @@ impl ::core::clone::Clone for DDSETSTATEININFO {
         *self
     }
 }
+impl ::core::fmt::Debug for DDSETSTATEININFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDSETSTATEININFO").field("lpSurfaceData", &self.lpSurfaceData).field("lpVideoPortData", &self.lpVideoPortData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDSETSTATEININFO {
     type Abi = Self;
 }
@@ -7772,6 +8869,12 @@ impl ::core::marker::Copy for DDSETSTATEOUTINFO {}
 impl ::core::clone::Clone for DDSETSTATEOUTINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DDSETSTATEOUTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDSETSTATEOUTINFO").field("bSoftwareAutoflip", &self.bSoftwareAutoflip).field("dwSurfaceIndex", &self.dwSurfaceIndex).field("dwVBISurfaceIndex", &self.dwVBISurfaceIndex).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7808,6 +8911,11 @@ impl ::core::marker::Copy for DDSKIPNEXTFIELDINFO {}
 impl ::core::clone::Clone for DDSKIPNEXTFIELDINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDSKIPNEXTFIELDINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDSKIPNEXTFIELDINFO").field("lpVideoPortData", &self.lpVideoPortData).field("dwSkipFlags", &self.dwSkipFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDSKIPNEXTFIELDINFO {
@@ -7851,6 +8959,12 @@ impl ::core::marker::Copy for DDSTEREOMODE {}
 impl ::core::clone::Clone for DDSTEREOMODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DDSTEREOMODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDSTEREOMODE").field("dwSize", &self.dwSize).field("dwHeight", &self.dwHeight).field("dwWidth", &self.dwWidth).field("dwBpp", &self.dwBpp).field("dwRefreshRate", &self.dwRefreshRate).field("bSupported", &self.bSupported).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7902,6 +9016,35 @@ impl ::core::marker::Copy for DDSURFACEDATA {}
 impl ::core::clone::Clone for DDSURFACEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDSURFACEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDSURFACEDATA")
+            .field("ddsCaps", &self.ddsCaps)
+            .field("dwSurfaceOffset", &self.dwSurfaceOffset)
+            .field("fpLockPtr", &self.fpLockPtr)
+            .field("dwWidth", &self.dwWidth)
+            .field("dwHeight", &self.dwHeight)
+            .field("lPitch", &self.lPitch)
+            .field("dwOverlayFlags", &self.dwOverlayFlags)
+            .field("dwOverlayOffset", &self.dwOverlayOffset)
+            .field("dwOverlaySrcWidth", &self.dwOverlaySrcWidth)
+            .field("dwOverlaySrcHeight", &self.dwOverlaySrcHeight)
+            .field("dwOverlayDestWidth", &self.dwOverlayDestWidth)
+            .field("dwOverlayDestHeight", &self.dwOverlayDestHeight)
+            .field("dwVideoPortId", &self.dwVideoPortId)
+            .field("dwFormatFlags", &self.dwFormatFlags)
+            .field("dwFormatFourCC", &self.dwFormatFourCC)
+            .field("dwFormatBitCount", &self.dwFormatBitCount)
+            .field("dwRBitMask", &self.dwRBitMask)
+            .field("dwGBitMask", &self.dwGBitMask)
+            .field("dwBBitMask", &self.dwBBitMask)
+            .field("dwDriverReserved1", &self.dwDriverReserved1)
+            .field("dwDriverReserved2", &self.dwDriverReserved2)
+            .field("dwDriverReserved3", &self.dwDriverReserved3)
+            .field("dwDriverReserved4", &self.dwDriverReserved4)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDSURFACEDATA {
@@ -8209,6 +9352,11 @@ impl ::core::clone::Clone for DDTRANSFERININFO {
         *self
     }
 }
+impl ::core::fmt::Debug for DDTRANSFERININFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDTRANSFERININFO").field("lpSurfaceData", &self.lpSurfaceData).field("dwStartLine", &self.dwStartLine).field("dwEndLine", &self.dwEndLine).field("dwTransferID", &self.dwTransferID).field("dwTransferFlags", &self.dwTransferFlags).field("lpDestMDL", &self.lpDestMDL).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDTRANSFERININFO {
     type Abi = Self;
 }
@@ -8232,6 +9380,11 @@ impl ::core::marker::Copy for DDTRANSFEROUTINFO {}
 impl ::core::clone::Clone for DDTRANSFEROUTINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDTRANSFEROUTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDTRANSFEROUTINFO").field("dwBufferPolarity", &self.dwBufferPolarity).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDTRANSFEROUTINFO {
@@ -8273,6 +9426,11 @@ impl ::core::clone::Clone for DDVERSIONDATA {
         *self
     }
 }
+impl ::core::fmt::Debug for DDVERSIONDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDVERSIONDATA").field("dwHALVersion", &self.dwHALVersion).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDVERSIONDATA {
     type Abi = Self;
 }
@@ -8305,6 +9463,11 @@ impl ::core::marker::Copy for DDVIDEOPORTBANDWIDTH {}
 impl ::core::clone::Clone for DDVIDEOPORTBANDWIDTH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDVIDEOPORTBANDWIDTH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDVIDEOPORTBANDWIDTH").field("dwSize", &self.dwSize).field("dwCaps", &self.dwCaps).field("dwOverlay", &self.dwOverlay).field("dwColorkey", &self.dwColorkey).field("dwYInterpolate", &self.dwYInterpolate).field("dwYInterpAndColorkey", &self.dwYInterpAndColorkey).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDVIDEOPORTBANDWIDTH {
@@ -8350,6 +9513,31 @@ impl ::core::clone::Clone for DDVIDEOPORTCAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for DDVIDEOPORTCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDVIDEOPORTCAPS")
+            .field("dwSize", &self.dwSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwMaxWidth", &self.dwMaxWidth)
+            .field("dwMaxVBIWidth", &self.dwMaxVBIWidth)
+            .field("dwMaxHeight", &self.dwMaxHeight)
+            .field("dwVideoPortID", &self.dwVideoPortID)
+            .field("dwCaps", &self.dwCaps)
+            .field("dwFX", &self.dwFX)
+            .field("dwNumAutoFlipSurfaces", &self.dwNumAutoFlipSurfaces)
+            .field("dwAlignVideoPortBoundary", &self.dwAlignVideoPortBoundary)
+            .field("dwAlignVideoPortPrescaleWidth", &self.dwAlignVideoPortPrescaleWidth)
+            .field("dwAlignVideoPortCropBoundary", &self.dwAlignVideoPortCropBoundary)
+            .field("dwAlignVideoPortCropWidth", &self.dwAlignVideoPortCropWidth)
+            .field("dwPreshrinkXStep", &self.dwPreshrinkXStep)
+            .field("dwPreshrinkYStep", &self.dwPreshrinkYStep)
+            .field("dwNumVBIAutoFlipSurfaces", &self.dwNumVBIAutoFlipSurfaces)
+            .field("dwNumPreferredAutoflip", &self.dwNumPreferredAutoflip)
+            .field("wNumFilterTapsX", &self.wNumFilterTapsX)
+            .field("wNumFilterTapsY", &self.wNumFilterTapsY)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDVIDEOPORTCAPS {
     type Abi = Self;
 }
@@ -8377,6 +9565,11 @@ impl ::core::marker::Copy for DDVIDEOPORTCONNECT {}
 impl ::core::clone::Clone for DDVIDEOPORTCONNECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDVIDEOPORTCONNECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDVIDEOPORTCONNECT").field("dwSize", &self.dwSize).field("dwPortWidth", &self.dwPortWidth).field("guidTypeID", &self.guidTypeID).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDVIDEOPORTCONNECT {
@@ -8409,6 +9602,11 @@ impl ::core::marker::Copy for DDVIDEOPORTDATA {}
 impl ::core::clone::Clone for DDVIDEOPORTDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDVIDEOPORTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDVIDEOPORTDATA").field("dwVideoPortId", &self.dwVideoPortId).field("dwVPFlags", &self.dwVPFlags).field("dwOriginOffset", &self.dwOriginOffset).field("dwHeight", &self.dwHeight).field("dwVBIHeight", &self.dwVBIHeight).field("dwDriverReserved1", &self.dwDriverReserved1).field("dwDriverReserved2", &self.dwDriverReserved2).field("dwDriverReserved3", &self.dwDriverReserved3).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDVIDEOPORTDATA {
@@ -8444,6 +9642,23 @@ impl ::core::marker::Copy for DDVIDEOPORTDESC {}
 impl ::core::clone::Clone for DDVIDEOPORTDESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDVIDEOPORTDESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDVIDEOPORTDESC")
+            .field("dwSize", &self.dwSize)
+            .field("dwFieldWidth", &self.dwFieldWidth)
+            .field("dwVBIWidth", &self.dwVBIWidth)
+            .field("dwFieldHeight", &self.dwFieldHeight)
+            .field("dwMicrosecondsPerField", &self.dwMicrosecondsPerField)
+            .field("dwMaxPixelsPerSecond", &self.dwMaxPixelsPerSecond)
+            .field("dwVideoPortID", &self.dwVideoPortID)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("VideoPortType", &self.VideoPortType)
+            .field("dwReserved2", &self.dwReserved2)
+            .field("dwReserved3", &self.dwReserved3)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDVIDEOPORTDESC {
@@ -8487,6 +9702,26 @@ impl ::core::clone::Clone for DDVIDEOPORTINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DDVIDEOPORTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDVIDEOPORTINFO")
+            .field("dwSize", &self.dwSize)
+            .field("dwOriginX", &self.dwOriginX)
+            .field("dwOriginY", &self.dwOriginY)
+            .field("dwVPFlags", &self.dwVPFlags)
+            .field("rCrop", &self.rCrop)
+            .field("dwPrescaleWidth", &self.dwPrescaleWidth)
+            .field("dwPrescaleHeight", &self.dwPrescaleHeight)
+            .field("lpddpfInputFormat", &self.lpddpfInputFormat)
+            .field("lpddpfVBIInputFormat", &self.lpddpfVBIInputFormat)
+            .field("lpddpfVBIOutputFormat", &self.lpddpfVBIOutputFormat)
+            .field("dwVBIHeight", &self.dwVBIHeight)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("dwReserved2", &self.dwReserved2)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DDVIDEOPORTINFO {
     type Abi = Self;
 }
@@ -8516,6 +9751,11 @@ impl ::core::marker::Copy for DDVIDEOPORTNOTIFY {}
 impl ::core::clone::Clone for DDVIDEOPORTNOTIFY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DDVIDEOPORTNOTIFY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDVIDEOPORTNOTIFY").field("ApproximateTimeStamp", &self.ApproximateTimeStamp).field("lField", &self.lField).field("dwSurfaceIndex", &self.dwSurfaceIndex).field("lDone", &self.lDone).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DDVIDEOPORTNOTIFY {
@@ -8550,6 +9790,12 @@ impl ::core::marker::Copy for DDVIDEOPORTSTATUS {}
 impl ::core::clone::Clone for DDVIDEOPORTSTATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DDVIDEOPORTSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDVIDEOPORTSTATUS").field("dwSize", &self.dwSize).field("bInUse", &self.bInUse).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("VideoPortType", &self.VideoPortType).field("dwReserved2", &self.dwReserved2).field("dwReserved3", &self.dwReserved3).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8780,6 +10026,12 @@ impl ::core::clone::Clone for DD_ADDATTACHEDSURFACEDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_ADDATTACHEDSURFACEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_ADDATTACHEDSURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("lpSurfAttached", &self.lpSurfAttached).field("ddRVal", &self.ddRVal).field("AddAttachedSurface", &self.AddAttachedSurface).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_ADDATTACHEDSURFACEDATA {
     type Abi = Self;
 }
@@ -8810,6 +10062,12 @@ impl ::core::marker::Copy for DD_ATTACHLIST {}
 impl ::core::clone::Clone for DD_ATTACHLIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_ATTACHLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_ATTACHLIST").field("lpLink", &self.lpLink).field("lpAttached", &self.lpAttached).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8849,6 +10107,12 @@ impl ::core::marker::Copy for DD_BEGINMOCOMPFRAMEDATA {}
 impl ::core::clone::Clone for DD_BEGINMOCOMPFRAMEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_BEGINMOCOMPFRAMEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_BEGINMOCOMPFRAMEDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("lpDestSurface", &self.lpDestSurface).field("dwInputDataSize", &self.dwInputDataSize).field("lpInputData", &self.lpInputData).field("dwOutputDataSize", &self.dwOutputDataSize).field("lpOutputData", &self.lpOutputData).field("ddRVal", &self.ddRVal).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8958,6 +10222,24 @@ impl ::core::clone::Clone for DD_CALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DD_CALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_CALLBACKS")
+            .field("dwSize", &self.dwSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("DestroyDriver", &self.DestroyDriver.map(|f| f as usize))
+            .field("CreateSurface", &self.CreateSurface.map(|f| f as usize))
+            .field("SetColorKey", &self.SetColorKey.map(|f| f as usize))
+            .field("SetMode", &self.SetMode.map(|f| f as usize))
+            .field("WaitForVerticalBlank", &self.WaitForVerticalBlank.map(|f| f as usize))
+            .field("CanCreateSurface", &self.CanCreateSurface.map(|f| f as usize))
+            .field("CreatePalette", &self.CreatePalette.map(|f| f as usize))
+            .field("GetScanLine", &self.GetScanLine.map(|f| f as usize))
+            .field("MapMemory", &self.MapMemory.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DD_CALLBACKS {
     type Abi = Self;
 }
@@ -8990,6 +10272,11 @@ impl ::core::clone::Clone for DD_CANCREATESURFACEDATA {
         *self
     }
 }
+impl ::core::fmt::Debug for DD_CANCREATESURFACEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_CANCREATESURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurfaceDesc", &self.lpDDSurfaceDesc).field("bIsDifferentPixelFormat", &self.bIsDifferentPixelFormat).field("ddRVal", &self.ddRVal).field("CanCreateSurface", &self.CanCreateSurface).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DD_CANCREATESURFACEDATA {
     type Abi = Self;
 }
@@ -9018,6 +10305,11 @@ impl ::core::clone::Clone for DD_CANCREATEVPORTDATA {
         *self
     }
 }
+impl ::core::fmt::Debug for DD_CANCREATEVPORTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_CANCREATEVPORTDATA").field("lpDD", &self.lpDD).field("lpDDVideoPortDesc", &self.lpDDVideoPortDesc).field("ddRVal", &self.ddRVal).field("CanCreateVideoPort", &self.CanCreateVideoPort).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DD_CANCREATEVPORTDATA {
     type Abi = Self;
 }
@@ -9043,6 +10335,11 @@ impl ::core::clone::Clone for DD_CLIPPER_GLOBAL {
         *self
     }
 }
+impl ::core::fmt::Debug for DD_CLIPPER_GLOBAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_CLIPPER_GLOBAL").field("dwReserved1", &self.dwReserved1).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DD_CLIPPER_GLOBAL {
     type Abi = Self;
 }
@@ -9066,6 +10363,11 @@ impl ::core::marker::Copy for DD_CLIPPER_LOCAL {}
 impl ::core::clone::Clone for DD_CLIPPER_LOCAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DD_CLIPPER_LOCAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_CLIPPER_LOCAL").field("dwReserved1", &self.dwReserved1).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DD_CLIPPER_LOCAL {
@@ -9096,6 +10398,12 @@ impl ::core::marker::Copy for DD_COLORCONTROLCALLBACKS {}
 impl ::core::clone::Clone for DD_COLORCONTROLCALLBACKS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_COLORCONTROLCALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_COLORCONTROLCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("ColorControl", &self.ColorControl.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9133,6 +10441,12 @@ impl ::core::marker::Copy for DD_COLORCONTROLDATA {}
 impl ::core::clone::Clone for DD_COLORCONTROLDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_COLORCONTROLDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_COLORCONTROLDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("lpColorData", &self.lpColorData).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).field("ColorControl", &self.ColorControl).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9206,6 +10520,12 @@ impl ::core::clone::Clone for DD_CREATEPALETTEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DD_CREATEPALETTEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_CREATEPALETTEDATA").field("lpDD", &self.lpDD).field("lpDDPalette", &self.lpDDPalette).field("lpColorTable", &self.lpColorTable).field("ddRVal", &self.ddRVal).field("CreatePalette", &self.CreatePalette).field("is_excl", &self.is_excl).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DD_CREATEPALETTEDATA {
     type Abi = Self;
 }
@@ -9240,6 +10560,12 @@ impl ::core::marker::Copy for DD_CREATESURFACEDATA {}
 impl ::core::clone::Clone for DD_CREATESURFACEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_CREATESURFACEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_CREATESURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurfaceDesc", &self.lpDDSurfaceDesc).field("lplpSList", &self.lplpSList).field("dwSCnt", &self.dwSCnt).field("ddRVal", &self.ddRVal).field("CreateSurface", &self.CreateSurface).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9278,6 +10604,12 @@ impl ::core::clone::Clone for DD_CREATESURFACEEXDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_CREATESURFACEEXDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_CREATESURFACEEXDATA").field("dwFlags", &self.dwFlags).field("lpDDLcl", &self.lpDDLcl).field("lpDDSLcl", &self.lpDDSLcl).field("ddRVal", &self.ddRVal).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_CREATESURFACEEXDATA {
     type Abi = Self;
 }
@@ -9311,6 +10643,12 @@ impl ::core::marker::Copy for DD_CREATEVPORTDATA {}
 impl ::core::clone::Clone for DD_CREATEVPORTDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_CREATEVPORTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_CREATEVPORTDATA").field("lpDD", &self.lpDD).field("lpDDVideoPortDesc", &self.lpDDVideoPortDesc).field("lpVideoPort", &self.lpVideoPort).field("ddRVal", &self.ddRVal).field("CreateVideoPort", &self.CreateVideoPort).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9352,6 +10690,12 @@ impl ::core::clone::Clone for DD_D3DBUFCALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_D3DBUFCALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_D3DBUFCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("CanCreateD3DBuffer", &self.CanCreateD3DBuffer.map(|f| f as usize)).field("CreateD3DBuffer", &self.CreateD3DBuffer.map(|f| f as usize)).field("DestroyD3DBuffer", &self.DestroyD3DBuffer.map(|f| f as usize)).field("LockD3DBuffer", &self.LockD3DBuffer.map(|f| f as usize)).field("UnlockD3DBuffer", &self.UnlockD3DBuffer.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_D3DBUFCALLBACKS {
     type Abi = Self;
 }
@@ -9382,6 +10726,11 @@ impl ::core::clone::Clone for DD_DESTROYDDLOCALDATA {
         *self
     }
 }
+impl ::core::fmt::Debug for DD_DESTROYDDLOCALDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_DESTROYDDLOCALDATA").field("dwFlags", &self.dwFlags).field("pDDLcl", &self.pDDLcl).field("ddRVal", &self.ddRVal).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DD_DESTROYDDLOCALDATA {
     type Abi = Self;
 }
@@ -9407,6 +10756,11 @@ impl ::core::marker::Copy for DD_DESTROYMOCOMPDATA {}
 impl ::core::clone::Clone for DD_DESTROYMOCOMPDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DD_DESTROYMOCOMPDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_DESTROYMOCOMPDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("ddRVal", &self.ddRVal).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DD_DESTROYMOCOMPDATA {
@@ -9435,6 +10789,11 @@ impl ::core::marker::Copy for DD_DESTROYPALETTEDATA {}
 impl ::core::clone::Clone for DD_DESTROYPALETTEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DD_DESTROYPALETTEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_DESTROYPALETTEDATA").field("lpDD", &self.lpDD).field("lpDDPalette", &self.lpDDPalette).field("ddRVal", &self.ddRVal).field("DestroyPalette", &self.DestroyPalette).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DD_DESTROYPALETTEDATA {
@@ -9466,6 +10825,12 @@ impl ::core::marker::Copy for DD_DESTROYSURFACEDATA {}
 impl ::core::clone::Clone for DD_DESTROYSURFACEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_DESTROYSURFACEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_DESTROYSURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("ddRVal", &self.ddRVal).field("DestroySurface", &self.DestroySurface).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9504,6 +10869,12 @@ impl ::core::clone::Clone for DD_DESTROYVPORTDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_DESTROYVPORTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_DESTROYVPORTDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("ddRVal", &self.ddRVal).field("DestroyVideoPort", &self.DestroyVideoPort).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_DESTROYVPORTDATA {
     type Abi = Self;
 }
@@ -9535,6 +10906,11 @@ impl ::core::clone::Clone for DD_DIRECTDRAW_GLOBAL {
         *self
     }
 }
+impl ::core::fmt::Debug for DD_DIRECTDRAW_GLOBAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_DIRECTDRAW_GLOBAL").field("dhpdev", &self.dhpdev).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).field("lpDDVideoPortCaps", &self.lpDDVideoPortCaps).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DD_DIRECTDRAW_GLOBAL {
     type Abi = Self;
 }
@@ -9558,6 +10934,11 @@ impl ::core::marker::Copy for DD_DIRECTDRAW_LOCAL {}
 impl ::core::clone::Clone for DD_DIRECTDRAW_LOCAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DD_DIRECTDRAW_LOCAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_DIRECTDRAW_LOCAL").field("lpGbl", &self.lpGbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DD_DIRECTDRAW_LOCAL {
@@ -9593,6 +10974,12 @@ impl ::core::clone::Clone for DD_DRVSETCOLORKEYDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_DRVSETCOLORKEYDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_DRVSETCOLORKEYDATA").field("lpDDSurface", &self.lpDDSurface).field("dwFlags", &self.dwFlags).field("ckNew", &self.ckNew).field("ddRVal", &self.ddRVal).field("SetColorKey", &self.SetColorKey).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_DRVSETCOLORKEYDATA {
     type Abi = Self;
 }
@@ -9623,6 +11010,11 @@ impl ::core::marker::Copy for DD_ENDMOCOMPFRAMEDATA {}
 impl ::core::clone::Clone for DD_ENDMOCOMPFRAMEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DD_ENDMOCOMPFRAMEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_ENDMOCOMPFRAMEDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("lpInputData", &self.lpInputData).field("dwInputDataSize", &self.dwInputDataSize).field("ddRVal", &self.ddRVal).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DD_ENDMOCOMPFRAMEDATA {
@@ -9661,6 +11053,12 @@ impl ::core::clone::Clone for DD_FLIPDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_FLIPDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_FLIPDATA").field("lpDD", &self.lpDD).field("lpSurfCurr", &self.lpSurfCurr).field("lpSurfTarg", &self.lpSurfTarg).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).field("Flip", &self.Flip).field("lpSurfCurrLeft", &self.lpSurfCurrLeft).field("lpSurfTargLeft", &self.lpSurfTargLeft).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_FLIPDATA {
     type Abi = Self;
 }
@@ -9691,6 +11089,11 @@ impl ::core::marker::Copy for DD_FLIPTOGDISURFACEDATA {}
 impl ::core::clone::Clone for DD_FLIPTOGDISURFACEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DD_FLIPTOGDISURFACEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_FLIPTOGDISURFACEDATA").field("lpDD", &self.lpDD).field("dwToGDI", &self.dwToGDI).field("dwReserved", &self.dwReserved).field("ddRVal", &self.ddRVal).field("FlipToGDISurface", &self.FlipToGDISurface).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DD_FLIPTOGDISURFACEDATA {
@@ -9724,6 +11127,12 @@ impl ::core::marker::Copy for DD_FLIPVPORTDATA {}
 impl ::core::clone::Clone for DD_FLIPVPORTDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_FLIPVPORTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_FLIPVPORTDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("lpSurfCurr", &self.lpSurfCurr).field("lpSurfTarg", &self.lpSurfTarg).field("ddRVal", &self.ddRVal).field("FlipVideoPort", &self.FlipVideoPort).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9762,6 +11171,12 @@ impl ::core::clone::Clone for DD_FREEDRIVERMEMORYDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_FREEDRIVERMEMORYDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_FREEDRIVERMEMORYDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("ddRVal", &self.ddRVal).field("FreeDriverMemory", &self.FreeDriverMemory).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_FREEDRIVERMEMORYDATA {
     type Abi = Self;
 }
@@ -9795,6 +11210,11 @@ impl ::core::clone::Clone for DD_GETAVAILDRIVERMEMORYDATA {
         *self
     }
 }
+impl ::core::fmt::Debug for DD_GETAVAILDRIVERMEMORYDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_GETAVAILDRIVERMEMORYDATA").field("lpDD", &self.lpDD).field("DDSCaps", &self.DDSCaps).field("dwTotal", &self.dwTotal).field("dwFree", &self.dwFree).field("ddRVal", &self.ddRVal).field("GetAvailDriverMemory", &self.GetAvailDriverMemory).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DD_GETAVAILDRIVERMEMORYDATA {
     type Abi = Self;
 }
@@ -9825,6 +11245,12 @@ impl ::core::marker::Copy for DD_GETBLTSTATUSDATA {}
 impl ::core::clone::Clone for DD_GETBLTSTATUSDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_GETBLTSTATUSDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_GETBLTSTATUSDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).field("GetBltStatus", &self.GetBltStatus).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9861,6 +11287,11 @@ impl ::core::marker::Copy for DD_GETDRIVERINFODATA {}
 impl ::core::clone::Clone for DD_GETDRIVERINFODATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DD_GETDRIVERINFODATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_GETDRIVERINFODATA").field("dhpdev", &self.dhpdev).field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidInfo", &self.guidInfo).field("dwExpectedSize", &self.dwExpectedSize).field("lpvData", &self.lpvData).field("dwActualSize", &self.dwActualSize).field("ddRVal", &self.ddRVal).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DD_GETDRIVERINFODATA {
@@ -9948,6 +11379,12 @@ impl ::core::marker::Copy for DD_GETFLIPSTATUSDATA {}
 impl ::core::clone::Clone for DD_GETFLIPSTATUSDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_GETFLIPSTATUSDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_GETFLIPSTATUSDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).field("GetFlipStatus", &self.GetFlipStatus).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10075,6 +11512,11 @@ impl ::core::clone::Clone for DD_GETMOCOMPFORMATSDATA {
         *self
     }
 }
+impl ::core::fmt::Debug for DD_GETMOCOMPFORMATSDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_GETMOCOMPFORMATSDATA").field("lpDD", &self.lpDD).field("lpGuid", &self.lpGuid).field("dwNumFormats", &self.dwNumFormats).field("lpFormats", &self.lpFormats).field("ddRVal", &self.ddRVal).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DD_GETMOCOMPFORMATSDATA {
     type Abi = Self;
 }
@@ -10103,6 +11545,11 @@ impl ::core::clone::Clone for DD_GETMOCOMPGUIDSDATA {
         *self
     }
 }
+impl ::core::fmt::Debug for DD_GETMOCOMPGUIDSDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_GETMOCOMPGUIDSDATA").field("lpDD", &self.lpDD).field("dwNumGuids", &self.dwNumGuids).field("lpGuids", &self.lpGuids).field("ddRVal", &self.ddRVal).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DD_GETMOCOMPGUIDSDATA {
     type Abi = Self;
 }
@@ -10129,6 +11576,11 @@ impl ::core::marker::Copy for DD_GETSCANLINEDATA {}
 impl ::core::clone::Clone for DD_GETSCANLINEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DD_GETSCANLINEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_GETSCANLINEDATA").field("lpDD", &self.lpDD).field("dwScanLine", &self.dwScanLine).field("ddRVal", &self.ddRVal).field("GetScanLine", &self.GetScanLine).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DD_GETSCANLINEDATA {
@@ -10168,6 +11620,12 @@ impl ::core::clone::Clone for DD_GETVPORTBANDWIDTHDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_GETVPORTBANDWIDTHDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_GETVPORTBANDWIDTHDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("lpddpfFormat", &self.lpddpfFormat).field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("dwFlags", &self.dwFlags).field("lpBandwidth", &self.lpBandwidth).field("ddRVal", &self.ddRVal).field("GetVideoPortBandwidth", &self.GetVideoPortBandwidth).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_GETVPORTBANDWIDTHDATA {
     type Abi = Self;
 }
@@ -10199,6 +11657,11 @@ impl ::core::marker::Copy for DD_GETVPORTCONNECTDATA {}
 impl ::core::clone::Clone for DD_GETVPORTCONNECTDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DD_GETVPORTCONNECTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_GETVPORTCONNECTDATA").field("lpDD", &self.lpDD).field("dwPortId", &self.dwPortId).field("lpConnect", &self.lpConnect).field("dwNumEntries", &self.dwNumEntries).field("ddRVal", &self.ddRVal).field("GetVideoPortConnectInfo", &self.GetVideoPortConnectInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DD_GETVPORTCONNECTDATA {
@@ -10234,6 +11697,12 @@ impl ::core::clone::Clone for DD_GETVPORTFIELDDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_GETVPORTFIELDDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_GETVPORTFIELDDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("bField", &self.bField).field("ddRVal", &self.ddRVal).field("GetVideoPortField", &self.GetVideoPortField).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_GETVPORTFIELDDATA {
     type Abi = Self;
 }
@@ -10263,6 +11732,11 @@ impl ::core::marker::Copy for DD_GETVPORTFLIPSTATUSDATA {}
 impl ::core::clone::Clone for DD_GETVPORTFLIPSTATUSDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DD_GETVPORTFLIPSTATUSDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_GETVPORTFLIPSTATUSDATA").field("lpDD", &self.lpDD).field("fpSurface", &self.fpSurface).field("ddRVal", &self.ddRVal).field("GetVideoPortFlipStatus", &self.GetVideoPortFlipStatus).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DD_GETVPORTFLIPSTATUSDATA {
@@ -10300,6 +11774,12 @@ impl ::core::clone::Clone for DD_GETVPORTINPUTFORMATDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_GETVPORTINPUTFORMATDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_GETVPORTINPUTFORMATDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwFlags", &self.dwFlags).field("lpddpfFormat", &self.lpddpfFormat).field("dwNumFormats", &self.dwNumFormats).field("ddRVal", &self.ddRVal).field("GetVideoPortInputFormats", &self.GetVideoPortInputFormats).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_GETVPORTINPUTFORMATDATA {
     type Abi = Self;
 }
@@ -10333,6 +11813,12 @@ impl ::core::marker::Copy for DD_GETVPORTLINEDATA {}
 impl ::core::clone::Clone for DD_GETVPORTLINEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_GETVPORTLINEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_GETVPORTLINEDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwLine", &self.dwLine).field("ddRVal", &self.ddRVal).field("GetVideoPortLine", &self.GetVideoPortLine).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10375,6 +11861,12 @@ impl ::core::clone::Clone for DD_GETVPORTOUTPUTFORMATDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_GETVPORTOUTPUTFORMATDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_GETVPORTOUTPUTFORMATDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwFlags", &self.dwFlags).field("lpddpfInputFormat", &self.lpddpfInputFormat).field("lpddpfOutputFormats", &self.lpddpfOutputFormats).field("dwNumFormats", &self.dwNumFormats).field("ddRVal", &self.ddRVal).field("GetVideoPortInputFormats", &self.GetVideoPortInputFormats).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_GETVPORTOUTPUTFORMATDATA {
     type Abi = Self;
 }
@@ -10408,6 +11900,12 @@ impl ::core::marker::Copy for DD_GETVPORTSIGNALDATA {}
 impl ::core::clone::Clone for DD_GETVPORTSIGNALDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_GETVPORTSIGNALDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_GETVPORTSIGNALDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwStatus", &self.dwStatus).field("ddRVal", &self.ddRVal).field("GetVideoSignalStatus", &self.GetVideoSignalStatus).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10516,6 +12014,12 @@ impl ::core::clone::Clone for DD_KERNELCALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_KERNELCALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_KERNELCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("SyncSurfaceData", &self.SyncSurfaceData.map(|f| f as usize)).field("SyncVideoPortData", &self.SyncVideoPortData.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_KERNELCALLBACKS {
     type Abi = Self;
 }
@@ -10556,6 +12060,12 @@ impl ::core::clone::Clone for DD_LOCKDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_LOCKDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_LOCKDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("bHasRect", &self.bHasRect).field("rArea", &self.rArea).field("lpSurfData", &self.lpSurfData).field("ddRVal", &self.ddRVal).field("Lock", &self.Lock).field("dwFlags", &self.dwFlags).field("fpProcess", &self.fpProcess).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_LOCKDATA {
     type Abi = Self;
 }
@@ -10589,6 +12099,12 @@ impl ::core::marker::Copy for DD_MAPMEMORYDATA {}
 impl ::core::clone::Clone for DD_MAPMEMORYDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_MAPMEMORYDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_MAPMEMORYDATA").field("lpDD", &self.lpDD).field("bMap", &self.bMap).field("hProcess", &self.hProcess).field("fpProcess", &self.fpProcess).field("ddRVal", &self.ddRVal).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10629,6 +12145,12 @@ impl ::core::clone::Clone for DD_MISCELLANEOUS2CALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_MISCELLANEOUS2CALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_MISCELLANEOUS2CALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("AlphaBlt", &self.AlphaBlt.map(|f| f as usize)).field("CreateSurfaceEx", &self.CreateSurfaceEx.map(|f| f as usize)).field("GetDriverState", &self.GetDriverState.map(|f| f as usize)).field("DestroyDDLocal", &self.DestroyDDLocal.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_MISCELLANEOUS2CALLBACKS {
     type Abi = Self;
 }
@@ -10657,6 +12179,11 @@ impl ::core::marker::Copy for DD_MISCELLANEOUSCALLBACKS {}
 impl ::core::clone::Clone for DD_MISCELLANEOUSCALLBACKS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DD_MISCELLANEOUSCALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_MISCELLANEOUSCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("GetAvailDriverMemory", &self.GetAvailDriverMemory.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DD_MISCELLANEOUSCALLBACKS {
@@ -10690,6 +12217,11 @@ impl ::core::marker::Copy for DD_MORECAPS {}
 impl ::core::clone::Clone for DD_MORECAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DD_MORECAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_MORECAPS").field("dwSize", &self.dwSize).field("dwAlphaCaps", &self.dwAlphaCaps).field("dwSVBAlphaCaps", &self.dwSVBAlphaCaps).field("dwVSBAlphaCaps", &self.dwVSBAlphaCaps).field("dwSSBAlphaCaps", &self.dwSSBAlphaCaps).field("dwFilterCaps", &self.dwFilterCaps).field("dwSVBFilterCaps", &self.dwSVBFilterCaps).field("dwVSBFilterCaps", &self.dwVSBFilterCaps).field("dwSSBFilterCaps", &self.dwSSBFilterCaps).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DD_MORECAPS {
@@ -10785,6 +12317,25 @@ impl ::core::clone::Clone for DD_MOTIONCOMPCALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_MOTIONCOMPCALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_MOTIONCOMPCALLBACKS")
+            .field("dwSize", &self.dwSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("GetMoCompGuids", &self.GetMoCompGuids.map(|f| f as usize))
+            .field("GetMoCompFormats", &self.GetMoCompFormats.map(|f| f as usize))
+            .field("CreateMoComp", &self.CreateMoComp.map(|f| f as usize))
+            .field("GetMoCompBuffInfo", &self.GetMoCompBuffInfo.map(|f| f as usize))
+            .field("GetInternalMoCompInfo", &self.GetInternalMoCompInfo.map(|f| f as usize))
+            .field("BeginMoCompFrame", &self.BeginMoCompFrame.map(|f| f as usize))
+            .field("EndMoCompFrame", &self.EndMoCompFrame.map(|f| f as usize))
+            .field("RenderMoComp", &self.RenderMoComp.map(|f| f as usize))
+            .field("QueryMoCompStatus", &self.QueryMoCompStatus.map(|f| f as usize))
+            .field("DestroyMoComp", &self.DestroyMoComp.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_MOTIONCOMPCALLBACKS {
     type Abi = Self;
 }
@@ -10853,6 +12404,11 @@ impl ::core::clone::Clone for DD_NONLOCALVIDMEMCAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for DD_NONLOCALVIDMEMCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_NONLOCALVIDMEMCAPS").field("dwSize", &self.dwSize).field("dwNLVBCaps", &self.dwNLVBCaps).field("dwNLVBCaps2", &self.dwNLVBCaps2).field("dwNLVBCKeyCaps", &self.dwNLVBCKeyCaps).field("dwNLVBFXCaps", &self.dwNLVBFXCaps).field("dwNLVBRops", &self.dwNLVBRops).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DD_NONLOCALVIDMEMCAPS {
     type Abi = Self;
 }
@@ -10886,6 +12442,12 @@ impl ::core::clone::Clone for DD_NTCALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_NTCALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_NTCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("FreeDriverMemory", &self.FreeDriverMemory.map(|f| f as usize)).field("SetExclusiveMode", &self.SetExclusiveMode.map(|f| f as usize)).field("FlipToGDISurface", &self.FlipToGDISurface.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_NTCALLBACKS {
     type Abi = Self;
 }
@@ -10913,6 +12475,11 @@ impl ::core::marker::Copy for DD_NTPRIVATEDRIVERCAPS {}
 impl ::core::clone::Clone for DD_NTPRIVATEDRIVERCAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DD_NTPRIVATEDRIVERCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_NTPRIVATEDRIVERCAPS").field("dwSize", &self.dwSize).field("dwPrivateCaps", &self.dwPrivateCaps).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DD_NTPRIVATEDRIVERCAPS {
@@ -10947,6 +12514,12 @@ impl ::core::clone::Clone for DD_PALETTECALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for DD_PALETTECALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_PALETTECALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("DestroyPalette", &self.DestroyPalette.map(|f| f as usize)).field("SetEntries", &self.SetEntries.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::core::Abi for DD_PALETTECALLBACKS {
     type Abi = Self;
 }
@@ -10975,6 +12548,11 @@ impl ::core::clone::Clone for DD_PALETTE_GLOBAL {
         *self
     }
 }
+impl ::core::fmt::Debug for DD_PALETTE_GLOBAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_PALETTE_GLOBAL").field("dwReserved1", &self.dwReserved1).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DD_PALETTE_GLOBAL {
     type Abi = Self;
 }
@@ -10999,6 +12577,11 @@ impl ::core::marker::Copy for DD_PALETTE_LOCAL {}
 impl ::core::clone::Clone for DD_PALETTE_LOCAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DD_PALETTE_LOCAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_PALETTE_LOCAL").field("dwReserved0", &self.dwReserved0).field("dwReserved1", &self.dwReserved1).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DD_PALETTE_LOCAL {
@@ -11031,6 +12614,12 @@ impl ::core::marker::Copy for DD_QUERYMOCOMPSTATUSDATA {}
 impl ::core::clone::Clone for DD_QUERYMOCOMPSTATUSDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_QUERYMOCOMPSTATUSDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_QUERYMOCOMPSTATUSDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("lpSurface", &self.lpSurface).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11075,6 +12664,12 @@ impl ::core::clone::Clone for DD_RENDERMOCOMPDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_RENDERMOCOMPDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_RENDERMOCOMPDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("dwNumBuffers", &self.dwNumBuffers).field("lpBufferInfo", &self.lpBufferInfo).field("dwFunction", &self.dwFunction).field("lpInputData", &self.lpInputData).field("dwInputDataSize", &self.dwInputDataSize).field("lpOutputData", &self.lpOutputData).field("dwOutputDataSize", &self.dwOutputDataSize).field("ddRVal", &self.ddRVal).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_RENDERMOCOMPDATA {
     type Abi = Self;
 }
@@ -11112,6 +12707,12 @@ impl ::core::clone::Clone for DD_SETCLIPLISTDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_SETCLIPLISTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_SETCLIPLISTDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("ddRVal", &self.ddRVal).field("SetClipList", &self.SetClipList).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_SETCLIPLISTDATA {
     type Abi = Self;
 }
@@ -11146,6 +12747,12 @@ impl ::core::marker::Copy for DD_SETCOLORKEYDATA {}
 impl ::core::clone::Clone for DD_SETCOLORKEYDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_SETCOLORKEYDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_SETCOLORKEYDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("dwFlags", &self.dwFlags).field("ckNew", &self.ckNew).field("ddRVal", &self.ddRVal).field("SetColorKey", &self.SetColorKey).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11187,6 +12794,12 @@ impl ::core::clone::Clone for DD_SETENTRIESDATA {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for DD_SETENTRIESDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_SETENTRIESDATA").field("lpDD", &self.lpDD).field("lpDDPalette", &self.lpDDPalette).field("dwBase", &self.dwBase).field("dwNumEntries", &self.dwNumEntries).field("lpEntries", &self.lpEntries).field("ddRVal", &self.ddRVal).field("SetEntries", &self.SetEntries).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::core::Abi for DD_SETENTRIESDATA {
     type Abi = Self;
 }
@@ -11217,6 +12830,11 @@ impl ::core::marker::Copy for DD_SETEXCLUSIVEMODEDATA {}
 impl ::core::clone::Clone for DD_SETEXCLUSIVEMODEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DD_SETEXCLUSIVEMODEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_SETEXCLUSIVEMODEDATA").field("lpDD", &self.lpDD).field("dwEnterExcl", &self.dwEnterExcl).field("dwReserved", &self.dwReserved).field("ddRVal", &self.ddRVal).field("SetExclusiveMode", &self.SetExclusiveMode).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DD_SETEXCLUSIVEMODEDATA {
@@ -11251,6 +12869,12 @@ impl ::core::marker::Copy for DD_SETOVERLAYPOSITIONDATA {}
 impl ::core::clone::Clone for DD_SETOVERLAYPOSITIONDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_SETOVERLAYPOSITIONDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_SETOVERLAYPOSITIONDATA").field("lpDD", &self.lpDD).field("lpDDSrcSurface", &self.lpDDSrcSurface).field("lpDDDestSurface", &self.lpDDDestSurface).field("lXPos", &self.lXPos).field("lYPos", &self.lYPos).field("ddRVal", &self.ddRVal).field("SetOverlayPosition", &self.SetOverlayPosition).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11291,6 +12915,12 @@ impl ::core::clone::Clone for DD_SETPALETTEDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_SETPALETTEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_SETPALETTEDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("lpDDPalette", &self.lpDDPalette).field("ddRVal", &self.ddRVal).field("SetPalette", &self.SetPalette).field("Attach", &self.Attach).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_SETPALETTEDATA {
     type Abi = Self;
 }
@@ -11325,6 +12955,12 @@ impl ::core::marker::Copy for DD_STEREOMODE {}
 impl ::core::clone::Clone for DD_STEREOMODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_STEREOMODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_STEREOMODE").field("dwSize", &self.dwSize).field("dwHeight", &self.dwHeight).field("dwWidth", &self.dwWidth).field("dwBpp", &self.dwBpp).field("dwRefreshRate", &self.dwRefreshRate).field("bSupported", &self.bSupported).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11372,6 +13008,29 @@ impl ::core::marker::Copy for DD_SURFACECALLBACKS {}
 impl ::core::clone::Clone for DD_SURFACECALLBACKS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_SURFACECALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_SURFACECALLBACKS")
+            .field("dwSize", &self.dwSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("DestroySurface", &self.DestroySurface.map(|f| f as usize))
+            .field("Flip", &self.Flip.map(|f| f as usize))
+            .field("SetClipList", &self.SetClipList.map(|f| f as usize))
+            .field("Lock", &self.Lock.map(|f| f as usize))
+            .field("Unlock", &self.Unlock.map(|f| f as usize))
+            .field("Blt", &self.Blt.map(|f| f as usize))
+            .field("SetColorKey", &self.SetColorKey.map(|f| f as usize))
+            .field("AddAttachedSurface", &self.AddAttachedSurface.map(|f| f as usize))
+            .field("GetBltStatus", &self.GetBltStatus.map(|f| f as usize))
+            .field("GetFlipStatus", &self.GetFlipStatus.map(|f| f as usize))
+            .field("UpdateOverlay", &self.UpdateOverlay.map(|f| f as usize))
+            .field("SetOverlayPosition", &self.SetOverlayPosition.map(|f| f as usize))
+            .field("reserved4", &self.reserved4)
+            .field("SetPalette", &self.SetPalette.map(|f| f as usize))
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11547,6 +13206,12 @@ impl ::core::marker::Copy for DD_SURFACE_INT {}
 impl ::core::clone::Clone for DD_SURFACE_INT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_SURFACE_INT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_SURFACE_INT").field("lpLcl", &self.lpLcl).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11735,6 +13400,24 @@ impl ::core::clone::Clone for DD_SYNCSURFACEDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_SYNCSURFACEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_SYNCSURFACEDATA")
+            .field("lpDD", &self.lpDD)
+            .field("lpDDSurface", &self.lpDDSurface)
+            .field("dwSurfaceOffset", &self.dwSurfaceOffset)
+            .field("fpLockPtr", &self.fpLockPtr)
+            .field("lPitch", &self.lPitch)
+            .field("dwOverlayOffset", &self.dwOverlayOffset)
+            .field("dwDriverReserved1", &self.dwDriverReserved1)
+            .field("dwDriverReserved2", &self.dwDriverReserved2)
+            .field("dwDriverReserved3", &self.dwDriverReserved3)
+            .field("dwDriverReserved4", &self.dwDriverReserved4)
+            .field("ddRVal", &self.ddRVal)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_SYNCSURFACEDATA {
     type Abi = Self;
 }
@@ -11775,6 +13458,12 @@ impl ::core::clone::Clone for DD_SYNCVIDEOPORTDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_SYNCVIDEOPORTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_SYNCVIDEOPORTDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwOriginOffset", &self.dwOriginOffset).field("dwHeight", &self.dwHeight).field("dwVBIHeight", &self.dwVBIHeight).field("dwDriverReserved1", &self.dwDriverReserved1).field("dwDriverReserved2", &self.dwDriverReserved2).field("dwDriverReserved3", &self.dwDriverReserved3).field("ddRVal", &self.ddRVal).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_SYNCVIDEOPORTDATA {
     type Abi = Self;
 }
@@ -11810,6 +13499,12 @@ impl ::core::clone::Clone for DD_UNLOCKDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_UNLOCKDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_UNLOCKDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("ddRVal", &self.ddRVal).field("Unlock", &self.Unlock).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_UNLOCKDATA {
     type Abi = Self;
 }
@@ -11842,6 +13537,11 @@ impl ::core::marker::Copy for DD_UPDATENONLOCALHEAPDATA {}
 impl ::core::clone::Clone for DD_UPDATENONLOCALHEAPDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DD_UPDATENONLOCALHEAPDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_UPDATENONLOCALHEAPDATA").field("lpDD", &self.lpDD).field("dwHeap", &self.dwHeap).field("fpGARTLin", &self.fpGARTLin).field("fpGARTDev", &self.fpGARTDev).field("ulPolicyMaxBytes", &self.ulPolicyMaxBytes).field("ddRVal", &self.ddRVal).field("UpdateNonLocalHeap", &self.UpdateNonLocalHeap).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DD_UPDATENONLOCALHEAPDATA {
@@ -11930,6 +13630,12 @@ impl ::core::clone::Clone for DD_UPDATEVPORTDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_UPDATEVPORTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_UPDATEVPORTDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("lplpDDSurface", &self.lplpDDSurface).field("lplpDDVBISurface", &self.lplpDDVBISurface).field("lpVideoInfo", &self.lpVideoInfo).field("dwFlags", &self.dwFlags).field("dwNumAutoflip", &self.dwNumAutoflip).field("dwNumVBIAutoflip", &self.dwNumVBIAutoflip).field("ddRVal", &self.ddRVal).field("UpdateVideoPort", &self.UpdateVideoPort).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_UPDATEVPORTDATA {
     type Abi = Self;
 }
@@ -11981,6 +13687,31 @@ impl ::core::clone::Clone for DD_VIDEOPORTCALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_VIDEOPORTCALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_VIDEOPORTCALLBACKS")
+            .field("dwSize", &self.dwSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("CanCreateVideoPort", &self.CanCreateVideoPort.map(|f| f as usize))
+            .field("CreateVideoPort", &self.CreateVideoPort.map(|f| f as usize))
+            .field("FlipVideoPort", &self.FlipVideoPort.map(|f| f as usize))
+            .field("GetVideoPortBandwidth", &self.GetVideoPortBandwidth.map(|f| f as usize))
+            .field("GetVideoPortInputFormats", &self.GetVideoPortInputFormats.map(|f| f as usize))
+            .field("GetVideoPortOutputFormats", &self.GetVideoPortOutputFormats.map(|f| f as usize))
+            .field("lpReserved1", &self.lpReserved1)
+            .field("GetVideoPortField", &self.GetVideoPortField.map(|f| f as usize))
+            .field("GetVideoPortLine", &self.GetVideoPortLine.map(|f| f as usize))
+            .field("GetVideoPortConnectInfo", &self.GetVideoPortConnectInfo.map(|f| f as usize))
+            .field("DestroyVideoPort", &self.DestroyVideoPort.map(|f| f as usize))
+            .field("GetVideoPortFlipStatus", &self.GetVideoPortFlipStatus.map(|f| f as usize))
+            .field("UpdateVideoPort", &self.UpdateVideoPort.map(|f| f as usize))
+            .field("WaitForVideoPortSync", &self.WaitForVideoPortSync.map(|f| f as usize))
+            .field("GetVideoSignalStatus", &self.GetVideoSignalStatus.map(|f| f as usize))
+            .field("ColorControl", &self.ColorControl.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_VIDEOPORTCALLBACKS {
     type Abi = Self;
 }
@@ -12022,6 +13753,12 @@ impl ::core::clone::Clone for DD_VIDEOPORT_LOCAL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_VIDEOPORT_LOCAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_VIDEOPORT_LOCAL").field("lpDD", &self.lpDD).field("ddvpDesc", &self.ddvpDesc).field("ddvpInfo", &self.ddvpInfo).field("lpSurface", &self.lpSurface).field("lpVBISurface", &self.lpVBISurface).field("dwNumAutoflip", &self.dwNumAutoflip).field("dwNumVBIAutoflip", &self.dwNumVBIAutoflip).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).field("dwReserved3", &self.dwReserved3).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_VIDEOPORT_LOCAL {
     type Abi = Self;
 }
@@ -12059,6 +13796,12 @@ impl ::core::clone::Clone for DD_VPORTCOLORDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_VPORTCOLORDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_VPORTCOLORDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwFlags", &self.dwFlags).field("lpColorData", &self.lpColorData).field("ddRVal", &self.ddRVal).field("ColorControl", &self.ColorControl).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_VPORTCOLORDATA {
     type Abi = Self;
 }
@@ -12090,6 +13833,11 @@ impl ::core::marker::Copy for DD_WAITFORVERTICALBLANKDATA {}
 impl ::core::clone::Clone for DD_WAITFORVERTICALBLANKDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DD_WAITFORVERTICALBLANKDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_WAITFORVERTICALBLANKDATA").field("lpDD", &self.lpDD).field("dwFlags", &self.dwFlags).field("bIsInVB", &self.bIsInVB).field("hEvent", &self.hEvent).field("ddRVal", &self.ddRVal).field("WaitForVerticalBlank", &self.WaitForVerticalBlank).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DD_WAITFORVERTICALBLANKDATA {
@@ -12124,6 +13872,12 @@ impl ::core::marker::Copy for DD_WAITFORVPORTSYNCDATA {}
 impl ::core::clone::Clone for DD_WAITFORVPORTSYNCDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DD_WAITFORVPORTSYNCDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DD_WAITFORVPORTSYNCDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwFlags", &self.dwFlags).field("dwLine", &self.dwLine).field("dwTimeOut", &self.dwTimeOut).field("ddRVal", &self.ddRVal).field("UpdateVideoPort", &self.UpdateVideoPort).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12186,6 +13940,31 @@ impl ::core::clone::Clone for DXAPI_INTERFACE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXAPI_INTERFACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXAPI_INTERFACE")
+            .field("Size", &self.Size)
+            .field("Version", &self.Version)
+            .field("Context", &self.Context)
+            .field("InterfaceReference", &self.InterfaceReference)
+            .field("InterfaceDereference", &self.InterfaceDereference)
+            .field("DxGetIrqInfo", &self.DxGetIrqInfo.map(|f| f as usize))
+            .field("DxEnableIrq", &self.DxEnableIrq.map(|f| f as usize))
+            .field("DxSkipNextField", &self.DxSkipNextField.map(|f| f as usize))
+            .field("DxBobNextField", &self.DxBobNextField.map(|f| f as usize))
+            .field("DxSetState", &self.DxSetState.map(|f| f as usize))
+            .field("DxLock", &self.DxLock.map(|f| f as usize))
+            .field("DxFlipOverlay", &self.DxFlipOverlay.map(|f| f as usize))
+            .field("DxFlipVideoPort", &self.DxFlipVideoPort.map(|f| f as usize))
+            .field("DxGetPolarity", &self.DxGetPolarity.map(|f| f as usize))
+            .field("DxGetCurrentAutoflip", &self.DxGetCurrentAutoflip.map(|f| f as usize))
+            .field("DxGetPreviousAutoflip", &self.DxGetPreviousAutoflip.map(|f| f as usize))
+            .field("DxTransfer", &self.DxTransfer.map(|f| f as usize))
+            .field("DxGetTransferStatus", &self.DxGetTransferStatus.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXAPI_INTERFACE {
     type Abi = Self;
 }
@@ -12218,6 +13997,11 @@ impl ::core::marker::Copy for DX_IRQDATA {}
 impl ::core::clone::Clone for DX_IRQDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DX_IRQDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DX_IRQDATA").field("dwIrqFlags", &self.dwIrqFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DX_IRQDATA {
@@ -12380,6 +14164,11 @@ impl ::core::clone::Clone for HEAPALIAS {
         *self
     }
 }
+impl ::core::fmt::Debug for HEAPALIAS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HEAPALIAS").field("fpVidMem", &self.fpVidMem).field("lpAlias", &self.lpAlias).field("dwAliasSize", &self.dwAliasSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HEAPALIAS {
     type Abi = Self;
 }
@@ -12406,6 +14195,11 @@ impl ::core::marker::Copy for HEAPALIASINFO {}
 impl ::core::clone::Clone for HEAPALIASINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HEAPALIASINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HEAPALIASINFO").field("dwRefCnt", &self.dwRefCnt).field("dwFlags", &self.dwFlags).field("dwNumHeaps", &self.dwNumHeaps).field("lpAliases", &self.lpAliases).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HEAPALIASINFO {
@@ -12513,6 +14307,11 @@ impl ::core::cmp::PartialEq for IDDVideoPortContainer {
     }
 }
 impl ::core::cmp::Eq for IDDVideoPortContainer {}
+impl ::core::fmt::Debug for IDDVideoPortContainer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDDVideoPortContainer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDDVideoPortContainer {
     type Vtable = IDDVideoPortContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c142760_a733_11ce_a521_0020af0be560);
@@ -12650,6 +14449,11 @@ impl ::core::cmp::PartialEq for IDirectDraw {
     }
 }
 impl ::core::cmp::Eq for IDirectDraw {}
+impl ::core::fmt::Debug for IDirectDraw {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDraw").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDraw {
     type Vtable = IDirectDrawVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c14db80_a733_11ce_a521_0020af0be560);
@@ -12809,6 +14613,11 @@ impl ::core::cmp::PartialEq for IDirectDraw2 {
     }
 }
 impl ::core::cmp::Eq for IDirectDraw2 {}
+impl ::core::fmt::Debug for IDirectDraw2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDraw2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDraw2 {
     type Vtable = IDirectDraw2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3a6f3e0_2b43_11cf_a2de_00aa00b93356);
@@ -12988,6 +14797,11 @@ impl ::core::cmp::PartialEq for IDirectDraw4 {
     }
 }
 impl ::core::cmp::Eq for IDirectDraw4 {}
+impl ::core::fmt::Debug for IDirectDraw4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDraw4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDraw4 {
     type Vtable = IDirectDraw4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c59509a_39bd_11d1_8c4a_00c04fd930c5);
@@ -13182,6 +14996,11 @@ impl ::core::cmp::PartialEq for IDirectDraw7 {
     }
 }
 impl ::core::cmp::Eq for IDirectDraw7 {}
+impl ::core::fmt::Debug for IDirectDraw7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDraw7").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDraw7 {
     type Vtable = IDirectDraw7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15e65ec0_3b9c_11d2_b92f_00609797ea5b);
@@ -13291,6 +15110,11 @@ impl ::core::cmp::PartialEq for IDirectDrawClipper {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawClipper {}
+impl ::core::fmt::Debug for IDirectDrawClipper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawClipper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawClipper {
     type Vtable = IDirectDrawClipperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c14db85_a733_11ce_a521_0020af0be560);
@@ -13357,6 +15181,11 @@ impl ::core::cmp::PartialEq for IDirectDrawColorControl {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawColorControl {}
+impl ::core::fmt::Debug for IDirectDrawColorControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawColorControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawColorControl {
     type Vtable = IDirectDrawColorControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b9f0ee0_0d7e_11d0_9b06_00a0c903a3b8);
@@ -13414,6 +15243,11 @@ impl ::core::cmp::PartialEq for IDirectDrawGammaControl {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawGammaControl {}
+impl ::core::fmt::Debug for IDirectDrawGammaControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawGammaControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawGammaControl {
     type Vtable = IDirectDrawGammaControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69c11c3e_b46b_11d1_ad7a_00c04fc29b4e);
@@ -13475,6 +15309,11 @@ impl ::core::cmp::PartialEq for IDirectDrawKernel {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawKernel {}
+impl ::core::fmt::Debug for IDirectDrawKernel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawKernel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawKernel {
     type Vtable = IDirectDrawKernelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d56c120_6a08_11d0_9b06_00a0c903a3b8);
@@ -13544,6 +15383,11 @@ impl ::core::cmp::PartialEq for IDirectDrawPalette {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawPalette {}
+impl ::core::fmt::Debug for IDirectDrawPalette {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawPalette").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawPalette {
     type Vtable = IDirectDrawPaletteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c14db84_a733_11ce_a521_0020af0be560);
@@ -13740,6 +15584,11 @@ impl ::core::cmp::PartialEq for IDirectDrawSurface {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawSurface {}
+impl ::core::fmt::Debug for IDirectDrawSurface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawSurface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawSurface {
     type Vtable = IDirectDrawSurfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c14db81_a733_11ce_a521_0020af0be560);
@@ -13982,6 +15831,11 @@ impl ::core::cmp::PartialEq for IDirectDrawSurface2 {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawSurface2 {}
+impl ::core::fmt::Debug for IDirectDrawSurface2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawSurface2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawSurface2 {
     type Vtable = IDirectDrawSurface2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57805885_6eec_11cf_9441_a82303c10e27);
@@ -14231,6 +16085,11 @@ impl ::core::cmp::PartialEq for IDirectDrawSurface3 {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawSurface3 {}
+impl ::core::fmt::Debug for IDirectDrawSurface3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawSurface3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawSurface3 {
     type Vtable = IDirectDrawSurface3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda044e00_69b2_11d0_a1d5_00aa00b8dfbb);
@@ -14502,6 +16361,11 @@ impl ::core::cmp::PartialEq for IDirectDrawSurface4 {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawSurface4 {}
+impl ::core::fmt::Debug for IDirectDrawSurface4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawSurface4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawSurface4 {
     type Vtable = IDirectDrawSurface4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b2b8630_ad35_11d0_8ea6_00609797ea5b);
@@ -14795,6 +16659,11 @@ impl ::core::cmp::PartialEq for IDirectDrawSurface7 {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawSurface7 {}
+impl ::core::fmt::Debug for IDirectDrawSurface7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawSurface7").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawSurface7 {
     type Vtable = IDirectDrawSurface7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06675a80_3b9b_11d2_b92f_00609797ea5b);
@@ -14905,6 +16774,11 @@ impl ::core::cmp::PartialEq for IDirectDrawSurfaceKernel {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawSurfaceKernel {}
+impl ::core::fmt::Debug for IDirectDrawSurfaceKernel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawSurfaceKernel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawSurfaceKernel {
     type Vtable = IDirectDrawSurfaceKernelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60755da0_6a40_11d0_9b06_00a0c903a3b8);
@@ -15012,6 +16886,11 @@ impl ::core::cmp::PartialEq for IDirectDrawVideoPort {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawVideoPort {}
+impl ::core::fmt::Debug for IDirectDrawVideoPort {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawVideoPort").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawVideoPort {
     type Vtable = IDirectDrawVideoPortVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb36d93e0_2b43_11cf_a2de_00aa00b93356);
@@ -15085,6 +16964,11 @@ impl ::core::cmp::PartialEq for IDirectDrawVideoPortNotify {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawVideoPortNotify {}
+impl ::core::fmt::Debug for IDirectDrawVideoPortNotify {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawVideoPortNotify").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawVideoPortNotify {
     type Vtable = IDirectDrawVideoPortNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa655fb94_0589_4e57_b333_567a89468c88);
@@ -15114,6 +16998,11 @@ pub struct IUNKNOWN_LIST {
 impl ::core::clone::Clone for IUNKNOWN_LIST {
     fn clone(&self) -> Self {
         Self { lpLink: self.lpLink, lpGuid: self.lpGuid, lpIUnknown: self.lpIUnknown.clone() }
+    }
+}
+impl ::core::fmt::Debug for IUNKNOWN_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IUNKNOWN_LIST").field("lpLink", &self.lpLink).field("lpGuid", &self.lpGuid).field("lpIUnknown", &self.lpIUnknown).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IUNKNOWN_LIST {
@@ -15397,6 +17286,11 @@ impl ::core::clone::Clone for MDL {
         *self
     }
 }
+impl ::core::fmt::Debug for MDL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MDL").field("MdlNext", &self.MdlNext).field("MdlSize", &self.MdlSize).field("MdlFlags", &self.MdlFlags).field("Process", &self.Process).field("lpMappedSystemVa", &self.lpMappedSystemVa).field("lpStartVa", &self.lpStartVa).field("ByteCount", &self.ByteCount).field("ByteOffset", &self.ByteOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MDL {
     type Abi = Self;
 }
@@ -15656,6 +17550,11 @@ impl ::core::clone::Clone for PROCESS_LIST {
         *self
     }
 }
+impl ::core::fmt::Debug for PROCESS_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESS_LIST").field("lpLink", &self.lpLink).field("dwProcessId", &self.dwProcessId).field("dwRefCnt", &self.dwRefCnt).field("dwAlphaDepth", &self.dwAlphaDepth).field("dwZDepth", &self.dwZDepth).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PROCESS_LIST {
     type Abi = Self;
 }
@@ -15739,6 +17638,11 @@ impl ::core::clone::Clone for SURFACEALIGNMENT_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for SURFACEALIGNMENT_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SURFACEALIGNMENT_0_0").field("dwStartAlignment", &self.dwStartAlignment).field("dwPitchAlignment", &self.dwPitchAlignment).field("dwFlags", &self.dwFlags).field("dwReserved2", &self.dwReserved2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SURFACEALIGNMENT_0_0 {
     type Abi = Self;
 }
@@ -15765,6 +17669,11 @@ impl ::core::marker::Copy for SURFACEALIGNMENT_0_1 {}
 impl ::core::clone::Clone for SURFACEALIGNMENT_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SURFACEALIGNMENT_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SURFACEALIGNMENT_0_1").field("dwXAlignment", &self.dwXAlignment).field("dwYAlignment", &self.dwYAlignment).field("dwFlags", &self.dwFlags).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SURFACEALIGNMENT_0_1 {
@@ -16153,6 +18062,12 @@ impl ::core::clone::Clone for VMEML {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VMEML {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VMEML").field("next", &self.next).field("ptr", &self.ptr).field("size", &self.size).field("bDiscardable", &self.bDiscardable).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for VMEML {
     type Abi = Self;
 }
@@ -16196,6 +18111,12 @@ impl ::core::marker::Copy for VMEMR {}
 impl ::core::clone::Clone for VMEMR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VMEMR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VMEMR").field("next", &self.next).field("prev", &self.prev).field("pUp", &self.pUp).field("pDown", &self.pDown).field("pLeft", &self.pLeft).field("pRight", &self.pRight).field("ptr", &self.ptr).field("size", &self.size).field("x", &self.x).field("y", &self.y).field("cx", &self.cx).field("cy", &self.cy).field("flags", &self.flags).field("pBits", &self.pBits).field("bDiscardable", &self.bDiscardable).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

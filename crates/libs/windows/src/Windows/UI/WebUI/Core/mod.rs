@@ -164,6 +164,11 @@ impl ::core::cmp::PartialEq for IWebUICommandBarElement {
     }
 }
 impl ::core::cmp::Eq for IWebUICommandBarElement {}
+impl ::core::fmt::Debug for IWebUICommandBarElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebUICommandBarElement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWebUICommandBarElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c9069ec2-284a-4633-8aad-637a27e282c3}");
 }
@@ -236,6 +241,11 @@ impl ::core::cmp::PartialEq for IWebUICommandBarIcon {
     }
 }
 impl ::core::cmp::Eq for IWebUICommandBarIcon {}
+impl ::core::fmt::Debug for IWebUICommandBarIcon {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebUICommandBarIcon").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWebUICommandBarIcon {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d587655d-2014-42be-969a-7d14ca6c8a49}");
 }
@@ -436,6 +446,11 @@ impl ::core::cmp::PartialEq for MenuClosedEventHandler {
     }
 }
 impl ::core::cmp::Eq for MenuClosedEventHandler {}
+impl ::core::fmt::Debug for MenuClosedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MenuClosedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for MenuClosedEventHandler {
     type Vtable = MenuClosedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x435387c8_4dd0_4c52_9489_d390ce7721d2);
@@ -506,6 +521,11 @@ impl ::core::cmp::PartialEq for MenuOpenedEventHandler {
     }
 }
 impl ::core::cmp::Eq for MenuOpenedEventHandler {}
+impl ::core::fmt::Debug for MenuOpenedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MenuOpenedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for MenuOpenedEventHandler {
     type Vtable = MenuOpenedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18dc0ad3_678f_4c19_8963_cc1c49a5ef9e);
@@ -576,6 +596,11 @@ impl ::core::cmp::PartialEq for SizeChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for SizeChangedEventHandler {}
+impl ::core::fmt::Debug for SizeChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SizeChangedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for SizeChangedEventHandler {
     type Vtable = SizeChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd49cfe3c_dd2e_4c28_b627_303a7f911af5);
@@ -764,6 +789,11 @@ impl ::core::cmp::PartialEq for WebUICommandBar {
     }
 }
 impl ::core::cmp::Eq for WebUICommandBar {}
+impl ::core::fmt::Debug for WebUICommandBar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUICommandBar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebUICommandBar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBar;{a4fc0016-dbe5-41ad-8d7b-14698bd6911d})");
 }
@@ -867,6 +897,11 @@ impl ::core::cmp::PartialEq for WebUICommandBarBitmapIcon {
     }
 }
 impl ::core::cmp::Eq for WebUICommandBarBitmapIcon {}
+impl ::core::fmt::Debug for WebUICommandBarBitmapIcon {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUICommandBarBitmapIcon").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarBitmapIcon {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarBitmapIcon;{858f4f45-08d8-4a46-81ec-00015b0b1c6c})");
 }
@@ -964,6 +999,11 @@ impl ::core::cmp::PartialEq for WebUICommandBarClosedDisplayMode {
     }
 }
 impl ::core::cmp::Eq for WebUICommandBarClosedDisplayMode {}
+impl ::core::fmt::Debug for WebUICommandBarClosedDisplayMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUICommandBarClosedDisplayMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarClosedDisplayMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WebUI.Core.WebUICommandBarClosedDisplayMode;i4)");
 }
@@ -1021,6 +1061,11 @@ impl ::core::cmp::PartialEq for WebUICommandBarConfirmationButton {
     }
 }
 impl ::core::cmp::Eq for WebUICommandBarConfirmationButton {}
+impl ::core::fmt::Debug for WebUICommandBarConfirmationButton {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUICommandBarConfirmationButton").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarConfirmationButton {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarConfirmationButton;{86e7824a-e3d5-4eb6-b2ff-8f018a172105})");
 }
@@ -1198,6 +1243,11 @@ impl ::core::cmp::PartialEq for WebUICommandBarIconButton {
     }
 }
 impl ::core::cmp::Eq for WebUICommandBarIconButton {}
+impl ::core::fmt::Debug for WebUICommandBarIconButton {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUICommandBarIconButton").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarIconButton {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarIconButton;{8f1bc93a-3a7c-4842-a0cf-aff6ea308586})");
 }
@@ -1296,6 +1346,11 @@ impl ::core::cmp::PartialEq for WebUICommandBarItemInvokedEventArgs {
     }
 }
 impl ::core::cmp::Eq for WebUICommandBarItemInvokedEventArgs {}
+impl ::core::fmt::Debug for WebUICommandBarItemInvokedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUICommandBarItemInvokedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarItemInvokedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarItemInvokedEventArgs;{304edbdd-e741-41ef-bdc4-a45cea2a4f70})");
 }
@@ -1373,6 +1428,11 @@ impl ::core::cmp::PartialEq for WebUICommandBarSizeChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for WebUICommandBarSizeChangedEventArgs {}
+impl ::core::fmt::Debug for WebUICommandBarSizeChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUICommandBarSizeChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarSizeChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarSizeChangedEventArgs;{fbf1e2f6-3029-4719-8378-92f82b87af1e})");
 }
@@ -1473,6 +1533,11 @@ impl ::core::cmp::PartialEq for WebUICommandBarSymbolIcon {
     }
 }
 impl ::core::cmp::Eq for WebUICommandBarSymbolIcon {}
+impl ::core::fmt::Debug for WebUICommandBarSymbolIcon {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUICommandBarSymbolIcon").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarSymbolIcon {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarSymbolIcon;{d4935477-fd26-46ed-8658-1a3f4400e7b3})");
 }

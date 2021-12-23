@@ -17,6 +17,11 @@ impl ::core::clone::Clone for AAL5_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for AAL5_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AAL5_PARAMETERS").field("ForwardMaxCPCSSDUSize", &self.ForwardMaxCPCSSDUSize).field("BackwardMaxCPCSSDUSize", &self.BackwardMaxCPCSSDUSize).field("Mode", &self.Mode).field("SSCSType", &self.SSCSType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AAL5_PARAMETERS {
     type Abi = Self;
 }
@@ -48,6 +53,11 @@ impl ::core::marker::Copy for AALUSER_PARAMETERS {}
 impl ::core::clone::Clone for AALUSER_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AALUSER_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AALUSER_PARAMETERS").field("UserDefined", &self.UserDefined).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AALUSER_PARAMETERS {
@@ -144,6 +154,12 @@ impl ::core::clone::Clone for ADDRINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ADDRINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADDRINFOA").field("ai_flags", &self.ai_flags).field("ai_family", &self.ai_family).field("ai_socktype", &self.ai_socktype).field("ai_protocol", &self.ai_protocol).field("ai_addrlen", &self.ai_addrlen).field("ai_canonname", &self.ai_canonname).field("ai_addr", &self.ai_addr).field("ai_next", &self.ai_next).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ADDRINFOA {
     type Abi = Self;
 }
@@ -181,6 +197,11 @@ impl ::core::marker::Copy for AFPROTOCOLS {}
 impl ::core::clone::Clone for AFPROTOCOLS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AFPROTOCOLS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AFPROTOCOLS").field("iAddressFamily", &self.iAddressFamily).field("iProtocol", &self.iProtocol).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AFPROTOCOLS {
@@ -332,6 +353,11 @@ impl ::core::clone::Clone for ASSOCIATE_NAMERES_CONTEXT_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for ASSOCIATE_NAMERES_CONTEXT_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ASSOCIATE_NAMERES_CONTEXT_INPUT").field("TransportSettingId", &self.TransportSettingId).field("Handle", &self.Handle).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ASSOCIATE_NAMERES_CONTEXT_INPUT {
     type Abi = Self;
 }
@@ -369,6 +395,11 @@ impl ::core::clone::Clone for ATM_ADDRESS {
         *self
     }
 }
+impl ::core::fmt::Debug for ATM_ADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ATM_ADDRESS").field("AddressType", &self.AddressType).field("NumofDigits", &self.NumofDigits).field("Addr", &self.Addr).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ATM_ADDRESS {
     type Abi = Self;
 }
@@ -400,6 +431,11 @@ impl ::core::clone::Clone for ATM_BHLI {
         *self
     }
 }
+impl ::core::fmt::Debug for ATM_BHLI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ATM_BHLI").field("HighLayerInfoType", &self.HighLayerInfoType).field("HighLayerInfoLength", &self.HighLayerInfoLength).field("HighLayerInfo", &self.HighLayerInfo).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ATM_BHLI {
     type Abi = Self;
 }
@@ -428,6 +464,11 @@ impl ::core::marker::Copy for ATM_BLLI {}
 impl ::core::clone::Clone for ATM_BLLI {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ATM_BLLI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ATM_BLLI").field("Layer2Protocol", &self.Layer2Protocol).field("Layer2UserSpecifiedProtocol", &self.Layer2UserSpecifiedProtocol).field("Layer3Protocol", &self.Layer3Protocol).field("Layer3UserSpecifiedProtocol", &self.Layer3UserSpecifiedProtocol).field("Layer3IPI", &self.Layer3IPI).field("SnapID", &self.SnapID).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ATM_BLLI {
@@ -465,6 +506,23 @@ impl ::core::clone::Clone for ATM_BLLI_IE {
         *self
     }
 }
+impl ::core::fmt::Debug for ATM_BLLI_IE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ATM_BLLI_IE")
+            .field("Layer2Protocol", &self.Layer2Protocol)
+            .field("Layer2Mode", &self.Layer2Mode)
+            .field("Layer2WindowSize", &self.Layer2WindowSize)
+            .field("Layer2UserSpecifiedProtocol", &self.Layer2UserSpecifiedProtocol)
+            .field("Layer3Protocol", &self.Layer3Protocol)
+            .field("Layer3Mode", &self.Layer3Mode)
+            .field("Layer3DefaultPacketSize", &self.Layer3DefaultPacketSize)
+            .field("Layer3PacketWindowSize", &self.Layer3PacketWindowSize)
+            .field("Layer3UserSpecifiedProtocol", &self.Layer3UserSpecifiedProtocol)
+            .field("Layer3IPI", &self.Layer3IPI)
+            .field("SnapID", &self.SnapID)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ATM_BLLI_IE {
     type Abi = Self;
 }
@@ -494,6 +552,11 @@ impl ::core::clone::Clone for ATM_BROADBAND_BEARER_CAPABILITY_IE {
         *self
     }
 }
+impl ::core::fmt::Debug for ATM_BROADBAND_BEARER_CAPABILITY_IE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ATM_BROADBAND_BEARER_CAPABILITY_IE").field("BearerClass", &self.BearerClass).field("TrafficType", &self.TrafficType).field("TimingRequirements", &self.TimingRequirements).field("ClippingSusceptability", &self.ClippingSusceptability).field("UserPlaneConnectionConfig", &self.UserPlaneConnectionConfig).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ATM_BROADBAND_BEARER_CAPABILITY_IE {
     type Abi = Self;
 }
@@ -519,6 +582,11 @@ impl ::core::marker::Copy for ATM_CALLING_PARTY_NUMBER_IE {}
 impl ::core::clone::Clone for ATM_CALLING_PARTY_NUMBER_IE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ATM_CALLING_PARTY_NUMBER_IE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ATM_CALLING_PARTY_NUMBER_IE").field("ATM_Number", &self.ATM_Number).field("Presentation_Indication", &self.Presentation_Indication).field("Screening_Indicator", &self.Screening_Indicator).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ATM_CALLING_PARTY_NUMBER_IE {
@@ -549,6 +617,11 @@ impl ::core::clone::Clone for ATM_CAUSE_IE {
         *self
     }
 }
+impl ::core::fmt::Debug for ATM_CAUSE_IE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ATM_CAUSE_IE").field("Location", &self.Location).field("Cause", &self.Cause).field("DiagnosticsLength", &self.DiagnosticsLength).field("Diagnostics", &self.Diagnostics).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ATM_CAUSE_IE {
     type Abi = Self;
 }
@@ -574,6 +647,11 @@ impl ::core::marker::Copy for ATM_CONNECTION_ID {}
 impl ::core::clone::Clone for ATM_CONNECTION_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ATM_CONNECTION_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ATM_CONNECTION_ID").field("DeviceNumber", &self.DeviceNumber).field("VPI", &self.VPI).field("VCI", &self.VCI).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ATM_CONNECTION_ID {
@@ -639,6 +717,11 @@ impl ::core::clone::Clone for ATM_QOS_CLASS_IE {
         *self
     }
 }
+impl ::core::fmt::Debug for ATM_QOS_CLASS_IE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ATM_QOS_CLASS_IE").field("QOSClassForward", &self.QOSClassForward).field("QOSClassBackward", &self.QOSClassBackward).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ATM_QOS_CLASS_IE {
     type Abi = Self;
 }
@@ -671,6 +754,12 @@ impl ::core::marker::Copy for ATM_TD {}
 impl ::core::clone::Clone for ATM_TD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ATM_TD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ATM_TD").field("PeakCellRate_CLP0", &self.PeakCellRate_CLP0).field("PeakCellRate_CLP01", &self.PeakCellRate_CLP01).field("SustainableCellRate_CLP0", &self.SustainableCellRate_CLP0).field("SustainableCellRate_CLP01", &self.SustainableCellRate_CLP01).field("MaxBurstSize_CLP0", &self.MaxBurstSize_CLP0).field("MaxBurstSize_CLP01", &self.MaxBurstSize_CLP01).field("Tagging", &self.Tagging).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -708,6 +797,12 @@ impl ::core::clone::Clone for ATM_TRAFFIC_DESCRIPTOR_IE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ATM_TRAFFIC_DESCRIPTOR_IE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ATM_TRAFFIC_DESCRIPTOR_IE").field("Forward", &self.Forward).field("Backward", &self.Backward).field("BestEffort", &self.BestEffort).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ATM_TRAFFIC_DESCRIPTOR_IE {
     type Abi = Self;
 }
@@ -737,6 +832,11 @@ impl ::core::marker::Copy for ATM_TRANSIT_NETWORK_SELECTION_IE {}
 impl ::core::clone::Clone for ATM_TRANSIT_NETWORK_SELECTION_IE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ATM_TRANSIT_NETWORK_SELECTION_IE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ATM_TRANSIT_NETWORK_SELECTION_IE").field("TypeOfNetworkId", &self.TypeOfNetworkId).field("NetworkIdPlan", &self.NetworkIdPlan).field("NetworkIdLength", &self.NetworkIdLength).field("NetworkId", &self.NetworkId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ATM_TRANSIT_NETWORK_SELECTION_IE {
@@ -1022,6 +1122,12 @@ impl ::core::clone::Clone for CSADDR_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CSADDR_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CSADDR_INFO").field("LocalAddr", &self.LocalAddr).field("RemoteAddr", &self.RemoteAddr).field("iSocketType", &self.iSocketType).field("iProtocol", &self.iProtocol).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CSADDR_INFO {
     type Abi = Self;
 }
@@ -1179,6 +1285,12 @@ impl ::core::clone::Clone for GROUP_FILTER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GROUP_FILTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GROUP_FILTER").field("gf_interface", &self.gf_interface).field("gf_group", &self.gf_group).field("gf_fmode", &self.gf_fmode).field("gf_numsrc", &self.gf_numsrc).field("gf_slist", &self.gf_slist).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GROUP_FILTER {
     type Abi = Self;
 }
@@ -1209,6 +1321,12 @@ impl ::core::marker::Copy for GROUP_REQ {}
 impl ::core::clone::Clone for GROUP_REQ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GROUP_REQ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GROUP_REQ").field("gr_interface", &self.gr_interface).field("gr_group", &self.gr_group).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1243,6 +1361,12 @@ impl ::core::marker::Copy for GROUP_SOURCE_REQ {}
 impl ::core::clone::Clone for GROUP_SOURCE_REQ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GROUP_SOURCE_REQ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GROUP_SOURCE_REQ").field("gsr_interface", &self.gsr_interface).field("gsr_group", &self.gsr_group).field("gsr_source", &self.gsr_source).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1694,6 +1818,11 @@ impl ::core::clone::Clone for INET_PORT_RANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for INET_PORT_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INET_PORT_RANGE").field("StartPort", &self.StartPort).field("NumberOfPorts", &self.NumberOfPorts).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for INET_PORT_RANGE {
     type Abi = Self;
 }
@@ -1717,6 +1846,11 @@ impl ::core::marker::Copy for INET_PORT_RESERVATION_INFORMATION {}
 impl ::core::clone::Clone for INET_PORT_RESERVATION_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for INET_PORT_RESERVATION_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INET_PORT_RESERVATION_INFORMATION").field("OwningPid", &self.OwningPid).finish()
     }
 }
 unsafe impl ::windows::core::Abi for INET_PORT_RESERVATION_INFORMATION {
@@ -1745,6 +1879,11 @@ impl ::core::clone::Clone for INET_PORT_RESERVATION_INSTANCE {
         *self
     }
 }
+impl ::core::fmt::Debug for INET_PORT_RESERVATION_INSTANCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INET_PORT_RESERVATION_INSTANCE").field("Reservation", &self.Reservation).field("Token", &self.Token).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for INET_PORT_RESERVATION_INSTANCE {
     type Abi = Self;
 }
@@ -1768,6 +1907,11 @@ impl ::core::marker::Copy for INET_PORT_RESERVATION_TOKEN {}
 impl ::core::clone::Clone for INET_PORT_RESERVATION_TOKEN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for INET_PORT_RESERVATION_TOKEN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INET_PORT_RESERVATION_TOKEN").field("Token", &self.Token).finish()
     }
 }
 unsafe impl ::windows::core::Abi for INET_PORT_RESERVATION_TOKEN {
@@ -1834,6 +1978,12 @@ impl ::core::marker::Copy for INTERFACE_INFO_EX {}
 impl ::core::clone::Clone for INTERFACE_INFO_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERFACE_INFO_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERFACE_INFO_EX").field("iiFlags", &self.iiFlags).field("iiAddress", &self.iiAddress).field("iiBroadcastAddress", &self.iiBroadcastAddress).field("iiNetmask", &self.iiNetmask).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1922,6 +2072,11 @@ impl ::core::clone::Clone for IN_ADDR_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for IN_ADDR_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IN_ADDR_0_0").field("s_b1", &self.s_b1).field("s_b2", &self.s_b2).field("s_b3", &self.s_b3).field("s_b4", &self.s_b4).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IN_ADDR_0_0 {
     type Abi = Self;
 }
@@ -1946,6 +2101,11 @@ impl ::core::marker::Copy for IN_ADDR_0_1 {}
 impl ::core::clone::Clone for IN_ADDR_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IN_ADDR_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IN_ADDR_0_1").field("s_w1", &self.s_w1).field("s_w2", &self.s_w2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IN_ADDR_0_1 {
@@ -2054,6 +2214,11 @@ impl ::core::marker::Copy for IN_RECVERR {}
 impl ::core::clone::Clone for IN_RECVERR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IN_RECVERR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IN_RECVERR").field("protocol", &self.protocol).field("info", &self.info).field("type", &self.r#type).field("code", &self.code).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IN_RECVERR {
@@ -2383,6 +2548,12 @@ impl ::core::clone::Clone for IPX_ADDRESS_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for IPX_ADDRESS_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPX_ADDRESS_DATA").field("adapternum", &self.adapternum).field("netnum", &self.netnum).field("nodenum", &self.nodenum).field("wan", &self.wan).field("status", &self.status).field("maxpkt", &self.maxpkt).field("linkspeed", &self.linkspeed).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IPX_ADDRESS_DATA {
     type Abi = Self;
 }
@@ -2433,6 +2604,11 @@ impl ::core::clone::Clone for IPX_NETNUM_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for IPX_NETNUM_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPX_NETNUM_DATA").field("netnum", &self.netnum).field("hopcount", &self.hopcount).field("netdelay", &self.netdelay).field("cardnum", &self.cardnum).field("router", &self.router).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IPX_NETNUM_DATA {
     type Abi = Self;
 }
@@ -2481,6 +2657,30 @@ impl ::core::marker::Copy for IPX_SPXCONNSTATUS_DATA {}
 impl ::core::clone::Clone for IPX_SPXCONNSTATUS_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IPX_SPXCONNSTATUS_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPX_SPXCONNSTATUS_DATA")
+            .field("ConnectionState", &self.ConnectionState)
+            .field("WatchDogActive", &self.WatchDogActive)
+            .field("LocalConnectionId", &self.LocalConnectionId)
+            .field("RemoteConnectionId", &self.RemoteConnectionId)
+            .field("LocalSequenceNumber", &self.LocalSequenceNumber)
+            .field("LocalAckNumber", &self.LocalAckNumber)
+            .field("LocalAllocNumber", &self.LocalAllocNumber)
+            .field("RemoteAckNumber", &self.RemoteAckNumber)
+            .field("RemoteAllocNumber", &self.RemoteAllocNumber)
+            .field("LocalSocket", &self.LocalSocket)
+            .field("ImmediateAddress", &self.ImmediateAddress)
+            .field("RemoteNetwork", &self.RemoteNetwork)
+            .field("RemoteNode", &self.RemoteNode)
+            .field("RemoteSocket", &self.RemoteSocket)
+            .field("RetransmissionCount", &self.RetransmissionCount)
+            .field("EstimatedRoundTripDelay", &self.EstimatedRoundTripDelay)
+            .field("RetransmittedPackets", &self.RetransmittedPackets)
+            .field("SuppressedPacket", &self.SuppressedPacket)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPX_SPXCONNSTATUS_DATA {
@@ -2835,6 +3035,11 @@ impl ::core::marker::Copy for LM_IRPARMS {}
 impl ::core::clone::Clone for LM_IRPARMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LM_IRPARMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LM_IRPARMS").field("nTXDataBytes", &self.nTXDataBytes).field("nRXDataBytes", &self.nRXDataBytes).field("nBaudRate", &self.nBaudRate).field("thresholdTime", &self.thresholdTime).field("discTime", &self.discTime).field("nMSLinkTurn", &self.nMSLinkTurn).field("nTXPackets", &self.nTXPackets).field("nRXPackets", &self.nRXPackets).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LM_IRPARMS {
@@ -3298,6 +3503,11 @@ impl ::core::clone::Clone for NAPI_DOMAIN_DESCRIPTION_BLOB {
         *self
     }
 }
+impl ::core::fmt::Debug for NAPI_DOMAIN_DESCRIPTION_BLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NAPI_DOMAIN_DESCRIPTION_BLOB").field("AuthLevel", &self.AuthLevel).field("cchDomainName", &self.cchDomainName).field("OffsetNextDomainDescription", &self.OffsetNextDomainDescription).field("OffsetThisDomainName", &self.OffsetThisDomainName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NAPI_DOMAIN_DESCRIPTION_BLOB {
     type Abi = Self;
 }
@@ -3325,6 +3535,11 @@ impl ::core::marker::Copy for NAPI_PROVIDER_INSTALLATION_BLOB {}
 impl ::core::clone::Clone for NAPI_PROVIDER_INSTALLATION_BLOB {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NAPI_PROVIDER_INSTALLATION_BLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NAPI_PROVIDER_INSTALLATION_BLOB").field("dwVersion", &self.dwVersion).field("dwProviderType", &self.dwProviderType).field("fSupportsWildCard", &self.fSupportsWildCard).field("cDomains", &self.cDomains).field("OffsetFirstDomain", &self.OffsetFirstDomain).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NAPI_PROVIDER_INSTALLATION_BLOB {
@@ -3390,6 +3605,12 @@ impl ::core::clone::Clone for NETRESOURCE2A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NETRESOURCE2A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NETRESOURCE2A").field("dwScope", &self.dwScope).field("dwType", &self.dwType).field("dwUsage", &self.dwUsage).field("dwDisplayType", &self.dwDisplayType).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("lpComment", &self.lpComment).field("ns_info", &self.ns_info).field("ServiceType", &self.ServiceType).field("dwProtocols", &self.dwProtocols).field("lpiProtocols", &self.lpiProtocols).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NETRESOURCE2A {
     type Abi = Self;
 }
@@ -3429,6 +3650,12 @@ impl ::core::marker::Copy for NETRESOURCE2W {}
 impl ::core::clone::Clone for NETRESOURCE2W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NETRESOURCE2W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NETRESOURCE2W").field("dwScope", &self.dwScope).field("dwType", &self.dwType).field("dwUsage", &self.dwUsage).field("dwDisplayType", &self.dwDisplayType).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("lpComment", &self.lpComment).field("ns_info", &self.ns_info).field("ServiceType", &self.ServiceType).field("dwProtocols", &self.dwProtocols).field("lpiProtocols", &self.lpiProtocols).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3549,6 +3776,12 @@ impl ::core::clone::Clone for NLA_BLOB_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NLA_BLOB_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NLA_BLOB_0_0").field("remote", &self.remote).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NLA_BLOB_0_0 {
     type Abi = Self;
 }
@@ -3585,6 +3818,12 @@ impl ::core::clone::Clone for NLA_BLOB_0_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NLA_BLOB_0_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NLA_BLOB_0_0_0").field("speed", &self.speed).field("type", &self.r#type).field("state", &self.state).field("machineName", &self.machineName).field("sharedAdapterName", &self.sharedAdapterName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NLA_BLOB_0_0_0 {
     type Abi = Self;
 }
@@ -3615,6 +3854,12 @@ impl ::core::marker::Copy for NLA_BLOB_0_1 {}
 impl ::core::clone::Clone for NLA_BLOB_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NLA_BLOB_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NLA_BLOB_0_1").field("type", &self.r#type).field("internet", &self.internet).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3652,6 +3897,12 @@ impl ::core::clone::Clone for NLA_BLOB_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NLA_BLOB_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NLA_BLOB_0_2").field("dwType", &self.dwType).field("dwSpeed", &self.dwSpeed).field("adapterName", &self.adapterName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NLA_BLOB_0_2 {
     type Abi = Self;
 }
@@ -3681,6 +3932,12 @@ impl ::core::marker::Copy for NLA_BLOB_0_3 {}
 impl ::core::clone::Clone for NLA_BLOB_0_3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NLA_BLOB_0_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NLA_BLOB_0_3").field("information", &self.information).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3715,6 +3972,12 @@ impl ::core::marker::Copy for NLA_BLOB_1 {}
 impl ::core::clone::Clone for NLA_BLOB_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NLA_BLOB_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NLA_BLOB_1").field("type", &self.r#type).field("dwSize", &self.dwSize).field("nextOffset", &self.nextOffset).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3806,6 +4069,12 @@ impl ::core::clone::Clone for NL_BANDWIDTH_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NL_BANDWIDTH_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NL_BANDWIDTH_INFORMATION").field("Bandwidth", &self.Bandwidth).field("Instability", &self.Instability).field("BandwidthPeaked", &self.BandwidthPeaked).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NL_BANDWIDTH_INFORMATION {
     type Abi = Self;
 }
@@ -3866,6 +4135,11 @@ impl ::core::marker::Copy for NL_INTERFACE_OFFLOAD_ROD {}
 impl ::core::clone::Clone for NL_INTERFACE_OFFLOAD_ROD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NL_INTERFACE_OFFLOAD_ROD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NL_INTERFACE_OFFLOAD_ROD").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NL_INTERFACE_OFFLOAD_ROD {
@@ -3951,6 +4225,12 @@ impl ::core::clone::Clone for NL_NETWORK_CONNECTIVITY_HINT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NL_NETWORK_CONNECTIVITY_HINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NL_NETWORK_CONNECTIVITY_HINT").field("ConnectivityLevel", &self.ConnectivityLevel).field("ConnectivityCost", &self.ConnectivityCost).field("ApproachingDataLimit", &self.ApproachingDataLimit).field("OverDataLimit", &self.OverDataLimit).field("Roaming", &self.Roaming).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NL_NETWORK_CONNECTIVITY_HINT {
     type Abi = Self;
 }
@@ -3996,6 +4276,12 @@ impl ::core::marker::Copy for NL_PATH_BANDWIDTH_ROD {}
 impl ::core::clone::Clone for NL_PATH_BANDWIDTH_ROD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NL_PATH_BANDWIDTH_ROD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NL_PATH_BANDWIDTH_ROD").field("Bandwidth", &self.Bandwidth).field("Instability", &self.Instability).field("BandwidthPeaked", &self.BandwidthPeaked).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4238,6 +4524,23 @@ impl ::core::clone::Clone for NSPV2_ROUTINE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for NSPV2_ROUTINE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NSPV2_ROUTINE")
+            .field("cbSize", &self.cbSize)
+            .field("dwMajorVersion", &self.dwMajorVersion)
+            .field("dwMinorVersion", &self.dwMinorVersion)
+            .field("NSPv2Startup", &self.NSPv2Startup.map(|f| f as usize))
+            .field("NSPv2Cleanup", &self.NSPv2Cleanup.map(|f| f as usize))
+            .field("NSPv2LookupServiceBegin", &self.NSPv2LookupServiceBegin.map(|f| f as usize))
+            .field("NSPv2LookupServiceNextEx", &self.NSPv2LookupServiceNextEx.map(|f| f as usize))
+            .field("NSPv2LookupServiceEnd", &self.NSPv2LookupServiceEnd.map(|f| f as usize))
+            .field("NSPv2SetServiceEx", &self.NSPv2SetServiceEx.map(|f| f as usize))
+            .field("NSPv2ClientSessionRundown", &self.NSPv2ClientSessionRundown.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for NSPV2_ROUTINE {
     type Abi = Self;
 }
@@ -4278,6 +4581,25 @@ impl ::core::marker::Copy for NSP_ROUTINE {}
 impl ::core::clone::Clone for NSP_ROUTINE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_IO"))]
+impl ::core::fmt::Debug for NSP_ROUTINE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NSP_ROUTINE")
+            .field("cbSize", &self.cbSize)
+            .field("dwMajorVersion", &self.dwMajorVersion)
+            .field("dwMinorVersion", &self.dwMinorVersion)
+            .field("NSPCleanup", &self.NSPCleanup.map(|f| f as usize))
+            .field("NSPLookupServiceBegin", &self.NSPLookupServiceBegin.map(|f| f as usize))
+            .field("NSPLookupServiceNext", &self.NSPLookupServiceNext.map(|f| f as usize))
+            .field("NSPLookupServiceEnd", &self.NSPLookupServiceEnd.map(|f| f as usize))
+            .field("NSPSetService", &self.NSPSetService.map(|f| f as usize))
+            .field("NSPInstallServiceClass", &self.NSPInstallServiceClass.map(|f| f as usize))
+            .field("NSPRemoveServiceClass", &self.NSPRemoveServiceClass.map(|f| f as usize))
+            .field("NSPGetServiceClassInfo", &self.NSPGetServiceClassInfo.map(|f| f as usize))
+            .field("NSPIoctl", &self.NSPIoctl.map(|f| f as usize))
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_IO"))]
@@ -4333,6 +4655,12 @@ impl ::core::clone::Clone for NS_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NS_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NS_INFOA").field("dwNameSpace", &self.dwNameSpace).field("dwNameSpaceFlags", &self.dwNameSpaceFlags).field("lpNameSpace", &self.lpNameSpace).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NS_INFOA {
     type Abi = Self;
 }
@@ -4364,6 +4692,12 @@ impl ::core::marker::Copy for NS_INFOW {}
 impl ::core::clone::Clone for NS_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NS_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NS_INFOW").field("dwNameSpace", &self.dwNameSpace).field("dwNameSpaceFlags", &self.dwNameSpaceFlags).field("lpNameSpace", &self.lpNameSpace).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4424,6 +4758,12 @@ impl ::core::clone::Clone for NS_SERVICE_INFOA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for NS_SERVICE_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NS_SERVICE_INFOA").field("dwNameSpace", &self.dwNameSpace).field("ServiceInfo", &self.ServiceInfo).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for NS_SERVICE_INFOA {
     type Abi = Self;
 }
@@ -4454,6 +4794,12 @@ impl ::core::marker::Copy for NS_SERVICE_INFOW {}
 impl ::core::clone::Clone for NS_SERVICE_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for NS_SERVICE_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NS_SERVICE_INFOW").field("dwNameSpace", &self.dwNameSpace).field("ServiceInfo", &self.ServiceInfo).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -4596,6 +4942,11 @@ impl ::core::clone::Clone for PRIORITY_STATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for PRIORITY_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRIORITY_STATUS").field("Sender", &self.Sender).field("Receiver", &self.Receiver).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PRIORITY_STATUS {
     type Abi = Self;
 }
@@ -4658,6 +5009,12 @@ impl ::core::clone::Clone for PROTOCOL_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PROTOCOL_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROTOCOL_INFOA").field("dwServiceFlags", &self.dwServiceFlags).field("iAddressFamily", &self.iAddressFamily).field("iMaxSockAddr", &self.iMaxSockAddr).field("iMinSockAddr", &self.iMinSockAddr).field("iSocketType", &self.iSocketType).field("iProtocol", &self.iProtocol).field("dwMessageSize", &self.dwMessageSize).field("lpProtocol", &self.lpProtocol).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROTOCOL_INFOA {
     type Abi = Self;
 }
@@ -4694,6 +5051,12 @@ impl ::core::marker::Copy for PROTOCOL_INFOW {}
 impl ::core::clone::Clone for PROTOCOL_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PROTOCOL_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROTOCOL_INFOW").field("dwServiceFlags", &self.dwServiceFlags).field("iAddressFamily", &self.iAddressFamily).field("iMaxSockAddr", &self.iMaxSockAddr).field("iMinSockAddr", &self.iMinSockAddr).field("iSocketType", &self.iSocketType).field("iProtocol", &self.iProtocol).field("dwMessageSize", &self.dwMessageSize).field("lpProtocol", &self.lpProtocol).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4742,6 +5105,11 @@ impl ::core::marker::Copy for Q2931_IE {}
 impl ::core::clone::Clone for Q2931_IE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for Q2931_IE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Q2931_IE").field("IEType", &self.IEType).field("IELength", &self.IELength).field("IE", &self.IE).finish()
     }
 }
 unsafe impl ::windows::core::Abi for Q2931_IE {
@@ -4806,6 +5174,11 @@ impl ::core::clone::Clone for RCVALL_IF {
         *self
     }
 }
+impl ::core::fmt::Debug for RCVALL_IF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RCVALL_IF").field("Mode", &self.Mode).field("Interface", &self.Interface).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RCVALL_IF {
     type Abi = Self;
 }
@@ -4844,6 +5217,11 @@ impl ::core::clone::Clone for REAL_TIME_NOTIFICATION_SETTING_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for REAL_TIME_NOTIFICATION_SETTING_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REAL_TIME_NOTIFICATION_SETTING_INPUT").field("TransportSettingId", &self.TransportSettingId).field("BrokerEventGuid", &self.BrokerEventGuid).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for REAL_TIME_NOTIFICATION_SETTING_INPUT {
     type Abi = Self;
 }
@@ -4875,6 +5253,12 @@ impl ::core::clone::Clone for REAL_TIME_NOTIFICATION_SETTING_INPUT_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for REAL_TIME_NOTIFICATION_SETTING_INPUT_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REAL_TIME_NOTIFICATION_SETTING_INPUT_EX").field("TransportSettingId", &self.TransportSettingId).field("BrokerEventGuid", &self.BrokerEventGuid).field("Unmark", &self.Unmark).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for REAL_TIME_NOTIFICATION_SETTING_INPUT_EX {
     type Abi = Self;
 }
@@ -4901,6 +5285,11 @@ impl ::core::marker::Copy for REAL_TIME_NOTIFICATION_SETTING_OUTPUT {}
 impl ::core::clone::Clone for REAL_TIME_NOTIFICATION_SETTING_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for REAL_TIME_NOTIFICATION_SETTING_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REAL_TIME_NOTIFICATION_SETTING_OUTPUT").field("ChannelStatus", &self.ChannelStatus).finish()
     }
 }
 unsafe impl ::windows::core::Abi for REAL_TIME_NOTIFICATION_SETTING_OUTPUT {
@@ -4965,6 +5354,11 @@ impl ::core::clone::Clone for RIORESULT {
         *self
     }
 }
+impl ::core::fmt::Debug for RIORESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RIORESULT").field("Status", &self.Status).field("BytesTransferred", &self.BytesTransferred).field("SocketContext", &self.SocketContext).field("RequestContext", &self.RequestContext).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RIORESULT {
     type Abi = Self;
 }
@@ -4992,6 +5386,11 @@ impl ::core::clone::Clone for RIO_BUF {
         *self
     }
 }
+impl ::core::fmt::Debug for RIO_BUF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RIO_BUF").field("BufferId", &self.BufferId).field("Offset", &self.Offset).field("Length", &self.Length).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RIO_BUF {
     type Abi = Self;
 }
@@ -5017,6 +5416,11 @@ impl ::core::marker::Copy for RIO_CMSG_BUFFER {}
 impl ::core::clone::Clone for RIO_CMSG_BUFFER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RIO_CMSG_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RIO_CMSG_BUFFER").field("TotalLength", &self.TotalLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RIO_CMSG_BUFFER {
@@ -5062,6 +5466,27 @@ impl ::core::marker::Copy for RIO_EXTENSION_FUNCTION_TABLE {}
 impl ::core::clone::Clone for RIO_EXTENSION_FUNCTION_TABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RIO_EXTENSION_FUNCTION_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RIO_EXTENSION_FUNCTION_TABLE")
+            .field("cbSize", &self.cbSize)
+            .field("RIOReceive", &self.RIOReceive.map(|f| f as usize))
+            .field("RIOReceiveEx", &self.RIOReceiveEx.map(|f| f as usize))
+            .field("RIOSend", &self.RIOSend.map(|f| f as usize))
+            .field("RIOSendEx", &self.RIOSendEx.map(|f| f as usize))
+            .field("RIOCloseCompletionQueue", &self.RIOCloseCompletionQueue.map(|f| f as usize))
+            .field("RIOCreateCompletionQueue", &self.RIOCreateCompletionQueue.map(|f| f as usize))
+            .field("RIOCreateRequestQueue", &self.RIOCreateRequestQueue.map(|f| f as usize))
+            .field("RIODequeueCompletion", &self.RIODequeueCompletion.map(|f| f as usize))
+            .field("RIODeregisterBuffer", &self.RIODeregisterBuffer.map(|f| f as usize))
+            .field("RIONotify", &self.RIONotify.map(|f| f as usize))
+            .field("RIORegisterBuffer", &self.RIORegisterBuffer.map(|f| f as usize))
+            .field("RIOResizeCompletionQueue", &self.RIOResizeCompletionQueue.map(|f| f as usize))
+            .field("RIOResizeRequestQueue", &self.RIOResizeRequestQueue.map(|f| f as usize))
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5174,6 +5599,12 @@ impl ::core::clone::Clone for RIO_NOTIFICATION_COMPLETION_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RIO_NOTIFICATION_COMPLETION_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RIO_NOTIFICATION_COMPLETION_0_0").field("EventHandle", &self.EventHandle).field("NotifyReset", &self.NotifyReset).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RIO_NOTIFICATION_COMPLETION_0_0 {
     type Abi = Self;
 }
@@ -5205,6 +5636,12 @@ impl ::core::marker::Copy for RIO_NOTIFICATION_COMPLETION_0_1 {}
 impl ::core::clone::Clone for RIO_NOTIFICATION_COMPLETION_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RIO_NOTIFICATION_COMPLETION_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RIO_NOTIFICATION_COMPLETION_0_1").field("IocpHandle", &self.IocpHandle).field("CompletionKey", &self.CompletionKey).field("Overlapped", &self.Overlapped).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5252,6 +5689,12 @@ impl ::core::marker::Copy for RM_FEC_INFO {}
 impl ::core::clone::Clone for RM_FEC_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RM_FEC_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RM_FEC_INFO").field("FECBlockSize", &self.FECBlockSize).field("FECProActivePackets", &self.FECProActivePackets).field("FECGroupSize", &self.FECGroupSize).field("fFECOnDemandParityEnabled", &self.fFECOnDemandParityEnabled).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5312,6 +5755,30 @@ impl ::core::clone::Clone for RM_RECEIVER_STATS {
         *self
     }
 }
+impl ::core::fmt::Debug for RM_RECEIVER_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RM_RECEIVER_STATS")
+            .field("NumODataPacketsReceived", &self.NumODataPacketsReceived)
+            .field("NumRDataPacketsReceived", &self.NumRDataPacketsReceived)
+            .field("NumDuplicateDataPackets", &self.NumDuplicateDataPackets)
+            .field("DataBytesReceived", &self.DataBytesReceived)
+            .field("TotalBytesReceived", &self.TotalBytesReceived)
+            .field("RateKBitsPerSecOverall", &self.RateKBitsPerSecOverall)
+            .field("RateKBitsPerSecLast", &self.RateKBitsPerSecLast)
+            .field("TrailingEdgeSeqId", &self.TrailingEdgeSeqId)
+            .field("LeadingEdgeSeqId", &self.LeadingEdgeSeqId)
+            .field("AverageSequencesInWindow", &self.AverageSequencesInWindow)
+            .field("MinSequencesInWindow", &self.MinSequencesInWindow)
+            .field("MaxSequencesInWindow", &self.MaxSequencesInWindow)
+            .field("FirstNakSequenceNumber", &self.FirstNakSequenceNumber)
+            .field("NumPendingNaks", &self.NumPendingNaks)
+            .field("NumOutstandingNaks", &self.NumOutstandingNaks)
+            .field("NumDataPacketsBuffered", &self.NumDataPacketsBuffered)
+            .field("TotalSelectiveNaksSent", &self.TotalSelectiveNaksSent)
+            .field("TotalParityNaksSent", &self.TotalParityNaksSent)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RM_RECEIVER_STATS {
     type Abi = Self;
 }
@@ -5351,6 +5818,25 @@ impl ::core::clone::Clone for RM_SENDER_STATS {
         *self
     }
 }
+impl ::core::fmt::Debug for RM_SENDER_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RM_SENDER_STATS")
+            .field("DataBytesSent", &self.DataBytesSent)
+            .field("TotalBytesSent", &self.TotalBytesSent)
+            .field("NaksReceived", &self.NaksReceived)
+            .field("NaksReceivedTooLate", &self.NaksReceivedTooLate)
+            .field("NumOutstandingNaks", &self.NumOutstandingNaks)
+            .field("NumNaksAfterRData", &self.NumNaksAfterRData)
+            .field("RepairPacketsSent", &self.RepairPacketsSent)
+            .field("BufferSpaceAvailable", &self.BufferSpaceAvailable)
+            .field("TrailingEdgeSeqId", &self.TrailingEdgeSeqId)
+            .field("LeadingEdgeSeqId", &self.LeadingEdgeSeqId)
+            .field("RateKBitsPerSecOverall", &self.RateKBitsPerSecOverall)
+            .field("RateKBitsPerSecLast", &self.RateKBitsPerSecLast)
+            .field("TotalODataPacketsSent", &self.TotalODataPacketsSent)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RM_SENDER_STATS {
     type Abi = Self;
 }
@@ -5378,6 +5864,11 @@ impl ::core::marker::Copy for RM_SEND_WINDOW {}
 impl ::core::clone::Clone for RM_SEND_WINDOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RM_SEND_WINDOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RM_SEND_WINDOW").field("RateKbitsPerSec", &self.RateKbitsPerSec).field("WindowSizeInMSecs", &self.WindowSizeInMSecs).field("WindowSizeInBytes", &self.WindowSizeInBytes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RM_SEND_WINDOW {
@@ -5416,6 +5907,12 @@ impl ::core::marker::Copy for RSS_SCALABILITY_INFO {}
 impl ::core::clone::Clone for RSS_SCALABILITY_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RSS_SCALABILITY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RSS_SCALABILITY_INFO").field("RssEnabled", &self.RssEnabled).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5806,6 +6303,11 @@ impl ::core::clone::Clone for SCOPE_ID_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for SCOPE_ID_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCOPE_ID_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCOPE_ID_0_0 {
     type Abi = Self;
 }
@@ -5876,6 +6378,11 @@ impl ::core::clone::Clone for SERVICE_ADDRESS {
         *self
     }
 }
+impl ::core::fmt::Debug for SERVICE_ADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_ADDRESS").field("dwAddressType", &self.dwAddressType).field("dwAddressFlags", &self.dwAddressFlags).field("dwAddressLength", &self.dwAddressLength).field("dwPrincipalLength", &self.dwPrincipalLength).field("lpAddress", &self.lpAddress).field("lpPrincipal", &self.lpPrincipal).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SERVICE_ADDRESS {
     type Abi = Self;
 }
@@ -5900,6 +6407,11 @@ impl ::core::marker::Copy for SERVICE_ADDRESSES {}
 impl ::core::clone::Clone for SERVICE_ADDRESSES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SERVICE_ADDRESSES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_ADDRESSES").field("dwAddressCount", &self.dwAddressCount).field("Addresses", &self.Addresses).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SERVICE_ADDRESSES {
@@ -5936,6 +6448,12 @@ impl ::core::marker::Copy for SERVICE_ASYNC_INFO {}
 impl ::core::clone::Clone for SERVICE_ASYNC_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERVICE_ASYNC_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_ASYNC_INFO").field("lpServiceCallbackProc", &self.lpServiceCallbackProc.map(|f| f as usize)).field("lParam", &self.lParam).field("hAsyncTaskHandle", &self.hAsyncTaskHandle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5984,6 +6502,12 @@ impl ::core::clone::Clone for SERVICE_INFOA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for SERVICE_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_INFOA").field("lpServiceType", &self.lpServiceType).field("lpServiceName", &self.lpServiceName).field("lpComment", &self.lpComment).field("lpLocale", &self.lpLocale).field("dwDisplayHint", &self.dwDisplayHint).field("dwVersion", &self.dwVersion).field("dwTime", &self.dwTime).field("lpMachineName", &self.lpMachineName).field("lpServiceAddress", &self.lpServiceAddress).field("ServiceSpecificInfo", &self.ServiceSpecificInfo).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for SERVICE_INFOA {
     type Abi = Self;
 }
@@ -6025,6 +6549,12 @@ impl ::core::clone::Clone for SERVICE_INFOW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for SERVICE_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_INFOW").field("lpServiceType", &self.lpServiceType).field("lpServiceName", &self.lpServiceName).field("lpComment", &self.lpComment).field("lpLocale", &self.lpLocale).field("dwDisplayHint", &self.dwDisplayHint).field("dwVersion", &self.dwVersion).field("dwTime", &self.dwTime).field("lpMachineName", &self.lpMachineName).field("lpServiceAddress", &self.lpServiceAddress).field("ServiceSpecificInfo", &self.ServiceSpecificInfo).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for SERVICE_INFOW {
     type Abi = Self;
 }
@@ -6063,6 +6593,11 @@ impl ::core::clone::Clone for SERVICE_TYPE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for SERVICE_TYPE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_TYPE_INFO").field("dwTypeNameOffset", &self.dwTypeNameOffset).field("dwValueCount", &self.dwValueCount).field("Values", &self.Values).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SERVICE_TYPE_INFO {
     type Abi = Self;
 }
@@ -6091,6 +6626,12 @@ impl ::core::marker::Copy for SERVICE_TYPE_INFO_ABSA {}
 impl ::core::clone::Clone for SERVICE_TYPE_INFO_ABSA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERVICE_TYPE_INFO_ABSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_TYPE_INFO_ABSA").field("lpTypeName", &self.lpTypeName).field("dwValueCount", &self.dwValueCount).field("Values", &self.Values).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6128,6 +6669,12 @@ impl ::core::clone::Clone for SERVICE_TYPE_INFO_ABSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERVICE_TYPE_INFO_ABSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_TYPE_INFO_ABSW").field("lpTypeName", &self.lpTypeName).field("dwValueCount", &self.dwValueCount).field("Values", &self.Values).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SERVICE_TYPE_INFO_ABSW {
     type Abi = Self;
 }
@@ -6160,6 +6707,11 @@ impl ::core::clone::Clone for SERVICE_TYPE_VALUE {
         *self
     }
 }
+impl ::core::fmt::Debug for SERVICE_TYPE_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_TYPE_VALUE").field("dwNameSpace", &self.dwNameSpace).field("dwValueType", &self.dwValueType).field("dwValueSize", &self.dwValueSize).field("dwValueNameOffset", &self.dwValueNameOffset).field("dwValueOffset", &self.dwValueOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SERVICE_TYPE_VALUE {
     type Abi = Self;
 }
@@ -6190,6 +6742,12 @@ impl ::core::marker::Copy for SERVICE_TYPE_VALUE_ABSA {}
 impl ::core::clone::Clone for SERVICE_TYPE_VALUE_ABSA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERVICE_TYPE_VALUE_ABSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_TYPE_VALUE_ABSA").field("dwNameSpace", &self.dwNameSpace).field("dwValueType", &self.dwValueType).field("dwValueSize", &self.dwValueSize).field("lpValueName", &self.lpValueName).field("lpValue", &self.lpValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6226,6 +6784,12 @@ impl ::core::marker::Copy for SERVICE_TYPE_VALUE_ABSW {}
 impl ::core::clone::Clone for SERVICE_TYPE_VALUE_ABSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERVICE_TYPE_VALUE_ABSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_TYPE_VALUE_ABSW").field("dwNameSpace", &self.dwNameSpace).field("dwValueType", &self.dwValueType).field("dwValueSize", &self.dwValueSize).field("lpValueName", &self.lpValueName).field("lpValue", &self.lpValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6306,6 +6870,12 @@ impl ::core::clone::Clone for SOCKADDR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SOCKADDR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOCKADDR").field("sa_family", &self.sa_family).field("sa_data", &self.sa_data).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SOCKADDR {
     type Abi = Self;
 }
@@ -6334,6 +6904,11 @@ impl ::core::marker::Copy for SOCKADDR_DL {}
 impl ::core::clone::Clone for SOCKADDR_DL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SOCKADDR_DL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOCKADDR_DL").field("sdl_family", &self.sdl_family).field("sdl_data", &self.sdl_data).field("sdl_zero", &self.sdl_zero).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SOCKADDR_DL {
@@ -6452,6 +7027,11 @@ impl ::core::clone::Clone for SOCKADDR_IN6_PAIR {
         *self
     }
 }
+impl ::core::fmt::Debug for SOCKADDR_IN6_PAIR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOCKADDR_IN6_PAIR").field("SourceAddress", &self.SourceAddress).field("DestinationAddress", &self.DestinationAddress).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SOCKADDR_IN6_PAIR {
     type Abi = Self;
 }
@@ -6546,6 +7126,12 @@ impl ::core::clone::Clone for SOCKADDR_IRDA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SOCKADDR_IRDA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOCKADDR_IRDA").field("irdaAddressFamily", &self.irdaAddressFamily).field("irdaDeviceID", &self.irdaDeviceID).field("irdaServiceName", &self.irdaServiceName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SOCKADDR_IRDA {
     type Abi = Self;
 }
@@ -6578,6 +7164,12 @@ impl ::core::marker::Copy for SOCKADDR_STORAGE {}
 impl ::core::clone::Clone for SOCKADDR_STORAGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SOCKADDR_STORAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOCKADDR_STORAGE").field("ss_family", &self.ss_family).field("__ss_pad1", &self.__ss_pad1).field("__ss_align", &self.__ss_align).field("__ss_pad2", &self.__ss_pad2).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6616,6 +7208,12 @@ impl ::core::clone::Clone for SOCKADDR_STORAGE_XP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SOCKADDR_STORAGE_XP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOCKADDR_STORAGE_XP").field("ss_family", &self.ss_family).field("__ss_pad1", &self.__ss_pad1).field("__ss_align", &self.__ss_align).field("__ss_pad2", &self.__ss_pad2).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SOCKADDR_STORAGE_XP {
     type Abi = Self;
 }
@@ -6650,6 +7248,12 @@ impl ::core::clone::Clone for SOCKET_ADDRESS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SOCKET_ADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOCKET_ADDRESS").field("lpSockaddr", &self.lpSockaddr).field("iSockaddrLength", &self.iSockaddrLength).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SOCKET_ADDRESS {
     type Abi = Self;
 }
@@ -6680,6 +7284,12 @@ impl ::core::marker::Copy for SOCKET_ADDRESS_LIST {}
 impl ::core::clone::Clone for SOCKET_ADDRESS_LIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SOCKET_ADDRESS_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOCKET_ADDRESS_LIST").field("iAddressCount", &self.iAddressCount).field("Address", &self.Address).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6727,6 +7337,12 @@ impl ::core::clone::Clone for SOCKET_PEER_TARGET_NAME {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SOCKET_PEER_TARGET_NAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOCKET_PEER_TARGET_NAME").field("SecurityProtocol", &self.SecurityProtocol).field("PeerAddress", &self.PeerAddress).field("PeerTargetNameStringLen", &self.PeerTargetNameStringLen).field("AllStrings", &self.AllStrings).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SOCKET_PEER_TARGET_NAME {
     type Abi = Self;
 }
@@ -6768,6 +7384,12 @@ impl ::core::marker::Copy for SOCKET_PROCESSOR_AFFINITY {}
 impl ::core::clone::Clone for SOCKET_PROCESSOR_AFFINITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl ::core::fmt::Debug for SOCKET_PROCESSOR_AFFINITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOCKET_PROCESSOR_AFFINITY").field("Processor", &self.Processor).field("NumaNodeId", &self.NumaNodeId).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
@@ -6818,6 +7440,11 @@ impl ::core::clone::Clone for SOCKET_SECURITY_QUERY_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for SOCKET_SECURITY_QUERY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOCKET_SECURITY_QUERY_INFO").field("SecurityProtocol", &self.SecurityProtocol).field("Flags", &self.Flags).field("PeerApplicationAccessTokenHandle", &self.PeerApplicationAccessTokenHandle).field("PeerMachineAccessTokenHandle", &self.PeerMachineAccessTokenHandle).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SOCKET_SECURITY_QUERY_INFO {
     type Abi = Self;
 }
@@ -6850,6 +7477,11 @@ impl ::core::clone::Clone for SOCKET_SECURITY_QUERY_INFO_IPSEC2 {
         *self
     }
 }
+impl ::core::fmt::Debug for SOCKET_SECURITY_QUERY_INFO_IPSEC2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOCKET_SECURITY_QUERY_INFO_IPSEC2").field("SecurityProtocol", &self.SecurityProtocol).field("Flags", &self.Flags).field("PeerApplicationAccessTokenHandle", &self.PeerApplicationAccessTokenHandle).field("PeerMachineAccessTokenHandle", &self.PeerMachineAccessTokenHandle).field("MmSaId", &self.MmSaId).field("QmSaId", &self.QmSaId).field("NegotiationWinerr", &self.NegotiationWinerr).field("SaLookupContext", &self.SaLookupContext).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SOCKET_SECURITY_QUERY_INFO_IPSEC2 {
     type Abi = Self;
 }
@@ -6878,6 +7510,12 @@ impl ::core::marker::Copy for SOCKET_SECURITY_QUERY_TEMPLATE {}
 impl ::core::clone::Clone for SOCKET_SECURITY_QUERY_TEMPLATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SOCKET_SECURITY_QUERY_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOCKET_SECURITY_QUERY_TEMPLATE").field("SecurityProtocol", &self.SecurityProtocol).field("PeerAddress", &self.PeerAddress).field("PeerTokenAccessMask", &self.PeerTokenAccessMask).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6917,6 +7555,12 @@ impl ::core::clone::Clone for SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2").field("SecurityProtocol", &self.SecurityProtocol).field("PeerAddress", &self.PeerAddress).field("PeerTokenAccessMask", &self.PeerTokenAccessMask).field("Flags", &self.Flags).field("FieldMask", &self.FieldMask).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
     type Abi = Self;
 }
@@ -6944,6 +7588,11 @@ impl ::core::marker::Copy for SOCKET_SECURITY_SETTINGS {}
 impl ::core::clone::Clone for SOCKET_SECURITY_SETTINGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SOCKET_SECURITY_SETTINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOCKET_SECURITY_SETTINGS").field("SecurityProtocol", &self.SecurityProtocol).field("SecurityFlags", &self.SecurityFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SOCKET_SECURITY_SETTINGS {
@@ -6979,6 +7628,23 @@ impl ::core::marker::Copy for SOCKET_SECURITY_SETTINGS_IPSEC {}
 impl ::core::clone::Clone for SOCKET_SECURITY_SETTINGS_IPSEC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SOCKET_SECURITY_SETTINGS_IPSEC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOCKET_SECURITY_SETTINGS_IPSEC")
+            .field("SecurityProtocol", &self.SecurityProtocol)
+            .field("SecurityFlags", &self.SecurityFlags)
+            .field("IpsecFlags", &self.IpsecFlags)
+            .field("AuthipMMPolicyKey", &self.AuthipMMPolicyKey)
+            .field("AuthipQMPolicyKey", &self.AuthipQMPolicyKey)
+            .field("Reserved", &self.Reserved)
+            .field("Reserved2", &self.Reserved2)
+            .field("UserNameStringLen", &self.UserNameStringLen)
+            .field("DomainNameStringLen", &self.DomainNameStringLen)
+            .field("PasswordStringLen", &self.PasswordStringLen)
+            .field("AllStrings", &self.AllStrings)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for SOCKET_SECURITY_SETTINGS_IPSEC {
@@ -7053,6 +7719,11 @@ impl ::core::marker::Copy for SOCK_NOTIFY_REGISTRATION {}
 impl ::core::clone::Clone for SOCK_NOTIFY_REGISTRATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SOCK_NOTIFY_REGISTRATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOCK_NOTIFY_REGISTRATION").field("socket", &self.socket).field("completionKey", &self.completionKey).field("eventFilter", &self.eventFilter).field("operation", &self.operation).field("triggerFlags", &self.triggerFlags).field("registrationResult", &self.registrationResult).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SOCK_NOTIFY_REGISTRATION {
@@ -7303,6 +7974,11 @@ impl ::core::clone::Clone for TCP_ACK_FREQUENCY_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for TCP_ACK_FREQUENCY_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_ACK_FREQUENCY_PARAMETERS").field("TcpDelayedAckFrequency", &self.TcpDelayedAckFrequency).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TCP_ACK_FREQUENCY_PARAMETERS {
     type Abi = Self;
 }
@@ -7360,6 +8036,11 @@ impl ::core::clone::Clone for TCP_ICW_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for TCP_ICW_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_ICW_PARAMETERS").field("Level", &self.Level).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TCP_ICW_PARAMETERS {
     type Abi = Self;
 }
@@ -7404,6 +8085,32 @@ impl ::core::marker::Copy for TCP_INFO_v0 {}
 impl ::core::clone::Clone for TCP_INFO_v0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TCP_INFO_v0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_INFO_v0")
+            .field("State", &self.State)
+            .field("Mss", &self.Mss)
+            .field("ConnectionTimeMs", &self.ConnectionTimeMs)
+            .field("TimestampsEnabled", &self.TimestampsEnabled)
+            .field("RttUs", &self.RttUs)
+            .field("MinRttUs", &self.MinRttUs)
+            .field("BytesInFlight", &self.BytesInFlight)
+            .field("Cwnd", &self.Cwnd)
+            .field("SndWnd", &self.SndWnd)
+            .field("RcvWnd", &self.RcvWnd)
+            .field("RcvBuf", &self.RcvBuf)
+            .field("BytesOut", &self.BytesOut)
+            .field("BytesIn", &self.BytesIn)
+            .field("BytesReordered", &self.BytesReordered)
+            .field("BytesRetrans", &self.BytesRetrans)
+            .field("FastRetrans", &self.FastRetrans)
+            .field("DupAcksIn", &self.DupAcksIn)
+            .field("TimeoutEpisodes", &self.TimeoutEpisodes)
+            .field("SynRetrans", &self.SynRetrans)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7466,6 +8173,41 @@ impl ::core::clone::Clone for TCP_INFO_v1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TCP_INFO_v1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_INFO_v1")
+            .field("State", &self.State)
+            .field("Mss", &self.Mss)
+            .field("ConnectionTimeMs", &self.ConnectionTimeMs)
+            .field("TimestampsEnabled", &self.TimestampsEnabled)
+            .field("RttUs", &self.RttUs)
+            .field("MinRttUs", &self.MinRttUs)
+            .field("BytesInFlight", &self.BytesInFlight)
+            .field("Cwnd", &self.Cwnd)
+            .field("SndWnd", &self.SndWnd)
+            .field("RcvWnd", &self.RcvWnd)
+            .field("RcvBuf", &self.RcvBuf)
+            .field("BytesOut", &self.BytesOut)
+            .field("BytesIn", &self.BytesIn)
+            .field("BytesReordered", &self.BytesReordered)
+            .field("BytesRetrans", &self.BytesRetrans)
+            .field("FastRetrans", &self.FastRetrans)
+            .field("DupAcksIn", &self.DupAcksIn)
+            .field("TimeoutEpisodes", &self.TimeoutEpisodes)
+            .field("SynRetrans", &self.SynRetrans)
+            .field("SndLimTransRwin", &self.SndLimTransRwin)
+            .field("SndLimTimeRwin", &self.SndLimTimeRwin)
+            .field("SndLimBytesRwin", &self.SndLimBytesRwin)
+            .field("SndLimTransCwnd", &self.SndLimTransCwnd)
+            .field("SndLimTimeCwnd", &self.SndLimTimeCwnd)
+            .field("SndLimBytesCwnd", &self.SndLimBytesCwnd)
+            .field("SndLimTransSnd", &self.SndLimTransSnd)
+            .field("SndLimTimeSnd", &self.SndLimTimeSnd)
+            .field("SndLimBytesSnd", &self.SndLimBytesSnd)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TCP_INFO_v1 {
     type Abi = Self;
 }
@@ -7497,6 +8239,11 @@ impl ::core::marker::Copy for TCP_INITIAL_RTO_PARAMETERS {}
 impl ::core::clone::Clone for TCP_INITIAL_RTO_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TCP_INITIAL_RTO_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_INITIAL_RTO_PARAMETERS").field("Rtt", &self.Rtt).field("MaxSynRetransmissions", &self.MaxSynRetransmissions).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TCP_INITIAL_RTO_PARAMETERS {
@@ -7573,6 +8320,11 @@ impl ::core::clone::Clone for TIMESTAMPING_CONFIG {
         *self
     }
 }
+impl ::core::fmt::Debug for TIMESTAMPING_CONFIG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TIMESTAMPING_CONFIG").field("Flags", &self.Flags).field("TxTimestampsBuffered", &self.TxTimestampsBuffered).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TIMESTAMPING_CONFIG {
     type Abi = Self;
 }
@@ -7623,6 +8375,11 @@ impl ::core::marker::Copy for TRANSMIT_FILE_BUFFERS {}
 impl ::core::clone::Clone for TRANSMIT_FILE_BUFFERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TRANSMIT_FILE_BUFFERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRANSMIT_FILE_BUFFERS").field("Head", &self.Head).field("HeadLength", &self.HeadLength).field("Tail", &self.Tail).field("TailLength", &self.TailLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TRANSMIT_FILE_BUFFERS {
@@ -7722,6 +8479,12 @@ impl ::core::clone::Clone for TRANSMIT_PACKETS_ELEMENT_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TRANSMIT_PACKETS_ELEMENT_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRANSMIT_PACKETS_ELEMENT_0_0").field("nFileOffset", &self.nFileOffset).field("hFile", &self.hFile).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TRANSMIT_PACKETS_ELEMENT_0_0 {
     type Abi = Self;
 }
@@ -7748,6 +8511,11 @@ impl ::core::marker::Copy for TRANSPORT_SETTING_ID {}
 impl ::core::clone::Clone for TRANSPORT_SETTING_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TRANSPORT_SETTING_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRANSPORT_SETTING_ID").field("Guid", &self.Guid).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TRANSPORT_SETTING_ID {
@@ -7831,6 +8599,12 @@ impl ::core::clone::Clone for WCE_DEVICELIST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WCE_DEVICELIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WCE_DEVICELIST").field("numDevice", &self.numDevice).field("Device", &self.Device).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WCE_DEVICELIST {
     type Abi = Self;
 }
@@ -7862,6 +8636,12 @@ impl ::core::marker::Copy for WCE_IRDA_DEVICE_INFO {}
 impl ::core::clone::Clone for WCE_IRDA_DEVICE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WCE_IRDA_DEVICE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WCE_IRDA_DEVICE_INFO").field("irdaDeviceID", &self.irdaDeviceID).field("irdaDeviceName", &self.irdaDeviceName).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7899,6 +8679,12 @@ impl ::core::marker::Copy for WINDOWS_DEVICELIST {}
 impl ::core::clone::Clone for WINDOWS_DEVICELIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINDOWS_DEVICELIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINDOWS_DEVICELIST").field("numDevice", &self.numDevice).field("Device", &self.Device).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8005,6 +8791,12 @@ impl ::core::clone::Clone for WINDOWS_IAS_QUERY_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINDOWS_IAS_QUERY_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINDOWS_IAS_QUERY_0_0").field("Len", &self.Len).field("OctetSeq", &self.OctetSeq).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINDOWS_IAS_QUERY_0_0 {
     type Abi = Self;
 }
@@ -8036,6 +8828,12 @@ impl ::core::marker::Copy for WINDOWS_IAS_QUERY_0_1 {}
 impl ::core::clone::Clone for WINDOWS_IAS_QUERY_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINDOWS_IAS_QUERY_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINDOWS_IAS_QUERY_0_1").field("Len", &self.Len).field("CharSet", &self.CharSet).field("UsrStr", &self.UsrStr).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8141,6 +8939,12 @@ impl ::core::clone::Clone for WINDOWS_IAS_SET_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINDOWS_IAS_SET_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINDOWS_IAS_SET_0_0").field("Len", &self.Len).field("OctetSeq", &self.OctetSeq).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINDOWS_IAS_SET_0_0 {
     type Abi = Self;
 }
@@ -8172,6 +8976,12 @@ impl ::core::marker::Copy for WINDOWS_IAS_SET_0_1 {}
 impl ::core::clone::Clone for WINDOWS_IAS_SET_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINDOWS_IAS_SET_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINDOWS_IAS_SET_0_1").field("Len", &self.Len).field("CharSet", &self.CharSet).field("UsrStr", &self.UsrStr).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8208,6 +9018,12 @@ impl ::core::marker::Copy for WINDOWS_IRDA_DEVICE_INFO {}
 impl ::core::clone::Clone for WINDOWS_IRDA_DEVICE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINDOWS_IRDA_DEVICE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINDOWS_IRDA_DEVICE_INFO").field("irdaDeviceID", &self.irdaDeviceID).field("irdaDeviceName", &self.irdaDeviceName).field("irdaDeviceHints1", &self.irdaDeviceHints1).field("irdaDeviceHints2", &self.irdaDeviceHints2).field("irdaCharSet", &self.irdaCharSet).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8426,6 +9242,12 @@ impl ::core::clone::Clone for WSABUF {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSABUF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSABUF").field("len", &self.len).field("buf", &self.buf).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSABUF {
     type Abi = Self;
 }
@@ -8527,6 +9349,12 @@ impl ::core::clone::Clone for WSACOMPLETION_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::fmt::Debug for WSACOMPLETION_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSACOMPLETION_0_0").field("lpOverlapped", &self.lpOverlapped).field("lpfnCompletionProc", &self.lpfnCompletionProc.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for WSACOMPLETION_0_0 {
     type Abi = Self;
 }
@@ -8556,6 +9384,12 @@ impl ::core::marker::Copy for WSACOMPLETION_0_1 {}
 impl ::core::clone::Clone for WSACOMPLETION_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::fmt::Debug for WSACOMPLETION_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSACOMPLETION_0_1").field("lpOverlapped", &self.lpOverlapped).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -8593,6 +9427,12 @@ impl ::core::clone::Clone for WSACOMPLETION_0_2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::fmt::Debug for WSACOMPLETION_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSACOMPLETION_0_2").field("lpOverlapped", &self.lpOverlapped).field("hPort", &self.hPort).field("Key", &self.Key).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for WSACOMPLETION_0_2 {
     type Abi = Self;
 }
@@ -8624,6 +9464,12 @@ impl ::core::marker::Copy for WSACOMPLETION_0_3 {}
 impl ::core::clone::Clone for WSACOMPLETION_0_3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::fmt::Debug for WSACOMPLETION_0_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSACOMPLETION_0_3").field("hWnd", &self.hWnd).field("uMsg", &self.uMsg).field("context", &self.context).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -8816,6 +9662,13 @@ impl ::core::clone::Clone for WSAData {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSAData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSAData").field("wVersion", &self.wVersion).field("wHighVersion", &self.wHighVersion).field("iMaxSockets", &self.iMaxSockets).field("iMaxUdpDg", &self.iMaxUdpDg).field("lpVendorInfo", &self.lpVendorInfo).field("szDescription", &self.szDescription).field("szSystemStatus", &self.szSystemStatus).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSAData {
     type Abi = Self;
 }
@@ -8857,6 +9710,13 @@ impl ::core::marker::Copy for WSAData {}
 impl ::core::clone::Clone for WSAData {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSAData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSAData").field("wVersion", &self.wVersion).field("wHighVersion", &self.wHighVersion).field("szDescription", &self.szDescription).field("szSystemStatus", &self.szSystemStatus).field("iMaxSockets", &self.iMaxSockets).field("iMaxUdpDg", &self.iMaxUdpDg).field("lpVendorInfo", &self.lpVendorInfo).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -9375,6 +10235,12 @@ impl ::core::clone::Clone for WSAMSG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSAMSG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSAMSG").field("name", &self.name).field("namelen", &self.namelen).field("lpBuffers", &self.lpBuffers).field("dwBufferCount", &self.dwBufferCount).field("Control", &self.Control).field("dwFlags", &self.dwFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSAMSG {
     type Abi = Self;
 }
@@ -9408,6 +10274,12 @@ impl ::core::marker::Copy for WSANAMESPACE_INFOA {}
 impl ::core::clone::Clone for WSANAMESPACE_INFOA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSANAMESPACE_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSANAMESPACE_INFOA").field("NSProviderId", &self.NSProviderId).field("dwNameSpace", &self.dwNameSpace).field("fActive", &self.fActive).field("dwVersion", &self.dwVersion).field("lpszIdentifier", &self.lpszIdentifier).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9448,6 +10320,12 @@ impl ::core::clone::Clone for WSANAMESPACE_INFOEXA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for WSANAMESPACE_INFOEXA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSANAMESPACE_INFOEXA").field("NSProviderId", &self.NSProviderId).field("dwNameSpace", &self.dwNameSpace).field("fActive", &self.fActive).field("dwVersion", &self.dwVersion).field("lpszIdentifier", &self.lpszIdentifier).field("ProviderSpecific", &self.ProviderSpecific).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for WSANAMESPACE_INFOEXA {
     type Abi = Self;
 }
@@ -9482,6 +10360,12 @@ impl ::core::marker::Copy for WSANAMESPACE_INFOEXW {}
 impl ::core::clone::Clone for WSANAMESPACE_INFOEXW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for WSANAMESPACE_INFOEXW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSANAMESPACE_INFOEXW").field("NSProviderId", &self.NSProviderId).field("dwNameSpace", &self.dwNameSpace).field("fActive", &self.fActive).field("dwVersion", &self.dwVersion).field("lpszIdentifier", &self.lpszIdentifier).field("ProviderSpecific", &self.ProviderSpecific).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -9521,6 +10405,12 @@ impl ::core::clone::Clone for WSANAMESPACE_INFOW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSANAMESPACE_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSANAMESPACE_INFOW").field("NSProviderId", &self.NSProviderId).field("dwNameSpace", &self.dwNameSpace).field("fActive", &self.fActive).field("dwVersion", &self.dwVersion).field("lpszIdentifier", &self.lpszIdentifier).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSANAMESPACE_INFOW {
     type Abi = Self;
 }
@@ -9548,6 +10438,11 @@ impl ::core::marker::Copy for WSANETWORKEVENTS {}
 impl ::core::clone::Clone for WSANETWORKEVENTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WSANETWORKEVENTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSANETWORKEVENTS").field("lNetworkEvents", &self.lNetworkEvents).field("iErrorCode", &self.iErrorCode).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WSANETWORKEVENTS {
@@ -9580,6 +10475,12 @@ impl ::core::marker::Copy for WSANSCLASSINFOA {}
 impl ::core::clone::Clone for WSANSCLASSINFOA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSANSCLASSINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSANSCLASSINFOA").field("lpszName", &self.lpszName).field("dwNameSpace", &self.dwNameSpace).field("dwValueType", &self.dwValueType).field("dwValueSize", &self.dwValueSize).field("lpValue", &self.lpValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9616,6 +10517,12 @@ impl ::core::marker::Copy for WSANSCLASSINFOW {}
 impl ::core::clone::Clone for WSANSCLASSINFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSANSCLASSINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSANSCLASSINFOW").field("lpszName", &self.lpszName).field("dwNameSpace", &self.dwNameSpace).field("dwValueType", &self.dwValueType).field("dwValueSize", &self.dwValueSize).field("lpValue", &self.lpValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9693,6 +10600,11 @@ impl ::core::clone::Clone for WSAPOLLDATA {
         *self
     }
 }
+impl ::core::fmt::Debug for WSAPOLLDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSAPOLLDATA").field("result", &self.result).field("fds", &self.fds).field("timeout", &self.timeout).field("fdArray", &self.fdArray).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WSAPOLLDATA {
     type Abi = Self;
 }
@@ -9720,6 +10632,11 @@ impl ::core::clone::Clone for WSAPOLLFD {
         *self
     }
 }
+impl ::core::fmt::Debug for WSAPOLLFD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSAPOLLFD").field("fd", &self.fd).field("events", &self.events).field("revents", &self.revents).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WSAPOLLFD {
     type Abi = Self;
 }
@@ -9744,6 +10661,11 @@ impl ::core::marker::Copy for WSAPROTOCOLCHAIN {}
 impl ::core::clone::Clone for WSAPROTOCOLCHAIN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WSAPROTOCOLCHAIN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSAPROTOCOLCHAIN").field("ChainLen", &self.ChainLen).field("ChainEntries", &self.ChainEntries).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WSAPROTOCOLCHAIN {
@@ -9794,6 +10716,33 @@ impl ::core::clone::Clone for WSAPROTOCOL_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSAPROTOCOL_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSAPROTOCOL_INFOA")
+            .field("dwServiceFlags1", &self.dwServiceFlags1)
+            .field("dwServiceFlags2", &self.dwServiceFlags2)
+            .field("dwServiceFlags3", &self.dwServiceFlags3)
+            .field("dwServiceFlags4", &self.dwServiceFlags4)
+            .field("dwProviderFlags", &self.dwProviderFlags)
+            .field("ProviderId", &self.ProviderId)
+            .field("dwCatalogEntryId", &self.dwCatalogEntryId)
+            .field("ProtocolChain", &self.ProtocolChain)
+            .field("iVersion", &self.iVersion)
+            .field("iAddressFamily", &self.iAddressFamily)
+            .field("iMaxSockAddr", &self.iMaxSockAddr)
+            .field("iMinSockAddr", &self.iMinSockAddr)
+            .field("iSocketType", &self.iSocketType)
+            .field("iProtocol", &self.iProtocol)
+            .field("iProtocolMaxOffset", &self.iProtocolMaxOffset)
+            .field("iNetworkByteOrder", &self.iNetworkByteOrder)
+            .field("iSecurityScheme", &self.iSecurityScheme)
+            .field("dwMessageSize", &self.dwMessageSize)
+            .field("dwProviderReserved", &self.dwProviderReserved)
+            .field("szProtocol", &self.szProtocol)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSAPROTOCOL_INFOA {
     type Abi = Self;
 }
@@ -9839,6 +10788,32 @@ impl ::core::marker::Copy for WSAPROTOCOL_INFOW {}
 impl ::core::clone::Clone for WSAPROTOCOL_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WSAPROTOCOL_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSAPROTOCOL_INFOW")
+            .field("dwServiceFlags1", &self.dwServiceFlags1)
+            .field("dwServiceFlags2", &self.dwServiceFlags2)
+            .field("dwServiceFlags3", &self.dwServiceFlags3)
+            .field("dwServiceFlags4", &self.dwServiceFlags4)
+            .field("dwProviderFlags", &self.dwProviderFlags)
+            .field("ProviderId", &self.ProviderId)
+            .field("dwCatalogEntryId", &self.dwCatalogEntryId)
+            .field("ProtocolChain", &self.ProtocolChain)
+            .field("iVersion", &self.iVersion)
+            .field("iAddressFamily", &self.iAddressFamily)
+            .field("iMaxSockAddr", &self.iMaxSockAddr)
+            .field("iMinSockAddr", &self.iMinSockAddr)
+            .field("iSocketType", &self.iSocketType)
+            .field("iProtocol", &self.iProtocol)
+            .field("iProtocolMaxOffset", &self.iProtocolMaxOffset)
+            .field("iNetworkByteOrder", &self.iNetworkByteOrder)
+            .field("iSecurityScheme", &self.iSecurityScheme)
+            .field("dwMessageSize", &self.dwMessageSize)
+            .field("dwProviderReserved", &self.dwProviderReserved)
+            .field("szProtocol", &self.szProtocol)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for WSAPROTOCOL_INFOW {
@@ -9929,6 +10904,27 @@ impl ::core::clone::Clone for WSAQUERYSET2A {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for WSAQUERYSET2A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSAQUERYSET2A")
+            .field("dwSize", &self.dwSize)
+            .field("lpszServiceInstanceName", &self.lpszServiceInstanceName)
+            .field("lpVersion", &self.lpVersion)
+            .field("lpszComment", &self.lpszComment)
+            .field("dwNameSpace", &self.dwNameSpace)
+            .field("lpNSProviderId", &self.lpNSProviderId)
+            .field("lpszContext", &self.lpszContext)
+            .field("dwNumberOfProtocols", &self.dwNumberOfProtocols)
+            .field("lpafpProtocols", &self.lpafpProtocols)
+            .field("lpszQueryString", &self.lpszQueryString)
+            .field("dwNumberOfCsAddrs", &self.dwNumberOfCsAddrs)
+            .field("lpcsaBuffer", &self.lpcsaBuffer)
+            .field("dwOutputFlags", &self.dwOutputFlags)
+            .field("lpBlob", &self.lpBlob)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for WSAQUERYSET2A {
     type Abi = Self;
 }
@@ -9971,6 +10967,27 @@ impl ::core::marker::Copy for WSAQUERYSET2W {}
 impl ::core::clone::Clone for WSAQUERYSET2W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for WSAQUERYSET2W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSAQUERYSET2W")
+            .field("dwSize", &self.dwSize)
+            .field("lpszServiceInstanceName", &self.lpszServiceInstanceName)
+            .field("lpVersion", &self.lpVersion)
+            .field("lpszComment", &self.lpszComment)
+            .field("dwNameSpace", &self.dwNameSpace)
+            .field("lpNSProviderId", &self.lpNSProviderId)
+            .field("lpszContext", &self.lpszContext)
+            .field("dwNumberOfProtocols", &self.dwNumberOfProtocols)
+            .field("lpafpProtocols", &self.lpafpProtocols)
+            .field("lpszQueryString", &self.lpszQueryString)
+            .field("dwNumberOfCsAddrs", &self.dwNumberOfCsAddrs)
+            .field("lpcsaBuffer", &self.lpcsaBuffer)
+            .field("dwOutputFlags", &self.dwOutputFlags)
+            .field("lpBlob", &self.lpBlob)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -10020,6 +11037,28 @@ impl ::core::clone::Clone for WSAQUERYSETA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for WSAQUERYSETA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSAQUERYSETA")
+            .field("dwSize", &self.dwSize)
+            .field("lpszServiceInstanceName", &self.lpszServiceInstanceName)
+            .field("lpServiceClassId", &self.lpServiceClassId)
+            .field("lpVersion", &self.lpVersion)
+            .field("lpszComment", &self.lpszComment)
+            .field("dwNameSpace", &self.dwNameSpace)
+            .field("lpNSProviderId", &self.lpNSProviderId)
+            .field("lpszContext", &self.lpszContext)
+            .field("dwNumberOfProtocols", &self.dwNumberOfProtocols)
+            .field("lpafpProtocols", &self.lpafpProtocols)
+            .field("lpszQueryString", &self.lpszQueryString)
+            .field("dwNumberOfCsAddrs", &self.dwNumberOfCsAddrs)
+            .field("lpcsaBuffer", &self.lpcsaBuffer)
+            .field("dwOutputFlags", &self.dwOutputFlags)
+            .field("lpBlob", &self.lpBlob)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for WSAQUERYSETA {
     type Abi = Self;
 }
@@ -10063,6 +11102,28 @@ impl ::core::marker::Copy for WSAQUERYSETW {}
 impl ::core::clone::Clone for WSAQUERYSETW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for WSAQUERYSETW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSAQUERYSETW")
+            .field("dwSize", &self.dwSize)
+            .field("lpszServiceInstanceName", &self.lpszServiceInstanceName)
+            .field("lpServiceClassId", &self.lpServiceClassId)
+            .field("lpVersion", &self.lpVersion)
+            .field("lpszComment", &self.lpszComment)
+            .field("dwNameSpace", &self.dwNameSpace)
+            .field("lpNSProviderId", &self.lpNSProviderId)
+            .field("lpszContext", &self.lpszContext)
+            .field("dwNumberOfProtocols", &self.dwNumberOfProtocols)
+            .field("lpafpProtocols", &self.lpafpProtocols)
+            .field("lpszQueryString", &self.lpszQueryString)
+            .field("dwNumberOfCsAddrs", &self.dwNumberOfCsAddrs)
+            .field("lpcsaBuffer", &self.lpcsaBuffer)
+            .field("dwOutputFlags", &self.dwOutputFlags)
+            .field("lpBlob", &self.lpBlob)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -10220,6 +11281,12 @@ impl ::core::clone::Clone for WSASENDMSG {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::fmt::Debug for WSASENDMSG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSASENDMSG").field("lpMsg", &self.lpMsg).field("dwFlags", &self.dwFlags).field("lpNumberOfBytesSent", &self.lpNumberOfBytesSent).field("lpOverlapped", &self.lpOverlapped).field("lpCompletionRoutine", &self.lpCompletionRoutine.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for WSASENDMSG {
     type Abi = Self;
 }
@@ -10255,6 +11322,12 @@ impl ::core::clone::Clone for WSASERVICECLASSINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSASERVICECLASSINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSASERVICECLASSINFOA").field("lpServiceClassId", &self.lpServiceClassId).field("lpszServiceClassName", &self.lpszServiceClassName).field("dwCount", &self.dwCount).field("lpClassInfos", &self.lpClassInfos).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSASERVICECLASSINFOA {
     type Abi = Self;
 }
@@ -10287,6 +11360,12 @@ impl ::core::marker::Copy for WSASERVICECLASSINFOW {}
 impl ::core::clone::Clone for WSASERVICECLASSINFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSASERVICECLASSINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSASERVICECLASSINFOW").field("lpServiceClassId", &self.lpServiceClassId).field("lpszServiceClassName", &self.lpszServiceClassName).field("dwCount", &self.dwCount).field("lpClassInfos", &self.lpClassInfos).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10563,6 +11642,12 @@ impl ::core::clone::Clone for WSATHREADID {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSATHREADID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSATHREADID").field("ThreadHandle", &self.ThreadHandle).field("Reserved", &self.Reserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSATHREADID {
     type Abi = Self;
 }
@@ -10620,6 +11705,11 @@ impl ::core::clone::Clone for WSAVERSION {
         *self
     }
 }
+impl ::core::fmt::Debug for WSAVERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSAVERSION").field("dwVersion", &self.dwVersion).field("ecHow", &self.ecHow).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WSAVERSION {
     type Abi = Self;
 }
@@ -10667,6 +11757,11 @@ impl ::core::marker::Copy for WSA_COMPATIBILITY_MODE {}
 impl ::core::clone::Clone for WSA_COMPATIBILITY_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WSA_COMPATIBILITY_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSA_COMPATIBILITY_MODE").field("BehaviorId", &self.BehaviorId).field("TargetOsVersion", &self.TargetOsVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WSA_COMPATIBILITY_MODE {
@@ -11386,6 +12481,11 @@ impl ::core::clone::Clone for WSC_PROVIDER_AUDIT_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for WSC_PROVIDER_AUDIT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSC_PROVIDER_AUDIT_INFO").field("RecordSize", &self.RecordSize).field("Reserved", &self.Reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WSC_PROVIDER_AUDIT_INFO {
     type Abi = Self;
 }
@@ -11421,6 +12521,11 @@ impl ::core::marker::Copy for WSPData {}
 impl ::core::clone::Clone for WSPData {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WSPData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSPData").field("wVersion", &self.wVersion).field("wHighVersion", &self.wHighVersion).field("szDescription", &self.szDescription).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WSPData {
@@ -11481,6 +12586,43 @@ impl ::core::clone::Clone for WSPPROC_TABLE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS", feature = "Win32_System_IO"))]
+impl ::core::fmt::Debug for WSPPROC_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSPPROC_TABLE")
+            .field("lpWSPAccept", &self.lpWSPAccept.map(|f| f as usize))
+            .field("lpWSPAddressToString", &self.lpWSPAddressToString.map(|f| f as usize))
+            .field("lpWSPAsyncSelect", &self.lpWSPAsyncSelect.map(|f| f as usize))
+            .field("lpWSPBind", &self.lpWSPBind.map(|f| f as usize))
+            .field("lpWSPCancelBlockingCall", &self.lpWSPCancelBlockingCall.map(|f| f as usize))
+            .field("lpWSPCleanup", &self.lpWSPCleanup.map(|f| f as usize))
+            .field("lpWSPCloseSocket", &self.lpWSPCloseSocket.map(|f| f as usize))
+            .field("lpWSPConnect", &self.lpWSPConnect.map(|f| f as usize))
+            .field("lpWSPDuplicateSocket", &self.lpWSPDuplicateSocket.map(|f| f as usize))
+            .field("lpWSPEnumNetworkEvents", &self.lpWSPEnumNetworkEvents.map(|f| f as usize))
+            .field("lpWSPEventSelect", &self.lpWSPEventSelect.map(|f| f as usize))
+            .field("lpWSPGetOverlappedResult", &self.lpWSPGetOverlappedResult.map(|f| f as usize))
+            .field("lpWSPGetPeerName", &self.lpWSPGetPeerName.map(|f| f as usize))
+            .field("lpWSPGetSockName", &self.lpWSPGetSockName.map(|f| f as usize))
+            .field("lpWSPGetSockOpt", &self.lpWSPGetSockOpt.map(|f| f as usize))
+            .field("lpWSPGetQOSByName", &self.lpWSPGetQOSByName.map(|f| f as usize))
+            .field("lpWSPIoctl", &self.lpWSPIoctl.map(|f| f as usize))
+            .field("lpWSPJoinLeaf", &self.lpWSPJoinLeaf.map(|f| f as usize))
+            .field("lpWSPListen", &self.lpWSPListen.map(|f| f as usize))
+            .field("lpWSPRecv", &self.lpWSPRecv.map(|f| f as usize))
+            .field("lpWSPRecvDisconnect", &self.lpWSPRecvDisconnect.map(|f| f as usize))
+            .field("lpWSPRecvFrom", &self.lpWSPRecvFrom.map(|f| f as usize))
+            .field("lpWSPSelect", &self.lpWSPSelect.map(|f| f as usize))
+            .field("lpWSPSend", &self.lpWSPSend.map(|f| f as usize))
+            .field("lpWSPSendDisconnect", &self.lpWSPSendDisconnect.map(|f| f as usize))
+            .field("lpWSPSendTo", &self.lpWSPSendTo.map(|f| f as usize))
+            .field("lpWSPSetSockOpt", &self.lpWSPSetSockOpt.map(|f| f as usize))
+            .field("lpWSPShutdown", &self.lpWSPShutdown.map(|f| f as usize))
+            .field("lpWSPSocket", &self.lpWSPSocket.map(|f| f as usize))
+            .field("lpWSPStringToAddress", &self.lpWSPStringToAddress.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for WSPPROC_TABLE {
     type Abi = Self;
 }
@@ -11524,6 +12666,28 @@ impl ::core::marker::Copy for WSPUPCALLTABLE {}
 impl ::core::clone::Clone for WSPUPCALLTABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSPUPCALLTABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSPUPCALLTABLE")
+            .field("lpWPUCloseEvent", &self.lpWPUCloseEvent.map(|f| f as usize))
+            .field("lpWPUCloseSocketHandle", &self.lpWPUCloseSocketHandle.map(|f| f as usize))
+            .field("lpWPUCreateEvent", &self.lpWPUCreateEvent.map(|f| f as usize))
+            .field("lpWPUCreateSocketHandle", &self.lpWPUCreateSocketHandle.map(|f| f as usize))
+            .field("lpWPUFDIsSet", &self.lpWPUFDIsSet.map(|f| f as usize))
+            .field("lpWPUGetProviderPath", &self.lpWPUGetProviderPath.map(|f| f as usize))
+            .field("lpWPUModifyIFSHandle", &self.lpWPUModifyIFSHandle.map(|f| f as usize))
+            .field("lpWPUPostMessage", &self.lpWPUPostMessage.map(|f| f as usize))
+            .field("lpWPUQueryBlockingCallback", &self.lpWPUQueryBlockingCallback.map(|f| f as usize))
+            .field("lpWPUQuerySocketHandleContext", &self.lpWPUQuerySocketHandleContext.map(|f| f as usize))
+            .field("lpWPUQueueApc", &self.lpWPUQueueApc.map(|f| f as usize))
+            .field("lpWPUResetEvent", &self.lpWPUResetEvent.map(|f| f as usize))
+            .field("lpWPUSetEvent", &self.lpWPUSetEvent.map(|f| f as usize))
+            .field("lpWPUOpenCurrentThread", &self.lpWPUOpenCurrentThread.map(|f| f as usize))
+            .field("lpWPUCloseThread", &self.lpWPUCloseThread.map(|f| f as usize))
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11667,6 +12831,12 @@ impl ::core::clone::Clone for addrinfoW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for addrinfoW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("addrinfoW").field("ai_flags", &self.ai_flags).field("ai_family", &self.ai_family).field("ai_socktype", &self.ai_socktype).field("ai_protocol", &self.ai_protocol).field("ai_addrlen", &self.ai_addrlen).field("ai_canonname", &self.ai_canonname).field("ai_addr", &self.ai_addr).field("ai_next", &self.ai_next).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for addrinfoW {
     type Abi = Self;
 }
@@ -11779,6 +12949,26 @@ impl ::core::clone::Clone for addrinfoex2A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for addrinfoex2A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("addrinfoex2A")
+            .field("ai_flags", &self.ai_flags)
+            .field("ai_family", &self.ai_family)
+            .field("ai_socktype", &self.ai_socktype)
+            .field("ai_protocol", &self.ai_protocol)
+            .field("ai_addrlen", &self.ai_addrlen)
+            .field("ai_canonname", &self.ai_canonname)
+            .field("ai_addr", &self.ai_addr)
+            .field("ai_blob", &self.ai_blob)
+            .field("ai_bloblen", &self.ai_bloblen)
+            .field("ai_provider", &self.ai_provider)
+            .field("ai_next", &self.ai_next)
+            .field("ai_version", &self.ai_version)
+            .field("ai_fqdn", &self.ai_fqdn)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for addrinfoex2A {
     type Abi = Self;
 }
@@ -11820,6 +13010,26 @@ impl ::core::marker::Copy for addrinfoex2W {}
 impl ::core::clone::Clone for addrinfoex2W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for addrinfoex2W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("addrinfoex2W")
+            .field("ai_flags", &self.ai_flags)
+            .field("ai_family", &self.ai_family)
+            .field("ai_socktype", &self.ai_socktype)
+            .field("ai_protocol", &self.ai_protocol)
+            .field("ai_addrlen", &self.ai_addrlen)
+            .field("ai_canonname", &self.ai_canonname)
+            .field("ai_addr", &self.ai_addr)
+            .field("ai_blob", &self.ai_blob)
+            .field("ai_bloblen", &self.ai_bloblen)
+            .field("ai_provider", &self.ai_provider)
+            .field("ai_next", &self.ai_next)
+            .field("ai_version", &self.ai_version)
+            .field("ai_fqdn", &self.ai_fqdn)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11865,6 +13075,27 @@ impl ::core::marker::Copy for addrinfoex3 {}
 impl ::core::clone::Clone for addrinfoex3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for addrinfoex3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("addrinfoex3")
+            .field("ai_flags", &self.ai_flags)
+            .field("ai_family", &self.ai_family)
+            .field("ai_socktype", &self.ai_socktype)
+            .field("ai_protocol", &self.ai_protocol)
+            .field("ai_addrlen", &self.ai_addrlen)
+            .field("ai_canonname", &self.ai_canonname)
+            .field("ai_addr", &self.ai_addr)
+            .field("ai_blob", &self.ai_blob)
+            .field("ai_bloblen", &self.ai_bloblen)
+            .field("ai_provider", &self.ai_provider)
+            .field("ai_next", &self.ai_next)
+            .field("ai_version", &self.ai_version)
+            .field("ai_fqdn", &self.ai_fqdn)
+            .field("ai_interfaceindex", &self.ai_interfaceindex)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11914,6 +13145,28 @@ impl ::core::clone::Clone for addrinfoex4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for addrinfoex4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("addrinfoex4")
+            .field("ai_flags", &self.ai_flags)
+            .field("ai_family", &self.ai_family)
+            .field("ai_socktype", &self.ai_socktype)
+            .field("ai_protocol", &self.ai_protocol)
+            .field("ai_addrlen", &self.ai_addrlen)
+            .field("ai_canonname", &self.ai_canonname)
+            .field("ai_addr", &self.ai_addr)
+            .field("ai_blob", &self.ai_blob)
+            .field("ai_bloblen", &self.ai_bloblen)
+            .field("ai_provider", &self.ai_provider)
+            .field("ai_next", &self.ai_next)
+            .field("ai_version", &self.ai_version)
+            .field("ai_fqdn", &self.ai_fqdn)
+            .field("ai_interfaceindex", &self.ai_interfaceindex)
+            .field("ai_resolutionhandle", &self.ai_resolutionhandle)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for addrinfoex4 {
     type Abi = Self;
 }
@@ -11958,6 +13211,29 @@ impl ::core::marker::Copy for addrinfoex5 {}
 impl ::core::clone::Clone for addrinfoex5 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for addrinfoex5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("addrinfoex5")
+            .field("ai_flags", &self.ai_flags)
+            .field("ai_family", &self.ai_family)
+            .field("ai_socktype", &self.ai_socktype)
+            .field("ai_protocol", &self.ai_protocol)
+            .field("ai_addrlen", &self.ai_addrlen)
+            .field("ai_canonname", &self.ai_canonname)
+            .field("ai_addr", &self.ai_addr)
+            .field("ai_blob", &self.ai_blob)
+            .field("ai_bloblen", &self.ai_bloblen)
+            .field("ai_provider", &self.ai_provider)
+            .field("ai_next", &self.ai_next)
+            .field("ai_version", &self.ai_version)
+            .field("ai_fqdn", &self.ai_fqdn)
+            .field("ai_interfaceindex", &self.ai_interfaceindex)
+            .field("ai_resolutionhandle", &self.ai_resolutionhandle)
+            .field("ai_ttl", &self.ai_ttl)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12011,6 +13287,32 @@ impl ::core::clone::Clone for addrinfoex6 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for addrinfoex6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("addrinfoex6")
+            .field("ai_flags", &self.ai_flags)
+            .field("ai_family", &self.ai_family)
+            .field("ai_socktype", &self.ai_socktype)
+            .field("ai_protocol", &self.ai_protocol)
+            .field("ai_addrlen", &self.ai_addrlen)
+            .field("ai_canonname", &self.ai_canonname)
+            .field("ai_addr", &self.ai_addr)
+            .field("ai_blob", &self.ai_blob)
+            .field("ai_bloblen", &self.ai_bloblen)
+            .field("ai_provider", &self.ai_provider)
+            .field("ai_next", &self.ai_next)
+            .field("ai_version", &self.ai_version)
+            .field("ai_fqdn", &self.ai_fqdn)
+            .field("ai_interfaceindex", &self.ai_interfaceindex)
+            .field("ai_resolutionhandle", &self.ai_resolutionhandle)
+            .field("ai_ttl", &self.ai_ttl)
+            .field("ai_numservers", &self.ai_numservers)
+            .field("ai_servers", &self.ai_servers)
+            .field("ai_responseflags", &self.ai_responseflags)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for addrinfoex6 {
     type Abi = Self;
 }
@@ -12053,6 +13355,12 @@ impl ::core::clone::Clone for addrinfoexA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for addrinfoexA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("addrinfoexA").field("ai_flags", &self.ai_flags).field("ai_family", &self.ai_family).field("ai_socktype", &self.ai_socktype).field("ai_protocol", &self.ai_protocol).field("ai_addrlen", &self.ai_addrlen).field("ai_canonname", &self.ai_canonname).field("ai_addr", &self.ai_addr).field("ai_blob", &self.ai_blob).field("ai_bloblen", &self.ai_bloblen).field("ai_provider", &self.ai_provider).field("ai_next", &self.ai_next).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for addrinfoexA {
     type Abi = Self;
 }
@@ -12092,6 +13400,12 @@ impl ::core::marker::Copy for addrinfoexW {}
 impl ::core::clone::Clone for addrinfoexW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for addrinfoexW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("addrinfoexW").field("ai_flags", &self.ai_flags).field("ai_family", &self.ai_family).field("ai_socktype", &self.ai_socktype).field("ai_protocol", &self.ai_protocol).field("ai_addrlen", &self.ai_addrlen).field("ai_canonname", &self.ai_canonname).field("ai_addr", &self.ai_addr).field("ai_blob", &self.ai_blob).field("ai_bloblen", &self.ai_bloblen).field("ai_provider", &self.ai_provider).field("ai_next", &self.ai_next).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12154,6 +13468,11 @@ impl ::core::clone::Clone for cmsghdr {
         *self
     }
 }
+impl ::core::fmt::Debug for cmsghdr {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("cmsghdr").field("cmsg_len", &self.cmsg_len).field("cmsg_level", &self.cmsg_level).field("cmsg_type", &self.cmsg_type).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for cmsghdr {
     type Abi = Self;
 }
@@ -12199,6 +13518,11 @@ impl ::core::marker::Copy for fd_set {}
 impl ::core::clone::Clone for fd_set {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for fd_set {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("fd_set").field("fd_count", &self.fd_count).field("fd_array", &self.fd_array).finish()
     }
 }
 unsafe impl ::windows::core::Abi for fd_set {
@@ -12429,6 +13753,12 @@ impl ::core::clone::Clone for hostent {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for hostent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("hostent").field("h_name", &self.h_name).field("h_aliases", &self.h_aliases).field("h_addrtype", &self.h_addrtype).field("h_length", &self.h_length).field("h_addr_list", &self.h_addr_list).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for hostent {
     type Abi = Self;
 }
@@ -12586,6 +13916,11 @@ impl ::core::clone::Clone for linger {
         *self
     }
 }
+impl ::core::fmt::Debug for linger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("linger").field("l_onoff", &self.l_onoff).field("l_linger", &self.l_linger).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for linger {
     type Abi = Self;
 }
@@ -12629,6 +13964,12 @@ impl ::core::marker::Copy for netent {}
 impl ::core::clone::Clone for netent {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for netent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("netent").field("n_name", &self.n_name).field("n_aliases", &self.n_aliases).field("n_addrtype", &self.n_addrtype).field("n_net", &self.n_net).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12691,6 +14032,12 @@ impl ::core::marker::Copy for protoent {}
 impl ::core::clone::Clone for protoent {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for protoent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("protoent").field("p_name", &self.p_name).field("p_aliases", &self.p_aliases).field("p_proto", &self.p_proto).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12807,6 +14154,13 @@ impl ::core::clone::Clone for servent {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for servent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("servent").field("s_name", &self.s_name).field("s_aliases", &self.s_aliases).field("s_proto", &self.s_proto).field("s_port", &self.s_port).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for servent {
     type Abi = Self;
 }
@@ -12845,6 +14199,13 @@ impl ::core::marker::Copy for servent {}
 impl ::core::clone::Clone for servent {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for servent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("servent").field("s_name", &self.s_name).field("s_aliases", &self.s_aliases).field("s_port", &self.s_port).field("s_proto", &self.s_proto).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -12910,6 +14271,11 @@ impl ::core::marker::Copy for sockaddr_atm {}
 impl ::core::clone::Clone for sockaddr_atm {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for sockaddr_atm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sockaddr_atm").field("satm_family", &self.satm_family).field("satm_number", &self.satm_number).field("satm_blli", &self.satm_blli).field("satm_bhli", &self.satm_bhli).finish()
     }
 }
 unsafe impl ::windows::core::Abi for sockaddr_atm {
@@ -13006,6 +14372,12 @@ impl ::core::clone::Clone for sockaddr_ipx {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for sockaddr_ipx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sockaddr_ipx").field("sa_family", &self.sa_family).field("sa_netnum", &self.sa_netnum).field("sa_nodenum", &self.sa_nodenum).field("sa_socket", &self.sa_socket).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for sockaddr_ipx {
     type Abi = Self;
 }
@@ -13037,6 +14409,12 @@ impl ::core::marker::Copy for sockaddr_nb {}
 impl ::core::clone::Clone for sockaddr_nb {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for sockaddr_nb {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sockaddr_nb").field("snb_family", &self.snb_family).field("snb_type", &self.snb_type).field("snb_name", &self.snb_name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13072,6 +14450,11 @@ impl ::core::clone::Clone for sockaddr_tp {
         *self
     }
 }
+impl ::core::fmt::Debug for sockaddr_tp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sockaddr_tp").field("tp_family", &self.tp_family).field("tp_addr_type", &self.tp_addr_type).field("tp_taddr_len", &self.tp_taddr_len).field("tp_tsel_len", &self.tp_tsel_len).field("tp_addr", &self.tp_addr).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for sockaddr_tp {
     type Abi = Self;
 }
@@ -13099,6 +14482,12 @@ impl ::core::marker::Copy for sockaddr_un {}
 impl ::core::clone::Clone for sockaddr_un {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for sockaddr_un {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sockaddr_un").field("sun_family", &self.sun_family).field("sun_path", &self.sun_path).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13133,6 +14522,11 @@ impl ::core::marker::Copy for sockaddr_vns {}
 impl ::core::clone::Clone for sockaddr_vns {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for sockaddr_vns {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sockaddr_vns").field("sin_family", &self.sin_family).field("net_address", &self.net_address).field("subnet_addr", &self.subnet_addr).field("port", &self.port).field("hops", &self.hops).field("filler", &self.filler).finish()
     }
 }
 unsafe impl ::windows::core::Abi for sockaddr_vns {
@@ -13175,6 +14569,11 @@ impl ::core::clone::Clone for sockproto {
         *self
     }
 }
+impl ::core::fmt::Debug for sockproto {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("sockproto").field("sp_family", &self.sp_family).field("sp_protocol", &self.sp_protocol).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for sockproto {
     type Abi = Self;
 }
@@ -13202,6 +14601,11 @@ impl ::core::clone::Clone for tcp_keepalive {
         *self
     }
 }
+impl ::core::fmt::Debug for tcp_keepalive {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("tcp_keepalive").field("onoff", &self.onoff).field("keepalivetime", &self.keepalivetime).field("keepaliveinterval", &self.keepaliveinterval).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for tcp_keepalive {
     type Abi = Self;
 }
@@ -13226,6 +14630,11 @@ impl ::core::marker::Copy for timeval {}
 impl ::core::clone::Clone for timeval {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for timeval {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("timeval").field("tv_sec", &self.tv_sec).field("tv_usec", &self.tv_usec).finish()
     }
 }
 unsafe impl ::windows::core::Abi for timeval {

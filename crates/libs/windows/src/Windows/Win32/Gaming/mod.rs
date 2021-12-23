@@ -103,6 +103,11 @@ impl ::core::clone::Clone for GAMING_DEVICE_MODEL_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for GAMING_DEVICE_MODEL_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GAMING_DEVICE_MODEL_INFORMATION").field("vendorId", &self.vendorId).field("deviceId", &self.deviceId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GAMING_DEVICE_MODEL_INFORMATION {
     type Abi = Self;
 }
@@ -228,6 +233,11 @@ impl ::core::cmp::PartialEq for IGameExplorer {
     }
 }
 impl ::core::cmp::Eq for IGameExplorer {}
+impl ::core::fmt::Debug for IGameExplorer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGameExplorer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGameExplorer {
     type Vtable = IGameExplorerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7b2fb72_d728_49b3_a5f2_18ebf5f1349e);
@@ -297,6 +307,11 @@ impl ::core::cmp::PartialEq for IGameExplorer2 {
     }
 }
 impl ::core::cmp::Eq for IGameExplorer2 {}
+impl ::core::fmt::Debug for IGameExplorer2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGameExplorer2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGameExplorer2 {
     type Vtable = IGameExplorer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86874aa7_a1ed_450d_a7eb_b89e20b2fff3);
@@ -410,6 +425,11 @@ impl ::core::cmp::PartialEq for IGameStatistics {
     }
 }
 impl ::core::cmp::Eq for IGameStatistics {}
+impl ::core::fmt::Debug for IGameStatistics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGameStatistics").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGameStatistics {
     type Vtable = IGameStatisticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3887c9ca_04a0_42ae_bc4c_5fa6c7721145);
@@ -484,6 +504,11 @@ impl ::core::cmp::PartialEq for IGameStatisticsMgr {
     }
 }
 impl ::core::cmp::Eq for IGameStatisticsMgr {}
+impl ::core::fmt::Debug for IGameStatisticsMgr {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGameStatisticsMgr").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGameStatisticsMgr {
     type Vtable = IGameStatisticsMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaff3ea11_e70e_407d_95dd_35e612c41ce2);
@@ -580,6 +605,11 @@ impl ::core::cmp::PartialEq for IXblIdpAuthManager {
     }
 }
 impl ::core::cmp::Eq for IXblIdpAuthManager {}
+impl ::core::fmt::Debug for IXblIdpAuthManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXblIdpAuthManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXblIdpAuthManager {
     type Vtable = IXblIdpAuthManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb5ddb08_8bbf_449b_ac21_b02ddeb3b136);
@@ -757,6 +787,11 @@ impl ::core::cmp::PartialEq for IXblIdpAuthTokenResult {
     }
 }
 impl ::core::cmp::Eq for IXblIdpAuthTokenResult {}
+impl ::core::fmt::Debug for IXblIdpAuthTokenResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXblIdpAuthTokenResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXblIdpAuthTokenResult {
     type Vtable = IXblIdpAuthTokenResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46ce0225_f267_4d68_b299_b2762552dec1);
@@ -860,6 +895,11 @@ impl ::core::cmp::PartialEq for IXblIdpAuthTokenResult2 {
     }
 }
 impl ::core::cmp::Eq for IXblIdpAuthTokenResult2 {}
+impl ::core::fmt::Debug for IXblIdpAuthTokenResult2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXblIdpAuthTokenResult2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXblIdpAuthTokenResult2 {
     type Vtable = IXblIdpAuthTokenResult2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75d760b0_60b9_412d_994f_26b2cd5f7812);

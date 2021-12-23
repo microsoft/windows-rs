@@ -100,6 +100,11 @@ impl ::core::cmp::PartialEq for AppCapability {
     }
 }
 impl ::core::cmp::Eq for AppCapability {}
+impl ::core::fmt::Debug for AppCapability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppCapability").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppCapability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authorization.AppCapabilityAccess.AppCapability;{4c49d915-8a2a-4295-9437-2df7c396aff4})");
 }
@@ -167,6 +172,11 @@ impl ::core::cmp::PartialEq for AppCapabilityAccessChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for AppCapabilityAccessChangedEventArgs {}
+impl ::core::fmt::Debug for AppCapabilityAccessChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppCapabilityAccessChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppCapabilityAccessChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessChangedEventArgs;{0a578d15-bdd7-457e-8cca-6f53bd2e5944})");
 }
@@ -244,6 +254,11 @@ impl ::core::cmp::PartialEq for AppCapabilityAccessStatus {
     }
 }
 impl ::core::cmp::Eq for AppCapabilityAccessStatus {}
+impl ::core::fmt::Debug for AppCapabilityAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppCapabilityAccessStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppCapabilityAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessStatus;i4)");
 }

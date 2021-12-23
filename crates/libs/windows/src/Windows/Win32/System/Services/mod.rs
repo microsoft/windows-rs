@@ -272,6 +272,12 @@ impl ::core::clone::Clone for ENUM_SERVICE_STATUSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ENUM_SERVICE_STATUSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENUM_SERVICE_STATUSA").field("lpServiceName", &self.lpServiceName).field("lpDisplayName", &self.lpDisplayName).field("ServiceStatus", &self.ServiceStatus).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUSA {
     type Abi = Self;
 }
@@ -303,6 +309,12 @@ impl ::core::marker::Copy for ENUM_SERVICE_STATUSW {}
 impl ::core::clone::Clone for ENUM_SERVICE_STATUSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ENUM_SERVICE_STATUSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENUM_SERVICE_STATUSW").field("lpServiceName", &self.lpServiceName).field("lpDisplayName", &self.lpDisplayName).field("ServiceStatus", &self.ServiceStatus).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -340,6 +352,12 @@ impl ::core::clone::Clone for ENUM_SERVICE_STATUS_PROCESSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ENUM_SERVICE_STATUS_PROCESSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENUM_SERVICE_STATUS_PROCESSA").field("lpServiceName", &self.lpServiceName).field("lpDisplayName", &self.lpDisplayName).field("ServiceStatusProcess", &self.ServiceStatusProcess).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUS_PROCESSA {
     type Abi = Self;
 }
@@ -371,6 +389,12 @@ impl ::core::marker::Copy for ENUM_SERVICE_STATUS_PROCESSW {}
 impl ::core::clone::Clone for ENUM_SERVICE_STATUS_PROCESSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ENUM_SERVICE_STATUS_PROCESSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENUM_SERVICE_STATUS_PROCESSW").field("lpServiceName", &self.lpServiceName).field("lpDisplayName", &self.lpDisplayName).field("ServiceStatusProcess", &self.ServiceStatusProcess).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -794,6 +818,12 @@ impl ::core::clone::Clone for QUERY_SERVICE_CONFIGA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for QUERY_SERVICE_CONFIGA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("QUERY_SERVICE_CONFIGA").field("dwServiceType", &self.dwServiceType).field("dwStartType", &self.dwStartType).field("dwErrorControl", &self.dwErrorControl).field("lpBinaryPathName", &self.lpBinaryPathName).field("lpLoadOrderGroup", &self.lpLoadOrderGroup).field("dwTagId", &self.dwTagId).field("lpDependencies", &self.lpDependencies).field("lpServiceStartName", &self.lpServiceStartName).field("lpDisplayName", &self.lpDisplayName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for QUERY_SERVICE_CONFIGA {
     type Abi = Self;
 }
@@ -834,6 +864,12 @@ impl ::core::clone::Clone for QUERY_SERVICE_CONFIGW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for QUERY_SERVICE_CONFIGW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("QUERY_SERVICE_CONFIGW").field("dwServiceType", &self.dwServiceType).field("dwStartType", &self.dwStartType).field("dwErrorControl", &self.dwErrorControl).field("lpBinaryPathName", &self.lpBinaryPathName).field("lpLoadOrderGroup", &self.lpLoadOrderGroup).field("dwTagId", &self.dwTagId).field("lpDependencies", &self.lpDependencies).field("lpServiceStartName", &self.lpServiceStartName).field("lpDisplayName", &self.lpDisplayName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for QUERY_SERVICE_CONFIGW {
     type Abi = Self;
 }
@@ -868,6 +904,12 @@ impl ::core::clone::Clone for QUERY_SERVICE_LOCK_STATUSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for QUERY_SERVICE_LOCK_STATUSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("QUERY_SERVICE_LOCK_STATUSA").field("fIsLocked", &self.fIsLocked).field("lpLockOwner", &self.lpLockOwner).field("dwLockDuration", &self.dwLockDuration).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for QUERY_SERVICE_LOCK_STATUSA {
     type Abi = Self;
 }
@@ -899,6 +941,12 @@ impl ::core::marker::Copy for QUERY_SERVICE_LOCK_STATUSW {}
 impl ::core::clone::Clone for QUERY_SERVICE_LOCK_STATUSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for QUERY_SERVICE_LOCK_STATUSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("QUERY_SERVICE_LOCK_STATUSW").field("fIsLocked", &self.fIsLocked).field("lpLockOwner", &self.lpLockOwner).field("dwLockDuration", &self.dwLockDuration).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1142,6 +1190,11 @@ impl ::core::clone::Clone for SC_ACTION {
         *self
     }
 }
+impl ::core::fmt::Debug for SC_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SC_ACTION").field("Type", &self.Type).field("Delay", &self.Delay).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SC_ACTION {
     type Abi = Self;
 }
@@ -1301,6 +1354,12 @@ impl ::core::clone::Clone for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_CONTROL_STATUS_REASON_PARAMSA").field("dwReason", &self.dwReason).field("pszComment", &self.pszComment).field("ServiceStatus", &self.ServiceStatus).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
     type Abi = Self;
 }
@@ -1332,6 +1391,12 @@ impl ::core::marker::Copy for SERVICE_CONTROL_STATUS_REASON_PARAMSW {}
 impl ::core::clone::Clone for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_CONTROL_STATUS_REASON_PARAMSW").field("dwReason", &self.dwReason).field("pszComment", &self.pszComment).field("ServiceStatus", &self.ServiceStatus).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1423,6 +1488,11 @@ impl ::core::clone::Clone for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0").field("DataOffset", &self.DataOffset).field("Data", &self.Data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
     type Abi = Self;
 }
@@ -1449,6 +1519,12 @@ impl ::core::marker::Copy for SERVICE_DELAYED_AUTO_START_INFO {}
 impl ::core::clone::Clone for SERVICE_DELAYED_AUTO_START_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERVICE_DELAYED_AUTO_START_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_DELAYED_AUTO_START_INFO").field("fDelayedAutostart", &self.fDelayedAutostart).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1484,6 +1560,12 @@ impl ::core::clone::Clone for SERVICE_DESCRIPTIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERVICE_DESCRIPTIONA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_DESCRIPTIONA").field("lpDescription", &self.lpDescription).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SERVICE_DESCRIPTIONA {
     type Abi = Self;
 }
@@ -1513,6 +1595,12 @@ impl ::core::marker::Copy for SERVICE_DESCRIPTIONW {}
 impl ::core::clone::Clone for SERVICE_DESCRIPTIONW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERVICE_DESCRIPTIONW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_DESCRIPTIONW").field("lpDescription", &self.lpDescription).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1572,6 +1660,12 @@ impl ::core::clone::Clone for SERVICE_FAILURE_ACTIONSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERVICE_FAILURE_ACTIONSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_FAILURE_ACTIONSA").field("dwResetPeriod", &self.dwResetPeriod).field("lpRebootMsg", &self.lpRebootMsg).field("lpCommand", &self.lpCommand).field("cActions", &self.cActions).field("lpsaActions", &self.lpsaActions).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SERVICE_FAILURE_ACTIONSA {
     type Abi = Self;
 }
@@ -1608,6 +1702,12 @@ impl ::core::clone::Clone for SERVICE_FAILURE_ACTIONSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERVICE_FAILURE_ACTIONSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_FAILURE_ACTIONSW").field("dwResetPeriod", &self.dwResetPeriod).field("lpRebootMsg", &self.lpRebootMsg).field("lpCommand", &self.lpCommand).field("cActions", &self.cActions).field("lpsaActions", &self.lpsaActions).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SERVICE_FAILURE_ACTIONSW {
     type Abi = Self;
 }
@@ -1637,6 +1737,12 @@ impl ::core::marker::Copy for SERVICE_FAILURE_ACTIONS_FLAG {}
 impl ::core::clone::Clone for SERVICE_FAILURE_ACTIONS_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERVICE_FAILURE_ACTIONS_FLAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_FAILURE_ACTIONS_FLAG").field("fFailureActionsOnNonCrashFailures", &self.fFailureActionsOnNonCrashFailures).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1670,6 +1776,11 @@ impl ::core::marker::Copy for SERVICE_LAUNCH_PROTECTED_INFO {}
 impl ::core::clone::Clone for SERVICE_LAUNCH_PROTECTED_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SERVICE_LAUNCH_PROTECTED_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_LAUNCH_PROTECTED_INFO").field("dwLaunchProtected", &self.dwLaunchProtected).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SERVICE_LAUNCH_PROTECTED_INFO {
@@ -1734,6 +1845,11 @@ impl ::core::clone::Clone for SERVICE_NOTIFY_1 {
         *self
     }
 }
+impl ::core::fmt::Debug for SERVICE_NOTIFY_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_NOTIFY_1").field("dwVersion", &self.dwVersion).field("pfnNotifyCallback", &self.pfnNotifyCallback.map(|f| f as usize)).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SERVICE_NOTIFY_1 {
     type Abi = Self;
 }
@@ -1766,6 +1882,12 @@ impl ::core::marker::Copy for SERVICE_NOTIFY_2A {}
 impl ::core::clone::Clone for SERVICE_NOTIFY_2A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERVICE_NOTIFY_2A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_NOTIFY_2A").field("dwVersion", &self.dwVersion).field("pfnNotifyCallback", &self.pfnNotifyCallback.map(|f| f as usize)).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).field("dwNotificationTriggered", &self.dwNotificationTriggered).field("pszServiceNames", &self.pszServiceNames).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1804,6 +1926,12 @@ impl ::core::marker::Copy for SERVICE_NOTIFY_2W {}
 impl ::core::clone::Clone for SERVICE_NOTIFY_2W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERVICE_NOTIFY_2W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_NOTIFY_2W").field("dwVersion", &self.dwVersion).field("pfnNotifyCallback", &self.pfnNotifyCallback.map(|f| f as usize)).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).field("dwNotificationTriggered", &self.dwNotificationTriggered).field("pszServiceNames", &self.pszServiceNames).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1850,6 +1978,12 @@ impl ::core::clone::Clone for SERVICE_PREFERRED_NODE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERVICE_PREFERRED_NODE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_PREFERRED_NODE_INFO").field("usPreferredNode", &self.usPreferredNode).field("fDelete", &self.fDelete).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SERVICE_PREFERRED_NODE_INFO {
     type Abi = Self;
 }
@@ -1876,6 +2010,11 @@ impl ::core::marker::Copy for SERVICE_PRESHUTDOWN_INFO {}
 impl ::core::clone::Clone for SERVICE_PRESHUTDOWN_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SERVICE_PRESHUTDOWN_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_PRESHUTDOWN_INFO").field("dwPreshutdownTimeout", &self.dwPreshutdownTimeout).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SERVICE_PRESHUTDOWN_INFO {
@@ -1919,6 +2058,12 @@ impl ::core::clone::Clone for SERVICE_REQUIRED_PRIVILEGES_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERVICE_REQUIRED_PRIVILEGES_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_REQUIRED_PRIVILEGES_INFOA").field("pmszRequiredPrivileges", &self.pmszRequiredPrivileges).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SERVICE_REQUIRED_PRIVILEGES_INFOA {
     type Abi = Self;
 }
@@ -1948,6 +2093,12 @@ impl ::core::marker::Copy for SERVICE_REQUIRED_PRIVILEGES_INFOW {}
 impl ::core::clone::Clone for SERVICE_REQUIRED_PRIVILEGES_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERVICE_REQUIRED_PRIVILEGES_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_REQUIRED_PRIVILEGES_INFOW").field("pmszRequiredPrivileges", &self.pmszRequiredPrivileges).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1993,6 +2144,11 @@ impl ::core::clone::Clone for SERVICE_SID_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for SERVICE_SID_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_SID_INFO").field("dwServiceSidType", &self.dwServiceSidType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SERVICE_SID_INFO {
     type Abi = Self;
 }
@@ -2022,6 +2178,11 @@ impl ::core::marker::Copy for SERVICE_START_REASON {}
 impl ::core::clone::Clone for SERVICE_START_REASON {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SERVICE_START_REASON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_START_REASON").field("dwReason", &self.dwReason).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SERVICE_START_REASON {
@@ -2077,6 +2238,11 @@ impl ::core::clone::Clone for SERVICE_STATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for SERVICE_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_STATUS").field("dwServiceType", &self.dwServiceType).field("dwCurrentState", &self.dwCurrentState).field("dwControlsAccepted", &self.dwControlsAccepted).field("dwWin32ExitCode", &self.dwWin32ExitCode).field("dwServiceSpecificExitCode", &self.dwServiceSpecificExitCode).field("dwCheckPoint", &self.dwCheckPoint).field("dwWaitHint", &self.dwWaitHint).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SERVICE_STATUS {
     type Abi = Self;
 }
@@ -2125,6 +2291,11 @@ impl ::core::marker::Copy for SERVICE_STATUS_PROCESS {}
 impl ::core::clone::Clone for SERVICE_STATUS_PROCESS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SERVICE_STATUS_PROCESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_STATUS_PROCESS").field("dwServiceType", &self.dwServiceType).field("dwCurrentState", &self.dwCurrentState).field("dwControlsAccepted", &self.dwControlsAccepted).field("dwWin32ExitCode", &self.dwWin32ExitCode).field("dwServiceSpecificExitCode", &self.dwServiceSpecificExitCode).field("dwCheckPoint", &self.dwCheckPoint).field("dwWaitHint", &self.dwWaitHint).field("dwProcessId", &self.dwProcessId).field("dwServiceFlags", &self.dwServiceFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SERVICE_STATUS_PROCESS {
@@ -2245,6 +2416,12 @@ impl ::core::clone::Clone for SERVICE_TABLE_ENTRYA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERVICE_TABLE_ENTRYA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_TABLE_ENTRYA").field("lpServiceName", &self.lpServiceName).field("lpServiceProc", &self.lpServiceProc.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SERVICE_TABLE_ENTRYA {
     type Abi = Self;
 }
@@ -2278,6 +2455,12 @@ impl ::core::clone::Clone for SERVICE_TABLE_ENTRYW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERVICE_TABLE_ENTRYW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_TABLE_ENTRYW").field("lpServiceName", &self.lpServiceName).field("lpServiceProc", &self.lpServiceProc.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SERVICE_TABLE_ENTRYW {
     type Abi = Self;
 }
@@ -2307,6 +2490,11 @@ impl ::core::clone::Clone for SERVICE_TIMECHANGE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for SERVICE_TIMECHANGE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_TIMECHANGE_INFO").field("liNewTime", &self.liNewTime).field("liOldTime", &self.liOldTime).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SERVICE_TIMECHANGE_INFO {
     type Abi = Self;
 }
@@ -2334,6 +2522,11 @@ impl ::core::marker::Copy for SERVICE_TRIGGER {}
 impl ::core::clone::Clone for SERVICE_TRIGGER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SERVICE_TRIGGER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_TRIGGER").field("dwTriggerType", &self.dwTriggerType).field("dwAction", &self.dwAction).field("pTriggerSubtype", &self.pTriggerSubtype).field("cDataItems", &self.cDataItems).field("pDataItems", &self.pDataItems).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SERVICE_TRIGGER {
@@ -2367,6 +2560,11 @@ impl ::core::clone::Clone for SERVICE_TRIGGER_CUSTOM_STATE_ID {
         *self
     }
 }
+impl ::core::fmt::Debug for SERVICE_TRIGGER_CUSTOM_STATE_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_TRIGGER_CUSTOM_STATE_ID").field("Data", &self.Data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_CUSTOM_STATE_ID {
     type Abi = Self;
 }
@@ -2394,6 +2592,11 @@ impl ::core::clone::Clone for SERVICE_TRIGGER_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for SERVICE_TRIGGER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_TRIGGER_INFO").field("cTriggers", &self.cTriggers).field("pTriggers", &self.pTriggers).field("pReserved", &self.pReserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_INFO {
     type Abi = Self;
 }
@@ -2419,6 +2622,11 @@ impl ::core::marker::Copy for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {}
 impl ::core::clone::Clone for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERVICE_TRIGGER_SPECIFIC_DATA_ITEM").field("dwDataType", &self.dwDataType).field("cbData", &self.cbData).field("pData", &self.pData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {

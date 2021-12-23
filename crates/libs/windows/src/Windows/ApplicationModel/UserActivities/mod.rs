@@ -286,6 +286,11 @@ impl ::core::cmp::PartialEq for IUserActivityContentInfo {
     }
 }
 impl ::core::cmp::Eq for IUserActivityContentInfo {}
+impl ::core::fmt::Debug for IUserActivityContentInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUserActivityContentInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IUserActivityContentInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b399e5ad-137f-409d-822d-e1af27ce08dc}");
 }
@@ -718,6 +723,11 @@ impl ::core::cmp::PartialEq for UserActivity {
     }
 }
 impl ::core::cmp::Eq for UserActivity {}
+impl ::core::fmt::Debug for UserActivity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserActivity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserActivity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivity;{fc103e9e-2cab-4d36-aea2-b4bb556cef0f})");
 }
@@ -847,6 +857,11 @@ impl ::core::cmp::PartialEq for UserActivityAttribution {
     }
 }
 impl ::core::cmp::Eq for UserActivityAttribution {}
+impl ::core::fmt::Debug for UserActivityAttribution {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserActivityAttribution").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserActivityAttribution {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityAttribution;{34a5c8b5-86dd-4aec-a491-6a4faea5d22e})");
 }
@@ -1002,6 +1017,11 @@ impl ::core::cmp::PartialEq for UserActivityChannel {
     }
 }
 impl ::core::cmp::Eq for UserActivityChannel {}
+impl ::core::fmt::Debug for UserActivityChannel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserActivityChannel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserActivityChannel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityChannel;{bac0f8b8-a0e4-483b-b948-9cbabd06070c})");
 }
@@ -1090,6 +1110,11 @@ impl ::core::cmp::PartialEq for UserActivityContentInfo {
     }
 }
 impl ::core::cmp::Eq for UserActivityContentInfo {}
+impl ::core::fmt::Debug for UserActivityContentInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserActivityContentInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserActivityContentInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityContentInfo;{b399e5ad-137f-409d-822d-e1af27ce08dc})");
 }
@@ -1185,6 +1210,11 @@ impl ::core::cmp::PartialEq for UserActivityRequest {
     }
 }
 impl ::core::cmp::Eq for UserActivityRequest {}
+impl ::core::fmt::Debug for UserActivityRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserActivityRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserActivityRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityRequest;{a0ef6355-cf35-4ff0-8833-50cb4b72e06d})");
 }
@@ -1280,6 +1310,11 @@ impl ::core::cmp::PartialEq for UserActivityRequestManager {
     }
 }
 impl ::core::cmp::Eq for UserActivityRequestManager {}
+impl ::core::fmt::Debug for UserActivityRequestManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserActivityRequestManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserActivityRequestManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityRequestManager;{0c30be4e-903d-48d6-82d4-4043ed57791b})");
 }
@@ -1363,6 +1398,11 @@ impl ::core::cmp::PartialEq for UserActivityRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for UserActivityRequestedEventArgs {}
+impl ::core::fmt::Debug for UserActivityRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserActivityRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserActivityRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityRequestedEventArgs;{a4cc7a4c-8229-4cfd-a3bc-c61d318575a4})");
 }
@@ -1445,6 +1485,11 @@ impl ::core::cmp::PartialEq for UserActivitySession {
     }
 }
 impl ::core::cmp::Eq for UserActivitySession {}
+impl ::core::fmt::Debug for UserActivitySession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserActivitySession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserActivitySession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivitySession;{ae434d78-24fa-44a3-ad48-6eda61aa1924})");
 }
@@ -1565,6 +1610,11 @@ impl ::core::cmp::PartialEq for UserActivitySessionHistoryItem {
     }
 }
 impl ::core::cmp::Eq for UserActivitySessionHistoryItem {}
+impl ::core::fmt::Debug for UserActivitySessionHistoryItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserActivitySessionHistoryItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserActivitySessionHistoryItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem;{e8d59bd3-3e5d-49fd-98d7-6da97521e255})");
 }
@@ -1639,6 +1689,11 @@ impl ::core::cmp::PartialEq for UserActivityState {
     }
 }
 impl ::core::cmp::Eq for UserActivityState {}
+impl ::core::fmt::Debug for UserActivityState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserActivityState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserActivityState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserActivities.UserActivityState;i4)");
 }
@@ -1743,6 +1798,11 @@ impl ::core::cmp::PartialEq for UserActivityVisualElements {
     }
 }
 impl ::core::cmp::Eq for UserActivityVisualElements {}
+impl ::core::fmt::Debug for UserActivityVisualElements {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserActivityVisualElements").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserActivityVisualElements {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityVisualElements;{94757513-262f-49ef-bbbf-9b75d2e85250})");
 }

@@ -48,6 +48,11 @@ impl ::core::cmp::PartialEq for IUIApplication {
     }
 }
 impl ::core::cmp::Eq for IUIApplication {}
+impl ::core::fmt::Debug for IUIApplication {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIApplication").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIApplication {
     type Vtable = IUIApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd428903c_729a_491d_910d_682a08ff2522);
@@ -128,6 +133,11 @@ impl ::core::cmp::PartialEq for IUICollection {
     }
 }
 impl ::core::cmp::Eq for IUICollection {}
+impl ::core::fmt::Debug for IUICollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUICollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUICollection {
     type Vtable = IUICollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf4f45bf_6f9d_4dd7_9d68_d8f9cd18c4db);
@@ -186,6 +196,11 @@ impl ::core::cmp::PartialEq for IUICollectionChangedEvent {
     }
 }
 impl ::core::cmp::Eq for IUICollectionChangedEvent {}
+impl ::core::fmt::Debug for IUICollectionChangedEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUICollectionChangedEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUICollectionChangedEvent {
     type Vtable = IUICollectionChangedEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6502ae91_a14d_44b5_bbd0_62aacc581d52);
@@ -245,6 +260,11 @@ impl ::core::cmp::PartialEq for IUICommandHandler {
     }
 }
 impl ::core::cmp::Eq for IUICommandHandler {}
+impl ::core::fmt::Debug for IUICommandHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUICommandHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUICommandHandler {
     type Vtable = IUICommandHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75ae0a2d_dc03_4c9f_8883_069660d0beb6);
@@ -300,6 +320,11 @@ impl ::core::cmp::PartialEq for IUIContextualUI {
     }
 }
 impl ::core::cmp::Eq for IUIContextualUI {}
+impl ::core::fmt::Debug for IUIContextualUI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIContextualUI").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIContextualUI {
     type Vtable = IUIContextualUIVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeea11f37_7c46_437c_8e55_b52122b29293);
@@ -348,6 +373,11 @@ impl ::core::cmp::PartialEq for IUIEventLogger {
     }
 }
 impl ::core::cmp::Eq for IUIEventLogger {}
+impl ::core::fmt::Debug for IUIEventLogger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIEventLogger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIEventLogger {
     type Vtable = IUIEventLoggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec3e1034_dbf4_41a1_95d5_03e0f1026e05);
@@ -401,6 +431,11 @@ impl ::core::cmp::PartialEq for IUIEventingManager {
     }
 }
 impl ::core::cmp::Eq for IUIEventingManager {}
+impl ::core::fmt::Debug for IUIEventingManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIEventingManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIEventingManager {
     type Vtable = IUIEventingManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3be6ea7f_9a9b_4198_9368_9b0f923bd534);
@@ -486,6 +521,11 @@ impl ::core::cmp::PartialEq for IUIFramework {
     }
 }
 impl ::core::cmp::Eq for IUIFramework {}
+impl ::core::fmt::Debug for IUIFramework {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIFramework").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIFramework {
     type Vtable = IUIFrameworkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4f0385d_6872_43a8_ad09_4c339cb3f5c5);
@@ -553,6 +593,11 @@ impl ::core::cmp::PartialEq for IUIImage {
     }
 }
 impl ::core::cmp::Eq for IUIImage {}
+impl ::core::fmt::Debug for IUIImage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIImage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIImage {
     type Vtable = IUIImageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23c8c838_4de6_436b_ab01_5554bb7c30dd);
@@ -608,6 +653,11 @@ impl ::core::cmp::PartialEq for IUIImageFromBitmap {
     }
 }
 impl ::core::cmp::Eq for IUIImageFromBitmap {}
+impl ::core::fmt::Debug for IUIImageFromBitmap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIImageFromBitmap").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIImageFromBitmap {
     type Vtable = IUIImageFromBitmapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18aba7f3_4c1c_4ba2_bf6c_f5c3326fa816);
@@ -672,6 +722,11 @@ impl ::core::cmp::PartialEq for IUIRibbon {
     }
 }
 impl ::core::cmp::Eq for IUIRibbon {}
+impl ::core::fmt::Debug for IUIRibbon {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIRibbon").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIRibbon {
     type Vtable = IUIRibbonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x803982ab_370a_4f7e_a9e7_8784036a6e26);
@@ -730,6 +785,11 @@ impl ::core::cmp::PartialEq for IUISimplePropertySet {
     }
 }
 impl ::core::cmp::Eq for IUISimplePropertySet {}
+impl ::core::fmt::Debug for IUISimplePropertySet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUISimplePropertySet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUISimplePropertySet {
     type Vtable = IUISimplePropertySetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc205bb48_5b1c_4219_a106_15bd0a5f24e2);
@@ -895,6 +955,12 @@ impl ::core::marker::Copy for UI_EVENTPARAMS_COMMAND {}
 impl ::core::clone::Clone for UI_EVENTPARAMS_COMMAND {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for UI_EVENTPARAMS_COMMAND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UI_EVENTPARAMS_COMMAND").field("CommandID", &self.CommandID).field("CommandName", &self.CommandName).field("ParentCommandID", &self.ParentCommandID).field("ParentCommandName", &self.ParentCommandName).field("SelectionIndex", &self.SelectionIndex).field("Location", &self.Location).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

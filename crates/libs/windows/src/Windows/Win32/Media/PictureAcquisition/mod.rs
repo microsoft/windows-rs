@@ -114,6 +114,11 @@ impl ::core::cmp::PartialEq for IPhotoAcquire {
     }
 }
 impl ::core::cmp::Eq for IPhotoAcquire {}
+impl ::core::fmt::Debug for IPhotoAcquire {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPhotoAcquire").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPhotoAcquire {
     type Vtable = IPhotoAcquireVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f23353_e31b_4955_a8ad_ca5ebf31e2ce);
@@ -182,6 +187,11 @@ impl ::core::cmp::PartialEq for IPhotoAcquireDeviceSelectionDialog {
     }
 }
 impl ::core::cmp::Eq for IPhotoAcquireDeviceSelectionDialog {}
+impl ::core::fmt::Debug for IPhotoAcquireDeviceSelectionDialog {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPhotoAcquireDeviceSelectionDialog").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPhotoAcquireDeviceSelectionDialog {
     type Vtable = IPhotoAcquireDeviceSelectionDialogVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f28837_55dd_4f37_aaf5_6855a9640467);
@@ -284,6 +294,11 @@ impl ::core::cmp::PartialEq for IPhotoAcquireItem {
     }
 }
 impl ::core::cmp::Eq for IPhotoAcquireItem {}
+impl ::core::fmt::Debug for IPhotoAcquireItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPhotoAcquireItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPhotoAcquireItem {
     type Vtable = IPhotoAcquireItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f21c97_28bf_4c02_b842_5e4e90139a30);
@@ -370,6 +385,11 @@ impl ::core::cmp::PartialEq for IPhotoAcquireOptionsDialog {
     }
 }
 impl ::core::cmp::Eq for IPhotoAcquireOptionsDialog {}
+impl ::core::fmt::Debug for IPhotoAcquireOptionsDialog {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPhotoAcquireOptionsDialog").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPhotoAcquireOptionsDialog {
     type Vtable = IPhotoAcquireOptionsDialogVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f2b3ee_bf64_47ee_89f4_4dedd79643f2);
@@ -443,6 +463,11 @@ impl ::core::cmp::PartialEq for IPhotoAcquirePlugin {
     }
 }
 impl ::core::cmp::Eq for IPhotoAcquirePlugin {}
+impl ::core::fmt::Debug for IPhotoAcquirePlugin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPhotoAcquirePlugin").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPhotoAcquirePlugin {
     type Vtable = IPhotoAcquirePluginVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f2dceb_ecb8_4f77_8e47_e7a987c83dd0);
@@ -581,6 +606,11 @@ impl ::core::cmp::PartialEq for IPhotoAcquireProgressCB {
     }
 }
 impl ::core::cmp::Eq for IPhotoAcquireProgressCB {}
+impl ::core::fmt::Debug for IPhotoAcquireProgressCB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPhotoAcquireProgressCB").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPhotoAcquireProgressCB {
     type Vtable = IPhotoAcquireProgressCBVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f2ce1e_935e_4248_892c_130f32c45cb4);
@@ -720,6 +750,11 @@ impl ::core::cmp::PartialEq for IPhotoAcquireSettings {
     }
 }
 impl ::core::cmp::Eq for IPhotoAcquireSettings {}
+impl ::core::fmt::Debug for IPhotoAcquireSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPhotoAcquireSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPhotoAcquireSettings {
     type Vtable = IPhotoAcquireSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f2b868_dd67_487c_9553_049240767e91);
@@ -830,6 +865,11 @@ impl ::core::cmp::PartialEq for IPhotoAcquireSource {
     }
 }
 impl ::core::cmp::Eq for IPhotoAcquireSource {}
+impl ::core::fmt::Debug for IPhotoAcquireSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPhotoAcquireSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPhotoAcquireSource {
     type Vtable = IPhotoAcquireSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f2c703_8613_4282_a53b_6ec59c5883ac);
@@ -894,6 +934,11 @@ impl ::core::cmp::PartialEq for IPhotoProgressActionCB {
     }
 }
 impl ::core::cmp::Eq for IPhotoProgressActionCB {}
+impl ::core::fmt::Debug for IPhotoProgressActionCB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPhotoProgressActionCB").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPhotoProgressActionCB {
     type Vtable = IPhotoProgressActionCBVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f242d0_b206_4e7d_b4c1_4755bcbb9c9f);
@@ -1033,6 +1078,11 @@ impl ::core::cmp::PartialEq for IPhotoProgressDialog {
     }
 }
 impl ::core::cmp::Eq for IPhotoProgressDialog {}
+impl ::core::fmt::Debug for IPhotoProgressDialog {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPhotoProgressDialog").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPhotoProgressDialog {
     type Vtable = IPhotoProgressDialogVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f246f9_0750_4f08_9381_2cd8e906a4ae);
@@ -1169,6 +1219,11 @@ impl ::core::cmp::PartialEq for IUserInputString {
     }
 }
 impl ::core::cmp::Eq for IUserInputString {}
+impl ::core::fmt::Debug for IUserInputString {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUserInputString").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUserInputString {
     type Vtable = IUserInputStringVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f243a1_205b_45ba_ae26_abbc53aa7a6f);

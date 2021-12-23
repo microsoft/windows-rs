@@ -259,6 +259,11 @@ impl ::core::cmp::PartialEq for AsymmetricKeyAlgorithmProvider {
     }
 }
 impl ::core::cmp::Eq for AsymmetricKeyAlgorithmProvider {}
+impl ::core::fmt::Debug for AsymmetricKeyAlgorithmProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsymmetricKeyAlgorithmProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AsymmetricKeyAlgorithmProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider;{e8d2ff37-6259-4e88-b7e0-94191fde699e})");
 }
@@ -333,6 +338,11 @@ impl ::core::cmp::PartialEq for Capi1KdfTargetAlgorithm {
     }
 }
 impl ::core::cmp::Eq for Capi1KdfTargetAlgorithm {}
+impl ::core::fmt::Debug for Capi1KdfTargetAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Capi1KdfTargetAlgorithm").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Capi1KdfTargetAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.Capi1KdfTargetAlgorithm;i4)");
 }
@@ -483,6 +493,11 @@ impl ::core::cmp::PartialEq for CryptographicHash {
     }
 }
 impl ::core::cmp::Eq for CryptographicHash {}
+impl ::core::fmt::Debug for CryptographicHash {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CryptographicHash").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CryptographicHash {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.CryptographicHash;{5904d1b6-ad31-4603-a3a4-b1bda98e2562})");
 }
@@ -595,6 +610,11 @@ impl ::core::cmp::PartialEq for CryptographicKey {
     }
 }
 impl ::core::cmp::Eq for CryptographicKey {}
+impl ::core::fmt::Debug for CryptographicKey {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CryptographicKey").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CryptographicKey {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.CryptographicKey;{ed2a3b70-8e7b-4009-8401-ffd1a62eeb27})");
 }
@@ -671,6 +691,11 @@ impl ::core::cmp::PartialEq for CryptographicPadding {
     }
 }
 impl ::core::cmp::Eq for CryptographicPadding {}
+impl ::core::fmt::Debug for CryptographicPadding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CryptographicPadding").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CryptographicPadding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPadding;i4)");
 }
@@ -702,6 +727,11 @@ impl ::core::cmp::PartialEq for CryptographicPrivateKeyBlobType {
     }
 }
 impl ::core::cmp::Eq for CryptographicPrivateKeyBlobType {}
+impl ::core::fmt::Debug for CryptographicPrivateKeyBlobType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CryptographicPrivateKeyBlobType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CryptographicPrivateKeyBlobType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPrivateKeyBlobType;i4)");
 }
@@ -733,6 +763,11 @@ impl ::core::cmp::PartialEq for CryptographicPublicKeyBlobType {
     }
 }
 impl ::core::cmp::Eq for CryptographicPublicKeyBlobType {}
+impl ::core::fmt::Debug for CryptographicPublicKeyBlobType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CryptographicPublicKeyBlobType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CryptographicPublicKeyBlobType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPublicKeyBlobType;i4)");
 }
@@ -1108,6 +1143,11 @@ impl ::core::cmp::PartialEq for EncryptedAndAuthenticatedData {
     }
 }
 impl ::core::cmp::Eq for EncryptedAndAuthenticatedData {}
+impl ::core::fmt::Debug for EncryptedAndAuthenticatedData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EncryptedAndAuthenticatedData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EncryptedAndAuthenticatedData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.EncryptedAndAuthenticatedData;{6fa42fe7-1ecb-4b00-bea5-60b83f862f17})");
 }
@@ -1268,6 +1308,11 @@ impl ::core::cmp::PartialEq for HashAlgorithmProvider {
     }
 }
 impl ::core::cmp::Eq for HashAlgorithmProvider {}
+impl ::core::fmt::Debug for HashAlgorithmProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HashAlgorithmProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HashAlgorithmProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.HashAlgorithmProvider;{be9b3080-b2c3-422b-bce1-ec90efb5d7b5})");
 }
@@ -2244,6 +2289,11 @@ impl ::core::cmp::PartialEq for KeyDerivationAlgorithmProvider {
     }
 }
 impl ::core::cmp::Eq for KeyDerivationAlgorithmProvider {}
+impl ::core::fmt::Debug for KeyDerivationAlgorithmProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyDerivationAlgorithmProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for KeyDerivationAlgorithmProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.KeyDerivationAlgorithmProvider;{e1fba83b-4671-43b7-9158-763aaa98b6bf})");
 }
@@ -2389,6 +2439,11 @@ impl ::core::cmp::PartialEq for KeyDerivationParameters {
     }
 }
 impl ::core::cmp::Eq for KeyDerivationParameters {}
+impl ::core::fmt::Debug for KeyDerivationParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyDerivationParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for KeyDerivationParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.KeyDerivationParameters;{7bf05967-047b-4a8c-964a-469ffd5522e2})");
 }
@@ -2557,6 +2612,11 @@ impl ::core::cmp::PartialEq for MacAlgorithmProvider {
     }
 }
 impl ::core::cmp::Eq for MacAlgorithmProvider {}
+impl ::core::fmt::Debug for MacAlgorithmProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MacAlgorithmProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MacAlgorithmProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.MacAlgorithmProvider;{4a3fc5c3-1cbd-41ce-a092-aa0bc5d2d2f5})");
 }
@@ -2835,6 +2895,11 @@ impl ::core::cmp::PartialEq for SymmetricKeyAlgorithmProvider {
     }
 }
 impl ::core::cmp::Eq for SymmetricKeyAlgorithmProvider {}
+impl ::core::fmt::Debug for SymmetricKeyAlgorithmProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SymmetricKeyAlgorithmProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SymmetricKeyAlgorithmProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider;{3d7e4a33-3bd0-4902-8ac8-470d50d21376})");
 }

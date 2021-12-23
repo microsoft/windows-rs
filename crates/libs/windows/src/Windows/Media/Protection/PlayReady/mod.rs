@@ -166,6 +166,12 @@ impl ::core::cmp::PartialEq for INDClosedCaptionDataReceivedEventArgs {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for INDClosedCaptionDataReceivedEventArgs {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for INDClosedCaptionDataReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INDClosedCaptionDataReceivedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDClosedCaptionDataReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4738d29f-c345-4649-8468-b8c5fc357190}");
 }
@@ -278,6 +284,12 @@ impl ::core::cmp::PartialEq for INDCustomData {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for INDCustomData {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for INDCustomData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INDCustomData").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDCustomData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f5cb0fdc-2d09-4f19-b5e1-76a0b3ee9267}");
@@ -460,6 +472,12 @@ impl ::core::cmp::PartialEq for INDDownloadEngine {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for INDDownloadEngine {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for INDDownloadEngine {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INDDownloadEngine").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDDownloadEngine {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2d223d65-c4b6-4438-8d46-b96e6d0fb21f}");
 }
@@ -603,6 +621,12 @@ impl ::core::cmp::PartialEq for INDDownloadEngineNotifier {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for INDDownloadEngineNotifier {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for INDDownloadEngineNotifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INDDownloadEngineNotifier").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDDownloadEngineNotifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d720b4d4-f4b8-4530-a809-9193a571e7fc}");
 }
@@ -712,6 +736,12 @@ impl ::core::cmp::PartialEq for INDLicenseFetchCompletedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for INDLicenseFetchCompletedEventArgs {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for INDLicenseFetchCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INDLicenseFetchCompletedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDLicenseFetchCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1ee30a1a-11b2-4558-8865-e3a516922517}");
@@ -836,6 +866,12 @@ impl ::core::cmp::PartialEq for INDLicenseFetchDescriptor {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for INDLicenseFetchDescriptor {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for INDLicenseFetchDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INDLicenseFetchDescriptor").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDLicenseFetchDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5498d33a-e686-4935-a567-7ca77ad20fa4}");
@@ -965,6 +1001,12 @@ impl ::core::cmp::PartialEq for INDLicenseFetchResult {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for INDLicenseFetchResult {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for INDLicenseFetchResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INDLicenseFetchResult").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDLicenseFetchResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{21d39698-aa62-45ff-a5ff-8037e5433825}");
 }
@@ -1092,6 +1134,12 @@ impl ::core::cmp::PartialEq for INDMessenger {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for INDMessenger {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for INDMessenger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INDMessenger").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDMessenger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d42df95d-a75b-47bf-8249-bc83820da38a}");
 }
@@ -1197,6 +1245,12 @@ impl ::core::cmp::PartialEq for INDProximityDetectionCompletedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for INDProximityDetectionCompletedEventArgs {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for INDProximityDetectionCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INDProximityDetectionCompletedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDProximityDetectionCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2a706328-da25-4f8c-9eb7-5d0fc3658bca}");
@@ -1322,6 +1376,12 @@ impl ::core::cmp::PartialEq for INDRegistrationCompletedEventArgs {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for INDRegistrationCompletedEventArgs {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for INDRegistrationCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INDRegistrationCompletedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDRegistrationCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9e39b64d-ab5b-4905-acdc-787a77c6374d}");
 }
@@ -1428,6 +1488,12 @@ impl ::core::cmp::PartialEq for INDSendResult {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for INDSendResult {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for INDSendResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INDSendResult").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDSendResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e3685517-a584-479d-90b7-d689c7bf7c80}");
 }
@@ -1528,6 +1594,12 @@ impl ::core::cmp::PartialEq for INDStartResult {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for INDStartResult {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for INDStartResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INDStartResult").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDStartResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{79f6e96e-f50f-4015-8ba4-c2bc344ebd4e}");
 }
@@ -1627,6 +1699,12 @@ impl ::core::cmp::PartialEq for INDStorageFileHelper {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for INDStorageFileHelper {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for INDStorageFileHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INDStorageFileHelper").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDStorageFileHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d8f0bef8-91d2-4d47-a3f9-eaff4edb729f}");
@@ -1755,6 +1833,12 @@ impl ::core::cmp::PartialEq for INDStreamParser {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for INDStreamParser {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for INDStreamParser {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INDStreamParser").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDStreamParser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e0baa198-9796-41c9-8695-59437e67e66a}");
 }
@@ -1877,6 +1961,12 @@ impl ::core::cmp::PartialEq for INDStreamParserNotifier {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for INDStreamParserNotifier {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for INDStreamParserNotifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INDStreamParserNotifier").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDStreamParserNotifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c167acd0-2ce6-426c-ace5-5e9275fea715}");
@@ -2095,6 +2185,12 @@ impl ::core::cmp::PartialEq for INDTransmitterProperties {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for INDTransmitterProperties {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for INDTransmitterProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INDTransmitterProperties").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDTransmitterProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e536af23-ac4f-4adc-8c66-4ff7c2702dd6}");
@@ -2341,6 +2437,11 @@ impl ::core::cmp::PartialEq for IPlayReadyDomain {
     }
 }
 impl ::core::cmp::Eq for IPlayReadyDomain {}
+impl ::core::fmt::Debug for IPlayReadyDomain {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPlayReadyDomain").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPlayReadyDomain {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{adcc93ac-97e6-43ef-95e4-d7868f3b16a9}");
 }
@@ -2576,6 +2677,11 @@ impl ::core::cmp::PartialEq for IPlayReadyLicense {
     }
 }
 impl ::core::cmp::Eq for IPlayReadyLicense {}
+impl ::core::fmt::Debug for IPlayReadyLicense {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPlayReadyLicense").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPlayReadyLicense {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ee474c4e-fa3c-414d-a9f2-3ffc1ef832d4}");
 }
@@ -2833,6 +2939,11 @@ impl ::core::cmp::PartialEq for IPlayReadyLicenseAcquisitionServiceRequest {
     }
 }
 impl ::core::cmp::Eq for IPlayReadyLicenseAcquisitionServiceRequest {}
+impl ::core::fmt::Debug for IPlayReadyLicenseAcquisitionServiceRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPlayReadyLicenseAcquisitionServiceRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPlayReadyLicenseAcquisitionServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5d85ff45-3e9f-4f48-93e1-9530c8d58c3e}");
 }
@@ -2998,6 +3109,11 @@ impl ::core::cmp::PartialEq for IPlayReadyLicenseSession {
     }
 }
 impl ::core::cmp::Eq for IPlayReadyLicenseSession {}
+impl ::core::fmt::Debug for IPlayReadyLicenseSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPlayReadyLicenseSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPlayReadyLicenseSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a1723a39-87fa-4fdd-abbb-a9720e845259}");
 }
@@ -3117,6 +3233,11 @@ impl ::core::cmp::PartialEq for IPlayReadyLicenseSession2 {
     }
 }
 impl ::core::cmp::Eq for IPlayReadyLicenseSession2 {}
+impl ::core::fmt::Debug for IPlayReadyLicenseSession2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPlayReadyLicenseSession2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPlayReadyLicenseSession2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4909be3a-3aed-4656-8ad7-ee0fd7799510}");
 }
@@ -3437,6 +3558,11 @@ impl ::core::cmp::PartialEq for IPlayReadySecureStopServiceRequest {
     }
 }
 impl ::core::cmp::Eq for IPlayReadySecureStopServiceRequest {}
+impl ::core::fmt::Debug for IPlayReadySecureStopServiceRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPlayReadySecureStopServiceRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPlayReadySecureStopServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b5501ee5-01bf-4401-9677-05630a6a4cc8}");
 }
@@ -3643,6 +3769,11 @@ impl ::core::cmp::PartialEq for IPlayReadyServiceRequest {
     }
 }
 impl ::core::cmp::Eq for IPlayReadyServiceRequest {}
+impl ::core::fmt::Debug for IPlayReadyServiceRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPlayReadyServiceRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPlayReadyServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8bad2836-a703-45a6-a180-76f3565aa725}");
 }
@@ -3832,6 +3963,12 @@ impl ::core::cmp::PartialEq for NDCertificateFeature {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDCertificateFeature {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDCertificateFeature {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDCertificateFeature").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDCertificateFeature {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificateFeature;i4)");
 }
@@ -3878,6 +4015,12 @@ impl ::core::cmp::PartialEq for NDCertificatePlatformID {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDCertificatePlatformID {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDCertificatePlatformID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDCertificatePlatformID").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDCertificatePlatformID {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificatePlatformID;i4)");
@@ -3926,6 +4069,12 @@ impl ::core::cmp::PartialEq for NDCertificateType {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDCertificateType {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDCertificateType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDCertificateType").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDCertificateType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificateType;i4)");
@@ -4078,6 +4227,12 @@ impl ::core::cmp::PartialEq for NDClient {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDClient {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDClient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDClient").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDClient {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDClient;{3bd6781b-61b8-46e2-99a5-8abcb6b9f7d6})");
 }
@@ -4169,6 +4324,12 @@ impl ::core::cmp::PartialEq for NDClosedCaptionFormat {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDClosedCaptionFormat {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDClosedCaptionFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDClosedCaptionFormat").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDClosedCaptionFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDClosedCaptionFormat;i4)");
 }
@@ -4206,6 +4367,12 @@ impl ::core::cmp::PartialEq for NDContentIDType {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDContentIDType {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDContentIDType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDContentIDType").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDContentIDType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDContentIDType;i4)");
@@ -4267,6 +4434,12 @@ impl ::core::cmp::PartialEq for NDCustomData {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDCustomData {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDCustomData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDCustomData").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDCustomData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDCustomData;{f5cb0fdc-2d09-4f19-b5e1-76a0b3ee9267})");
@@ -4418,6 +4591,12 @@ impl ::core::cmp::PartialEq for NDDownloadEngineNotifier {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDDownloadEngineNotifier {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDDownloadEngineNotifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDDownloadEngineNotifier").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDDownloadEngineNotifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDDownloadEngineNotifier;{d720b4d4-f4b8-4530-a809-9193a571e7fc})");
@@ -4574,6 +4753,12 @@ impl ::core::cmp::PartialEq for NDLicenseFetchDescriptor {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDLicenseFetchDescriptor {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDLicenseFetchDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDLicenseFetchDescriptor").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDLicenseFetchDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDLicenseFetchDescriptor;{5498d33a-e686-4935-a567-7ca77ad20fa4})");
 }
@@ -4690,6 +4875,12 @@ impl ::core::cmp::PartialEq for NDMediaStreamType {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDMediaStreamType {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDMediaStreamType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDMediaStreamType").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDMediaStreamType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDMediaStreamType;i4)");
 }
@@ -4728,6 +4919,12 @@ impl ::core::cmp::PartialEq for NDProximityDetectionType {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDProximityDetectionType {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDProximityDetectionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDProximityDetectionType").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDProximityDetectionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDProximityDetectionType;i4)");
 }
@@ -4764,6 +4961,12 @@ impl ::core::cmp::PartialEq for NDStartAsyncOptions {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDStartAsyncOptions {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDStartAsyncOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDStartAsyncOptions").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDStartAsyncOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDStartAsyncOptions;i4)");
@@ -4809,6 +5012,12 @@ impl ::core::cmp::PartialEq for NDStorageFileHelper {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDStorageFileHelper {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDStorageFileHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDStorageFileHelper").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDStorageFileHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDStorageFileHelper;{d8f0bef8-91d2-4d47-a3f9-eaff4edb729f})");
@@ -4948,6 +5157,12 @@ impl ::core::cmp::PartialEq for NDStreamParserNotifier {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDStreamParserNotifier {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDStreamParserNotifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDStreamParserNotifier").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDStreamParserNotifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDStreamParserNotifier;{c167acd0-2ce6-426c-ace5-5e9275fea715})");
@@ -5106,6 +5321,12 @@ impl ::core::cmp::PartialEq for NDTCPMessenger {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDTCPMessenger {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDTCPMessenger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDTCPMessenger").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDTCPMessenger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDTCPMessenger;{d42df95d-a75b-47bf-8249-bc83820da38a})");
@@ -5348,6 +5569,11 @@ impl ::core::cmp::PartialEq for PlayReadyContentHeader {
     }
 }
 impl ::core::cmp::Eq for PlayReadyContentHeader {}
+impl ::core::fmt::Debug for PlayReadyContentHeader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyContentHeader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayReadyContentHeader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyContentHeader;{9a438a6a-7f4c-452e-88bd-0148c6387a2c})");
 }
@@ -5439,6 +5665,11 @@ impl ::core::cmp::PartialEq for PlayReadyDecryptorSetup {
     }
 }
 impl ::core::cmp::Eq for PlayReadyDecryptorSetup {}
+impl ::core::fmt::Debug for PlayReadyDecryptorSetup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyDecryptorSetup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayReadyDecryptorSetup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.PlayReadyDecryptorSetup;i4)");
 }
@@ -5502,6 +5733,11 @@ impl ::core::cmp::PartialEq for PlayReadyDomain {
     }
 }
 impl ::core::cmp::Eq for PlayReadyDomain {}
+impl ::core::fmt::Debug for PlayReadyDomain {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyDomain").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayReadyDomain {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyDomain;{adcc93ac-97e6-43ef-95e4-d7868f3b16a9})");
 }
@@ -5617,6 +5853,12 @@ impl ::core::cmp::PartialEq for PlayReadyDomainIterable {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for PlayReadyDomainIterable {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for PlayReadyDomainIterable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyDomainIterable").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for PlayReadyDomainIterable {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyDomainIterable;pinterface({faa585ea-6214-4217-afda-7f46de5869b3};{adcc93ac-97e6-43ef-95e4-d7868f3b16a9}))");
@@ -5777,6 +6019,12 @@ impl ::core::cmp::PartialEq for PlayReadyDomainIterator {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for PlayReadyDomainIterator {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for PlayReadyDomainIterator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyDomainIterator").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for PlayReadyDomainIterator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyDomainIterator;pinterface({6a79e863-4300-459a-9966-cbb660963ee1};{adcc93ac-97e6-43ef-95e4-d7868f3b16a9}))");
@@ -6011,6 +6259,11 @@ impl ::core::cmp::PartialEq for PlayReadyDomainJoinServiceRequest {
     }
 }
 impl ::core::cmp::Eq for PlayReadyDomainJoinServiceRequest {}
+impl ::core::fmt::Debug for PlayReadyDomainJoinServiceRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyDomainJoinServiceRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayReadyDomainJoinServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyDomainJoinServiceRequest;{171b4a5a-405f-4739-b040-67b9f0c38758})");
 }
@@ -6239,6 +6492,11 @@ impl ::core::cmp::PartialEq for PlayReadyDomainLeaveServiceRequest {
     }
 }
 impl ::core::cmp::Eq for PlayReadyDomainLeaveServiceRequest {}
+impl ::core::fmt::Debug for PlayReadyDomainLeaveServiceRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyDomainLeaveServiceRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayReadyDomainLeaveServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyDomainLeaveServiceRequest;{062d58be-97ad-4917-aa03-46d4c252d464})");
 }
@@ -6359,6 +6617,11 @@ impl ::core::cmp::PartialEq for PlayReadyEncryptionAlgorithm {
     }
 }
 impl ::core::cmp::Eq for PlayReadyEncryptionAlgorithm {}
+impl ::core::fmt::Debug for PlayReadyEncryptionAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyEncryptionAlgorithm").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayReadyEncryptionAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.PlayReadyEncryptionAlgorithm;i4)");
 }
@@ -6388,6 +6651,11 @@ impl ::core::cmp::PartialEq for PlayReadyHardwareDRMFeatures {
     }
 }
 impl ::core::cmp::Eq for PlayReadyHardwareDRMFeatures {}
+impl ::core::fmt::Debug for PlayReadyHardwareDRMFeatures {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyHardwareDRMFeatures").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayReadyHardwareDRMFeatures {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.PlayReadyHardwareDRMFeatures;i4)");
 }
@@ -6416,6 +6684,11 @@ impl ::core::cmp::PartialEq for PlayReadyITADataFormat {
     }
 }
 impl ::core::cmp::Eq for PlayReadyITADataFormat {}
+impl ::core::fmt::Debug for PlayReadyITADataFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyITADataFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayReadyITADataFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.PlayReadyITADataFormat;i4)");
 }
@@ -6454,6 +6727,11 @@ impl ::core::cmp::PartialEq for PlayReadyITADataGenerator {
     }
 }
 impl ::core::cmp::Eq for PlayReadyITADataGenerator {}
+impl ::core::fmt::Debug for PlayReadyITADataGenerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyITADataGenerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayReadyITADataGenerator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyITADataGenerator;{24446b8e-10b9-4530-b25b-901a8029a9b2})");
 }
@@ -6612,6 +6890,11 @@ impl ::core::cmp::PartialEq for PlayReadyIndividualizationServiceRequest {
     }
 }
 impl ::core::cmp::Eq for PlayReadyIndividualizationServiceRequest {}
+impl ::core::fmt::Debug for PlayReadyIndividualizationServiceRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyIndividualizationServiceRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayReadyIndividualizationServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyIndividualizationServiceRequest;{21f5a86b-008c-4611-ab2f-aaa6c69f0e24})");
 }
@@ -6811,6 +7094,11 @@ impl ::core::cmp::PartialEq for PlayReadyLicense {
     }
 }
 impl ::core::cmp::Eq for PlayReadyLicense {}
+impl ::core::fmt::Debug for PlayReadyLicense {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyLicense").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayReadyLicense {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyLicense;{ee474c4e-fa3c-414d-a9f2-3ffc1ef832d4})");
 }
@@ -7034,6 +7322,11 @@ impl ::core::cmp::PartialEq for PlayReadyLicenseAcquisitionServiceRequest {
     }
 }
 impl ::core::cmp::Eq for PlayReadyLicenseAcquisitionServiceRequest {}
+impl ::core::fmt::Debug for PlayReadyLicenseAcquisitionServiceRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyLicenseAcquisitionServiceRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayReadyLicenseAcquisitionServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyLicenseAcquisitionServiceRequest;{5d85ff45-3e9f-4f48-93e1-9530c8d58c3e})");
 }
@@ -7201,6 +7494,12 @@ impl ::core::cmp::PartialEq for PlayReadyLicenseIterable {
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for PlayReadyLicenseIterable {}
 #[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for PlayReadyLicenseIterable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyLicenseIterable").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for PlayReadyLicenseIterable {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyLicenseIterable;pinterface({faa585ea-6214-4217-afda-7f46de5869b3};{ee474c4e-fa3c-414d-a9f2-3ffc1ef832d4}))");
 }
@@ -7361,6 +7660,12 @@ impl ::core::cmp::PartialEq for PlayReadyLicenseIterator {
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for PlayReadyLicenseIterator {}
 #[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for PlayReadyLicenseIterator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyLicenseIterator").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for PlayReadyLicenseIterator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyLicenseIterator;pinterface({6a79e863-4300-459a-9966-cbb660963ee1};{ee474c4e-fa3c-414d-a9f2-3ffc1ef832d4}))");
 }
@@ -7518,6 +7823,11 @@ impl ::core::cmp::PartialEq for PlayReadyLicenseSession {
     }
 }
 impl ::core::cmp::Eq for PlayReadyLicenseSession {}
+impl ::core::fmt::Debug for PlayReadyLicenseSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyLicenseSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayReadyLicenseSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyLicenseSession;{a1723a39-87fa-4fdd-abbb-a9720e845259})");
 }
@@ -7733,6 +8043,11 @@ impl ::core::cmp::PartialEq for PlayReadyMeteringReportServiceRequest {
     }
 }
 impl ::core::cmp::Eq for PlayReadyMeteringReportServiceRequest {}
+impl ::core::fmt::Debug for PlayReadyMeteringReportServiceRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyMeteringReportServiceRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayReadyMeteringReportServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyMeteringReportServiceRequest;{c12b231c-0ecd-4f11-a185-1e24a4a67fb7})");
 }
@@ -7935,6 +8250,11 @@ impl ::core::cmp::PartialEq for PlayReadyRevocationServiceRequest {
     }
 }
 impl ::core::cmp::Eq for PlayReadyRevocationServiceRequest {}
+impl ::core::fmt::Debug for PlayReadyRevocationServiceRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyRevocationServiceRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayReadyRevocationServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyRevocationServiceRequest;{543d66ac-faf0-4560-84a5-0e4acec939e4})");
 }
@@ -8072,6 +8392,12 @@ impl ::core::cmp::PartialEq for PlayReadySecureStopIterable {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for PlayReadySecureStopIterable {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for PlayReadySecureStopIterable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadySecureStopIterable").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for PlayReadySecureStopIterable {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadySecureStopIterable;pinterface({faa585ea-6214-4217-afda-7f46de5869b3};{b5501ee5-01bf-4401-9677-05630a6a4cc8}))");
@@ -8232,6 +8558,12 @@ impl ::core::cmp::PartialEq for PlayReadySecureStopIterator {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for PlayReadySecureStopIterator {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for PlayReadySecureStopIterator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadySecureStopIterator").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for PlayReadySecureStopIterator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadySecureStopIterator;pinterface({6a79e863-4300-459a-9966-cbb660963ee1};{b5501ee5-01bf-4401-9677-05630a6a4cc8}))");
@@ -8481,6 +8813,11 @@ impl ::core::cmp::PartialEq for PlayReadySecureStopServiceRequest {
     }
 }
 impl ::core::cmp::Eq for PlayReadySecureStopServiceRequest {}
+impl ::core::fmt::Debug for PlayReadySecureStopServiceRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadySecureStopServiceRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayReadySecureStopServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadySecureStopServiceRequest;{b5501ee5-01bf-4401-9677-05630a6a4cc8})");
 }
@@ -8639,6 +8976,11 @@ impl ::core::cmp::PartialEq for PlayReadySoapMessage {
     }
 }
 impl ::core::cmp::Eq for PlayReadySoapMessage {}
+impl ::core::fmt::Debug for PlayReadySoapMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadySoapMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayReadySoapMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadySoapMessage;{b659fcb5-ce41-41ba-8a0d-61df5fffa139})");
 }

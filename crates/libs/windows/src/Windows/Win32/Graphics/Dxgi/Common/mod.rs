@@ -338,6 +338,11 @@ impl ::core::clone::Clone for DXGI_GAMMA_CONTROL {
         *self
     }
 }
+impl ::core::fmt::Debug for DXGI_GAMMA_CONTROL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_GAMMA_CONTROL").field("Scale", &self.Scale).field("Offset", &self.Offset).field("GammaCurve", &self.GammaCurve).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_GAMMA_CONTROL {
     type Abi = Self;
 }
@@ -371,6 +376,12 @@ impl ::core::clone::Clone for DXGI_GAMMA_CONTROL_CAPABILITIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXGI_GAMMA_CONTROL_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_GAMMA_CONTROL_CAPABILITIES").field("ScaleAndOffsetSupported", &self.ScaleAndOffsetSupported).field("MaxConvertedValue", &self.MaxConvertedValue).field("MinConvertedValue", &self.MinConvertedValue).field("NumGammaControlPoints", &self.NumGammaControlPoints).field("ControlPointPositions", &self.ControlPointPositions).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXGI_GAMMA_CONTROL_CAPABILITIES {
     type Abi = Self;
 }
@@ -400,6 +411,11 @@ impl ::core::clone::Clone for DXGI_JPEG_AC_HUFFMAN_TABLE {
         *self
     }
 }
+impl ::core::fmt::Debug for DXGI_JPEG_AC_HUFFMAN_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_JPEG_AC_HUFFMAN_TABLE").field("CodeCounts", &self.CodeCounts).field("CodeValues", &self.CodeValues).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_JPEG_AC_HUFFMAN_TABLE {
     type Abi = Self;
 }
@@ -426,6 +442,11 @@ impl ::core::clone::Clone for DXGI_JPEG_DC_HUFFMAN_TABLE {
         *self
     }
 }
+impl ::core::fmt::Debug for DXGI_JPEG_DC_HUFFMAN_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_JPEG_DC_HUFFMAN_TABLE").field("CodeCounts", &self.CodeCounts).field("CodeValues", &self.CodeValues).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_JPEG_DC_HUFFMAN_TABLE {
     type Abi = Self;
 }
@@ -449,6 +470,11 @@ impl ::core::marker::Copy for DXGI_JPEG_QUANTIZATION_TABLE {}
 impl ::core::clone::Clone for DXGI_JPEG_QUANTIZATION_TABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXGI_JPEG_QUANTIZATION_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_JPEG_QUANTIZATION_TABLE").field("Elements", &self.Elements).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_JPEG_QUANTIZATION_TABLE {
@@ -479,6 +505,11 @@ impl ::core::marker::Copy for DXGI_MODE_DESC {}
 impl ::core::clone::Clone for DXGI_MODE_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXGI_MODE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_MODE_DESC").field("Width", &self.Width).field("Height", &self.Height).field("RefreshRate", &self.RefreshRate).field("Format", &self.Format).field("ScanlineOrdering", &self.ScanlineOrdering).field("Scaling", &self.Scaling).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_MODE_DESC {
@@ -537,6 +568,11 @@ impl ::core::clone::Clone for DXGI_RATIONAL {
         *self
     }
 }
+impl ::core::fmt::Debug for DXGI_RATIONAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_RATIONAL").field("Numerator", &self.Numerator).field("Denominator", &self.Denominator).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_RATIONAL {
     type Abi = Self;
 }
@@ -564,6 +600,11 @@ impl ::core::clone::Clone for DXGI_RGB {
         *self
     }
 }
+impl ::core::fmt::Debug for DXGI_RGB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_RGB").field("Red", &self.Red).field("Green", &self.Green).field("Blue", &self.Blue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_RGB {
     type Abi = Self;
 }
@@ -588,6 +629,11 @@ impl ::core::marker::Copy for DXGI_SAMPLE_DESC {}
 impl ::core::clone::Clone for DXGI_SAMPLE_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXGI_SAMPLE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_SAMPLE_DESC").field("Count", &self.Count).field("Quality", &self.Quality).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_SAMPLE_DESC {

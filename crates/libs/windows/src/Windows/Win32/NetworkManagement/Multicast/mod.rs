@@ -45,6 +45,11 @@ impl ::core::clone::Clone for MCAST_CLIENT_UID {
         *self
     }
 }
+impl ::core::fmt::Debug for MCAST_CLIENT_UID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MCAST_CLIENT_UID").field("ClientUID", &self.ClientUID).field("ClientUIDLength", &self.ClientUIDLength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MCAST_CLIENT_UID {
     type Abi = Self;
 }

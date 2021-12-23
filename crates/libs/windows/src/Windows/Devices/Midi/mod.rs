@@ -198,6 +198,11 @@ impl ::core::cmp::PartialEq for IMidiMessage {
     }
 }
 impl ::core::cmp::Eq for IMidiMessage {}
+impl ::core::fmt::Debug for IMidiMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMidiMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IMidiMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{79767945-1094-4283-9be0-289fc0ee8334}");
 }
@@ -421,6 +426,11 @@ impl ::core::cmp::PartialEq for IMidiOutPort {
     }
 }
 impl ::core::cmp::Eq for IMidiOutPort {}
+impl ::core::fmt::Debug for IMidiOutPort {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMidiOutPort").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IMidiOutPort {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{931d6d9f-57a2-4a3a-adb8-4640886f6693}");
 }
@@ -795,6 +805,11 @@ impl ::core::cmp::PartialEq for MidiActiveSensingMessage {
     }
 }
 impl ::core::cmp::Eq for MidiActiveSensingMessage {}
+impl ::core::fmt::Debug for MidiActiveSensingMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiActiveSensingMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiActiveSensingMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiActiveSensingMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
 }
@@ -939,6 +954,11 @@ impl ::core::cmp::PartialEq for MidiChannelPressureMessage {
     }
 }
 impl ::core::cmp::Eq for MidiChannelPressureMessage {}
+impl ::core::fmt::Debug for MidiChannelPressureMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiChannelPressureMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiChannelPressureMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiChannelPressureMessage;{be1fa860-62b4-4d52-a37e-92e54d35b909})");
 }
@@ -1062,6 +1082,11 @@ impl ::core::cmp::PartialEq for MidiContinueMessage {
     }
 }
 impl ::core::cmp::Eq for MidiContinueMessage {}
+impl ::core::fmt::Debug for MidiContinueMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiContinueMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiContinueMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiContinueMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
 }
@@ -1214,6 +1239,11 @@ impl ::core::cmp::PartialEq for MidiControlChangeMessage {
     }
 }
 impl ::core::cmp::Eq for MidiControlChangeMessage {}
+impl ::core::fmt::Debug for MidiControlChangeMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiControlChangeMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiControlChangeMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiControlChangeMessage;{b7e15f83-780d-405f-b781-3e1598c97f40})");
 }
@@ -1353,6 +1383,11 @@ impl ::core::cmp::PartialEq for MidiInPort {
     }
 }
 impl ::core::cmp::Eq for MidiInPort {}
+impl ::core::fmt::Debug for MidiInPort {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiInPort").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiInPort {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiInPort;{d5c1d9db-971a-4eaf-a23d-ea19fe607ff9})");
 }
@@ -1455,6 +1490,11 @@ impl ::core::cmp::PartialEq for MidiMessageReceivedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MidiMessageReceivedEventArgs {}
+impl ::core::fmt::Debug for MidiMessageReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiMessageReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiMessageReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiMessageReceivedEventArgs;{76566e56-f328-4b51-907d-b3a8ce96bf80})");
 }
@@ -1547,6 +1587,11 @@ impl ::core::cmp::PartialEq for MidiMessageType {
     }
 }
 impl ::core::cmp::Eq for MidiMessageType {}
+impl ::core::fmt::Debug for MidiMessageType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiMessageType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiMessageType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Midi.MidiMessageType;i4)");
 }
@@ -1631,6 +1676,11 @@ impl ::core::cmp::PartialEq for MidiNoteOffMessage {
     }
 }
 impl ::core::cmp::Eq for MidiNoteOffMessage {}
+impl ::core::fmt::Debug for MidiNoteOffMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiNoteOffMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiNoteOffMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiNoteOffMessage;{16fd8af4-198e-4d8f-a654-d305a293548f})");
 }
@@ -1783,6 +1833,11 @@ impl ::core::cmp::PartialEq for MidiNoteOnMessage {
     }
 }
 impl ::core::cmp::Eq for MidiNoteOnMessage {}
+impl ::core::fmt::Debug for MidiNoteOnMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiNoteOnMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiNoteOnMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiNoteOnMessage;{e0224af5-6181-46dd-afa2-410004c057aa})");
 }
@@ -1918,6 +1973,11 @@ impl ::core::cmp::PartialEq for MidiOutPort {
     }
 }
 impl ::core::cmp::Eq for MidiOutPort {}
+impl ::core::fmt::Debug for MidiOutPort {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiOutPort").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiOutPort {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiOutPort;{931d6d9f-57a2-4a3a-adb8-4640886f6693})");
 }
@@ -2088,6 +2148,11 @@ impl ::core::cmp::PartialEq for MidiPitchBendChangeMessage {
     }
 }
 impl ::core::cmp::Eq for MidiPitchBendChangeMessage {}
+impl ::core::fmt::Debug for MidiPitchBendChangeMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiPitchBendChangeMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiPitchBendChangeMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiPitchBendChangeMessage;{29df4cb1-2e9f-4faf-8c2b-9cb82a9079ca})");
 }
@@ -2240,6 +2305,11 @@ impl ::core::cmp::PartialEq for MidiPolyphonicKeyPressureMessage {
     }
 }
 impl ::core::cmp::Eq for MidiPolyphonicKeyPressureMessage {}
+impl ::core::fmt::Debug for MidiPolyphonicKeyPressureMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiPolyphonicKeyPressureMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiPolyphonicKeyPressureMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiPolyphonicKeyPressureMessage;{1f7337fe-ace8-48a0-868e-7cdbf20f04d6})");
 }
@@ -2384,6 +2454,11 @@ impl ::core::cmp::PartialEq for MidiProgramChangeMessage {
     }
 }
 impl ::core::cmp::Eq for MidiProgramChangeMessage {}
+impl ::core::fmt::Debug for MidiProgramChangeMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiProgramChangeMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiProgramChangeMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiProgramChangeMessage;{9cbb3c78-7a3e-4327-aa98-20b8e4485af8})");
 }
@@ -2520,6 +2595,11 @@ impl ::core::cmp::PartialEq for MidiSongPositionPointerMessage {
     }
 }
 impl ::core::cmp::Eq for MidiSongPositionPointerMessage {}
+impl ::core::fmt::Debug for MidiSongPositionPointerMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiSongPositionPointerMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiSongPositionPointerMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiSongPositionPointerMessage;{4ca50c56-ec5e-4ae4-a115-88dc57cc2b79})");
 }
@@ -2656,6 +2736,11 @@ impl ::core::cmp::PartialEq for MidiSongSelectMessage {
     }
 }
 impl ::core::cmp::Eq for MidiSongSelectMessage {}
+impl ::core::fmt::Debug for MidiSongSelectMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiSongSelectMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiSongSelectMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiSongSelectMessage;{49f0f27f-6d83-4741-a5bf-4629f6be974f})");
 }
@@ -2779,6 +2864,11 @@ impl ::core::cmp::PartialEq for MidiStartMessage {
     }
 }
 impl ::core::cmp::Eq for MidiStartMessage {}
+impl ::core::fmt::Debug for MidiStartMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiStartMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiStartMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiStartMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
 }
@@ -2902,6 +2992,11 @@ impl ::core::cmp::PartialEq for MidiStopMessage {
     }
 }
 impl ::core::cmp::Eq for MidiStopMessage {}
+impl ::core::fmt::Debug for MidiStopMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiStopMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiStopMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiStopMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
 }
@@ -3068,6 +3163,11 @@ impl ::core::cmp::PartialEq for MidiSynthesizer {
     }
 }
 impl ::core::cmp::Eq for MidiSynthesizer {}
+impl ::core::fmt::Debug for MidiSynthesizer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiSynthesizer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiSynthesizer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiSynthesizer;{f0da155e-db90-405f-b8ae-21d2e17f2e45})");
 }
@@ -3223,6 +3323,11 @@ impl ::core::cmp::PartialEq for MidiSystemExclusiveMessage {
     }
 }
 impl ::core::cmp::Eq for MidiSystemExclusiveMessage {}
+impl ::core::fmt::Debug for MidiSystemExclusiveMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiSystemExclusiveMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiSystemExclusiveMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiSystemExclusiveMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
 }
@@ -3346,6 +3451,11 @@ impl ::core::cmp::PartialEq for MidiSystemResetMessage {
     }
 }
 impl ::core::cmp::Eq for MidiSystemResetMessage {}
+impl ::core::fmt::Debug for MidiSystemResetMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiSystemResetMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiSystemResetMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiSystemResetMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
 }
@@ -3490,6 +3600,11 @@ impl ::core::cmp::PartialEq for MidiTimeCodeMessage {
     }
 }
 impl ::core::cmp::Eq for MidiTimeCodeMessage {}
+impl ::core::fmt::Debug for MidiTimeCodeMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiTimeCodeMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiTimeCodeMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiTimeCodeMessage;{0bf7087d-fa63-4a1c-8deb-c0e87796a6d7})");
 }
@@ -3613,6 +3728,11 @@ impl ::core::cmp::PartialEq for MidiTimingClockMessage {
     }
 }
 impl ::core::cmp::Eq for MidiTimingClockMessage {}
+impl ::core::fmt::Debug for MidiTimingClockMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiTimingClockMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiTimingClockMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiTimingClockMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
 }
@@ -3736,6 +3856,11 @@ impl ::core::cmp::PartialEq for MidiTuneRequestMessage {
     }
 }
 impl ::core::cmp::Eq for MidiTuneRequestMessage {}
+impl ::core::fmt::Debug for MidiTuneRequestMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiTuneRequestMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiTuneRequestMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiTuneRequestMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
 }

@@ -28,6 +28,11 @@ impl ::core::clone::Clone for D3D11_RESOURCE_FLAGS {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D11_RESOURCE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D11_RESOURCE_FLAGS").field("BindFlags", &self.BindFlags).field("MiscFlags", &self.MiscFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("StructureByteStride", &self.StructureByteStride).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_RESOURCE_FLAGS {
     type Abi = Self;
 }
@@ -93,6 +98,11 @@ impl ::core::cmp::PartialEq for ID3D11On12Device {
     }
 }
 impl ::core::cmp::Eq for ID3D11On12Device {}
+impl ::core::fmt::Debug for ID3D11On12Device {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D11On12Device").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11On12Device {
     type Vtable = ID3D11On12DeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85611e73_70a9_490e_9614_a9e302777904);
@@ -186,6 +196,11 @@ impl ::core::cmp::PartialEq for ID3D11On12Device1 {
     }
 }
 impl ::core::cmp::Eq for ID3D11On12Device1 {}
+impl ::core::fmt::Debug for ID3D11On12Device1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D11On12Device1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11On12Device1 {
     type Vtable = ID3D11On12Device1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdb64df4_ea2f_4c70_b861_aaab1258bb5d);
@@ -311,6 +326,11 @@ impl ::core::cmp::PartialEq for ID3D11On12Device2 {
     }
 }
 impl ::core::cmp::Eq for ID3D11On12Device2 {}
+impl ::core::fmt::Debug for ID3D11On12Device2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D11On12Device2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11On12Device2 {
     type Vtable = ID3D11On12Device2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc90f331_4740_43fa_866e_67f12cb58223);

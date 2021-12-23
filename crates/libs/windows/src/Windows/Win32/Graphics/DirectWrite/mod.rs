@@ -50,6 +50,11 @@ impl ::core::clone::Clone for DWRITE_CARET_METRICS {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_CARET_METRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_CARET_METRICS").field("slopeRise", &self.slopeRise).field("slopeRun", &self.slopeRun).field("offset", &self.offset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_CARET_METRICS {
     type Abi = Self;
 }
@@ -75,6 +80,11 @@ impl ::core::marker::Copy for DWRITE_CLUSTER_METRICS {}
 impl ::core::clone::Clone for DWRITE_CLUSTER_METRICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_CLUSTER_METRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_CLUSTER_METRICS").field("width", &self.width).field("length", &self.length).field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_CLUSTER_METRICS {
@@ -103,6 +113,11 @@ impl ::core::marker::Copy for DWRITE_COLOR_F {}
 impl ::core::clone::Clone for DWRITE_COLOR_F {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_COLOR_F {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_COLOR_F").field("r", &self.r).field("g", &self.g).field("b", &self.b).field("a", &self.a).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_COLOR_F {
@@ -144,6 +159,12 @@ impl ::core::clone::Clone for DWRITE_COLOR_GLYPH_RUN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_COLOR_GLYPH_RUN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_COLOR_GLYPH_RUN").field("glyphRun", &self.glyphRun).field("glyphRunDescription", &self.glyphRunDescription).field("baselineOriginX", &self.baselineOriginX).field("baselineOriginY", &self.baselineOriginY).field("runColor", &self.runColor).field("paletteIndex", &self.paletteIndex).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DWRITE_COLOR_GLYPH_RUN {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -173,6 +194,12 @@ pub struct DWRITE_COLOR_GLYPH_RUN1 {
 impl ::core::clone::Clone for DWRITE_COLOR_GLYPH_RUN1 {
     fn clone(&self) -> Self {
         Self { Base: self.Base.clone(), glyphImageFormat: self.glyphImageFormat, measuringMode: self.measuringMode }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_COLOR_GLYPH_RUN1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_COLOR_GLYPH_RUN1").field("Base", &self.Base).field("glyphImageFormat", &self.glyphImageFormat).field("measuringMode", &self.measuringMode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -229,6 +256,11 @@ impl ::core::clone::Clone for DWRITE_FILE_FRAGMENT {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_FILE_FRAGMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_FILE_FRAGMENT").field("fileOffset", &self.fileOffset).field("fragmentSize", &self.fragmentSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_FILE_FRAGMENT {
     type Abi = Self;
 }
@@ -274,6 +306,11 @@ impl ::core::clone::Clone for DWRITE_FONT_AXIS_RANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_FONT_AXIS_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_FONT_AXIS_RANGE").field("axisTag", &self.axisTag).field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_FONT_AXIS_RANGE {
     type Abi = Self;
 }
@@ -310,6 +347,11 @@ impl ::core::marker::Copy for DWRITE_FONT_AXIS_VALUE {}
 impl ::core::clone::Clone for DWRITE_FONT_AXIS_VALUE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_FONT_AXIS_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_FONT_AXIS_VALUE").field("axisTag", &self.axisTag).field("value", &self.value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_FONT_AXIS_VALUE {
@@ -362,6 +404,11 @@ impl ::core::marker::Copy for DWRITE_FONT_FEATURE {}
 impl ::core::clone::Clone for DWRITE_FONT_FEATURE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_FONT_FEATURE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_FONT_FEATURE").field("nameTag", &self.nameTag).field("parameter", &self.parameter).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_FONT_FEATURE {
@@ -590,6 +637,22 @@ impl ::core::clone::Clone for DWRITE_FONT_METRICS {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_FONT_METRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_FONT_METRICS")
+            .field("designUnitsPerEm", &self.designUnitsPerEm)
+            .field("ascent", &self.ascent)
+            .field("descent", &self.descent)
+            .field("lineGap", &self.lineGap)
+            .field("capHeight", &self.capHeight)
+            .field("xHeight", &self.xHeight)
+            .field("underlinePosition", &self.underlinePosition)
+            .field("underlineThickness", &self.underlineThickness)
+            .field("strikethroughPosition", &self.strikethroughPosition)
+            .field("strikethroughThickness", &self.strikethroughThickness)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_FONT_METRICS {
     type Abi = Self;
 }
@@ -632,6 +695,27 @@ impl ::core::clone::Clone for DWRITE_FONT_METRICS1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_FONT_METRICS1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_FONT_METRICS1")
+            .field("__AnonymousBase_DWrite_1_L627_C38", &self.__AnonymousBase_DWrite_1_L627_C38)
+            .field("glyphBoxLeft", &self.glyphBoxLeft)
+            .field("glyphBoxTop", &self.glyphBoxTop)
+            .field("glyphBoxRight", &self.glyphBoxRight)
+            .field("glyphBoxBottom", &self.glyphBoxBottom)
+            .field("subscriptPositionX", &self.subscriptPositionX)
+            .field("subscriptPositionY", &self.subscriptPositionY)
+            .field("subscriptSizeX", &self.subscriptSizeX)
+            .field("subscriptSizeY", &self.subscriptSizeY)
+            .field("superscriptPositionX", &self.superscriptPositionX)
+            .field("superscriptPositionY", &self.superscriptPositionY)
+            .field("superscriptSizeX", &self.superscriptSizeX)
+            .field("superscriptSizeY", &self.superscriptSizeY)
+            .field("hasTypographicMetrics", &self.hasTypographicMetrics)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DWRITE_FONT_METRICS1 {
     type Abi = Self;
 }
@@ -663,6 +747,12 @@ impl ::core::marker::Copy for DWRITE_FONT_PROPERTY {}
 impl ::core::clone::Clone for DWRITE_FONT_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_FONT_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_FONT_PROPERTY").field("propertyId", &self.propertyId).field("propertyValue", &self.propertyValue).field("localeName", &self.localeName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -834,6 +924,12 @@ impl ::core::clone::Clone for DWRITE_GLYPH_IMAGE_DATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::core::fmt::Debug for DWRITE_GLYPH_IMAGE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_GLYPH_IMAGE_DATA").field("imageData", &self.imageData).field("imageDataSize", &self.imageDataSize).field("uniqueDataId", &self.uniqueDataId).field("pixelsPerEm", &self.pixelsPerEm).field("pixelSize", &self.pixelSize).field("horizontalLeftOrigin", &self.horizontalLeftOrigin).field("horizontalRightOrigin", &self.horizontalRightOrigin).field("verticalTopOrigin", &self.verticalTopOrigin).field("verticalBottomOrigin", &self.verticalBottomOrigin).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 unsafe impl ::windows::core::Abi for DWRITE_GLYPH_IMAGE_DATA {
     type Abi = Self;
 }
@@ -888,6 +984,11 @@ impl ::core::clone::Clone for DWRITE_GLYPH_METRICS {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_GLYPH_METRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_GLYPH_METRICS").field("leftSideBearing", &self.leftSideBearing).field("advanceWidth", &self.advanceWidth).field("rightSideBearing", &self.rightSideBearing).field("topSideBearing", &self.topSideBearing).field("advanceHeight", &self.advanceHeight).field("bottomSideBearing", &self.bottomSideBearing).field("verticalOriginY", &self.verticalOriginY).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_GLYPH_METRICS {
     type Abi = Self;
 }
@@ -912,6 +1013,11 @@ impl ::core::marker::Copy for DWRITE_GLYPH_OFFSET {}
 impl ::core::clone::Clone for DWRITE_GLYPH_OFFSET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_GLYPH_OFFSET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_GLYPH_OFFSET").field("advanceOffset", &self.advanceOffset).field("ascenderOffset", &self.ascenderOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_GLYPH_OFFSET {
@@ -967,6 +1073,12 @@ impl ::core::clone::Clone for DWRITE_GLYPH_RUN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_GLYPH_RUN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_GLYPH_RUN").field("fontFace", &self.fontFace).field("fontEmSize", &self.fontEmSize).field("glyphCount", &self.glyphCount).field("glyphIndices", &self.glyphIndices).field("glyphAdvances", &self.glyphAdvances).field("glyphOffsets", &self.glyphOffsets).field("isSideways", &self.isSideways).field("bidiLevel", &self.bidiLevel).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DWRITE_GLYPH_RUN {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -1000,6 +1112,12 @@ impl ::core::marker::Copy for DWRITE_GLYPH_RUN_DESCRIPTION {}
 impl ::core::clone::Clone for DWRITE_GLYPH_RUN_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_GLYPH_RUN_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_GLYPH_RUN_DESCRIPTION").field("localeName", &self.localeName).field("string", &self.string).field("stringLength", &self.stringLength).field("clusterMap", &self.clusterMap).field("textPosition", &self.textPosition).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1048,6 +1166,12 @@ impl ::core::marker::Copy for DWRITE_HIT_TEST_METRICS {}
 impl ::core::clone::Clone for DWRITE_HIT_TEST_METRICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_HIT_TEST_METRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_HIT_TEST_METRICS").field("textPosition", &self.textPosition).field("length", &self.length).field("left", &self.left).field("top", &self.top).field("width", &self.width).field("height", &self.height).field("bidiLevel", &self.bidiLevel).field("isText", &self.isText).field("isTrimmed", &self.isTrimmed).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1138,6 +1262,12 @@ impl ::core::clone::Clone for DWRITE_INLINE_OBJECT_METRICS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_INLINE_OBJECT_METRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_INLINE_OBJECT_METRICS").field("width", &self.width).field("height", &self.height).field("baseline", &self.baseline).field("supportsSideways", &self.supportsSideways).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DWRITE_INLINE_OBJECT_METRICS {
     type Abi = Self;
 }
@@ -1169,6 +1299,11 @@ impl ::core::clone::Clone for DWRITE_JUSTIFICATION_OPPORTUNITY {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_JUSTIFICATION_OPPORTUNITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_JUSTIFICATION_OPPORTUNITY").field("expansionMinimum", &self.expansionMinimum).field("expansionMaximum", &self.expansionMaximum).field("compressionMaximum", &self.compressionMaximum).field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_JUSTIFICATION_OPPORTUNITY {
     type Abi = Self;
 }
@@ -1192,6 +1327,11 @@ impl ::core::marker::Copy for DWRITE_LINE_BREAKPOINT {}
 impl ::core::clone::Clone for DWRITE_LINE_BREAKPOINT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_LINE_BREAKPOINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_LINE_BREAKPOINT").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_LINE_BREAKPOINT {
@@ -1225,6 +1365,12 @@ impl ::core::marker::Copy for DWRITE_LINE_METRICS {}
 impl ::core::clone::Clone for DWRITE_LINE_METRICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_LINE_METRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_LINE_METRICS").field("length", &self.length).field("trailingWhitespaceLength", &self.trailingWhitespaceLength).field("newlineLength", &self.newlineLength).field("height", &self.height).field("baseline", &self.baseline).field("isTrimmed", &self.isTrimmed).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1262,6 +1408,12 @@ impl ::core::clone::Clone for DWRITE_LINE_METRICS1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_LINE_METRICS1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_LINE_METRICS1").field("Base", &self.Base).field("leadingBefore", &self.leadingBefore).field("leadingAfter", &self.leadingAfter).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DWRITE_LINE_METRICS1 {
     type Abi = Self;
 }
@@ -1292,6 +1444,11 @@ impl ::core::marker::Copy for DWRITE_LINE_SPACING {}
 impl ::core::clone::Clone for DWRITE_LINE_SPACING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_LINE_SPACING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_LINE_SPACING").field("method", &self.method).field("height", &self.height).field("baseline", &self.baseline).field("leadingBefore", &self.leadingBefore).field("fontLineGapUsage", &self.fontLineGapUsage).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_LINE_SPACING {
@@ -1338,6 +1495,11 @@ impl ::core::marker::Copy for DWRITE_MATRIX {}
 impl ::core::clone::Clone for DWRITE_MATRIX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_MATRIX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_MATRIX").field("m11", &self.m11).field("m12", &self.m12).field("m21", &self.m21).field("m22", &self.m22).field("dx", &self.dx).field("dy", &self.dy).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_MATRIX {
@@ -1398,6 +1560,11 @@ impl ::core::marker::Copy for DWRITE_OVERHANG_METRICS {}
 impl ::core::clone::Clone for DWRITE_OVERHANG_METRICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_OVERHANG_METRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_OVERHANG_METRICS").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_OVERHANG_METRICS {
@@ -1464,6 +1631,11 @@ impl ::core::clone::Clone for DWRITE_PANOSE_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_PANOSE_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_PANOSE_0").field("familyKind", &self.familyKind).field("decorativeClass", &self.decorativeClass).field("weight", &self.weight).field("aspect", &self.aspect).field("contrast", &self.contrast).field("serifVariant", &self.serifVariant).field("fill", &self.fill).field("lining", &self.lining).field("decorativeTopology", &self.decorativeTopology).field("characterRange", &self.characterRange).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_0 {
     type Abi = Self;
 }
@@ -1496,6 +1668,11 @@ impl ::core::marker::Copy for DWRITE_PANOSE_1 {}
 impl ::core::clone::Clone for DWRITE_PANOSE_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_PANOSE_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_PANOSE_1").field("familyKind", &self.familyKind).field("toolKind", &self.toolKind).field("weight", &self.weight).field("spacing", &self.spacing).field("aspectRatio", &self.aspectRatio).field("contrast", &self.contrast).field("scriptTopology", &self.scriptTopology).field("scriptForm", &self.scriptForm).field("finials", &self.finials).field("xAscent", &self.xAscent).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_1 {
@@ -1532,6 +1709,11 @@ impl ::core::clone::Clone for DWRITE_PANOSE_2 {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_PANOSE_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_PANOSE_2").field("familyKind", &self.familyKind).field("symbolKind", &self.symbolKind).field("weight", &self.weight).field("spacing", &self.spacing).field("aspectRatioAndContrast", &self.aspectRatioAndContrast).field("aspectRatio94", &self.aspectRatio94).field("aspectRatio119", &self.aspectRatio119).field("aspectRatio157", &self.aspectRatio157).field("aspectRatio163", &self.aspectRatio163).field("aspectRatio211", &self.aspectRatio211).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_2 {
     type Abi = Self;
 }
@@ -1564,6 +1746,11 @@ impl ::core::marker::Copy for DWRITE_PANOSE_3 {}
 impl ::core::clone::Clone for DWRITE_PANOSE_3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_PANOSE_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_PANOSE_3").field("familyKind", &self.familyKind).field("serifStyle", &self.serifStyle).field("weight", &self.weight).field("proportion", &self.proportion).field("contrast", &self.contrast).field("strokeVariation", &self.strokeVariation).field("armStyle", &self.armStyle).field("letterform", &self.letterform).field("midline", &self.midline).field("xHeight", &self.xHeight).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_3 {
@@ -2280,6 +2467,11 @@ impl ::core::clone::Clone for DWRITE_SCRIPT_ANALYSIS {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_SCRIPT_ANALYSIS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_SCRIPT_ANALYSIS").field("script", &self.script).field("shapes", &self.shapes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_SCRIPT_ANALYSIS {
     type Abi = Self;
 }
@@ -2307,6 +2499,11 @@ impl ::core::marker::Copy for DWRITE_SCRIPT_PROPERTIES {}
 impl ::core::clone::Clone for DWRITE_SCRIPT_PROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_SCRIPT_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_SCRIPT_PROPERTIES").field("isoScriptCode", &self.isoScriptCode).field("isoScriptNumber", &self.isoScriptNumber).field("clusterLookahead", &self.clusterLookahead).field("justificationCharacter", &self.justificationCharacter).field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_SCRIPT_PROPERTIES {
@@ -2340,6 +2537,11 @@ impl ::core::clone::Clone for DWRITE_SHAPING_GLYPH_PROPERTIES {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_SHAPING_GLYPH_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_SHAPING_GLYPH_PROPERTIES").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_SHAPING_GLYPH_PROPERTIES {
     type Abi = Self;
 }
@@ -2363,6 +2565,11 @@ impl ::core::marker::Copy for DWRITE_SHAPING_TEXT_PROPERTIES {}
 impl ::core::clone::Clone for DWRITE_SHAPING_TEXT_PROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_SHAPING_TEXT_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_SHAPING_TEXT_PROPERTIES").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_SHAPING_TEXT_PROPERTIES {
@@ -2397,6 +2604,12 @@ impl ::core::marker::Copy for DWRITE_STRIKETHROUGH {}
 impl ::core::clone::Clone for DWRITE_STRIKETHROUGH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_STRIKETHROUGH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_STRIKETHROUGH").field("width", &self.width).field("thickness", &self.thickness).field("offset", &self.offset).field("readingDirection", &self.readingDirection).field("flowDirection", &self.flowDirection).field("localeName", &self.localeName).field("measuringMode", &self.measuringMode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2458,6 +2671,11 @@ impl ::core::clone::Clone for DWRITE_TEXT_METRICS {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_TEXT_METRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_TEXT_METRICS").field("left", &self.left).field("top", &self.top).field("width", &self.width).field("widthIncludingTrailingWhitespace", &self.widthIncludingTrailingWhitespace).field("height", &self.height).field("layoutWidth", &self.layoutWidth).field("layoutHeight", &self.layoutHeight).field("maxBidiReorderingDepth", &self.maxBidiReorderingDepth).field("lineCount", &self.lineCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_TEXT_METRICS {
     type Abi = Self;
 }
@@ -2482,6 +2700,11 @@ impl ::core::marker::Copy for DWRITE_TEXT_METRICS1 {}
 impl ::core::clone::Clone for DWRITE_TEXT_METRICS1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_TEXT_METRICS1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_TEXT_METRICS1").field("Base", &self.Base).field("heightIncludingTrailingWhitespace", &self.heightIncludingTrailingWhitespace).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_TEXT_METRICS1 {
@@ -2510,6 +2733,11 @@ impl ::core::clone::Clone for DWRITE_TEXT_RANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_TEXT_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_TEXT_RANGE").field("startPosition", &self.startPosition).field("length", &self.length).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_TEXT_RANGE {
     type Abi = Self;
 }
@@ -2535,6 +2763,11 @@ impl ::core::marker::Copy for DWRITE_TRIMMING {}
 impl ::core::clone::Clone for DWRITE_TRIMMING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_TRIMMING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_TRIMMING").field("granularity", &self.granularity).field("delimiter", &self.delimiter).field("delimiterCount", &self.delimiterCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_TRIMMING {
@@ -2569,6 +2802,11 @@ impl ::core::marker::Copy for DWRITE_TYPOGRAPHIC_FEATURES {}
 impl ::core::clone::Clone for DWRITE_TYPOGRAPHIC_FEATURES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_TYPOGRAPHIC_FEATURES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_TYPOGRAPHIC_FEATURES").field("features", &self.features).field("featureCount", &self.featureCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_TYPOGRAPHIC_FEATURES {
@@ -2607,6 +2845,12 @@ impl ::core::clone::Clone for DWRITE_UNDERLINE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_UNDERLINE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_UNDERLINE").field("width", &self.width).field("thickness", &self.thickness).field("offset", &self.offset).field("runHeight", &self.runHeight).field("readingDirection", &self.readingDirection).field("flowDirection", &self.flowDirection).field("localeName", &self.localeName).field("measuringMode", &self.measuringMode).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DWRITE_UNDERLINE {
     type Abi = Self;
 }
@@ -2634,6 +2878,11 @@ impl ::core::marker::Copy for DWRITE_UNICODE_RANGE {}
 impl ::core::clone::Clone for DWRITE_UNICODE_RANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_UNICODE_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_UNICODE_RANGE").field("first", &self.first).field("last", &self.last).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_UNICODE_RANGE {
@@ -2730,6 +2979,11 @@ impl ::core::cmp::PartialEq for IDWriteAsyncResult {
     }
 }
 impl ::core::cmp::Eq for IDWriteAsyncResult {}
+impl ::core::fmt::Debug for IDWriteAsyncResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteAsyncResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteAsyncResult {
     type Vtable = IDWriteAsyncResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce25f8fd_863b_4d13_9651_c1f88dc73fe2);
@@ -2818,6 +3072,11 @@ impl ::core::cmp::PartialEq for IDWriteBitmapRenderTarget {
     }
 }
 impl ::core::cmp::Eq for IDWriteBitmapRenderTarget {}
+impl ::core::fmt::Debug for IDWriteBitmapRenderTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteBitmapRenderTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteBitmapRenderTarget {
     type Vtable = IDWriteBitmapRenderTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e5a32a3_8dff_4773_9ff6_0696eab77267);
@@ -2942,6 +3201,11 @@ impl ::core::cmp::PartialEq for IDWriteBitmapRenderTarget1 {
     }
 }
 impl ::core::cmp::Eq for IDWriteBitmapRenderTarget1 {}
+impl ::core::fmt::Debug for IDWriteBitmapRenderTarget1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteBitmapRenderTarget1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteBitmapRenderTarget1 {
     type Vtable = IDWriteBitmapRenderTarget1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x791e8298_3ef3_4230_9880_c9bdecc42064);
@@ -3014,6 +3278,11 @@ impl ::core::cmp::PartialEq for IDWriteColorGlyphRunEnumerator {
     }
 }
 impl ::core::cmp::Eq for IDWriteColorGlyphRunEnumerator {}
+impl ::core::fmt::Debug for IDWriteColorGlyphRunEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteColorGlyphRunEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteColorGlyphRunEnumerator {
     type Vtable = IDWriteColorGlyphRunEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd31fbe17_f157_41a2_8d24_cb779e0560e8);
@@ -3103,6 +3372,11 @@ impl ::core::cmp::PartialEq for IDWriteColorGlyphRunEnumerator1 {
     }
 }
 impl ::core::cmp::Eq for IDWriteColorGlyphRunEnumerator1 {}
+impl ::core::fmt::Debug for IDWriteColorGlyphRunEnumerator1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteColorGlyphRunEnumerator1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteColorGlyphRunEnumerator1 {
     type Vtable = IDWriteColorGlyphRunEnumerator1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c5f86da_c7a1_4f05_b8e1_55a179fe5a35);
@@ -3264,6 +3538,11 @@ impl ::core::cmp::PartialEq for IDWriteFactory {
     }
 }
 impl ::core::cmp::Eq for IDWriteFactory {}
+impl ::core::fmt::Debug for IDWriteFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFactory {
     type Vtable = IDWriteFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb859ee5a_d838_4b5b_a2e8_1adc7d93db48);
@@ -3478,6 +3757,11 @@ impl ::core::cmp::PartialEq for IDWriteFactory1 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFactory1 {}
+impl ::core::fmt::Debug for IDWriteFactory1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFactory1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFactory1 {
     type Vtable = IDWriteFactory1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30572f99_dac6_41db_a16e_0486307e606a);
@@ -3742,6 +4026,11 @@ impl ::core::cmp::PartialEq for IDWriteFactory2 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFactory2 {}
+impl ::core::fmt::Debug for IDWriteFactory2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFactory2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFactory2 {
     type Vtable = IDWriteFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0439fc60_ca44_4994_8dee_3a9af7b732ec);
@@ -4080,6 +4369,11 @@ impl ::core::cmp::PartialEq for IDWriteFactory3 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFactory3 {}
+impl ::core::fmt::Debug for IDWriteFactory3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFactory3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFactory3 {
     type Vtable = IDWriteFactory3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a1b41c3_d3bb_466a_87fc_fe67556a3b65);
@@ -4468,6 +4762,11 @@ impl ::core::cmp::PartialEq for IDWriteFactory4 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFactory4 {}
+impl ::core::fmt::Debug for IDWriteFactory4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFactory4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFactory4 {
     type Vtable = IDWriteFactory4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b0b5bd3_0797_4549_8ac5_fe915cc53856);
@@ -4907,6 +5206,11 @@ impl ::core::cmp::PartialEq for IDWriteFactory5 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFactory5 {}
+impl ::core::fmt::Debug for IDWriteFactory5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFactory5").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFactory5 {
     type Vtable = IDWriteFactory5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x958db99a_be2a_4f09_af7d_65189803d1d3);
@@ -5410,6 +5714,11 @@ impl ::core::cmp::PartialEq for IDWriteFactory6 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFactory6 {}
+impl ::core::fmt::Debug for IDWriteFactory6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFactory6").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFactory6 {
     type Vtable = IDWriteFactory6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3744d80_21f7_42eb_b35d_995bc72fc223);
@@ -5955,6 +6264,11 @@ impl ::core::cmp::PartialEq for IDWriteFactory7 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFactory7 {}
+impl ::core::fmt::Debug for IDWriteFactory7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFactory7").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFactory7 {
     type Vtable = IDWriteFactory7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35d0e0b3_9076_4d2e_a016_a91b568a06b4);
@@ -6130,6 +6444,11 @@ impl ::core::cmp::PartialEq for IDWriteFont {
     }
 }
 impl ::core::cmp::Eq for IDWriteFont {}
+impl ::core::fmt::Debug for IDWriteFont {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFont").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFont {
     type Vtable = IDWriteFontVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacd16696_8c14_4f5d_877e_fe3fc1d32737);
@@ -6280,6 +6599,11 @@ impl ::core::cmp::PartialEq for IDWriteFont1 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFont1 {}
+impl ::core::fmt::Debug for IDWriteFont1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFont1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFont1 {
     type Vtable = IDWriteFont1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacd16696_8c14_4f5d_877e_fe3fc1d32738);
@@ -6461,6 +6785,11 @@ impl ::core::cmp::PartialEq for IDWriteFont2 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFont2 {}
+impl ::core::fmt::Debug for IDWriteFont2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFont2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFont2 {
     type Vtable = IDWriteFont2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29748ed6_8c9c_4a6a_be0b_d912e8538944);
@@ -6688,6 +7017,11 @@ impl ::core::cmp::PartialEq for IDWriteFont3 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFont3 {}
+impl ::core::fmt::Debug for IDWriteFont3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFont3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFont3 {
     type Vtable = IDWriteFont3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29748ed6_8c9c_4a6a_be0b_d912e8538944);
@@ -6783,6 +7117,11 @@ impl ::core::cmp::PartialEq for IDWriteFontCollection {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontCollection {}
+impl ::core::fmt::Debug for IDWriteFontCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontCollection {
     type Vtable = IDWriteFontCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa84cee02_3eea_4eee_a827_87c1a02a0fcc);
@@ -6884,6 +7223,11 @@ impl ::core::cmp::PartialEq for IDWriteFontCollection1 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontCollection1 {}
+impl ::core::fmt::Debug for IDWriteFontCollection1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontCollection1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontCollection1 {
     type Vtable = IDWriteFontCollection1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53585141_d9f8_4095_8321_d73cf6bd116c);
@@ -7027,6 +7371,11 @@ impl ::core::cmp::PartialEq for IDWriteFontCollection2 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontCollection2 {}
+impl ::core::fmt::Debug for IDWriteFontCollection2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontCollection2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontCollection2 {
     type Vtable = IDWriteFontCollection2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x514039c6_4617_4064_bf8b_92ea83e506e0);
@@ -7200,6 +7549,11 @@ impl ::core::cmp::PartialEq for IDWriteFontCollection3 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontCollection3 {}
+impl ::core::fmt::Debug for IDWriteFontCollection3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontCollection3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontCollection3 {
     type Vtable = IDWriteFontCollection3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4d055a6_f9e3_4e25_93b7_9e309f3af8e9);
@@ -7266,6 +7620,11 @@ impl ::core::cmp::PartialEq for IDWriteFontCollectionLoader {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontCollectionLoader {}
+impl ::core::fmt::Debug for IDWriteFontCollectionLoader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontCollectionLoader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontCollectionLoader {
     type Vtable = IDWriteFontCollectionLoaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcca920e4_52f0_492b_bfa8_29c72ee0a468);
@@ -7318,6 +7677,11 @@ impl ::core::cmp::PartialEq for IDWriteFontDownloadListener {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontDownloadListener {}
+impl ::core::fmt::Debug for IDWriteFontDownloadListener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontDownloadListener").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontDownloadListener {
     type Vtable = IDWriteFontDownloadListenerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb06fe5b9_43ec_4393_881b_dbe4dc72fda7);
@@ -7387,6 +7751,11 @@ impl ::core::cmp::PartialEq for IDWriteFontDownloadQueue {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontDownloadQueue {}
+impl ::core::fmt::Debug for IDWriteFontDownloadQueue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontDownloadQueue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontDownloadQueue {
     type Vtable = IDWriteFontDownloadQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb71e6052_5aea_4fa3_832e_f60d431f7e91);
@@ -7508,6 +7877,11 @@ impl ::core::cmp::PartialEq for IDWriteFontFace {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontFace {}
+impl ::core::fmt::Debug for IDWriteFontFace {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontFace").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontFace {
     type Vtable = IDWriteFontFaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f49804d_7024_4d43_bfa9_d25984f53849);
@@ -7720,6 +8094,11 @@ impl ::core::cmp::PartialEq for IDWriteFontFace1 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontFace1 {}
+impl ::core::fmt::Debug for IDWriteFontFace1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontFace1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontFace1 {
     type Vtable = IDWriteFontFace1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa71efdb4_9fdb_4838_ad90_cfc3be8c3daf);
@@ -7994,6 +8373,11 @@ impl ::core::cmp::PartialEq for IDWriteFontFace2 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontFace2 {}
+impl ::core::fmt::Debug for IDWriteFontFace2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontFace2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontFace2 {
     type Vtable = IDWriteFontFace2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8b768ff_64bc_4e66_982b_ec8e87f693f7);
@@ -8363,6 +8747,11 @@ impl ::core::cmp::PartialEq for IDWriteFontFace3 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontFace3 {}
+impl ::core::fmt::Debug for IDWriteFontFace3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontFace3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontFace3 {
     type Vtable = IDWriteFontFace3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd37d7598_09be_4222_a236_2081341cc1f2);
@@ -8791,6 +9180,11 @@ impl ::core::cmp::PartialEq for IDWriteFontFace4 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontFace4 {}
+impl ::core::fmt::Debug for IDWriteFontFace4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontFace4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontFace4 {
     type Vtable = IDWriteFontFace4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27f2a904_4eb8_441d_9678_0563f53e3e2f);
@@ -9267,6 +9661,11 @@ impl ::core::cmp::PartialEq for IDWriteFontFace5 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontFace5 {}
+impl ::core::fmt::Debug for IDWriteFontFace5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontFace5").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontFace5 {
     type Vtable = IDWriteFontFace5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98eff3a5_b667_479a_b145_e2fa5b9fdc29);
@@ -9780,6 +10179,11 @@ impl ::core::cmp::PartialEq for IDWriteFontFace6 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontFace6 {}
+impl ::core::fmt::Debug for IDWriteFontFace6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontFace6").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontFace6 {
     type Vtable = IDWriteFontFace6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4b1fe1b_6e84_47d5_b54c_a597981b06ad);
@@ -9972,6 +10376,11 @@ impl ::core::cmp::PartialEq for IDWriteFontFaceReference {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontFaceReference {}
+impl ::core::fmt::Debug for IDWriteFontFaceReference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontFaceReference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontFaceReference {
     type Vtable = IDWriteFontFaceReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e7fa7ca_dde3_424c_89f0_9fcd6fed58cd);
@@ -10132,6 +10541,11 @@ impl ::core::cmp::PartialEq for IDWriteFontFaceReference1 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontFaceReference1 {}
+impl ::core::fmt::Debug for IDWriteFontFaceReference1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontFaceReference1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontFaceReference1 {
     type Vtable = IDWriteFontFaceReference1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc081fe77_2fd1_41ac_a5a3_34983c4ba61a);
@@ -10204,6 +10618,11 @@ impl ::core::cmp::PartialEq for IDWriteFontFallback {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontFallback {}
+impl ::core::fmt::Debug for IDWriteFontFallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontFallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontFallback {
     type Vtable = IDWriteFontFallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa008f9_f7a1_48bf_b05c_f224713cc0ff);
@@ -10283,6 +10702,11 @@ impl ::core::cmp::PartialEq for IDWriteFontFallback1 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontFallback1 {}
+impl ::core::fmt::Debug for IDWriteFontFallback1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontFallback1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontFallback1 {
     type Vtable = IDWriteFontFallback1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2397599d_dd0d_4681_bd6a_f4f31eaade77);
@@ -10348,6 +10772,11 @@ impl ::core::cmp::PartialEq for IDWriteFontFallbackBuilder {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontFallbackBuilder {}
+impl ::core::fmt::Debug for IDWriteFontFallbackBuilder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontFallbackBuilder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontFallbackBuilder {
     type Vtable = IDWriteFontFallbackBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd882d06_8aba_4fb8_b849_8be8b73e14de);
@@ -10448,6 +10877,11 @@ impl ::core::cmp::PartialEq for IDWriteFontFamily {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontFamily {}
+impl ::core::fmt::Debug for IDWriteFontFamily {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontFamily").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontFamily {
     type Vtable = IDWriteFontFamilyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda20d8ef_812a_4c43_9802_62ec4abd7add);
@@ -10584,6 +11018,11 @@ impl ::core::cmp::PartialEq for IDWriteFontFamily1 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontFamily1 {}
+impl ::core::fmt::Debug for IDWriteFontFamily1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontFamily1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontFamily1 {
     type Vtable = IDWriteFontFamily1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda20d8ef_812a_4c43_9802_62ec4abd7adf);
@@ -10753,6 +11192,11 @@ impl ::core::cmp::PartialEq for IDWriteFontFamily2 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontFamily2 {}
+impl ::core::fmt::Debug for IDWriteFontFamily2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontFamily2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontFamily2 {
     type Vtable = IDWriteFontFamily2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ed49e77_a398_4261_b9cf_c126c2131ef3);
@@ -10825,6 +11269,11 @@ impl ::core::cmp::PartialEq for IDWriteFontFile {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontFile {}
+impl ::core::fmt::Debug for IDWriteFontFile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontFile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontFile {
     type Vtable = IDWriteFontFileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x739d886a_cef5_47dc_8769_1a8b41bebbb0);
@@ -10887,6 +11336,11 @@ impl ::core::cmp::PartialEq for IDWriteFontFileEnumerator {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontFileEnumerator {}
+impl ::core::fmt::Debug for IDWriteFontFileEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontFileEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontFileEnumerator {
     type Vtable = IDWriteFontFileEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72755049_5ff7_435d_8348_4be97cfa6c7c);
@@ -10942,6 +11396,11 @@ impl ::core::cmp::PartialEq for IDWriteFontFileLoader {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontFileLoader {}
+impl ::core::fmt::Debug for IDWriteFontFileLoader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontFileLoader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontFileLoader {
     type Vtable = IDWriteFontFileLoaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x727cad4e_d6af_4c9e_8a08_d695b11caa49);
@@ -11008,6 +11467,11 @@ impl ::core::cmp::PartialEq for IDWriteFontFileStream {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontFileStream {}
+impl ::core::fmt::Debug for IDWriteFontFileStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontFileStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontFileStream {
     type Vtable = IDWriteFontFileStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d4865fe_0ab8_4d91_8f62_5dd6be34a3e0);
@@ -11073,6 +11537,11 @@ impl ::core::cmp::PartialEq for IDWriteFontList {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontList {}
+impl ::core::fmt::Debug for IDWriteFontList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontList {
     type Vtable = IDWriteFontListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a0d8438_1d97_4ec1_aef9_a2fb86ed6acb);
@@ -11171,6 +11640,11 @@ impl ::core::cmp::PartialEq for IDWriteFontList1 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontList1 {}
+impl ::core::fmt::Debug for IDWriteFontList1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontList1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontList1 {
     type Vtable = IDWriteFontList1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda20d8ef_812a_4c43_9802_62ec4abd7ade);
@@ -11297,6 +11771,11 @@ impl ::core::cmp::PartialEq for IDWriteFontList2 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontList2 {}
+impl ::core::fmt::Debug for IDWriteFontList2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontList2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontList2 {
     type Vtable = IDWriteFontList2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0763a34_77af_445a_b735_08c37b0a5bf5);
@@ -11404,6 +11883,11 @@ impl ::core::cmp::PartialEq for IDWriteFontResource {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontResource {}
+impl ::core::fmt::Debug for IDWriteFontResource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontResource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontResource {
     type Vtable = IDWriteFontResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f803a76_6871_48e8_987f_b975551c50f2);
@@ -11517,6 +12001,11 @@ impl ::core::cmp::PartialEq for IDWriteFontSet {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontSet {}
+impl ::core::fmt::Debug for IDWriteFontSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontSet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontSet {
     type Vtable = IDWriteFontSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53585141_d9f8_4095_8321_d73cf6bd116b);
@@ -11719,6 +12208,11 @@ impl ::core::cmp::PartialEq for IDWriteFontSet1 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontSet1 {}
+impl ::core::fmt::Debug for IDWriteFontSet1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontSet1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontSet1 {
     type Vtable = IDWriteFontSet1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e9fda85_6c92_4053_bc47_7ae3530db4d3);
@@ -11964,6 +12458,11 @@ impl ::core::cmp::PartialEq for IDWriteFontSet2 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontSet2 {}
+impl ::core::fmt::Debug for IDWriteFontSet2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontSet2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontSet2 {
     type Vtable = IDWriteFontSet2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc7ead19_e54c_43af_b2da_4e2b79ba3f7f);
@@ -12244,6 +12743,11 @@ impl ::core::cmp::PartialEq for IDWriteFontSet3 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontSet3 {}
+impl ::core::fmt::Debug for IDWriteFontSet3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontSet3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontSet3 {
     type Vtable = IDWriteFontSet3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c073ef2_a7f4_4045_8c32_8ab8ae640f90);
@@ -12350,6 +12854,11 @@ impl ::core::cmp::PartialEq for IDWriteFontSetBuilder {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontSetBuilder {}
+impl ::core::fmt::Debug for IDWriteFontSetBuilder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontSetBuilder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontSetBuilder {
     type Vtable = IDWriteFontSetBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f642afe_9c68_4f40_b8be_457401afcb3d);
@@ -12444,6 +12953,11 @@ impl ::core::cmp::PartialEq for IDWriteFontSetBuilder1 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontSetBuilder1 {}
+impl ::core::fmt::Debug for IDWriteFontSetBuilder1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontSetBuilder1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontSetBuilder1 {
     type Vtable = IDWriteFontSetBuilder1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ff7715f_3cdc_4dc6_9b72_ec5621dccafd);
@@ -12569,6 +13083,11 @@ impl ::core::cmp::PartialEq for IDWriteFontSetBuilder2 {
     }
 }
 impl ::core::cmp::Eq for IDWriteFontSetBuilder2 {}
+impl ::core::fmt::Debug for IDWriteFontSetBuilder2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontSetBuilder2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteFontSetBuilder2 {
     type Vtable = IDWriteFontSetBuilder2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee5ba612_b131_463c_8f4f_3189b9401e45);
@@ -12655,6 +13174,11 @@ impl ::core::cmp::PartialEq for IDWriteGdiInterop {
     }
 }
 impl ::core::cmp::Eq for IDWriteGdiInterop {}
+impl ::core::fmt::Debug for IDWriteGdiInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteGdiInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteGdiInterop {
     type Vtable = IDWriteGdiInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1edd9491_9853_4299_898f_6432983b6f3a);
@@ -12785,6 +13309,11 @@ impl ::core::cmp::PartialEq for IDWriteGdiInterop1 {
     }
 }
 impl ::core::cmp::Eq for IDWriteGdiInterop1 {}
+impl ::core::fmt::Debug for IDWriteGdiInterop1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteGdiInterop1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteGdiInterop1 {
     type Vtable = IDWriteGdiInterop1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4556be70_3abd_4f70_90be_421780a6f515);
@@ -12865,6 +13394,11 @@ impl ::core::cmp::PartialEq for IDWriteGlyphRunAnalysis {
     }
 }
 impl ::core::cmp::Eq for IDWriteGlyphRunAnalysis {}
+impl ::core::fmt::Debug for IDWriteGlyphRunAnalysis {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteGlyphRunAnalysis").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteGlyphRunAnalysis {
     type Vtable = IDWriteGlyphRunAnalysisVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d97dbf7_e085_42d4_81e3_6a883bded118);
@@ -12951,6 +13485,11 @@ impl ::core::cmp::PartialEq for IDWriteInMemoryFontFileLoader {
     }
 }
 impl ::core::cmp::Eq for IDWriteInMemoryFontFileLoader {}
+impl ::core::fmt::Debug for IDWriteInMemoryFontFileLoader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteInMemoryFontFileLoader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteInMemoryFontFileLoader {
     type Vtable = IDWriteInMemoryFontFileLoaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc102f47_a12d_4b1c_822d_9e117e33043f);
@@ -13021,6 +13560,11 @@ impl ::core::cmp::PartialEq for IDWriteInlineObject {
     }
 }
 impl ::core::cmp::Eq for IDWriteInlineObject {}
+impl ::core::fmt::Debug for IDWriteInlineObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteInlineObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteInlineObject {
     type Vtable = IDWriteInlineObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8339fde3_106f_47ab_8373_1c6295eb10b3);
@@ -13115,6 +13659,11 @@ impl ::core::cmp::PartialEq for IDWriteLocalFontFileLoader {
     }
 }
 impl ::core::cmp::Eq for IDWriteLocalFontFileLoader {}
+impl ::core::fmt::Debug for IDWriteLocalFontFileLoader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteLocalFontFileLoader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteLocalFontFileLoader {
     type Vtable = IDWriteLocalFontFileLoaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2d9f3ec_c9fe_4a11_a2ec_d86208f7c0a2);
@@ -13197,6 +13746,11 @@ impl ::core::cmp::PartialEq for IDWriteLocalizedStrings {
     }
 }
 impl ::core::cmp::Eq for IDWriteLocalizedStrings {}
+impl ::core::fmt::Debug for IDWriteLocalizedStrings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteLocalizedStrings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteLocalizedStrings {
     type Vtable = IDWriteLocalizedStringsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08256209_099a_4b34_b86d_c22b110e7771);
@@ -13252,6 +13806,11 @@ impl ::core::cmp::PartialEq for IDWriteNumberSubstitution {
     }
 }
 impl ::core::cmp::Eq for IDWriteNumberSubstitution {}
+impl ::core::fmt::Debug for IDWriteNumberSubstitution {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteNumberSubstitution").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteNumberSubstitution {
     type Vtable = IDWriteNumberSubstitutionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14885cc9_bab0_4f90_b6ed_5c366a2cd03d);
@@ -13311,6 +13870,11 @@ impl ::core::cmp::PartialEq for IDWritePixelSnapping {
     }
 }
 impl ::core::cmp::Eq for IDWritePixelSnapping {}
+impl ::core::fmt::Debug for IDWritePixelSnapping {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWritePixelSnapping").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWritePixelSnapping {
     type Vtable = IDWritePixelSnappingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeaf3a2da_ecf4_4d24_b644_b34f6842024b);
@@ -13403,6 +13967,11 @@ impl ::core::cmp::PartialEq for IDWriteRemoteFontFileLoader {
     }
 }
 impl ::core::cmp::Eq for IDWriteRemoteFontFileLoader {}
+impl ::core::fmt::Debug for IDWriteRemoteFontFileLoader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteRemoteFontFileLoader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteRemoteFontFileLoader {
     type Vtable = IDWriteRemoteFontFileLoaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68648c83_6ede_46c0_ab46_20083a887fde);
@@ -13512,6 +14081,11 @@ impl ::core::cmp::PartialEq for IDWriteRemoteFontFileStream {
     }
 }
 impl ::core::cmp::Eq for IDWriteRemoteFontFileStream {}
+impl ::core::fmt::Debug for IDWriteRemoteFontFileStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteRemoteFontFileStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteRemoteFontFileStream {
     type Vtable = IDWriteRemoteFontFileStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4db3757a_2c72_4ed9_b2b6_1ababe1aff9c);
@@ -13588,6 +14162,11 @@ impl ::core::cmp::PartialEq for IDWriteRenderingParams {
     }
 }
 impl ::core::cmp::Eq for IDWriteRenderingParams {}
+impl ::core::fmt::Debug for IDWriteRenderingParams {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteRenderingParams").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteRenderingParams {
     type Vtable = IDWriteRenderingParamsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f0da53a_2add_47cd_82ee_d9ec34688e75);
@@ -13684,6 +14263,11 @@ impl ::core::cmp::PartialEq for IDWriteRenderingParams1 {
     }
 }
 impl ::core::cmp::Eq for IDWriteRenderingParams1 {}
+impl ::core::fmt::Debug for IDWriteRenderingParams1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteRenderingParams1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteRenderingParams1 {
     type Vtable = IDWriteRenderingParams1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94413cf4_a6fc_4248_8b50_6674348fcad3);
@@ -13805,6 +14389,11 @@ impl ::core::cmp::PartialEq for IDWriteRenderingParams2 {
     }
 }
 impl ::core::cmp::Eq for IDWriteRenderingParams2 {}
+impl ::core::fmt::Debug for IDWriteRenderingParams2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteRenderingParams2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteRenderingParams2 {
     type Vtable = IDWriteRenderingParams2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9d711c3_9777_40ae_87e8_3e5af9bf0948);
@@ -13951,6 +14540,11 @@ impl ::core::cmp::PartialEq for IDWriteRenderingParams3 {
     }
 }
 impl ::core::cmp::Eq for IDWriteRenderingParams3 {}
+impl ::core::fmt::Debug for IDWriteRenderingParams3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteRenderingParams3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteRenderingParams3 {
     type Vtable = IDWriteRenderingParams3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7924baa_391b_412a_8c5c_e44cc2d867dc);
@@ -14030,6 +14624,11 @@ impl ::core::cmp::PartialEq for IDWriteStringList {
     }
 }
 impl ::core::cmp::Eq for IDWriteStringList {}
+impl ::core::fmt::Debug for IDWriteStringList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteStringList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteStringList {
     type Vtable = IDWriteStringListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfee3140_1157_47ca_8b85_31bfcf3f2d0e);
@@ -14100,6 +14699,11 @@ impl ::core::cmp::PartialEq for IDWriteTextAnalysisSink {
     }
 }
 impl ::core::cmp::Eq for IDWriteTextAnalysisSink {}
+impl ::core::fmt::Debug for IDWriteTextAnalysisSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteTextAnalysisSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteTextAnalysisSink {
     type Vtable = IDWriteTextAnalysisSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5810cd44_0ca0_4701_b3fa_bec5182ae4f6);
@@ -14192,6 +14796,11 @@ impl ::core::cmp::PartialEq for IDWriteTextAnalysisSink1 {
     }
 }
 impl ::core::cmp::Eq for IDWriteTextAnalysisSink1 {}
+impl ::core::fmt::Debug for IDWriteTextAnalysisSink1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteTextAnalysisSink1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteTextAnalysisSink1 {
     type Vtable = IDWriteTextAnalysisSink1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0d941a0_85e7_4d8b_9fd3_5ced9934482a);
@@ -14265,6 +14874,11 @@ impl ::core::cmp::PartialEq for IDWriteTextAnalysisSource {
     }
 }
 impl ::core::cmp::Eq for IDWriteTextAnalysisSource {}
+impl ::core::fmt::Debug for IDWriteTextAnalysisSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteTextAnalysisSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteTextAnalysisSource {
     type Vtable = IDWriteTextAnalysisSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x688e1a58_5094_47c8_adc8_fbcea60ae92b);
@@ -14361,6 +14975,11 @@ impl ::core::cmp::PartialEq for IDWriteTextAnalysisSource1 {
     }
 }
 impl ::core::cmp::Eq for IDWriteTextAnalysisSource1 {}
+impl ::core::fmt::Debug for IDWriteTextAnalysisSource1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteTextAnalysisSource1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteTextAnalysisSource1 {
     type Vtable = IDWriteTextAnalysisSource1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x639cfad8_0fb4_4b21_a58a_067920120009);
@@ -14572,6 +15191,11 @@ impl ::core::cmp::PartialEq for IDWriteTextAnalyzer {
     }
 }
 impl ::core::cmp::Eq for IDWriteTextAnalyzer {}
+impl ::core::fmt::Debug for IDWriteTextAnalyzer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteTextAnalyzer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteTextAnalyzer {
     type Vtable = IDWriteTextAnalyzerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7e6163e_7f46_43b4_84b3_e4e6249c365d);
@@ -14893,6 +15517,11 @@ impl ::core::cmp::PartialEq for IDWriteTextAnalyzer1 {
     }
 }
 impl ::core::cmp::Eq for IDWriteTextAnalyzer1 {}
+impl ::core::fmt::Debug for IDWriteTextAnalyzer1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteTextAnalyzer1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteTextAnalyzer1 {
     type Vtable = IDWriteTextAnalyzer1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80dad800_e21f_4e83_96ce_bfcce500db7c);
@@ -15263,6 +15892,11 @@ impl ::core::cmp::PartialEq for IDWriteTextAnalyzer2 {
     }
 }
 impl ::core::cmp::Eq for IDWriteTextAnalyzer2 {}
+impl ::core::fmt::Debug for IDWriteTextAnalyzer2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteTextAnalyzer2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteTextAnalyzer2 {
     type Vtable = IDWriteTextAnalyzer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x553a9ff3_5693_4df7_b52b_74806f7f2eb9);
@@ -15466,6 +16100,11 @@ impl ::core::cmp::PartialEq for IDWriteTextFormat {
     }
 }
 impl ::core::cmp::Eq for IDWriteTextFormat {}
+impl ::core::fmt::Debug for IDWriteTextFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteTextFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteTextFormat {
     type Vtable = IDWriteTextFormatVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c906818_31d7_4fd3_a151_7c5e225db55a);
@@ -15698,6 +16337,11 @@ impl ::core::cmp::PartialEq for IDWriteTextFormat1 {
     }
 }
 impl ::core::cmp::Eq for IDWriteTextFormat1 {}
+impl ::core::fmt::Debug for IDWriteTextFormat1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteTextFormat1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteTextFormat1 {
     type Vtable = IDWriteTextFormat1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f174b49_0d8b_4cfb_8bca_f1cce9d06c67);
@@ -15969,6 +16613,11 @@ impl ::core::cmp::PartialEq for IDWriteTextFormat2 {
     }
 }
 impl ::core::cmp::Eq for IDWriteTextFormat2 {}
+impl ::core::fmt::Debug for IDWriteTextFormat2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteTextFormat2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteTextFormat2 {
     type Vtable = IDWriteTextFormat2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf67e0edd_9e3d_4ecc_8c32_4183253dfe70);
@@ -16282,6 +16931,11 @@ impl ::core::cmp::PartialEq for IDWriteTextFormat3 {
     }
 }
 impl ::core::cmp::Eq for IDWriteTextFormat3 {}
+impl ::core::fmt::Debug for IDWriteTextFormat3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteTextFormat3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteTextFormat3 {
     type Vtable = IDWriteTextFormat3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d3b5641_e550_430d_a85b_b7bf48a93427);
@@ -16667,6 +17321,11 @@ impl ::core::cmp::PartialEq for IDWriteTextLayout {
     }
 }
 impl ::core::cmp::Eq for IDWriteTextLayout {}
+impl ::core::fmt::Debug for IDWriteTextLayout {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteTextLayout").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteTextLayout {
     type Vtable = IDWriteTextLayoutVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53737037_6d14_410b_9bfe_0b182bb70961);
@@ -17124,6 +17783,11 @@ impl ::core::cmp::PartialEq for IDWriteTextLayout1 {
     }
 }
 impl ::core::cmp::Eq for IDWriteTextLayout1 {}
+impl ::core::fmt::Debug for IDWriteTextLayout1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteTextLayout1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteTextLayout1 {
     type Vtable = IDWriteTextLayout1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9064d822_80a7_465c_a986_df65f78b8feb);
@@ -17647,6 +18311,11 @@ impl ::core::cmp::PartialEq for IDWriteTextLayout2 {
     }
 }
 impl ::core::cmp::Eq for IDWriteTextLayout2 {}
+impl ::core::fmt::Debug for IDWriteTextLayout2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteTextLayout2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteTextLayout2 {
     type Vtable = IDWriteTextLayout2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1093c18f_8d5e_43f0_b064_0917311b525e);
@@ -18219,6 +18888,11 @@ impl ::core::cmp::PartialEq for IDWriteTextLayout3 {
     }
 }
 impl ::core::cmp::Eq for IDWriteTextLayout3 {}
+impl ::core::fmt::Debug for IDWriteTextLayout3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteTextLayout3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteTextLayout3 {
     type Vtable = IDWriteTextLayout3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07ddcd52_020e_4de8_ac33_6c953d83f92d);
@@ -18836,6 +19510,11 @@ impl ::core::cmp::PartialEq for IDWriteTextLayout4 {
     }
 }
 impl ::core::cmp::Eq for IDWriteTextLayout4 {}
+impl ::core::fmt::Debug for IDWriteTextLayout4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteTextLayout4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteTextLayout4 {
     type Vtable = IDWriteTextLayout4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05a9bf42_223f_4441_b5fb_8263685f55e9);
@@ -19044,6 +19723,11 @@ impl ::core::cmp::PartialEq for IDWriteTextRenderer {
     }
 }
 impl ::core::cmp::Eq for IDWriteTextRenderer {}
+impl ::core::fmt::Debug for IDWriteTextRenderer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteTextRenderer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteTextRenderer {
     type Vtable = IDWriteTextRendererVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef8a8135_5cc6_45fe_8825_c5a0724eb819);
@@ -19199,6 +19883,11 @@ impl ::core::cmp::PartialEq for IDWriteTextRenderer1 {
     }
 }
 impl ::core::cmp::Eq for IDWriteTextRenderer1 {}
+impl ::core::fmt::Debug for IDWriteTextRenderer1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteTextRenderer1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteTextRenderer1 {
     type Vtable = IDWriteTextRenderer1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3e0e934_22a0_427e_aae4_7d9574b59db1);
@@ -19279,6 +19968,11 @@ impl ::core::cmp::PartialEq for IDWriteTypography {
     }
 }
 impl ::core::cmp::Eq for IDWriteTypography {}
+impl ::core::fmt::Debug for IDWriteTypography {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteTypography").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDWriteTypography {
     type Vtable = IDWriteTypographyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55f1112b_1dc2_4b3c_9541_f46894ed85b6);

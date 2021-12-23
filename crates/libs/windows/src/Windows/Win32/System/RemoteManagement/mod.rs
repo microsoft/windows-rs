@@ -1127,6 +1127,11 @@ impl ::core::cmp::PartialEq for IWSMan {
     }
 }
 impl ::core::cmp::Eq for IWSMan {}
+impl ::core::fmt::Debug for IWSMan {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSMan").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSMan {
     type Vtable = IWSManVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x190d8637_5cd3_496d_ad24_69636bb5a3b5);
@@ -1252,6 +1257,11 @@ impl ::core::cmp::PartialEq for IWSManConnectionOptions {
     }
 }
 impl ::core::cmp::Eq for IWSManConnectionOptions {}
+impl ::core::fmt::Debug for IWSManConnectionOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSManConnectionOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSManConnectionOptions {
     type Vtable = IWSManConnectionOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf704e861_9e52_464f_b786_da5eb2320fdd);
@@ -1406,6 +1416,11 @@ impl ::core::cmp::PartialEq for IWSManConnectionOptionsEx {
     }
 }
 impl ::core::cmp::Eq for IWSManConnectionOptionsEx {}
+impl ::core::fmt::Debug for IWSManConnectionOptionsEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSManConnectionOptionsEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSManConnectionOptionsEx {
     type Vtable = IWSManConnectionOptionsExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef43edf7_2a48_4d93_9526_8bd6ab6d4a6b);
@@ -1624,6 +1639,11 @@ impl ::core::cmp::PartialEq for IWSManConnectionOptionsEx2 {
     }
 }
 impl ::core::cmp::Eq for IWSManConnectionOptionsEx2 {}
+impl ::core::fmt::Debug for IWSManConnectionOptionsEx2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSManConnectionOptionsEx2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSManConnectionOptionsEx2 {
     type Vtable = IWSManConnectionOptionsEx2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf500c9ec_24ee_48ab_b38d_fc9a164c658e);
@@ -1761,6 +1781,11 @@ impl ::core::cmp::PartialEq for IWSManEnumerator {
     }
 }
 impl ::core::cmp::Eq for IWSManEnumerator {}
+impl ::core::fmt::Debug for IWSManEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSManEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSManEnumerator {
     type Vtable = IWSManEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3457ca9_abb9_4fa5_b850_90e8ca300e7f);
@@ -2013,6 +2038,11 @@ impl ::core::cmp::PartialEq for IWSManEx {
     }
 }
 impl ::core::cmp::Eq for IWSManEx {}
+impl ::core::fmt::Debug for IWSManEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSManEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSManEx {
     type Vtable = IWSManExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d53bdaa_798e_49e6_a1aa_74d01256f411);
@@ -2315,6 +2345,11 @@ impl ::core::cmp::PartialEq for IWSManEx2 {
     }
 }
 impl ::core::cmp::Eq for IWSManEx2 {}
+impl ::core::fmt::Debug for IWSManEx2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSManEx2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSManEx2 {
     type Vtable = IWSManEx2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d1b5ae0_42d9_4021_8261_3987619512e9);
@@ -2673,6 +2708,11 @@ impl ::core::cmp::PartialEq for IWSManEx3 {
     }
 }
 impl ::core::cmp::Eq for IWSManEx3 {}
+impl ::core::fmt::Debug for IWSManEx3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSManEx3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSManEx3 {
     type Vtable = IWSManEx3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6400e966_011d_4eac_8474_049e0848afad);
@@ -2818,6 +2858,11 @@ impl ::core::cmp::PartialEq for IWSManInternal {
     }
 }
 impl ::core::cmp::Eq for IWSManInternal {}
+impl ::core::fmt::Debug for IWSManInternal {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSManInternal").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSManInternal {
     type Vtable = IWSManInternalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04ae2b1d_9954_4d99_94a9_a961e72c3a13);
@@ -2989,6 +3034,11 @@ impl ::core::cmp::PartialEq for IWSManResourceLocator {
     }
 }
 impl ::core::cmp::Eq for IWSManResourceLocator {}
+impl ::core::fmt::Debug for IWSManResourceLocator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSManResourceLocator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSManResourceLocator {
     type Vtable = IWSManResourceLocatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7a1ba28_de41_466a_ad0a_c4059ead7428);
@@ -3067,6 +3117,11 @@ impl ::core::cmp::PartialEq for IWSManResourceLocatorInternal {
     }
 }
 impl ::core::cmp::Eq for IWSManResourceLocatorInternal {}
+impl ::core::fmt::Debug for IWSManResourceLocatorInternal {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSManResourceLocatorInternal").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSManResourceLocatorInternal {
     type Vtable = IWSManResourceLocatorInternalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeffaead7_7ec8_4716_b9be_f2e7e9fb4adb);
@@ -3221,6 +3276,11 @@ impl ::core::cmp::PartialEq for IWSManSession {
     }
 }
 impl ::core::cmp::Eq for IWSManSession {}
+impl ::core::fmt::Debug for IWSManSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSManSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSManSession {
     type Vtable = IWSManSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc84fc58_1286_40c4_9da0_c8ef6ec241e0);
@@ -3342,6 +3402,11 @@ impl ::core::clone::Clone for WSMAN_AUTHZ_QUOTA {
         *self
     }
 }
+impl ::core::fmt::Debug for WSMAN_AUTHZ_QUOTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_AUTHZ_QUOTA").field("maxAllowedConcurrentShells", &self.maxAllowedConcurrentShells).field("maxAllowedConcurrentOperations", &self.maxAllowedConcurrentOperations).field("timeslotSize", &self.timeslotSize).field("maxAllowedOperationsPerTimeslot", &self.maxAllowedOperationsPerTimeslot).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WSMAN_AUTHZ_QUOTA {
     type Abi = Self;
 }
@@ -3371,6 +3436,12 @@ impl ::core::marker::Copy for WSMAN_CERTIFICATE_DETAILS {}
 impl ::core::clone::Clone for WSMAN_CERTIFICATE_DETAILS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_CERTIFICATE_DETAILS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_CERTIFICATE_DETAILS").field("subject", &self.subject).field("issuerName", &self.issuerName).field("issuerThumbprint", &self.issuerThumbprint).field("subjectName", &self.subjectName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3406,6 +3477,12 @@ impl ::core::marker::Copy for WSMAN_COMMAND_ARG_SET {}
 impl ::core::clone::Clone for WSMAN_COMMAND_ARG_SET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_COMMAND_ARG_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_COMMAND_ARG_SET").field("argsCount", &self.argsCount).field("args", &self.args).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3569,6 +3646,11 @@ impl ::core::clone::Clone for WSMAN_DATA_BINARY {
         *self
     }
 }
+impl ::core::fmt::Debug for WSMAN_DATA_BINARY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_DATA_BINARY").field("dataLength", &self.dataLength).field("data", &self.data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WSMAN_DATA_BINARY {
     type Abi = Self;
 }
@@ -3596,6 +3678,12 @@ impl ::core::marker::Copy for WSMAN_DATA_TEXT {}
 impl ::core::clone::Clone for WSMAN_DATA_TEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_DATA_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_DATA_TEXT").field("bufferLength", &self.bufferLength).field("buffer", &self.buffer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3634,6 +3722,12 @@ impl ::core::clone::Clone for WSMAN_ENVIRONMENT_VARIABLE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_ENVIRONMENT_VARIABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_ENVIRONMENT_VARIABLE").field("name", &self.name).field("value", &self.value).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_ENVIRONMENT_VARIABLE {
     type Abi = Self;
 }
@@ -3664,6 +3758,12 @@ impl ::core::marker::Copy for WSMAN_ENVIRONMENT_VARIABLE_SET {}
 impl ::core::clone::Clone for WSMAN_ENVIRONMENT_VARIABLE_SET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_ENVIRONMENT_VARIABLE_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_ENVIRONMENT_VARIABLE_SET").field("varsCount", &self.varsCount).field("vars", &self.vars).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3703,6 +3803,12 @@ impl ::core::clone::Clone for WSMAN_ERROR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_ERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_ERROR").field("code", &self.code).field("errorDetail", &self.errorDetail).field("language", &self.language).field("machineName", &self.machineName).field("pluginName", &self.pluginName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_ERROR {
     type Abi = Self;
 }
@@ -3733,6 +3839,12 @@ impl ::core::marker::Copy for WSMAN_FILTER {}
 impl ::core::clone::Clone for WSMAN_FILTER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_FILTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_FILTER").field("filter", &self.filter).field("dialect", &self.dialect).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3781,6 +3893,12 @@ impl ::core::clone::Clone for WSMAN_FRAGMENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_FRAGMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_FRAGMENT").field("path", &self.path).field("dialect", &self.dialect).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_FRAGMENT {
     type Abi = Self;
 }
@@ -3811,6 +3929,12 @@ impl ::core::marker::Copy for WSMAN_KEY {}
 impl ::core::clone::Clone for WSMAN_KEY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_KEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_KEY").field("key", &self.key).field("value", &self.value).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3853,6 +3977,12 @@ impl ::core::clone::Clone for WSMAN_OPERATION_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_OPERATION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_OPERATION_INFO").field("fragment", &self.fragment).field("filter", &self.filter).field("selectorSet", &self.selectorSet).field("optionSet", &self.optionSet).field("reserved", &self.reserved).field("version", &self.version).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_OPERATION_INFO {
     type Abi = Self;
 }
@@ -3888,6 +4018,12 @@ impl ::core::marker::Copy for WSMAN_OPERATION_INFOEX {}
 impl ::core::clone::Clone for WSMAN_OPERATION_INFOEX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_OPERATION_INFOEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_OPERATION_INFOEX").field("fragment", &self.fragment).field("filter", &self.filter).field("selectorSet", &self.selectorSet).field("optionSet", &self.optionSet).field("version", &self.version).field("uiLocale", &self.uiLocale).field("dataLocale", &self.dataLocale).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3929,6 +4065,12 @@ impl ::core::clone::Clone for WSMAN_OPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_OPTION").field("name", &self.name).field("value", &self.value).field("mustComply", &self.mustComply).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_OPTION {
     type Abi = Self;
 }
@@ -3960,6 +4102,12 @@ impl ::core::marker::Copy for WSMAN_OPTION_SET {}
 impl ::core::clone::Clone for WSMAN_OPTION_SET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_OPTION_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_OPTION_SET").field("optionsCount", &self.optionsCount).field("options", &self.options).field("optionsMustUnderstand", &self.optionsMustUnderstand).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3995,6 +4143,12 @@ impl ::core::marker::Copy for WSMAN_OPTION_SETEX {}
 impl ::core::clone::Clone for WSMAN_OPTION_SETEX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_OPTION_SETEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_OPTION_SETEX").field("optionsCount", &self.optionsCount).field("options", &self.options).field("optionsMustUnderstand", &self.optionsMustUnderstand).field("optionTypes", &self.optionTypes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4079,6 +4233,12 @@ impl ::core::marker::Copy for WSMAN_PLUGIN_REQUEST {}
 impl ::core::clone::Clone for WSMAN_PLUGIN_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_PLUGIN_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_PLUGIN_REQUEST").field("senderDetails", &self.senderDetails).field("locale", &self.locale).field("resourceUri", &self.resourceUri).field("operationInfo", &self.operationInfo).field("shutdownNotification", &self.shutdownNotification).field("shutdownNotificationHandle", &self.shutdownNotificationHandle).field("dataLocale", &self.dataLocale).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4245,6 +4405,12 @@ impl ::core::clone::Clone for WSMAN_SELECTOR_SET {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_SELECTOR_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_SELECTOR_SET").field("numberKeys", &self.numberKeys).field("keys", &self.keys).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_SELECTOR_SET {
     type Abi = Self;
 }
@@ -4278,6 +4444,12 @@ impl ::core::marker::Copy for WSMAN_SENDER_DETAILS {}
 impl ::core::clone::Clone for WSMAN_SENDER_DETAILS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_SENDER_DETAILS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_SENDER_DETAILS").field("senderName", &self.senderName).field("authenticationMechanism", &self.authenticationMechanism).field("certificateDetails", &self.certificateDetails).field("clientToken", &self.clientToken).field("httpURL", &self.httpURL).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4318,6 +4490,12 @@ impl ::core::clone::Clone for WSMAN_SHELL_ASYNC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_SHELL_ASYNC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_SHELL_ASYNC").field("operationContext", &self.operationContext).field("completionFunction", &self.completionFunction.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_SHELL_ASYNC {
     type Abi = Self;
 }
@@ -4347,6 +4525,11 @@ impl ::core::marker::Copy for WSMAN_SHELL_DISCONNECT_INFO {}
 impl ::core::clone::Clone for WSMAN_SHELL_DISCONNECT_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WSMAN_SHELL_DISCONNECT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_SHELL_DISCONNECT_INFO").field("idleTimeoutMs", &self.idleTimeoutMs).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WSMAN_SHELL_DISCONNECT_INFO {
@@ -4379,6 +4562,12 @@ impl ::core::marker::Copy for WSMAN_SHELL_STARTUP_INFO_V10 {}
 impl ::core::clone::Clone for WSMAN_SHELL_STARTUP_INFO_V10 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_SHELL_STARTUP_INFO_V10 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_SHELL_STARTUP_INFO_V10").field("inputStreamSet", &self.inputStreamSet).field("outputStreamSet", &self.outputStreamSet).field("idleTimeoutMs", &self.idleTimeoutMs).field("workingDirectory", &self.workingDirectory).field("variableSet", &self.variableSet).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4415,6 +4604,12 @@ impl ::core::clone::Clone for WSMAN_SHELL_STARTUP_INFO_V11 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_SHELL_STARTUP_INFO_V11 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_SHELL_STARTUP_INFO_V11").field("__AnonymousBase_wsman_L665_C48", &self.__AnonymousBase_wsman_L665_C48).field("name", &self.name).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_SHELL_STARTUP_INFO_V11 {
     type Abi = Self;
 }
@@ -4448,6 +4643,12 @@ impl ::core::clone::Clone for WSMAN_STREAM_ID_SET {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_STREAM_ID_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_STREAM_ID_SET").field("streamIDsCount", &self.streamIDsCount).field("streamIDs", &self.streamIDs).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_STREAM_ID_SET {
     type Abi = Self;
 }
@@ -4478,6 +4679,12 @@ impl ::core::marker::Copy for WSMAN_USERNAME_PASSWORD_CREDS {}
 impl ::core::clone::Clone for WSMAN_USERNAME_PASSWORD_CREDS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_USERNAME_PASSWORD_CREDS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_USERNAME_PASSWORD_CREDS").field("username", &self.username).field("password", &self.password).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

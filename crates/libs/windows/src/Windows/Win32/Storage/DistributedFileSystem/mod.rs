@@ -18,6 +18,11 @@ impl ::core::clone::Clone for DFS_GET_PKT_ENTRY_STATE_ARG {
         *self
     }
 }
+impl ::core::fmt::Debug for DFS_GET_PKT_ENTRY_STATE_ARG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_GET_PKT_ENTRY_STATE_ARG").field("DfsEntryPathLen", &self.DfsEntryPathLen).field("ServerNameLen", &self.ServerNameLen).field("ShareNameLen", &self.ShareNameLen).field("Level", &self.Level).field("Buffer", &self.Buffer).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DFS_GET_PKT_ENTRY_STATE_ARG {
     type Abi = Self;
 }
@@ -44,6 +49,12 @@ impl ::core::marker::Copy for DFS_INFO_1 {}
 impl ::core::clone::Clone for DFS_INFO_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DFS_INFO_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_1").field("EntryPath", &self.EntryPath).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -79,6 +90,12 @@ impl ::core::clone::Clone for DFS_INFO_100 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DFS_INFO_100 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_100").field("Comment", &self.Comment).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DFS_INFO_100 {
     type Abi = Self;
 }
@@ -107,6 +124,11 @@ impl ::core::clone::Clone for DFS_INFO_101 {
         *self
     }
 }
+impl ::core::fmt::Debug for DFS_INFO_101 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_101").field("State", &self.State).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DFS_INFO_101 {
     type Abi = Self;
 }
@@ -130,6 +152,11 @@ impl ::core::marker::Copy for DFS_INFO_102 {}
 impl ::core::clone::Clone for DFS_INFO_102 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DFS_INFO_102 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_102").field("Timeout", &self.Timeout).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DFS_INFO_102 {
@@ -158,6 +185,11 @@ impl ::core::clone::Clone for DFS_INFO_103 {
         *self
     }
 }
+impl ::core::fmt::Debug for DFS_INFO_103 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_103").field("PropertyFlagMask", &self.PropertyFlagMask).field("PropertyFlags", &self.PropertyFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DFS_INFO_103 {
     type Abi = Self;
 }
@@ -181,6 +213,11 @@ impl ::core::marker::Copy for DFS_INFO_104 {}
 impl ::core::clone::Clone for DFS_INFO_104 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DFS_INFO_104 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_104").field("TargetPriority", &self.TargetPriority).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DFS_INFO_104 {
@@ -216,6 +253,12 @@ impl ::core::clone::Clone for DFS_INFO_105 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DFS_INFO_105 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_105").field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("PropertyFlagMask", &self.PropertyFlagMask).field("PropertyFlags", &self.PropertyFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DFS_INFO_105 {
     type Abi = Self;
 }
@@ -243,6 +286,11 @@ impl ::core::marker::Copy for DFS_INFO_106 {}
 impl ::core::clone::Clone for DFS_INFO_106 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DFS_INFO_106 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_106").field("State", &self.State).field("TargetPriority", &self.TargetPriority).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DFS_INFO_106 {
@@ -280,6 +328,12 @@ impl ::core::clone::Clone for DFS_INFO_107 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for DFS_INFO_107 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_107").field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("PropertyFlagMask", &self.PropertyFlagMask).field("PropertyFlags", &self.PropertyFlags).field("SdLengthReserved", &self.SdLengthReserved).field("pSecurityDescriptor", &self.pSecurityDescriptor).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for DFS_INFO_107 {
     type Abi = Self;
 }
@@ -313,6 +367,12 @@ impl ::core::clone::Clone for DFS_INFO_150 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for DFS_INFO_150 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_150").field("SdLengthReserved", &self.SdLengthReserved).field("pSecurityDescriptor", &self.pSecurityDescriptor).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for DFS_INFO_150 {
     type Abi = Self;
 }
@@ -342,6 +402,12 @@ impl ::core::marker::Copy for DFS_INFO_1_32 {}
 impl ::core::clone::Clone for DFS_INFO_1_32 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for DFS_INFO_1_32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_1_32").field("EntryPath", &self.EntryPath).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -380,6 +446,12 @@ impl ::core::clone::Clone for DFS_INFO_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DFS_INFO_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_2").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("NumberOfStorages", &self.NumberOfStorages).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DFS_INFO_2 {
     type Abi = Self;
 }
@@ -409,6 +481,12 @@ impl ::core::marker::Copy for DFS_INFO_200 {}
 impl ::core::clone::Clone for DFS_INFO_200 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DFS_INFO_200 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_200").field("FtDfsName", &self.FtDfsName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -444,6 +522,12 @@ impl ::core::marker::Copy for DFS_INFO_2_32 {}
 impl ::core::clone::Clone for DFS_INFO_2_32 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for DFS_INFO_2_32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_2_32").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("NumberOfStorages", &self.NumberOfStorages).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -483,6 +567,12 @@ impl ::core::clone::Clone for DFS_INFO_3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DFS_INFO_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_3").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DFS_INFO_3 {
     type Abi = Self;
 }
@@ -513,6 +603,12 @@ impl ::core::marker::Copy for DFS_INFO_300 {}
 impl ::core::clone::Clone for DFS_INFO_300 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DFS_INFO_300 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_300").field("Flags", &self.Flags).field("DfsName", &self.DfsName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -549,6 +645,12 @@ impl ::core::marker::Copy for DFS_INFO_3_32 {}
 impl ::core::clone::Clone for DFS_INFO_3_32 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for DFS_INFO_3_32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_3_32").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -590,6 +692,12 @@ impl ::core::clone::Clone for DFS_INFO_4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DFS_INFO_4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_4").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DFS_INFO_4 {
     type Abi = Self;
 }
@@ -625,6 +733,12 @@ impl ::core::marker::Copy for DFS_INFO_4_32 {}
 impl ::core::clone::Clone for DFS_INFO_4_32 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for DFS_INFO_4_32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_4_32").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -667,6 +781,12 @@ impl ::core::clone::Clone for DFS_INFO_5 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DFS_INFO_5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_5").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("PropertyFlags", &self.PropertyFlags).field("MetadataSize", &self.MetadataSize).field("NumberOfStorages", &self.NumberOfStorages).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DFS_INFO_5 {
     type Abi = Self;
 }
@@ -695,6 +815,11 @@ impl ::core::marker::Copy for DFS_INFO_50 {}
 impl ::core::clone::Clone for DFS_INFO_50 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DFS_INFO_50 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_50").field("NamespaceMajorVersion", &self.NamespaceMajorVersion).field("NamespaceMinorVersion", &self.NamespaceMinorVersion).field("NamespaceCapabilities", &self.NamespaceCapabilities).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DFS_INFO_50 {
@@ -734,6 +859,12 @@ impl ::core::clone::Clone for DFS_INFO_6 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DFS_INFO_6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_6").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("PropertyFlags", &self.PropertyFlags).field("MetadataSize", &self.MetadataSize).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DFS_INFO_6 {
     type Abi = Self;
 }
@@ -760,6 +891,11 @@ impl ::core::marker::Copy for DFS_INFO_7 {}
 impl ::core::clone::Clone for DFS_INFO_7 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DFS_INFO_7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_7").field("GenerationGuid", &self.GenerationGuid).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DFS_INFO_7 {
@@ -797,6 +933,12 @@ impl ::core::marker::Copy for DFS_INFO_8 {}
 impl ::core::clone::Clone for DFS_INFO_8 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for DFS_INFO_8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_8").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("PropertyFlags", &self.PropertyFlags).field("MetadataSize", &self.MetadataSize).field("SdLengthReserved", &self.SdLengthReserved).field("pSecurityDescriptor", &self.pSecurityDescriptor).field("NumberOfStorages", &self.NumberOfStorages).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -839,6 +981,12 @@ impl ::core::marker::Copy for DFS_INFO_9 {}
 impl ::core::clone::Clone for DFS_INFO_9 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for DFS_INFO_9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_INFO_9").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("PropertyFlags", &self.PropertyFlags).field("MetadataSize", &self.MetadataSize).field("SdLengthReserved", &self.SdLengthReserved).field("pSecurityDescriptor", &self.pSecurityDescriptor).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -899,6 +1047,12 @@ impl ::core::clone::Clone for DFS_SITELIST_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DFS_SITELIST_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_SITELIST_INFO").field("cSites", &self.cSites).field("Site", &self.Site).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DFS_SITELIST_INFO {
     type Abi = Self;
 }
@@ -929,6 +1083,12 @@ impl ::core::marker::Copy for DFS_SITENAME_INFO {}
 impl ::core::clone::Clone for DFS_SITENAME_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DFS_SITENAME_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_SITENAME_INFO").field("SiteFlags", &self.SiteFlags).field("SiteName", &self.SiteName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -970,6 +1130,12 @@ impl ::core::clone::Clone for DFS_STORAGE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DFS_STORAGE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_STORAGE_INFO").field("State", &self.State).field("ServerName", &self.ServerName).field("ShareName", &self.ShareName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DFS_STORAGE_INFO {
     type Abi = Self;
 }
@@ -1001,6 +1167,12 @@ impl ::core::marker::Copy for DFS_STORAGE_INFO_0_32 {}
 impl ::core::clone::Clone for DFS_STORAGE_INFO_0_32 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for DFS_STORAGE_INFO_0_32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_STORAGE_INFO_0_32").field("State", &self.State).field("ServerName", &self.ServerName).field("ShareName", &self.ShareName).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1036,6 +1208,12 @@ impl ::core::marker::Copy for DFS_STORAGE_INFO_1 {}
 impl ::core::clone::Clone for DFS_STORAGE_INFO_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DFS_STORAGE_INFO_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_STORAGE_INFO_1").field("State", &self.State).field("ServerName", &self.ServerName).field("ShareName", &self.ShareName).field("TargetPriority", &self.TargetPriority).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1080,6 +1258,11 @@ impl ::core::clone::Clone for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_SUPPORTED_NAMESPACE_VERSION_INFO").field("DomainDfsMajorVersion", &self.DomainDfsMajorVersion).field("DomainDfsMinorVersion", &self.DomainDfsMinorVersion).field("DomainDfsCapabilities", &self.DomainDfsCapabilities).field("StandaloneDfsMajorVersion", &self.StandaloneDfsMajorVersion).field("StandaloneDfsMinorVersion", &self.StandaloneDfsMinorVersion).field("StandaloneDfsCapabilities", &self.StandaloneDfsCapabilities).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
     type Abi = Self;
 }
@@ -1105,6 +1288,11 @@ impl ::core::marker::Copy for DFS_TARGET_PRIORITY {}
 impl ::core::clone::Clone for DFS_TARGET_PRIORITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DFS_TARGET_PRIORITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DFS_TARGET_PRIORITY").field("TargetPriorityClass", &self.TargetPriorityClass).field("TargetPriorityRank", &self.TargetPriorityRank).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DFS_TARGET_PRIORITY {

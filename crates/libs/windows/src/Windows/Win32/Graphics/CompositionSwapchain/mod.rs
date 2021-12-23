@@ -21,6 +21,12 @@ impl ::core::clone::Clone for CompositionFrameDisplayInstance {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for CompositionFrameDisplayInstance {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CompositionFrameDisplayInstance").field("displayAdapterLUID", &self.displayAdapterLUID).field("displayVidPnSourceId", &self.displayVidPnSourceId).field("displayUniqueId", &self.displayUniqueId).field("renderAdapterLUID", &self.renderAdapterLUID).field("instanceKind", &self.instanceKind).field("finalTransform", &self.finalTransform).field("requiredCrossAdapterCopy", &self.requiredCrossAdapterCopy).field("colorSpace", &self.colorSpace).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for CompositionFrameDisplayInstance {
     type Abi = Self;
 }
@@ -137,6 +143,11 @@ impl ::core::cmp::PartialEq for ICompositionFramePresentStatistics {
     }
 }
 impl ::core::cmp::Eq for ICompositionFramePresentStatistics {}
+impl ::core::fmt::Debug for ICompositionFramePresentStatistics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICompositionFramePresentStatistics").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICompositionFramePresentStatistics {
     type Vtable = ICompositionFramePresentStatisticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab41d127_c101_4c0a_911d_f9f2e9d08e64);
@@ -245,6 +256,11 @@ impl ::core::cmp::PartialEq for IIndependentFlipFramePresentStatistics {
     }
 }
 impl ::core::cmp::Eq for IIndependentFlipFramePresentStatistics {}
+impl ::core::fmt::Debug for IIndependentFlipFramePresentStatistics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IIndependentFlipFramePresentStatistics").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IIndependentFlipFramePresentStatistics {
     type Vtable = IIndependentFlipFramePresentStatisticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c93be27_ad94_4da0_8fd4_2413132d124e);
@@ -308,6 +324,11 @@ impl ::core::cmp::PartialEq for IPresentStatistics {
     }
 }
 impl ::core::cmp::Eq for IPresentStatistics {}
+impl ::core::fmt::Debug for IPresentStatistics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPresentStatistics").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPresentStatistics {
     type Vtable = IPresentStatisticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb44b8bda_7282_495d_9dd7_ceadd8b4bb86);
@@ -387,6 +408,11 @@ impl ::core::cmp::PartialEq for IPresentStatusPresentStatistics {
     }
 }
 impl ::core::cmp::Eq for IPresentStatusPresentStatistics {}
+impl ::core::fmt::Debug for IPresentStatusPresentStatistics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPresentStatusPresentStatistics").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPresentStatusPresentStatistics {
     type Vtable = IPresentStatusPresentStatisticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9ed2a41_79cb_435e_964e_c8553055420c);
@@ -449,6 +475,11 @@ impl ::core::cmp::PartialEq for IPresentationBuffer {
     }
 }
 impl ::core::cmp::Eq for IPresentationBuffer {}
+impl ::core::fmt::Debug for IPresentationBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPresentationBuffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPresentationBuffer {
     type Vtable = IPresentationBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e217d3a_5abb_4138_9a13_a775593c89ca);
@@ -503,6 +534,11 @@ impl ::core::cmp::PartialEq for IPresentationContent {
     }
 }
 impl ::core::cmp::Eq for IPresentationContent {}
+impl ::core::fmt::Debug for IPresentationContent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPresentationContent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPresentationContent {
     type Vtable = IPresentationContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5668bb79_3d8e_415c_b215_f38020f2d252);
@@ -559,6 +595,11 @@ impl ::core::cmp::PartialEq for IPresentationFactory {
     }
 }
 impl ::core::cmp::Eq for IPresentationFactory {}
+impl ::core::fmt::Debug for IPresentationFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPresentationFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPresentationFactory {
     type Vtable = IPresentationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fb37b58_1d74_4f64_a49c_1f97a80a2ec0);
@@ -669,6 +710,11 @@ impl ::core::cmp::PartialEq for IPresentationManager {
     }
 }
 impl ::core::cmp::Eq for IPresentationManager {}
+impl ::core::fmt::Debug for IPresentationManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPresentationManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPresentationManager {
     type Vtable = IPresentationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb562f82_6292_470a_88b1_843661e7f20c);
@@ -791,6 +837,11 @@ impl ::core::cmp::PartialEq for IPresentationSurface {
     }
 }
 impl ::core::cmp::Eq for IPresentationSurface {}
+impl ::core::fmt::Debug for IPresentationSurface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPresentationSurface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPresentationSurface {
     type Vtable = IPresentationSurfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x956710fb_ea40_4eba_a3eb_4375a0eb4edc);
@@ -846,6 +897,11 @@ impl ::core::clone::Clone for PresentationTransform {
         *self
     }
 }
+impl ::core::fmt::Debug for PresentationTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PresentationTransform").field("M11", &self.M11).field("M12", &self.M12).field("M21", &self.M21).field("M22", &self.M22).field("M31", &self.M31).field("M32", &self.M32).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PresentationTransform {
     type Abi = Self;
 }
@@ -869,6 +925,11 @@ impl ::core::marker::Copy for SystemInterruptTime {}
 impl ::core::clone::Clone for SystemInterruptTime {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SystemInterruptTime {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SystemInterruptTime").field("value", &self.value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SystemInterruptTime {

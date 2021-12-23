@@ -248,6 +248,11 @@ impl ::core::cmp::PartialEq for AppWindow {
     }
 }
 impl ::core::cmp::Eq for AppWindow {}
+impl ::core::fmt::Debug for AppWindow {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindow").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppWindow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindow;{663014a6-b75e-5dbd-995c-f0117fa3fb61})");
 }
@@ -380,6 +385,11 @@ impl ::core::cmp::PartialEq for AppWindowChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for AppWindowChangedEventArgs {}
+impl ::core::fmt::Debug for AppWindowChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindowChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppWindowChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowChangedEventArgs;{1de1f3be-a655-55ad-b2b6-eb240f880356})");
 }
@@ -470,6 +480,11 @@ impl ::core::cmp::PartialEq for AppWindowCloseRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for AppWindowCloseRequestedEventArgs {}
+impl ::core::fmt::Debug for AppWindowCloseRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindowCloseRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppWindowCloseRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowCloseRequestedEventArgs;{e9ff01da-e7a2-57a8-8b5e-39c4003afdbb})");
 }
@@ -546,6 +561,11 @@ impl ::core::cmp::PartialEq for AppWindowClosedEventArgs {
     }
 }
 impl ::core::cmp::Eq for AppWindowClosedEventArgs {}
+impl ::core::fmt::Debug for AppWindowClosedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindowClosedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppWindowClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowClosedEventArgs;{cc7df816-9520-5a06-821e-456ad8b358aa})");
 }
@@ -621,6 +641,11 @@ impl ::core::cmp::PartialEq for AppWindowClosedReason {
     }
 }
 impl ::core::cmp::Eq for AppWindowClosedReason {}
+impl ::core::fmt::Debug for AppWindowClosedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindowClosedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppWindowClosedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowClosedReason;i4)");
 }
@@ -665,6 +690,11 @@ impl ::core::cmp::PartialEq for AppWindowFrame {
     }
 }
 impl ::core::cmp::Eq for AppWindowFrame {}
+impl ::core::fmt::Debug for AppWindowFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindowFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppWindowFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowFrame;{9ee22601-7e5d-52af-846b-01dc6c296567})");
 }
@@ -739,6 +769,11 @@ impl ::core::cmp::PartialEq for AppWindowFrameStyle {
     }
 }
 impl ::core::cmp::Eq for AppWindowFrameStyle {}
+impl ::core::fmt::Debug for AppWindowFrameStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindowFrameStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppWindowFrameStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowFrameStyle;i4)");
 }
@@ -787,6 +822,11 @@ impl ::core::cmp::PartialEq for AppWindowPlacement {
     }
 }
 impl ::core::cmp::Eq for AppWindowPlacement {}
+impl ::core::fmt::Debug for AppWindowPlacement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindowPlacement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppWindowPlacement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowPlacement;{03dc815e-e7a9-5857-9c03-7d670594410e})");
 }
@@ -863,6 +903,11 @@ impl ::core::cmp::PartialEq for AppWindowPresentationConfiguration {
     }
 }
 impl ::core::cmp::Eq for AppWindowPresentationConfiguration {}
+impl ::core::fmt::Debug for AppWindowPresentationConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindowPresentationConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppWindowPresentationConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowPresentationConfiguration;{b5a43ee3-df33-5e67-bd31-1072457300df})");
 }
@@ -938,6 +983,11 @@ impl ::core::cmp::PartialEq for AppWindowPresentationKind {
     }
 }
 impl ::core::cmp::Eq for AppWindowPresentationKind {}
+impl ::core::fmt::Debug for AppWindowPresentationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindowPresentationKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppWindowPresentationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowPresentationKind;i4)");
 }
@@ -992,6 +1042,11 @@ impl ::core::cmp::PartialEq for AppWindowPresenter {
     }
 }
 impl ::core::cmp::Eq for AppWindowPresenter {}
+impl ::core::fmt::Debug for AppWindowPresenter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindowPresenter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppWindowPresenter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowPresenter;{5ae9ed73-e1fd-5317-ad78-5a3ed271bbde})");
 }
@@ -1283,6 +1338,11 @@ impl ::core::cmp::PartialEq for AppWindowTitleBar {
     }
 }
 impl ::core::cmp::Eq for AppWindowTitleBar {}
+impl ::core::fmt::Debug for AppWindowTitleBar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindowTitleBar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppWindowTitleBar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowTitleBar;{6e932c84-f644-541d-a2d7-0c262437842d})");
 }
@@ -1360,6 +1420,11 @@ impl ::core::cmp::PartialEq for AppWindowTitleBarOcclusion {
     }
 }
 impl ::core::cmp::Eq for AppWindowTitleBarOcclusion {}
+impl ::core::fmt::Debug for AppWindowTitleBarOcclusion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindowTitleBarOcclusion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppWindowTitleBarOcclusion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowTitleBarOcclusion;{fea3cffd-2ccf-5fc3-aeae-f843876bf37e})");
 }
@@ -1434,6 +1499,11 @@ impl ::core::cmp::PartialEq for AppWindowTitleBarVisibility {
     }
 }
 impl ::core::cmp::Eq for AppWindowTitleBarVisibility {}
+impl ::core::fmt::Debug for AppWindowTitleBarVisibility {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindowTitleBarVisibility").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppWindowTitleBarVisibility {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowTitleBarVisibility;i4)");
 }
@@ -1471,6 +1541,11 @@ impl ::core::cmp::PartialEq for CompactOverlayPresentationConfiguration {
     }
 }
 impl ::core::cmp::Eq for CompactOverlayPresentationConfiguration {}
+impl ::core::fmt::Debug for CompactOverlayPresentationConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompactOverlayPresentationConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompactOverlayPresentationConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.CompactOverlayPresentationConfiguration;{a7e5750f-5730-56c6-8e1f-d63ff4d7980d})");
 }
@@ -1574,6 +1649,11 @@ impl ::core::cmp::PartialEq for DefaultPresentationConfiguration {
     }
 }
 impl ::core::cmp::Eq for DefaultPresentationConfiguration {}
+impl ::core::fmt::Debug for DefaultPresentationConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DefaultPresentationConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DefaultPresentationConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.DefaultPresentationConfiguration;{d8c2b53b-2168-5703-a853-d525589fe2b9})");
 }
@@ -1719,6 +1799,11 @@ impl ::core::cmp::PartialEq for DisplayRegion {
     }
 }
 impl ::core::cmp::Eq for DisplayRegion {}
+impl ::core::fmt::Debug for DisplayRegion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayRegion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayRegion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.DisplayRegion;{db50c3a2-4094-5f47-8cb1-ea01ddafaa94})");
 }
@@ -1815,6 +1900,11 @@ impl ::core::cmp::PartialEq for FullScreenPresentationConfiguration {
     }
 }
 impl ::core::cmp::Eq for FullScreenPresentationConfiguration {}
+impl ::core::fmt::Debug for FullScreenPresentationConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FullScreenPresentationConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FullScreenPresentationConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.FullScreenPresentationConfiguration;{43d3dcd8-d2a8-503d-a626-15533d6d5f62})");
 }
@@ -2552,6 +2642,11 @@ impl ::core::cmp::PartialEq for WindowingEnvironment {
     }
 }
 impl ::core::cmp::Eq for WindowingEnvironment {}
+impl ::core::fmt::Debug for WindowingEnvironment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowingEnvironment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WindowingEnvironment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.WindowingEnvironment;{264363c0-2a49-5417-b3ae-48a71c63a3bd})");
 }
@@ -2628,6 +2723,11 @@ impl ::core::cmp::PartialEq for WindowingEnvironmentAddedEventArgs {
     }
 }
 impl ::core::cmp::Eq for WindowingEnvironmentAddedEventArgs {}
+impl ::core::fmt::Debug for WindowingEnvironmentAddedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowingEnvironmentAddedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WindowingEnvironmentAddedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.WindowingEnvironmentAddedEventArgs;{ff2a5b7f-f183-5c66-99b2-429082069299})");
 }
@@ -2695,6 +2795,11 @@ impl ::core::cmp::PartialEq for WindowingEnvironmentChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for WindowingEnvironmentChangedEventArgs {}
+impl ::core::fmt::Debug for WindowingEnvironmentChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowingEnvironmentChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WindowingEnvironmentChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.WindowingEnvironmentChangedEventArgs;{4160cfc6-023d-5e9a-b431-350e67dc978a})");
 }
@@ -2770,6 +2875,11 @@ impl ::core::cmp::PartialEq for WindowingEnvironmentKind {
     }
 }
 impl ::core::cmp::Eq for WindowingEnvironmentKind {}
+impl ::core::fmt::Debug for WindowingEnvironmentKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowingEnvironmentKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WindowingEnvironmentKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.WindowingEnvironmentKind;i4)");
 }
@@ -2800,6 +2910,11 @@ impl ::core::cmp::PartialEq for WindowingEnvironmentRemovedEventArgs {
     }
 }
 impl ::core::cmp::Eq for WindowingEnvironmentRemovedEventArgs {}
+impl ::core::fmt::Debug for WindowingEnvironmentRemovedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowingEnvironmentRemovedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WindowingEnvironmentRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.WindowingEnvironmentRemovedEventArgs;{2e5b5473-beff-5e53-9316-7e775fe568b3})");
 }

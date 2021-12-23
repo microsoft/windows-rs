@@ -130,6 +130,24 @@ impl ::core::clone::Clone for WER_DUMP_CUSTOM_OPTIONS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WER_DUMP_CUSTOM_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WER_DUMP_CUSTOM_OPTIONS")
+            .field("dwSize", &self.dwSize)
+            .field("dwMask", &self.dwMask)
+            .field("dwDumpFlags", &self.dwDumpFlags)
+            .field("bOnlyThisThread", &self.bOnlyThisThread)
+            .field("dwExceptionThreadFlags", &self.dwExceptionThreadFlags)
+            .field("dwOtherThreadFlags", &self.dwOtherThreadFlags)
+            .field("dwExceptionThreadExFlags", &self.dwExceptionThreadExFlags)
+            .field("dwOtherThreadExFlags", &self.dwOtherThreadExFlags)
+            .field("dwPreferredModuleFlags", &self.dwPreferredModuleFlags)
+            .field("dwOtherModuleFlags", &self.dwOtherModuleFlags)
+            .field("wzPreferredModuleList", &self.wzPreferredModuleList)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WER_DUMP_CUSTOM_OPTIONS {
     type Abi = Self;
 }
@@ -171,6 +189,26 @@ impl ::core::marker::Copy for WER_DUMP_CUSTOM_OPTIONS_V2 {}
 impl ::core::clone::Clone for WER_DUMP_CUSTOM_OPTIONS_V2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WER_DUMP_CUSTOM_OPTIONS_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WER_DUMP_CUSTOM_OPTIONS_V2")
+            .field("dwSize", &self.dwSize)
+            .field("dwMask", &self.dwMask)
+            .field("dwDumpFlags", &self.dwDumpFlags)
+            .field("bOnlyThisThread", &self.bOnlyThisThread)
+            .field("dwExceptionThreadFlags", &self.dwExceptionThreadFlags)
+            .field("dwOtherThreadFlags", &self.dwOtherThreadFlags)
+            .field("dwExceptionThreadExFlags", &self.dwExceptionThreadExFlags)
+            .field("dwOtherThreadExFlags", &self.dwOtherThreadExFlags)
+            .field("dwPreferredModuleFlags", &self.dwPreferredModuleFlags)
+            .field("dwOtherModuleFlags", &self.dwOtherModuleFlags)
+            .field("wzPreferredModuleList", &self.wzPreferredModuleList)
+            .field("dwPreferredModuleResetFlags", &self.dwPreferredModuleResetFlags)
+            .field("dwOtherModuleResetFlags", &self.dwOtherModuleResetFlags)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -218,6 +256,29 @@ impl ::core::marker::Copy for WER_DUMP_CUSTOM_OPTIONS_V3 {}
 impl ::core::clone::Clone for WER_DUMP_CUSTOM_OPTIONS_V3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WER_DUMP_CUSTOM_OPTIONS_V3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WER_DUMP_CUSTOM_OPTIONS_V3")
+            .field("dwSize", &self.dwSize)
+            .field("dwMask", &self.dwMask)
+            .field("dwDumpFlags", &self.dwDumpFlags)
+            .field("bOnlyThisThread", &self.bOnlyThisThread)
+            .field("dwExceptionThreadFlags", &self.dwExceptionThreadFlags)
+            .field("dwOtherThreadFlags", &self.dwOtherThreadFlags)
+            .field("dwExceptionThreadExFlags", &self.dwExceptionThreadExFlags)
+            .field("dwOtherThreadExFlags", &self.dwOtherThreadExFlags)
+            .field("dwPreferredModuleFlags", &self.dwPreferredModuleFlags)
+            .field("dwOtherModuleFlags", &self.dwOtherModuleFlags)
+            .field("wzPreferredModuleList", &self.wzPreferredModuleList)
+            .field("dwPreferredModuleResetFlags", &self.dwPreferredModuleResetFlags)
+            .field("dwOtherModuleResetFlags", &self.dwOtherModuleResetFlags)
+            .field("pvDumpKey", &self.pvDumpKey)
+            .field("hSnapshot", &self.hSnapshot)
+            .field("dwThreadID", &self.dwThreadID)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -269,6 +330,12 @@ impl ::core::marker::Copy for WER_EXCEPTION_INFORMATION {}
 impl ::core::clone::Clone for WER_EXCEPTION_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl ::core::fmt::Debug for WER_EXCEPTION_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WER_EXCEPTION_INFORMATION").field("pExceptionPointers", &self.pExceptionPointers).field("bClientPointers", &self.bClientPointers).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
@@ -429,6 +496,12 @@ impl ::core::clone::Clone for WER_REPORT_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WER_REPORT_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WER_REPORT_INFORMATION").field("dwSize", &self.dwSize).field("hProcess", &self.hProcess).field("wzConsentKey", &self.wzConsentKey).field("wzFriendlyEventName", &self.wzFriendlyEventName).field("wzApplicationName", &self.wzApplicationName).field("wzApplicationPath", &self.wzApplicationPath).field("wzDescription", &self.wzDescription).field("hwndParent", &self.hwndParent).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION {
     type Abi = Self;
 }
@@ -467,6 +540,23 @@ impl ::core::marker::Copy for WER_REPORT_INFORMATION_V3 {}
 impl ::core::clone::Clone for WER_REPORT_INFORMATION_V3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WER_REPORT_INFORMATION_V3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WER_REPORT_INFORMATION_V3")
+            .field("dwSize", &self.dwSize)
+            .field("hProcess", &self.hProcess)
+            .field("wzConsentKey", &self.wzConsentKey)
+            .field("wzFriendlyEventName", &self.wzFriendlyEventName)
+            .field("wzApplicationName", &self.wzApplicationName)
+            .field("wzApplicationPath", &self.wzApplicationPath)
+            .field("wzDescription", &self.wzDescription)
+            .field("hwndParent", &self.hwndParent)
+            .field("wzNamespacePartner", &self.wzNamespacePartner)
+            .field("wzNamespaceGroup", &self.wzNamespaceGroup)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -511,6 +601,26 @@ impl ::core::marker::Copy for WER_REPORT_INFORMATION_V4 {}
 impl ::core::clone::Clone for WER_REPORT_INFORMATION_V4 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WER_REPORT_INFORMATION_V4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WER_REPORT_INFORMATION_V4")
+            .field("dwSize", &self.dwSize)
+            .field("hProcess", &self.hProcess)
+            .field("wzConsentKey", &self.wzConsentKey)
+            .field("wzFriendlyEventName", &self.wzFriendlyEventName)
+            .field("wzApplicationName", &self.wzApplicationName)
+            .field("wzApplicationPath", &self.wzApplicationPath)
+            .field("wzDescription", &self.wzDescription)
+            .field("hwndParent", &self.hwndParent)
+            .field("wzNamespacePartner", &self.wzNamespacePartner)
+            .field("wzNamespaceGroup", &self.wzNamespaceGroup)
+            .field("rgbApplicationIdentity", &self.rgbApplicationIdentity)
+            .field("hSnapshot", &self.hSnapshot)
+            .field("hDeleteFilesImpersonationToken", &self.hDeleteFilesImpersonationToken)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -559,6 +669,27 @@ impl ::core::clone::Clone for WER_REPORT_INFORMATION_V5 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WER_REPORT_INFORMATION_V5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WER_REPORT_INFORMATION_V5")
+            .field("dwSize", &self.dwSize)
+            .field("hProcess", &self.hProcess)
+            .field("wzConsentKey", &self.wzConsentKey)
+            .field("wzFriendlyEventName", &self.wzFriendlyEventName)
+            .field("wzApplicationName", &self.wzApplicationName)
+            .field("wzApplicationPath", &self.wzApplicationPath)
+            .field("wzDescription", &self.wzDescription)
+            .field("hwndParent", &self.hwndParent)
+            .field("wzNamespacePartner", &self.wzNamespacePartner)
+            .field("wzNamespaceGroup", &self.wzNamespaceGroup)
+            .field("rgbApplicationIdentity", &self.rgbApplicationIdentity)
+            .field("hSnapshot", &self.hSnapshot)
+            .field("hDeleteFilesImpersonationToken", &self.hDeleteFilesImpersonationToken)
+            .field("submitResultMax", &self.submitResultMax)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION_V5 {
     type Abi = Self;
 }
@@ -592,6 +723,12 @@ impl ::core::marker::Copy for WER_REPORT_METADATA_V1 {}
 impl ::core::clone::Clone for WER_REPORT_METADATA_V1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WER_REPORT_METADATA_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WER_REPORT_METADATA_V1").field("Signature", &self.Signature).field("BucketId", &self.BucketId).field("ReportId", &self.ReportId).field("CreationTime", &self.CreationTime).field("SizeInBytes", &self.SizeInBytes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -634,6 +771,24 @@ impl ::core::marker::Copy for WER_REPORT_METADATA_V2 {}
 impl ::core::clone::Clone for WER_REPORT_METADATA_V2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WER_REPORT_METADATA_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WER_REPORT_METADATA_V2")
+            .field("Signature", &self.Signature)
+            .field("BucketId", &self.BucketId)
+            .field("ReportId", &self.ReportId)
+            .field("CreationTime", &self.CreationTime)
+            .field("SizeInBytes", &self.SizeInBytes)
+            .field("CabId", &self.CabId)
+            .field("ReportStatus", &self.ReportStatus)
+            .field("ReportIntegratorId", &self.ReportIntegratorId)
+            .field("NumberOfFiles", &self.NumberOfFiles)
+            .field("SizeOfFileNames", &self.SizeOfFileNames)
+            .field("FileNames", &self.FileNames)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -685,6 +840,30 @@ impl ::core::clone::Clone for WER_REPORT_METADATA_V3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WER_REPORT_METADATA_V3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WER_REPORT_METADATA_V3")
+            .field("Signature", &self.Signature)
+            .field("BucketId", &self.BucketId)
+            .field("ReportId", &self.ReportId)
+            .field("CreationTime", &self.CreationTime)
+            .field("SizeInBytes", &self.SizeInBytes)
+            .field("CabId", &self.CabId)
+            .field("ReportStatus", &self.ReportStatus)
+            .field("ReportIntegratorId", &self.ReportIntegratorId)
+            .field("NumberOfFiles", &self.NumberOfFiles)
+            .field("SizeOfFileNames", &self.SizeOfFileNames)
+            .field("FileNames", &self.FileNames)
+            .field("FriendlyEventName", &self.FriendlyEventName)
+            .field("ApplicationName", &self.ApplicationName)
+            .field("ApplicationPath", &self.ApplicationPath)
+            .field("Description", &self.Description)
+            .field("BucketIdString", &self.BucketIdString)
+            .field("LegacyBucketId", &self.LegacyBucketId)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WER_REPORT_METADATA_V3 {
     type Abi = Self;
 }
@@ -714,6 +893,11 @@ impl ::core::clone::Clone for WER_REPORT_PARAMETER {
         *self
     }
 }
+impl ::core::fmt::Debug for WER_REPORT_PARAMETER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WER_REPORT_PARAMETER").field("Name", &self.Name).field("Value", &self.Value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WER_REPORT_PARAMETER {
     type Abi = Self;
 }
@@ -738,6 +922,11 @@ impl ::core::marker::Copy for WER_REPORT_SIGNATURE {}
 impl ::core::clone::Clone for WER_REPORT_SIGNATURE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WER_REPORT_SIGNATURE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WER_REPORT_SIGNATURE").field("EventName", &self.EventName).field("Parameters", &self.Parameters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WER_REPORT_SIGNATURE {

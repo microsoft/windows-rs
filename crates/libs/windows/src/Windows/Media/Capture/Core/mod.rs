@@ -122,6 +122,11 @@ impl ::core::cmp::PartialEq for VariablePhotoCapturedEventArgs {
     }
 }
 impl ::core::cmp::Eq for VariablePhotoCapturedEventArgs {}
+impl ::core::fmt::Debug for VariablePhotoCapturedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VariablePhotoCapturedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VariablePhotoCapturedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Core.VariablePhotoCapturedEventArgs;{d1eb4c5c-1b53-4e4a-8b5c-db7887ac949b})");
 }
@@ -256,6 +261,11 @@ impl ::core::cmp::PartialEq for VariablePhotoSequenceCapture {
     }
 }
 impl ::core::cmp::Eq for VariablePhotoSequenceCapture {}
+impl ::core::fmt::Debug for VariablePhotoSequenceCapture {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VariablePhotoSequenceCapture").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VariablePhotoSequenceCapture {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Core.VariablePhotoSequenceCapture;{d0112d1d-031e-4041-a6d6-bd742476a8ee})");
 }

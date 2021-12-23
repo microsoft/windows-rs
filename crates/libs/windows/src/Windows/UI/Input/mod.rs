@@ -29,6 +29,11 @@ impl ::core::cmp::PartialEq for AttachableInputObject {
     }
 }
 impl ::core::cmp::Eq for AttachableInputObject {}
+impl ::core::fmt::Debug for AttachableInputObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AttachableInputObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AttachableInputObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.AttachableInputObject;{9b822734-a3c1-542a-b2f4-0e32b773fb07})");
 }
@@ -121,6 +126,11 @@ impl ::core::clone::Clone for CrossSlideThresholds {
         *self
     }
 }
+impl ::core::fmt::Debug for CrossSlideThresholds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CrossSlideThresholds").field("SelectionStart", &self.SelectionStart).field("SpeedBumpStart", &self.SpeedBumpStart).field("SpeedBumpEnd", &self.SpeedBumpEnd).field("RearrangeStart", &self.RearrangeStart).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CrossSlideThresholds {
     type Abi = Self;
 }
@@ -191,6 +201,11 @@ impl ::core::cmp::PartialEq for CrossSlidingEventArgs {
     }
 }
 impl ::core::cmp::Eq for CrossSlidingEventArgs {}
+impl ::core::fmt::Debug for CrossSlidingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CrossSlidingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CrossSlidingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.CrossSlidingEventArgs;{e9374738-6f88-41d9-8720-78e08e398349})");
 }
@@ -268,6 +283,11 @@ impl ::core::cmp::PartialEq for CrossSlidingState {
     }
 }
 impl ::core::cmp::Eq for CrossSlidingState {}
+impl ::core::fmt::Debug for CrossSlidingState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CrossSlidingState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CrossSlidingState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.CrossSlidingState;i4)");
 }
@@ -324,6 +344,11 @@ impl ::core::cmp::PartialEq for DraggingEventArgs {
     }
 }
 impl ::core::cmp::Eq for DraggingEventArgs {}
+impl ::core::fmt::Debug for DraggingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DraggingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DraggingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.DraggingEventArgs;{1c905384-083c-4bd3-b559-179cddeb33ec})");
 }
@@ -397,6 +422,11 @@ impl ::core::cmp::PartialEq for DraggingState {
     }
 }
 impl ::core::cmp::Eq for DraggingState {}
+impl ::core::fmt::Debug for DraggingState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DraggingState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DraggingState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.DraggingState;i4)");
 }
@@ -476,6 +506,11 @@ impl ::core::cmp::PartialEq for EdgeGesture {
     }
 }
 impl ::core::cmp::Eq for EdgeGesture {}
+impl ::core::fmt::Debug for EdgeGesture {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EdgeGesture").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EdgeGesture {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.EdgeGesture;{580d5292-2ab1-49aa-a7f0-33bd3f8df9f1})");
 }
@@ -550,6 +585,11 @@ impl ::core::cmp::PartialEq for EdgeGestureEventArgs {
     }
 }
 impl ::core::cmp::Eq for EdgeGestureEventArgs {}
+impl ::core::fmt::Debug for EdgeGestureEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EdgeGestureEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EdgeGestureEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.EdgeGestureEventArgs;{44fa4a24-2d09-42e1-8b5e-368208796a4c})");
 }
@@ -623,6 +663,11 @@ impl ::core::cmp::PartialEq for EdgeGestureKind {
     }
 }
 impl ::core::cmp::Eq for EdgeGestureKind {}
+impl ::core::fmt::Debug for EdgeGestureKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EdgeGestureKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EdgeGestureKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.EdgeGestureKind;i4)");
 }
@@ -653,6 +698,11 @@ impl ::core::cmp::PartialEq for GazeInputAccessStatus {
     }
 }
 impl ::core::cmp::Eq for GazeInputAccessStatus {}
+impl ::core::fmt::Debug for GazeInputAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GazeInputAccessStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GazeInputAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.GazeInputAccessStatus;i4)");
 }
@@ -1183,6 +1233,11 @@ impl ::core::cmp::PartialEq for GestureRecognizer {
     }
 }
 impl ::core::cmp::Eq for GestureRecognizer {}
+impl ::core::fmt::Debug for GestureRecognizer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GestureRecognizer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GestureRecognizer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.GestureRecognizer;{b47a37bf-3d6b-4f88-83e8-6dcb4012ffb0})");
 }
@@ -1271,6 +1326,11 @@ impl ::core::cmp::PartialEq for GestureSettings {
     }
 }
 impl ::core::cmp::Eq for GestureSettings {}
+impl ::core::fmt::Debug for GestureSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GestureSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GestureSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.GestureSettings;u4)");
 }
@@ -1335,6 +1395,11 @@ impl ::core::cmp::PartialEq for HoldingEventArgs {
     }
 }
 impl ::core::cmp::Eq for HoldingEventArgs {}
+impl ::core::fmt::Debug for HoldingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HoldingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HoldingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.HoldingEventArgs;{2bf755c5-e799-41b4-bb40-242f40959b71})");
 }
@@ -1408,6 +1473,11 @@ impl ::core::cmp::PartialEq for HoldingState {
     }
 }
 impl ::core::cmp::Eq for HoldingState {}
+impl ::core::fmt::Debug for HoldingState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HoldingState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HoldingState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.HoldingState;i4)");
 }
@@ -2250,6 +2320,11 @@ impl ::core::cmp::PartialEq for IPointerPointTransform {
     }
 }
 impl ::core::cmp::Eq for IPointerPointTransform {}
+impl ::core::fmt::Debug for IPointerPointTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPointerPointTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPointerPointTransform {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4d5fe14f-b87c-4028-bc9c-59e9947fb056}");
 }
@@ -3107,6 +3182,11 @@ impl ::core::cmp::PartialEq for InputActivationListener {
     }
 }
 impl ::core::cmp::Eq for InputActivationListener {}
+impl ::core::fmt::Debug for InputActivationListener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InputActivationListener").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InputActivationListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.InputActivationListener;{5d6d4ed2-28c7-5ae3-aa74-c918a9f243ca})");
 }
@@ -3229,6 +3309,11 @@ impl ::core::cmp::PartialEq for InputActivationListenerActivationChangedEventArg
     }
 }
 impl ::core::cmp::Eq for InputActivationListenerActivationChangedEventArgs {}
+impl ::core::fmt::Debug for InputActivationListenerActivationChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InputActivationListenerActivationChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InputActivationListenerActivationChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.InputActivationListenerActivationChangedEventArgs;{7699b465-1dcf-5791-b4b9-6cafbeed2056})");
 }
@@ -3305,6 +3390,11 @@ impl ::core::cmp::PartialEq for InputActivationState {
     }
 }
 impl ::core::cmp::Eq for InputActivationState {}
+impl ::core::fmt::Debug for InputActivationState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InputActivationState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InputActivationState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.InputActivationState;i4)");
 }
@@ -3382,6 +3472,11 @@ impl ::core::cmp::PartialEq for KeyboardDeliveryInterceptor {
     }
 }
 impl ::core::cmp::Eq for KeyboardDeliveryInterceptor {}
+impl ::core::fmt::Debug for KeyboardDeliveryInterceptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyboardDeliveryInterceptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for KeyboardDeliveryInterceptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.KeyboardDeliveryInterceptor;{b4baf068-8f49-446c-8db5-8c0ffe85cc9e})");
 }
@@ -3502,6 +3597,11 @@ impl ::core::cmp::PartialEq for ManipulationCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ManipulationCompletedEventArgs {}
+impl ::core::fmt::Debug for ManipulationCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ManipulationCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ManipulationCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationCompletedEventArgs;{b34ab22b-d19b-46ff-9f38-dec7754bb9e7})");
 }
@@ -3567,6 +3667,12 @@ impl ::core::marker::Copy for ManipulationDelta {}
 impl ::core::clone::Clone for ManipulationDelta {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for ManipulationDelta {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ManipulationDelta").field("Translation", &self.Translation).field("Scale", &self.Scale).field("Rotation", &self.Rotation).field("Expansion", &self.Expansion).finish()
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3664,6 +3770,11 @@ impl ::core::cmp::PartialEq for ManipulationInertiaStartingEventArgs {
     }
 }
 impl ::core::cmp::Eq for ManipulationInertiaStartingEventArgs {}
+impl ::core::fmt::Debug for ManipulationInertiaStartingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ManipulationInertiaStartingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ManipulationInertiaStartingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationInertiaStartingEventArgs;{dd37a898-26bf-467a-9ce5-ccf3fb11371e})");
 }
@@ -3765,6 +3876,11 @@ impl ::core::cmp::PartialEq for ManipulationStartedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ManipulationStartedEventArgs {}
+impl ::core::fmt::Debug for ManipulationStartedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ManipulationStartedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ManipulationStartedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationStartedEventArgs;{ddec873e-cfce-4932-8c1d-3c3d011a34c0})");
 }
@@ -3892,6 +4008,11 @@ impl ::core::cmp::PartialEq for ManipulationUpdatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ManipulationUpdatedEventArgs {}
+impl ::core::fmt::Debug for ManipulationUpdatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ManipulationUpdatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ManipulationUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationUpdatedEventArgs;{cb354ce5-abb8-4f9f-b3ce-8181aa61ad82})");
 }
@@ -3956,6 +4077,12 @@ impl ::core::marker::Copy for ManipulationVelocities {}
 impl ::core::clone::Clone for ManipulationVelocities {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for ManipulationVelocities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ManipulationVelocities").field("Linear", &self.Linear).field("Angular", &self.Angular).field("Expansion", &self.Expansion).finish()
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4056,6 +4183,11 @@ impl ::core::cmp::PartialEq for MouseWheelParameters {
     }
 }
 impl ::core::cmp::Eq for MouseWheelParameters {}
+impl ::core::fmt::Debug for MouseWheelParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MouseWheelParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MouseWheelParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.MouseWheelParameters;{ead0ca44-9ded-4037-8149-5e4cc2564468})");
 }
@@ -4224,6 +4356,11 @@ impl ::core::cmp::PartialEq for PointerPoint {
     }
 }
 impl ::core::cmp::Eq for PointerPoint {}
+impl ::core::fmt::Debug for PointerPoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointerPoint").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PointerPoint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.PointerPoint;{e995317d-7296-42d9-8233-c5be73b74a4a})");
 }
@@ -4493,6 +4630,11 @@ impl ::core::cmp::PartialEq for PointerPointProperties {
     }
 }
 impl ::core::cmp::Eq for PointerPointProperties {}
+impl ::core::fmt::Debug for PointerPointProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointerPointProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PointerPointProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.PointerPointProperties;{c79d8a4b-c163-4ee7-803f-67ce79f9972d})");
 }
@@ -4574,6 +4716,11 @@ impl ::core::cmp::PartialEq for PointerUpdateKind {
     }
 }
 impl ::core::cmp::Eq for PointerUpdateKind {}
+impl ::core::fmt::Debug for PointerUpdateKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointerUpdateKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PointerUpdateKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.PointerUpdateKind;i4)");
 }
@@ -4634,6 +4781,11 @@ impl ::core::cmp::PartialEq for PointerVisualizationSettings {
     }
 }
 impl ::core::cmp::Eq for PointerVisualizationSettings {}
+impl ::core::fmt::Debug for PointerVisualizationSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointerVisualizationSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PointerVisualizationSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.PointerVisualizationSettings;{4d1e6461-84f7-499d-bd91-2a36e2b7aaa2})");
 }
@@ -4905,6 +5057,11 @@ impl ::core::cmp::PartialEq for RadialController {
     }
 }
 impl ::core::cmp::Eq for RadialController {}
+impl ::core::fmt::Debug for RadialController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadialController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadialController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialController;{3055d1c8-df51-43d4-b23b-0e1037467a09})");
 }
@@ -4990,6 +5147,11 @@ impl ::core::cmp::PartialEq for RadialControllerButtonClickedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RadialControllerButtonClickedEventArgs {}
+impl ::core::fmt::Debug for RadialControllerButtonClickedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadialControllerButtonClickedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadialControllerButtonClickedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonClickedEventArgs;{206aa438-e651-11e5-bf62-2c27d7404e85})");
 }
@@ -5075,6 +5237,11 @@ impl ::core::cmp::PartialEq for RadialControllerButtonHoldingEventArgs {
     }
 }
 impl ::core::cmp::Eq for RadialControllerButtonHoldingEventArgs {}
+impl ::core::fmt::Debug for RadialControllerButtonHoldingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadialControllerButtonHoldingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadialControllerButtonHoldingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonHoldingEventArgs;{3d577eee-3cee-11e6-b535-001bdc06ab3b})");
 }
@@ -5160,6 +5327,11 @@ impl ::core::cmp::PartialEq for RadialControllerButtonPressedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RadialControllerButtonPressedEventArgs {}
+impl ::core::fmt::Debug for RadialControllerButtonPressedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadialControllerButtonPressedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadialControllerButtonPressedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonPressedEventArgs;{3d577eed-4cee-11e6-b535-001bdc06ab3b})");
 }
@@ -5245,6 +5417,11 @@ impl ::core::cmp::PartialEq for RadialControllerButtonReleasedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RadialControllerButtonReleasedEventArgs {}
+impl ::core::fmt::Debug for RadialControllerButtonReleasedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadialControllerButtonReleasedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadialControllerButtonReleasedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonReleasedEventArgs;{3d577eef-3cee-11e6-b535-001bdc06ab3b})");
 }
@@ -5397,6 +5574,11 @@ impl ::core::cmp::PartialEq for RadialControllerConfiguration {
     }
 }
 impl ::core::cmp::Eq for RadialControllerConfiguration {}
+impl ::core::fmt::Debug for RadialControllerConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadialControllerConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadialControllerConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerConfiguration;{a6b79ecb-6a52-4430-910c-56370a9d6b42})");
 }
@@ -5490,6 +5672,11 @@ impl ::core::cmp::PartialEq for RadialControllerControlAcquiredEventArgs {
     }
 }
 impl ::core::cmp::Eq for RadialControllerControlAcquiredEventArgs {}
+impl ::core::fmt::Debug for RadialControllerControlAcquiredEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadialControllerControlAcquiredEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadialControllerControlAcquiredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerControlAcquiredEventArgs;{206aa439-e651-11e5-bf62-2c27d7404e85})");
 }
@@ -5601,6 +5788,11 @@ impl ::core::cmp::PartialEq for RadialControllerMenu {
     }
 }
 impl ::core::cmp::Eq for RadialControllerMenu {}
+impl ::core::fmt::Debug for RadialControllerMenu {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadialControllerMenu").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadialControllerMenu {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerMenu;{8506b35d-f640-4412-aba0-bad077e5ea8a})");
 }
@@ -5745,6 +5937,11 @@ impl ::core::cmp::PartialEq for RadialControllerMenuItem {
     }
 }
 impl ::core::cmp::Eq for RadialControllerMenuItem {}
+impl ::core::fmt::Debug for RadialControllerMenuItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadialControllerMenuItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadialControllerMenuItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerMenuItem;{c80fc98d-ad0b-4c9c-8f2f-136a2373a6ba})");
 }
@@ -5826,6 +6023,11 @@ impl ::core::cmp::PartialEq for RadialControllerMenuKnownIcon {
     }
 }
 impl ::core::cmp::Eq for RadialControllerMenuKnownIcon {}
+impl ::core::fmt::Debug for RadialControllerMenuKnownIcon {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadialControllerMenuKnownIcon").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadialControllerMenuKnownIcon {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.RadialControllerMenuKnownIcon;i4)");
 }
@@ -5881,6 +6083,11 @@ impl ::core::cmp::PartialEq for RadialControllerRotationChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RadialControllerRotationChangedEventArgs {}
+impl ::core::fmt::Debug for RadialControllerRotationChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadialControllerRotationChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadialControllerRotationChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerRotationChangedEventArgs;{206aa435-e651-11e5-bf62-2c27d7404e85})");
 }
@@ -5967,6 +6174,11 @@ impl ::core::cmp::PartialEq for RadialControllerScreenContact {
     }
 }
 impl ::core::cmp::Eq for RadialControllerScreenContact {}
+impl ::core::fmt::Debug for RadialControllerScreenContact {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadialControllerScreenContact").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadialControllerScreenContact {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContact;{206aa434-e651-11e5-bf62-2c27d7404e85})");
 }
@@ -6060,6 +6272,11 @@ impl ::core::cmp::PartialEq for RadialControllerScreenContactContinuedEventArgs 
     }
 }
 impl ::core::cmp::Eq for RadialControllerScreenContactContinuedEventArgs {}
+impl ::core::fmt::Debug for RadialControllerScreenContactContinuedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadialControllerScreenContactContinuedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadialControllerScreenContactContinuedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContactContinuedEventArgs;{206aa437-e651-11e5-bf62-2c27d7404e85})");
 }
@@ -6145,6 +6362,11 @@ impl ::core::cmp::PartialEq for RadialControllerScreenContactEndedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RadialControllerScreenContactEndedEventArgs {}
+impl ::core::fmt::Debug for RadialControllerScreenContactEndedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadialControllerScreenContactEndedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadialControllerScreenContactEndedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContactEndedEventArgs;{3d577ef2-3cee-11e6-b535-001bdc06ab3b})");
 }
@@ -6238,6 +6460,11 @@ impl ::core::cmp::PartialEq for RadialControllerScreenContactStartedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RadialControllerScreenContactStartedEventArgs {}
+impl ::core::fmt::Debug for RadialControllerScreenContactStartedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadialControllerScreenContactStartedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadialControllerScreenContactStartedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContactStartedEventArgs;{206aa436-e651-11e5-bf62-2c27d7404e85})");
 }
@@ -6315,6 +6542,11 @@ impl ::core::cmp::PartialEq for RadialControllerSystemMenuItemKind {
     }
 }
 impl ::core::cmp::Eq for RadialControllerSystemMenuItemKind {}
+impl ::core::fmt::Debug for RadialControllerSystemMenuItemKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadialControllerSystemMenuItemKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadialControllerSystemMenuItemKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.RadialControllerSystemMenuItemKind;i4)");
 }
@@ -6363,6 +6595,11 @@ impl ::core::cmp::PartialEq for RightTappedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RightTappedEventArgs {}
+impl ::core::fmt::Debug for RightTappedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RightTappedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RightTappedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RightTappedEventArgs;{4cbf40bd-af7a-4a36-9476-b1dce141709a})");
 }
@@ -6508,6 +6745,11 @@ impl ::core::cmp::PartialEq for SystemButtonEventController {
     }
 }
 impl ::core::cmp::Eq for SystemButtonEventController {}
+impl ::core::fmt::Debug for SystemButtonEventController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemButtonEventController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemButtonEventController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemButtonEventController;{59b893a9-73bc-52b5-ba41-82511b2cb46c})");
 }
@@ -6643,6 +6885,11 @@ impl ::core::cmp::PartialEq for SystemFunctionButtonEventArgs {
     }
 }
 impl ::core::cmp::Eq for SystemFunctionButtonEventArgs {}
+impl ::core::fmt::Debug for SystemFunctionButtonEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemFunctionButtonEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemFunctionButtonEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemFunctionButtonEventArgs;{4833896f-80d1-5dd6-92a7-62a508ffef5a})");
 }
@@ -6740,6 +6987,11 @@ impl ::core::cmp::PartialEq for SystemFunctionLockChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SystemFunctionLockChangedEventArgs {}
+impl ::core::fmt::Debug for SystemFunctionLockChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemFunctionLockChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemFunctionLockChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemFunctionLockChangedEventArgs;{cd040608-fcf9-585c-beab-f1d2eaf364ab})");
 }
@@ -6837,6 +7089,11 @@ impl ::core::cmp::PartialEq for SystemFunctionLockIndicatorChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SystemFunctionLockIndicatorChangedEventArgs {}
+impl ::core::fmt::Debug for SystemFunctionLockIndicatorChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemFunctionLockIndicatorChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemFunctionLockIndicatorChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemFunctionLockIndicatorChangedEventArgs;{b212b94e-7a6f-58ae-b304-bae61d0371b9})");
 }
@@ -6939,6 +7196,11 @@ impl ::core::cmp::PartialEq for TappedEventArgs {
     }
 }
 impl ::core::cmp::Eq for TappedEventArgs {}
+impl ::core::fmt::Debug for TappedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TappedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TappedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.TappedEventArgs;{cfa126e4-253a-4c3c-953b-395c37aed309})");
 }

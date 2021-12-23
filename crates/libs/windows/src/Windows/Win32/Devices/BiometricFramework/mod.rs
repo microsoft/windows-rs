@@ -429,6 +429,11 @@ impl ::core::clone::Clone for WINBIO_ADAPTER_INTERFACE_VERSION {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_ADAPTER_INTERFACE_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_ADAPTER_INTERFACE_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_ADAPTER_INTERFACE_VERSION {
     type Abi = Self;
 }
@@ -453,6 +458,11 @@ impl ::core::marker::Copy for WINBIO_ANTI_SPOOF_POLICY {}
 impl ::core::clone::Clone for WINBIO_ANTI_SPOOF_POLICY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_ANTI_SPOOF_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_ANTI_SPOOF_POLICY").field("Action", &self.Action).field("Source", &self.Source).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_ANTI_SPOOF_POLICY {
@@ -595,6 +605,12 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_ASYNC_RESULT_0_0").field("Sample", &self.Sample).field("SampleSize", &self.SampleSize).field("RejectDetail", &self.RejectDetail).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_0 {
     type Abi = Self;
 }
@@ -631,6 +647,12 @@ impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_1 {}
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_ASYNC_RESULT_0_1").field("Component", &self.Component).field("ControlCode", &self.ControlCode).field("OperationStatus", &self.OperationStatus).field("SendBuffer", &self.SendBuffer).field("SendBufferSize", &self.SendBufferSize).field("ReceiveBuffer", &self.ReceiveBuffer).field("ReceiveBufferSize", &self.ReceiveBufferSize).field("ReceiveDataSize", &self.ReceiveDataSize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -699,6 +721,12 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_ASYNC_RESULT_0_3").field("SubFactor", &self.SubFactor).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_3 {
     type Abi = Self;
 }
@@ -728,6 +756,12 @@ impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_4 {}
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_4 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_ASYNC_RESULT_0_4").field("RejectDetail", &self.RejectDetail).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -796,6 +830,12 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_6 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_ASYNC_RESULT_0_6").field("SelectorValue", &self.SelectorValue).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_6 {
     type Abi = Self;
 }
@@ -829,6 +869,12 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_7 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_ASYNC_RESULT_0_7").field("UnitCount", &self.UnitCount).field("UnitSchemaArray", &self.UnitSchemaArray).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_7 {
     type Abi = Self;
 }
@@ -859,6 +905,12 @@ impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_8 {}
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_8 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_ASYNC_RESULT_0_8").field("StorageCount", &self.StorageCount).field("StorageSchemaArray", &self.StorageSchemaArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -926,6 +978,12 @@ impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_10 {}
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_10 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_10 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_ASYNC_RESULT_0_10").field("BspCount", &self.BspCount).field("BspSchemaArray", &self.BspSchemaArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1134,6 +1192,12 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_16 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_16 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_ASYNC_RESULT_0_16").field("ChangeType", &self.ChangeType).field("PresenceCount", &self.PresenceCount).field("PresenceArray", &self.PresenceArray).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_16 {
     type Abi = Self;
 }
@@ -1163,6 +1227,12 @@ impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_17 {}
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_17 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_17 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_ASYNC_RESULT_0_17").field("ExtendedStatus", &self.ExtendedStatus).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1237,6 +1307,12 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_19 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_19 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_ASYNC_RESULT_0_19").field("Match", &self.Match).field("RejectDetail", &self.RejectDetail).field("Ticket", &self.Ticket).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_19 {
     type Abi = Self;
 }
@@ -1267,6 +1343,12 @@ impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_20 {}
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_20 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_20 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_ASYNC_RESULT_0_20").field("Match", &self.Match).field("RejectDetail", &self.RejectDetail).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1312,6 +1394,27 @@ impl ::core::clone::Clone for WINBIO_BDB_ANSI_381_HEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_BDB_ANSI_381_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_BDB_ANSI_381_HEADER")
+            .field("RecordLength", &self.RecordLength)
+            .field("FormatIdentifier", &self.FormatIdentifier)
+            .field("VersionNumber", &self.VersionNumber)
+            .field("ProductId", &self.ProductId)
+            .field("CaptureDeviceId", &self.CaptureDeviceId)
+            .field("ImageAcquisitionLevel", &self.ImageAcquisitionLevel)
+            .field("HorizontalScanResolution", &self.HorizontalScanResolution)
+            .field("VerticalScanResolution", &self.VerticalScanResolution)
+            .field("HorizontalImageResolution", &self.HorizontalImageResolution)
+            .field("VerticalImageResolution", &self.VerticalImageResolution)
+            .field("ElementCount", &self.ElementCount)
+            .field("ScaleUnits", &self.ScaleUnits)
+            .field("PixelDepth", &self.PixelDepth)
+            .field("ImageCompressionAlg", &self.ImageCompressionAlg)
+            .field("Reserved", &self.Reserved)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_BDB_ANSI_381_HEADER {
     type Abi = Self;
 }
@@ -1345,6 +1448,11 @@ impl ::core::clone::Clone for WINBIO_BDB_ANSI_381_RECORD {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_BDB_ANSI_381_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_BDB_ANSI_381_RECORD").field("BlockLength", &self.BlockLength).field("HorizontalLineLength", &self.HorizontalLineLength).field("VerticalLineLength", &self.VerticalLineLength).field("Position", &self.Position).field("CountOfViews", &self.CountOfViews).field("ViewNumber", &self.ViewNumber).field("ImageQuality", &self.ImageQuality).field("ImpressionType", &self.ImpressionType).field("Reserved", &self.Reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_BDB_ANSI_381_RECORD {
     type Abi = Self;
 }
@@ -1371,6 +1479,11 @@ impl ::core::marker::Copy for WINBIO_BIR {}
 impl ::core::clone::Clone for WINBIO_BIR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_BIR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_BIR").field("HeaderBlock", &self.HeaderBlock).field("StandardDataBlock", &self.StandardDataBlock).field("VendorDataBlock", &self.VendorDataBlock).field("SignatureBlock", &self.SignatureBlock).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_BIR {
@@ -1401,6 +1514,11 @@ impl ::core::marker::Copy for WINBIO_BIR_DATA {}
 impl ::core::clone::Clone for WINBIO_BIR_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_BIR_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_BIR_DATA").field("Size", &self.Size).field("Offset", &self.Offset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_BIR_DATA {
@@ -1439,6 +1557,24 @@ impl ::core::clone::Clone for WINBIO_BIR_HEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_BIR_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_BIR_HEADER")
+            .field("ValidFields", &self.ValidFields)
+            .field("HeaderVersion", &self.HeaderVersion)
+            .field("PatronHeaderVersion", &self.PatronHeaderVersion)
+            .field("DataFlags", &self.DataFlags)
+            .field("Type", &self.Type)
+            .field("Subtype", &self.Subtype)
+            .field("Purpose", &self.Purpose)
+            .field("DataQuality", &self.DataQuality)
+            .field("CreationDate", &self.CreationDate)
+            .field("ValidityPeriod", &self.ValidityPeriod)
+            .field("BiometricDataFormat", &self.BiometricDataFormat)
+            .field("ProductId", &self.ProductId)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_BIR_HEADER {
     type Abi = Self;
 }
@@ -1465,6 +1601,11 @@ impl ::core::clone::Clone for WINBIO_BIR_HEADER_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_BIR_HEADER_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_BIR_HEADER_0").field("BeginDate", &self.BeginDate).field("EndDate", &self.EndDate).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_BIR_HEADER_0 {
     type Abi = Self;
 }
@@ -1489,6 +1630,11 @@ impl ::core::marker::Copy for WINBIO_BLANK_PAYLOAD {}
 impl ::core::clone::Clone for WINBIO_BLANK_PAYLOAD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_BLANK_PAYLOAD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_BLANK_PAYLOAD").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_BLANK_PAYLOAD {
@@ -1520,6 +1666,11 @@ impl ::core::clone::Clone for WINBIO_BSP_SCHEMA {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_BSP_SCHEMA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_BSP_SCHEMA").field("BiometricFactor", &self.BiometricFactor).field("BspId", &self.BspId).field("Description", &self.Description).field("Vendor", &self.Vendor).field("Version", &self.Version).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_BSP_SCHEMA {
     type Abi = Self;
 }
@@ -1545,6 +1696,11 @@ impl ::core::marker::Copy for WINBIO_CALIBRATION_INFO {}
 impl ::core::clone::Clone for WINBIO_CALIBRATION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_CALIBRATION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_CALIBRATION_INFO").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("CalibrationData", &self.CalibrationData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_CALIBRATION_INFO {
@@ -1576,6 +1732,11 @@ impl ::core::clone::Clone for WINBIO_CAPTURE_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_CAPTURE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_CAPTURE_DATA").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("SensorStatus", &self.SensorStatus).field("RejectDetail", &self.RejectDetail).field("CaptureData", &self.CaptureData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_CAPTURE_DATA {
     type Abi = Self;
 }
@@ -1603,6 +1764,11 @@ impl ::core::marker::Copy for WINBIO_CAPTURE_PARAMETERS {}
 impl ::core::clone::Clone for WINBIO_CAPTURE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_CAPTURE_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_CAPTURE_PARAMETERS").field("PayloadSize", &self.PayloadSize).field("Purpose", &self.Purpose).field("Format", &self.Format).field("VendorFormat", &self.VendorFormat).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_CAPTURE_PARAMETERS {
@@ -1659,6 +1825,11 @@ impl ::core::clone::Clone for WINBIO_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_DATA").field("Size", &self.Size).field("Data", &self.Data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_DATA {
     type Abi = Self;
 }
@@ -1685,6 +1856,11 @@ impl ::core::marker::Copy for WINBIO_DIAGNOSTICS {}
 impl ::core::clone::Clone for WINBIO_DIAGNOSTICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_DIAGNOSTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_DIAGNOSTICS").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("SensorStatus", &self.SensorStatus).field("VendorDiagnostics", &self.VendorDiagnostics).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_DIAGNOSTICS {
@@ -1715,6 +1891,11 @@ impl ::core::marker::Copy for WINBIO_ENCRYPTED_CAPTURE_PARAMS {}
 impl ::core::clone::Clone for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_ENCRYPTED_CAPTURE_PARAMS").field("PayloadSize", &self.PayloadSize).field("Purpose", &self.Purpose).field("Format", &self.Format).field("VendorFormat", &self.VendorFormat).field("Flags", &self.Flags).field("NonceSize", &self.NonceSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
@@ -1787,6 +1968,58 @@ impl ::core::marker::Copy for WINBIO_ENGINE_INTERFACE {}
 impl ::core::clone::Clone for WINBIO_ENGINE_INTERFACE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::fmt::Debug for WINBIO_ENGINE_INTERFACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_ENGINE_INTERFACE")
+            .field("Version", &self.Version)
+            .field("Type", &self.Type)
+            .field("Size", &self.Size)
+            .field("AdapterId", &self.AdapterId)
+            .field("Attach", &self.Attach.map(|f| f as usize))
+            .field("Detach", &self.Detach.map(|f| f as usize))
+            .field("ClearContext", &self.ClearContext.map(|f| f as usize))
+            .field("QueryPreferredFormat", &self.QueryPreferredFormat.map(|f| f as usize))
+            .field("QueryIndexVectorSize", &self.QueryIndexVectorSize.map(|f| f as usize))
+            .field("QueryHashAlgorithms", &self.QueryHashAlgorithms.map(|f| f as usize))
+            .field("SetHashAlgorithm", &self.SetHashAlgorithm.map(|f| f as usize))
+            .field("QuerySampleHint", &self.QuerySampleHint.map(|f| f as usize))
+            .field("AcceptSampleData", &self.AcceptSampleData.map(|f| f as usize))
+            .field("ExportEngineData", &self.ExportEngineData.map(|f| f as usize))
+            .field("VerifyFeatureSet", &self.VerifyFeatureSet.map(|f| f as usize))
+            .field("IdentifyFeatureSet", &self.IdentifyFeatureSet.map(|f| f as usize))
+            .field("CreateEnrollment", &self.CreateEnrollment.map(|f| f as usize))
+            .field("UpdateEnrollment", &self.UpdateEnrollment.map(|f| f as usize))
+            .field("GetEnrollmentStatus", &self.GetEnrollmentStatus.map(|f| f as usize))
+            .field("GetEnrollmentHash", &self.GetEnrollmentHash.map(|f| f as usize))
+            .field("CheckForDuplicate", &self.CheckForDuplicate.map(|f| f as usize))
+            .field("CommitEnrollment", &self.CommitEnrollment.map(|f| f as usize))
+            .field("DiscardEnrollment", &self.DiscardEnrollment.map(|f| f as usize))
+            .field("ControlUnit", &self.ControlUnit.map(|f| f as usize))
+            .field("ControlUnitPrivileged", &self.ControlUnitPrivileged.map(|f| f as usize))
+            .field("NotifyPowerChange", &self.NotifyPowerChange.map(|f| f as usize))
+            .field("Reserved_1", &self.Reserved_1.map(|f| f as usize))
+            .field("PipelineInit", &self.PipelineInit.map(|f| f as usize))
+            .field("PipelineCleanup", &self.PipelineCleanup.map(|f| f as usize))
+            .field("Activate", &self.Activate.map(|f| f as usize))
+            .field("Deactivate", &self.Deactivate.map(|f| f as usize))
+            .field("QueryExtendedInfo", &self.QueryExtendedInfo.map(|f| f as usize))
+            .field("IdentifyAll", &self.IdentifyAll.map(|f| f as usize))
+            .field("SetEnrollmentSelector", &self.SetEnrollmentSelector.map(|f| f as usize))
+            .field("SetEnrollmentParameters", &self.SetEnrollmentParameters.map(|f| f as usize))
+            .field("QueryExtendedEnrollmentStatus", &self.QueryExtendedEnrollmentStatus.map(|f| f as usize))
+            .field("RefreshCache", &self.RefreshCache.map(|f| f as usize))
+            .field("SelectCalibrationFormat", &self.SelectCalibrationFormat.map(|f| f as usize))
+            .field("QueryCalibrationData", &self.QueryCalibrationData.map(|f| f as usize))
+            .field("SetAccountPolicy", &self.SetAccountPolicy.map(|f| f as usize))
+            .field("CreateKey", &self.CreateKey.map(|f| f as usize))
+            .field("IdentifyFeatureSetSecure", &self.IdentifyFeatureSetSecure.map(|f| f as usize))
+            .field("AcceptPrivateSensorTypeInfo", &self.AcceptPrivateSensorTypeInfo.map(|f| f as usize))
+            .field("CreateEnrollmentAuthenticated", &self.CreateEnrollmentAuthenticated.map(|f| f as usize))
+            .field("IdentifyFeatureSetAuthenticated", &self.IdentifyFeatureSetAuthenticated.map(|f| f as usize))
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -1871,6 +2104,11 @@ impl ::core::clone::Clone for WINBIO_EVENT_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_EVENT_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EVENT_0_0").field("ErrorCode", &self.ErrorCode).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_EVENT_0_0 {
     type Abi = Self;
 }
@@ -1923,6 +2161,11 @@ impl ::core::marker::Copy for WINBIO_EVENT_0_2 {}
 impl ::core::clone::Clone for WINBIO_EVENT_0_2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_EVENT_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EVENT_0_2").field("UnitId", &self.UnitId).field("RejectDetail", &self.RejectDetail).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_EVENT_0_2 {
@@ -2007,6 +2250,11 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_ENGINE_INFO_0_0").field("Capabilities", &self.Capabilities).field("EnrollmentRequirements", &self.EnrollmentRequirements).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
     type Abi = Self;
 }
@@ -2030,6 +2278,11 @@ impl ::core::marker::Copy for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {}
 impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_ENGINE_INFO_0_0_0").field("Null", &self.Null).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
@@ -2056,6 +2309,11 @@ impl ::core::marker::Copy for WINBIO_EXTENDED_ENGINE_INFO_0_1 {}
 impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_ENGINE_INFO_0_1").field("Capabilities", &self.Capabilities).field("EnrollmentRequirements", &self.EnrollmentRequirements).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
@@ -2088,6 +2346,11 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_ENGINE_INFO_0_1_0").field("GeneralSamples", &self.GeneralSamples).field("Center", &self.Center).field("TopEdge", &self.TopEdge).field("BottomEdge", &self.BottomEdge).field("LeftEdge", &self.LeftEdge).field("RightEdge", &self.RightEdge).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     type Abi = Self;
 }
@@ -2114,6 +2377,11 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_ENGINE_INFO_0_2").field("Capabilities", &self.Capabilities).field("EnrollmentRequirements", &self.EnrollmentRequirements).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
     type Abi = Self;
 }
@@ -2137,6 +2405,11 @@ impl ::core::marker::Copy for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {}
 impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_ENGINE_INFO_0_2_0").field("Null", &self.Null).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
@@ -2165,6 +2438,11 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_ENGINE_INFO_0_3").field("Capabilities", &self.Capabilities).field("EnrollmentRequirements", &self.EnrollmentRequirements).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
     type Abi = Self;
 }
@@ -2188,6 +2466,11 @@ impl ::core::marker::Copy for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {}
 impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_ENGINE_INFO_0_3_0").field("Null", &self.Null).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
@@ -2214,6 +2497,11 @@ impl ::core::marker::Copy for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {}
 impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_ENROLLMENT_PARAMETERS").field("Size", &self.Size).field("SubFactor", &self.SubFactor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
@@ -2320,6 +2608,12 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0").field("BoundingBox", &self.BoundingBox).field("Distance", &self.Distance).field("OpaqueEngineData", &self.OpaqueEngineData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
     type Abi = Self;
 }
@@ -2350,6 +2644,12 @@ impl ::core::marker::Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {}
 impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0").field("AdapterId", &self.AdapterId).field("Data", &self.Data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2387,6 +2687,12 @@ impl ::core::marker::Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {}
 impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1").field("GeneralSamples", &self.GeneralSamples).field("Center", &self.Center).field("TopEdge", &self.TopEdge).field("BottomEdge", &self.BottomEdge).field("LeftEdge", &self.LeftEdge).field("RightEdge", &self.RightEdge).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2430,6 +2736,22 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2")
+            .field("EyeBoundingBox_1", &self.EyeBoundingBox_1)
+            .field("EyeBoundingBox_2", &self.EyeBoundingBox_2)
+            .field("PupilCenter_1", &self.PupilCenter_1)
+            .field("PupilCenter_2", &self.PupilCenter_2)
+            .field("Distance", &self.Distance)
+            .field("GridPointCompletionPercent", &self.GridPointCompletionPercent)
+            .field("GridPointIndex", &self.GridPointIndex)
+            .field("Point3D", &self.Point3D)
+            .field("StopCaptureAndShowCriticalFeedback", &self.StopCaptureAndShowCriticalFeedback)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     type Abi = Self;
 }
@@ -2464,6 +2786,12 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
     type Abi = Self;
 }
@@ -2493,6 +2821,12 @@ impl ::core::marker::Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {}
 impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3").field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2601,6 +2935,12 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_SENSOR_INFO_0_0").field("FrameSize", &self.FrameSize).field("FrameOffset", &self.FrameOffset).field("MandatoryOrientation", &self.MandatoryOrientation).field("HardwareInfo", &self.HardwareInfo).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
     type Abi = Self;
 }
@@ -2635,6 +2975,12 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_SENSOR_INFO_0_0_0").field("ColorSensorId", &self.ColorSensorId).field("InfraredSensorId", &self.InfraredSensorId).field("InfraredSensorRotationAngle", &self.InfraredSensorRotationAngle).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
     type Abi = Self;
 }
@@ -2664,6 +3010,12 @@ impl ::core::marker::Copy for WINBIO_EXTENDED_SENSOR_INFO_0_1 {}
 impl ::core::clone::Clone for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_SENSOR_INFO_0_1").field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2701,6 +3053,12 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_SENSOR_INFO_0_2").field("FrameSize", &self.FrameSize).field("FrameOffset", &self.FrameOffset).field("MandatoryOrientation", &self.MandatoryOrientation).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
     type Abi = Self;
 }
@@ -2730,6 +3088,12 @@ impl ::core::marker::Copy for WINBIO_EXTENDED_SENSOR_INFO_0_3 {}
 impl ::core::clone::Clone for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_SENSOR_INFO_0_3").field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2817,6 +3181,11 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_STORAGE_INFO_0_0").field("Capabilities", &self.Capabilities).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
     type Abi = Self;
 }
@@ -2840,6 +3209,11 @@ impl ::core::marker::Copy for WINBIO_EXTENDED_STORAGE_INFO_0_1 {}
 impl ::core::clone::Clone for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_STORAGE_INFO_0_1").field("Capabilities", &self.Capabilities).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
@@ -2867,6 +3241,11 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_STORAGE_INFO_0_2").field("Capabilities", &self.Capabilities).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
     type Abi = Self;
 }
@@ -2890,6 +3269,11 @@ impl ::core::marker::Copy for WINBIO_EXTENDED_STORAGE_INFO_0_3 {}
 impl ::core::clone::Clone for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_STORAGE_INFO_0_3").field("Capabilities", &self.Capabilities).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
@@ -2916,6 +3300,11 @@ impl ::core::marker::Copy for WINBIO_EXTENDED_UNIT_STATUS {}
 impl ::core::clone::Clone for WINBIO_EXTENDED_UNIT_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_EXTENDED_UNIT_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_EXTENDED_UNIT_STATUS").field("Availability", &self.Availability).field("ReasonCode", &self.ReasonCode).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_UNIT_STATUS {
@@ -3116,6 +3505,12 @@ impl ::core::clone::Clone for WINBIO_FP_BU_STATE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_FP_BU_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_FP_BU_STATE").field("SensorAttached", &self.SensorAttached).field("CreationResult", &self.CreationResult).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_FP_BU_STATE {
     type Abi = Self;
 }
@@ -3195,6 +3590,61 @@ impl ::core::clone::Clone for WINBIO_FRAMEWORK_INTERFACE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::fmt::Debug for WINBIO_FRAMEWORK_INTERFACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_FRAMEWORK_INTERFACE")
+            .field("Version", &self.Version)
+            .field("Type", &self.Type)
+            .field("Size", &self.Size)
+            .field("AdapterId", &self.AdapterId)
+            .field("SetUnitStatus", &self.SetUnitStatus.map(|f| f as usize))
+            .field("VsmStorageAttach", &self.VsmStorageAttach.map(|f| f as usize))
+            .field("VsmStorageDetach", &self.VsmStorageDetach.map(|f| f as usize))
+            .field("VsmStorageClearContext", &self.VsmStorageClearContext.map(|f| f as usize))
+            .field("VsmStorageCreateDatabase", &self.VsmStorageCreateDatabase.map(|f| f as usize))
+            .field("VsmStorageOpenDatabase", &self.VsmStorageOpenDatabase.map(|f| f as usize))
+            .field("VsmStorageCloseDatabase", &self.VsmStorageCloseDatabase.map(|f| f as usize))
+            .field("VsmStorageDeleteRecord", &self.VsmStorageDeleteRecord.map(|f| f as usize))
+            .field("VsmStorageNotifyPowerChange", &self.VsmStorageNotifyPowerChange.map(|f| f as usize))
+            .field("VsmStoragePipelineInit", &self.VsmStoragePipelineInit.map(|f| f as usize))
+            .field("VsmStoragePipelineCleanup", &self.VsmStoragePipelineCleanup.map(|f| f as usize))
+            .field("VsmStorageActivate", &self.VsmStorageActivate.map(|f| f as usize))
+            .field("VsmStorageDeactivate", &self.VsmStorageDeactivate.map(|f| f as usize))
+            .field("VsmStorageQueryExtendedInfo", &self.VsmStorageQueryExtendedInfo.map(|f| f as usize))
+            .field("VsmStorageCacheClear", &self.VsmStorageCacheClear.map(|f| f as usize))
+            .field("VsmStorageCacheImportBegin", &self.VsmStorageCacheImportBegin.map(|f| f as usize))
+            .field("VsmStorageCacheImportNext", &self.VsmStorageCacheImportNext.map(|f| f as usize))
+            .field("VsmStorageCacheImportEnd", &self.VsmStorageCacheImportEnd.map(|f| f as usize))
+            .field("VsmStorageCacheExportBegin", &self.VsmStorageCacheExportBegin.map(|f| f as usize))
+            .field("VsmStorageCacheExportNext", &self.VsmStorageCacheExportNext.map(|f| f as usize))
+            .field("VsmStorageCacheExportEnd", &self.VsmStorageCacheExportEnd.map(|f| f as usize))
+            .field("VsmSensorAttach", &self.VsmSensorAttach.map(|f| f as usize))
+            .field("VsmSensorDetach", &self.VsmSensorDetach.map(|f| f as usize))
+            .field("VsmSensorClearContext", &self.VsmSensorClearContext.map(|f| f as usize))
+            .field("VsmSensorPushDataToEngine", &self.VsmSensorPushDataToEngine.map(|f| f as usize))
+            .field("VsmSensorNotifyPowerChange", &self.VsmSensorNotifyPowerChange.map(|f| f as usize))
+            .field("VsmSensorPipelineInit", &self.VsmSensorPipelineInit.map(|f| f as usize))
+            .field("VsmSensorPipelineCleanup", &self.VsmSensorPipelineCleanup.map(|f| f as usize))
+            .field("VsmSensorActivate", &self.VsmSensorActivate.map(|f| f as usize))
+            .field("VsmSensorDeactivate", &self.VsmSensorDeactivate.map(|f| f as usize))
+            .field("VsmSensorAsyncImportRawBuffer", &self.VsmSensorAsyncImportRawBuffer.map(|f| f as usize))
+            .field("VsmSensorAsyncImportSecureBuffer", &self.VsmSensorAsyncImportSecureBuffer.map(|f| f as usize))
+            .field("Reserved1", &self.Reserved1.map(|f| f as usize))
+            .field("Reserved2", &self.Reserved2.map(|f| f as usize))
+            .field("Reserved3", &self.Reserved3.map(|f| f as usize))
+            .field("Reserved4", &self.Reserved4.map(|f| f as usize))
+            .field("Reserved5", &self.Reserved5.map(|f| f as usize))
+            .field("AllocateMemory", &self.AllocateMemory.map(|f| f as usize))
+            .field("FreeMemory", &self.FreeMemory.map(|f| f as usize))
+            .field("GetProperty", &self.GetProperty.map(|f| f as usize))
+            .field("LockAndValidateSecureBuffer", &self.LockAndValidateSecureBuffer.map(|f| f as usize))
+            .field("ReleaseSecureBuffer", &self.ReleaseSecureBuffer.map(|f| f as usize))
+            .field("QueryAuthorizedEnrollments", &self.QueryAuthorizedEnrollments.map(|f| f as usize))
+            .field("DecryptSample", &self.DecryptSample.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for WINBIO_FRAMEWORK_INTERFACE {
     type Abi = Self;
 }
@@ -3226,6 +3676,11 @@ impl ::core::clone::Clone for WINBIO_GESTURE_METADATA {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_GESTURE_METADATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_GESTURE_METADATA").field("Size", &self.Size).field("BiometricType", &self.BiometricType).field("MatchType", &self.MatchType).field("ProtectionType", &self.ProtectionType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_GESTURE_METADATA {
     type Abi = Self;
 }
@@ -3251,6 +3706,11 @@ impl ::core::marker::Copy for WINBIO_GET_INDICATOR {}
 impl ::core::clone::Clone for WINBIO_GET_INDICATOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_GET_INDICATOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_GET_INDICATOR").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("IndicatorStatus", &self.IndicatorStatus).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_GET_INDICATOR {
@@ -3334,6 +3794,11 @@ impl ::core::clone::Clone for WINBIO_IDENTITY_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_IDENTITY_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_IDENTITY_0_0").field("Size", &self.Size).field("Data", &self.Data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_IDENTITY_0_0 {
     type Abi = Self;
 }
@@ -3365,6 +3830,11 @@ impl ::core::marker::Copy for WINBIO_NOTIFY_WAKE {}
 impl ::core::clone::Clone for WINBIO_NOTIFY_WAKE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_NOTIFY_WAKE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_NOTIFY_WAKE").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("Reason", &self.Reason).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_NOTIFY_WAKE {
@@ -3402,6 +3872,23 @@ impl ::core::marker::Copy for WINBIO_PIPELINE {}
 impl ::core::clone::Clone for WINBIO_PIPELINE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::fmt::Debug for WINBIO_PIPELINE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_PIPELINE")
+            .field("SensorHandle", &self.SensorHandle)
+            .field("EngineHandle", &self.EngineHandle)
+            .field("StorageHandle", &self.StorageHandle)
+            .field("SensorInterface", &self.SensorInterface)
+            .field("EngineInterface", &self.EngineInterface)
+            .field("StorageInterface", &self.StorageInterface)
+            .field("SensorContext", &self.SensorContext)
+            .field("EngineContext", &self.EngineContext)
+            .field("StorageContext", &self.StorageContext)
+            .field("FrameworkInterface", &self.FrameworkInterface)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -3494,6 +3981,12 @@ impl ::core::clone::Clone for WINBIO_PRESENCE_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_PRESENCE_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_PRESENCE_0").field("Size", &self.Size).field("Data", &self.Data).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_PRESENCE_0 {
     type Abi = Self;
 }
@@ -3561,6 +4054,12 @@ impl ::core::clone::Clone for WINBIO_PRESENCE_PROPERTIES_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_PRESENCE_PROPERTIES_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_PRESENCE_PROPERTIES_0").field("BoundingBox", &self.BoundingBox).field("Distance", &self.Distance).field("OpaqueEngineData", &self.OpaqueEngineData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_PRESENCE_PROPERTIES_0 {
     type Abi = Self;
 }
@@ -3591,6 +4090,12 @@ impl ::core::marker::Copy for WINBIO_PRESENCE_PROPERTIES_0_0 {}
 impl ::core::clone::Clone for WINBIO_PRESENCE_PROPERTIES_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_PRESENCE_PROPERTIES_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_PRESENCE_PROPERTIES_0_0").field("AdapterId", &self.AdapterId).field("Data", &self.Data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3630,6 +4135,12 @@ impl ::core::clone::Clone for WINBIO_PRESENCE_PROPERTIES_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINBIO_PRESENCE_PROPERTIES_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_PRESENCE_PROPERTIES_1").field("EyeBoundingBox_1", &self.EyeBoundingBox_1).field("EyeBoundingBox_2", &self.EyeBoundingBox_2).field("PupilCenter_1", &self.PupilCenter_1).field("PupilCenter_2", &self.PupilCenter_2).field("Distance", &self.Distance).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_PRESENCE_PROPERTIES_1 {
     type Abi = Self;
 }
@@ -3658,6 +4169,11 @@ impl ::core::marker::Copy for WINBIO_PRIVATE_SENSOR_TYPE_INFO {}
 impl ::core::clone::Clone for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_PRIVATE_SENSOR_TYPE_INFO").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("PrivateSensorTypeInfo", &self.PrivateSensorTypeInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
@@ -3716,6 +4232,11 @@ impl ::core::clone::Clone for WINBIO_REGISTERED_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_REGISTERED_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_REGISTERED_FORMAT").field("Owner", &self.Owner).field("Type", &self.Type).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_REGISTERED_FORMAT {
     type Abi = Self;
 }
@@ -3762,6 +4283,11 @@ impl ::core::clone::Clone for WINBIO_SECURE_BUFFER_HEADER_V1 {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_SECURE_BUFFER_HEADER_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_SECURE_BUFFER_HEADER_V1").field("Type", &self.Type).field("Size", &self.Size).field("Flags", &self.Flags).field("ValidationTag", &self.ValidationTag).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_SECURE_BUFFER_HEADER_V1 {
     type Abi = Self;
 }
@@ -3792,6 +4318,11 @@ impl ::core::clone::Clone for WINBIO_SECURE_CONNECTION_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_SECURE_CONNECTION_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_SECURE_CONNECTION_DATA").field("Size", &self.Size).field("Version", &self.Version).field("Flags", &self.Flags).field("ModelCertificateSize", &self.ModelCertificateSize).field("IntermediateCA1Size", &self.IntermediateCA1Size).field("IntermediateCA2Size", &self.IntermediateCA2Size).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_SECURE_CONNECTION_DATA {
     type Abi = Self;
 }
@@ -3817,6 +4348,11 @@ impl ::core::marker::Copy for WINBIO_SECURE_CONNECTION_PARAMS {}
 impl ::core::clone::Clone for WINBIO_SECURE_CONNECTION_PARAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_SECURE_CONNECTION_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_SECURE_CONNECTION_PARAMS").field("PayloadSize", &self.PayloadSize).field("Version", &self.Version).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_SECURE_CONNECTION_PARAMS {
@@ -3853,6 +4389,24 @@ impl ::core::marker::Copy for WINBIO_SENSOR_ATTRIBUTES {}
 impl ::core::clone::Clone for WINBIO_SENSOR_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_SENSOR_ATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_SENSOR_ATTRIBUTES")
+            .field("PayloadSize", &self.PayloadSize)
+            .field("WinBioHresult", &self.WinBioHresult)
+            .field("WinBioVersion", &self.WinBioVersion)
+            .field("SensorType", &self.SensorType)
+            .field("SensorSubType", &self.SensorSubType)
+            .field("Capabilities", &self.Capabilities)
+            .field("ManufacturerName", &self.ManufacturerName)
+            .field("ModelName", &self.ModelName)
+            .field("SerialNumber", &self.SerialNumber)
+            .field("FirmwareVersion", &self.FirmwareVersion)
+            .field("SupportedFormatEntries", &self.SupportedFormatEntries)
+            .field("SupportedFormat", &self.SupportedFormat)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_SENSOR_ATTRIBUTES {
@@ -3918,6 +4472,48 @@ impl ::core::clone::Clone for WINBIO_SENSOR_INTERFACE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::fmt::Debug for WINBIO_SENSOR_INTERFACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_SENSOR_INTERFACE")
+            .field("Version", &self.Version)
+            .field("Type", &self.Type)
+            .field("Size", &self.Size)
+            .field("AdapterId", &self.AdapterId)
+            .field("Attach", &self.Attach.map(|f| f as usize))
+            .field("Detach", &self.Detach.map(|f| f as usize))
+            .field("ClearContext", &self.ClearContext.map(|f| f as usize))
+            .field("QueryStatus", &self.QueryStatus.map(|f| f as usize))
+            .field("Reset", &self.Reset.map(|f| f as usize))
+            .field("SetMode", &self.SetMode.map(|f| f as usize))
+            .field("SetIndicatorStatus", &self.SetIndicatorStatus.map(|f| f as usize))
+            .field("GetIndicatorStatus", &self.GetIndicatorStatus.map(|f| f as usize))
+            .field("StartCapture", &self.StartCapture.map(|f| f as usize))
+            .field("FinishCapture", &self.FinishCapture.map(|f| f as usize))
+            .field("ExportSensorData", &self.ExportSensorData.map(|f| f as usize))
+            .field("Cancel", &self.Cancel.map(|f| f as usize))
+            .field("PushDataToEngine", &self.PushDataToEngine.map(|f| f as usize))
+            .field("ControlUnit", &self.ControlUnit.map(|f| f as usize))
+            .field("ControlUnitPrivileged", &self.ControlUnitPrivileged.map(|f| f as usize))
+            .field("NotifyPowerChange", &self.NotifyPowerChange.map(|f| f as usize))
+            .field("PipelineInit", &self.PipelineInit.map(|f| f as usize))
+            .field("PipelineCleanup", &self.PipelineCleanup.map(|f| f as usize))
+            .field("Activate", &self.Activate.map(|f| f as usize))
+            .field("Deactivate", &self.Deactivate.map(|f| f as usize))
+            .field("QueryExtendedInfo", &self.QueryExtendedInfo.map(|f| f as usize))
+            .field("QueryCalibrationFormats", &self.QueryCalibrationFormats.map(|f| f as usize))
+            .field("SetCalibrationFormat", &self.SetCalibrationFormat.map(|f| f as usize))
+            .field("AcceptCalibrationData", &self.AcceptCalibrationData.map(|f| f as usize))
+            .field("AsyncImportRawBuffer", &self.AsyncImportRawBuffer.map(|f| f as usize))
+            .field("AsyncImportSecureBuffer", &self.AsyncImportSecureBuffer.map(|f| f as usize))
+            .field("QueryPrivateSensorType", &self.QueryPrivateSensorType.map(|f| f as usize))
+            .field("ConnectSecure", &self.ConnectSecure.map(|f| f as usize))
+            .field("StartCaptureEx", &self.StartCaptureEx.map(|f| f as usize))
+            .field("StartNotifyWake", &self.StartNotifyWake.map(|f| f as usize))
+            .field("FinishNotifyWake", &self.FinishNotifyWake.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for WINBIO_SENSOR_INTERFACE {
     type Abi = Self;
 }
@@ -3955,6 +4551,11 @@ impl ::core::marker::Copy for WINBIO_SET_INDICATOR {}
 impl ::core::clone::Clone for WINBIO_SET_INDICATOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_SET_INDICATOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_SET_INDICATOR").field("PayloadSize", &self.PayloadSize).field("IndicatorStatus", &self.IndicatorStatus).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_SET_INDICATOR {
@@ -4019,6 +4620,47 @@ impl ::core::clone::Clone for WINBIO_STORAGE_INTERFACE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::fmt::Debug for WINBIO_STORAGE_INTERFACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_STORAGE_INTERFACE")
+            .field("Version", &self.Version)
+            .field("Type", &self.Type)
+            .field("Size", &self.Size)
+            .field("AdapterId", &self.AdapterId)
+            .field("Attach", &self.Attach.map(|f| f as usize))
+            .field("Detach", &self.Detach.map(|f| f as usize))
+            .field("ClearContext", &self.ClearContext.map(|f| f as usize))
+            .field("CreateDatabase", &self.CreateDatabase.map(|f| f as usize))
+            .field("EraseDatabase", &self.EraseDatabase.map(|f| f as usize))
+            .field("OpenDatabase", &self.OpenDatabase.map(|f| f as usize))
+            .field("CloseDatabase", &self.CloseDatabase.map(|f| f as usize))
+            .field("GetDataFormat", &self.GetDataFormat.map(|f| f as usize))
+            .field("GetDatabaseSize", &self.GetDatabaseSize.map(|f| f as usize))
+            .field("AddRecord", &self.AddRecord.map(|f| f as usize))
+            .field("DeleteRecord", &self.DeleteRecord.map(|f| f as usize))
+            .field("QueryBySubject", &self.QueryBySubject.map(|f| f as usize))
+            .field("QueryByContent", &self.QueryByContent.map(|f| f as usize))
+            .field("GetRecordCount", &self.GetRecordCount.map(|f| f as usize))
+            .field("FirstRecord", &self.FirstRecord.map(|f| f as usize))
+            .field("NextRecord", &self.NextRecord.map(|f| f as usize))
+            .field("GetCurrentRecord", &self.GetCurrentRecord.map(|f| f as usize))
+            .field("ControlUnit", &self.ControlUnit.map(|f| f as usize))
+            .field("ControlUnitPrivileged", &self.ControlUnitPrivileged.map(|f| f as usize))
+            .field("NotifyPowerChange", &self.NotifyPowerChange.map(|f| f as usize))
+            .field("PipelineInit", &self.PipelineInit.map(|f| f as usize))
+            .field("PipelineCleanup", &self.PipelineCleanup.map(|f| f as usize))
+            .field("Activate", &self.Activate.map(|f| f as usize))
+            .field("Deactivate", &self.Deactivate.map(|f| f as usize))
+            .field("QueryExtendedInfo", &self.QueryExtendedInfo.map(|f| f as usize))
+            .field("NotifyDatabaseChange", &self.NotifyDatabaseChange.map(|f| f as usize))
+            .field("Reserved1", &self.Reserved1.map(|f| f as usize))
+            .field("Reserved2", &self.Reserved2.map(|f| f as usize))
+            .field("UpdateRecordBegin", &self.UpdateRecordBegin.map(|f| f as usize))
+            .field("UpdateRecordCommit", &self.UpdateRecordCommit.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for WINBIO_STORAGE_INTERFACE {
     type Abi = Self;
 }
@@ -4054,6 +4696,11 @@ impl ::core::clone::Clone for WINBIO_STORAGE_RECORD {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_STORAGE_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_STORAGE_RECORD").field("Identity", &self.Identity).field("SubFactor", &self.SubFactor).field("IndexVector", &self.IndexVector).field("IndexElementCount", &self.IndexElementCount).field("TemplateBlob", &self.TemplateBlob).field("TemplateBlobSize", &self.TemplateBlobSize).field("PayloadBlob", &self.PayloadBlob).field("PayloadBlobSize", &self.PayloadBlobSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_STORAGE_RECORD {
     type Abi = Self;
 }
@@ -4084,6 +4731,11 @@ impl ::core::clone::Clone for WINBIO_STORAGE_SCHEMA {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_STORAGE_SCHEMA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_STORAGE_SCHEMA").field("BiometricFactor", &self.BiometricFactor).field("DatabaseId", &self.DatabaseId).field("DataFormat", &self.DataFormat).field("Attributes", &self.Attributes).field("FilePath", &self.FilePath).field("ConnectionString", &self.ConnectionString).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_STORAGE_SCHEMA {
     type Abi = Self;
 }
@@ -4110,6 +4762,11 @@ impl ::core::marker::Copy for WINBIO_SUPPORTED_ALGORITHMS {}
 impl ::core::clone::Clone for WINBIO_SUPPORTED_ALGORITHMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_SUPPORTED_ALGORITHMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_SUPPORTED_ALGORITHMS").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("NumberOfAlgorithms", &self.NumberOfAlgorithms).field("AlgorithmData", &self.AlgorithmData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_SUPPORTED_ALGORITHMS {
@@ -4147,6 +4804,23 @@ impl ::core::clone::Clone for WINBIO_UNIT_SCHEMA {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_UNIT_SCHEMA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_UNIT_SCHEMA")
+            .field("UnitId", &self.UnitId)
+            .field("PoolType", &self.PoolType)
+            .field("BiometricFactor", &self.BiometricFactor)
+            .field("SensorSubType", &self.SensorSubType)
+            .field("Capabilities", &self.Capabilities)
+            .field("DeviceInstanceId", &self.DeviceInstanceId)
+            .field("Description", &self.Description)
+            .field("Manufacturer", &self.Manufacturer)
+            .field("Model", &self.Model)
+            .field("SerialNumber", &self.SerialNumber)
+            .field("FirmwareVersion", &self.FirmwareVersion)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_UNIT_SCHEMA {
     type Abi = Self;
 }
@@ -4173,6 +4847,11 @@ impl ::core::clone::Clone for WINBIO_UPDATE_FIRMWARE {
         *self
     }
 }
+impl ::core::fmt::Debug for WINBIO_UPDATE_FIRMWARE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_UPDATE_FIRMWARE").field("PayloadSize", &self.PayloadSize).field("FirmwareData", &self.FirmwareData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_UPDATE_FIRMWARE {
     type Abi = Self;
 }
@@ -4197,6 +4876,11 @@ impl ::core::marker::Copy for WINBIO_VERSION {}
 impl ::core::clone::Clone for WINBIO_VERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINBIO_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINBIO_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_VERSION {

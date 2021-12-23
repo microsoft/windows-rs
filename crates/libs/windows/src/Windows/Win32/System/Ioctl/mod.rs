@@ -19,6 +19,11 @@ impl ::core::clone::Clone for ASYNC_DUPLICATE_EXTENTS_STATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for ASYNC_DUPLICATE_EXTENTS_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ASYNC_DUPLICATE_EXTENTS_STATUS").field("Version", &self.Version).field("State", &self.State).field("SourceFileOffset", &self.SourceFileOffset).field("TargetFileOffset", &self.TargetFileOffset).field("ByteCount", &self.ByteCount).field("BytesDuplicated", &self.BytesDuplicated).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ASYNC_DUPLICATE_EXTENTS_STATUS {
     type Abi = Self;
 }
@@ -47,6 +52,11 @@ impl ::core::clone::Clone for BIN_COUNT {
         *self
     }
 }
+impl ::core::fmt::Debug for BIN_COUNT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BIN_COUNT").field("BinRange", &self.BinRange).field("BinCount", &self.BinCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BIN_COUNT {
     type Abi = Self;
 }
@@ -73,6 +83,11 @@ impl ::core::clone::Clone for BIN_RANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for BIN_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BIN_RANGE").field("StartValue", &self.StartValue).field("Length", &self.Length).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BIN_RANGE {
     type Abi = Self;
 }
@@ -97,6 +112,11 @@ impl ::core::marker::Copy for BIN_RESULTS {}
 impl ::core::clone::Clone for BIN_RESULTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BIN_RESULTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BIN_RESULTS").field("NumberOfBins", &self.NumberOfBins).field("BinCounts", &self.BinCounts).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BIN_RESULTS {
@@ -131,6 +151,11 @@ impl ::core::clone::Clone for BOOT_AREA_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for BOOT_AREA_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BOOT_AREA_INFO").field("BootSectorCount", &self.BootSectorCount).field("BootSectors", &self.BootSectors).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BOOT_AREA_INFO {
     type Abi = Self;
 }
@@ -154,6 +179,11 @@ impl ::core::marker::Copy for BOOT_AREA_INFO_0 {}
 impl ::core::clone::Clone for BOOT_AREA_INFO_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BOOT_AREA_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BOOT_AREA_INFO_0").field("Offset", &self.Offset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BOOT_AREA_INFO_0 {
@@ -180,6 +210,11 @@ impl ::core::marker::Copy for BULK_SECURITY_TEST_DATA {}
 impl ::core::clone::Clone for BULK_SECURITY_TEST_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BULK_SECURITY_TEST_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BULK_SECURITY_TEST_DATA").field("DesiredAccess", &self.DesiredAccess).field("SecurityIds", &self.SecurityIds).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BULK_SECURITY_TEST_DATA {
@@ -246,6 +281,11 @@ impl ::core::clone::Clone for CHANGER_ELEMENT {
         *self
     }
 }
+impl ::core::fmt::Debug for CHANGER_ELEMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHANGER_ELEMENT").field("ElementType", &self.ElementType).field("ElementAddress", &self.ElementAddress).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CHANGER_ELEMENT {
     type Abi = Self;
 }
@@ -270,6 +310,11 @@ impl ::core::marker::Copy for CHANGER_ELEMENT_LIST {}
 impl ::core::clone::Clone for CHANGER_ELEMENT_LIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CHANGER_ELEMENT_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHANGER_ELEMENT_LIST").field("Element", &self.Element).field("NumberOfElements", &self.NumberOfElements).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CHANGER_ELEMENT_LIST {
@@ -303,6 +348,11 @@ impl ::core::marker::Copy for CHANGER_ELEMENT_STATUS {}
 impl ::core::clone::Clone for CHANGER_ELEMENT_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CHANGER_ELEMENT_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHANGER_ELEMENT_STATUS").field("Element", &self.Element).field("SrcElementAddress", &self.SrcElementAddress).field("Flags", &self.Flags).field("ExceptionCode", &self.ExceptionCode).field("TargetId", &self.TargetId).field("Lun", &self.Lun).field("Reserved", &self.Reserved).field("PrimaryVolumeID", &self.PrimaryVolumeID).field("AlternateVolumeID", &self.AlternateVolumeID).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CHANGER_ELEMENT_STATUS {
@@ -339,6 +389,24 @@ impl ::core::marker::Copy for CHANGER_ELEMENT_STATUS_EX {}
 impl ::core::clone::Clone for CHANGER_ELEMENT_STATUS_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CHANGER_ELEMENT_STATUS_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHANGER_ELEMENT_STATUS_EX")
+            .field("Element", &self.Element)
+            .field("SrcElementAddress", &self.SrcElementAddress)
+            .field("Flags", &self.Flags)
+            .field("ExceptionCode", &self.ExceptionCode)
+            .field("TargetId", &self.TargetId)
+            .field("Lun", &self.Lun)
+            .field("Reserved", &self.Reserved)
+            .field("PrimaryVolumeID", &self.PrimaryVolumeID)
+            .field("AlternateVolumeID", &self.AlternateVolumeID)
+            .field("VendorIdentification", &self.VendorIdentification)
+            .field("ProductIdentification", &self.ProductIdentification)
+            .field("SerialNumber", &self.SerialNumber)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for CHANGER_ELEMENT_STATUS_EX {
@@ -402,6 +470,12 @@ impl ::core::marker::Copy for CHANGER_EXCHANGE_MEDIUM {}
 impl ::core::clone::Clone for CHANGER_EXCHANGE_MEDIUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CHANGER_EXCHANGE_MEDIUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHANGER_EXCHANGE_MEDIUM").field("Transport", &self.Transport).field("Source", &self.Source).field("Destination1", &self.Destination1).field("Destination2", &self.Destination2).field("Flip1", &self.Flip1).field("Flip2", &self.Flip2).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -498,6 +572,12 @@ impl ::core::clone::Clone for CHANGER_INITIALIZE_ELEMENT_STATUS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CHANGER_INITIALIZE_ELEMENT_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHANGER_INITIALIZE_ELEMENT_STATUS").field("ElementList", &self.ElementList).field("BarCodeScan", &self.BarCodeScan).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHANGER_INITIALIZE_ELEMENT_STATUS {
     type Abi = Self;
 }
@@ -533,6 +613,12 @@ impl ::core::clone::Clone for CHANGER_MOVE_MEDIUM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CHANGER_MOVE_MEDIUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHANGER_MOVE_MEDIUM").field("Transport", &self.Transport).field("Source", &self.Source).field("Destination", &self.Destination).field("Flip", &self.Flip).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHANGER_MOVE_MEDIUM {
     type Abi = Self;
 }
@@ -565,6 +651,11 @@ impl ::core::clone::Clone for CHANGER_PRODUCT_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for CHANGER_PRODUCT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHANGER_PRODUCT_DATA").field("VendorId", &self.VendorId).field("ProductId", &self.ProductId).field("Revision", &self.Revision).field("SerialNumber", &self.SerialNumber).field("DeviceType", &self.DeviceType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CHANGER_PRODUCT_DATA {
     type Abi = Self;
 }
@@ -592,6 +683,12 @@ impl ::core::marker::Copy for CHANGER_READ_ELEMENT_STATUS {}
 impl ::core::clone::Clone for CHANGER_READ_ELEMENT_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CHANGER_READ_ELEMENT_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHANGER_READ_ELEMENT_STATUS").field("ElementList", &self.ElementList).field("VolumeTagInfo", &self.VolumeTagInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -627,6 +724,11 @@ impl ::core::clone::Clone for CHANGER_SEND_VOLUME_TAG_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for CHANGER_SEND_VOLUME_TAG_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHANGER_SEND_VOLUME_TAG_INFORMATION").field("StartingElement", &self.StartingElement).field("ActionCode", &self.ActionCode).field("VolumeIDTemplate", &self.VolumeIDTemplate).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CHANGER_SEND_VOLUME_TAG_INFORMATION {
     type Abi = Self;
 }
@@ -651,6 +753,11 @@ impl ::core::marker::Copy for CHANGER_SET_ACCESS {}
 impl ::core::clone::Clone for CHANGER_SET_ACCESS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CHANGER_SET_ACCESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHANGER_SET_ACCESS").field("Element", &self.Element).field("Control", &self.Control).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CHANGER_SET_ACCESS {
@@ -681,6 +788,12 @@ impl ::core::marker::Copy for CHANGER_SET_POSITION {}
 impl ::core::clone::Clone for CHANGER_SET_POSITION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CHANGER_SET_POSITION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHANGER_SET_POSITION").field("Transport", &self.Transport).field("Destination", &self.Destination).field("Flip", &self.Flip).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -733,6 +846,11 @@ impl ::core::clone::Clone for CLASS_MEDIA_CHANGE_CONTEXT {
         *self
     }
 }
+impl ::core::fmt::Debug for CLASS_MEDIA_CHANGE_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLASS_MEDIA_CHANGE_CONTEXT").field("MediaChangeCount", &self.MediaChangeCount).field("NewState", &self.NewState).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLASS_MEDIA_CHANGE_CONTEXT {
     type Abi = Self;
 }
@@ -757,6 +875,11 @@ impl ::core::marker::Copy for CLUSTER_RANGE {}
 impl ::core::clone::Clone for CLUSTER_RANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CLUSTER_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSTER_RANGE").field("StartingCluster", &self.StartingCluster).field("ClusterCount", &self.ClusterCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_RANGE {
@@ -804,6 +927,11 @@ impl ::core::clone::Clone for CONTAINER_ROOT_INFO_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for CONTAINER_ROOT_INFO_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONTAINER_ROOT_INFO_INPUT").field("Flags", &self.Flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CONTAINER_ROOT_INFO_INPUT {
     type Abi = Self;
 }
@@ -828,6 +956,11 @@ impl ::core::marker::Copy for CONTAINER_ROOT_INFO_OUTPUT {}
 impl ::core::clone::Clone for CONTAINER_ROOT_INFO_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CONTAINER_ROOT_INFO_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONTAINER_ROOT_INFO_OUTPUT").field("ContainerRootIdLength", &self.ContainerRootIdLength).field("ContainerRootId", &self.ContainerRootId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CONTAINER_ROOT_INFO_OUTPUT {
@@ -855,6 +988,11 @@ impl ::core::marker::Copy for CONTAINER_VOLUME_STATE {}
 impl ::core::clone::Clone for CONTAINER_VOLUME_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CONTAINER_VOLUME_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONTAINER_VOLUME_STATE").field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CONTAINER_VOLUME_STATE {
@@ -943,6 +1081,11 @@ impl ::core::clone::Clone for CREATE_DISK_GPT {
         *self
     }
 }
+impl ::core::fmt::Debug for CREATE_DISK_GPT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CREATE_DISK_GPT").field("DiskId", &self.DiskId).field("MaxPartitionCount", &self.MaxPartitionCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CREATE_DISK_GPT {
     type Abi = Self;
 }
@@ -966,6 +1109,11 @@ impl ::core::marker::Copy for CREATE_DISK_MBR {}
 impl ::core::clone::Clone for CREATE_DISK_MBR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CREATE_DISK_MBR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CREATE_DISK_MBR").field("Signature", &self.Signature).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CREATE_DISK_MBR {
@@ -992,6 +1140,11 @@ impl ::core::marker::Copy for CREATE_USN_JOURNAL_DATA {}
 impl ::core::clone::Clone for CREATE_USN_JOURNAL_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CREATE_USN_JOURNAL_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CREATE_USN_JOURNAL_DATA").field("MaximumSize", &self.MaximumSize).field("AllocationDelta", &self.AllocationDelta).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CREATE_USN_JOURNAL_DATA {
@@ -1068,6 +1221,11 @@ impl ::core::clone::Clone for CSV_CONTROL_PARAM {
         *self
     }
 }
+impl ::core::fmt::Debug for CSV_CONTROL_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CSV_CONTROL_PARAM").field("Operation", &self.Operation).field("Unused", &self.Unused).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CSV_CONTROL_PARAM {
     type Abi = Self;
 }
@@ -1096,6 +1254,12 @@ impl ::core::marker::Copy for CSV_IS_OWNED_BY_CSVFS {}
 impl ::core::clone::Clone for CSV_IS_OWNED_BY_CSVFS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CSV_IS_OWNED_BY_CSVFS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CSV_IS_OWNED_BY_CSVFS").field("OwnedByCSVFS", &self.OwnedByCSVFS).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1129,6 +1293,11 @@ impl ::core::clone::Clone for CSV_MGMT_LOCK {
         *self
     }
 }
+impl ::core::fmt::Debug for CSV_MGMT_LOCK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CSV_MGMT_LOCK").field("Flags", &self.Flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CSV_MGMT_LOCK {
     type Abi = Self;
 }
@@ -1157,6 +1326,11 @@ impl ::core::clone::Clone for CSV_NAMESPACE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for CSV_NAMESPACE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CSV_NAMESPACE_INFO").field("Version", &self.Version).field("DeviceNumber", &self.DeviceNumber).field("StartingOffset", &self.StartingOffset).field("SectorSize", &self.SectorSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CSV_NAMESPACE_INFO {
     type Abi = Self;
 }
@@ -1181,6 +1355,11 @@ impl ::core::marker::Copy for CSV_QUERY_FILE_REVISION {}
 impl ::core::clone::Clone for CSV_QUERY_FILE_REVISION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CSV_QUERY_FILE_REVISION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CSV_QUERY_FILE_REVISION").field("FileId", &self.FileId).field("FileRevision", &self.FileRevision).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CSV_QUERY_FILE_REVISION {
@@ -1213,6 +1392,12 @@ impl ::core::clone::Clone for CSV_QUERY_FILE_REVISION_FILE_ID_128 {
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
+impl ::core::fmt::Debug for CSV_QUERY_FILE_REVISION_FILE_ID_128 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CSV_QUERY_FILE_REVISION_FILE_ID_128").field("FileId", &self.FileId).field("FileRevision", &self.FileRevision).finish()
+    }
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 unsafe impl ::windows::core::Abi for CSV_QUERY_FILE_REVISION_FILE_ID_128 {
     type Abi = Self;
 }
@@ -1242,6 +1427,11 @@ impl ::core::marker::Copy for CSV_QUERY_MDS_PATH {}
 impl ::core::clone::Clone for CSV_QUERY_MDS_PATH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CSV_QUERY_MDS_PATH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CSV_QUERY_MDS_PATH").field("MdsNodeId", &self.MdsNodeId).field("DsNodeId", &self.DsNodeId).field("PathLength", &self.PathLength).field("Path", &self.Path).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CSV_QUERY_MDS_PATH {
@@ -1285,6 +1475,11 @@ impl ::core::clone::Clone for CSV_QUERY_MDS_PATH_V2 {
         *self
     }
 }
+impl ::core::fmt::Debug for CSV_QUERY_MDS_PATH_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CSV_QUERY_MDS_PATH_V2").field("Version", &self.Version).field("RequiredSize", &self.RequiredSize).field("MdsNodeId", &self.MdsNodeId).field("DsNodeId", &self.DsNodeId).field("Flags", &self.Flags).field("DiskConnectivity", &self.DiskConnectivity).field("VolumeId", &self.VolumeId).field("IpAddressOffset", &self.IpAddressOffset).field("IpAddressLength", &self.IpAddressLength).field("PathOffset", &self.PathOffset).field("PathLength", &self.PathLength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CSV_QUERY_MDS_PATH_V2 {
     type Abi = Self;
 }
@@ -1318,6 +1513,12 @@ impl ::core::clone::Clone for CSV_QUERY_REDIRECT_STATE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CSV_QUERY_REDIRECT_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CSV_QUERY_REDIRECT_STATE").field("MdsNodeId", &self.MdsNodeId).field("DsNodeId", &self.DsNodeId).field("FileRedirected", &self.FileRedirected).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CSV_QUERY_REDIRECT_STATE {
     type Abi = Self;
 }
@@ -1348,6 +1549,11 @@ impl ::core::clone::Clone for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT").field("VetoedFromAltitudeIntegral", &self.VetoedFromAltitudeIntegral).field("VetoedFromAltitudeDecimal", &self.VetoedFromAltitudeDecimal).field("Reason", &self.Reason).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
     type Abi = Self;
 }
@@ -1371,6 +1577,11 @@ impl ::core::marker::Copy for CSV_QUERY_VOLUME_ID {}
 impl ::core::clone::Clone for CSV_QUERY_VOLUME_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CSV_QUERY_VOLUME_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CSV_QUERY_VOLUME_ID").field("VolumeId", &self.VolumeId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CSV_QUERY_VOLUME_ID {
@@ -1406,6 +1617,12 @@ impl ::core::clone::Clone for CSV_QUERY_VOLUME_REDIRECT_STATE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CSV_QUERY_VOLUME_REDIRECT_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CSV_QUERY_VOLUME_REDIRECT_STATE").field("MdsNodeId", &self.MdsNodeId).field("DsNodeId", &self.DsNodeId).field("IsDiskConnected", &self.IsDiskConnected).field("ClusterEnableDirectIo", &self.ClusterEnableDirectIo).field("DiskConnectivity", &self.DiskConnectivity).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CSV_QUERY_VOLUME_REDIRECT_STATE {
     type Abi = Self;
 }
@@ -1432,6 +1649,11 @@ impl ::core::marker::Copy for CSV_SET_VOLUME_ID {}
 impl ::core::clone::Clone for CSV_SET_VOLUME_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CSV_SET_VOLUME_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CSV_SET_VOLUME_ID").field("VolumeId", &self.VolumeId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CSV_SET_VOLUME_ID {
@@ -1469,6 +1691,12 @@ impl ::core::clone::Clone for DECRYPTION_STATUS_BUFFER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DECRYPTION_STATUS_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DECRYPTION_STATUS_BUFFER").field("NoEncryptedStreams", &self.NoEncryptedStreams).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DECRYPTION_STATUS_BUFFER {
     type Abi = Self;
 }
@@ -1496,6 +1724,11 @@ impl ::core::marker::Copy for DELETE_USN_JOURNAL_DATA {}
 impl ::core::clone::Clone for DELETE_USN_JOURNAL_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DELETE_USN_JOURNAL_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DELETE_USN_JOURNAL_DATA").field("UsnJournalID", &self.UsnJournalID).field("DeleteFlags", &self.DeleteFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DELETE_USN_JOURNAL_DATA {
@@ -1597,6 +1830,11 @@ impl ::core::marker::Copy for DEVICEDUMP_RESTRICTED_SUBSECTION {}
 impl ::core::clone::Clone for DEVICEDUMP_RESTRICTED_SUBSECTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DEVICEDUMP_RESTRICTED_SUBSECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICEDUMP_RESTRICTED_SUBSECTION").field("bData", &self.bData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICEDUMP_RESTRICTED_SUBSECTION {
@@ -1916,6 +2154,23 @@ impl ::core::clone::Clone for DEVICE_COPY_OFFLOAD_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for DEVICE_COPY_OFFLOAD_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_COPY_OFFLOAD_DESCRIPTOR")
+            .field("Version", &self.Version)
+            .field("Size", &self.Size)
+            .field("MaximumTokenLifetime", &self.MaximumTokenLifetime)
+            .field("DefaultTokenLifetime", &self.DefaultTokenLifetime)
+            .field("MaximumTransferSize", &self.MaximumTransferSize)
+            .field("OptimalTransferCount", &self.OptimalTransferCount)
+            .field("MaximumDataDescriptors", &self.MaximumDataDescriptors)
+            .field("MaximumTransferLengthPerDescriptor", &self.MaximumTransferLengthPerDescriptor)
+            .field("OptimalTransferLengthPerDescriptor", &self.OptimalTransferLengthPerDescriptor)
+            .field("OptimalTransferLengthGranularity", &self.OptimalTransferLengthGranularity)
+            .field("Reserved", &self.Reserved)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DEVICE_COPY_OFFLOAD_DESCRIPTOR {
     type Abi = Self;
 }
@@ -1942,6 +2197,11 @@ impl ::core::marker::Copy for DEVICE_DATA_SET_LBP_STATE_PARAMETERS {}
 impl ::core::clone::Clone for DEVICE_DATA_SET_LBP_STATE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_DATA_SET_LBP_STATE_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DATA_SET_LBP_STATE_PARAMETERS").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("OutputVersion", &self.OutputVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_DATA_SET_LBP_STATE_PARAMETERS {
@@ -1977,6 +2237,11 @@ impl ::core::clone::Clone for DEVICE_DATA_SET_LB_PROVISIONING_STATE {
         *self
     }
 }
+impl ::core::fmt::Debug for DEVICE_DATA_SET_LB_PROVISIONING_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DATA_SET_LB_PROVISIONING_STATE").field("Size", &self.Size).field("Version", &self.Version).field("SlabSizeInBytes", &self.SlabSizeInBytes).field("SlabOffsetDeltaInBytes", &self.SlabOffsetDeltaInBytes).field("SlabAllocationBitMapBitCount", &self.SlabAllocationBitMapBitCount).field("SlabAllocationBitMapLength", &self.SlabAllocationBitMapLength).field("SlabAllocationBitMap", &self.SlabAllocationBitMap).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DEVICE_DATA_SET_LB_PROVISIONING_STATE {
     type Abi = Self;
 }
@@ -2008,6 +2273,11 @@ impl ::core::clone::Clone for DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
         *self
     }
 }
+impl ::core::fmt::Debug for DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2").field("Size", &self.Size).field("Version", &self.Version).field("SlabSizeInBytes", &self.SlabSizeInBytes).field("SlabOffsetDeltaInBytes", &self.SlabOffsetDeltaInBytes).field("SlabAllocationBitMapBitCount", &self.SlabAllocationBitMapBitCount).field("SlabAllocationBitMapLength", &self.SlabAllocationBitMapLength).field("SlabAllocationBitMap", &self.SlabAllocationBitMap).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
     type Abi = Self;
 }
@@ -2032,6 +2302,11 @@ impl ::core::marker::Copy for DEVICE_DATA_SET_RANGE {}
 impl ::core::clone::Clone for DEVICE_DATA_SET_RANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_DATA_SET_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DATA_SET_RANGE").field("StartingOffset", &self.StartingOffset).field("LengthInBytes", &self.LengthInBytes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_DATA_SET_RANGE {
@@ -2059,6 +2334,11 @@ impl ::core::clone::Clone for DEVICE_DATA_SET_REPAIR_OUTPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for DEVICE_DATA_SET_REPAIR_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DATA_SET_REPAIR_OUTPUT").field("ParityExtent", &self.ParityExtent).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DEVICE_DATA_SET_REPAIR_OUTPUT {
     type Abi = Self;
 }
@@ -2084,6 +2364,11 @@ impl ::core::marker::Copy for DEVICE_DATA_SET_REPAIR_PARAMETERS {}
 impl ::core::clone::Clone for DEVICE_DATA_SET_REPAIR_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_DATA_SET_REPAIR_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DATA_SET_REPAIR_PARAMETERS").field("NumberOfRepairCopies", &self.NumberOfRepairCopies).field("SourceCopy", &self.SourceCopy).field("RepairCopies", &self.RepairCopies).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_DATA_SET_REPAIR_PARAMETERS {
@@ -2115,6 +2400,11 @@ impl ::core::clone::Clone for DEVICE_DATA_SET_SCRUB_EX_OUTPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for DEVICE_DATA_SET_SCRUB_EX_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DATA_SET_SCRUB_EX_OUTPUT").field("BytesProcessed", &self.BytesProcessed).field("BytesRepaired", &self.BytesRepaired).field("BytesFailed", &self.BytesFailed).field("ParityExtent", &self.ParityExtent).field("BytesScrubbed", &self.BytesScrubbed).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DEVICE_DATA_SET_SCRUB_EX_OUTPUT {
     type Abi = Self;
 }
@@ -2140,6 +2430,11 @@ impl ::core::marker::Copy for DEVICE_DATA_SET_SCRUB_OUTPUT {}
 impl ::core::clone::Clone for DEVICE_DATA_SET_SCRUB_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_DATA_SET_SCRUB_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DATA_SET_SCRUB_OUTPUT").field("BytesProcessed", &self.BytesProcessed).field("BytesRepaired", &self.BytesRepaired).field("BytesFailed", &self.BytesFailed).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_DATA_SET_SCRUB_OUTPUT {
@@ -2168,6 +2463,11 @@ impl ::core::clone::Clone for DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT").field("TopologyRangeBytes", &self.TopologyRangeBytes).field("TopologyId", &self.TopologyId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {
     type Abi = Self;
 }
@@ -2192,6 +2492,11 @@ impl ::core::marker::Copy for DEVICE_DSM_CONVERSION_OUTPUT {}
 impl ::core::clone::Clone for DEVICE_DSM_CONVERSION_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_DSM_CONVERSION_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DSM_CONVERSION_OUTPUT").field("Version", &self.Version).field("Source", &self.Source).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_DSM_CONVERSION_OUTPUT {
@@ -2226,6 +2531,12 @@ impl ::core::marker::Copy for DEVICE_DSM_DEFINITION {}
 impl ::core::clone::Clone for DEVICE_DSM_DEFINITION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVICE_DSM_DEFINITION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DSM_DEFINITION").field("Action", &self.Action).field("SingleRange", &self.SingleRange).field("ParameterBlockAlignment", &self.ParameterBlockAlignment).field("ParameterBlockLength", &self.ParameterBlockLength).field("HasOutput", &self.HasOutput).field("OutputBlockAlignment", &self.OutputBlockAlignment).field("OutputBlockLength", &self.OutputBlockLength).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2276,6 +2587,11 @@ impl ::core::clone::Clone for DEVICE_DSM_FREE_SPACE_OUTPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for DEVICE_DSM_FREE_SPACE_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DSM_FREE_SPACE_OUTPUT").field("Version", &self.Version).field("FreeSpace", &self.FreeSpace).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DEVICE_DSM_FREE_SPACE_OUTPUT {
     type Abi = Self;
 }
@@ -2305,6 +2621,11 @@ impl ::core::clone::Clone for DEVICE_DSM_LOST_QUERY_OUTPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for DEVICE_DSM_LOST_QUERY_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DSM_LOST_QUERY_OUTPUT").field("Version", &self.Version).field("Size", &self.Size).field("Alignment", &self.Alignment).field("NumberOfBits", &self.NumberOfBits).field("BitMap", &self.BitMap).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DEVICE_DSM_LOST_QUERY_OUTPUT {
     type Abi = Self;
 }
@@ -2329,6 +2650,11 @@ impl ::core::marker::Copy for DEVICE_DSM_LOST_QUERY_PARAMETERS {}
 impl ::core::clone::Clone for DEVICE_DSM_LOST_QUERY_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_DSM_LOST_QUERY_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DSM_LOST_QUERY_PARAMETERS").field("Version", &self.Version).field("Granularity", &self.Granularity).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_DSM_LOST_QUERY_PARAMETERS {
@@ -2357,6 +2683,11 @@ impl ::core::marker::Copy for DEVICE_DSM_NOTIFICATION_PARAMETERS {}
 impl ::core::clone::Clone for DEVICE_DSM_NOTIFICATION_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_DSM_NOTIFICATION_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DSM_NOTIFICATION_PARAMETERS").field("Size", &self.Size).field("Flags", &self.Flags).field("NumFileTypeIDs", &self.NumFileTypeIDs).field("FileTypeID", &self.FileTypeID).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_DSM_NOTIFICATION_PARAMETERS {
@@ -2390,6 +2721,11 @@ impl ::core::clone::Clone for DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS").field("Size", &self.Size).field("TargetPriority", &self.TargetPriority).field("Reserved", &self.Reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS {
     type Abi = Self;
 }
@@ -2415,6 +2751,11 @@ impl ::core::marker::Copy for DEVICE_DSM_OFFLOAD_READ_PARAMETERS {}
 impl ::core::clone::Clone for DEVICE_DSM_OFFLOAD_READ_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_DSM_OFFLOAD_READ_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DSM_OFFLOAD_READ_PARAMETERS").field("Flags", &self.Flags).field("TimeToLive", &self.TimeToLive).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_DSM_OFFLOAD_READ_PARAMETERS {
@@ -2474,6 +2815,11 @@ impl ::core::marker::Copy for DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {}
 impl ::core::clone::Clone for DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT").field("Version", &self.Version).field("Flags", &self.Flags).field("TotalNumberOfRanges", &self.TotalNumberOfRanges).field("NumberOfRangesReturned", &self.NumberOfRangesReturned).field("Ranges", &self.Ranges).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
@@ -2546,6 +2892,12 @@ impl ::core::clone::Clone for DEVICE_DSM_REPORT_ZONES_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVICE_DSM_REPORT_ZONES_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DSM_REPORT_ZONES_DATA").field("Size", &self.Size).field("ZoneCount", &self.ZoneCount).field("Attributes", &self.Attributes).field("Reserved0", &self.Reserved0).field("ZoneDescriptors", &self.ZoneDescriptors).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DEVICE_DSM_REPORT_ZONES_DATA {
     type Abi = Self;
 }
@@ -2577,6 +2929,11 @@ impl ::core::clone::Clone for DEVICE_DSM_REPORT_ZONES_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for DEVICE_DSM_REPORT_ZONES_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DSM_REPORT_ZONES_PARAMETERS").field("Size", &self.Size).field("ReportOption", &self.ReportOption).field("Partial", &self.Partial).field("Reserved", &self.Reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DEVICE_DSM_REPORT_ZONES_PARAMETERS {
     type Abi = Self;
 }
@@ -2604,6 +2961,11 @@ impl ::core::marker::Copy for DEVICE_DSM_TIERING_QUERY_INPUT {}
 impl ::core::clone::Clone for DEVICE_DSM_TIERING_QUERY_INPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_DSM_TIERING_QUERY_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DSM_TIERING_QUERY_INPUT").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("NumberOfTierIds", &self.NumberOfTierIds).field("TierIds", &self.TierIds).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_DSM_TIERING_QUERY_INPUT {
@@ -2636,6 +2998,11 @@ impl ::core::marker::Copy for DEVICE_DSM_TIERING_QUERY_OUTPUT {}
 impl ::core::clone::Clone for DEVICE_DSM_TIERING_QUERY_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_DSM_TIERING_QUERY_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DSM_TIERING_QUERY_OUTPUT").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Alignment", &self.Alignment).field("TotalNumberOfRegions", &self.TotalNumberOfRegions).field("NumberOfRegionsReturned", &self.NumberOfRegionsReturned).field("Regions", &self.Regions).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_DSM_TIERING_QUERY_OUTPUT {
@@ -2672,6 +3039,24 @@ impl ::core::marker::Copy for DEVICE_INTERNAL_STATUS_DATA {}
 impl ::core::clone::Clone for DEVICE_INTERNAL_STATUS_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_INTERNAL_STATUS_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_INTERNAL_STATUS_DATA")
+            .field("Version", &self.Version)
+            .field("Size", &self.Size)
+            .field("T10VendorId", &self.T10VendorId)
+            .field("DataSet1Length", &self.DataSet1Length)
+            .field("DataSet2Length", &self.DataSet2Length)
+            .field("DataSet3Length", &self.DataSet3Length)
+            .field("DataSet4Length", &self.DataSet4Length)
+            .field("StatusDataVersion", &self.StatusDataVersion)
+            .field("Reserved", &self.Reserved)
+            .field("ReasonIdentifier", &self.ReasonIdentifier)
+            .field("StatusDataLength", &self.StatusDataLength)
+            .field("StatusData", &self.StatusData)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_INTERNAL_STATUS_DATA {
@@ -2730,6 +3115,11 @@ impl ::core::marker::Copy for DEVICE_LB_PROVISIONING_DESCRIPTOR {}
 impl ::core::clone::Clone for DEVICE_LB_PROVISIONING_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_LB_PROVISIONING_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_LB_PROVISIONING_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("_bitfield", &self._bitfield).field("Reserved1", &self.Reserved1).field("OptimalUnmapGranularity", &self.OptimalUnmapGranularity).field("UnmapGranularityAlignment", &self.UnmapGranularityAlignment).field("MaxUnmapLbaCount", &self.MaxUnmapLbaCount).field("MaxUnmapBlockDescriptorCount", &self.MaxUnmapBlockDescriptorCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_LB_PROVISIONING_DESCRIPTOR {
@@ -2813,6 +3203,11 @@ impl ::core::clone::Clone for DEVICE_LOCATION_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for DEVICE_LOCATION_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_LOCATION_0_0").field("Channel", &self.Channel).field("Device", &self.Device).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DEVICE_LOCATION_0_0 {
     type Abi = Self;
 }
@@ -2837,6 +3232,11 @@ impl ::core::marker::Copy for DEVICE_LOCATION_0_1 {}
 impl ::core::clone::Clone for DEVICE_LOCATION_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_LOCATION_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_LOCATION_0_1").field("Target", &self.Target).field("Lun", &self.Lun).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_LOCATION_0_1 {
@@ -2870,6 +3270,11 @@ impl ::core::clone::Clone for DEVICE_MANAGE_DATA_SET_ATTRIBUTES {
         *self
     }
 }
+impl ::core::fmt::Debug for DEVICE_MANAGE_DATA_SET_ATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_MANAGE_DATA_SET_ATTRIBUTES").field("Size", &self.Size).field("Action", &self.Action).field("Flags", &self.Flags).field("ParameterBlockOffset", &self.ParameterBlockOffset).field("ParameterBlockLength", &self.ParameterBlockLength).field("DataSetRangesOffset", &self.DataSetRangesOffset).field("DataSetRangesLength", &self.DataSetRangesLength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DEVICE_MANAGE_DATA_SET_ATTRIBUTES {
     type Abi = Self;
 }
@@ -2901,6 +3306,11 @@ impl ::core::marker::Copy for DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {}
 impl ::core::clone::Clone for DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT").field("Size", &self.Size).field("Action", &self.Action).field("Flags", &self.Flags).field("OperationStatus", &self.OperationStatus).field("ExtendedError", &self.ExtendedError).field("TargetDetailedError", &self.TargetDetailedError).field("ReservedStatus", &self.ReservedStatus).field("OutputBlockOffset", &self.OutputBlockOffset).field("OutputBlockLength", &self.OutputBlockLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {
@@ -3004,6 +3414,12 @@ impl ::core::clone::Clone for DEVICE_MEDIA_INFO_0_0 {
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
+impl ::core::fmt::Debug for DEVICE_MEDIA_INFO_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_MEDIA_INFO_0_0").field("Cylinders", &self.Cylinders).field("MediaType", &self.MediaType).field("TracksPerCylinder", &self.TracksPerCylinder).field("SectorsPerTrack", &self.SectorsPerTrack).field("BytesPerSector", &self.BytesPerSector).field("NumberMediaSides", &self.NumberMediaSides).field("MediaCharacteristics", &self.MediaCharacteristics).finish()
+    }
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 unsafe impl ::windows::core::Abi for DEVICE_MEDIA_INFO_0_0 {
     type Abi = Self;
 }
@@ -3039,6 +3455,12 @@ impl ::core::marker::Copy for DEVICE_MEDIA_INFO_0_1 {}
 impl ::core::clone::Clone for DEVICE_MEDIA_INFO_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl ::core::fmt::Debug for DEVICE_MEDIA_INFO_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_MEDIA_INFO_0_1").field("Cylinders", &self.Cylinders).field("MediaType", &self.MediaType).field("TracksPerCylinder", &self.TracksPerCylinder).field("SectorsPerTrack", &self.SectorsPerTrack).field("BytesPerSector", &self.BytesPerSector).field("NumberMediaSides", &self.NumberMediaSides).field("MediaCharacteristics", &self.MediaCharacteristics).finish()
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -3143,6 +3565,12 @@ impl ::core::clone::Clone for DEVICE_MEDIA_INFO_0_2_0_0 {
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
+impl ::core::fmt::Debug for DEVICE_MEDIA_INFO_0_2_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_MEDIA_INFO_0_2_0_0").field("MediumType", &self.MediumType).field("DensityCode", &self.DensityCode).finish()
+    }
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 unsafe impl ::windows::core::Abi for DEVICE_MEDIA_INFO_0_2_0_0 {
     type Abi = Self;
 }
@@ -3184,6 +3612,23 @@ impl ::core::clone::Clone for DEVICE_POWER_DESCRIPTOR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVICE_POWER_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_POWER_DESCRIPTOR")
+            .field("Version", &self.Version)
+            .field("Size", &self.Size)
+            .field("DeviceAttentionSupported", &self.DeviceAttentionSupported)
+            .field("AsynchronousNotificationSupported", &self.AsynchronousNotificationSupported)
+            .field("IdlePowerManagementEnabled", &self.IdlePowerManagementEnabled)
+            .field("D3ColdEnabled", &self.D3ColdEnabled)
+            .field("D3ColdSupported", &self.D3ColdSupported)
+            .field("NoVerifyDuringIdlePower", &self.NoVerifyDuringIdlePower)
+            .field("Reserved", &self.Reserved)
+            .field("IdleTimeoutInMS", &self.IdleTimeoutInMS)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DEVICE_POWER_DESCRIPTOR {
     type Abi = Self;
 }
@@ -3218,6 +3663,12 @@ impl ::core::clone::Clone for DEVICE_SEEK_PENALTY_DESCRIPTOR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVICE_SEEK_PENALTY_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_SEEK_PENALTY_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("IncursSeekPenalty", &self.IncursSeekPenalty).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DEVICE_SEEK_PENALTY_DESCRIPTOR {
     type Abi = Self;
 }
@@ -3245,6 +3696,11 @@ impl ::core::marker::Copy for DEVICE_STORAGE_ADDRESS_RANGE {}
 impl ::core::clone::Clone for DEVICE_STORAGE_ADDRESS_RANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_STORAGE_ADDRESS_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_STORAGE_ADDRESS_RANGE").field("StartAddress", &self.StartAddress).field("LengthInBytes", &self.LengthInBytes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_STORAGE_ADDRESS_RANGE {
@@ -3327,6 +3783,11 @@ impl ::core::clone::Clone for DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
     type Abi = Self;
 }
@@ -3355,6 +3816,12 @@ impl ::core::marker::Copy for DEVICE_TRIM_DESCRIPTOR {}
 impl ::core::clone::Clone for DEVICE_TRIM_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVICE_TRIM_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_TRIM_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("TrimEnabled", &self.TrimEnabled).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3389,6 +3856,12 @@ impl ::core::marker::Copy for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {}
 impl ::core::clone::Clone for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_WRITE_AGGREGATION_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("BenefitsFromWriteAggregation", &self.BenefitsFromWriteAggregation).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3529,6 +4002,12 @@ impl ::core::clone::Clone for DISK_CACHE_INFORMATION_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DISK_CACHE_INFORMATION_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DISK_CACHE_INFORMATION_0_0").field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DISK_CACHE_INFORMATION_0_0 {
     type Abi = Self;
 }
@@ -3560,6 +4039,12 @@ impl ::core::marker::Copy for DISK_CACHE_INFORMATION_0_1 {}
 impl ::core::clone::Clone for DISK_CACHE_INFORMATION_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DISK_CACHE_INFORMATION_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DISK_CACHE_INFORMATION_0_1").field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).field("MaximumBlocks", &self.MaximumBlocks).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3598,6 +4083,11 @@ impl ::core::marker::Copy for DISK_CONTROLLER_NUMBER {}
 impl ::core::clone::Clone for DISK_CONTROLLER_NUMBER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DISK_CONTROLLER_NUMBER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DISK_CONTROLLER_NUMBER").field("ControllerNumber", &self.ControllerNumber).field("DiskNumber", &self.DiskNumber).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DISK_CONTROLLER_NUMBER {
@@ -3678,6 +4168,11 @@ impl ::core::clone::Clone for DISK_DETECTION_INFO_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for DISK_DETECTION_INFO_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DISK_DETECTION_INFO_0_0").field("Int13", &self.Int13).field("ExInt13", &self.ExInt13).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DISK_DETECTION_INFO_0_0 {
     type Abi = Self;
 }
@@ -3703,6 +4198,11 @@ impl ::core::marker::Copy for DISK_EXTENT {}
 impl ::core::clone::Clone for DISK_EXTENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DISK_EXTENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DISK_EXTENT").field("DiskNumber", &self.DiskNumber).field("StartingOffset", &self.StartingOffset).field("ExtentLength", &self.ExtentLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DISK_EXTENT {
@@ -3737,6 +4237,11 @@ impl ::core::clone::Clone for DISK_EX_INT13_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for DISK_EX_INT13_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DISK_EX_INT13_INFO").field("ExBufferSize", &self.ExBufferSize).field("ExFlags", &self.ExFlags).field("ExCylinders", &self.ExCylinders).field("ExHeads", &self.ExHeads).field("ExSectorsPerTrack", &self.ExSectorsPerTrack).field("ExSectorsPerDrive", &self.ExSectorsPerDrive).field("ExSectorSize", &self.ExSectorSize).field("ExReserved", &self.ExReserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DISK_EX_INT13_INFO {
     type Abi = Self;
 }
@@ -3766,6 +4271,11 @@ impl ::core::clone::Clone for DISK_GEOMETRY {
         *self
     }
 }
+impl ::core::fmt::Debug for DISK_GEOMETRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DISK_GEOMETRY").field("Cylinders", &self.Cylinders).field("MediaType", &self.MediaType).field("TracksPerCylinder", &self.TracksPerCylinder).field("SectorsPerTrack", &self.SectorsPerTrack).field("BytesPerSector", &self.BytesPerSector).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DISK_GEOMETRY {
     type Abi = Self;
 }
@@ -3793,6 +4303,11 @@ impl ::core::clone::Clone for DISK_GEOMETRY_EX {
         *self
     }
 }
+impl ::core::fmt::Debug for DISK_GEOMETRY_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DISK_GEOMETRY_EX").field("Geometry", &self.Geometry).field("DiskSize", &self.DiskSize).field("Data", &self.Data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DISK_GEOMETRY_EX {
     type Abi = Self;
 }
@@ -3817,6 +4332,11 @@ impl ::core::marker::Copy for DISK_GROW_PARTITION {}
 impl ::core::clone::Clone for DISK_GROW_PARTITION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DISK_GROW_PARTITION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DISK_GROW_PARTITION").field("PartitionNumber", &self.PartitionNumber).field("BytesToGrow", &self.BytesToGrow).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DISK_GROW_PARTITION {
@@ -3854,6 +4374,11 @@ impl ::core::clone::Clone for DISK_HISTOGRAM {
         *self
     }
 }
+impl ::core::fmt::Debug for DISK_HISTOGRAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DISK_HISTOGRAM").field("DiskSize", &self.DiskSize).field("Start", &self.Start).field("End", &self.End).field("Average", &self.Average).field("AverageRead", &self.AverageRead).field("AverageWrite", &self.AverageWrite).field("Granularity", &self.Granularity).field("Size", &self.Size).field("ReadCount", &self.ReadCount).field("WriteCount", &self.WriteCount).field("Histogram", &self.Histogram).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DISK_HISTOGRAM {
     type Abi = Self;
 }
@@ -3883,6 +4408,11 @@ impl ::core::clone::Clone for DISK_INT13_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for DISK_INT13_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DISK_INT13_INFO").field("DriveSelect", &self.DriveSelect).field("MaxCylinders", &self.MaxCylinders).field("SectorsPerTrack", &self.SectorsPerTrack).field("MaxHeads", &self.MaxHeads).field("NumberDrives", &self.NumberDrives).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DISK_INT13_INFO {
     type Abi = Self;
 }
@@ -3908,6 +4438,11 @@ impl ::core::marker::Copy for DISK_LOGGING {}
 impl ::core::clone::Clone for DISK_LOGGING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DISK_LOGGING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DISK_LOGGING").field("Function", &self.Function).field("BufferAddress", &self.BufferAddress).field("BufferSize", &self.BufferSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DISK_LOGGING {
@@ -3994,6 +4529,11 @@ impl ::core::clone::Clone for DISK_PARTITION_INFO_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for DISK_PARTITION_INFO_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DISK_PARTITION_INFO_0_0").field("DiskId", &self.DiskId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DISK_PARTITION_INFO_0_0 {
     type Abi = Self;
 }
@@ -4018,6 +4558,11 @@ impl ::core::marker::Copy for DISK_PARTITION_INFO_0_1 {}
 impl ::core::clone::Clone for DISK_PARTITION_INFO_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DISK_PARTITION_INFO_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DISK_PARTITION_INFO_0_1").field("Signature", &self.Signature).field("CheckSum", &self.CheckSum).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DISK_PARTITION_INFO_0_1 {
@@ -4056,6 +4601,24 @@ impl ::core::clone::Clone for DISK_PERFORMANCE {
         *self
     }
 }
+impl ::core::fmt::Debug for DISK_PERFORMANCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DISK_PERFORMANCE")
+            .field("BytesRead", &self.BytesRead)
+            .field("BytesWritten", &self.BytesWritten)
+            .field("ReadTime", &self.ReadTime)
+            .field("WriteTime", &self.WriteTime)
+            .field("IdleTime", &self.IdleTime)
+            .field("ReadCount", &self.ReadCount)
+            .field("WriteCount", &self.WriteCount)
+            .field("QueueDepth", &self.QueueDepth)
+            .field("SplitCount", &self.SplitCount)
+            .field("QueryTime", &self.QueryTime)
+            .field("StorageDeviceNumber", &self.StorageDeviceNumber)
+            .field("StorageManagerName", &self.StorageManagerName)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DISK_PERFORMANCE {
     type Abi = Self;
 }
@@ -4088,6 +4651,12 @@ impl ::core::marker::Copy for DISK_RECORD {}
 impl ::core::clone::Clone for DISK_RECORD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DISK_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DISK_RECORD").field("ByteOffset", &self.ByteOffset).field("StartTime", &self.StartTime).field("EndTime", &self.EndTime).field("VirtualAddress", &self.VirtualAddress).field("NumberOfBytes", &self.NumberOfBytes).field("DeviceNumber", &self.DeviceNumber).field("ReadRequest", &self.ReadRequest).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4150,6 +4719,12 @@ impl ::core::marker::Copy for DRIVE_LAYOUT_INFORMATION {}
 impl ::core::clone::Clone for DRIVE_LAYOUT_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRIVE_LAYOUT_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRIVE_LAYOUT_INFORMATION").field("PartitionCount", &self.PartitionCount).field("Signature", &self.Signature).field("PartitionEntry", &self.PartitionEntry).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4252,6 +4827,11 @@ impl ::core::clone::Clone for DRIVE_LAYOUT_INFORMATION_GPT {
         *self
     }
 }
+impl ::core::fmt::Debug for DRIVE_LAYOUT_INFORMATION_GPT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRIVE_LAYOUT_INFORMATION_GPT").field("DiskId", &self.DiskId).field("StartingUsableOffset", &self.StartingUsableOffset).field("UsableLength", &self.UsableLength).field("MaxPartitionCount", &self.MaxPartitionCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DRIVE_LAYOUT_INFORMATION_GPT {
     type Abi = Self;
 }
@@ -4276,6 +4856,11 @@ impl ::core::marker::Copy for DRIVE_LAYOUT_INFORMATION_MBR {}
 impl ::core::clone::Clone for DRIVE_LAYOUT_INFORMATION_MBR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DRIVE_LAYOUT_INFORMATION_MBR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRIVE_LAYOUT_INFORMATION_MBR").field("Signature", &self.Signature).field("CheckSum", &self.CheckSum).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DRIVE_LAYOUT_INFORMATION_MBR {
@@ -4307,6 +4892,12 @@ impl ::core::marker::Copy for DUPLICATE_EXTENTS_DATA {}
 impl ::core::clone::Clone for DUPLICATE_EXTENTS_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DUPLICATE_EXTENTS_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DUPLICATE_EXTENTS_DATA").field("FileHandle", &self.FileHandle).field("SourceFileOffset", &self.SourceFileOffset).field("TargetFileOffset", &self.TargetFileOffset).field("ByteCount", &self.ByteCount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4342,6 +4933,12 @@ impl ::core::marker::Copy for DUPLICATE_EXTENTS_DATA32 {}
 impl ::core::clone::Clone for DUPLICATE_EXTENTS_DATA32 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for DUPLICATE_EXTENTS_DATA32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DUPLICATE_EXTENTS_DATA32").field("FileHandle", &self.FileHandle).field("SourceFileOffset", &self.SourceFileOffset).field("TargetFileOffset", &self.TargetFileOffset).field("ByteCount", &self.ByteCount).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -4382,6 +4979,12 @@ impl ::core::clone::Clone for DUPLICATE_EXTENTS_DATA_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DUPLICATE_EXTENTS_DATA_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DUPLICATE_EXTENTS_DATA_EX").field("Size", &self.Size).field("FileHandle", &self.FileHandle).field("SourceFileOffset", &self.SourceFileOffset).field("TargetFileOffset", &self.TargetFileOffset).field("ByteCount", &self.ByteCount).field("Flags", &self.Flags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DUPLICATE_EXTENTS_DATA_EX {
     type Abi = Self;
 }
@@ -4416,6 +5019,12 @@ impl ::core::marker::Copy for DUPLICATE_EXTENTS_DATA_EX32 {}
 impl ::core::clone::Clone for DUPLICATE_EXTENTS_DATA_EX32 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for DUPLICATE_EXTENTS_DATA_EX32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DUPLICATE_EXTENTS_DATA_EX32").field("Size", &self.Size).field("FileHandle", &self.FileHandle).field("SourceFileOffset", &self.SourceFileOffset).field("TargetFileOffset", &self.TargetFileOffset).field("ByteCount", &self.ByteCount).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -4497,6 +5106,23 @@ impl ::core::clone::Clone for ENCRYPTED_DATA_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for ENCRYPTED_DATA_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENCRYPTED_DATA_INFO")
+            .field("StartingFileOffset", &self.StartingFileOffset)
+            .field("OutputBufferOffset", &self.OutputBufferOffset)
+            .field("BytesWithinFileSize", &self.BytesWithinFileSize)
+            .field("BytesWithinValidDataLength", &self.BytesWithinValidDataLength)
+            .field("CompressionFormat", &self.CompressionFormat)
+            .field("DataUnitShift", &self.DataUnitShift)
+            .field("ChunkShift", &self.ChunkShift)
+            .field("ClusterShift", &self.ClusterShift)
+            .field("EncryptionFormat", &self.EncryptionFormat)
+            .field("NumberOfDataBlocks", &self.NumberOfDataBlocks)
+            .field("DataBlockSize", &self.DataBlockSize)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ENCRYPTED_DATA_INFO {
     type Abi = Self;
 }
@@ -4523,6 +5149,11 @@ impl ::core::marker::Copy for ENCRYPTION_BUFFER {}
 impl ::core::clone::Clone for ENCRYPTION_BUFFER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ENCRYPTION_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENCRYPTION_BUFFER").field("EncryptionOperation", &self.EncryptionOperation).field("Private", &self.Private).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ENCRYPTION_BUFFER {
@@ -4556,6 +5187,11 @@ impl ::core::marker::Copy for ENCRYPTION_KEY_CTRL_INPUT {}
 impl ::core::clone::Clone for ENCRYPTION_KEY_CTRL_INPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ENCRYPTION_KEY_CTRL_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENCRYPTION_KEY_CTRL_INPUT").field("HeaderSize", &self.HeaderSize).field("StructureSize", &self.StructureSize).field("KeyOffset", &self.KeyOffset).field("KeySize", &self.KeySize).field("DplLock", &self.DplLock).field("DplUserId", &self.DplUserId).field("DplCredentialId", &self.DplCredentialId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ENCRYPTION_KEY_CTRL_INPUT {
@@ -4609,6 +5245,21 @@ impl ::core::clone::Clone for EXFAT_STATISTICS {
         *self
     }
 }
+impl ::core::fmt::Debug for EXFAT_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXFAT_STATISTICS")
+            .field("CreateHits", &self.CreateHits)
+            .field("SuccessfulCreates", &self.SuccessfulCreates)
+            .field("FailedCreates", &self.FailedCreates)
+            .field("NonCachedReads", &self.NonCachedReads)
+            .field("NonCachedReadBytes", &self.NonCachedReadBytes)
+            .field("NonCachedWrites", &self.NonCachedWrites)
+            .field("NonCachedWriteBytes", &self.NonCachedWriteBytes)
+            .field("NonCachedDiskReads", &self.NonCachedDiskReads)
+            .field("NonCachedDiskWrites", &self.NonCachedDiskWrites)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EXFAT_STATISTICS {
     type Abi = Self;
 }
@@ -4635,6 +5286,11 @@ impl ::core::marker::Copy for EXTENDED_ENCRYPTED_DATA_INFO {}
 impl ::core::clone::Clone for EXTENDED_ENCRYPTED_DATA_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EXTENDED_ENCRYPTED_DATA_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXTENDED_ENCRYPTED_DATA_INFO").field("ExtendedCode", &self.ExtendedCode).field("Length", &self.Length).field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EXTENDED_ENCRYPTED_DATA_INFO {
@@ -4670,6 +5326,21 @@ impl ::core::marker::Copy for FAT_STATISTICS {}
 impl ::core::clone::Clone for FAT_STATISTICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FAT_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAT_STATISTICS")
+            .field("CreateHits", &self.CreateHits)
+            .field("SuccessfulCreates", &self.SuccessfulCreates)
+            .field("FailedCreates", &self.FailedCreates)
+            .field("NonCachedReads", &self.NonCachedReads)
+            .field("NonCachedReadBytes", &self.NonCachedReadBytes)
+            .field("NonCachedWrites", &self.NonCachedWrites)
+            .field("NonCachedWriteBytes", &self.NonCachedWriteBytes)
+            .field("NonCachedDiskReads", &self.NonCachedDiskReads)
+            .field("NonCachedDiskWrites", &self.NonCachedDiskWrites)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for FAT_STATISTICS {
@@ -4711,6 +5382,27 @@ impl ::core::clone::Clone for FILESYSTEM_STATISTICS {
         *self
     }
 }
+impl ::core::fmt::Debug for FILESYSTEM_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILESYSTEM_STATISTICS")
+            .field("FileSystemType", &self.FileSystemType)
+            .field("Version", &self.Version)
+            .field("SizeOfCompleteStructure", &self.SizeOfCompleteStructure)
+            .field("UserFileReads", &self.UserFileReads)
+            .field("UserFileReadBytes", &self.UserFileReadBytes)
+            .field("UserDiskReads", &self.UserDiskReads)
+            .field("UserFileWrites", &self.UserFileWrites)
+            .field("UserFileWriteBytes", &self.UserFileWriteBytes)
+            .field("UserDiskWrites", &self.UserDiskWrites)
+            .field("MetaDataReads", &self.MetaDataReads)
+            .field("MetaDataReadBytes", &self.MetaDataReadBytes)
+            .field("MetaDataDiskReads", &self.MetaDataDiskReads)
+            .field("MetaDataWrites", &self.MetaDataWrites)
+            .field("MetaDataWriteBytes", &self.MetaDataWriteBytes)
+            .field("MetaDataDiskWrites", &self.MetaDataDiskWrites)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILESYSTEM_STATISTICS {
     type Abi = Self;
 }
@@ -4750,6 +5442,27 @@ impl ::core::clone::Clone for FILESYSTEM_STATISTICS_EX {
         *self
     }
 }
+impl ::core::fmt::Debug for FILESYSTEM_STATISTICS_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILESYSTEM_STATISTICS_EX")
+            .field("FileSystemType", &self.FileSystemType)
+            .field("Version", &self.Version)
+            .field("SizeOfCompleteStructure", &self.SizeOfCompleteStructure)
+            .field("UserFileReads", &self.UserFileReads)
+            .field("UserFileReadBytes", &self.UserFileReadBytes)
+            .field("UserDiskReads", &self.UserDiskReads)
+            .field("UserFileWrites", &self.UserFileWrites)
+            .field("UserFileWriteBytes", &self.UserFileWriteBytes)
+            .field("UserDiskWrites", &self.UserDiskWrites)
+            .field("MetaDataReads", &self.MetaDataReads)
+            .field("MetaDataReadBytes", &self.MetaDataReadBytes)
+            .field("MetaDataDiskReads", &self.MetaDataDiskReads)
+            .field("MetaDataWrites", &self.MetaDataWrites)
+            .field("MetaDataWriteBytes", &self.MetaDataWriteBytes)
+            .field("MetaDataDiskWrites", &self.MetaDataDiskWrites)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILESYSTEM_STATISTICS_EX {
     type Abi = Self;
 }
@@ -4786,6 +5499,11 @@ impl ::core::clone::Clone for FILE_ALLOCATED_RANGE_BUFFER {
         *self
     }
 }
+impl ::core::fmt::Debug for FILE_ALLOCATED_RANGE_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_ALLOCATED_RANGE_BUFFER").field("FileOffset", &self.FileOffset).field("Length", &self.Length).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILE_ALLOCATED_RANGE_BUFFER {
     type Abi = Self;
 }
@@ -4814,6 +5532,11 @@ impl ::core::marker::Copy for FILE_DESIRED_STORAGE_CLASS_INFORMATION {}
 impl ::core::clone::Clone for FILE_DESIRED_STORAGE_CLASS_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FILE_DESIRED_STORAGE_CLASS_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_DESIRED_STORAGE_CLASS_INFORMATION").field("Class", &self.Class).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FILE_DESIRED_STORAGE_CLASS_INFORMATION {
@@ -5012,6 +5735,11 @@ impl ::core::clone::Clone for FILE_FS_PERSISTENT_VOLUME_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for FILE_FS_PERSISTENT_VOLUME_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_FS_PERSISTENT_VOLUME_INFORMATION").field("VolumeFlags", &self.VolumeFlags).field("FlagMask", &self.FlagMask).field("Version", &self.Version).field("Reserved", &self.Reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILE_FS_PERSISTENT_VOLUME_INFORMATION {
     type Abi = Self;
 }
@@ -5126,6 +5854,11 @@ impl ::core::clone::Clone for FILE_INITIATE_REPAIR_OUTPUT_BUFFER {
         *self
     }
 }
+impl ::core::fmt::Debug for FILE_INITIATE_REPAIR_OUTPUT_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_INITIATE_REPAIR_OUTPUT_BUFFER").field("Hint1", &self.Hint1).field("Hint2", &self.Hint2).field("Clsn", &self.Clsn).field("Status", &self.Status).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILE_INITIATE_REPAIR_OUTPUT_BUFFER {
     type Abi = Self;
 }
@@ -5159,6 +5892,11 @@ impl ::core::clone::Clone for FILE_LAYOUT_ENTRY {
         *self
     }
 }
+impl ::core::fmt::Debug for FILE_LAYOUT_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_LAYOUT_ENTRY").field("Version", &self.Version).field("NextFileOffset", &self.NextFileOffset).field("Flags", &self.Flags).field("FileAttributes", &self.FileAttributes).field("FileReferenceNumber", &self.FileReferenceNumber).field("FirstNameOffset", &self.FirstNameOffset).field("FirstStreamOffset", &self.FirstStreamOffset).field("ExtraInfoOffset", &self.ExtraInfoOffset).field("ExtraInfoLength", &self.ExtraInfoLength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILE_LAYOUT_ENTRY {
     type Abi = Self;
 }
@@ -5186,6 +5924,11 @@ impl ::core::marker::Copy for FILE_LAYOUT_INFO_ENTRY {}
 impl ::core::clone::Clone for FILE_LAYOUT_INFO_ENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FILE_LAYOUT_INFO_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_LAYOUT_INFO_ENTRY").field("BasicInformation", &self.BasicInformation).field("OwnerId", &self.OwnerId).field("SecurityId", &self.SecurityId).field("Usn", &self.Usn).field("StorageReserveId", &self.StorageReserveId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FILE_LAYOUT_INFO_ENTRY {
@@ -5217,6 +5960,11 @@ impl ::core::clone::Clone for FILE_LAYOUT_INFO_ENTRY_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for FILE_LAYOUT_INFO_ENTRY_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_LAYOUT_INFO_ENTRY_0").field("CreationTime", &self.CreationTime).field("LastAccessTime", &self.LastAccessTime).field("LastWriteTime", &self.LastWriteTime).field("ChangeTime", &self.ChangeTime).field("FileAttributes", &self.FileAttributes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILE_LAYOUT_INFO_ENTRY_0 {
     type Abi = Self;
 }
@@ -5245,6 +5993,11 @@ impl ::core::marker::Copy for FILE_LAYOUT_NAME_ENTRY {}
 impl ::core::clone::Clone for FILE_LAYOUT_NAME_ENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FILE_LAYOUT_NAME_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_LAYOUT_NAME_ENTRY").field("NextNameOffset", &self.NextNameOffset).field("Flags", &self.Flags).field("ParentFileReferenceNumber", &self.ParentFileReferenceNumber).field("FileNameLength", &self.FileNameLength).field("Reserved", &self.Reserved).field("FileName", &self.FileName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FILE_LAYOUT_NAME_ENTRY {
@@ -5278,6 +6031,11 @@ impl ::core::clone::Clone for FILE_LEVEL_TRIM {
         *self
     }
 }
+impl ::core::fmt::Debug for FILE_LEVEL_TRIM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_LEVEL_TRIM").field("Key", &self.Key).field("NumRanges", &self.NumRanges).field("Ranges", &self.Ranges).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILE_LEVEL_TRIM {
     type Abi = Self;
 }
@@ -5301,6 +6059,11 @@ impl ::core::marker::Copy for FILE_LEVEL_TRIM_OUTPUT {}
 impl ::core::clone::Clone for FILE_LEVEL_TRIM_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FILE_LEVEL_TRIM_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_LEVEL_TRIM_OUTPUT").field("NumRangesProcessed", &self.NumRangesProcessed).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FILE_LEVEL_TRIM_OUTPUT {
@@ -5329,6 +6092,11 @@ impl ::core::clone::Clone for FILE_LEVEL_TRIM_RANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for FILE_LEVEL_TRIM_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_LEVEL_TRIM_RANGE").field("Offset", &self.Offset).field("Length", &self.Length).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILE_LEVEL_TRIM_RANGE {
     type Abi = Self;
 }
@@ -5355,6 +6123,12 @@ impl ::core::marker::Copy for FILE_MAKE_COMPATIBLE_BUFFER {}
 impl ::core::clone::Clone for FILE_MAKE_COMPATIBLE_BUFFER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FILE_MAKE_COMPATIBLE_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_MAKE_COMPATIBLE_BUFFER").field("CloseDisc", &self.CloseDisc).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5440,6 +6214,11 @@ impl ::core::clone::Clone for FILE_OBJECTID_BUFFER_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for FILE_OBJECTID_BUFFER_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_OBJECTID_BUFFER_0_0").field("BirthVolumeId", &self.BirthVolumeId).field("BirthObjectId", &self.BirthObjectId).field("DomainId", &self.DomainId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILE_OBJECTID_BUFFER_0_0 {
     type Abi = Self;
 }
@@ -5465,6 +6244,11 @@ impl ::core::marker::Copy for FILE_PREFETCH {}
 impl ::core::clone::Clone for FILE_PREFETCH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FILE_PREFETCH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_PREFETCH").field("Type", &self.Type).field("Count", &self.Count).field("Prefetch", &self.Prefetch).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FILE_PREFETCH {
@@ -5493,6 +6277,11 @@ impl ::core::marker::Copy for FILE_PREFETCH_EX {}
 impl ::core::clone::Clone for FILE_PREFETCH_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FILE_PREFETCH_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_PREFETCH_EX").field("Type", &self.Type).field("Count", &self.Count).field("Context", &self.Context).field("Prefetch", &self.Prefetch).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FILE_PREFETCH_EX {
@@ -5535,6 +6324,11 @@ impl ::core::clone::Clone for FILE_PROVIDER_EXTERNAL_INFO_V0 {
         *self
     }
 }
+impl ::core::fmt::Debug for FILE_PROVIDER_EXTERNAL_INFO_V0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_PROVIDER_EXTERNAL_INFO_V0").field("Version", &self.Version).field("Algorithm", &self.Algorithm).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILE_PROVIDER_EXTERNAL_INFO_V0 {
     type Abi = Self;
 }
@@ -5560,6 +6354,11 @@ impl ::core::marker::Copy for FILE_PROVIDER_EXTERNAL_INFO_V1 {}
 impl ::core::clone::Clone for FILE_PROVIDER_EXTERNAL_INFO_V1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FILE_PROVIDER_EXTERNAL_INFO_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_PROVIDER_EXTERNAL_INFO_V1").field("Version", &self.Version).field("Algorithm", &self.Algorithm).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FILE_PROVIDER_EXTERNAL_INFO_V1 {
@@ -5601,6 +6400,23 @@ impl ::core::clone::Clone for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
         *self
     }
 }
+impl ::core::fmt::Debug for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_QUERY_ON_DISK_VOL_INFO_BUFFER")
+            .field("DirectoryCount", &self.DirectoryCount)
+            .field("FileCount", &self.FileCount)
+            .field("FsFormatMajVersion", &self.FsFormatMajVersion)
+            .field("FsFormatMinVersion", &self.FsFormatMinVersion)
+            .field("FsFormatName", &self.FsFormatName)
+            .field("FormatTime", &self.FormatTime)
+            .field("LastUpdateTime", &self.LastUpdateTime)
+            .field("CopyrightInfo", &self.CopyrightInfo)
+            .field("AbstractInfo", &self.AbstractInfo)
+            .field("FormattingImplementationInfo", &self.FormattingImplementationInfo)
+            .field("LastModifyingImplementationInfo", &self.LastModifyingImplementationInfo)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
     type Abi = Self;
 }
@@ -5630,6 +6446,12 @@ impl ::core::marker::Copy for FILE_QUERY_SPARING_BUFFER {}
 impl ::core::clone::Clone for FILE_QUERY_SPARING_BUFFER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FILE_QUERY_SPARING_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_QUERY_SPARING_BUFFER").field("SparingUnitBytes", &self.SparingUnitBytes).field("SoftwareSparing", &self.SoftwareSparing).field("TotalSpareBlocks", &self.TotalSpareBlocks).field("FreeSpareBlocks", &self.FreeSpareBlocks).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5664,6 +6486,11 @@ impl ::core::clone::Clone for FILE_REFERENCE_RANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for FILE_REFERENCE_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_REFERENCE_RANGE").field("StartingFileReferenceNumber", &self.StartingFileReferenceNumber).field("EndingFileReferenceNumber", &self.EndingFileReferenceNumber).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILE_REFERENCE_RANGE {
     type Abi = Self;
 }
@@ -5690,6 +6517,11 @@ impl ::core::marker::Copy for FILE_REGION_INFO {}
 impl ::core::clone::Clone for FILE_REGION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FILE_REGION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_REGION_INFO").field("FileOffset", &self.FileOffset).field("Length", &self.Length).field("Usage", &self.Usage).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FILE_REGION_INFO {
@@ -5719,6 +6551,11 @@ impl ::core::clone::Clone for FILE_REGION_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for FILE_REGION_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_REGION_INPUT").field("FileOffset", &self.FileOffset).field("Length", &self.Length).field("DesiredUsage", &self.DesiredUsage).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILE_REGION_INPUT {
     type Abi = Self;
 }
@@ -5746,6 +6583,11 @@ impl ::core::marker::Copy for FILE_REGION_OUTPUT {}
 impl ::core::clone::Clone for FILE_REGION_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FILE_REGION_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_REGION_OUTPUT").field("Flags", &self.Flags).field("TotalRegionEntryCount", &self.TotalRegionEntryCount).field("RegionEntryCount", &self.RegionEntryCount).field("Reserved", &self.Reserved).field("Region", &self.Region).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FILE_REGION_OUTPUT {
@@ -5789,6 +6631,12 @@ impl ::core::clone::Clone for FILE_SET_DEFECT_MGMT_BUFFER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FILE_SET_DEFECT_MGMT_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_SET_DEFECT_MGMT_BUFFER").field("Disable", &self.Disable).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FILE_SET_DEFECT_MGMT_BUFFER {
     type Abi = Self;
 }
@@ -5820,6 +6668,12 @@ impl ::core::marker::Copy for FILE_SET_SPARSE_BUFFER {}
 impl ::core::clone::Clone for FILE_SET_SPARSE_BUFFER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FILE_SET_SPARSE_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_SET_SPARSE_BUFFER").field("SetSparse", &self.SetSparse).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5857,6 +6711,11 @@ impl ::core::marker::Copy for FILE_STORAGE_TIER {}
 impl ::core::clone::Clone for FILE_STORAGE_TIER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FILE_STORAGE_TIER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_STORAGE_TIER").field("Id", &self.Id).field("Name", &self.Name).field("Description", &self.Description).field("Flags", &self.Flags).field("ProvisionedCapacity", &self.ProvisionedCapacity).field("MediaType", &self.MediaType).field("Class", &self.Class).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FILE_STORAGE_TIER {
@@ -5924,6 +6783,11 @@ impl ::core::clone::Clone for FILE_STORAGE_TIER_REGION {
         *self
     }
 }
+impl ::core::fmt::Debug for FILE_STORAGE_TIER_REGION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_STORAGE_TIER_REGION").field("TierId", &self.TierId).field("Offset", &self.Offset).field("Length", &self.Length).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILE_STORAGE_TIER_REGION {
     type Abi = Self;
 }
@@ -5950,6 +6814,12 @@ impl ::core::marker::Copy for FILE_SYSTEM_RECOGNITION_INFORMATION {}
 impl ::core::clone::Clone for FILE_SYSTEM_RECOGNITION_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FILE_SYSTEM_RECOGNITION_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_SYSTEM_RECOGNITION_INFORMATION").field("FileSystem", &self.FileSystem).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5990,6 +6860,11 @@ impl ::core::clone::Clone for FILE_TYPE_NOTIFICATION_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for FILE_TYPE_NOTIFICATION_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_TYPE_NOTIFICATION_INPUT").field("Flags", &self.Flags).field("NumFileTypeIDs", &self.NumFileTypeIDs).field("FileTypeID", &self.FileTypeID).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILE_TYPE_NOTIFICATION_INPUT {
     type Abi = Self;
 }
@@ -6018,6 +6893,11 @@ impl ::core::clone::Clone for FILE_ZERO_DATA_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for FILE_ZERO_DATA_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_ZERO_DATA_INFORMATION").field("FileOffset", &self.FileOffset).field("BeyondFinalZero", &self.BeyondFinalZero).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILE_ZERO_DATA_INFORMATION {
     type Abi = Self;
 }
@@ -6043,6 +6923,11 @@ impl ::core::marker::Copy for FILE_ZERO_DATA_INFORMATION_EX {}
 impl ::core::clone::Clone for FILE_ZERO_DATA_INFORMATION_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FILE_ZERO_DATA_INFORMATION_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_ZERO_DATA_INFORMATION_EX").field("FileOffset", &self.FileOffset).field("BeyondFinalZero", &self.BeyondFinalZero).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FILE_ZERO_DATA_INFORMATION_EX {
@@ -6077,6 +6962,12 @@ impl ::core::clone::Clone for FIND_BY_SID_DATA {
     }
 }
 #[cfg(feature = "Win32_Security")]
+impl ::core::fmt::Debug for FIND_BY_SID_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FIND_BY_SID_DATA").field("Restart", &self.Restart).field("Sid", &self.Sid).finish()
+    }
+}
+#[cfg(feature = "Win32_Security")]
 unsafe impl ::windows::core::Abi for FIND_BY_SID_DATA {
     type Abi = Self;
 }
@@ -6106,6 +6997,11 @@ impl ::core::marker::Copy for FIND_BY_SID_OUTPUT {}
 impl ::core::clone::Clone for FIND_BY_SID_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FIND_BY_SID_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FIND_BY_SID_OUTPUT").field("NextEntryOffset", &self.NextEntryOffset).field("FileIndex", &self.FileIndex).field("FileNameLength", &self.FileNameLength).field("FileName", &self.FileName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FIND_BY_SID_OUTPUT {
@@ -6142,6 +7038,11 @@ impl ::core::clone::Clone for FORMAT_EX_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for FORMAT_EX_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FORMAT_EX_PARAMETERS").field("MediaType", &self.MediaType).field("StartCylinderNumber", &self.StartCylinderNumber).field("EndCylinderNumber", &self.EndCylinderNumber).field("StartHeadNumber", &self.StartHeadNumber).field("EndHeadNumber", &self.EndHeadNumber).field("FormatGapLength", &self.FormatGapLength).field("SectorsPerTrack", &self.SectorsPerTrack).field("SectorNumber", &self.SectorNumber).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FORMAT_EX_PARAMETERS {
     type Abi = Self;
 }
@@ -6169,6 +7070,11 @@ impl ::core::marker::Copy for FORMAT_PARAMETERS {}
 impl ::core::clone::Clone for FORMAT_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FORMAT_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FORMAT_PARAMETERS").field("MediaType", &self.MediaType).field("StartCylinderNumber", &self.StartCylinderNumber).field("EndCylinderNumber", &self.EndCylinderNumber).field("StartHeadNumber", &self.StartHeadNumber).field("EndHeadNumber", &self.EndHeadNumber).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FORMAT_PARAMETERS {
@@ -6296,6 +7202,11 @@ impl ::core::clone::Clone for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
         *self
     }
 }
+impl ::core::fmt::Debug for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FSCTL_GET_INTEGRITY_INFORMATION_BUFFER").field("ChecksumAlgorithm", &self.ChecksumAlgorithm).field("Reserved", &self.Reserved).field("Flags", &self.Flags).field("ChecksumChunkSizeInBytes", &self.ChecksumChunkSizeInBytes).field("ClusterSizeInBytes", &self.ClusterSizeInBytes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
     type Abi = Self;
 }
@@ -6400,6 +7311,11 @@ impl ::core::clone::Clone for FSCTL_OFFLOAD_READ_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for FSCTL_OFFLOAD_READ_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FSCTL_OFFLOAD_READ_INPUT").field("Size", &self.Size).field("Flags", &self.Flags).field("TokenTimeToLive", &self.TokenTimeToLive).field("Reserved", &self.Reserved).field("FileOffset", &self.FileOffset).field("CopyLength", &self.CopyLength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FSCTL_OFFLOAD_READ_INPUT {
     type Abi = Self;
 }
@@ -6426,6 +7342,11 @@ impl ::core::marker::Copy for FSCTL_OFFLOAD_READ_OUTPUT {}
 impl ::core::clone::Clone for FSCTL_OFFLOAD_READ_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FSCTL_OFFLOAD_READ_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FSCTL_OFFLOAD_READ_OUTPUT").field("Size", &self.Size).field("Flags", &self.Flags).field("TransferLength", &self.TransferLength).field("Token", &self.Token).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FSCTL_OFFLOAD_READ_OUTPUT {
@@ -6460,6 +7381,11 @@ impl ::core::clone::Clone for FSCTL_OFFLOAD_WRITE_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for FSCTL_OFFLOAD_WRITE_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FSCTL_OFFLOAD_WRITE_INPUT").field("Size", &self.Size).field("Flags", &self.Flags).field("FileOffset", &self.FileOffset).field("CopyLength", &self.CopyLength).field("TransferOffset", &self.TransferOffset).field("Token", &self.Token).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FSCTL_OFFLOAD_WRITE_INPUT {
     type Abi = Self;
 }
@@ -6485,6 +7411,11 @@ impl ::core::marker::Copy for FSCTL_OFFLOAD_WRITE_OUTPUT {}
 impl ::core::clone::Clone for FSCTL_OFFLOAD_WRITE_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FSCTL_OFFLOAD_WRITE_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FSCTL_OFFLOAD_WRITE_OUTPUT").field("Size", &self.Size).field("Flags", &self.Flags).field("LengthWritten", &self.LengthWritten).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FSCTL_OFFLOAD_WRITE_OUTPUT {
@@ -6534,6 +7465,11 @@ impl ::core::marker::Copy for FSCTL_QUERY_FAT_BPB_BUFFER {}
 impl ::core::clone::Clone for FSCTL_QUERY_FAT_BPB_BUFFER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FSCTL_QUERY_FAT_BPB_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FSCTL_QUERY_FAT_BPB_BUFFER").field("First0x24BytesOfBootSector", &self.First0x24BytesOfBootSector).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FSCTL_QUERY_FAT_BPB_BUFFER {
@@ -6587,6 +7523,11 @@ impl ::core::clone::Clone for FSCTL_QUERY_REGION_INFO_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for FSCTL_QUERY_REGION_INFO_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FSCTL_QUERY_REGION_INFO_INPUT").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("NumberOfTierIds", &self.NumberOfTierIds).field("TierIds", &self.TierIds).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FSCTL_QUERY_REGION_INFO_INPUT {
     type Abi = Self;
 }
@@ -6617,6 +7558,11 @@ impl ::core::marker::Copy for FSCTL_QUERY_REGION_INFO_OUTPUT {}
 impl ::core::clone::Clone for FSCTL_QUERY_REGION_INFO_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FSCTL_QUERY_REGION_INFO_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FSCTL_QUERY_REGION_INFO_OUTPUT").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Alignment", &self.Alignment).field("TotalNumberOfRegions", &self.TotalNumberOfRegions).field("NumberOfRegionsReturned", &self.NumberOfRegionsReturned).field("Regions", &self.Regions).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FSCTL_QUERY_REGION_INFO_OUTPUT {
@@ -6655,6 +7601,11 @@ impl ::core::marker::Copy for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {}
 impl ::core::clone::Clone for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FSCTL_QUERY_STORAGE_CLASSES_OUTPUT").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("TotalNumberOfTiers", &self.TotalNumberOfTiers).field("NumberOfTiersReturned", &self.NumberOfTiersReturned).field("Tiers", &self.Tiers).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
@@ -6748,6 +7699,11 @@ impl ::core::clone::Clone for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
         *self
     }
 }
+impl ::core::fmt::Debug for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FSCTL_SET_INTEGRITY_INFORMATION_BUFFER").field("ChecksumAlgorithm", &self.ChecksumAlgorithm).field("Reserved", &self.Reserved).field("Flags", &self.Flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
     type Abi = Self;
 }
@@ -6776,6 +7732,11 @@ impl ::core::marker::Copy for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {}
 impl ::core::clone::Clone for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX").field("EnableIntegrity", &self.EnableIntegrity).field("KeepIntegrityStateUnchanged", &self.KeepIntegrityStateUnchanged).field("Reserved", &self.Reserved).field("Flags", &self.Flags).field("Version", &self.Version).field("Reserved2", &self.Reserved2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
@@ -6935,6 +7896,11 @@ impl ::core::clone::Clone for FS_BPIO_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for FS_BPIO_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FS_BPIO_INFO").field("ActiveBypassIoCount", &self.ActiveBypassIoCount).field("StorageDriverNameLen", &self.StorageDriverNameLen).field("StorageDriverName", &self.StorageDriverName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FS_BPIO_INFO {
     type Abi = Self;
 }
@@ -6961,6 +7927,11 @@ impl ::core::marker::Copy for FS_BPIO_INPUT {}
 impl ::core::clone::Clone for FS_BPIO_INPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FS_BPIO_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FS_BPIO_INPUT").field("Operation", &self.Operation).field("InFlags", &self.InFlags).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FS_BPIO_INPUT {
@@ -7082,6 +8053,11 @@ impl ::core::clone::Clone for FS_BPIO_RESULTS {
         *self
     }
 }
+impl ::core::fmt::Debug for FS_BPIO_RESULTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FS_BPIO_RESULTS").field("OpStatus", &self.OpStatus).field("FailingDriverNameLen", &self.FailingDriverNameLen).field("FailingDriverName", &self.FailingDriverName).field("FailureReasonLen", &self.FailureReasonLen).field("FailureReason", &self.FailureReason).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FS_BPIO_RESULTS {
     type Abi = Self;
 }
@@ -7168,6 +8144,40 @@ impl ::core::clone::Clone for GET_CHANGER_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for GET_CHANGER_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GET_CHANGER_PARAMETERS")
+            .field("Size", &self.Size)
+            .field("NumberTransportElements", &self.NumberTransportElements)
+            .field("NumberStorageElements", &self.NumberStorageElements)
+            .field("NumberCleanerSlots", &self.NumberCleanerSlots)
+            .field("NumberIEElements", &self.NumberIEElements)
+            .field("NumberDataTransferElements", &self.NumberDataTransferElements)
+            .field("NumberOfDoors", &self.NumberOfDoors)
+            .field("FirstSlotNumber", &self.FirstSlotNumber)
+            .field("FirstDriveNumber", &self.FirstDriveNumber)
+            .field("FirstTransportNumber", &self.FirstTransportNumber)
+            .field("FirstIEPortNumber", &self.FirstIEPortNumber)
+            .field("FirstCleanerSlotAddress", &self.FirstCleanerSlotAddress)
+            .field("MagazineSize", &self.MagazineSize)
+            .field("DriveCleanTimeout", &self.DriveCleanTimeout)
+            .field("Features0", &self.Features0)
+            .field("Features1", &self.Features1)
+            .field("MoveFromTransport", &self.MoveFromTransport)
+            .field("MoveFromSlot", &self.MoveFromSlot)
+            .field("MoveFromIePort", &self.MoveFromIePort)
+            .field("MoveFromDrive", &self.MoveFromDrive)
+            .field("ExchangeFromTransport", &self.ExchangeFromTransport)
+            .field("ExchangeFromSlot", &self.ExchangeFromSlot)
+            .field("ExchangeFromIePort", &self.ExchangeFromIePort)
+            .field("ExchangeFromDrive", &self.ExchangeFromDrive)
+            .field("LockUnlockCapabilities", &self.LockUnlockCapabilities)
+            .field("PositionCapabilities", &self.PositionCapabilities)
+            .field("Reserved1", &self.Reserved1)
+            .field("Reserved2", &self.Reserved2)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GET_CHANGER_PARAMETERS {
     type Abi = Self;
 }
@@ -7220,6 +8230,11 @@ impl ::core::clone::Clone for GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST {
         *self
     }
 }
+impl ::core::fmt::Debug for GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST").field("Version", &self.Version).field("Size", &self.Size).field("RequestDataType", &self.RequestDataType).field("RequestDataSet", &self.RequestDataSet).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST {
     type Abi = Self;
 }
@@ -7245,6 +8260,11 @@ impl ::core::marker::Copy for GET_DISK_ATTRIBUTES {}
 impl ::core::clone::Clone for GET_DISK_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GET_DISK_ATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GET_DISK_ATTRIBUTES").field("Version", &self.Version).field("Reserved1", &self.Reserved1).field("Attributes", &self.Attributes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GET_DISK_ATTRIBUTES {
@@ -7273,6 +8293,11 @@ impl ::core::clone::Clone for GET_FILTER_FILE_IDENTIFIER_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for GET_FILTER_FILE_IDENTIFIER_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GET_FILTER_FILE_IDENTIFIER_INPUT").field("AltitudeLength", &self.AltitudeLength).field("Altitude", &self.Altitude).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GET_FILTER_FILE_IDENTIFIER_INPUT {
     type Abi = Self;
 }
@@ -7299,6 +8324,11 @@ impl ::core::clone::Clone for GET_FILTER_FILE_IDENTIFIER_OUTPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for GET_FILTER_FILE_IDENTIFIER_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GET_FILTER_FILE_IDENTIFIER_OUTPUT").field("FilterFileIdentifierLength", &self.FilterFileIdentifierLength).field("FilterFileIdentifier", &self.FilterFileIdentifier).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GET_FILTER_FILE_IDENTIFIER_OUTPUT {
     type Abi = Self;
 }
@@ -7322,6 +8352,11 @@ impl ::core::marker::Copy for GET_LENGTH_INFORMATION {}
 impl ::core::clone::Clone for GET_LENGTH_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GET_LENGTH_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GET_LENGTH_INFORMATION").field("Length", &self.Length).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GET_LENGTH_INFORMATION {
@@ -7459,6 +8494,11 @@ impl ::core::clone::Clone for HISTOGRAM_BUCKET {
         *self
     }
 }
+impl ::core::fmt::Debug for HISTOGRAM_BUCKET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HISTOGRAM_BUCKET").field("Reads", &self.Reads).field("Writes", &self.Writes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HISTOGRAM_BUCKET {
     type Abi = Self;
 }
@@ -7493,6 +8533,11 @@ impl ::core::marker::Copy for IDEREGS {}
 impl ::core::clone::Clone for IDEREGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IDEREGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IDEREGS").field("bFeaturesReg", &self.bFeaturesReg).field("bSectorCountReg", &self.bSectorCountReg).field("bSectorNumberReg", &self.bSectorNumberReg).field("bCylLowReg", &self.bCylLowReg).field("bCylHighReg", &self.bCylHighReg).field("bDriveHeadReg", &self.bDriveHeadReg).field("bCommandReg", &self.bCommandReg).field("bReserved", &self.bReserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IDEREGS {
@@ -7814,6 +8859,11 @@ impl ::core::clone::Clone for IO_IRP_EXT_TRACK_OFFSET_HEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for IO_IRP_EXT_TRACK_OFFSET_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IO_IRP_EXT_TRACK_OFFSET_HEADER").field("Validation", &self.Validation).field("Flags", &self.Flags).field("TrackedOffsetCallback", &self.TrackedOffsetCallback.map(|f| f as usize)).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IO_IRP_EXT_TRACK_OFFSET_HEADER {
     type Abi = Self;
 }
@@ -7849,6 +8899,11 @@ impl ::core::marker::Copy for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {}
 impl ::core::clone::Clone for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOOKUP_STREAM_FROM_CLUSTER_ENTRY").field("OffsetToNext", &self.OffsetToNext).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Cluster", &self.Cluster).field("FileName", &self.FileName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
@@ -7894,6 +8949,11 @@ impl ::core::clone::Clone for LOOKUP_STREAM_FROM_CLUSTER_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for LOOKUP_STREAM_FROM_CLUSTER_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOOKUP_STREAM_FROM_CLUSTER_INPUT").field("Flags", &self.Flags).field("NumberOfClusters", &self.NumberOfClusters).field("Cluster", &self.Cluster).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LOOKUP_STREAM_FROM_CLUSTER_INPUT {
     type Abi = Self;
 }
@@ -7919,6 +8979,11 @@ impl ::core::marker::Copy for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {}
 impl ::core::clone::Clone for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOOKUP_STREAM_FROM_CLUSTER_OUTPUT").field("Offset", &self.Offset).field("NumberOfMatches", &self.NumberOfMatches).field("BufferSizeRequired", &self.BufferSizeRequired).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
@@ -8200,6 +9265,11 @@ impl ::core::clone::Clone for MFT_ENUM_DATA_V0 {
         *self
     }
 }
+impl ::core::fmt::Debug for MFT_ENUM_DATA_V0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFT_ENUM_DATA_V0").field("StartFileReferenceNumber", &self.StartFileReferenceNumber).field("LowUsn", &self.LowUsn).field("HighUsn", &self.HighUsn).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MFT_ENUM_DATA_V0 {
     type Abi = Self;
 }
@@ -8227,6 +9297,11 @@ impl ::core::marker::Copy for MFT_ENUM_DATA_V1 {}
 impl ::core::clone::Clone for MFT_ENUM_DATA_V1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MFT_ENUM_DATA_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFT_ENUM_DATA_V1").field("StartFileReferenceNumber", &self.StartFileReferenceNumber).field("LowUsn", &self.LowUsn).field("HighUsn", &self.HighUsn).field("MinMajorVersion", &self.MinMajorVersion).field("MaxMajorVersion", &self.MaxMajorVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MFT_ENUM_DATA_V1 {
@@ -8258,6 +9333,12 @@ impl ::core::marker::Copy for MOVE_FILE_DATA {}
 impl ::core::clone::Clone for MOVE_FILE_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MOVE_FILE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MOVE_FILE_DATA").field("FileHandle", &self.FileHandle).field("StartingVcn", &self.StartingVcn).field("StartingLcn", &self.StartingLcn).field("ClusterCount", &self.ClusterCount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8296,6 +9377,12 @@ impl ::core::clone::Clone for MOVE_FILE_DATA32 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for MOVE_FILE_DATA32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MOVE_FILE_DATA32").field("FileHandle", &self.FileHandle).field("StartingVcn", &self.StartingVcn).field("StartingLcn", &self.StartingLcn).field("ClusterCount", &self.ClusterCount).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for MOVE_FILE_DATA32 {
     type Abi = Self;
 }
@@ -8327,6 +9414,12 @@ impl ::core::marker::Copy for MOVE_FILE_RECORD_DATA {}
 impl ::core::clone::Clone for MOVE_FILE_RECORD_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MOVE_FILE_RECORD_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MOVE_FILE_RECORD_DATA").field("FileHandle", &self.FileHandle).field("SourceFileRecord", &self.SourceFileRecord).field("TargetFileRecord", &self.TargetFileRecord).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8367,6 +9460,22 @@ impl ::core::clone::Clone for NTFS_EXTENDED_VOLUME_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for NTFS_EXTENDED_VOLUME_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NTFS_EXTENDED_VOLUME_DATA")
+            .field("ByteCount", &self.ByteCount)
+            .field("MajorVersion", &self.MajorVersion)
+            .field("MinorVersion", &self.MinorVersion)
+            .field("BytesPerPhysicalSector", &self.BytesPerPhysicalSector)
+            .field("LfsMajorVersion", &self.LfsMajorVersion)
+            .field("LfsMinorVersion", &self.LfsMinorVersion)
+            .field("MaxDeviceTrimExtentCount", &self.MaxDeviceTrimExtentCount)
+            .field("MaxDeviceTrimByteCount", &self.MaxDeviceTrimByteCount)
+            .field("MaxVolumeTrimExtentCount", &self.MaxVolumeTrimExtentCount)
+            .field("MaxVolumeTrimByteCount", &self.MaxVolumeTrimByteCount)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NTFS_EXTENDED_VOLUME_DATA {
     type Abi = Self;
 }
@@ -8390,6 +9499,11 @@ impl ::core::marker::Copy for NTFS_FILE_RECORD_INPUT_BUFFER {}
 impl ::core::clone::Clone for NTFS_FILE_RECORD_INPUT_BUFFER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NTFS_FILE_RECORD_INPUT_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NTFS_FILE_RECORD_INPUT_BUFFER").field("FileReferenceNumber", &self.FileReferenceNumber).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NTFS_FILE_RECORD_INPUT_BUFFER {
@@ -8417,6 +9531,11 @@ impl ::core::marker::Copy for NTFS_FILE_RECORD_OUTPUT_BUFFER {}
 impl ::core::clone::Clone for NTFS_FILE_RECORD_OUTPUT_BUFFER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NTFS_FILE_RECORD_OUTPUT_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NTFS_FILE_RECORD_OUTPUT_BUFFER").field("FileReferenceNumber", &self.FileReferenceNumber).field("FileRecordLength", &self.FileRecordLength).field("FileRecordBuffer", &self.FileRecordBuffer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NTFS_FILE_RECORD_OUTPUT_BUFFER {
@@ -8489,6 +9608,58 @@ impl ::core::clone::Clone for NTFS_STATISTICS {
         *self
     }
 }
+impl ::core::fmt::Debug for NTFS_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NTFS_STATISTICS")
+            .field("LogFileFullExceptions", &self.LogFileFullExceptions)
+            .field("OtherExceptions", &self.OtherExceptions)
+            .field("MftReads", &self.MftReads)
+            .field("MftReadBytes", &self.MftReadBytes)
+            .field("MftWrites", &self.MftWrites)
+            .field("MftWriteBytes", &self.MftWriteBytes)
+            .field("MftWritesUserLevel", &self.MftWritesUserLevel)
+            .field("MftWritesFlushForLogFileFull", &self.MftWritesFlushForLogFileFull)
+            .field("MftWritesLazyWriter", &self.MftWritesLazyWriter)
+            .field("MftWritesUserRequest", &self.MftWritesUserRequest)
+            .field("Mft2Writes", &self.Mft2Writes)
+            .field("Mft2WriteBytes", &self.Mft2WriteBytes)
+            .field("Mft2WritesUserLevel", &self.Mft2WritesUserLevel)
+            .field("Mft2WritesFlushForLogFileFull", &self.Mft2WritesFlushForLogFileFull)
+            .field("Mft2WritesLazyWriter", &self.Mft2WritesLazyWriter)
+            .field("Mft2WritesUserRequest", &self.Mft2WritesUserRequest)
+            .field("RootIndexReads", &self.RootIndexReads)
+            .field("RootIndexReadBytes", &self.RootIndexReadBytes)
+            .field("RootIndexWrites", &self.RootIndexWrites)
+            .field("RootIndexWriteBytes", &self.RootIndexWriteBytes)
+            .field("BitmapReads", &self.BitmapReads)
+            .field("BitmapReadBytes", &self.BitmapReadBytes)
+            .field("BitmapWrites", &self.BitmapWrites)
+            .field("BitmapWriteBytes", &self.BitmapWriteBytes)
+            .field("BitmapWritesFlushForLogFileFull", &self.BitmapWritesFlushForLogFileFull)
+            .field("BitmapWritesLazyWriter", &self.BitmapWritesLazyWriter)
+            .field("BitmapWritesUserRequest", &self.BitmapWritesUserRequest)
+            .field("BitmapWritesUserLevel", &self.BitmapWritesUserLevel)
+            .field("MftBitmapReads", &self.MftBitmapReads)
+            .field("MftBitmapReadBytes", &self.MftBitmapReadBytes)
+            .field("MftBitmapWrites", &self.MftBitmapWrites)
+            .field("MftBitmapWriteBytes", &self.MftBitmapWriteBytes)
+            .field("MftBitmapWritesFlushForLogFileFull", &self.MftBitmapWritesFlushForLogFileFull)
+            .field("MftBitmapWritesLazyWriter", &self.MftBitmapWritesLazyWriter)
+            .field("MftBitmapWritesUserRequest", &self.MftBitmapWritesUserRequest)
+            .field("MftBitmapWritesUserLevel", &self.MftBitmapWritesUserLevel)
+            .field("UserIndexReads", &self.UserIndexReads)
+            .field("UserIndexReadBytes", &self.UserIndexReadBytes)
+            .field("UserIndexWrites", &self.UserIndexWrites)
+            .field("UserIndexWriteBytes", &self.UserIndexWriteBytes)
+            .field("LogFileReads", &self.LogFileReads)
+            .field("LogFileReadBytes", &self.LogFileReadBytes)
+            .field("LogFileWrites", &self.LogFileWrites)
+            .field("LogFileWriteBytes", &self.LogFileWriteBytes)
+            .field("Allocate", &self.Allocate)
+            .field("DiskResourcesExhausted", &self.DiskResourcesExhausted)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NTFS_STATISTICS {
     type Abi = Self;
 }
@@ -8523,6 +9694,11 @@ impl ::core::clone::Clone for NTFS_STATISTICS_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for NTFS_STATISTICS_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NTFS_STATISTICS_0").field("Calls", &self.Calls).field("Clusters", &self.Clusters).field("Hints", &self.Hints).field("RunsReturned", &self.RunsReturned).field("HintsHonored", &self.HintsHonored).field("HintsClusters", &self.HintsClusters).field("Cache", &self.Cache).field("CacheClusters", &self.CacheClusters).field("CacheMiss", &self.CacheMiss).field("CacheMissClusters", &self.CacheMissClusters).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NTFS_STATISTICS_0 {
     type Abi = Self;
 }
@@ -8548,6 +9724,11 @@ impl ::core::marker::Copy for NTFS_STATISTICS_1 {}
 impl ::core::clone::Clone for NTFS_STATISTICS_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NTFS_STATISTICS_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NTFS_STATISTICS_1").field("Write", &self.Write).field("Create", &self.Create).field("SetInfo", &self.SetInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NTFS_STATISTICS_1 {
@@ -8578,6 +9759,11 @@ impl ::core::clone::Clone for NTFS_STATISTICS_2 {
         *self
     }
 }
+impl ::core::fmt::Debug for NTFS_STATISTICS_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NTFS_STATISTICS_2").field("Write", &self.Write).field("Create", &self.Create).field("SetInfo", &self.SetInfo).field("Flush", &self.Flush).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NTFS_STATISTICS_2 {
     type Abi = Self;
 }
@@ -8606,6 +9792,11 @@ impl ::core::clone::Clone for NTFS_STATISTICS_3 {
         *self
     }
 }
+impl ::core::fmt::Debug for NTFS_STATISTICS_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NTFS_STATISTICS_3").field("Write", &self.Write).field("Create", &self.Create).field("SetInfo", &self.SetInfo).field("Flush", &self.Flush).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NTFS_STATISTICS_3 {
     type Abi = Self;
 }
@@ -8632,6 +9823,11 @@ impl ::core::marker::Copy for NTFS_STATISTICS_4 {}
 impl ::core::clone::Clone for NTFS_STATISTICS_4 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NTFS_STATISTICS_4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NTFS_STATISTICS_4").field("Write", &self.Write).field("Create", &self.Create).field("SetInfo", &self.SetInfo).field("Flush", &self.Flush).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NTFS_STATISTICS_4 {
@@ -8715,6 +9911,69 @@ impl ::core::clone::Clone for NTFS_STATISTICS_EX {
         *self
     }
 }
+impl ::core::fmt::Debug for NTFS_STATISTICS_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NTFS_STATISTICS_EX")
+            .field("LogFileFullExceptions", &self.LogFileFullExceptions)
+            .field("OtherExceptions", &self.OtherExceptions)
+            .field("MftReads", &self.MftReads)
+            .field("MftReadBytes", &self.MftReadBytes)
+            .field("MftWrites", &self.MftWrites)
+            .field("MftWriteBytes", &self.MftWriteBytes)
+            .field("MftWritesUserLevel", &self.MftWritesUserLevel)
+            .field("MftWritesFlushForLogFileFull", &self.MftWritesFlushForLogFileFull)
+            .field("MftWritesLazyWriter", &self.MftWritesLazyWriter)
+            .field("MftWritesUserRequest", &self.MftWritesUserRequest)
+            .field("Mft2Writes", &self.Mft2Writes)
+            .field("Mft2WriteBytes", &self.Mft2WriteBytes)
+            .field("Mft2WritesUserLevel", &self.Mft2WritesUserLevel)
+            .field("Mft2WritesFlushForLogFileFull", &self.Mft2WritesFlushForLogFileFull)
+            .field("Mft2WritesLazyWriter", &self.Mft2WritesLazyWriter)
+            .field("Mft2WritesUserRequest", &self.Mft2WritesUserRequest)
+            .field("RootIndexReads", &self.RootIndexReads)
+            .field("RootIndexReadBytes", &self.RootIndexReadBytes)
+            .field("RootIndexWrites", &self.RootIndexWrites)
+            .field("RootIndexWriteBytes", &self.RootIndexWriteBytes)
+            .field("BitmapReads", &self.BitmapReads)
+            .field("BitmapReadBytes", &self.BitmapReadBytes)
+            .field("BitmapWrites", &self.BitmapWrites)
+            .field("BitmapWriteBytes", &self.BitmapWriteBytes)
+            .field("BitmapWritesFlushForLogFileFull", &self.BitmapWritesFlushForLogFileFull)
+            .field("BitmapWritesLazyWriter", &self.BitmapWritesLazyWriter)
+            .field("BitmapWritesUserRequest", &self.BitmapWritesUserRequest)
+            .field("BitmapWritesUserLevel", &self.BitmapWritesUserLevel)
+            .field("MftBitmapReads", &self.MftBitmapReads)
+            .field("MftBitmapReadBytes", &self.MftBitmapReadBytes)
+            .field("MftBitmapWrites", &self.MftBitmapWrites)
+            .field("MftBitmapWriteBytes", &self.MftBitmapWriteBytes)
+            .field("MftBitmapWritesFlushForLogFileFull", &self.MftBitmapWritesFlushForLogFileFull)
+            .field("MftBitmapWritesLazyWriter", &self.MftBitmapWritesLazyWriter)
+            .field("MftBitmapWritesUserRequest", &self.MftBitmapWritesUserRequest)
+            .field("MftBitmapWritesUserLevel", &self.MftBitmapWritesUserLevel)
+            .field("UserIndexReads", &self.UserIndexReads)
+            .field("UserIndexReadBytes", &self.UserIndexReadBytes)
+            .field("UserIndexWrites", &self.UserIndexWrites)
+            .field("UserIndexWriteBytes", &self.UserIndexWriteBytes)
+            .field("LogFileReads", &self.LogFileReads)
+            .field("LogFileReadBytes", &self.LogFileReadBytes)
+            .field("LogFileWrites", &self.LogFileWrites)
+            .field("LogFileWriteBytes", &self.LogFileWriteBytes)
+            .field("Allocate", &self.Allocate)
+            .field("DiskResourcesExhausted", &self.DiskResourcesExhausted)
+            .field("VolumeTrimCount", &self.VolumeTrimCount)
+            .field("VolumeTrimTime", &self.VolumeTrimTime)
+            .field("VolumeTrimByteCount", &self.VolumeTrimByteCount)
+            .field("FileLevelTrimCount", &self.FileLevelTrimCount)
+            .field("FileLevelTrimTime", &self.FileLevelTrimTime)
+            .field("FileLevelTrimByteCount", &self.FileLevelTrimByteCount)
+            .field("VolumeTrimSkippedCount", &self.VolumeTrimSkippedCount)
+            .field("VolumeTrimSkippedByteCount", &self.VolumeTrimSkippedByteCount)
+            .field("NtfsFillStatInfoFromMftRecordCalledCount", &self.NtfsFillStatInfoFromMftRecordCalledCount)
+            .field("NtfsFillStatInfoFromMftRecordBailedBecauseOfAttributeListCount", &self.NtfsFillStatInfoFromMftRecordBailedBecauseOfAttributeListCount)
+            .field("NtfsFillStatInfoFromMftRecordBailedBecauseOfNonResReparsePointCount", &self.NtfsFillStatInfoFromMftRecordBailedBecauseOfNonResReparsePointCount)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NTFS_STATISTICS_EX {
     type Abi = Self;
 }
@@ -8749,6 +10008,11 @@ impl ::core::clone::Clone for NTFS_STATISTICS_EX_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for NTFS_STATISTICS_EX_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NTFS_STATISTICS_EX_0").field("Calls", &self.Calls).field("RunsReturned", &self.RunsReturned).field("Hints", &self.Hints).field("HintsHonored", &self.HintsHonored).field("Cache", &self.Cache).field("CacheMiss", &self.CacheMiss).field("Clusters", &self.Clusters).field("HintsClusters", &self.HintsClusters).field("CacheClusters", &self.CacheClusters).field("CacheMissClusters", &self.CacheMissClusters).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NTFS_STATISTICS_EX_0 {
     type Abi = Self;
 }
@@ -8775,6 +10039,11 @@ impl ::core::marker::Copy for NTFS_STATISTICS_EX_1 {}
 impl ::core::clone::Clone for NTFS_STATISTICS_EX_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NTFS_STATISTICS_EX_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NTFS_STATISTICS_EX_1").field("Write", &self.Write).field("Create", &self.Create).field("SetInfo", &self.SetInfo).field("Flush", &self.Flush).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NTFS_STATISTICS_EX_1 {
@@ -8805,6 +10074,11 @@ impl ::core::clone::Clone for NTFS_STATISTICS_EX_2 {
         *self
     }
 }
+impl ::core::fmt::Debug for NTFS_STATISTICS_EX_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NTFS_STATISTICS_EX_2").field("Write", &self.Write).field("Create", &self.Create).field("SetInfo", &self.SetInfo).field("Flush", &self.Flush).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NTFS_STATISTICS_EX_2 {
     type Abi = Self;
 }
@@ -8833,6 +10107,11 @@ impl ::core::clone::Clone for NTFS_STATISTICS_EX_3 {
         *self
     }
 }
+impl ::core::fmt::Debug for NTFS_STATISTICS_EX_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NTFS_STATISTICS_EX_3").field("Write", &self.Write).field("Create", &self.Create).field("SetInfo", &self.SetInfo).field("Flush", &self.Flush).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NTFS_STATISTICS_EX_3 {
     type Abi = Self;
 }
@@ -8859,6 +10138,11 @@ impl ::core::marker::Copy for NTFS_STATISTICS_EX_4 {}
 impl ::core::clone::Clone for NTFS_STATISTICS_EX_4 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NTFS_STATISTICS_EX_4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NTFS_STATISTICS_EX_4").field("Write", &self.Write).field("Create", &self.Create).field("SetInfo", &self.SetInfo).field("Flush", &self.Flush).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NTFS_STATISTICS_EX_4 {
@@ -8897,6 +10181,26 @@ impl ::core::marker::Copy for NTFS_VOLUME_DATA_BUFFER {}
 impl ::core::clone::Clone for NTFS_VOLUME_DATA_BUFFER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NTFS_VOLUME_DATA_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NTFS_VOLUME_DATA_BUFFER")
+            .field("VolumeSerialNumber", &self.VolumeSerialNumber)
+            .field("NumberSectors", &self.NumberSectors)
+            .field("TotalClusters", &self.TotalClusters)
+            .field("FreeClusters", &self.FreeClusters)
+            .field("TotalReserved", &self.TotalReserved)
+            .field("BytesPerSector", &self.BytesPerSector)
+            .field("BytesPerCluster", &self.BytesPerCluster)
+            .field("BytesPerFileRecordSegment", &self.BytesPerFileRecordSegment)
+            .field("ClustersPerFileRecordSegment", &self.ClustersPerFileRecordSegment)
+            .field("MftValidDataLength", &self.MftValidDataLength)
+            .field("MftStartLcn", &self.MftStartLcn)
+            .field("Mft2StartLcn", &self.Mft2StartLcn)
+            .field("MftZoneStart", &self.MftZoneStart)
+            .field("MftZoneEnd", &self.MftZoneEnd)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for NTFS_VOLUME_DATA_BUFFER {
@@ -8974,6 +10278,12 @@ impl ::core::marker::Copy for PARTITION_INFORMATION {}
 impl ::core::clone::Clone for PARTITION_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PARTITION_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PARTITION_INFORMATION").field("StartingOffset", &self.StartingOffset).field("PartitionLength", &self.PartitionLength).field("HiddenSectors", &self.HiddenSectors).field("PartitionNumber", &self.PartitionNumber).field("PartitionType", &self.PartitionType).field("BootIndicator", &self.BootIndicator).field("RecognizedPartition", &self.RecognizedPartition).field("RewritePartition", &self.RewritePartition).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9079,6 +10389,11 @@ impl ::core::clone::Clone for PARTITION_INFORMATION_GPT {
         *self
     }
 }
+impl ::core::fmt::Debug for PARTITION_INFORMATION_GPT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PARTITION_INFORMATION_GPT").field("PartitionType", &self.PartitionType).field("PartitionId", &self.PartitionId).field("Attributes", &self.Attributes).field("Name", &self.Name).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PARTITION_INFORMATION_GPT {
     type Abi = Self;
 }
@@ -9109,6 +10424,12 @@ impl ::core::marker::Copy for PARTITION_INFORMATION_MBR {}
 impl ::core::clone::Clone for PARTITION_INFORMATION_MBR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PARTITION_INFORMATION_MBR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PARTITION_INFORMATION_MBR").field("PartitionType", &self.PartitionType).field("BootIndicator", &self.BootIndicator).field("RecognizedPartition", &self.RecognizedPartition).field("HiddenSectors", &self.HiddenSectors).field("PartitionId", &self.PartitionId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9181,6 +10502,11 @@ impl ::core::clone::Clone for PATHNAME_BUFFER {
         *self
     }
 }
+impl ::core::fmt::Debug for PATHNAME_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PATHNAME_BUFFER").field("PathNameLength", &self.PathNameLength).field("Name", &self.Name).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PATHNAME_BUFFER {
     type Abi = Self;
 }
@@ -9206,6 +10532,11 @@ impl ::core::marker::Copy for PERF_BIN {}
 impl ::core::clone::Clone for PERF_BIN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PERF_BIN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PERF_BIN").field("NumberOfBins", &self.NumberOfBins).field("TypeOfBin", &self.TypeOfBin).field("BinsRanges", &self.BinsRanges).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PERF_BIN {
@@ -9287,6 +10618,11 @@ impl ::core::clone::Clone for PERSISTENT_RESERVE_COMMAND_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for PERSISTENT_RESERVE_COMMAND_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PERSISTENT_RESERVE_COMMAND_0_0").field("_bitfield", &self._bitfield).field("AllocationLength", &self.AllocationLength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PERSISTENT_RESERVE_COMMAND_0_0 {
     type Abi = Self;
 }
@@ -9312,6 +10648,11 @@ impl ::core::marker::Copy for PERSISTENT_RESERVE_COMMAND_0_1 {}
 impl ::core::clone::Clone for PERSISTENT_RESERVE_COMMAND_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PERSISTENT_RESERVE_COMMAND_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PERSISTENT_RESERVE_COMMAND_0_1").field("_bitfield1", &self._bitfield1).field("_bitfield2", &self._bitfield2).field("ParameterList", &self.ParameterList).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PERSISTENT_RESERVE_COMMAND_0_1 {
@@ -9371,6 +10712,11 @@ impl ::core::clone::Clone for PHYSICAL_ELEMENT_STATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for PHYSICAL_ELEMENT_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PHYSICAL_ELEMENT_STATUS").field("Version", &self.Version).field("Size", &self.Size).field("DescriptorCount", &self.DescriptorCount).field("ReturnedDescriptorCount", &self.ReturnedDescriptorCount).field("ElementIdentifierBeingDepoped", &self.ElementIdentifierBeingDepoped).field("Reserved", &self.Reserved).field("Descriptors", &self.Descriptors).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PHYSICAL_ELEMENT_STATUS {
     type Abi = Self;
 }
@@ -9403,6 +10749,11 @@ impl ::core::clone::Clone for PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PHYSICAL_ELEMENT_STATUS_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("ElementIdentifier", &self.ElementIdentifier).field("PhysicalElementType", &self.PhysicalElementType).field("PhysicalElementHealth", &self.PhysicalElementHealth).field("Reserved1", &self.Reserved1).field("AssociatedCapacity", &self.AssociatedCapacity).field("Reserved2", &self.Reserved2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
     type Abi = Self;
 }
@@ -9431,6 +10782,11 @@ impl ::core::marker::Copy for PHYSICAL_ELEMENT_STATUS_REQUEST {}
 impl ::core::clone::Clone for PHYSICAL_ELEMENT_STATUS_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PHYSICAL_ELEMENT_STATUS_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PHYSICAL_ELEMENT_STATUS_REQUEST").field("Version", &self.Version).field("Size", &self.Size).field("StartingElement", &self.StartingElement).field("Filter", &self.Filter).field("ReportType", &self.ReportType).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PHYSICAL_ELEMENT_STATUS_REQUEST {
@@ -9462,6 +10818,11 @@ impl ::core::clone::Clone for PLEX_READ_DATA_REQUEST {
         *self
     }
 }
+impl ::core::fmt::Debug for PLEX_READ_DATA_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PLEX_READ_DATA_REQUEST").field("ByteOffset", &self.ByteOffset).field("ByteLength", &self.ByteLength).field("PlexNumber", &self.PlexNumber).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PLEX_READ_DATA_REQUEST {
     type Abi = Self;
 }
@@ -9488,6 +10849,12 @@ impl ::core::marker::Copy for PREVENT_MEDIA_REMOVAL {}
 impl ::core::clone::Clone for PREVENT_MEDIA_REMOVAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PREVENT_MEDIA_REMOVAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PREVENT_MEDIA_REMOVAL").field("PreventMediaRemoval", &self.PreventMediaRemoval).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9525,6 +10892,11 @@ impl ::core::clone::Clone for QUERY_BAD_RANGES_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for QUERY_BAD_RANGES_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("QUERY_BAD_RANGES_INPUT").field("Flags", &self.Flags).field("NumRanges", &self.NumRanges).field("Ranges", &self.Ranges).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for QUERY_BAD_RANGES_INPUT {
     type Abi = Self;
 }
@@ -9549,6 +10921,11 @@ impl ::core::marker::Copy for QUERY_BAD_RANGES_INPUT_RANGE {}
 impl ::core::clone::Clone for QUERY_BAD_RANGES_INPUT_RANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for QUERY_BAD_RANGES_INPUT_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("QUERY_BAD_RANGES_INPUT_RANGE").field("StartOffset", &self.StartOffset).field("LengthInBytes", &self.LengthInBytes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for QUERY_BAD_RANGES_INPUT_RANGE {
@@ -9579,6 +10956,11 @@ impl ::core::clone::Clone for QUERY_BAD_RANGES_OUTPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for QUERY_BAD_RANGES_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("QUERY_BAD_RANGES_OUTPUT").field("Flags", &self.Flags).field("NumBadRanges", &self.NumBadRanges).field("NextOffsetToLookUp", &self.NextOffsetToLookUp).field("BadRanges", &self.BadRanges).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for QUERY_BAD_RANGES_OUTPUT {
     type Abi = Self;
 }
@@ -9605,6 +10987,11 @@ impl ::core::marker::Copy for QUERY_BAD_RANGES_OUTPUT_RANGE {}
 impl ::core::clone::Clone for QUERY_BAD_RANGES_OUTPUT_RANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for QUERY_BAD_RANGES_OUTPUT_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("QUERY_BAD_RANGES_OUTPUT_RANGE").field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("StartOffset", &self.StartOffset).field("LengthInBytes", &self.LengthInBytes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for QUERY_BAD_RANGES_OUTPUT_RANGE {
@@ -9763,6 +11150,11 @@ impl ::core::clone::Clone for QUERY_FILE_LAYOUT_OUTPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for QUERY_FILE_LAYOUT_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("QUERY_FILE_LAYOUT_OUTPUT").field("FileEntryCount", &self.FileEntryCount).field("FirstFileOffset", &self.FirstFileOffset).field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for QUERY_FILE_LAYOUT_OUTPUT {
     type Abi = Self;
 }
@@ -9813,6 +11205,11 @@ impl ::core::clone::Clone for READ_ELEMENT_ADDRESS_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for READ_ELEMENT_ADDRESS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("READ_ELEMENT_ADDRESS_INFO").field("NumberOfElements", &self.NumberOfElements).field("ElementStatus", &self.ElementStatus).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for READ_ELEMENT_ADDRESS_INFO {
     type Abi = Self;
 }
@@ -9837,6 +11234,11 @@ impl ::core::marker::Copy for READ_FILE_USN_DATA {}
 impl ::core::clone::Clone for READ_FILE_USN_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for READ_FILE_USN_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("READ_FILE_USN_DATA").field("MinMajorVersion", &self.MinMajorVersion).field("MaxMajorVersion", &self.MaxMajorVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for READ_FILE_USN_DATA {
@@ -9873,6 +11275,11 @@ impl ::core::clone::Clone for READ_USN_JOURNAL_DATA_V0 {
         *self
     }
 }
+impl ::core::fmt::Debug for READ_USN_JOURNAL_DATA_V0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("READ_USN_JOURNAL_DATA_V0").field("StartUsn", &self.StartUsn).field("ReasonMask", &self.ReasonMask).field("ReturnOnlyOnClose", &self.ReturnOnlyOnClose).field("Timeout", &self.Timeout).field("BytesToWaitFor", &self.BytesToWaitFor).field("UsnJournalID", &self.UsnJournalID).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for READ_USN_JOURNAL_DATA_V0 {
     type Abi = Self;
 }
@@ -9905,6 +11312,11 @@ impl ::core::clone::Clone for READ_USN_JOURNAL_DATA_V1 {
         *self
     }
 }
+impl ::core::fmt::Debug for READ_USN_JOURNAL_DATA_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("READ_USN_JOURNAL_DATA_V1").field("StartUsn", &self.StartUsn).field("ReasonMask", &self.ReasonMask).field("ReturnOnlyOnClose", &self.ReturnOnlyOnClose).field("Timeout", &self.Timeout).field("BytesToWaitFor", &self.BytesToWaitFor).field("UsnJournalID", &self.UsnJournalID).field("MinMajorVersion", &self.MinMajorVersion).field("MaxMajorVersion", &self.MaxMajorVersion).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for READ_USN_JOURNAL_DATA_V1 {
     type Abi = Self;
 }
@@ -9930,6 +11342,11 @@ impl ::core::marker::Copy for REASSIGN_BLOCKS {}
 impl ::core::clone::Clone for REASSIGN_BLOCKS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for REASSIGN_BLOCKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REASSIGN_BLOCKS").field("Reserved", &self.Reserved).field("Count", &self.Count).field("BlockNumber", &self.BlockNumber).finish()
     }
 }
 unsafe impl ::windows::core::Abi for REASSIGN_BLOCKS {
@@ -10012,6 +11429,11 @@ impl ::core::clone::Clone for REFS_SMR_VOLUME_GC_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for REFS_SMR_VOLUME_GC_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REFS_SMR_VOLUME_GC_PARAMETERS").field("Version", &self.Version).field("Flags", &self.Flags).field("Action", &self.Action).field("Method", &self.Method).field("IoGranularity", &self.IoGranularity).field("CompressionFormat", &self.CompressionFormat).field("Unused", &self.Unused).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for REFS_SMR_VOLUME_GC_PARAMETERS {
     type Abi = Self;
 }
@@ -10059,6 +11481,23 @@ impl ::core::clone::Clone for REFS_SMR_VOLUME_INFO_OUTPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for REFS_SMR_VOLUME_INFO_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REFS_SMR_VOLUME_INFO_OUTPUT")
+            .field("Version", &self.Version)
+            .field("Flags", &self.Flags)
+            .field("SizeOfRandomlyWritableTier", &self.SizeOfRandomlyWritableTier)
+            .field("FreeSpaceInRandomlyWritableTier", &self.FreeSpaceInRandomlyWritableTier)
+            .field("SizeofSMRTier", &self.SizeofSMRTier)
+            .field("FreeSpaceInSMRTier", &self.FreeSpaceInSMRTier)
+            .field("UsableFreeSpaceInSMRTier", &self.UsableFreeSpaceInSMRTier)
+            .field("VolumeGcState", &self.VolumeGcState)
+            .field("VolumeGcLastStatus", &self.VolumeGcLastStatus)
+            .field("CurrentGcBandFillPercentage", &self.CurrentGcBandFillPercentage)
+            .field("Unused", &self.Unused)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for REFS_SMR_VOLUME_INFO_OUTPUT {
     type Abi = Self;
 }
@@ -10103,6 +11542,28 @@ impl ::core::clone::Clone for REFS_VOLUME_DATA_BUFFER {
         *self
     }
 }
+impl ::core::fmt::Debug for REFS_VOLUME_DATA_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REFS_VOLUME_DATA_BUFFER")
+            .field("ByteCount", &self.ByteCount)
+            .field("MajorVersion", &self.MajorVersion)
+            .field("MinorVersion", &self.MinorVersion)
+            .field("BytesPerPhysicalSector", &self.BytesPerPhysicalSector)
+            .field("VolumeSerialNumber", &self.VolumeSerialNumber)
+            .field("NumberSectors", &self.NumberSectors)
+            .field("TotalClusters", &self.TotalClusters)
+            .field("FreeClusters", &self.FreeClusters)
+            .field("TotalReserved", &self.TotalReserved)
+            .field("BytesPerSector", &self.BytesPerSector)
+            .field("BytesPerCluster", &self.BytesPerCluster)
+            .field("MaximumSizeOfResidentFile", &self.MaximumSizeOfResidentFile)
+            .field("FastTierDataFillRatio", &self.FastTierDataFillRatio)
+            .field("SlowTierDataFillRatio", &self.SlowTierDataFillRatio)
+            .field("DestagesFastTierToSlowTierRate", &self.DestagesFastTierToSlowTierRate)
+            .field("Reserved", &self.Reserved)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for REFS_VOLUME_DATA_BUFFER {
     type Abi = Self;
 }
@@ -10130,6 +11591,11 @@ impl ::core::marker::Copy for REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {}
 impl ::core::clone::Clone for REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REMOVE_ELEMENT_AND_TRUNCATE_REQUEST").field("Version", &self.Version).field("Size", &self.Size).field("RequestCapacity", &self.RequestCapacity).field("ElementIdentifier", &self.ElementIdentifier).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {
@@ -10163,6 +11629,11 @@ impl ::core::clone::Clone for REPAIR_COPIES_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for REPAIR_COPIES_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REPAIR_COPIES_INPUT").field("Size", &self.Size).field("Flags", &self.Flags).field("FileOffset", &self.FileOffset).field("Length", &self.Length).field("SourceCopy", &self.SourceCopy).field("NumberOfRepairCopies", &self.NumberOfRepairCopies).field("RepairCopies", &self.RepairCopies).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for REPAIR_COPIES_INPUT {
     type Abi = Self;
 }
@@ -10188,6 +11659,11 @@ impl ::core::marker::Copy for REPAIR_COPIES_OUTPUT {}
 impl ::core::clone::Clone for REPAIR_COPIES_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for REPAIR_COPIES_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REPAIR_COPIES_OUTPUT").field("Size", &self.Size).field("Status", &self.Status).field("ResumeFileOffset", &self.ResumeFileOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for REPAIR_COPIES_OUTPUT {
@@ -10222,6 +11698,11 @@ impl ::core::marker::Copy for REQUEST_OPLOCK_INPUT_BUFFER {}
 impl ::core::clone::Clone for REQUEST_OPLOCK_INPUT_BUFFER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for REQUEST_OPLOCK_INPUT_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REQUEST_OPLOCK_INPUT_BUFFER").field("StructureVersion", &self.StructureVersion).field("StructureLength", &self.StructureLength).field("RequestedOplockLevel", &self.RequestedOplockLevel).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for REQUEST_OPLOCK_INPUT_BUFFER {
@@ -10261,6 +11742,11 @@ impl ::core::clone::Clone for REQUEST_OPLOCK_OUTPUT_BUFFER {
         *self
     }
 }
+impl ::core::fmt::Debug for REQUEST_OPLOCK_OUTPUT_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REQUEST_OPLOCK_OUTPUT_BUFFER").field("StructureVersion", &self.StructureVersion).field("StructureLength", &self.StructureLength).field("OriginalOplockLevel", &self.OriginalOplockLevel).field("NewOplockLevel", &self.NewOplockLevel).field("Flags", &self.Flags).field("AccessMode", &self.AccessMode).field("ShareMode", &self.ShareMode).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for REQUEST_OPLOCK_OUTPUT_BUFFER {
     type Abi = Self;
 }
@@ -10289,6 +11775,11 @@ impl ::core::marker::Copy for REQUEST_RAW_ENCRYPTED_DATA {}
 impl ::core::clone::Clone for REQUEST_RAW_ENCRYPTED_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for REQUEST_RAW_ENCRYPTED_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REQUEST_RAW_ENCRYPTED_DATA").field("FileOffset", &self.FileOffset).field("Length", &self.Length).finish()
     }
 }
 unsafe impl ::windows::core::Abi for REQUEST_RAW_ENCRYPTED_DATA {
@@ -10320,6 +11811,11 @@ impl ::core::clone::Clone for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
         *self
     }
 }
+impl ::core::fmt::Debug for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER").field("ExtentCount", &self.ExtentCount).field("StartingVcn", &self.StartingVcn).field("Extents", &self.Extents).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
     type Abi = Self;
 }
@@ -10345,6 +11841,11 @@ impl ::core::marker::Copy for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {}
 impl ::core::clone::Clone for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0").field("NextVcn", &self.NextVcn).field("Lcn", &self.Lcn).field("ReferenceCount", &self.ReferenceCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
@@ -10374,6 +11875,11 @@ impl ::core::clone::Clone for RETRIEVAL_POINTERS_BUFFER {
         *self
     }
 }
+impl ::core::fmt::Debug for RETRIEVAL_POINTERS_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RETRIEVAL_POINTERS_BUFFER").field("ExtentCount", &self.ExtentCount).field("StartingVcn", &self.StartingVcn).field("Extents", &self.Extents).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RETRIEVAL_POINTERS_BUFFER {
     type Abi = Self;
 }
@@ -10398,6 +11904,11 @@ impl ::core::marker::Copy for RETRIEVAL_POINTERS_BUFFER_0 {}
 impl ::core::clone::Clone for RETRIEVAL_POINTERS_BUFFER_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RETRIEVAL_POINTERS_BUFFER_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RETRIEVAL_POINTERS_BUFFER_0").field("NextVcn", &self.NextVcn).field("Lcn", &self.Lcn).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RETRIEVAL_POINTERS_BUFFER_0 {
@@ -10425,6 +11936,11 @@ impl ::core::clone::Clone for RETRIEVAL_POINTER_BASE {
         *self
     }
 }
+impl ::core::fmt::Debug for RETRIEVAL_POINTER_BASE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RETRIEVAL_POINTER_BASE").field("FileAreaOffset", &self.FileAreaOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RETRIEVAL_POINTER_BASE {
     type Abi = Self;
 }
@@ -10448,6 +11964,11 @@ impl ::core::marker::Copy for RETRIEVAL_POINTER_COUNT {}
 impl ::core::clone::Clone for RETRIEVAL_POINTER_COUNT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RETRIEVAL_POINTER_COUNT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RETRIEVAL_POINTER_COUNT").field("ExtentCount", &self.ExtentCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RETRIEVAL_POINTER_COUNT {
@@ -10484,6 +12005,11 @@ impl ::core::clone::Clone for SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO").field("Version", &self.Version).field("Size", &self.Size).field("DeviceCount", &self.DeviceCount).field("Devices", &self.Devices).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
     type Abi = Self;
 }
@@ -10512,6 +12038,11 @@ impl ::core::clone::Clone for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO").field("DeviceGuid", &self.DeviceGuid).field("DeviceNumber", &self.DeviceNumber).field("Flags", &self.Flags).field("DeviceSize", &self.DeviceSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
     type Abi = Self;
 }
@@ -10535,6 +12066,11 @@ impl ::core::marker::Copy for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {}
 impl ::core::clone::Clone for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
@@ -10563,6 +12099,12 @@ impl ::core::marker::Copy for SCM_BUS_DEDICATED_MEMORY_STATE {}
 impl ::core::clone::Clone for SCM_BUS_DEDICATED_MEMORY_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SCM_BUS_DEDICATED_MEMORY_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_BUS_DEDICATED_MEMORY_STATE").field("ActivateState", &self.ActivateState).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10616,6 +12158,11 @@ impl ::core::clone::Clone for SCM_BUS_PROPERTY_QUERY {
         *self
     }
 }
+impl ::core::fmt::Debug for SCM_BUS_PROPERTY_QUERY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_BUS_PROPERTY_QUERY").field("Version", &self.Version).field("Size", &self.Size).field("PropertyId", &self.PropertyId).field("QueryType", &self.QueryType).field("AdditionalParameters", &self.AdditionalParameters).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_BUS_PROPERTY_QUERY {
     type Abi = Self;
 }
@@ -10643,6 +12190,11 @@ impl ::core::marker::Copy for SCM_BUS_PROPERTY_SET {}
 impl ::core::clone::Clone for SCM_BUS_PROPERTY_SET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCM_BUS_PROPERTY_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_BUS_PROPERTY_SET").field("Version", &self.Version).field("Size", &self.Size).field("PropertyId", &self.PropertyId).field("SetType", &self.SetType).field("AdditionalParameters", &self.AdditionalParameters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCM_BUS_PROPERTY_SET {
@@ -10690,6 +12242,22 @@ impl ::core::clone::Clone for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_BUS_RUNTIME_FW_ACTIVATION_INFO")
+            .field("Version", &self.Version)
+            .field("Size", &self.Size)
+            .field("RuntimeFwActivationSupported", &self.RuntimeFwActivationSupported)
+            .field("FirmwareActivationState", &self.FirmwareActivationState)
+            .field("FirmwareActivationCapability", &self.FirmwareActivationCapability)
+            .field("EstimatedFirmwareActivationTimeInUSecs", &self.EstimatedFirmwareActivationTimeInUSecs)
+            .field("EstimatedProcessorAccessQuiesceTimeInUSecs", &self.EstimatedProcessorAccessQuiesceTimeInUSecs)
+            .field("EstimatedIOAccessQuiesceTimeInUSecs", &self.EstimatedIOAccessQuiesceTimeInUSecs)
+            .field("PlatformSupportedMaxIOAccessQuiesceTimeInUSecs", &self.PlatformSupportedMaxIOAccessQuiesceTimeInUSecs)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     type Abi = Self;
 }
@@ -10719,6 +12287,12 @@ impl ::core::marker::Copy for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {}
 impl ::core::clone::Clone for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10759,6 +12333,11 @@ impl ::core::clone::Clone for SCM_INTERLEAVED_PD_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for SCM_INTERLEAVED_PD_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_INTERLEAVED_PD_INFO").field("DeviceHandle", &self.DeviceHandle).field("DeviceGuid", &self.DeviceGuid).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_INTERLEAVED_PD_INFO {
     type Abi = Self;
 }
@@ -10785,6 +12364,11 @@ impl ::core::marker::Copy for SCM_LD_INTERLEAVE_SET_INFO {}
 impl ::core::clone::Clone for SCM_LD_INTERLEAVE_SET_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCM_LD_INTERLEAVE_SET_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_LD_INTERLEAVE_SET_INFO").field("Version", &self.Version).field("Size", &self.Size).field("InterleaveSetSize", &self.InterleaveSetSize).field("InterleaveSet", &self.InterleaveSet).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCM_LD_INTERLEAVE_SET_INFO {
@@ -10815,6 +12399,11 @@ impl ::core::clone::Clone for SCM_LOGICAL_DEVICES {
         *self
     }
 }
+impl ::core::fmt::Debug for SCM_LOGICAL_DEVICES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_LOGICAL_DEVICES").field("Version", &self.Version).field("Size", &self.Size).field("DeviceCount", &self.DeviceCount).field("Devices", &self.Devices).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_LOGICAL_DEVICES {
     type Abi = Self;
 }
@@ -10841,6 +12430,11 @@ impl ::core::marker::Copy for SCM_LOGICAL_DEVICE_INSTANCE {}
 impl ::core::clone::Clone for SCM_LOGICAL_DEVICE_INSTANCE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCM_LOGICAL_DEVICE_INSTANCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_LOGICAL_DEVICE_INSTANCE").field("Version", &self.Version).field("Size", &self.Size).field("DeviceGuid", &self.DeviceGuid).field("SymbolicLink", &self.SymbolicLink).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCM_LOGICAL_DEVICE_INSTANCE {
@@ -10871,6 +12465,11 @@ impl ::core::clone::Clone for SCM_PD_DESCRIPTOR_HEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for SCM_PD_DESCRIPTOR_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_DESCRIPTOR_HEADER").field("Version", &self.Version).field("Size", &self.Size).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_PD_DESCRIPTOR_HEADER {
     type Abi = Self;
 }
@@ -10897,6 +12496,11 @@ impl ::core::marker::Copy for SCM_PD_DEVICE_HANDLE {}
 impl ::core::clone::Clone for SCM_PD_DEVICE_HANDLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCM_PD_DEVICE_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_DEVICE_HANDLE").field("Version", &self.Version).field("Size", &self.Size).field("DeviceGuid", &self.DeviceGuid).field("DeviceHandle", &self.DeviceHandle).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCM_PD_DEVICE_HANDLE {
@@ -10949,6 +12553,35 @@ impl ::core::clone::Clone for SCM_PD_DEVICE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SCM_PD_DEVICE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_DEVICE_INFO")
+            .field("Version", &self.Version)
+            .field("Size", &self.Size)
+            .field("DeviceGuid", &self.DeviceGuid)
+            .field("UnsafeShutdownCount", &self.UnsafeShutdownCount)
+            .field("PersistentMemorySizeInBytes", &self.PersistentMemorySizeInBytes)
+            .field("VolatileMemorySizeInBytes", &self.VolatileMemorySizeInBytes)
+            .field("TotalMemorySizeInBytes", &self.TotalMemorySizeInBytes)
+            .field("SlotNumber", &self.SlotNumber)
+            .field("DeviceHandle", &self.DeviceHandle)
+            .field("PhysicalId", &self.PhysicalId)
+            .field("NumberOfFormatInterfaceCodes", &self.NumberOfFormatInterfaceCodes)
+            .field("FormatInterfaceCodes", &self.FormatInterfaceCodes)
+            .field("VendorId", &self.VendorId)
+            .field("ProductId", &self.ProductId)
+            .field("SubsystemDeviceId", &self.SubsystemDeviceId)
+            .field("SubsystemVendorId", &self.SubsystemVendorId)
+            .field("ManufacturingLocation", &self.ManufacturingLocation)
+            .field("ManufacturingWeek", &self.ManufacturingWeek)
+            .field("ManufacturingYear", &self.ManufacturingYear)
+            .field("SerialNumber4Byte", &self.SerialNumber4Byte)
+            .field("SerialNumberLengthInChars", &self.SerialNumberLengthInChars)
+            .field("SerialNumber", &self.SerialNumber)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SCM_PD_DEVICE_INFO {
     type Abi = Self;
 }
@@ -10980,6 +12613,11 @@ impl ::core::clone::Clone for SCM_PD_DEVICE_SPECIFIC_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for SCM_PD_DEVICE_SPECIFIC_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_DEVICE_SPECIFIC_INFO").field("Version", &self.Version).field("Size", &self.Size).field("NumberOfProperties", &self.NumberOfProperties).field("DeviceSpecificProperties", &self.DeviceSpecificProperties).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_PD_DEVICE_SPECIFIC_INFO {
     type Abi = Self;
 }
@@ -11004,6 +12642,11 @@ impl ::core::marker::Copy for SCM_PD_DEVICE_SPECIFIC_PROPERTY {}
 impl ::core::clone::Clone for SCM_PD_DEVICE_SPECIFIC_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCM_PD_DEVICE_SPECIFIC_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_DEVICE_SPECIFIC_PROPERTY").field("Name", &self.Name).field("Value", &self.Value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCM_PD_DEVICE_SPECIFIC_PROPERTY {
@@ -11032,6 +12675,11 @@ impl ::core::marker::Copy for SCM_PD_FIRMWARE_ACTIVATE {}
 impl ::core::clone::Clone for SCM_PD_FIRMWARE_ACTIVATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCM_PD_FIRMWARE_ACTIVATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_FIRMWARE_ACTIVATE").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("Slot", &self.Slot).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCM_PD_FIRMWARE_ACTIVATE {
@@ -11074,6 +12722,11 @@ impl ::core::clone::Clone for SCM_PD_FIRMWARE_DOWNLOAD {
         *self
     }
 }
+impl ::core::fmt::Debug for SCM_PD_FIRMWARE_DOWNLOAD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_FIRMWARE_DOWNLOAD").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("Slot", &self.Slot).field("Reserved", &self.Reserved).field("Offset", &self.Offset).field("FirmwareImageSizeInBytes", &self.FirmwareImageSizeInBytes).field("FirmwareImage", &self.FirmwareImage).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_PD_FIRMWARE_DOWNLOAD {
     type Abi = Self;
 }
@@ -11102,6 +12755,11 @@ impl ::core::marker::Copy for SCM_PD_FIRMWARE_INFO {}
 impl ::core::clone::Clone for SCM_PD_FIRMWARE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCM_PD_FIRMWARE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_FIRMWARE_INFO").field("Version", &self.Version).field("Size", &self.Size).field("ActiveSlot", &self.ActiveSlot).field("NextActiveSlot", &self.NextActiveSlot).field("SlotCount", &self.SlotCount).field("Slots", &self.Slots).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCM_PD_FIRMWARE_INFO {
@@ -11138,6 +12796,11 @@ impl ::core::clone::Clone for SCM_PD_FIRMWARE_SLOT_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for SCM_PD_FIRMWARE_SLOT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_FIRMWARE_SLOT_INFO").field("Version", &self.Version).field("Size", &self.Size).field("SlotNumber", &self.SlotNumber).field("_bitfield", &self._bitfield).field("Reserved1", &self.Reserved1).field("Revision", &self.Revision).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_PD_FIRMWARE_SLOT_INFO {
     type Abi = Self;
 }
@@ -11166,6 +12829,11 @@ impl ::core::clone::Clone for SCM_PD_FRU_ID_STRING {
         *self
     }
 }
+impl ::core::fmt::Debug for SCM_PD_FRU_ID_STRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_FRU_ID_STRING").field("Version", &self.Version).field("Size", &self.Size).field("IdentifierSize", &self.IdentifierSize).field("Identifier", &self.Identifier).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_PD_FRU_ID_STRING {
     type Abi = Self;
 }
@@ -11189,6 +12857,11 @@ impl ::core::marker::Copy for SCM_PD_HEALTH_NOTIFICATION_DATA {}
 impl ::core::clone::Clone for SCM_PD_HEALTH_NOTIFICATION_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCM_PD_HEALTH_NOTIFICATION_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_HEALTH_NOTIFICATION_DATA").field("DeviceGuid", &self.DeviceGuid).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCM_PD_HEALTH_NOTIFICATION_DATA {
@@ -11248,6 +12921,11 @@ impl ::core::clone::Clone for SCM_PD_LOCATION_STRING {
         *self
     }
 }
+impl ::core::fmt::Debug for SCM_PD_LOCATION_STRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_LOCATION_STRING").field("Version", &self.Version).field("Size", &self.Size).field("Location", &self.Location).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_PD_LOCATION_STRING {
     type Abi = Self;
 }
@@ -11277,6 +12955,11 @@ impl ::core::marker::Copy for SCM_PD_MANAGEMENT_STATUS {}
 impl ::core::clone::Clone for SCM_PD_MANAGEMENT_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCM_PD_MANAGEMENT_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_MANAGEMENT_STATUS").field("Version", &self.Version).field("Size", &self.Size).field("Health", &self.Health).field("NumberOfOperationalStatus", &self.NumberOfOperationalStatus).field("NumberOfAdditionalReasons", &self.NumberOfAdditionalReasons).field("OperationalStatus", &self.OperationalStatus).field("AdditionalReasons", &self.AdditionalReasons).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCM_PD_MANAGEMENT_STATUS {
@@ -11390,6 +13073,11 @@ impl ::core::clone::Clone for SCM_PD_PASSTHROUGH_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for SCM_PD_PASSTHROUGH_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_PASSTHROUGH_INPUT").field("Version", &self.Version).field("Size", &self.Size).field("ProtocolGuid", &self.ProtocolGuid).field("DataSize", &self.DataSize).field("Data", &self.Data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_PD_PASSTHROUGH_INPUT {
     type Abi = Self;
 }
@@ -11415,6 +13103,11 @@ impl ::core::marker::Copy for SCM_PD_PASSTHROUGH_INVDIMM_INPUT {}
 impl ::core::clone::Clone for SCM_PD_PASSTHROUGH_INVDIMM_INPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCM_PD_PASSTHROUGH_INVDIMM_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_PASSTHROUGH_INVDIMM_INPUT").field("Opcode", &self.Opcode).field("OpcodeParametersLength", &self.OpcodeParametersLength).field("OpcodeParameters", &self.OpcodeParameters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCM_PD_PASSTHROUGH_INVDIMM_INPUT {
@@ -11445,6 +13138,11 @@ impl ::core::clone::Clone for SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT").field("GeneralStatus", &self.GeneralStatus).field("ExtendedStatus", &self.ExtendedStatus).field("OutputDataLength", &self.OutputDataLength).field("OutputData", &self.OutputData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT {
     type Abi = Self;
 }
@@ -11472,6 +13170,11 @@ impl ::core::marker::Copy for SCM_PD_PASSTHROUGH_OUTPUT {}
 impl ::core::clone::Clone for SCM_PD_PASSTHROUGH_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCM_PD_PASSTHROUGH_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_PASSTHROUGH_OUTPUT").field("Version", &self.Version).field("Size", &self.Size).field("ProtocolGuid", &self.ProtocolGuid).field("DataSize", &self.DataSize).field("Data", &self.Data).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCM_PD_PASSTHROUGH_OUTPUT {
@@ -11527,6 +13230,11 @@ impl ::core::clone::Clone for SCM_PD_PROPERTY_QUERY {
         *self
     }
 }
+impl ::core::fmt::Debug for SCM_PD_PROPERTY_QUERY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_PROPERTY_QUERY").field("Version", &self.Version).field("Size", &self.Size).field("PropertyId", &self.PropertyId).field("QueryType", &self.QueryType).field("AdditionalParameters", &self.AdditionalParameters).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_PD_PROPERTY_QUERY {
     type Abi = Self;
 }
@@ -11554,6 +13262,11 @@ impl ::core::marker::Copy for SCM_PD_PROPERTY_SET {}
 impl ::core::clone::Clone for SCM_PD_PROPERTY_SET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCM_PD_PROPERTY_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_PROPERTY_SET").field("Version", &self.Version).field("Size", &self.Size).field("PropertyId", &self.PropertyId).field("SetType", &self.SetType).field("AdditionalParameters", &self.AdditionalParameters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCM_PD_PROPERTY_SET {
@@ -11591,6 +13304,11 @@ impl ::core::clone::Clone for SCM_PD_REINITIALIZE_MEDIA_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for SCM_PD_REINITIALIZE_MEDIA_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_REINITIALIZE_MEDIA_INPUT").field("Version", &self.Version).field("Size", &self.Size).field("Options", &self.Options).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_PD_REINITIALIZE_MEDIA_INPUT {
     type Abi = Self;
 }
@@ -11614,6 +13332,11 @@ impl ::core::marker::Copy for SCM_PD_REINITIALIZE_MEDIA_INPUT_0 {}
 impl ::core::clone::Clone for SCM_PD_REINITIALIZE_MEDIA_INPUT_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCM_PD_REINITIALIZE_MEDIA_INPUT_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_REINITIALIZE_MEDIA_INPUT_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCM_PD_REINITIALIZE_MEDIA_INPUT_0 {
@@ -11643,6 +13366,11 @@ impl ::core::clone::Clone for SCM_PD_REINITIALIZE_MEDIA_OUTPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for SCM_PD_REINITIALIZE_MEDIA_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_REINITIALIZE_MEDIA_OUTPUT").field("Version", &self.Version).field("Size", &self.Size).field("Status", &self.Status).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_PD_REINITIALIZE_MEDIA_OUTPUT {
     type Abi = Self;
 }
@@ -11669,6 +13397,12 @@ impl ::core::marker::Copy for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {}
 impl ::core::clone::Clone for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE").field("ArmState", &self.ArmState).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11701,6 +13435,11 @@ impl ::core::marker::Copy for SCM_PD_RUNTIME_FW_ACTIVATION_INFO {}
 impl ::core::clone::Clone for SCM_PD_RUNTIME_FW_ACTIVATION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCM_PD_RUNTIME_FW_ACTIVATION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PD_RUNTIME_FW_ACTIVATION_INFO").field("Version", &self.Version).field("Size", &self.Size).field("LastFirmwareActivationStatus", &self.LastFirmwareActivationStatus).field("FirmwareActivationState", &self.FirmwareActivationState).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCM_PD_RUNTIME_FW_ACTIVATION_INFO {
@@ -11739,6 +13478,11 @@ impl ::core::clone::Clone for SCM_PHYSICAL_DEVICES {
         *self
     }
 }
+impl ::core::fmt::Debug for SCM_PHYSICAL_DEVICES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PHYSICAL_DEVICES").field("Version", &self.Version).field("Size", &self.Size).field("DeviceCount", &self.DeviceCount).field("Devices", &self.Devices).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_PHYSICAL_DEVICES {
     type Abi = Self;
 }
@@ -11765,6 +13509,11 @@ impl ::core::marker::Copy for SCM_PHYSICAL_DEVICE_INSTANCE {}
 impl ::core::clone::Clone for SCM_PHYSICAL_DEVICE_INSTANCE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCM_PHYSICAL_DEVICE_INSTANCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_PHYSICAL_DEVICE_INSTANCE").field("Version", &self.Version).field("Size", &self.Size).field("NfitHandle", &self.NfitHandle).field("SymbolicLink", &self.SymbolicLink).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCM_PHYSICAL_DEVICE_INSTANCE {
@@ -11803,6 +13552,24 @@ impl ::core::clone::Clone for SCM_REGION {
         *self
     }
 }
+impl ::core::fmt::Debug for SCM_REGION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_REGION")
+            .field("Version", &self.Version)
+            .field("Size", &self.Size)
+            .field("Flags", &self.Flags)
+            .field("NfitHandle", &self.NfitHandle)
+            .field("LogicalDeviceGuid", &self.LogicalDeviceGuid)
+            .field("AddressRangeType", &self.AddressRangeType)
+            .field("AssociatedId", &self.AssociatedId)
+            .field("Length", &self.Length)
+            .field("StartingDPA", &self.StartingDPA)
+            .field("BaseSPA", &self.BaseSPA)
+            .field("SPAOffset", &self.SPAOffset)
+            .field("RegionOffset", &self.RegionOffset)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_REGION {
     type Abi = Self;
 }
@@ -11829,6 +13596,11 @@ impl ::core::marker::Copy for SCM_REGIONS {}
 impl ::core::clone::Clone for SCM_REGIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCM_REGIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCM_REGIONS").field("Version", &self.Version).field("Size", &self.Size).field("RegionCount", &self.RegionCount).field("Regions", &self.Regions).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCM_REGIONS {
@@ -11865,6 +13637,11 @@ impl ::core::clone::Clone for SD_CHANGE_MACHINE_SID_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for SD_CHANGE_MACHINE_SID_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SD_CHANGE_MACHINE_SID_INPUT").field("CurrentMachineSIDOffset", &self.CurrentMachineSIDOffset).field("CurrentMachineSIDLength", &self.CurrentMachineSIDLength).field("NewMachineSIDOffset", &self.NewMachineSIDOffset).field("NewMachineSIDLength", &self.NewMachineSIDLength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SD_CHANGE_MACHINE_SID_INPUT {
     type Abi = Self;
 }
@@ -11896,6 +13673,11 @@ impl ::core::clone::Clone for SD_CHANGE_MACHINE_SID_OUTPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for SD_CHANGE_MACHINE_SID_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SD_CHANGE_MACHINE_SID_OUTPUT").field("NumSDChangedSuccess", &self.NumSDChangedSuccess).field("NumSDChangedFail", &self.NumSDChangedFail).field("NumSDUnused", &self.NumSDUnused).field("NumSDTotal", &self.NumSDTotal).field("NumMftSDChangedSuccess", &self.NumMftSDChangedSuccess).field("NumMftSDChangedFail", &self.NumMftSDChangedFail).field("NumMftSDTotal", &self.NumMftSDTotal).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SD_CHANGE_MACHINE_SID_OUTPUT {
     type Abi = Self;
 }
@@ -11925,6 +13707,11 @@ impl ::core::clone::Clone for SD_ENUM_SDS_ENTRY {
         *self
     }
 }
+impl ::core::fmt::Debug for SD_ENUM_SDS_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SD_ENUM_SDS_ENTRY").field("Hash", &self.Hash).field("SecurityId", &self.SecurityId).field("Offset", &self.Offset).field("Length", &self.Length).field("Descriptor", &self.Descriptor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SD_ENUM_SDS_ENTRY {
     type Abi = Self;
 }
@@ -11949,6 +13736,11 @@ impl ::core::marker::Copy for SD_ENUM_SDS_INPUT {}
 impl ::core::clone::Clone for SD_ENUM_SDS_INPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SD_ENUM_SDS_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SD_ENUM_SDS_INPUT").field("StartingOffset", &self.StartingOffset).field("MaxSDEntriesToReturn", &self.MaxSDEntriesToReturn).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SD_ENUM_SDS_INPUT {
@@ -11977,6 +13769,11 @@ impl ::core::marker::Copy for SD_ENUM_SDS_OUTPUT {}
 impl ::core::clone::Clone for SD_ENUM_SDS_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SD_ENUM_SDS_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SD_ENUM_SDS_OUTPUT").field("NextOffset", &self.NextOffset).field("NumSDEntriesReturned", &self.NumSDEntriesReturned).field("NumSDBytesReturned", &self.NumSDBytesReturned).field("SDEntry", &self.SDEntry).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SD_ENUM_SDS_OUTPUT {
@@ -12118,6 +13915,11 @@ impl ::core::clone::Clone for SD_QUERY_STATS_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for SD_QUERY_STATS_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SD_QUERY_STATS_INPUT").field("Reserved", &self.Reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SD_QUERY_STATS_INPUT {
     type Abi = Self;
 }
@@ -12148,6 +13950,11 @@ impl ::core::marker::Copy for SD_QUERY_STATS_OUTPUT {}
 impl ::core::clone::Clone for SD_QUERY_STATS_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SD_QUERY_STATS_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SD_QUERY_STATS_OUTPUT").field("SdsStreamSize", &self.SdsStreamSize).field("SdsAllocationSize", &self.SdsAllocationSize).field("SiiStreamSize", &self.SiiStreamSize).field("SiiAllocationSize", &self.SiiAllocationSize).field("SdhStreamSize", &self.SdhStreamSize).field("SdhAllocationSize", &self.SdhAllocationSize).field("NumSDTotal", &self.NumSDTotal).field("NumSDUnused", &self.NumSDUnused).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SD_QUERY_STATS_OUTPUT {
@@ -12249,6 +14056,11 @@ impl ::core::clone::Clone for SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT").field("Flags", &self.Flags).field("AlignmentShift", &self.AlignmentShift).field("FileOffsetToAlign", &self.FileOffsetToAlign).field("FallbackAlignmentShift", &self.FallbackAlignmentShift).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
     type Abi = Self;
 }
@@ -12283,6 +14095,12 @@ impl ::core::clone::Clone for SET_DISK_ATTRIBUTES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SET_DISK_ATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SET_DISK_ATTRIBUTES").field("Version", &self.Version).field("Persist", &self.Persist).field("Reserved1", &self.Reserved1).field("Attributes", &self.Attributes).field("AttributesMask", &self.AttributesMask).field("Reserved2", &self.Reserved2).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SET_DISK_ATTRIBUTES {
     type Abi = Self;
 }
@@ -12309,6 +14127,11 @@ impl ::core::marker::Copy for SET_PARTITION_INFORMATION {}
 impl ::core::clone::Clone for SET_PARTITION_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SET_PARTITION_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SET_PARTITION_INFORMATION").field("PartitionType", &self.PartitionType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SET_PARTITION_INFORMATION {
@@ -12392,6 +14215,11 @@ impl ::core::clone::Clone for SET_PURGE_FAILURE_MODE_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for SET_PURGE_FAILURE_MODE_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SET_PURGE_FAILURE_MODE_INPUT").field("Flags", &self.Flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SET_PURGE_FAILURE_MODE_INPUT {
     type Abi = Self;
 }
@@ -12425,6 +14253,11 @@ impl ::core::marker::Copy for SHRINK_VOLUME_INFORMATION {}
 impl ::core::clone::Clone for SHRINK_VOLUME_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SHRINK_VOLUME_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SHRINK_VOLUME_INFORMATION").field("ShrinkRequestType", &self.ShrinkRequestType).field("Flags", &self.Flags).field("NewNumberOfSectors", &self.NewNumberOfSectors).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SHRINK_VOLUME_INFORMATION {
@@ -12461,6 +14294,11 @@ impl ::core::marker::Copy for SI_COPYFILE {}
 impl ::core::clone::Clone for SI_COPYFILE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SI_COPYFILE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SI_COPYFILE").field("SourceFileNameLength", &self.SourceFileNameLength).field("DestinationFileNameLength", &self.DestinationFileNameLength).field("Flags", &self.Flags).field("FileNameBuffer", &self.FileNameBuffer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SI_COPYFILE {
@@ -12542,6 +14380,11 @@ impl ::core::clone::Clone for SMB_SHARE_FLUSH_AND_PURGE_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for SMB_SHARE_FLUSH_AND_PURGE_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SMB_SHARE_FLUSH_AND_PURGE_INPUT").field("Version", &self.Version).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SMB_SHARE_FLUSH_AND_PURGE_INPUT {
     type Abi = Self;
 }
@@ -12565,6 +14408,11 @@ impl ::core::marker::Copy for SMB_SHARE_FLUSH_AND_PURGE_OUTPUT {}
 impl ::core::clone::Clone for SMB_SHARE_FLUSH_AND_PURGE_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SMB_SHARE_FLUSH_AND_PURGE_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SMB_SHARE_FLUSH_AND_PURGE_OUTPUT").field("cEntriesPurged", &self.cEntriesPurged).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SMB_SHARE_FLUSH_AND_PURGE_OUTPUT {
@@ -12598,6 +14446,11 @@ impl ::core::clone::Clone for STARTING_LCN_INPUT_BUFFER {
         *self
     }
 }
+impl ::core::fmt::Debug for STARTING_LCN_INPUT_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STARTING_LCN_INPUT_BUFFER").field("StartingLcn", &self.StartingLcn).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STARTING_LCN_INPUT_BUFFER {
     type Abi = Self;
 }
@@ -12624,6 +14477,11 @@ impl ::core::clone::Clone for STARTING_LCN_INPUT_BUFFER_EX {
         *self
     }
 }
+impl ::core::fmt::Debug for STARTING_LCN_INPUT_BUFFER_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STARTING_LCN_INPUT_BUFFER_EX").field("StartingLcn", &self.StartingLcn).field("Flags", &self.Flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STARTING_LCN_INPUT_BUFFER_EX {
     type Abi = Self;
 }
@@ -12647,6 +14505,11 @@ impl ::core::marker::Copy for STARTING_VCN_INPUT_BUFFER {}
 impl ::core::clone::Clone for STARTING_VCN_INPUT_BUFFER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STARTING_VCN_INPUT_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STARTING_VCN_INPUT_BUFFER").field("StartingVcn", &self.StartingVcn).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STARTING_VCN_INPUT_BUFFER {
@@ -12678,6 +14541,11 @@ impl ::core::marker::Copy for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {}
 impl ::core::clone::Clone for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("BytesPerCacheLine", &self.BytesPerCacheLine).field("BytesOffsetForCacheAlignment", &self.BytesOffsetForCacheAlignment).field("BytesPerLogicalSector", &self.BytesPerLogicalSector).field("BytesPerPhysicalSector", &self.BytesPerPhysicalSector).field("BytesOffsetForSectorAlignment", &self.BytesOffsetForSectorAlignment).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
@@ -12722,6 +14590,27 @@ impl ::core::clone::Clone for STORAGE_ADAPTER_DESCRIPTOR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STORAGE_ADAPTER_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_ADAPTER_DESCRIPTOR")
+            .field("Version", &self.Version)
+            .field("Size", &self.Size)
+            .field("MaximumTransferLength", &self.MaximumTransferLength)
+            .field("MaximumPhysicalPages", &self.MaximumPhysicalPages)
+            .field("AlignmentMask", &self.AlignmentMask)
+            .field("AdapterUsesPio", &self.AdapterUsesPio)
+            .field("AdapterScansDown", &self.AdapterScansDown)
+            .field("CommandQueueing", &self.CommandQueueing)
+            .field("AcceleratedTransfer", &self.AcceleratedTransfer)
+            .field("BusType", &self.BusType)
+            .field("BusMajorVersion", &self.BusMajorVersion)
+            .field("BusMinorVersion", &self.BusMinorVersion)
+            .field("SrbType", &self.SrbType)
+            .field("AddressType", &self.AddressType)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STORAGE_ADAPTER_DESCRIPTOR {
     type Abi = Self;
 }
@@ -12750,6 +14639,11 @@ impl ::core::marker::Copy for STORAGE_ADAPTER_SERIAL_NUMBER {}
 impl ::core::clone::Clone for STORAGE_ADAPTER_SERIAL_NUMBER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_ADAPTER_SERIAL_NUMBER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_ADAPTER_SERIAL_NUMBER").field("Version", &self.Version).field("Size", &self.Size).field("SerialNumber", &self.SerialNumber).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_ADAPTER_SERIAL_NUMBER {
@@ -12792,6 +14686,12 @@ impl ::core::clone::Clone for STORAGE_ALLOCATE_BC_STREAM_INPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STORAGE_ALLOCATE_BC_STREAM_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_ALLOCATE_BC_STREAM_INPUT").field("Version", &self.Version).field("RequestsPerPeriod", &self.RequestsPerPeriod).field("Period", &self.Period).field("RetryFailures", &self.RetryFailures).field("Discardable", &self.Discardable).field("Reserved1", &self.Reserved1).field("AccessType", &self.AccessType).field("AccessMode", &self.AccessMode).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STORAGE_ALLOCATE_BC_STREAM_INPUT {
     type Abi = Self;
 }
@@ -12819,6 +14719,11 @@ impl ::core::marker::Copy for STORAGE_ALLOCATE_BC_STREAM_OUTPUT {}
 impl ::core::clone::Clone for STORAGE_ALLOCATE_BC_STREAM_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_ALLOCATE_BC_STREAM_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_ALLOCATE_BC_STREAM_OUTPUT").field("RequestSize", &self.RequestSize).field("NumOutStandingRequests", &self.NumOutStandingRequests).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_ALLOCATE_BC_STREAM_OUTPUT {
@@ -12865,6 +14770,11 @@ impl ::core::clone::Clone for STORAGE_ATTRIBUTE_MGMT {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_ATTRIBUTE_MGMT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_ATTRIBUTE_MGMT").field("Version", &self.Version).field("Size", &self.Size).field("Action", &self.Action).field("Attribute", &self.Attribute).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_ATTRIBUTE_MGMT {
     type Abi = Self;
 }
@@ -12906,6 +14816,11 @@ impl ::core::clone::Clone for STORAGE_BREAK_RESERVATION_REQUEST {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_BREAK_RESERVATION_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_BREAK_RESERVATION_REQUEST").field("Length", &self.Length).field("_unused", &self._unused).field("PathId", &self.PathId).field("TargetId", &self.TargetId).field("Lun", &self.Lun).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_BREAK_RESERVATION_REQUEST {
     type Abi = Self;
 }
@@ -12929,6 +14844,11 @@ impl ::core::marker::Copy for STORAGE_BUS_RESET_REQUEST {}
 impl ::core::clone::Clone for STORAGE_BUS_RESET_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_BUS_RESET_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_BUS_RESET_REQUEST").field("PathId", &self.PathId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_BUS_RESET_REQUEST {
@@ -13027,6 +14947,11 @@ impl ::core::marker::Copy for STORAGE_COUNTER_0_0 {}
 impl ::core::clone::Clone for STORAGE_COUNTER_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_COUNTER_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_COUNTER_0_0").field("Week", &self.Week).field("Year", &self.Year).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_COUNTER_0_0 {
@@ -13147,6 +15072,11 @@ impl ::core::clone::Clone for STORAGE_CRYPTO_CAPABILITY {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_CRYPTO_CAPABILITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_CRYPTO_CAPABILITY").field("Version", &self.Version).field("Size", &self.Size).field("CryptoCapabilityIndex", &self.CryptoCapabilityIndex).field("AlgorithmId", &self.AlgorithmId).field("KeySize", &self.KeySize).field("DataUnitSizeBitmask", &self.DataUnitSizeBitmask).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_CRYPTO_CAPABILITY {
     type Abi = Self;
 }
@@ -13176,6 +15106,11 @@ impl ::core::marker::Copy for STORAGE_CRYPTO_DESCRIPTOR {}
 impl ::core::clone::Clone for STORAGE_CRYPTO_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_CRYPTO_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_CRYPTO_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("NumKeysSupported", &self.NumKeysSupported).field("NumCryptoCapabilities", &self.NumCryptoCapabilities).field("CryptoCapabilities", &self.CryptoCapabilities).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_CRYPTO_DESCRIPTOR {
@@ -13218,6 +15153,11 @@ impl ::core::clone::Clone for STORAGE_DESCRIPTOR_HEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_DESCRIPTOR_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_DESCRIPTOR_HEADER").field("Version", &self.Version).field("Size", &self.Size).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_DESCRIPTOR_HEADER {
     type Abi = Self;
 }
@@ -13243,6 +15183,11 @@ impl ::core::marker::Copy for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {}
 impl ::core::clone::Clone for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("Attributes", &self.Attributes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
@@ -13286,6 +15231,26 @@ impl ::core::clone::Clone for STORAGE_DEVICE_DESCRIPTOR {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+impl ::core::fmt::Debug for STORAGE_DEVICE_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_DEVICE_DESCRIPTOR")
+            .field("Version", &self.Version)
+            .field("Size", &self.Size)
+            .field("DeviceType", &self.DeviceType)
+            .field("DeviceTypeModifier", &self.DeviceTypeModifier)
+            .field("RemovableMedia", &self.RemovableMedia)
+            .field("CommandQueueing", &self.CommandQueueing)
+            .field("VendorIdOffset", &self.VendorIdOffset)
+            .field("ProductIdOffset", &self.ProductIdOffset)
+            .field("ProductRevisionOffset", &self.ProductRevisionOffset)
+            .field("SerialNumberOffset", &self.SerialNumberOffset)
+            .field("BusType", &self.BusType)
+            .field("RawPropertiesLength", &self.RawPropertiesLength)
+            .field("RawDeviceProperties", &self.RawDeviceProperties)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::core::Abi for STORAGE_DEVICE_DESCRIPTOR {
     type Abi = Self;
 }
@@ -13315,6 +15280,11 @@ impl ::core::marker::Copy for STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {}
 impl ::core::clone::Clone for STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("NumberOfFaultDomains", &self.NumberOfFaultDomains).field("FaultDomainIds", &self.FaultDomainIds).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
@@ -13375,6 +15345,11 @@ impl ::core::clone::Clone for STORAGE_DEVICE_ID_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_DEVICE_ID_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_DEVICE_ID_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("NumberOfIdentifiers", &self.NumberOfIdentifiers).field("Identifiers", &self.Identifiers).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_DEVICE_ID_DESCRIPTOR {
     type Abi = Self;
 }
@@ -13403,6 +15378,11 @@ impl ::core::clone::Clone for STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("LunMaxIoCount", &self.LunMaxIoCount).field("AdapterMaxIoCount", &self.AdapterMaxIoCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
     type Abi = Self;
 }
@@ -13428,6 +15408,11 @@ impl ::core::marker::Copy for STORAGE_DEVICE_LED_STATE_DESCRIPTOR {}
 impl ::core::clone::Clone for STORAGE_DEVICE_LED_STATE_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_DEVICE_LED_STATE_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_DEVICE_LED_STATE_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("State", &self.State).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_DEVICE_LED_STATE_DESCRIPTOR {
@@ -13520,6 +15505,11 @@ impl ::core::clone::Clone for STORAGE_DEVICE_NUMA_PROPERTY {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_DEVICE_NUMA_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_DEVICE_NUMA_PROPERTY").field("Version", &self.Version).field("Size", &self.Size).field("NumaNode", &self.NumaNode).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_DEVICE_NUMA_PROPERTY {
     type Abi = Self;
 }
@@ -13545,6 +15535,11 @@ impl ::core::marker::Copy for STORAGE_DEVICE_NUMBER {}
 impl ::core::clone::Clone for STORAGE_DEVICE_NUMBER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_DEVICE_NUMBER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_DEVICE_NUMBER").field("DeviceType", &self.DeviceType).field("DeviceNumber", &self.DeviceNumber).field("PartitionNumber", &self.PartitionNumber).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_DEVICE_NUMBER {
@@ -13573,6 +15568,11 @@ impl ::core::marker::Copy for STORAGE_DEVICE_NUMBERS {}
 impl ::core::clone::Clone for STORAGE_DEVICE_NUMBERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_DEVICE_NUMBERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_DEVICE_NUMBERS").field("Version", &self.Version).field("Size", &self.Size).field("NumberOfDevices", &self.NumberOfDevices).field("Devices", &self.Devices).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_DEVICE_NUMBERS {
@@ -13606,6 +15606,11 @@ impl ::core::clone::Clone for STORAGE_DEVICE_NUMBER_EX {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_DEVICE_NUMBER_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_DEVICE_NUMBER_EX").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("DeviceType", &self.DeviceType).field("DeviceNumber", &self.DeviceNumber).field("DeviceGuid", &self.DeviceGuid).field("PartitionNumber", &self.PartitionNumber).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_DEVICE_NUMBER_EX {
     type Abi = Self;
 }
@@ -13632,6 +15637,11 @@ impl ::core::marker::Copy for STORAGE_DEVICE_POWER_CAP {}
 impl ::core::clone::Clone for STORAGE_DEVICE_POWER_CAP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_DEVICE_POWER_CAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_DEVICE_POWER_CAP").field("Version", &self.Version).field("Size", &self.Size).field("Units", &self.Units).field("MaxPower", &self.MaxPower).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_DEVICE_POWER_CAP {
@@ -13674,6 +15684,11 @@ impl ::core::clone::Clone for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_DEVICE_RESILIENCY_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("NameOffset", &self.NameOffset).field("NumberOfLogicalCopies", &self.NumberOfLogicalCopies).field("NumberOfPhysicalCopies", &self.NumberOfPhysicalCopies).field("PhysicalDiskRedundancy", &self.PhysicalDiskRedundancy).field("NumberOfColumns", &self.NumberOfColumns).field("Interleave", &self.Interleave).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
     type Abi = Self;
 }
@@ -13702,6 +15717,12 @@ impl ::core::marker::Copy for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {}
 impl ::core::clone::Clone for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY").field("Version", &self.Version).field("Size", &self.Size).field("SupportsSelfEncryption", &self.SupportsSelfEncryption).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13738,6 +15759,11 @@ impl ::core::clone::Clone for STORAGE_DEVICE_TIERING_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_DEVICE_TIERING_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_DEVICE_TIERING_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("TotalNumberOfTiers", &self.TotalNumberOfTiers).field("NumberOfTiersReturned", &self.NumberOfTiersReturned).field("Tiers", &self.Tiers).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_DEVICE_TIERING_DESCRIPTOR {
     type Abi = Self;
 }
@@ -13763,6 +15789,11 @@ impl ::core::marker::Copy for STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT {}
 impl ::core::clone::Clone for STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT").field("Version", &self.Version).field("Size", &self.Size).field("UnsafeShutdownCount", &self.UnsafeShutdownCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT {
@@ -13793,6 +15824,11 @@ impl ::core::marker::Copy for STORAGE_DIAGNOSTIC_DATA {}
 impl ::core::clone::Clone for STORAGE_DIAGNOSTIC_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_DIAGNOSTIC_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_DIAGNOSTIC_DATA").field("Version", &self.Version).field("Size", &self.Size).field("ProviderId", &self.ProviderId).field("BufferSize", &self.BufferSize).field("Reserved", &self.Reserved).field("DiagnosticDataBuffer", &self.DiagnosticDataBuffer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_DIAGNOSTIC_DATA {
@@ -13830,6 +15866,11 @@ impl ::core::marker::Copy for STORAGE_DIAGNOSTIC_REQUEST {}
 impl ::core::clone::Clone for STORAGE_DIAGNOSTIC_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_DIAGNOSTIC_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_DIAGNOSTIC_REQUEST").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("TargetType", &self.TargetType).field("Level", &self.Level).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_DIAGNOSTIC_REQUEST {
@@ -13909,6 +15950,11 @@ impl ::core::clone::Clone for STORAGE_EVENT_NOTIFICATION {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_EVENT_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_EVENT_NOTIFICATION").field("Version", &self.Version).field("Size", &self.Size).field("Events", &self.Events).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_EVENT_NOTIFICATION {
     type Abi = Self;
 }
@@ -13941,6 +15987,12 @@ impl ::core::marker::Copy for STORAGE_FAILURE_PREDICTION_CONFIG {}
 impl ::core::clone::Clone for STORAGE_FAILURE_PREDICTION_CONFIG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STORAGE_FAILURE_PREDICTION_CONFIG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_FAILURE_PREDICTION_CONFIG").field("Version", &self.Version).field("Size", &self.Size).field("Set", &self.Set).field("Enabled", &self.Enabled).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13977,6 +16029,11 @@ impl ::core::clone::Clone for STORAGE_FRU_ID_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_FRU_ID_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_FRU_ID_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("IdentifierSize", &self.IdentifierSize).field("Identifier", &self.Identifier).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_FRU_ID_DESCRIPTOR {
     type Abi = Self;
 }
@@ -14005,6 +16062,11 @@ impl ::core::marker::Copy for STORAGE_GET_BC_PROPERTIES_OUTPUT {}
 impl ::core::clone::Clone for STORAGE_GET_BC_PROPERTIES_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_GET_BC_PROPERTIES_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_GET_BC_PROPERTIES_OUTPUT").field("MaximumRequestsPerPeriod", &self.MaximumRequestsPerPeriod).field("MinimumPeriod", &self.MinimumPeriod).field("MaximumRequestSize", &self.MaximumRequestSize).field("EstimatedTimePerRequest", &self.EstimatedTimePerRequest).field("NumOutStandingRequests", &self.NumOutStandingRequests).field("RequestSize", &self.RequestSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_GET_BC_PROPERTIES_OUTPUT {
@@ -14040,6 +16102,12 @@ impl ::core::clone::Clone for STORAGE_HOTPLUG_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STORAGE_HOTPLUG_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_HOTPLUG_INFO").field("Size", &self.Size).field("MediaRemovable", &self.MediaRemovable).field("MediaHotplug", &self.MediaHotplug).field("DeviceHotplug", &self.DeviceHotplug).field("WriteCacheEnableOverride", &self.WriteCacheEnableOverride).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STORAGE_HOTPLUG_INFO {
     type Abi = Self;
 }
@@ -14068,6 +16136,11 @@ impl ::core::marker::Copy for STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR {}
 impl ::core::clone::Clone for STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("EnduranceInfo", &self.EnduranceInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR {
@@ -14100,6 +16173,11 @@ impl ::core::clone::Clone for STORAGE_HW_ENDURANCE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_HW_ENDURANCE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_HW_ENDURANCE_INFO").field("ValidFields", &self.ValidFields).field("GroupId", &self.GroupId).field("Flags", &self.Flags).field("LifePercentage", &self.LifePercentage).field("BytesReadCount", &self.BytesReadCount).field("ByteWriteCount", &self.ByteWriteCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_HW_ENDURANCE_INFO {
     type Abi = Self;
 }
@@ -14123,6 +16201,11 @@ impl ::core::marker::Copy for STORAGE_HW_ENDURANCE_INFO_0 {}
 impl ::core::clone::Clone for STORAGE_HW_ENDURANCE_INFO_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_HW_ENDURANCE_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_HW_ENDURANCE_INFO_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_HW_ENDURANCE_INFO_0 {
@@ -14152,6 +16235,11 @@ impl ::core::marker::Copy for STORAGE_HW_FIRMWARE_ACTIVATE {}
 impl ::core::clone::Clone for STORAGE_HW_FIRMWARE_ACTIVATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_HW_FIRMWARE_ACTIVATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_HW_FIRMWARE_ACTIVATE").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("Slot", &self.Slot).field("Reserved0", &self.Reserved0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_HW_FIRMWARE_ACTIVATE {
@@ -14186,6 +16274,11 @@ impl ::core::clone::Clone for STORAGE_HW_FIRMWARE_DOWNLOAD {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_HW_FIRMWARE_DOWNLOAD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_HW_FIRMWARE_DOWNLOAD").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("Slot", &self.Slot).field("Reserved", &self.Reserved).field("Offset", &self.Offset).field("BufferSize", &self.BufferSize).field("ImageBuffer", &self.ImageBuffer).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_HW_FIRMWARE_DOWNLOAD {
     type Abi = Self;
 }
@@ -14218,6 +16311,11 @@ impl ::core::marker::Copy for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {}
 impl ::core::clone::Clone for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_HW_FIRMWARE_DOWNLOAD_V2").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("Slot", &self.Slot).field("Reserved", &self.Reserved).field("Offset", &self.Offset).field("BufferSize", &self.BufferSize).field("ImageSize", &self.ImageSize).field("Reserved2", &self.Reserved2).field("ImageBuffer", &self.ImageBuffer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
@@ -14259,6 +16357,24 @@ impl ::core::clone::Clone for STORAGE_HW_FIRMWARE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STORAGE_HW_FIRMWARE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_HW_FIRMWARE_INFO")
+            .field("Version", &self.Version)
+            .field("Size", &self.Size)
+            .field("_bitfield", &self._bitfield)
+            .field("SlotCount", &self.SlotCount)
+            .field("ActiveSlot", &self.ActiveSlot)
+            .field("PendingActivateSlot", &self.PendingActivateSlot)
+            .field("FirmwareShared", &self.FirmwareShared)
+            .field("Reserved", &self.Reserved)
+            .field("ImagePayloadAlignment", &self.ImagePayloadAlignment)
+            .field("ImagePayloadMaxSize", &self.ImagePayloadMaxSize)
+            .field("Slot", &self.Slot)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STORAGE_HW_FIRMWARE_INFO {
     type Abi = Self;
 }
@@ -14288,6 +16404,11 @@ impl ::core::marker::Copy for STORAGE_HW_FIRMWARE_INFO_QUERY {}
 impl ::core::clone::Clone for STORAGE_HW_FIRMWARE_INFO_QUERY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_HW_FIRMWARE_INFO_QUERY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_HW_FIRMWARE_INFO_QUERY").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_HW_FIRMWARE_INFO_QUERY {
@@ -14332,6 +16453,11 @@ impl ::core::clone::Clone for STORAGE_HW_FIRMWARE_SLOT_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_HW_FIRMWARE_SLOT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_HW_FIRMWARE_SLOT_INFO").field("Version", &self.Version).field("Size", &self.Size).field("SlotNumber", &self.SlotNumber).field("_bitfield", &self._bitfield).field("Reserved1", &self.Reserved1).field("Revision", &self.Revision).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_HW_FIRMWARE_SLOT_INFO {
     type Abi = Self;
 }
@@ -14360,6 +16486,11 @@ impl ::core::marker::Copy for STORAGE_IDENTIFIER {}
 impl ::core::clone::Clone for STORAGE_IDENTIFIER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_IDENTIFIER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_IDENTIFIER").field("CodeSet", &self.CodeSet).field("Type", &self.Type).field("IdentifierSize", &self.IdentifierSize).field("NextOffset", &self.NextOffset).field("Association", &self.Association).field("Identifier", &self.Identifier).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_IDENTIFIER {
@@ -14420,6 +16551,11 @@ impl ::core::clone::Clone for STORAGE_IDLE_POWER {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_IDLE_POWER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_IDLE_POWER").field("Version", &self.Version).field("Size", &self.Size).field("_bitfield", &self._bitfield).field("D3IdleTimeout", &self.D3IdleTimeout).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_IDLE_POWER {
     type Abi = Self;
 }
@@ -14445,6 +16581,11 @@ impl ::core::marker::Copy for STORAGE_IDLE_POWERUP_REASON {}
 impl ::core::clone::Clone for STORAGE_IDLE_POWERUP_REASON {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_IDLE_POWERUP_REASON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_IDLE_POWERUP_REASON").field("Version", &self.Version).field("Size", &self.Size).field("PowerupReason", &self.PowerupReason).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_IDLE_POWERUP_REASON {
@@ -14489,6 +16630,11 @@ impl ::core::clone::Clone for STORAGE_LB_PROVISIONING_MAP_RESOURCES {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_LB_PROVISIONING_MAP_RESOURCES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_LB_PROVISIONING_MAP_RESOURCES").field("Size", &self.Size).field("Version", &self.Version).field("_bitfield1", &self._bitfield1).field("Reserved1", &self.Reserved1).field("_bitfield2", &self._bitfield2).field("Reserved3", &self.Reserved3).field("AvailableMappingResources", &self.AvailableMappingResources).field("UsedMappingResources", &self.UsedMappingResources).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_LB_PROVISIONING_MAP_RESOURCES {
     type Abi = Self;
 }
@@ -14514,6 +16660,11 @@ impl ::core::marker::Copy for STORAGE_MEDIA_SERIAL_NUMBER_DATA {}
 impl ::core::clone::Clone for STORAGE_MEDIA_SERIAL_NUMBER_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_MEDIA_SERIAL_NUMBER_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_MEDIA_SERIAL_NUMBER_DATA").field("Reserved", &self.Reserved).field("SerialNumberLength", &self.SerialNumberLength).field("SerialNumber", &self.SerialNumber).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_MEDIA_SERIAL_NUMBER_DATA {
@@ -14671,6 +16822,11 @@ impl ::core::clone::Clone for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("MediumProductType", &self.MediumProductType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
     type Abi = Self;
 }
@@ -14771,6 +16927,12 @@ impl ::core::marker::Copy for STORAGE_MINIPORT_DESCRIPTOR_0_0 {}
 impl ::core::clone::Clone for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_MINIPORT_DESCRIPTOR_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14889,6 +17051,11 @@ impl ::core::clone::Clone for STORAGE_OFFLOAD_TOKEN_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_OFFLOAD_TOKEN_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_OFFLOAD_TOKEN_0_0").field("Reserved2", &self.Reserved2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_OFFLOAD_TOKEN_0_0 {
     type Abi = Self;
 }
@@ -14920,6 +17087,11 @@ impl ::core::marker::Copy for STORAGE_OFFLOAD_WRITE_OUTPUT {}
 impl ::core::clone::Clone for STORAGE_OFFLOAD_WRITE_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_OFFLOAD_WRITE_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_OFFLOAD_WRITE_OUTPUT").field("OffloadWriteFlags", &self.OffloadWriteFlags).field("Reserved", &self.Reserved).field("LengthCopied", &self.LengthCopied).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_OFFLOAD_WRITE_OUTPUT {
@@ -15006,6 +17178,11 @@ impl ::core::clone::Clone for STORAGE_OPERATIONAL_REASON_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_OPERATIONAL_REASON_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_OPERATIONAL_REASON_0_0").field("CriticalHealth", &self.CriticalHealth).field("ModuleHealth", &self.ModuleHealth).field("ErrorThresholdStatus", &self.ErrorThresholdStatus).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_OPERATIONAL_REASON_0_0 {
     type Abi = Self;
 }
@@ -15032,6 +17209,11 @@ impl ::core::marker::Copy for STORAGE_OPERATIONAL_REASON_0_1 {}
 impl ::core::clone::Clone for STORAGE_OPERATIONAL_REASON_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_OPERATIONAL_REASON_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_OPERATIONAL_REASON_0_1").field("SenseKey", &self.SenseKey).field("ASC", &self.ASC).field("ASCQ", &self.ASCQ).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_OPERATIONAL_REASON_0_1 {
@@ -15188,6 +17370,11 @@ impl ::core::clone::Clone for STORAGE_PHYSICAL_NODE_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_PHYSICAL_NODE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_PHYSICAL_NODE_DATA").field("NodeId", &self.NodeId).field("AdapterCount", &self.AdapterCount).field("AdapterDataLength", &self.AdapterDataLength).field("AdapterDataOffset", &self.AdapterDataOffset).field("DeviceCount", &self.DeviceCount).field("DeviceDataLength", &self.DeviceDataLength).field("DeviceDataOffset", &self.DeviceDataOffset).field("Reserved", &self.Reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_PHYSICAL_NODE_DATA {
     type Abi = Self;
 }
@@ -15215,6 +17402,11 @@ impl ::core::marker::Copy for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {}
 impl ::core::clone::Clone for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("NodeCount", &self.NodeCount).field("Reserved", &self.Reserved).field("Node", &self.Node).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
@@ -15269,6 +17461,11 @@ impl ::core::clone::Clone for STORAGE_PREDICT_FAILURE {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_PREDICT_FAILURE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_PREDICT_FAILURE").field("PredictFailure", &self.PredictFailure).field("VendorSpecific", &self.VendorSpecific).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_PREDICT_FAILURE {
     type Abi = Self;
 }
@@ -15292,6 +17489,11 @@ impl ::core::marker::Copy for STORAGE_PRIORITY_HINT_SUPPORT {}
 impl ::core::clone::Clone for STORAGE_PRIORITY_HINT_SUPPORT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_PRIORITY_HINT_SUPPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_PRIORITY_HINT_SUPPORT").field("SupportFlags", &self.SupportFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_PRIORITY_HINT_SUPPORT {
@@ -15397,6 +17599,11 @@ impl ::core::clone::Clone for STORAGE_PROPERTY_QUERY {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_PROPERTY_QUERY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_PROPERTY_QUERY").field("PropertyId", &self.PropertyId).field("QueryType", &self.QueryType).field("AdditionalParameters", &self.AdditionalParameters).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_PROPERTY_QUERY {
     type Abi = Self;
 }
@@ -15422,6 +17629,11 @@ impl ::core::marker::Copy for STORAGE_PROPERTY_SET {}
 impl ::core::clone::Clone for STORAGE_PROPERTY_SET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_PROPERTY_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_PROPERTY_SET").field("PropertyId", &self.PropertyId).field("SetType", &self.SetType).field("AdditionalParameters", &self.AdditionalParameters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_PROPERTY_SET {
@@ -15475,6 +17687,31 @@ impl ::core::clone::Clone for STORAGE_PROTOCOL_COMMAND {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_PROTOCOL_COMMAND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_PROTOCOL_COMMAND")
+            .field("Version", &self.Version)
+            .field("Length", &self.Length)
+            .field("ProtocolType", &self.ProtocolType)
+            .field("Flags", &self.Flags)
+            .field("ReturnStatus", &self.ReturnStatus)
+            .field("ErrorCode", &self.ErrorCode)
+            .field("CommandLength", &self.CommandLength)
+            .field("ErrorInfoLength", &self.ErrorInfoLength)
+            .field("DataToDeviceTransferLength", &self.DataToDeviceTransferLength)
+            .field("DataFromDeviceTransferLength", &self.DataFromDeviceTransferLength)
+            .field("TimeOutValue", &self.TimeOutValue)
+            .field("ErrorInfoOffset", &self.ErrorInfoOffset)
+            .field("DataToDeviceBufferOffset", &self.DataToDeviceBufferOffset)
+            .field("DataFromDeviceBufferOffset", &self.DataFromDeviceBufferOffset)
+            .field("CommandSpecific", &self.CommandSpecific)
+            .field("Reserved0", &self.Reserved0)
+            .field("FixedProtocolReturnData", &self.FixedProtocolReturnData)
+            .field("Reserved1", &self.Reserved1)
+            .field("Command", &self.Command)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_PROTOCOL_COMMAND {
     type Abi = Self;
 }
@@ -15506,6 +17743,11 @@ impl ::core::clone::Clone for STORAGE_PROTOCOL_DATA_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_PROTOCOL_DATA_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_PROTOCOL_DATA_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("ProtocolSpecificData", &self.ProtocolSpecificData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_PROTOCOL_DATA_DESCRIPTOR {
     type Abi = Self;
 }
@@ -15531,6 +17773,11 @@ impl ::core::marker::Copy for STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT {}
 impl ::core::clone::Clone for STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT").field("Version", &self.Version).field("Size", &self.Size).field("ProtocolSpecificData", &self.ProtocolSpecificData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT {
@@ -15584,6 +17831,11 @@ impl ::core::clone::Clone for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 {
     type Abi = Self;
 }
@@ -15628,6 +17880,22 @@ impl ::core::clone::Clone for STORAGE_PROTOCOL_SPECIFIC_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_PROTOCOL_SPECIFIC_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_PROTOCOL_SPECIFIC_DATA")
+            .field("ProtocolType", &self.ProtocolType)
+            .field("DataType", &self.DataType)
+            .field("ProtocolDataRequestValue", &self.ProtocolDataRequestValue)
+            .field("ProtocolDataRequestSubValue", &self.ProtocolDataRequestSubValue)
+            .field("ProtocolDataOffset", &self.ProtocolDataOffset)
+            .field("ProtocolDataLength", &self.ProtocolDataLength)
+            .field("FixedProtocolReturnData", &self.FixedProtocolReturnData)
+            .field("ProtocolDataRequestSubValue2", &self.ProtocolDataRequestSubValue2)
+            .field("ProtocolDataRequestSubValue3", &self.ProtocolDataRequestSubValue3)
+            .field("ProtocolDataRequestSubValue4", &self.ProtocolDataRequestSubValue4)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_PROTOCOL_SPECIFIC_DATA {
     type Abi = Self;
 }
@@ -15662,6 +17930,24 @@ impl ::core::marker::Copy for STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {}
 impl ::core::clone::Clone for STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_PROTOCOL_SPECIFIC_DATA_EXT")
+            .field("ProtocolType", &self.ProtocolType)
+            .field("DataType", &self.DataType)
+            .field("ProtocolDataValue", &self.ProtocolDataValue)
+            .field("ProtocolDataSubValue", &self.ProtocolDataSubValue)
+            .field("ProtocolDataOffset", &self.ProtocolDataOffset)
+            .field("ProtocolDataLength", &self.ProtocolDataLength)
+            .field("FixedProtocolReturnData", &self.FixedProtocolReturnData)
+            .field("ProtocolDataSubValue2", &self.ProtocolDataSubValue2)
+            .field("ProtocolDataSubValue3", &self.ProtocolDataSubValue3)
+            .field("ProtocolDataSubValue4", &self.ProtocolDataSubValue4)
+            .field("ProtocolDataSubValue5", &self.ProtocolDataSubValue5)
+            .field("Reserved", &self.Reserved)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {
@@ -15756,6 +18042,12 @@ impl ::core::clone::Clone for STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Storage_Vhd")]
+impl ::core::fmt::Debug for STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY").field("EntryLength", &self.EntryLength).field("DependencyTypeFlags", &self.DependencyTypeFlags).field("ProviderSpecificFlags", &self.ProviderSpecificFlags).field("VirtualStorageType", &self.VirtualStorageType).finish()
+    }
+}
+#[cfg(feature = "Win32_Storage_Vhd")]
 unsafe impl ::windows::core::Abi for STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY {
     type Abi = Self;
 }
@@ -15800,6 +18092,26 @@ impl ::core::clone::Clone for STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Storage_Vhd")]
+impl ::core::fmt::Debug for STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY")
+            .field("EntryLength", &self.EntryLength)
+            .field("DependencyTypeFlags", &self.DependencyTypeFlags)
+            .field("ProviderSpecificFlags", &self.ProviderSpecificFlags)
+            .field("VirtualStorageType", &self.VirtualStorageType)
+            .field("AncestorLevel", &self.AncestorLevel)
+            .field("HostVolumeNameOffset", &self.HostVolumeNameOffset)
+            .field("HostVolumeNameSize", &self.HostVolumeNameSize)
+            .field("DependentVolumeNameOffset", &self.DependentVolumeNameOffset)
+            .field("DependentVolumeNameSize", &self.DependentVolumeNameSize)
+            .field("RelativePathOffset", &self.RelativePathOffset)
+            .field("RelativePathSize", &self.RelativePathSize)
+            .field("DependentDeviceNameOffset", &self.DependentDeviceNameOffset)
+            .field("DependentDeviceNameSize", &self.DependentDeviceNameSize)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Storage_Vhd")]
 unsafe impl ::windows::core::Abi for STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY {
     type Abi = Self;
 }
@@ -15827,6 +18139,11 @@ impl ::core::marker::Copy for STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST {}
 impl ::core::clone::Clone for STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST").field("RequestLevel", &self.RequestLevel).field("RequestFlags", &self.RequestFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST {
@@ -15935,6 +18252,11 @@ impl ::core::clone::Clone for STORAGE_READ_CAPACITY {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_READ_CAPACITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_READ_CAPACITY").field("Version", &self.Version).field("Size", &self.Size).field("BlockLength", &self.BlockLength).field("NumberOfBlocks", &self.NumberOfBlocks).field("DiskLength", &self.DiskLength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_READ_CAPACITY {
     type Abi = Self;
 }
@@ -15963,6 +18285,11 @@ impl ::core::clone::Clone for STORAGE_REINITIALIZE_MEDIA {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_REINITIALIZE_MEDIA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_REINITIALIZE_MEDIA").field("Version", &self.Version).field("Size", &self.Size).field("TimeoutInSeconds", &self.TimeoutInSeconds).field("SanitizeOption", &self.SanitizeOption).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_REINITIALIZE_MEDIA {
     type Abi = Self;
 }
@@ -15986,6 +18313,11 @@ impl ::core::marker::Copy for STORAGE_REINITIALIZE_MEDIA_0 {}
 impl ::core::clone::Clone for STORAGE_REINITIALIZE_MEDIA_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_REINITIALIZE_MEDIA_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_REINITIALIZE_MEDIA_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_REINITIALIZE_MEDIA_0 {
@@ -16049,6 +18381,11 @@ impl ::core::clone::Clone for STORAGE_RPMB_DATA_FRAME {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_RPMB_DATA_FRAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_RPMB_DATA_FRAME").field("Stuff", &self.Stuff).field("KeyOrMAC", &self.KeyOrMAC).field("Data", &self.Data).field("Nonce", &self.Nonce).field("WriteCounter", &self.WriteCounter).field("Address", &self.Address).field("BlockCount", &self.BlockCount).field("OperationResult", &self.OperationResult).field("RequestOrResponseType", &self.RequestOrResponseType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_RPMB_DATA_FRAME {
     type Abi = Self;
 }
@@ -16076,6 +18413,11 @@ impl ::core::marker::Copy for STORAGE_RPMB_DESCRIPTOR {}
 impl ::core::clone::Clone for STORAGE_RPMB_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_RPMB_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_RPMB_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("SizeInBytes", &self.SizeInBytes).field("MaxReliableWriteSizeInBytes", &self.MaxReliableWriteSizeInBytes).field("FrameFormat", &self.FrameFormat).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_RPMB_DESCRIPTOR {
@@ -16210,6 +18552,11 @@ impl ::core::clone::Clone for STORAGE_SPEC_VERSION_0_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_SPEC_VERSION_0_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_SPEC_VERSION_0_0_0").field("SubMinor", &self.SubMinor).field("Minor", &self.Minor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_SPEC_VERSION_0_0_0 {
     type Abi = Self;
 }
@@ -16247,6 +18594,12 @@ impl ::core::marker::Copy for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {}
 impl ::core::clone::Clone for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_TEMPERATURE_DATA_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("CriticalTemperature", &self.CriticalTemperature).field("WarningTemperature", &self.WarningTemperature).field("InfoCount", &self.InfoCount).field("Reserved0", &self.Reserved0).field("Reserved1", &self.Reserved1).field("TemperatureInfo", &self.TemperatureInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16290,6 +18643,12 @@ impl ::core::clone::Clone for STORAGE_TEMPERATURE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STORAGE_TEMPERATURE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_TEMPERATURE_INFO").field("Index", &self.Index).field("Temperature", &self.Temperature).field("OverThreshold", &self.OverThreshold).field("UnderThreshold", &self.UnderThreshold).field("OverThresholdChangable", &self.OverThresholdChangable).field("UnderThresholdChangable", &self.UnderThresholdChangable).field("EventGenerated", &self.EventGenerated).field("Reserved0", &self.Reserved0).field("Reserved1", &self.Reserved1).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STORAGE_TEMPERATURE_INFO {
     type Abi = Self;
 }
@@ -16325,6 +18684,12 @@ impl ::core::marker::Copy for STORAGE_TEMPERATURE_THRESHOLD {}
 impl ::core::clone::Clone for STORAGE_TEMPERATURE_THRESHOLD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STORAGE_TEMPERATURE_THRESHOLD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_TEMPERATURE_THRESHOLD").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("Index", &self.Index).field("Threshold", &self.Threshold).field("OverThreshold", &self.OverThreshold).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16364,6 +18729,11 @@ impl ::core::marker::Copy for STORAGE_TIER {}
 impl ::core::clone::Clone for STORAGE_TIER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_TIER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_TIER").field("Id", &self.Id).field("Name", &self.Name).field("Description", &self.Description).field("Flags", &self.Flags).field("ProvisionedCapacity", &self.ProvisionedCapacity).field("MediaType", &self.MediaType).field("Class", &self.Class).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_TIER {
@@ -16429,6 +18799,11 @@ impl ::core::clone::Clone for STORAGE_TIER_REGION {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_TIER_REGION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_TIER_REGION").field("TierId", &self.TierId).field("Offset", &self.Offset).field("Length", &self.Length).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_TIER_REGION {
     type Abi = Self;
 }
@@ -16463,6 +18838,22 @@ impl ::core::marker::Copy for STORAGE_WRITE_CACHE_PROPERTY {}
 impl ::core::clone::Clone for STORAGE_WRITE_CACHE_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STORAGE_WRITE_CACHE_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_WRITE_CACHE_PROPERTY")
+            .field("Version", &self.Version)
+            .field("Size", &self.Size)
+            .field("WriteCacheType", &self.WriteCacheType)
+            .field("WriteCacheEnabled", &self.WriteCacheEnabled)
+            .field("WriteCacheChangeable", &self.WriteCacheChangeable)
+            .field("WriteThroughSupported", &self.WriteThroughSupported)
+            .field("FlushCacheSupported", &self.FlushCacheSupported)
+            .field("UserDefinedPowerProtection", &self.UserDefinedPowerProtection)
+            .field("NVCacheEnabled", &self.NVCacheEnabled)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16570,6 +18961,12 @@ impl ::core::clone::Clone for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0").field("OptimalOpenZoneCount", &self.OptimalOpenZoneCount).field("Reserved", &self.Reserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
@@ -16601,6 +18998,12 @@ impl ::core::marker::Copy for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {}
 impl ::core::clone::Clone for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1").field("MaxOpenZoneCount", &self.MaxOpenZoneCount).field("UnrestrictedRead", &self.UnrestrictedRead).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16680,6 +19083,12 @@ impl ::core::clone::Clone for STORAGE_ZONE_DESCRIPTOR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STORAGE_ZONE_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_ZONE_DESCRIPTOR").field("Size", &self.Size).field("ZoneType", &self.ZoneType).field("ZoneCondition", &self.ZoneCondition).field("ResetWritePointerRecommend", &self.ResetWritePointerRecommend).field("Reserved0", &self.Reserved0).field("ZoneSize", &self.ZoneSize).field("WritePointerOffset", &self.WritePointerOffset).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STORAGE_ZONE_DESCRIPTOR {
     type Abi = Self;
 }
@@ -16708,6 +19117,11 @@ impl ::core::marker::Copy for STORAGE_ZONE_GROUP {}
 impl ::core::clone::Clone for STORAGE_ZONE_GROUP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_ZONE_GROUP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_ZONE_GROUP").field("ZoneCount", &self.ZoneCount).field("ZoneType", &self.ZoneType).field("ZoneSize", &self.ZoneSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_ZONE_GROUP {
@@ -16754,6 +19168,11 @@ impl ::core::clone::Clone for STREAMS_ASSOCIATE_ID_INPUT_BUFFER {
         *self
     }
 }
+impl ::core::fmt::Debug for STREAMS_ASSOCIATE_ID_INPUT_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STREAMS_ASSOCIATE_ID_INPUT_BUFFER").field("Flags", &self.Flags).field("StreamId", &self.StreamId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STREAMS_ASSOCIATE_ID_INPUT_BUFFER {
     type Abi = Self;
 }
@@ -16785,6 +19204,11 @@ impl ::core::clone::Clone for STREAMS_QUERY_ID_OUTPUT_BUFFER {
         *self
     }
 }
+impl ::core::fmt::Debug for STREAMS_QUERY_ID_OUTPUT_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STREAMS_QUERY_ID_OUTPUT_BUFFER").field("StreamId", &self.StreamId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STREAMS_QUERY_ID_OUTPUT_BUFFER {
     type Abi = Self;
 }
@@ -16811,6 +19235,11 @@ impl ::core::marker::Copy for STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER {}
 impl ::core::clone::Clone for STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER").field("OptimalWriteSize", &self.OptimalWriteSize).field("StreamGranularitySize", &self.StreamGranularitySize).field("StreamIdMin", &self.StreamIdMin).field("StreamIdMax", &self.StreamIdMax).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER {
@@ -16953,6 +19382,11 @@ impl ::core::clone::Clone for STREAM_INFORMATION_ENTRY_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for STREAM_INFORMATION_ENTRY_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STREAM_INFORMATION_ENTRY_0_0").field("Length", &self.Length).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Vdl", &self.Vdl).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STREAM_INFORMATION_ENTRY_0_0 {
     type Abi = Self;
 }
@@ -16977,6 +19411,11 @@ impl ::core::marker::Copy for STREAM_INFORMATION_ENTRY_0_1 {}
 impl ::core::clone::Clone for STREAM_INFORMATION_ENTRY_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STREAM_INFORMATION_ENTRY_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STREAM_INFORMATION_ENTRY_0_1").field("Class", &self.Class).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STREAM_INFORMATION_ENTRY_0_1 {
@@ -17007,6 +19446,11 @@ impl ::core::clone::Clone for STREAM_INFORMATION_ENTRY_0_2 {
         *self
     }
 }
+impl ::core::fmt::Debug for STREAM_INFORMATION_ENTRY_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STREAM_INFORMATION_ENTRY_0_2").field("Length", &self.Length).field("Flags", &self.Flags).field("EaSize", &self.EaSize).field("EaInformationOffset", &self.EaInformationOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STREAM_INFORMATION_ENTRY_0_2 {
     type Abi = Self;
 }
@@ -17033,6 +19477,11 @@ impl ::core::marker::Copy for STREAM_INFORMATION_ENTRY_0_3 {}
 impl ::core::clone::Clone for STREAM_INFORMATION_ENTRY_0_3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STREAM_INFORMATION_ENTRY_0_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STREAM_INFORMATION_ENTRY_0_3").field("Length", &self.Length).field("Flags", &self.Flags).field("ReparseDataSize", &self.ReparseDataSize).field("ReparseDataOffset", &self.ReparseDataOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STREAM_INFORMATION_ENTRY_0_3 {
@@ -17070,6 +19519,23 @@ impl ::core::clone::Clone for STREAM_LAYOUT_ENTRY {
         *self
     }
 }
+impl ::core::fmt::Debug for STREAM_LAYOUT_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STREAM_LAYOUT_ENTRY")
+            .field("Version", &self.Version)
+            .field("NextStreamOffset", &self.NextStreamOffset)
+            .field("Flags", &self.Flags)
+            .field("ExtentInformationOffset", &self.ExtentInformationOffset)
+            .field("AllocationSize", &self.AllocationSize)
+            .field("EndOfFile", &self.EndOfFile)
+            .field("StreamInformationOffset", &self.StreamInformationOffset)
+            .field("AttributeTypeCode", &self.AttributeTypeCode)
+            .field("AttributeFlags", &self.AttributeFlags)
+            .field("StreamIdentifierLength", &self.StreamIdentifierLength)
+            .field("StreamIdentifier", &self.StreamIdentifier)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STREAM_LAYOUT_ENTRY {
     type Abi = Self;
 }
@@ -17105,6 +19571,11 @@ impl ::core::marker::Copy for TAPE_GET_STATISTICS {}
 impl ::core::clone::Clone for TAPE_GET_STATISTICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TAPE_GET_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TAPE_GET_STATISTICS").field("Operation", &self.Operation).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TAPE_GET_STATISTICS {
@@ -17145,6 +19616,11 @@ impl ::core::clone::Clone for TAPE_STATISTICS {
         *self
     }
 }
+impl ::core::fmt::Debug for TAPE_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TAPE_STATISTICS").field("Version", &self.Version).field("Flags", &self.Flags).field("RecoveredWrites", &self.RecoveredWrites).field("UnrecoveredWrites", &self.UnrecoveredWrites).field("RecoveredReads", &self.RecoveredReads).field("UnrecoveredReads", &self.UnrecoveredReads).field("CompressionRatioReads", &self.CompressionRatioReads).field("CompressionRatioWrites", &self.CompressionRatioWrites).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TAPE_STATISTICS {
     type Abi = Self;
 }
@@ -17183,6 +19659,11 @@ impl ::core::clone::Clone for TXFS_CREATE_MINIVERSION_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for TXFS_CREATE_MINIVERSION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TXFS_CREATE_MINIVERSION_INFO").field("StructureVersion", &self.StructureVersion).field("StructureLength", &self.StructureLength).field("BaseVersion", &self.BaseVersion).field("MiniVersion", &self.MiniVersion).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TXFS_CREATE_MINIVERSION_INFO {
     type Abi = Self;
 }
@@ -17211,6 +19692,11 @@ impl ::core::clone::Clone for TXFS_GET_METADATA_INFO_OUT {
         *self
     }
 }
+impl ::core::fmt::Debug for TXFS_GET_METADATA_INFO_OUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TXFS_GET_METADATA_INFO_OUT").field("TxfFileId", &self.TxfFileId).field("LockingTransaction", &self.LockingTransaction).field("LastLsn", &self.LastLsn).field("TransactionState", &self.TransactionState).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TXFS_GET_METADATA_INFO_OUT {
     type Abi = Self;
 }
@@ -17235,6 +19721,11 @@ impl ::core::marker::Copy for TXFS_GET_METADATA_INFO_OUT_0 {}
 impl ::core::clone::Clone for TXFS_GET_METADATA_INFO_OUT_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TXFS_GET_METADATA_INFO_OUT_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TXFS_GET_METADATA_INFO_OUT_0").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TXFS_GET_METADATA_INFO_OUT_0 {
@@ -17266,6 +19757,11 @@ impl ::core::clone::Clone for TXFS_GET_TRANSACTED_VERSION {
         *self
     }
 }
+impl ::core::fmt::Debug for TXFS_GET_TRANSACTED_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TXFS_GET_TRANSACTED_VERSION").field("ThisBaseVersion", &self.ThisBaseVersion).field("LatestVersion", &self.LatestVersion).field("ThisMiniVersion", &self.ThisMiniVersion).field("FirstMiniVersion", &self.FirstMiniVersion).field("LatestMiniVersion", &self.LatestMiniVersion).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TXFS_GET_TRANSACTED_VERSION {
     type Abi = Self;
 }
@@ -17290,6 +19786,11 @@ impl ::core::marker::Copy for TXFS_LIST_TRANSACTIONS {}
 impl ::core::clone::Clone for TXFS_LIST_TRANSACTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TXFS_LIST_TRANSACTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TXFS_LIST_TRANSACTIONS").field("NumberOfTransactions", &self.NumberOfTransactions).field("BufferSizeRequired", &self.BufferSizeRequired).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TXFS_LIST_TRANSACTIONS {
@@ -17321,6 +19822,11 @@ impl ::core::clone::Clone for TXFS_LIST_TRANSACTIONS_ENTRY {
         *self
     }
 }
+impl ::core::fmt::Debug for TXFS_LIST_TRANSACTIONS_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TXFS_LIST_TRANSACTIONS_ENTRY").field("TransactionId", &self.TransactionId).field("TransactionState", &self.TransactionState).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TXFS_LIST_TRANSACTIONS_ENTRY {
     type Abi = Self;
 }
@@ -17347,6 +19853,11 @@ impl ::core::marker::Copy for TXFS_LIST_TRANSACTION_LOCKED_FILES {}
 impl ::core::clone::Clone for TXFS_LIST_TRANSACTION_LOCKED_FILES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TXFS_LIST_TRANSACTION_LOCKED_FILES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TXFS_LIST_TRANSACTION_LOCKED_FILES").field("KtmTransaction", &self.KtmTransaction).field("NumberOfFiles", &self.NumberOfFiles).field("BufferSizeRequired", &self.BufferSizeRequired).field("Offset", &self.Offset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TXFS_LIST_TRANSACTION_LOCKED_FILES {
@@ -17378,6 +19889,11 @@ impl ::core::marker::Copy for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {}
 impl ::core::clone::Clone for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY").field("Offset", &self.Offset).field("NameFlags", &self.NameFlags).field("FileId", &self.FileId).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("FileName", &self.FileName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
@@ -17418,6 +19934,11 @@ impl ::core::marker::Copy for TXFS_MODIFY_RM {}
 impl ::core::clone::Clone for TXFS_MODIFY_RM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TXFS_MODIFY_RM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TXFS_MODIFY_RM").field("Flags", &self.Flags).field("LogContainerCountMax", &self.LogContainerCountMax).field("LogContainerCountMin", &self.LogContainerCountMin).field("LogContainerCount", &self.LogContainerCount).field("LogGrowthIncrement", &self.LogGrowthIncrement).field("LogAutoShrinkPercentage", &self.LogAutoShrinkPercentage).field("Reserved", &self.Reserved).field("LoggingMode", &self.LoggingMode).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TXFS_MODIFY_RM {
@@ -17468,6 +19989,38 @@ impl ::core::marker::Copy for TXFS_QUERY_RM_INFORMATION {}
 impl ::core::clone::Clone for TXFS_QUERY_RM_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TXFS_QUERY_RM_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TXFS_QUERY_RM_INFORMATION")
+            .field("BytesRequired", &self.BytesRequired)
+            .field("TailLsn", &self.TailLsn)
+            .field("CurrentLsn", &self.CurrentLsn)
+            .field("ArchiveTailLsn", &self.ArchiveTailLsn)
+            .field("LogContainerSize", &self.LogContainerSize)
+            .field("HighestVirtualClock", &self.HighestVirtualClock)
+            .field("LogContainerCount", &self.LogContainerCount)
+            .field("LogContainerCountMax", &self.LogContainerCountMax)
+            .field("LogContainerCountMin", &self.LogContainerCountMin)
+            .field("LogGrowthIncrement", &self.LogGrowthIncrement)
+            .field("LogAutoShrinkPercentage", &self.LogAutoShrinkPercentage)
+            .field("Flags", &self.Flags)
+            .field("LoggingMode", &self.LoggingMode)
+            .field("Reserved", &self.Reserved)
+            .field("RmState", &self.RmState)
+            .field("LogCapacity", &self.LogCapacity)
+            .field("LogFree", &self.LogFree)
+            .field("TopsSize", &self.TopsSize)
+            .field("TopsUsed", &self.TopsUsed)
+            .field("TransactionCount", &self.TransactionCount)
+            .field("OnePCCount", &self.OnePCCount)
+            .field("TwoPCCount", &self.TwoPCCount)
+            .field("NumberLogFileFull", &self.NumberLogFileFull)
+            .field("OldestTransactionAge", &self.OldestTransactionAge)
+            .field("RMName", &self.RMName)
+            .field("TmLogPathOffset", &self.TmLogPathOffset)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for TXFS_QUERY_RM_INFORMATION {
@@ -17597,6 +20150,11 @@ impl ::core::clone::Clone for TXFS_ROLLFORWARD_REDO_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for TXFS_ROLLFORWARD_REDO_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TXFS_ROLLFORWARD_REDO_INFORMATION").field("LastVirtualClock", &self.LastVirtualClock).field("LastRedoLsn", &self.LastRedoLsn).field("HighestRecoveryLsn", &self.HighestRecoveryLsn).field("Flags", &self.Flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TXFS_ROLLFORWARD_REDO_INFORMATION {
     type Abi = Self;
 }
@@ -17629,6 +20187,12 @@ impl ::core::marker::Copy for TXFS_SAVEPOINT_INFORMATION {}
 impl ::core::clone::Clone for TXFS_SAVEPOINT_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TXFS_SAVEPOINT_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TXFS_SAVEPOINT_INFORMATION").field("KtmTransaction", &self.KtmTransaction).field("ActionCode", &self.ActionCode).field("SavepointId", &self.SavepointId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17701,6 +20265,24 @@ impl ::core::clone::Clone for TXFS_START_RM_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for TXFS_START_RM_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TXFS_START_RM_INFORMATION")
+            .field("Flags", &self.Flags)
+            .field("LogContainerSize", &self.LogContainerSize)
+            .field("LogContainerCountMin", &self.LogContainerCountMin)
+            .field("LogContainerCountMax", &self.LogContainerCountMax)
+            .field("LogGrowthIncrement", &self.LogGrowthIncrement)
+            .field("LogAutoShrinkPercentage", &self.LogAutoShrinkPercentage)
+            .field("TmLogPathOffset", &self.TmLogPathOffset)
+            .field("TmLogPathLength", &self.TmLogPathLength)
+            .field("LoggingMode", &self.LoggingMode)
+            .field("LogPathLength", &self.LogPathLength)
+            .field("Reserved", &self.Reserved)
+            .field("LogPath", &self.LogPath)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TXFS_START_RM_INFORMATION {
     type Abi = Self;
 }
@@ -17731,6 +20313,12 @@ impl ::core::marker::Copy for TXFS_TRANSACTION_ACTIVE_INFO {}
 impl ::core::clone::Clone for TXFS_TRANSACTION_ACTIVE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TXFS_TRANSACTION_ACTIVE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TXFS_TRANSACTION_ACTIVE_INFO").field("TransactionsActiveAtSnapshot", &self.TransactionsActiveAtSnapshot).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17768,6 +20356,11 @@ impl ::core::marker::Copy for TXFS_WRITE_BACKUP_INFORMATION {}
 impl ::core::clone::Clone for TXFS_WRITE_BACKUP_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TXFS_WRITE_BACKUP_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TXFS_WRITE_BACKUP_INFORMATION").field("Buffer", &self.Buffer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TXFS_WRITE_BACKUP_INFORMATION {
@@ -17819,6 +20412,11 @@ impl ::core::clone::Clone for USN_JOURNAL_DATA_V0 {
         *self
     }
 }
+impl ::core::fmt::Debug for USN_JOURNAL_DATA_V0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USN_JOURNAL_DATA_V0").field("UsnJournalID", &self.UsnJournalID).field("FirstUsn", &self.FirstUsn).field("NextUsn", &self.NextUsn).field("LowestValidUsn", &self.LowestValidUsn).field("MaxUsn", &self.MaxUsn).field("MaximumSize", &self.MaximumSize).field("AllocationDelta", &self.AllocationDelta).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USN_JOURNAL_DATA_V0 {
     type Abi = Self;
 }
@@ -17850,6 +20448,11 @@ impl ::core::marker::Copy for USN_JOURNAL_DATA_V1 {}
 impl ::core::clone::Clone for USN_JOURNAL_DATA_V1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USN_JOURNAL_DATA_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USN_JOURNAL_DATA_V1").field("UsnJournalID", &self.UsnJournalID).field("FirstUsn", &self.FirstUsn).field("NextUsn", &self.NextUsn).field("LowestValidUsn", &self.LowestValidUsn).field("MaxUsn", &self.MaxUsn).field("MaximumSize", &self.MaximumSize).field("AllocationDelta", &self.AllocationDelta).field("MinSupportedMajorVersion", &self.MinSupportedMajorVersion).field("MaxSupportedMajorVersion", &self.MaxSupportedMajorVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USN_JOURNAL_DATA_V1 {
@@ -17888,6 +20491,24 @@ impl ::core::clone::Clone for USN_JOURNAL_DATA_V2 {
         *self
     }
 }
+impl ::core::fmt::Debug for USN_JOURNAL_DATA_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USN_JOURNAL_DATA_V2")
+            .field("UsnJournalID", &self.UsnJournalID)
+            .field("FirstUsn", &self.FirstUsn)
+            .field("NextUsn", &self.NextUsn)
+            .field("LowestValidUsn", &self.LowestValidUsn)
+            .field("MaxUsn", &self.MaxUsn)
+            .field("MaximumSize", &self.MaximumSize)
+            .field("AllocationDelta", &self.AllocationDelta)
+            .field("MinSupportedMajorVersion", &self.MinSupportedMajorVersion)
+            .field("MaxSupportedMajorVersion", &self.MaxSupportedMajorVersion)
+            .field("Flags", &self.Flags)
+            .field("RangeTrackChunkSize", &self.RangeTrackChunkSize)
+            .field("RangeTrackFileSizeThreshold", &self.RangeTrackFileSizeThreshold)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USN_JOURNAL_DATA_V2 {
     type Abi = Self;
 }
@@ -17913,6 +20534,11 @@ impl ::core::marker::Copy for USN_RANGE_TRACK_OUTPUT {}
 impl ::core::clone::Clone for USN_RANGE_TRACK_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USN_RANGE_TRACK_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USN_RANGE_TRACK_OUTPUT").field("Usn", &self.Usn).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USN_RANGE_TRACK_OUTPUT {
@@ -17990,6 +20616,11 @@ impl ::core::clone::Clone for USN_RECORD_COMMON_HEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for USN_RECORD_COMMON_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USN_RECORD_COMMON_HEADER").field("RecordLength", &self.RecordLength).field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USN_RECORD_COMMON_HEADER {
     type Abi = Self;
 }
@@ -18014,6 +20645,11 @@ impl ::core::marker::Copy for USN_RECORD_EXTENT {}
 impl ::core::clone::Clone for USN_RECORD_EXTENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USN_RECORD_EXTENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USN_RECORD_EXTENT").field("Offset", &self.Offset).field("Length", &self.Length).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USN_RECORD_EXTENT {
@@ -18089,6 +20725,26 @@ impl ::core::clone::Clone for USN_RECORD_V2 {
         *self
     }
 }
+impl ::core::fmt::Debug for USN_RECORD_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USN_RECORD_V2")
+            .field("RecordLength", &self.RecordLength)
+            .field("MajorVersion", &self.MajorVersion)
+            .field("MinorVersion", &self.MinorVersion)
+            .field("FileReferenceNumber", &self.FileReferenceNumber)
+            .field("ParentFileReferenceNumber", &self.ParentFileReferenceNumber)
+            .field("Usn", &self.Usn)
+            .field("TimeStamp", &self.TimeStamp)
+            .field("Reason", &self.Reason)
+            .field("SourceInfo", &self.SourceInfo)
+            .field("SecurityId", &self.SecurityId)
+            .field("FileAttributes", &self.FileAttributes)
+            .field("FileNameLength", &self.FileNameLength)
+            .field("FileNameOffset", &self.FileNameOffset)
+            .field("FileName", &self.FileName)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USN_RECORD_V2 {
     type Abi = Self;
 }
@@ -18128,6 +20784,27 @@ impl ::core::marker::Copy for USN_RECORD_V3 {}
 impl ::core::clone::Clone for USN_RECORD_V3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl ::core::fmt::Debug for USN_RECORD_V3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USN_RECORD_V3")
+            .field("RecordLength", &self.RecordLength)
+            .field("MajorVersion", &self.MajorVersion)
+            .field("MinorVersion", &self.MinorVersion)
+            .field("FileReferenceNumber", &self.FileReferenceNumber)
+            .field("ParentFileReferenceNumber", &self.ParentFileReferenceNumber)
+            .field("Usn", &self.Usn)
+            .field("TimeStamp", &self.TimeStamp)
+            .field("Reason", &self.Reason)
+            .field("SourceInfo", &self.SourceInfo)
+            .field("SecurityId", &self.SecurityId)
+            .field("FileAttributes", &self.FileAttributes)
+            .field("FileNameLength", &self.FileNameLength)
+            .field("FileNameOffset", &self.FileNameOffset)
+            .field("FileName", &self.FileName)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -18172,6 +20849,12 @@ impl ::core::clone::Clone for USN_RECORD_V4 {
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
+impl ::core::fmt::Debug for USN_RECORD_V4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USN_RECORD_V4").field("Header", &self.Header).field("FileReferenceNumber", &self.FileReferenceNumber).field("ParentFileReferenceNumber", &self.ParentFileReferenceNumber).field("Usn", &self.Usn).field("Reason", &self.Reason).field("SourceInfo", &self.SourceInfo).field("RemainingExtents", &self.RemainingExtents).field("NumberOfExtents", &self.NumberOfExtents).field("ExtentSize", &self.ExtentSize).field("Extents", &self.Extents).finish()
+    }
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 unsafe impl ::windows::core::Abi for USN_RECORD_V4 {
     type Abi = Self;
 }
@@ -18213,6 +20896,11 @@ impl ::core::clone::Clone for USN_TRACK_MODIFIED_RANGES {
         *self
     }
 }
+impl ::core::fmt::Debug for USN_TRACK_MODIFIED_RANGES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USN_TRACK_MODIFIED_RANGES").field("Flags", &self.Flags).field("Unused", &self.Unused).field("ChunkSize", &self.ChunkSize).field("FileSizeThreshold", &self.FileSizeThreshold).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USN_TRACK_MODIFIED_RANGES {
     type Abi = Self;
 }
@@ -18243,6 +20931,11 @@ impl ::core::clone::Clone for VERIFY_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for VERIFY_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VERIFY_INFORMATION").field("StartingOffset", &self.StartingOffset).field("Length", &self.Length).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VERIFY_INFORMATION {
     type Abi = Self;
 }
@@ -18267,6 +20960,11 @@ impl ::core::marker::Copy for VIRTUALIZATION_INSTANCE_INFO_INPUT {}
 impl ::core::clone::Clone for VIRTUALIZATION_INSTANCE_INFO_INPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VIRTUALIZATION_INSTANCE_INFO_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VIRTUALIZATION_INSTANCE_INFO_INPUT").field("NumberOfWorkerThreads", &self.NumberOfWorkerThreads).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VIRTUALIZATION_INSTANCE_INFO_INPUT {
@@ -18298,6 +20996,11 @@ impl ::core::clone::Clone for VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
         *self
     }
 }
+impl ::core::fmt::Debug for VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VIRTUALIZATION_INSTANCE_INFO_INPUT_EX").field("HeaderSize", &self.HeaderSize).field("Flags", &self.Flags).field("NotificationInfoSize", &self.NotificationInfoSize).field("NotificationInfoOffset", &self.NotificationInfoOffset).field("ProviderMajorVersion", &self.ProviderMajorVersion).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
     type Abi = Self;
 }
@@ -18321,6 +21024,11 @@ impl ::core::marker::Copy for VIRTUALIZATION_INSTANCE_INFO_OUTPUT {}
 impl ::core::clone::Clone for VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VIRTUALIZATION_INSTANCE_INFO_OUTPUT").field("VirtualizationInstanceID", &self.VirtualizationInstanceID).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
@@ -18361,6 +21069,11 @@ impl ::core::clone::Clone for VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT").field("Size", &self.Size).field("BehaviorCode", &self.BehaviorCode).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
     type Abi = Self;
 }
@@ -18386,6 +21099,11 @@ impl ::core::marker::Copy for VOLUME_BITMAP_BUFFER {}
 impl ::core::clone::Clone for VOLUME_BITMAP_BUFFER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VOLUME_BITMAP_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VOLUME_BITMAP_BUFFER").field("StartingLcn", &self.StartingLcn).field("BitmapSize", &self.BitmapSize).field("Buffer", &self.Buffer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VOLUME_BITMAP_BUFFER {
@@ -18414,6 +21132,11 @@ impl ::core::clone::Clone for VOLUME_DISK_EXTENTS {
         *self
     }
 }
+impl ::core::fmt::Debug for VOLUME_DISK_EXTENTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VOLUME_DISK_EXTENTS").field("NumberOfDiskExtents", &self.NumberOfDiskExtents).field("Extents", &self.Extents).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VOLUME_DISK_EXTENTS {
     type Abi = Self;
 }
@@ -18437,6 +21160,11 @@ impl ::core::marker::Copy for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {}
 impl ::core::clone::Clone for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VOLUME_GET_GPT_ATTRIBUTES_INFORMATION").field("GptAttributes", &self.GptAttributes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
@@ -18473,6 +21201,11 @@ impl ::core::clone::Clone for WIM_PROVIDER_ADD_OVERLAY_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for WIM_PROVIDER_ADD_OVERLAY_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIM_PROVIDER_ADD_OVERLAY_INPUT").field("WimType", &self.WimType).field("WimIndex", &self.WimIndex).field("WimFileNameOffset", &self.WimFileNameOffset).field("WimFileNameLength", &self.WimFileNameLength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WIM_PROVIDER_ADD_OVERLAY_INPUT {
     type Abi = Self;
 }
@@ -18507,6 +21240,11 @@ impl ::core::clone::Clone for WIM_PROVIDER_EXTERNAL_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for WIM_PROVIDER_EXTERNAL_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIM_PROVIDER_EXTERNAL_INFO").field("Version", &self.Version).field("Flags", &self.Flags).field("DataSourceId", &self.DataSourceId).field("ResourceHash", &self.ResourceHash).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WIM_PROVIDER_EXTERNAL_INFO {
     type Abi = Self;
 }
@@ -18538,6 +21276,11 @@ impl ::core::clone::Clone for WIM_PROVIDER_OVERLAY_ENTRY {
         *self
     }
 }
+impl ::core::fmt::Debug for WIM_PROVIDER_OVERLAY_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIM_PROVIDER_OVERLAY_ENTRY").field("NextEntryOffset", &self.NextEntryOffset).field("DataSourceId", &self.DataSourceId).field("WimGuid", &self.WimGuid).field("WimFileNameOffset", &self.WimFileNameOffset).field("WimType", &self.WimType).field("WimIndex", &self.WimIndex).field("Flags", &self.Flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WIM_PROVIDER_OVERLAY_ENTRY {
     type Abi = Self;
 }
@@ -18561,6 +21304,11 @@ impl ::core::marker::Copy for WIM_PROVIDER_REMOVE_OVERLAY_INPUT {}
 impl ::core::clone::Clone for WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIM_PROVIDER_REMOVE_OVERLAY_INPUT").field("DataSourceId", &self.DataSourceId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
@@ -18588,6 +21336,11 @@ impl ::core::clone::Clone for WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIM_PROVIDER_SUSPEND_OVERLAY_INPUT").field("DataSourceId", &self.DataSourceId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
     type Abi = Self;
 }
@@ -18613,6 +21366,11 @@ impl ::core::marker::Copy for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {}
 impl ::core::clone::Clone for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIM_PROVIDER_UPDATE_OVERLAY_INPUT").field("DataSourceId", &self.DataSourceId).field("WimFileNameOffset", &self.WimFileNameOffset).field("WimFileNameLength", &self.WimFileNameLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
@@ -18646,6 +21404,12 @@ impl ::core::clone::Clone for WOF_EXTERNAL_FILE_ID {
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
+impl ::core::fmt::Debug for WOF_EXTERNAL_FILE_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WOF_EXTERNAL_FILE_ID").field("FileId", &self.FileId).finish()
+    }
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 unsafe impl ::windows::core::Abi for WOF_EXTERNAL_FILE_ID {
     type Abi = Self;
 }
@@ -18675,6 +21439,11 @@ impl ::core::clone::Clone for WOF_EXTERNAL_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for WOF_EXTERNAL_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WOF_EXTERNAL_INFO").field("Version", &self.Version).field("Provider", &self.Provider).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WOF_EXTERNAL_INFO {
     type Abi = Self;
 }
@@ -18700,6 +21469,11 @@ impl ::core::marker::Copy for WOF_VERSION_INFO {}
 impl ::core::clone::Clone for WOF_VERSION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WOF_VERSION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WOF_VERSION_INFO").field("WofVersion", &self.WofVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WOF_VERSION_INFO {
@@ -18762,6 +21536,11 @@ impl ::core::marker::Copy for WRITE_USN_REASON_INPUT {}
 impl ::core::clone::Clone for WRITE_USN_REASON_INPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WRITE_USN_REASON_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WRITE_USN_REASON_INPUT").field("Flags", &self.Flags).field("UsnReasonToWrite", &self.UsnReasonToWrite).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WRITE_USN_REASON_INPUT {

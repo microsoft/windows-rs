@@ -71,6 +71,11 @@ impl ::core::cmp::PartialEq for IGeometrySource2DInterop {
     }
 }
 impl ::core::cmp::Eq for IGeometrySource2DInterop {}
+impl ::core::fmt::Debug for IGeometrySource2DInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGeometrySource2DInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGeometrySource2DInterop {
     type Vtable = IGeometrySource2DInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0657af73_53fd_47cf_84ff_c8492d2a80a3);
@@ -154,6 +159,11 @@ impl ::core::cmp::PartialEq for IGraphicsEffectD2D1Interop {
     }
 }
 impl ::core::cmp::Eq for IGraphicsEffectD2D1Interop {}
+impl ::core::fmt::Debug for IGraphicsEffectD2D1Interop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGraphicsEffectD2D1Interop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGraphicsEffectD2D1Interop {
     type Vtable = IGraphicsEffectD2D1InteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fc57384_a068_44d7_a331_30982fcf7177);

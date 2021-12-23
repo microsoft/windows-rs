@@ -72,6 +72,11 @@ impl ::core::cmp::PartialEq for IADesktopP2 {
     }
 }
 impl ::core::cmp::Eq for IADesktopP2 {}
+impl ::core::fmt::Debug for IADesktopP2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IADesktopP2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IADesktopP2 {
     type Vtable = IADesktopP2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb22754e2_4574_11d1_9888_006097deacf9);
@@ -142,6 +147,11 @@ impl ::core::cmp::PartialEq for IActiveDesktopP {
     }
 }
 impl ::core::cmp::Eq for IActiveDesktopP {}
+impl ::core::fmt::Debug for IActiveDesktopP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IActiveDesktopP").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IActiveDesktopP {
     type Vtable = IActiveDesktopPVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52502ee0_ec80_11d0_89ab_00c04fc2972d);
@@ -200,6 +210,11 @@ impl ::core::cmp::PartialEq for IBriefcaseInitiator {
     }
 }
 impl ::core::cmp::Eq for IBriefcaseInitiator {}
+impl ::core::fmt::Debug for IBriefcaseInitiator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBriefcaseInitiator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBriefcaseInitiator {
     type Vtable = IBriefcaseInitiatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99180164_da16_101a_935c_444553540000);
@@ -272,6 +287,11 @@ impl ::core::cmp::PartialEq for IEmptyVolumeCache {
     }
 }
 impl ::core::cmp::Eq for IEmptyVolumeCache {}
+impl ::core::fmt::Debug for IEmptyVolumeCache {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEmptyVolumeCache").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEmptyVolumeCache {
     type Vtable = IEmptyVolumeCacheVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fce5227_04da_11d1_a004_00805f8abe06);
@@ -374,6 +394,11 @@ impl ::core::cmp::PartialEq for IEmptyVolumeCache2 {
     }
 }
 impl ::core::cmp::Eq for IEmptyVolumeCache2 {}
+impl ::core::fmt::Debug for IEmptyVolumeCache2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEmptyVolumeCache2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEmptyVolumeCache2 {
     type Vtable = IEmptyVolumeCache2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02b7e3ba_4db3_11d2_b2d9_00c04f8eec8c);
@@ -440,6 +465,11 @@ impl ::core::cmp::PartialEq for IEmptyVolumeCacheCallBack {
     }
 }
 impl ::core::cmp::Eq for IEmptyVolumeCacheCallBack {}
+impl ::core::fmt::Debug for IEmptyVolumeCacheCallBack {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEmptyVolumeCacheCallBack").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEmptyVolumeCacheCallBack {
     type Vtable = IEmptyVolumeCacheCallBackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e793361_73c6_11d0_8469_00aa00442901);
@@ -501,6 +531,11 @@ impl ::core::cmp::PartialEq for IReconcilableObject {
     }
 }
 impl ::core::cmp::Eq for IReconcilableObject {}
+impl ::core::fmt::Debug for IReconcilableObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IReconcilableObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IReconcilableObject {
     type Vtable = IReconcilableObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99180162_da16_101a_935c_444553540000);
@@ -559,6 +594,11 @@ impl ::core::cmp::PartialEq for IReconcileInitiator {
     }
 }
 impl ::core::cmp::Eq for IReconcileInitiator {}
+impl ::core::fmt::Debug for IReconcileInitiator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IReconcileInitiator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IReconcileInitiator {
     type Vtable = IReconcileInitiatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99180161_da16_101a_935c_444553540000);

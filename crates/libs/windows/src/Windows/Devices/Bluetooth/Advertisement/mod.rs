@@ -95,6 +95,11 @@ impl ::core::cmp::PartialEq for BluetoothLEAdvertisement {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEAdvertisement {}
+impl ::core::fmt::Debug for BluetoothLEAdvertisement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAdvertisement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisement;{066fb2b7-33d1-4e7d-8367-cf81d0f79653})");
 }
@@ -224,6 +229,11 @@ impl ::core::cmp::PartialEq for BluetoothLEAdvertisementBytePattern {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEAdvertisementBytePattern {}
+impl ::core::fmt::Debug for BluetoothLEAdvertisementBytePattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAdvertisementBytePattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementBytePattern {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern;{fbfad7f2-b9c5-4a08-bc51-502f8ef68a79})");
 }
@@ -340,6 +350,11 @@ impl ::core::cmp::PartialEq for BluetoothLEAdvertisementDataSection {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEAdvertisementDataSection {}
+impl ::core::fmt::Debug for BluetoothLEAdvertisementDataSection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAdvertisementDataSection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementDataSection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection;{d7213314-3a43-40f9-b6f0-92bfefc34ae3})");
 }
@@ -603,6 +618,11 @@ impl ::core::cmp::PartialEq for BluetoothLEAdvertisementFilter {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEAdvertisementFilter {}
+impl ::core::fmt::Debug for BluetoothLEAdvertisementFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAdvertisementFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementFilter;{131eb0d3-d04e-47b1-837e-49405bf6f80f})");
 }
@@ -681,6 +701,11 @@ impl ::core::cmp::PartialEq for BluetoothLEAdvertisementFlags {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEAdvertisementFlags {}
+impl ::core::fmt::Debug for BluetoothLEAdvertisementFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAdvertisementFlags").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementFlags {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementFlags;u4)");
 }
@@ -817,6 +842,11 @@ impl ::core::cmp::PartialEq for BluetoothLEAdvertisementPublisher {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEAdvertisementPublisher {}
+impl ::core::fmt::Debug for BluetoothLEAdvertisementPublisher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAdvertisementPublisher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementPublisher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisher;{cde820f9-d9fa-43d6-a264-ddd8b7da8b78})");
 }
@@ -895,6 +925,11 @@ impl ::core::cmp::PartialEq for BluetoothLEAdvertisementPublisherStatus {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEAdvertisementPublisherStatus {}
+impl ::core::fmt::Debug for BluetoothLEAdvertisementPublisherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAdvertisementPublisherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementPublisherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisherStatus;i4)");
 }
@@ -942,6 +977,11 @@ impl ::core::cmp::PartialEq for BluetoothLEAdvertisementPublisherStatusChangedEv
     }
 }
 impl ::core::cmp::Eq for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {}
+impl ::core::fmt::Debug for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAdvertisementPublisherStatusChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisherStatusChangedEventArgs;{09c2bd9f-2dff-4b23-86ee-0d14fb94aeae})");
 }
@@ -1108,6 +1148,11 @@ impl ::core::cmp::PartialEq for BluetoothLEAdvertisementReceivedEventArgs {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEAdvertisementReceivedEventArgs {}
+impl ::core::fmt::Debug for BluetoothLEAdvertisementReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAdvertisementReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementReceivedEventArgs;{27987ddf-e596-41be-8d43-9e6731d4a913})");
 }
@@ -1186,6 +1231,11 @@ impl ::core::cmp::PartialEq for BluetoothLEAdvertisementType {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEAdvertisementType {}
+impl ::core::fmt::Debug for BluetoothLEAdvertisementType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAdvertisementType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementType;i4)");
 }
@@ -1363,6 +1413,11 @@ impl ::core::cmp::PartialEq for BluetoothLEAdvertisementWatcher {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEAdvertisementWatcher {}
+impl ::core::fmt::Debug for BluetoothLEAdvertisementWatcher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAdvertisementWatcher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcher;{a6ac336f-f3d3-4297-8d6c-c81ea6623f40})");
 }
@@ -1440,6 +1495,11 @@ impl ::core::cmp::PartialEq for BluetoothLEAdvertisementWatcherStatus {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEAdvertisementWatcherStatus {}
+impl ::core::fmt::Debug for BluetoothLEAdvertisementWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAdvertisementWatcherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcherStatus;i4)");
 }
@@ -1470,6 +1530,11 @@ impl ::core::cmp::PartialEq for BluetoothLEAdvertisementWatcherStoppedEventArgs 
     }
 }
 impl ::core::cmp::Eq for BluetoothLEAdvertisementWatcherStoppedEventArgs {}
+impl ::core::fmt::Debug for BluetoothLEAdvertisementWatcherStoppedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAdvertisementWatcherStoppedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementWatcherStoppedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcherStoppedEventArgs;{dd40f84d-e7b9-43e3-9c04-0685d085fd8c})");
 }
@@ -1586,6 +1651,11 @@ impl ::core::cmp::PartialEq for BluetoothLEManufacturerData {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEManufacturerData {}
+impl ::core::fmt::Debug for BluetoothLEManufacturerData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEManufacturerData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEManufacturerData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData;{912dba18-6963-4533-b061-4694dafb34e5})");
 }
@@ -1661,6 +1731,11 @@ impl ::core::cmp::PartialEq for BluetoothLEScanningMode {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEScanningMode {}
+impl ::core::fmt::Debug for BluetoothLEScanningMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEScanningMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEScanningMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEScanningMode;i4)");
 }

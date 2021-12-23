@@ -60,6 +60,11 @@ impl ::core::cmp::PartialEq for IComponentConnector {
     }
 }
 impl ::core::cmp::Eq for IComponentConnector {}
+impl ::core::fmt::Debug for IComponentConnector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IComponentConnector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IComponentConnector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f6790987-e6e5-47f2-92c6-eccce4ba159a}");
 }
@@ -142,6 +147,11 @@ impl ::core::cmp::PartialEq for IComponentConnector2 {
     }
 }
 impl ::core::cmp::Eq for IComponentConnector2 {}
+impl ::core::fmt::Debug for IComponentConnector2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IComponentConnector2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IComponentConnector2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{dc8f368b-eccc-498e-b139-91142254d7ae}");
 }
@@ -226,6 +236,11 @@ impl ::core::cmp::PartialEq for IDataTemplateComponent {
     }
 }
 impl ::core::cmp::Eq for IDataTemplateComponent {}
+impl ::core::fmt::Debug for IDataTemplateComponent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDataTemplateComponent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IDataTemplateComponent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{08429dc8-8ab0-4747-aa9a-feadfc8da8e1}");
 }
@@ -395,6 +410,11 @@ impl ::core::cmp::PartialEq for IXamlBindScopeDiagnostics {
     }
 }
 impl ::core::cmp::Eq for IXamlBindScopeDiagnostics {}
+impl ::core::fmt::Debug for IXamlBindScopeDiagnostics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXamlBindScopeDiagnostics").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IXamlBindScopeDiagnostics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f264a29d-bded-43aa-a5b0-26ac21a81eb8}");
 }
@@ -629,6 +649,11 @@ impl ::core::cmp::PartialEq for IXamlMember {
     }
 }
 impl ::core::cmp::Eq for IXamlMember {}
+impl ::core::fmt::Debug for IXamlMember {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXamlMember").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IXamlMember {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c541f58c-43a9-4216-b718-e0b11b14e93e}");
 }
@@ -735,6 +760,11 @@ impl ::core::cmp::PartialEq for IXamlMetadataProvider {
     }
 }
 impl ::core::cmp::Eq for IXamlMetadataProvider {}
+impl ::core::fmt::Debug for IXamlMetadataProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXamlMetadataProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IXamlMetadataProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b3765d69-68a5-4b32-8861-fdb90c1f5836}");
 }
@@ -984,6 +1014,11 @@ impl ::core::cmp::PartialEq for IXamlType {
     }
 }
 impl ::core::cmp::Eq for IXamlType {}
+impl ::core::fmt::Debug for IXamlType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXamlType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IXamlType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7920eab1-a2e5-479a-bd50-6cef3c0b4970}");
 }
@@ -1242,6 +1277,11 @@ impl ::core::cmp::PartialEq for IXamlType2 {
     }
 }
 impl ::core::cmp::Eq for IXamlType2 {}
+impl ::core::fmt::Debug for IXamlType2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXamlType2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IXamlType2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9f0c6e3b-433b-56ad-8f69-78a4dd3e64f9}");
 }
@@ -1288,6 +1328,11 @@ impl ::core::cmp::PartialEq for MarkupExtension {
     }
 }
 impl ::core::cmp::Eq for MarkupExtension {}
+impl ::core::fmt::Debug for MarkupExtension {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MarkupExtension").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MarkupExtension {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Markup.MarkupExtension;{1ee3416d-562b-486e-9ee5-0f0cbcc8048c})");
 }
@@ -1369,6 +1414,11 @@ impl ::core::cmp::PartialEq for XamlBinaryWriter {
     }
 }
 impl ::core::cmp::Eq for XamlBinaryWriter {}
+impl ::core::fmt::Debug for XamlBinaryWriter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XamlBinaryWriter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XamlBinaryWriter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Markup.XamlBinaryWriter;{829d2ad3-620a-46f6-845d-436a05927100})");
 }
@@ -1432,6 +1482,11 @@ impl ::core::marker::Copy for XamlBinaryWriterErrorInformation {}
 impl ::core::clone::Clone for XamlBinaryWriterErrorInformation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for XamlBinaryWriterErrorInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XamlBinaryWriterErrorInformation").field("InputStreamIndex", &self.InputStreamIndex).field("LineNumber", &self.LineNumber).field("LinePosition", &self.LinePosition).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XamlBinaryWriterErrorInformation {
@@ -1583,6 +1638,11 @@ impl ::core::cmp::PartialEq for XamlBindingHelper {
     }
 }
 impl ::core::cmp::Eq for XamlBindingHelper {}
+impl ::core::fmt::Debug for XamlBindingHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XamlBindingHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XamlBindingHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Markup.XamlBindingHelper;{faa6fb06-8ab9-4ef7-8ae7-fbd30bbfd06d})");
 }
@@ -1660,6 +1720,11 @@ impl ::core::cmp::PartialEq for XamlMarkupHelper {
     }
 }
 impl ::core::cmp::Eq for XamlMarkupHelper {}
+impl ::core::fmt::Debug for XamlMarkupHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XamlMarkupHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XamlMarkupHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Markup.XamlMarkupHelper;{d0e6673c-5342-44ef-85a7-ed327a739d9a})");
 }
@@ -1747,6 +1812,11 @@ impl ::core::cmp::PartialEq for XamlReader {
     }
 }
 impl ::core::cmp::Eq for XamlReader {}
+impl ::core::fmt::Debug for XamlReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XamlReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XamlReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Markup.XamlReader;{24374cf1-cceb-48bf-a514-41b0186f84c2})");
 }
@@ -1808,6 +1878,11 @@ pub struct XmlnsDefinition {
 impl ::core::clone::Clone for XmlnsDefinition {
     fn clone(&self) -> Self {
         Self { XmlNamespace: self.XmlNamespace.clone(), Namespace: self.Namespace.clone() }
+    }
+}
+impl ::core::fmt::Debug for XmlnsDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XmlnsDefinition").field("XmlNamespace", &self.XmlNamespace).field("Namespace", &self.Namespace).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XmlnsDefinition {

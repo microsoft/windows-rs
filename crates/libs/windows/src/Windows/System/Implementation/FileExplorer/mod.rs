@@ -106,6 +106,11 @@ impl ::core::cmp::PartialEq for ISysStorageProviderEventSource {
     }
 }
 impl ::core::cmp::Eq for ISysStorageProviderEventSource {}
+impl ::core::fmt::Debug for ISysStorageProviderEventSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISysStorageProviderEventSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISysStorageProviderEventSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1f36c476-9546-536a-8381-2f9a2c08cedd}");
 }
@@ -199,6 +204,11 @@ impl ::core::cmp::PartialEq for ISysStorageProviderHandlerFactory {
     }
 }
 impl ::core::cmp::Eq for ISysStorageProviderHandlerFactory {}
+impl ::core::fmt::Debug for ISysStorageProviderHandlerFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISysStorageProviderHandlerFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISysStorageProviderHandlerFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ee798431-8213-5e89-a623-14d8c72b8a61}");
 }
@@ -283,6 +293,11 @@ impl ::core::cmp::PartialEq for ISysStorageProviderHttpRequestProvider {
     }
 }
 impl ::core::cmp::Eq for ISysStorageProviderHttpRequestProvider {}
+impl ::core::fmt::Debug for ISysStorageProviderHttpRequestProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISysStorageProviderHttpRequestProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISysStorageProviderHttpRequestProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cb6fefb6-e76a-5c25-a33e-3e78a6e0e0ce}");
 }
@@ -338,6 +353,11 @@ impl ::core::cmp::PartialEq for SysStorageProviderEventReceivedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SysStorageProviderEventReceivedEventArgs {}
+impl ::core::fmt::Debug for SysStorageProviderEventReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SysStorageProviderEventReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SysStorageProviderEventReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Implementation.FileExplorer.SysStorageProviderEventReceivedEventArgs;{e132d1b9-7b9d-5820-9728-4262b5289142})");
 }

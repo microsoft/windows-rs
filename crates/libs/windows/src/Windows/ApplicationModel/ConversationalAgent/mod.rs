@@ -253,6 +253,11 @@ impl ::core::cmp::PartialEq for ActivationSignalDetectionConfiguration {
     }
 }
 impl ::core::cmp::Eq for ActivationSignalDetectionConfiguration {}
+impl ::core::fmt::Debug for ActivationSignalDetectionConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectionConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration;{40d8be16-5217-581c-9ab2-ce9b2f2e8e00})");
 }
@@ -363,6 +368,11 @@ impl ::core::cmp::PartialEq for ActivationSignalDetectionConfigurationCreationRe
     }
 }
 impl ::core::cmp::Eq for ActivationSignalDetectionConfigurationCreationResult {}
+impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationCreationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectionConfigurationCreationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationCreationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationResult;{4c89bc1b-8d12-5e48-a71c-7f6bc1cd66e0})");
 }
@@ -443,6 +453,11 @@ impl ::core::cmp::PartialEq for ActivationSignalDetectionConfigurationCreationSt
     }
 }
 impl ::core::cmp::Eq for ActivationSignalDetectionConfigurationCreationStatus {}
+impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectionConfigurationCreationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationStatus;i4)");
 }
@@ -473,6 +488,11 @@ impl ::core::cmp::PartialEq for ActivationSignalDetectionConfigurationRemovalRes
     }
 }
 impl ::core::cmp::Eq for ActivationSignalDetectionConfigurationRemovalResult {}
+impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationRemovalResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectionConfigurationRemovalResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationRemovalResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationRemovalResult;i4)");
 }
@@ -507,6 +527,11 @@ impl ::core::cmp::PartialEq for ActivationSignalDetectionConfigurationSetModelDa
     }
 }
 impl ::core::cmp::Eq for ActivationSignalDetectionConfigurationSetModelDataResult {}
+impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationSetModelDataResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectionConfigurationSetModelDataResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationSetModelDataResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationSetModelDataResult;i4)");
 }
@@ -536,6 +561,11 @@ impl ::core::cmp::PartialEq for ActivationSignalDetectionConfigurationStateChang
     }
 }
 impl ::core::cmp::Eq for ActivationSignalDetectionConfigurationStateChangeResult {}
+impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationStateChangeResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectionConfigurationStateChangeResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationStateChangeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationStateChangeResult;i4)");
 }
@@ -573,6 +603,11 @@ impl ::core::cmp::PartialEq for ActivationSignalDetectionTrainingDataFormat {
     }
 }
 impl ::core::cmp::Eq for ActivationSignalDetectionTrainingDataFormat {}
+impl ::core::fmt::Debug for ActivationSignalDetectionTrainingDataFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectionTrainingDataFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionTrainingDataFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat;i4)");
 }
@@ -787,6 +822,11 @@ impl ::core::cmp::PartialEq for ActivationSignalDetector {
     }
 }
 impl ::core::cmp::Eq for ActivationSignalDetector {}
+impl ::core::fmt::Debug for ActivationSignalDetector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ActivationSignalDetector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector;{b5bf345f-a4d0-5b2b-8e65-b3c55ee756ff})");
 }
@@ -862,6 +902,11 @@ impl ::core::cmp::PartialEq for ActivationSignalDetectorKind {
     }
 }
 impl ::core::cmp::Eq for ActivationSignalDetectorKind {}
+impl ::core::fmt::Debug for ActivationSignalDetectorKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectorKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectorKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorKind;i4)");
 }
@@ -891,6 +936,11 @@ impl ::core::cmp::PartialEq for ActivationSignalDetectorPowerState {
     }
 }
 impl ::core::cmp::Eq for ActivationSignalDetectorPowerState {}
+impl ::core::fmt::Debug for ActivationSignalDetectorPowerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectorPowerState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectorPowerState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState;i4)");
 }
@@ -919,6 +969,11 @@ impl ::core::cmp::PartialEq for ConversationalAgentActivationKind {
     }
 }
 impl ::core::cmp::Eq for ConversationalAgentActivationKind {}
+impl ::core::fmt::Debug for ConversationalAgentActivationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentActivationKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentActivationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationKind;i4)");
 }
@@ -949,6 +1004,11 @@ impl ::core::cmp::PartialEq for ConversationalAgentActivationResult {
     }
 }
 impl ::core::cmp::Eq for ConversationalAgentActivationResult {}
+impl ::core::fmt::Debug for ConversationalAgentActivationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentActivationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentActivationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationResult;i4)");
 }
@@ -1036,6 +1096,11 @@ impl ::core::cmp::PartialEq for ConversationalAgentDetectorManager {
     }
 }
 impl ::core::cmp::Eq for ConversationalAgentDetectorManager {}
+impl ::core::fmt::Debug for ConversationalAgentDetectorManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentDetectorManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentDetectorManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentDetectorManager;{de94fbb0-597a-5df8-8cfb-9dbb583ba3ff})");
 }
@@ -1460,6 +1525,11 @@ impl ::core::cmp::PartialEq for ConversationalAgentSession {
     }
 }
 impl ::core::cmp::Eq for ConversationalAgentSession {}
+impl ::core::fmt::Debug for ConversationalAgentSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSession;{daaae09a-b7ba-57e5-ad13-df520f9b6fa7})");
 }
@@ -1553,6 +1623,11 @@ impl ::core::cmp::PartialEq for ConversationalAgentSessionInterruptedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ConversationalAgentSessionInterruptedEventArgs {}
+impl ::core::fmt::Debug for ConversationalAgentSessionInterruptedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentSessionInterruptedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentSessionInterruptedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionInterruptedEventArgs;{9766591f-f63d-5d3e-9bf2-bd0760552686})");
 }
@@ -1627,6 +1702,11 @@ impl ::core::cmp::PartialEq for ConversationalAgentSessionUpdateResponse {
     }
 }
 impl ::core::cmp::Eq for ConversationalAgentSessionUpdateResponse {}
+impl ::core::fmt::Debug for ConversationalAgentSessionUpdateResponse {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentSessionUpdateResponse").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentSessionUpdateResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionUpdateResponse;i4)");
 }
@@ -1747,6 +1827,11 @@ impl ::core::cmp::PartialEq for ConversationalAgentSignal {
     }
 }
 impl ::core::cmp::Eq for ConversationalAgentSignal {}
+impl ::core::fmt::Debug for ConversationalAgentSignal {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentSignal").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentSignal {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignal;{20ed25f7-b120-51f2-8603-265d6a47f232})");
 }
@@ -1814,6 +1899,11 @@ impl ::core::cmp::PartialEq for ConversationalAgentSignalDetectedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ConversationalAgentSignalDetectedEventArgs {}
+impl ::core::fmt::Debug for ConversationalAgentSignalDetectedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentSignalDetectedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentSignalDetectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignalDetectedEventArgs;{4d57eb8f-f88a-599b-91d3-d604876708bc})");
 }
@@ -1892,6 +1982,11 @@ impl ::core::cmp::PartialEq for ConversationalAgentState {
     }
 }
 impl ::core::cmp::Eq for ConversationalAgentState {}
+impl ::core::fmt::Debug for ConversationalAgentState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentState;i4)");
 }
@@ -1922,6 +2017,11 @@ impl ::core::cmp::PartialEq for ConversationalAgentSystemStateChangeType {
     }
 }
 impl ::core::cmp::Eq for ConversationalAgentSystemStateChangeType {}
+impl ::core::fmt::Debug for ConversationalAgentSystemStateChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentSystemStateChangeType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentSystemStateChangeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangeType;i4)");
 }
@@ -1952,6 +2052,11 @@ impl ::core::cmp::PartialEq for ConversationalAgentSystemStateChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ConversationalAgentSystemStateChangedEventArgs {}
+impl ::core::fmt::Debug for ConversationalAgentSystemStateChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentSystemStateChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentSystemStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangedEventArgs;{1c2c6e3e-2785-59a7-8e71-38adeef79928})");
 }
@@ -2030,6 +2135,11 @@ impl ::core::cmp::PartialEq for ConversationalAgentVoiceActivationPrerequisiteKi
     }
 }
 impl ::core::cmp::Eq for ConversationalAgentVoiceActivationPrerequisiteKind {}
+impl ::core::fmt::Debug for ConversationalAgentVoiceActivationPrerequisiteKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentVoiceActivationPrerequisiteKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentVoiceActivationPrerequisiteKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind;i4)");
 }
@@ -2059,6 +2169,11 @@ impl ::core::cmp::PartialEq for DetectionConfigurationAvailabilityChangeKind {
     }
 }
 impl ::core::cmp::Eq for DetectionConfigurationAvailabilityChangeKind {}
+impl ::core::fmt::Debug for DetectionConfigurationAvailabilityChangeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DetectionConfigurationAvailabilityChangeKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DetectionConfigurationAvailabilityChangeKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangeKind;i4)");
 }
@@ -2089,6 +2204,11 @@ impl ::core::cmp::PartialEq for DetectionConfigurationAvailabilityChangedEventAr
     }
 }
 impl ::core::cmp::Eq for DetectionConfigurationAvailabilityChangedEventArgs {}
+impl ::core::fmt::Debug for DetectionConfigurationAvailabilityChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DetectionConfigurationAvailabilityChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DetectionConfigurationAvailabilityChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangedEventArgs;{5129c9fb-4be8-5f14-af2b-88d62b1b4462})");
 }
@@ -2198,6 +2318,11 @@ impl ::core::cmp::PartialEq for DetectionConfigurationAvailabilityInfo {
     }
 }
 impl ::core::cmp::Eq for DetectionConfigurationAvailabilityInfo {}
+impl ::core::fmt::Debug for DetectionConfigurationAvailabilityInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DetectionConfigurationAvailabilityInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DetectionConfigurationAvailabilityInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityInfo;{b5affeb0-40f0-5398-b838-91979c2c6208})");
 }
@@ -2280,6 +2405,11 @@ impl ::core::cmp::PartialEq for DetectionConfigurationTrainingStatus {
     }
 }
 impl ::core::cmp::Eq for DetectionConfigurationTrainingStatus {}
+impl ::core::fmt::Debug for DetectionConfigurationTrainingStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DetectionConfigurationTrainingStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DetectionConfigurationTrainingStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationTrainingStatus;i4)");
 }
@@ -2829,6 +2959,11 @@ impl ::core::cmp::PartialEq for SignalDetectorResourceKind {
     }
 }
 impl ::core::cmp::Eq for SignalDetectorResourceKind {}
+impl ::core::fmt::Debug for SignalDetectorResourceKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SignalDetectorResourceKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SignalDetectorResourceKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.SignalDetectorResourceKind;i4)");
 }

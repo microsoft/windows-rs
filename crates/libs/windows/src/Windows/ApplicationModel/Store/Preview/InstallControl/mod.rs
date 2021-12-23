@@ -210,6 +210,11 @@ impl ::core::cmp::PartialEq for AppInstallItem {
     }
 }
 impl ::core::cmp::Eq for AppInstallItem {}
+impl ::core::fmt::Debug for AppInstallItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppInstallItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppInstallItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallItem;{49d3dfab-168a-4cbf-a93a-9e448c82737d})");
 }
@@ -693,6 +698,11 @@ impl ::core::cmp::PartialEq for AppInstallManager {
     }
 }
 impl ::core::cmp::Eq for AppInstallManager {}
+impl ::core::fmt::Debug for AppInstallManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppInstallManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppInstallManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManager;{9353e170-8441-4b45-bd72-7c2fa925beee})");
 }
@@ -769,6 +779,11 @@ impl ::core::cmp::PartialEq for AppInstallManagerItemEventArgs {
     }
 }
 impl ::core::cmp::Eq for AppInstallManagerItemEventArgs {}
+impl ::core::fmt::Debug for AppInstallManagerItemEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppInstallManagerItemEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppInstallManagerItemEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManagerItemEventArgs;{bc505743-4674-4dd1-957e-c25682086a14})");
 }
@@ -1041,6 +1056,11 @@ impl ::core::cmp::PartialEq for AppInstallOptions {
     }
 }
 impl ::core::cmp::Eq for AppInstallOptions {}
+impl ::core::fmt::Debug for AppInstallOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppInstallOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppInstallOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallOptions;{c9808300-1cb8-4eb6-8c9f-6a30c64a5b51})");
 }
@@ -1127,6 +1147,11 @@ impl ::core::cmp::PartialEq for AppInstallState {
     }
 }
 impl ::core::cmp::Eq for AppInstallState {}
+impl ::core::fmt::Debug for AppInstallState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppInstallState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppInstallState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallState;i4)");
 }
@@ -1214,6 +1239,11 @@ impl ::core::cmp::PartialEq for AppInstallStatus {
     }
 }
 impl ::core::cmp::Eq for AppInstallStatus {}
+impl ::core::fmt::Debug for AppInstallStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppInstallStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppInstallStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallStatus;{936dccfa-2450-4126-88b1-6127a644dd5c})");
 }
@@ -1289,6 +1319,11 @@ impl ::core::cmp::PartialEq for AppInstallType {
     }
 }
 impl ::core::cmp::Eq for AppInstallType {}
+impl ::core::fmt::Debug for AppInstallType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppInstallType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppInstallType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallType;i4)");
 }
@@ -1319,6 +1354,11 @@ impl ::core::cmp::PartialEq for AppInstallationToastNotificationMode {
     }
 }
 impl ::core::cmp::Eq for AppInstallationToastNotificationMode {}
+impl ::core::fmt::Debug for AppInstallationToastNotificationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppInstallationToastNotificationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppInstallationToastNotificationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallationToastNotificationMode;i4)");
 }
@@ -1387,6 +1427,11 @@ impl ::core::cmp::PartialEq for AppUpdateOptions {
     }
 }
 impl ::core::cmp::Eq for AppUpdateOptions {}
+impl ::core::fmt::Debug for AppUpdateOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppUpdateOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppUpdateOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppUpdateOptions;{26f0b02f-c2f3-4aea-af8c-6308dd9db85f})");
 }
@@ -1463,6 +1508,11 @@ impl ::core::cmp::PartialEq for AutoUpdateSetting {
     }
 }
 impl ::core::cmp::Eq for AutoUpdateSetting {}
+impl ::core::fmt::Debug for AutoUpdateSetting {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutoUpdateSetting").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutoUpdateSetting {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.AutoUpdateSetting;i4)");
 }
@@ -1493,6 +1543,11 @@ impl ::core::cmp::PartialEq for GetEntitlementResult {
     }
 }
 impl ::core::cmp::Eq for GetEntitlementResult {}
+impl ::core::fmt::Debug for GetEntitlementResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GetEntitlementResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GetEntitlementResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementResult;{74fc843f-1a9e-4609-8e4d-819086d08a3d})");
 }
@@ -1569,6 +1624,11 @@ impl ::core::cmp::PartialEq for GetEntitlementStatus {
     }
 }
 impl ::core::cmp::Eq for GetEntitlementStatus {}
+impl ::core::fmt::Debug for GetEntitlementStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GetEntitlementStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GetEntitlementStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementStatus;i4)");
 }

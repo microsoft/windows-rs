@@ -22,6 +22,11 @@ impl ::core::cmp::PartialEq for DeviceAccountAuthenticationType {
     }
 }
 impl ::core::cmp::Eq for DeviceAccountAuthenticationType {}
+impl ::core::fmt::Debug for DeviceAccountAuthenticationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceAccountAuthenticationType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceAccountAuthenticationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountAuthenticationType;i4)");
 }
@@ -634,6 +639,11 @@ impl ::core::cmp::PartialEq for DeviceAccountConfiguration {
     }
 }
 impl ::core::cmp::Eq for DeviceAccountConfiguration {}
+impl ::core::fmt::Debug for DeviceAccountConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceAccountConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceAccountConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountConfiguration;{ad0123a3-fbdc-4d1b-be43-5a27ea4a1b63})");
 }
@@ -710,6 +720,11 @@ impl ::core::cmp::PartialEq for DeviceAccountIconId {
     }
 }
 impl ::core::cmp::Eq for DeviceAccountIconId {}
+impl ::core::fmt::Debug for DeviceAccountIconId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceAccountIconId").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceAccountIconId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountIconId;i4)");
 }
@@ -743,6 +758,11 @@ impl ::core::cmp::PartialEq for DeviceAccountMailAgeFilter {
     }
 }
 impl ::core::cmp::Eq for DeviceAccountMailAgeFilter {}
+impl ::core::fmt::Debug for DeviceAccountMailAgeFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceAccountMailAgeFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceAccountMailAgeFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountMailAgeFilter;i4)");
 }
@@ -772,6 +792,11 @@ impl ::core::cmp::PartialEq for DeviceAccountServerType {
     }
 }
 impl ::core::cmp::Eq for DeviceAccountServerType {}
+impl ::core::fmt::Debug for DeviceAccountServerType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceAccountServerType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceAccountServerType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountServerType;i4)");
 }
@@ -805,6 +830,11 @@ impl ::core::cmp::PartialEq for DeviceAccountSyncScheduleKind {
     }
 }
 impl ::core::cmp::Eq for DeviceAccountSyncScheduleKind {}
+impl ::core::fmt::Debug for DeviceAccountSyncScheduleKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceAccountSyncScheduleKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceAccountSyncScheduleKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountSyncScheduleKind;i4)");
 }

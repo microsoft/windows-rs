@@ -208,6 +208,11 @@ impl ::core::cmp::PartialEq for ClipboardContentOptions {
     }
 }
 impl ::core::cmp::Eq for ClipboardContentOptions {}
+impl ::core::fmt::Debug for ClipboardContentOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClipboardContentOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClipboardContentOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ClipboardContentOptions;{e888a98c-ad4b-5447-a056-ab3556276d2b})");
 }
@@ -275,6 +280,11 @@ impl ::core::cmp::PartialEq for ClipboardHistoryChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ClipboardHistoryChangedEventArgs {}
+impl ::core::fmt::Debug for ClipboardHistoryChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClipboardHistoryChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClipboardHistoryChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ClipboardHistoryChangedEventArgs;{c0be453f-8ea2-53ce-9aba-8d2212573452})");
 }
@@ -368,6 +378,11 @@ impl ::core::cmp::PartialEq for ClipboardHistoryItem {
     }
 }
 impl ::core::cmp::Eq for ClipboardHistoryItem {}
+impl ::core::fmt::Debug for ClipboardHistoryItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClipboardHistoryItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClipboardHistoryItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ClipboardHistoryItem;{0173bd8a-afff-5c50-ab92-3d19f481ec58})");
 }
@@ -453,6 +468,11 @@ impl ::core::cmp::PartialEq for ClipboardHistoryItemsResult {
     }
 }
 impl ::core::cmp::Eq for ClipboardHistoryItemsResult {}
+impl ::core::fmt::Debug for ClipboardHistoryItemsResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClipboardHistoryItemsResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClipboardHistoryItemsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResult;{e6dfdee6-0ee2-52e3-852b-f295db65939a})");
 }
@@ -528,6 +548,11 @@ impl ::core::cmp::PartialEq for ClipboardHistoryItemsResultStatus {
     }
 }
 impl ::core::cmp::Eq for ClipboardHistoryItemsResultStatus {}
+impl ::core::fmt::Debug for ClipboardHistoryItemsResultStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClipboardHistoryItemsResultStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClipboardHistoryItemsResultStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResultStatus;i4)");
 }
@@ -716,6 +741,11 @@ impl ::core::cmp::PartialEq for DataPackage {
     }
 }
 impl ::core::cmp::Eq for DataPackage {}
+impl ::core::fmt::Debug for DataPackage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataPackage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataPackage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataPackage;{61ebf5c7-efea-4346-9554-981d7e198ffe})");
 }
@@ -792,6 +822,11 @@ impl ::core::cmp::PartialEq for DataPackageOperation {
     }
 }
 impl ::core::cmp::Eq for DataPackageOperation {}
+impl ::core::fmt::Debug for DataPackageOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataPackageOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataPackageOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DataPackageOperation;u4)");
 }
@@ -1057,6 +1092,11 @@ impl ::core::cmp::PartialEq for DataPackagePropertySet {
     }
 }
 impl ::core::cmp::Eq for DataPackagePropertySet {}
+impl ::core::fmt::Debug for DataPackagePropertySet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataPackagePropertySet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataPackagePropertySet {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataPackagePropertySet;{cd1c93eb-4c4c-443a-a8d3-f5c241e91689})");
 }
@@ -1354,6 +1394,11 @@ impl ::core::cmp::PartialEq for DataPackagePropertySetView {
     }
 }
 impl ::core::cmp::Eq for DataPackagePropertySetView {}
+impl ::core::fmt::Debug for DataPackagePropertySetView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataPackagePropertySetView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataPackagePropertySetView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataPackagePropertySetView;{b94cec01-0c1a-4c57-be55-75d01289735d})");
 }
@@ -1659,6 +1704,11 @@ impl ::core::cmp::PartialEq for DataPackageView {
     }
 }
 impl ::core::cmp::Eq for DataPackageView {}
+impl ::core::fmt::Debug for DataPackageView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataPackageView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataPackageView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataPackageView;{7b840471-5900-4d85-a90b-10cb85fe3552})");
 }
@@ -1732,6 +1782,11 @@ impl ::core::cmp::PartialEq for DataProviderDeferral {
     }
 }
 impl ::core::cmp::Eq for DataProviderDeferral {}
+impl ::core::fmt::Debug for DataProviderDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataProviderDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataProviderDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataProviderDeferral;{c2cf2373-2d26-43d9-b69d-dcb86d03f6da})");
 }
@@ -1844,6 +1899,11 @@ impl ::core::cmp::PartialEq for DataProviderHandler {
     }
 }
 impl ::core::cmp::Eq for DataProviderHandler {}
+impl ::core::fmt::Debug for DataProviderHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataProviderHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for DataProviderHandler {
     type Vtable = DataProviderHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7ecd720_f2f4_4a2d_920e_170a2f482a27);
@@ -1900,6 +1960,11 @@ impl ::core::cmp::PartialEq for DataProviderRequest {
     }
 }
 impl ::core::cmp::Eq for DataProviderRequest {}
+impl ::core::fmt::Debug for DataProviderRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataProviderRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataProviderRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataProviderRequest;{ebbc7157-d3c8-47da-acde-f82388d5f716})");
 }
@@ -2003,6 +2068,11 @@ impl ::core::cmp::PartialEq for DataRequest {
     }
 }
 impl ::core::cmp::Eq for DataRequest {}
+impl ::core::fmt::Debug for DataRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataRequest;{4341ae3b-fc12-4e53-8c02-ac714c415a27})");
 }
@@ -2076,6 +2146,11 @@ impl ::core::cmp::PartialEq for DataRequestDeferral {
     }
 }
 impl ::core::cmp::Eq for DataRequestDeferral {}
+impl ::core::fmt::Debug for DataRequestDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataRequestDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataRequestDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataRequestDeferral;{6dc4b89f-0386-4263-87c1-ed7dce30890e})");
 }
@@ -2152,6 +2227,11 @@ impl ::core::cmp::PartialEq for DataRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for DataRequestedEventArgs {}
+impl ::core::fmt::Debug for DataRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataRequestedEventArgs;{cb8ba807-6ac5-43c9-8ac5-9ba232163182})");
 }
@@ -2302,6 +2382,11 @@ impl ::core::cmp::PartialEq for DataTransferManager {
     }
 }
 impl ::core::cmp::Eq for DataTransferManager {}
+impl ::core::fmt::Debug for DataTransferManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataTransferManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataTransferManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataTransferManager;{a5caee9b-8708-49d1-8d36-67d25a8da00c})");
 }
@@ -3478,6 +3563,11 @@ impl ::core::cmp::PartialEq for OperationCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for OperationCompletedEventArgs {}
+impl ::core::fmt::Debug for OperationCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OperationCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for OperationCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.OperationCompletedEventArgs;{e7af329d-051d-4fab-b1a9-47fd77f70a41})");
 }
@@ -3553,6 +3643,11 @@ impl ::core::cmp::PartialEq for SetHistoryItemAsContentStatus {
     }
 }
 impl ::core::cmp::Eq for SetHistoryItemAsContentStatus {}
+impl ::core::fmt::Debug for SetHistoryItemAsContentStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SetHistoryItemAsContentStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SetHistoryItemAsContentStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.SetHistoryItemAsContentStatus;i4)");
 }
@@ -3583,6 +3678,11 @@ impl ::core::cmp::PartialEq for ShareCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ShareCompletedEventArgs {}
+impl ::core::fmt::Debug for ShareCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ShareCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ShareCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareCompletedEventArgs;{4574c442-f913-4f60-9df7-cc4060ab1916})");
 }
@@ -3703,6 +3803,11 @@ impl ::core::cmp::PartialEq for ShareProvider {
     }
 }
 impl ::core::cmp::Eq for ShareProvider {}
+impl ::core::fmt::Debug for ShareProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ShareProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ShareProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareProvider;{2fabe026-443e-4cda-af25-8d81070efd80})");
 }
@@ -3815,6 +3920,11 @@ impl ::core::cmp::PartialEq for ShareProviderHandler {
     }
 }
 impl ::core::cmp::Eq for ShareProviderHandler {}
+impl ::core::fmt::Debug for ShareProviderHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ShareProviderHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ShareProviderHandler {
     type Vtable = ShareProviderHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7f9d9ba_e1ba_4e4d_bd65_d43845d3212f);
@@ -3862,6 +3972,11 @@ impl ::core::cmp::PartialEq for ShareProviderOperation {
     }
 }
 impl ::core::cmp::Eq for ShareProviderOperation {}
+impl ::core::fmt::Debug for ShareProviderOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ShareProviderOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ShareProviderOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareProviderOperation;{19cef937-d435-4179-b6af-14e0492b69f6})");
 }
@@ -3956,6 +4071,11 @@ impl ::core::cmp::PartialEq for ShareProvidersRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ShareProvidersRequestedEventArgs {}
+impl ::core::fmt::Debug for ShareProvidersRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ShareProvidersRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ShareProvidersRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareProvidersRequestedEventArgs;{f888f356-a3f8-4fce-85e4-8826e63be799})");
 }
@@ -4040,6 +4160,11 @@ impl ::core::cmp::PartialEq for ShareTargetInfo {
     }
 }
 impl ::core::cmp::Eq for ShareTargetInfo {}
+impl ::core::fmt::Debug for ShareTargetInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ShareTargetInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ShareTargetInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareTargetInfo;{385be607-c6e8-4114-b294-28f3bb6f9904})");
 }
@@ -4143,6 +4268,11 @@ impl ::core::cmp::PartialEq for ShareUIOptions {
     }
 }
 impl ::core::cmp::Eq for ShareUIOptions {}
+impl ::core::fmt::Debug for ShareUIOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ShareUIOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ShareUIOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareUIOptions;{72fa8a80-342f-4d90-9551-2ae04e37680c})");
 }
@@ -4218,6 +4348,11 @@ impl ::core::cmp::PartialEq for ShareUITheme {
     }
 }
 impl ::core::cmp::Eq for ShareUITheme {}
+impl ::core::fmt::Debug for ShareUITheme {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ShareUITheme").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ShareUITheme {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.ShareUITheme;i4)");
 }
@@ -4366,6 +4501,11 @@ impl ::core::cmp::PartialEq for TargetApplicationChosenEventArgs {
     }
 }
 impl ::core::cmp::Eq for TargetApplicationChosenEventArgs {}
+impl ::core::fmt::Debug for TargetApplicationChosenEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetApplicationChosenEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetApplicationChosenEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.TargetApplicationChosenEventArgs;{ca6fb8ac-2987-4ee3-9c54-d8afbcb86c1d})");
 }

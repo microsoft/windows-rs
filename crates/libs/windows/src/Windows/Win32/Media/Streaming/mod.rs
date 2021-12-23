@@ -11,6 +11,11 @@ impl ::core::clone::Clone for CapturedMetadataExposureCompensation {
         *self
     }
 }
+impl ::core::fmt::Debug for CapturedMetadataExposureCompensation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CapturedMetadataExposureCompensation").field("Flags", &self.Flags).field("Value", &self.Value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CapturedMetadataExposureCompensation {
     type Abi = Self;
 }
@@ -35,6 +40,11 @@ impl ::core::marker::Copy for CapturedMetadataISOGains {}
 impl ::core::clone::Clone for CapturedMetadataISOGains {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CapturedMetadataISOGains {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CapturedMetadataISOGains").field("AnalogGain", &self.AnalogGain).field("DigitalGain", &self.DigitalGain).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CapturedMetadataISOGains {
@@ -62,6 +72,11 @@ impl ::core::marker::Copy for CapturedMetadataWhiteBalanceGains {}
 impl ::core::clone::Clone for CapturedMetadataWhiteBalanceGains {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CapturedMetadataWhiteBalanceGains {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CapturedMetadataWhiteBalanceGains").field("R", &self.R).field("G", &self.G).field("B", &self.B).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CapturedMetadataWhiteBalanceGains {
@@ -92,6 +107,11 @@ impl ::core::clone::Clone for FaceCharacterization {
         *self
     }
 }
+impl ::core::fmt::Debug for FaceCharacterization {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FaceCharacterization").field("BlinkScoreLeft", &self.BlinkScoreLeft).field("BlinkScoreRight", &self.BlinkScoreRight).field("FacialExpression", &self.FacialExpression).field("FacialExpressionScore", &self.FacialExpressionScore).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FaceCharacterization {
     type Abi = Self;
 }
@@ -116,6 +136,11 @@ impl ::core::marker::Copy for FaceCharacterizationBlobHeader {}
 impl ::core::clone::Clone for FaceCharacterizationBlobHeader {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FaceCharacterizationBlobHeader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FaceCharacterizationBlobHeader").field("Size", &self.Size).field("Count", &self.Count).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FaceCharacterizationBlobHeader {
@@ -148,6 +173,12 @@ impl ::core::clone::Clone for FaceRectInfo {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FaceRectInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FaceRectInfo").field("Region", &self.Region).field("confidenceLevel", &self.confidenceLevel).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FaceRectInfo {
     type Abi = Self;
 }
@@ -177,6 +208,11 @@ impl ::core::clone::Clone for FaceRectInfoBlobHeader {
         *self
     }
 }
+impl ::core::fmt::Debug for FaceRectInfoBlobHeader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FaceRectInfoBlobHeader").field("Size", &self.Size).field("Count", &self.Count).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FaceRectInfoBlobHeader {
     type Abi = Self;
 }
@@ -201,6 +237,11 @@ impl ::core::marker::Copy for HistogramBlobHeader {}
 impl ::core::clone::Clone for HistogramBlobHeader {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HistogramBlobHeader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HistogramBlobHeader").field("Size", &self.Size).field("Histograms", &self.Histograms).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HistogramBlobHeader {
@@ -228,6 +269,11 @@ impl ::core::marker::Copy for HistogramDataHeader {}
 impl ::core::clone::Clone for HistogramDataHeader {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HistogramDataHeader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HistogramDataHeader").field("Size", &self.Size).field("ChannelMask", &self.ChannelMask).field("Linear", &self.Linear).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HistogramDataHeader {
@@ -258,6 +304,12 @@ impl ::core::marker::Copy for HistogramGrid {}
 impl ::core::clone::Clone for HistogramGrid {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HistogramGrid {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HistogramGrid").field("Width", &self.Width).field("Height", &self.Height).field("Region", &self.Region).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -294,6 +346,12 @@ impl ::core::marker::Copy for HistogramHeader {}
 impl ::core::clone::Clone for HistogramHeader {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HistogramHeader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HistogramHeader").field("Size", &self.Size).field("Bins", &self.Bins).field("FourCC", &self.FourCC).field("ChannelMasks", &self.ChannelMasks).field("Grid", &self.Grid).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -454,6 +512,11 @@ impl ::core::cmp::PartialEq for IMFDeviceTransform {
     }
 }
 impl ::core::cmp::Eq for IMFDeviceTransform {}
+impl ::core::fmt::Debug for IMFDeviceTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMFDeviceTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMFDeviceTransform {
     type Vtable = IMFDeviceTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd818fbd8_fc46_42f2_87ac_1ea2d1f9bf32);
@@ -542,6 +605,11 @@ impl ::core::cmp::PartialEq for IMFDeviceTransformCallback {
     }
 }
 impl ::core::cmp::Eq for IMFDeviceTransformCallback {}
+impl ::core::fmt::Debug for IMFDeviceTransformCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMFDeviceTransformCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMFDeviceTransformCallback {
     type Vtable = IMFDeviceTransformCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d5cb646_29ec_41fb_8179_8c4c6d750811);
@@ -580,6 +648,11 @@ impl ::core::marker::Copy for MetadataTimeStamps {}
 impl ::core::clone::Clone for MetadataTimeStamps {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MetadataTimeStamps {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MetadataTimeStamps").field("Flags", &self.Flags).field("Device", &self.Device).field("Presentation", &self.Presentation).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MetadataTimeStamps {

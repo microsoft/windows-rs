@@ -22,6 +22,11 @@ impl ::core::cmp::PartialEq for AdaptiveNotificationContentKind {
     }
 }
 impl ::core::cmp::Eq for AdaptiveNotificationContentKind {}
+impl ::core::fmt::Debug for AdaptiveNotificationContentKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveNotificationContentKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdaptiveNotificationContentKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.AdaptiveNotificationContentKind;i4)");
 }
@@ -94,6 +99,11 @@ impl ::core::cmp::PartialEq for AdaptiveNotificationText {
     }
 }
 impl ::core::cmp::Eq for AdaptiveNotificationText {}
+impl ::core::fmt::Debug for AdaptiveNotificationText {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveNotificationText").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdaptiveNotificationText {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.AdaptiveNotificationText;{46d4a3be-609a-4326-a40b-bfde872034a3})");
 }
@@ -221,6 +231,11 @@ impl ::core::cmp::PartialEq for BadgeNotification {
     }
 }
 impl ::core::cmp::Eq for BadgeNotification {}
+impl ::core::fmt::Debug for BadgeNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BadgeNotification").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BadgeNotification {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.BadgeNotification;{075cb4ca-d08a-4e2f-9233-7e289c1f7722})");
 }
@@ -295,6 +310,11 @@ impl ::core::cmp::PartialEq for BadgeTemplateType {
     }
 }
 impl ::core::cmp::Eq for BadgeTemplateType {}
+impl ::core::fmt::Debug for BadgeTemplateType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BadgeTemplateType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BadgeTemplateType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.BadgeTemplateType;i4)");
 }
@@ -404,6 +424,11 @@ impl ::core::cmp::PartialEq for BadgeUpdateManagerForUser {
     }
 }
 impl ::core::cmp::Eq for BadgeUpdateManagerForUser {}
+impl ::core::fmt::Debug for BadgeUpdateManagerForUser {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BadgeUpdateManagerForUser").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BadgeUpdateManagerForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.BadgeUpdateManagerForUser;{996b21bc-0386-44e5-ba8d-0c1077a62e92})");
 }
@@ -499,6 +524,11 @@ impl ::core::cmp::PartialEq for BadgeUpdater {
     }
 }
 impl ::core::cmp::Eq for BadgeUpdater {}
+impl ::core::fmt::Debug for BadgeUpdater {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BadgeUpdater").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BadgeUpdater {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.BadgeUpdater;{b5fa1fd4-7562-4f6c-bfa3-1b6ed2e57f2f})");
 }
@@ -624,6 +654,11 @@ impl ::core::cmp::PartialEq for IAdaptiveNotificationContent {
     }
 }
 impl ::core::cmp::Eq for IAdaptiveNotificationContent {}
+impl ::core::fmt::Debug for IAdaptiveNotificationContent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAdaptiveNotificationContent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IAdaptiveNotificationContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{eb0dbe66-7448-448d-9db8-d78acd2abba9}");
 }
@@ -2317,6 +2352,11 @@ impl ::core::cmp::PartialEq for Notification {
     }
 }
 impl ::core::cmp::Eq for Notification {}
+impl ::core::fmt::Debug for Notification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Notification").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Notification {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.Notification;{108037fe-eb76-4f82-97bc-da07530a2e20})");
 }
@@ -2429,6 +2469,11 @@ impl ::core::cmp::PartialEq for NotificationBinding {
     }
 }
 impl ::core::cmp::Eq for NotificationBinding {}
+impl ::core::fmt::Debug for NotificationBinding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NotificationBinding").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NotificationBinding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.NotificationBinding;{f29e4b85-0370-4ad3-b4ea-da9e35e7eabf})");
 }
@@ -2547,6 +2592,11 @@ impl ::core::cmp::PartialEq for NotificationData {
     }
 }
 impl ::core::cmp::Eq for NotificationData {}
+impl ::core::fmt::Debug for NotificationData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NotificationData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NotificationData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.NotificationData;{9ffd2312-9d6a-4aaf-b6ac-ff17f0c1f280})");
 }
@@ -2621,6 +2671,11 @@ impl ::core::cmp::PartialEq for NotificationKinds {
     }
 }
 impl ::core::cmp::Eq for NotificationKinds {}
+impl ::core::fmt::Debug for NotificationKinds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NotificationKinds").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NotificationKinds {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationKinds;u4)");
 }
@@ -2649,6 +2704,11 @@ impl ::core::cmp::PartialEq for NotificationMirroring {
     }
 }
 impl ::core::cmp::Eq for NotificationMirroring {}
+impl ::core::fmt::Debug for NotificationMirroring {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NotificationMirroring").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NotificationMirroring {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationMirroring;i4)");
 }
@@ -2680,6 +2740,11 @@ impl ::core::cmp::PartialEq for NotificationSetting {
     }
 }
 impl ::core::cmp::Eq for NotificationSetting {}
+impl ::core::fmt::Debug for NotificationSetting {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NotificationSetting").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NotificationSetting {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationSetting;i4)");
 }
@@ -2709,6 +2774,11 @@ impl ::core::cmp::PartialEq for NotificationUpdateResult {
     }
 }
 impl ::core::cmp::Eq for NotificationUpdateResult {}
+impl ::core::fmt::Debug for NotificationUpdateResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NotificationUpdateResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NotificationUpdateResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationUpdateResult;i4)");
 }
@@ -2761,6 +2831,11 @@ impl ::core::cmp::PartialEq for NotificationVisual {
     }
 }
 impl ::core::cmp::Eq for NotificationVisual {}
+impl ::core::fmt::Debug for NotificationVisual {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NotificationVisual").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NotificationVisual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.NotificationVisual;{68835b8e-aa56-4e11-86d3-5f9a6957bc5b})");
 }
@@ -2838,6 +2913,11 @@ impl ::core::cmp::PartialEq for PeriodicUpdateRecurrence {
     }
 }
 impl ::core::cmp::Eq for PeriodicUpdateRecurrence {}
+impl ::core::fmt::Debug for PeriodicUpdateRecurrence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PeriodicUpdateRecurrence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PeriodicUpdateRecurrence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.PeriodicUpdateRecurrence;i4)");
 }
@@ -2932,6 +3012,11 @@ impl ::core::cmp::PartialEq for ScheduledTileNotification {
     }
 }
 impl ::core::cmp::Eq for ScheduledTileNotification {}
+impl ::core::fmt::Debug for ScheduledTileNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScheduledTileNotification").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScheduledTileNotification {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ScheduledTileNotification;{0abca6d5-99dc-4c78-a11c-c9e7f86d7ef7})");
 }
@@ -3149,6 +3234,11 @@ impl ::core::cmp::PartialEq for ScheduledToastNotification {
     }
 }
 impl ::core::cmp::Eq for ScheduledToastNotification {}
+impl ::core::fmt::Debug for ScheduledToastNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScheduledToastNotification").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScheduledToastNotification {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ScheduledToastNotification;{79f577f8-0de7-48cd-9740-9b370490c838})");
 }
@@ -3247,6 +3337,11 @@ impl ::core::cmp::PartialEq for ScheduledToastNotificationShowingEventArgs {
     }
 }
 impl ::core::cmp::Eq for ScheduledToastNotificationShowingEventArgs {}
+impl ::core::fmt::Debug for ScheduledToastNotificationShowingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScheduledToastNotificationShowingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScheduledToastNotificationShowingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ScheduledToastNotificationShowingEventArgs;{6173f6b4-412a-5e2c-a6ed-a0209aef9a09})");
 }
@@ -3323,6 +3418,11 @@ impl ::core::cmp::PartialEq for ShownTileNotification {
     }
 }
 impl ::core::cmp::Eq for ShownTileNotification {}
+impl ::core::fmt::Debug for ShownTileNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ShownTileNotification").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ShownTileNotification {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ShownTileNotification;{342d8988-5af2-481a-a6a3-f2fdc78de88e})");
 }
@@ -3428,6 +3528,11 @@ impl ::core::cmp::PartialEq for TileFlyoutNotification {
     }
 }
 impl ::core::cmp::Eq for TileFlyoutNotification {}
+impl ::core::fmt::Debug for TileFlyoutNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileFlyoutNotification").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TileFlyoutNotification {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileFlyoutNotification;{9a53b261-c70c-42be-b2f3-f42aa97d34e5})");
 }
@@ -3501,6 +3606,11 @@ impl ::core::cmp::PartialEq for TileFlyoutTemplateType {
     }
 }
 impl ::core::cmp::Eq for TileFlyoutTemplateType {}
+impl ::core::fmt::Debug for TileFlyoutTemplateType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileFlyoutTemplateType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TileFlyoutTemplateType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.TileFlyoutTemplateType;i4)");
 }
@@ -3599,6 +3709,11 @@ impl ::core::cmp::PartialEq for TileFlyoutUpdater {
     }
 }
 impl ::core::cmp::Eq for TileFlyoutUpdater {}
+impl ::core::fmt::Debug for TileFlyoutUpdater {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileFlyoutUpdater").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TileFlyoutUpdater {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileFlyoutUpdater;{8d40c76a-c465-4052-a740-5c2654c1a089})");
 }
@@ -3715,6 +3830,11 @@ impl ::core::cmp::PartialEq for TileNotification {
     }
 }
 impl ::core::cmp::Eq for TileNotification {}
+impl ::core::fmt::Debug for TileNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileNotification").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TileNotification {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileNotification;{ebaec8fa-50ec-4c18-b4d0-3af02e5540ab})");
 }
@@ -3913,6 +4033,11 @@ impl ::core::cmp::PartialEq for TileTemplateType {
     }
 }
 impl ::core::cmp::Eq for TileTemplateType {}
+impl ::core::fmt::Debug for TileTemplateType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileTemplateType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TileTemplateType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.TileTemplateType;i4)");
 }
@@ -4022,6 +4147,11 @@ impl ::core::cmp::PartialEq for TileUpdateManagerForUser {
     }
 }
 impl ::core::cmp::Eq for TileUpdateManagerForUser {}
+impl ::core::fmt::Debug for TileUpdateManagerForUser {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileUpdateManagerForUser").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TileUpdateManagerForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileUpdateManagerForUser;{55141348-2ee2-4e2d-9cc1-216a20decc9f})");
 }
@@ -4176,6 +4306,11 @@ impl ::core::cmp::PartialEq for TileUpdater {
     }
 }
 impl ::core::cmp::Eq for TileUpdater {}
+impl ::core::fmt::Debug for TileUpdater {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileUpdater").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TileUpdater {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileUpdater;{0942a48b-1d91-44ec-9243-c1e821c29a20})");
 }
@@ -4261,6 +4396,11 @@ impl ::core::cmp::PartialEq for ToastActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ToastActivatedEventArgs {}
+impl ::core::fmt::Debug for ToastActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToastActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastActivatedEventArgs;{e3bf92f3-c197-436f-8265-0625824f8dac})");
 }
@@ -4389,6 +4529,11 @@ impl ::core::cmp::PartialEq for ToastCollection {
     }
 }
 impl ::core::cmp::Eq for ToastCollection {}
+impl ::core::fmt::Debug for ToastCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToastCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastCollection;{0a8bc3b0-e0be-4858-bc2a-89dfe0b32863})");
 }
@@ -4519,6 +4664,11 @@ impl ::core::cmp::PartialEq for ToastCollectionManager {
     }
 }
 impl ::core::cmp::Eq for ToastCollectionManager {}
+impl ::core::fmt::Debug for ToastCollectionManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastCollectionManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToastCollectionManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastCollectionManager;{2a1821fe-179d-49bc-b79d-a527920d3665})");
 }
@@ -4594,6 +4744,11 @@ impl ::core::cmp::PartialEq for ToastDismissalReason {
     }
 }
 impl ::core::cmp::Eq for ToastDismissalReason {}
+impl ::core::fmt::Debug for ToastDismissalReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastDismissalReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToastDismissalReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastDismissalReason;i4)");
 }
@@ -4624,6 +4779,11 @@ impl ::core::cmp::PartialEq for ToastDismissedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ToastDismissedEventArgs {}
+impl ::core::fmt::Debug for ToastDismissedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastDismissedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToastDismissedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastDismissedEventArgs;{3f89d935-d9cb-4538-a0f0-ffe7659938f8})");
 }
@@ -4700,6 +4860,11 @@ impl ::core::cmp::PartialEq for ToastFailedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ToastFailedEventArgs {}
+impl ::core::fmt::Debug for ToastFailedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastFailedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToastFailedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastFailedEventArgs;{35176862-cfd4-44f8-ad64-f500fd896c3b})");
 }
@@ -4776,6 +4941,11 @@ impl ::core::cmp::PartialEq for ToastHistoryChangedType {
     }
 }
 impl ::core::cmp::Eq for ToastHistoryChangedType {}
+impl ::core::fmt::Debug for ToastHistoryChangedType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastHistoryChangedType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToastHistoryChangedType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastHistoryChangedType;i4)");
 }
@@ -4984,6 +5154,11 @@ impl ::core::cmp::PartialEq for ToastNotification {
     }
 }
 impl ::core::cmp::Eq for ToastNotification {}
+impl ::core::fmt::Debug for ToastNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastNotification").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToastNotification {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotification;{997e2675-059e-4e60-8b06-1760917c8b80})");
 }
@@ -5069,6 +5244,11 @@ impl ::core::cmp::PartialEq for ToastNotificationActionTriggerDetail {
     }
 }
 impl ::core::cmp::Eq for ToastNotificationActionTriggerDetail {}
+impl ::core::fmt::Debug for ToastNotificationActionTriggerDetail {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastNotificationActionTriggerDetail").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToastNotificationActionTriggerDetail {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotificationActionTriggerDetail;{9445135a-38f3-42f6-96aa-7955b0f03da2})");
 }
@@ -5188,6 +5368,11 @@ impl ::core::cmp::PartialEq for ToastNotificationHistory {
     }
 }
 impl ::core::cmp::Eq for ToastNotificationHistory {}
+impl ::core::fmt::Debug for ToastNotificationHistory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastNotificationHistory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToastNotificationHistory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotificationHistory;{5caddc63-01d3-4c97-986f-0533483fee14})");
 }
@@ -5270,6 +5455,11 @@ impl ::core::cmp::PartialEq for ToastNotificationHistoryChangedTriggerDetail {
     }
 }
 impl ::core::cmp::Eq for ToastNotificationHistoryChangedTriggerDetail {}
+impl ::core::fmt::Debug for ToastNotificationHistoryChangedTriggerDetail {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastNotificationHistoryChangedTriggerDetail").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToastNotificationHistoryChangedTriggerDetail {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotificationHistoryChangedTriggerDetail;{db037ffa-0068-412c-9c83-267c37f65670})");
 }
@@ -5478,6 +5668,11 @@ impl ::core::cmp::PartialEq for ToastNotificationManagerForUser {
     }
 }
 impl ::core::cmp::Eq for ToastNotificationManagerForUser {}
+impl ::core::fmt::Debug for ToastNotificationManagerForUser {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastNotificationManagerForUser").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToastNotificationManagerForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotificationManagerForUser;{79ab57f6-43fe-487b-8a7f-99567200ae94})");
 }
@@ -5552,6 +5747,11 @@ impl ::core::cmp::PartialEq for ToastNotificationPriority {
     }
 }
 impl ::core::cmp::Eq for ToastNotificationPriority {}
+impl ::core::fmt::Debug for ToastNotificationPriority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastNotificationPriority").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToastNotificationPriority {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastNotificationPriority;i4)");
 }
@@ -5642,6 +5842,11 @@ impl ::core::cmp::PartialEq for ToastNotifier {
     }
 }
 impl ::core::cmp::Eq for ToastNotifier {}
+impl ::core::fmt::Debug for ToastNotifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastNotifier").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToastNotifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotifier;{75927b93-03f3-41ec-91d3-6e5bac1b38e7})");
 }
@@ -5722,6 +5927,11 @@ impl ::core::cmp::PartialEq for ToastTemplateType {
     }
 }
 impl ::core::cmp::Eq for ToastTemplateType {}
+impl ::core::fmt::Debug for ToastTemplateType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastTemplateType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToastTemplateType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastTemplateType;i4)");
 }
@@ -5778,6 +5988,11 @@ impl ::core::cmp::PartialEq for UserNotification {
     }
 }
 impl ::core::cmp::Eq for UserNotification {}
+impl ::core::fmt::Debug for UserNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserNotification").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserNotification {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.UserNotification;{adf7e52f-4e53-42d5-9c33-eb5ea515b23e})");
 }
@@ -5862,6 +6077,11 @@ impl ::core::cmp::PartialEq for UserNotificationChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for UserNotificationChangedEventArgs {}
+impl ::core::fmt::Debug for UserNotificationChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserNotificationChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserNotificationChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.UserNotificationChangedEventArgs;{b6bd6839-79cf-4b25-82c0-0ce1eef81f8c})");
 }
@@ -5936,6 +6156,11 @@ impl ::core::cmp::PartialEq for UserNotificationChangedKind {
     }
 }
 impl ::core::cmp::Eq for UserNotificationChangedKind {}
+impl ::core::fmt::Debug for UserNotificationChangedKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserNotificationChangedKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserNotificationChangedKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.UserNotificationChangedKind;i4)");
 }

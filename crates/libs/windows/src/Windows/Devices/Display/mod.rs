@@ -220,6 +220,11 @@ impl ::core::cmp::PartialEq for DisplayMonitor {
     }
 }
 impl ::core::cmp::Eq for DisplayMonitor {}
+impl ::core::fmt::Debug for DisplayMonitor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayMonitor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.DisplayMonitor;{1f6b15d4-1d01-4c51-87e2-6f954a772b59})");
 }
@@ -296,6 +301,11 @@ impl ::core::cmp::PartialEq for DisplayMonitorConnectionKind {
     }
 }
 impl ::core::cmp::Eq for DisplayMonitorConnectionKind {}
+impl ::core::fmt::Debug for DisplayMonitorConnectionKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayMonitorConnectionKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayMonitorConnectionKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorConnectionKind;i4)");
 }
@@ -324,6 +334,11 @@ impl ::core::cmp::PartialEq for DisplayMonitorDescriptorKind {
     }
 }
 impl ::core::cmp::Eq for DisplayMonitorDescriptorKind {}
+impl ::core::fmt::Debug for DisplayMonitorDescriptorKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayMonitorDescriptorKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayMonitorDescriptorKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorDescriptorKind;i4)");
 }
@@ -358,6 +373,11 @@ impl ::core::cmp::PartialEq for DisplayMonitorPhysicalConnectorKind {
     }
 }
 impl ::core::cmp::Eq for DisplayMonitorPhysicalConnectorKind {}
+impl ::core::fmt::Debug for DisplayMonitorPhysicalConnectorKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayMonitorPhysicalConnectorKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayMonitorPhysicalConnectorKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorPhysicalConnectorKind;i4)");
 }
@@ -387,6 +407,11 @@ impl ::core::cmp::PartialEq for DisplayMonitorUsageKind {
     }
 }
 impl ::core::cmp::Eq for DisplayMonitorUsageKind {}
+impl ::core::fmt::Debug for DisplayMonitorUsageKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayMonitorUsageKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayMonitorUsageKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorUsageKind;i4)");
 }

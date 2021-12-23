@@ -24,6 +24,11 @@ impl ::core::cmp::PartialEq for AlternateNormalizationFormat {
     }
 }
 impl ::core::cmp::Eq for AlternateNormalizationFormat {}
+impl ::core::fmt::Debug for AlternateNormalizationFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AlternateNormalizationFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AlternateNormalizationFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Text.AlternateNormalizationFormat;i4)");
 }
@@ -70,6 +75,11 @@ impl ::core::cmp::PartialEq for AlternateWordForm {
     }
 }
 impl ::core::cmp::Eq for AlternateWordForm {}
+impl ::core::fmt::Debug for AlternateWordForm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AlternateWordForm").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AlternateWordForm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.AlternateWordForm;{47396c1e-51b9-4207-9146-248e636a1d1d})");
 }
@@ -554,6 +564,11 @@ impl ::core::cmp::PartialEq for SelectableWordSegment {
     }
 }
 impl ::core::cmp::Eq for SelectableWordSegment {}
+impl ::core::fmt::Debug for SelectableWordSegment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SelectableWordSegment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SelectableWordSegment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.SelectableWordSegment;{916a4cb7-8aa7-4c78-b374-5dedb752e60b})");
 }
@@ -679,6 +694,12 @@ impl ::core::cmp::PartialEq for SelectableWordSegmentsTokenizingHandler {
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for SelectableWordSegmentsTokenizingHandler {}
 #[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for SelectableWordSegmentsTokenizingHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SelectableWordSegmentsTokenizingHandler").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for SelectableWordSegmentsTokenizingHandler {
     type Vtable = SelectableWordSegmentsTokenizingHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a3dfc9c_aede_4dc7_9e6c_41c044bd3592);
@@ -756,6 +777,11 @@ impl ::core::cmp::PartialEq for SelectableWordsSegmenter {
     }
 }
 impl ::core::cmp::Eq for SelectableWordsSegmenter {}
+impl ::core::fmt::Debug for SelectableWordsSegmenter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SelectableWordsSegmenter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SelectableWordsSegmenter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.SelectableWordsSegmenter;{f6dc31e7-4b13-45c5-8897-7d71269e085d})");
 }
@@ -861,6 +887,11 @@ impl ::core::cmp::PartialEq for SemanticTextQuery {
     }
 }
 impl ::core::cmp::Eq for SemanticTextQuery {}
+impl ::core::fmt::Debug for SemanticTextQuery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SemanticTextQuery").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SemanticTextQuery {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.SemanticTextQuery;{6a1cab51-1fb2-4909-80b8-35731a2b3e7f})");
 }
@@ -975,6 +1006,11 @@ impl ::core::cmp::PartialEq for TextConversionGenerator {
     }
 }
 impl ::core::cmp::Eq for TextConversionGenerator {}
+impl ::core::fmt::Debug for TextConversionGenerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextConversionGenerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextConversionGenerator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.TextConversionGenerator;{03606a5e-2aa9-4ab6-af8b-a562b63a8992})");
 }
@@ -1059,6 +1095,11 @@ impl ::core::cmp::PartialEq for TextPhoneme {
     }
 }
 impl ::core::cmp::Eq for TextPhoneme {}
+impl ::core::fmt::Debug for TextPhoneme {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextPhoneme").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextPhoneme {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.TextPhoneme;{9362a40a-9b7a-4569-94cf-d84f2f38cf9b})");
 }
@@ -1206,6 +1247,11 @@ impl ::core::cmp::PartialEq for TextPredictionGenerator {
     }
 }
 impl ::core::cmp::Eq for TextPredictionGenerator {}
+impl ::core::fmt::Debug for TextPredictionGenerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextPredictionGenerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextPredictionGenerator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.TextPredictionGenerator;{5eacab07-abf1-4cb6-9d9e-326f2b468756})");
 }
@@ -1281,6 +1327,11 @@ impl ::core::cmp::PartialEq for TextPredictionOptions {
     }
 }
 impl ::core::cmp::Eq for TextPredictionOptions {}
+impl ::core::fmt::Debug for TextPredictionOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextPredictionOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextPredictionOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Text.TextPredictionOptions;u4)");
 }
@@ -1349,6 +1400,11 @@ impl ::core::cmp::PartialEq for TextReverseConversionGenerator {
     }
 }
 impl ::core::cmp::Eq for TextReverseConversionGenerator {}
+impl ::core::fmt::Debug for TextReverseConversionGenerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextReverseConversionGenerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextReverseConversionGenerator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.TextReverseConversionGenerator;{51e7f514-9c51-4d86-ae1b-b498fbad8313})");
 }
@@ -1411,6 +1467,11 @@ impl ::core::marker::Copy for TextSegment {}
 impl ::core::clone::Clone for TextSegment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TextSegment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TextSegment").field("StartPosition", &self.StartPosition).field("Length", &self.Length).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TextSegment {
@@ -1611,6 +1672,11 @@ impl ::core::cmp::PartialEq for UnicodeGeneralCategory {
     }
 }
 impl ::core::cmp::Eq for UnicodeGeneralCategory {}
+impl ::core::fmt::Debug for UnicodeGeneralCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnicodeGeneralCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UnicodeGeneralCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Text.UnicodeGeneralCategory;i4)");
 }
@@ -1641,6 +1707,11 @@ impl ::core::cmp::PartialEq for UnicodeNumericType {
     }
 }
 impl ::core::cmp::Eq for UnicodeNumericType {}
+impl ::core::fmt::Debug for UnicodeNumericType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnicodeNumericType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UnicodeNumericType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Text.UnicodeNumericType;i4)");
 }
@@ -1688,6 +1759,11 @@ impl ::core::cmp::PartialEq for WordSegment {
     }
 }
 impl ::core::cmp::Eq for WordSegment {}
+impl ::core::fmt::Debug for WordSegment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WordSegment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WordSegment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.WordSegment;{d2d4ba6d-987c-4cc0-b6bd-d49a11b38f9a})");
 }
@@ -1809,6 +1885,12 @@ impl ::core::cmp::PartialEq for WordSegmentsTokenizingHandler {
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for WordSegmentsTokenizingHandler {}
 #[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for WordSegmentsTokenizingHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WordSegmentsTokenizingHandler").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for WordSegmentsTokenizingHandler {
     type Vtable = WordSegmentsTokenizingHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5dd6357_bf2a_4c4f_a31f_29e71c6f8b35);
@@ -1886,6 +1968,11 @@ impl ::core::cmp::PartialEq for WordsSegmenter {
     }
 }
 impl ::core::cmp::Eq for WordsSegmenter {}
+impl ::core::fmt::Debug for WordsSegmenter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WordsSegmenter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WordsSegmenter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.WordsSegmenter;{86b4d4d1-b2fe-4e34-a81d-66640300454f})");
 }

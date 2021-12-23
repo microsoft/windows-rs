@@ -275,6 +275,11 @@ impl ::core::cmp::PartialEq for InjectedInputButtonChangeKind {
     }
 }
 impl ::core::cmp::Eq for InjectedInputButtonChangeKind {}
+impl ::core::fmt::Debug for InjectedInputButtonChangeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputButtonChangeKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputButtonChangeKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputButtonChangeKind;i4)");
 }
@@ -410,6 +415,11 @@ impl ::core::cmp::PartialEq for InjectedInputGamepadInfo {
     }
 }
 impl ::core::cmp::Eq for InjectedInputGamepadInfo {}
+impl ::core::fmt::Debug for InjectedInputGamepadInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputGamepadInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputGamepadInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputGamepadInfo;{20ae9a3f-df11-4572-a9ab-d75b8a5e48ad})");
 }
@@ -485,6 +495,11 @@ impl ::core::cmp::PartialEq for InjectedInputKeyOptions {
     }
 }
 impl ::core::cmp::Eq for InjectedInputKeyOptions {}
+impl ::core::fmt::Debug for InjectedInputKeyOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputKeyOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputKeyOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputKeyOptions;u4)");
 }
@@ -553,6 +568,11 @@ impl ::core::cmp::PartialEq for InjectedInputKeyboardInfo {
     }
 }
 impl ::core::cmp::Eq for InjectedInputKeyboardInfo {}
+impl ::core::fmt::Debug for InjectedInputKeyboardInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputKeyboardInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputKeyboardInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputKeyboardInfo;{4b46d140-2b6a-5ffa-7eae-bd077b052acd})");
 }
@@ -691,6 +711,11 @@ impl ::core::cmp::PartialEq for InjectedInputMouseInfo {
     }
 }
 impl ::core::cmp::Eq for InjectedInputMouseInfo {}
+impl ::core::fmt::Debug for InjectedInputMouseInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputMouseInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputMouseInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputMouseInfo;{96f56e6b-e47a-5cf4-418d-8a5fb9670c7d})");
 }
@@ -776,6 +801,11 @@ impl ::core::cmp::PartialEq for InjectedInputMouseOptions {
     }
 }
 impl ::core::cmp::Eq for InjectedInputMouseOptions {}
+impl ::core::fmt::Debug for InjectedInputMouseOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputMouseOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputMouseOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputMouseOptions;u4)");
 }
@@ -806,6 +836,11 @@ impl ::core::cmp::PartialEq for InjectedInputPenButtons {
     }
 }
 impl ::core::cmp::Eq for InjectedInputPenButtons {}
+impl ::core::fmt::Debug for InjectedInputPenButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputPenButtons").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputPenButtons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenButtons;u4)");
 }
@@ -926,6 +961,11 @@ impl ::core::cmp::PartialEq for InjectedInputPenInfo {
     }
 }
 impl ::core::cmp::Eq for InjectedInputPenInfo {}
+impl ::core::fmt::Debug for InjectedInputPenInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputPenInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputPenInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputPenInfo;{6b40ad03-ca1e-5527-7e02-2828540bb1d4})");
 }
@@ -1001,6 +1041,11 @@ impl ::core::cmp::PartialEq for InjectedInputPenParameters {
     }
 }
 impl ::core::cmp::Eq for InjectedInputPenParameters {}
+impl ::core::fmt::Debug for InjectedInputPenParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputPenParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputPenParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenParameters;u4)");
 }
@@ -1017,6 +1062,11 @@ impl ::core::marker::Copy for InjectedInputPoint {}
 impl ::core::clone::Clone for InjectedInputPoint {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for InjectedInputPoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("InjectedInputPoint").field("PositionX", &self.PositionX).field("PositionY", &self.PositionY).finish()
     }
 }
 unsafe impl ::windows::core::Abi for InjectedInputPoint {
@@ -1052,6 +1102,11 @@ impl ::core::marker::Copy for InjectedInputPointerInfo {}
 impl ::core::clone::Clone for InjectedInputPointerInfo {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for InjectedInputPointerInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("InjectedInputPointerInfo").field("PointerId", &self.PointerId).field("PointerOptions", &self.PointerOptions).field("PixelLocation", &self.PixelLocation).field("TimeOffsetInMilliseconds", &self.TimeOffsetInMilliseconds).field("PerformanceCount", &self.PerformanceCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for InjectedInputPointerInfo {
@@ -1107,6 +1162,11 @@ impl ::core::cmp::PartialEq for InjectedInputPointerOptions {
     }
 }
 impl ::core::cmp::Eq for InjectedInputPointerOptions {}
+impl ::core::fmt::Debug for InjectedInputPointerOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputPointerOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputPointerOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4)");
 }
@@ -1125,6 +1185,11 @@ impl ::core::marker::Copy for InjectedInputRectangle {}
 impl ::core::clone::Clone for InjectedInputRectangle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for InjectedInputRectangle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("InjectedInputRectangle").field("Left", &self.Left).field("Top", &self.Top).field("Bottom", &self.Bottom).field("Right", &self.Right).finish()
     }
 }
 unsafe impl ::windows::core::Abi for InjectedInputRectangle {
@@ -1170,6 +1235,11 @@ impl ::core::cmp::PartialEq for InjectedInputShortcut {
     }
 }
 impl ::core::cmp::Eq for InjectedInputShortcut {}
+impl ::core::fmt::Debug for InjectedInputShortcut {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputShortcut").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputShortcut {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputShortcut;i4)");
 }
@@ -1264,6 +1334,11 @@ impl ::core::cmp::PartialEq for InjectedInputTouchInfo {
     }
 }
 impl ::core::cmp::Eq for InjectedInputTouchInfo {}
+impl ::core::fmt::Debug for InjectedInputTouchInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputTouchInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputTouchInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputTouchInfo;{224fd1df-43e8-5ef5-510a-69ca8c9b4c28})");
 }
@@ -1338,6 +1413,11 @@ impl ::core::cmp::PartialEq for InjectedInputTouchParameters {
     }
 }
 impl ::core::cmp::Eq for InjectedInputTouchParameters {}
+impl ::core::fmt::Debug for InjectedInputTouchParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputTouchParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputTouchParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputTouchParameters;u4)");
 }
@@ -1367,6 +1447,11 @@ impl ::core::cmp::PartialEq for InjectedInputVisualizationMode {
     }
 }
 impl ::core::cmp::Eq for InjectedInputVisualizationMode {}
+impl ::core::fmt::Debug for InjectedInputVisualizationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputVisualizationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputVisualizationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputVisualizationMode;i4)");
 }
@@ -1476,6 +1561,11 @@ impl ::core::cmp::PartialEq for InputInjector {
     }
 }
 impl ::core::cmp::Eq for InputInjector {}
+impl ::core::fmt::Debug for InputInjector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InputInjector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InputInjector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InputInjector;{8ec26f84-0b02-4bd2-ad7a-3d4658be3e18})");
 }

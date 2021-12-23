@@ -1790,6 +1790,11 @@ impl ::core::clone::Clone for smiCNTR64 {
         *self
     }
 }
+impl ::core::fmt::Debug for smiCNTR64 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("smiCNTR64").field("hipart", &self.hipart).field("lopart", &self.lopart).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for smiCNTR64 {
     type Abi = Self;
 }
@@ -1816,6 +1821,11 @@ impl ::core::clone::Clone for smiOCTETS {
         *self
     }
 }
+impl ::core::fmt::Debug for smiOCTETS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("smiOCTETS").field("len", &self.len).field("ptr", &self.ptr).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for smiOCTETS {
     type Abi = Self;
 }
@@ -1840,6 +1850,11 @@ impl ::core::marker::Copy for smiOID {}
 impl ::core::clone::Clone for smiOID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for smiOID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("smiOID").field("len", &self.len).field("ptr", &self.ptr).finish()
     }
 }
 unsafe impl ::windows::core::Abi for smiOID {
@@ -1928,6 +1943,12 @@ impl ::core::marker::Copy for smiVENDORINFO {}
 impl ::core::clone::Clone for smiVENDORINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for smiVENDORINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("smiVENDORINFO").field("vendorName", &self.vendorName).field("vendorContact", &self.vendorContact).field("vendorVersionId", &self.vendorVersionId).field("vendorVersionDate", &self.vendorVersionDate).field("vendorEnterprise", &self.vendorEnterprise).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

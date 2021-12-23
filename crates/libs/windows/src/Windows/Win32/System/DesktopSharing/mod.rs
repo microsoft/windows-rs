@@ -411,6 +411,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPIApplication {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPIApplication {}
+impl ::core::fmt::Debug for IRDPSRAPIApplication {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPIApplication").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPIApplication {
     type Vtable = IRDPSRAPIApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41e7a09d_eb7a_436e_935d_780ca2628324);
@@ -538,6 +543,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPIApplicationFilter {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPIApplicationFilter {}
+impl ::core::fmt::Debug for IRDPSRAPIApplicationFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPIApplicationFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPIApplicationFilter {
     type Vtable = IRDPSRAPIApplicationFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd20f10ca_6637_4f06_b1d5_277ea7e5160d);
@@ -653,6 +663,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPIApplicationList {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPIApplicationList {}
+impl ::core::fmt::Debug for IRDPSRAPIApplicationList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPIApplicationList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPIApplicationList {
     type Vtable = IRDPSRAPIApplicationListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4b4aeb3_22dc_4837_b3b6_42ea2517849a);
@@ -795,6 +810,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPIAttendee {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPIAttendee {}
+impl ::core::fmt::Debug for IRDPSRAPIAttendee {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPIAttendee").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPIAttendee {
     type Vtable = IRDPSRAPIAttendeeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec0671b3_1b78_4b80_a464_9132247543e3);
@@ -920,6 +940,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPIAttendeeDisconnectInfo {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPIAttendeeDisconnectInfo {}
+impl ::core::fmt::Debug for IRDPSRAPIAttendeeDisconnectInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPIAttendeeDisconnectInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPIAttendeeDisconnectInfo {
     type Vtable = IRDPSRAPIAttendeeDisconnectInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc187689f_447c_44a1_9c14_fffbb3b7ec17);
@@ -1034,6 +1059,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPIAttendeeManager {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPIAttendeeManager {}
+impl ::core::fmt::Debug for IRDPSRAPIAttendeeManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPIAttendeeManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPIAttendeeManager {
     type Vtable = IRDPSRAPIAttendeeManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba3a37e8_33da_4749_8da0_07fa34da7944);
@@ -1112,6 +1142,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPIAudioStream {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPIAudioStream {}
+impl ::core::fmt::Debug for IRDPSRAPIAudioStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPIAudioStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPIAudioStream {
     type Vtable = IRDPSRAPIAudioStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3e30ef9_89c6_4541_ba3b_19336ac6d31c);
@@ -1170,6 +1205,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPIClipboardUseEvents {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPIClipboardUseEvents {}
+impl ::core::fmt::Debug for IRDPSRAPIClipboardUseEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPIClipboardUseEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPIClipboardUseEvents {
     type Vtable = IRDPSRAPIClipboardUseEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd559f59a_7a27_4138_8763_247ce5f659a8);
@@ -1230,6 +1270,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPIDebug {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPIDebug {}
+impl ::core::fmt::Debug for IRDPSRAPIDebug {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPIDebug").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPIDebug {
     type Vtable = IRDPSRAPIDebugVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa1e42b5_496d_4ca4_a690_348dcb2ec4ad);
@@ -1348,6 +1393,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPIFrameBuffer {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPIFrameBuffer {}
+impl ::core::fmt::Debug for IRDPSRAPIFrameBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPIFrameBuffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPIFrameBuffer {
     type Vtable = IRDPSRAPIFrameBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d67e7d2_b27b_448e_81b3_c6110ed8b4be);
@@ -1490,6 +1540,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPIInvitation {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPIInvitation {}
+impl ::core::fmt::Debug for IRDPSRAPIInvitation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPIInvitation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPIInvitation {
     type Vtable = IRDPSRAPIInvitationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fac1d43_fc51_45bb_b1b4_2b53aa562fa3);
@@ -1623,6 +1678,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPIInvitationManager {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPIInvitationManager {}
+impl ::core::fmt::Debug for IRDPSRAPIInvitationManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPIInvitationManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPIInvitationManager {
     type Vtable = IRDPSRAPIInvitationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4722b049_92c3_4c2d_8a65_f7348f644dcf);
@@ -1688,6 +1748,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPIPerfCounterLogger {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPIPerfCounterLogger {}
+impl ::core::fmt::Debug for IRDPSRAPIPerfCounterLogger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPIPerfCounterLogger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPIPerfCounterLogger {
     type Vtable = IRDPSRAPIPerfCounterLoggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x071c2533_0fa4_4e8f_ae83_9c10b4305ab5);
@@ -1737,6 +1802,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPIPerfCounterLoggingManager {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPIPerfCounterLoggingManager {}
+impl ::core::fmt::Debug for IRDPSRAPIPerfCounterLoggingManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPIPerfCounterLoggingManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPIPerfCounterLoggingManager {
     type Vtable = IRDPSRAPIPerfCounterLoggingManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a512c86_ac6e_4a8e_b1a4_fcef363f6e64);
@@ -1843,6 +1913,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPISessionProperties {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPISessionProperties {}
+impl ::core::fmt::Debug for IRDPSRAPISessionProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPISessionProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPISessionProperties {
     type Vtable = IRDPSRAPISessionPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x339b24f2_9bc0_4f16_9aac_f165433d13d4);
@@ -2011,6 +2086,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPISharingSession {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPISharingSession {}
+impl ::core::fmt::Debug for IRDPSRAPISharingSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPISharingSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPISharingSession {
     type Vtable = IRDPSRAPISharingSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeeb20886_e470_4cf6_842b_2739c0ec5cfb);
@@ -2224,6 +2304,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPISharingSession2 {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPISharingSession2 {}
+impl ::core::fmt::Debug for IRDPSRAPISharingSession2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPISharingSession2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPISharingSession2 {
     type Vtable = IRDPSRAPISharingSession2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfee4ee57_e3e8_4205_8fb0_8fd1d0675c21);
@@ -2371,6 +2456,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPITcpConnectionInfo {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPITcpConnectionInfo {}
+impl ::core::fmt::Debug for IRDPSRAPITcpConnectionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPITcpConnectionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPITcpConnectionInfo {
     type Vtable = IRDPSRAPITcpConnectionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf74049a4_3d06_4028_8193_0a8c29bc2452);
@@ -2458,6 +2548,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPITransportStream {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPITransportStream {}
+impl ::core::fmt::Debug for IRDPSRAPITransportStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPITransportStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPITransportStream {
     type Vtable = IRDPSRAPITransportStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36cfa065_43bb_4ef7_aed7_9b88a5053036);
@@ -2557,6 +2652,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPITransportStreamBuffer {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPITransportStreamBuffer {}
+impl ::core::fmt::Debug for IRDPSRAPITransportStreamBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPITransportStreamBuffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPITransportStreamBuffer {
     type Vtable = IRDPSRAPITransportStreamBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81c80290_5085_44b0_b460_f865c39cb4a9);
@@ -2626,6 +2726,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPITransportStreamEvents {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPITransportStreamEvents {}
+impl ::core::fmt::Debug for IRDPSRAPITransportStreamEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPITransportStreamEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPITransportStreamEvents {
     type Vtable = IRDPSRAPITransportStreamEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea81c254_f5af_4e40_982e_3e63bb595276);
@@ -2790,6 +2895,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPIViewer {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPIViewer {}
+impl ::core::fmt::Debug for IRDPSRAPIViewer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPIViewer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPIViewer {
     type Vtable = IRDPSRAPIViewerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6bfcd38_8ce9_404d_8ae8_f31d00c65cb5);
@@ -2934,6 +3044,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPIVirtualChannel {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPIVirtualChannel {}
+impl ::core::fmt::Debug for IRDPSRAPIVirtualChannel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPIVirtualChannel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPIVirtualChannel {
     type Vtable = IRDPSRAPIVirtualChannelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05e12f95_28b3_4c9a_8780_d0248574a1e0);
@@ -3059,6 +3174,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPIVirtualChannelManager {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPIVirtualChannelManager {}
+impl ::core::fmt::Debug for IRDPSRAPIVirtualChannelManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPIVirtualChannelManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPIVirtualChannelManager {
     type Vtable = IRDPSRAPIVirtualChannelManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d11c661_5d0d_4ee4_89df_2166ae1fdfed);
@@ -3199,6 +3319,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPIWindow {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPIWindow {}
+impl ::core::fmt::Debug for IRDPSRAPIWindow {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPIWindow").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPIWindow {
     type Vtable = IRDPSRAPIWindowVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbeafe0f9_c77b_4933_ba9f_a24cddcc27cf);
@@ -3318,6 +3443,11 @@ impl ::core::cmp::PartialEq for IRDPSRAPIWindowList {
     }
 }
 impl ::core::cmp::Eq for IRDPSRAPIWindowList {}
+impl ::core::fmt::Debug for IRDPSRAPIWindowList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPSRAPIWindowList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPSRAPIWindowList {
     type Vtable = IRDPSRAPIWindowListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a05ce44_715a_4116_a189_a118f30a07bd);
@@ -3407,6 +3537,11 @@ impl ::core::cmp::PartialEq for IRDPViewerInputSink {
     }
 }
 impl ::core::cmp::Eq for IRDPViewerInputSink {}
+impl ::core::fmt::Debug for IRDPViewerInputSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRDPViewerInputSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRDPViewerInputSink {
     type Vtable = IRDPViewerInputSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb590853_a6c5_4a7b_8dd4_76b69eea12d5);
@@ -3567,6 +3702,11 @@ impl ::core::cmp::PartialEq for _IRDPSessionEvents {
     }
 }
 impl ::core::cmp::Eq for _IRDPSessionEvents {}
+impl ::core::fmt::Debug for _IRDPSessionEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_IRDPSessionEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _IRDPSessionEvents {
     type Vtable = _IRDPSessionEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98a97042_6698_40e9_8efd_b3200990004b);
@@ -3618,6 +3758,20 @@ impl ::core::marker::Copy for __ReferenceRemainingTypes__ {}
 impl ::core::clone::Clone for __ReferenceRemainingTypes__ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for __ReferenceRemainingTypes__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("__ReferenceRemainingTypes__")
+            .field("__ctrlLevel__", &self.__ctrlLevel__)
+            .field("__attendeeDisconnectReason__", &self.__attendeeDisconnectReason__)
+            .field("__channelPriority__", &self.__channelPriority__)
+            .field("__channelFlags__", &self.__channelFlags__)
+            .field("__channelAccessEnum__", &self.__channelAccessEnum__)
+            .field("__rdpencomapiAttendeeFlags__", &self.__rdpencomapiAttendeeFlags__)
+            .field("__rdpsrapiWndFlags__", &self.__rdpsrapiWndFlags__)
+            .field("__rdpsrapiAppFlags__", &self.__rdpsrapiAppFlags__)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for __ReferenceRemainingTypes__ {

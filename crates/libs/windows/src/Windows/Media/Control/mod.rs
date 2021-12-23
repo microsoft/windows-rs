@@ -14,6 +14,11 @@ impl ::core::cmp::PartialEq for CurrentSessionChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for CurrentSessionChangedEventArgs {}
+impl ::core::fmt::Debug for CurrentSessionChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CurrentSessionChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CurrentSessionChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.CurrentSessionChangedEventArgs;{6969cb39-0bfa-5fe0-8d73-09cc5e5408e1})");
 }
@@ -295,6 +300,11 @@ impl ::core::cmp::PartialEq for GlobalSystemMediaTransportControlsSession {
     }
 }
 impl ::core::cmp::Eq for GlobalSystemMediaTransportControlsSession {}
+impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GlobalSystemMediaTransportControlsSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GlobalSystemMediaTransportControlsSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSession;{7148c835-9b14-5ae2-ab85-dc9b1c14e1a8})");
 }
@@ -423,6 +433,11 @@ impl ::core::cmp::PartialEq for GlobalSystemMediaTransportControlsSessionManager
     }
 }
 impl ::core::cmp::Eq for GlobalSystemMediaTransportControlsSessionManager {}
+impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GlobalSystemMediaTransportControlsSessionManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GlobalSystemMediaTransportControlsSessionManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionManager;{cace8eac-e86e-504a-ab31-5ff8ff1bce49})");
 }
@@ -574,6 +589,11 @@ impl ::core::cmp::PartialEq for GlobalSystemMediaTransportControlsSessionMediaPr
     }
 }
 impl ::core::cmp::Eq for GlobalSystemMediaTransportControlsSessionMediaProperties {}
+impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionMediaProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GlobalSystemMediaTransportControlsSessionMediaProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GlobalSystemMediaTransportControlsSessionMediaProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionMediaProperties;{68856cf6-adb4-54b2-ac16-05837907acb6})");
 }
@@ -762,6 +782,11 @@ impl ::core::cmp::PartialEq for GlobalSystemMediaTransportControlsSessionPlaybac
     }
 }
 impl ::core::cmp::Eq for GlobalSystemMediaTransportControlsSessionPlaybackControls {}
+impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionPlaybackControls {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GlobalSystemMediaTransportControlsSessionPlaybackControls").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GlobalSystemMediaTransportControlsSessionPlaybackControls {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackControls;{6501a3e6-bc7a-503a-bb1b-68f158f3fb03})");
 }
@@ -882,6 +907,11 @@ impl ::core::cmp::PartialEq for GlobalSystemMediaTransportControlsSessionPlaybac
     }
 }
 impl ::core::cmp::Eq for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
+impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GlobalSystemMediaTransportControlsSessionPlaybackInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackInfo;{94b4b6cf-e8ba-51ad-87a7-c10ade106127})");
 }
@@ -960,6 +990,11 @@ impl ::core::cmp::PartialEq for GlobalSystemMediaTransportControlsSessionPlaybac
     }
 }
 impl ::core::cmp::Eq for GlobalSystemMediaTransportControlsSessionPlaybackStatus {}
+impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GlobalSystemMediaTransportControlsSessionPlaybackStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackStatus;i4)");
 }
@@ -1036,6 +1071,11 @@ impl ::core::cmp::PartialEq for GlobalSystemMediaTransportControlsSessionTimelin
     }
 }
 impl ::core::cmp::Eq for GlobalSystemMediaTransportControlsSessionTimelineProperties {}
+impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionTimelineProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GlobalSystemMediaTransportControlsSessionTimelineProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GlobalSystemMediaTransportControlsSessionTimelineProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionTimelineProperties;{ede34136-6f25-588d-8ecf-ea5b6735aaa5})");
 }
@@ -1417,6 +1457,11 @@ impl ::core::cmp::PartialEq for MediaPropertiesChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MediaPropertiesChangedEventArgs {}
+impl ::core::fmt::Debug for MediaPropertiesChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPropertiesChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPropertiesChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.MediaPropertiesChangedEventArgs;{7d3741cb-adf0-5cef-91ba-cfabcdd77678})");
 }
@@ -1484,6 +1529,11 @@ impl ::core::cmp::PartialEq for PlaybackInfoChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PlaybackInfoChangedEventArgs {}
+impl ::core::fmt::Debug for PlaybackInfoChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlaybackInfoChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlaybackInfoChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.PlaybackInfoChangedEventArgs;{786756c2-bc0d-50a5-8807-054291fef139})");
 }
@@ -1551,6 +1601,11 @@ impl ::core::cmp::PartialEq for SessionsChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SessionsChangedEventArgs {}
+impl ::core::fmt::Debug for SessionsChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SessionsChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SessionsChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.SessionsChangedEventArgs;{bbf0cd32-42c4-5a58-b317-f34bbfbd26e0})");
 }
@@ -1618,6 +1673,11 @@ impl ::core::cmp::PartialEq for TimelinePropertiesChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for TimelinePropertiesChangedEventArgs {}
+impl ::core::fmt::Debug for TimelinePropertiesChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimelinePropertiesChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimelinePropertiesChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.TimelinePropertiesChangedEventArgs;{29033a2f-c923-5a77-bcaf-055ff415ad32})");
 }

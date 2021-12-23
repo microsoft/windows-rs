@@ -67,6 +67,11 @@ impl ::core::cmp::PartialEq for IPrintManagerInterop {
     }
 }
 impl ::core::cmp::Eq for IPrintManagerInterop {}
+impl ::core::fmt::Debug for IPrintManagerInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintManagerInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintManagerInterop {
     type Vtable = IPrintManagerInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5435a42_8d43_4e7b_a68a_ef311e392087);
@@ -139,6 +144,11 @@ impl ::core::cmp::PartialEq for IPrintWorkflowConfigurationNative {
     }
 }
 impl ::core::cmp::Eq for IPrintWorkflowConfigurationNative {}
+impl ::core::fmt::Debug for IPrintWorkflowConfigurationNative {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintWorkflowConfigurationNative").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintWorkflowConfigurationNative {
     type Vtable = IPrintWorkflowConfigurationNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc056be0a_9ee2_450a_9823_964f0006f2bb);
@@ -202,6 +212,11 @@ impl ::core::cmp::PartialEq for IPrintWorkflowObjectModelSourceFileContentNative
     }
 }
 impl ::core::cmp::Eq for IPrintWorkflowObjectModelSourceFileContentNative {}
+impl ::core::fmt::Debug for IPrintWorkflowObjectModelSourceFileContentNative {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintWorkflowObjectModelSourceFileContentNative").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintWorkflowObjectModelSourceFileContentNative {
     type Vtable = IPrintWorkflowObjectModelSourceFileContentNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68c9e477_993e_4052_8ac6_454eff58db9d);
@@ -258,6 +273,11 @@ impl ::core::cmp::PartialEq for IPrintWorkflowXpsObjectModelTargetPackageNative 
     }
 }
 impl ::core::cmp::Eq for IPrintWorkflowXpsObjectModelTargetPackageNative {}
+impl ::core::fmt::Debug for IPrintWorkflowXpsObjectModelTargetPackageNative {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintWorkflowXpsObjectModelTargetPackageNative").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintWorkflowXpsObjectModelTargetPackageNative {
     type Vtable = IPrintWorkflowXpsObjectModelTargetPackageNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d96bc74_9b54_4ca1_ad3a_979c3d44ddac);
@@ -331,6 +351,11 @@ impl ::core::cmp::PartialEq for IPrintWorkflowXpsReceiver {
     }
 }
 impl ::core::cmp::Eq for IPrintWorkflowXpsReceiver {}
+impl ::core::fmt::Debug for IPrintWorkflowXpsReceiver {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintWorkflowXpsReceiver").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintWorkflowXpsReceiver {
     type Vtable = IPrintWorkflowXpsReceiverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04097374_77b8_47f6_8167_aae29d4cf84b);
@@ -435,6 +460,11 @@ impl ::core::cmp::PartialEq for IPrintWorkflowXpsReceiver2 {
     }
 }
 impl ::core::cmp::Eq for IPrintWorkflowXpsReceiver2 {}
+impl ::core::fmt::Debug for IPrintWorkflowXpsReceiver2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintWorkflowXpsReceiver2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintWorkflowXpsReceiver2 {
     type Vtable = IPrintWorkflowXpsReceiver2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x023bcc0c_dfab_4a61_b074_490c6995580d);
@@ -524,6 +554,11 @@ impl ::core::cmp::PartialEq for IPrinting3DManagerInterop {
     }
 }
 impl ::core::cmp::Eq for IPrinting3DManagerInterop {}
+impl ::core::fmt::Debug for IPrinting3DManagerInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrinting3DManagerInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinting3DManagerInterop {
     type Vtable = IPrinting3DManagerInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ca31010_1484_4587_b26b_dddf9f9caecd);

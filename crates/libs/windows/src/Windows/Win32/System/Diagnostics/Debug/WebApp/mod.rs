@@ -39,6 +39,11 @@ impl ::core::cmp::PartialEq for IWebApplicationActivation {
     }
 }
 impl ::core::cmp::Eq for IWebApplicationActivation {}
+impl ::core::fmt::Debug for IWebApplicationActivation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebApplicationActivation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWebApplicationActivation {
     type Vtable = IWebApplicationActivationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcdcd0de_330e_481b_b843_4898a6a8ebac);
@@ -117,6 +122,11 @@ impl ::core::cmp::PartialEq for IWebApplicationAuthoringMode {
     }
 }
 impl ::core::cmp::Eq for IWebApplicationAuthoringMode {}
+impl ::core::fmt::Debug for IWebApplicationAuthoringMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebApplicationAuthoringMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWebApplicationAuthoringMode {
     type Vtable = IWebApplicationAuthoringModeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x720aea93_1964_4db0_b005_29eb9e2b18a9);
@@ -191,6 +201,11 @@ impl ::core::cmp::PartialEq for IWebApplicationHost {
     }
 }
 impl ::core::cmp::Eq for IWebApplicationHost {}
+impl ::core::fmt::Debug for IWebApplicationHost {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebApplicationHost").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWebApplicationHost {
     type Vtable = IWebApplicationHostVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcecbd2c3_a3a5_4749_9681_20e9161c6794);
@@ -273,6 +288,11 @@ impl ::core::cmp::PartialEq for IWebApplicationNavigationEvents {
     }
 }
 impl ::core::cmp::Eq for IWebApplicationNavigationEvents {}
+impl ::core::fmt::Debug for IWebApplicationNavigationEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebApplicationNavigationEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWebApplicationNavigationEvents {
     type Vtable = IWebApplicationNavigationEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc22615d2_d318_4da2_8422_1fcaf77b10e4);
@@ -340,6 +360,11 @@ impl ::core::cmp::PartialEq for IWebApplicationScriptEvents {
     }
 }
 impl ::core::cmp::Eq for IWebApplicationScriptEvents {}
+impl ::core::fmt::Debug for IWebApplicationScriptEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebApplicationScriptEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWebApplicationScriptEvents {
     type Vtable = IWebApplicationScriptEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c3f6998_1567_4bba_b52b_48d32141d613);
@@ -395,6 +420,11 @@ impl ::core::cmp::PartialEq for IWebApplicationUIEvents {
     }
 }
 impl ::core::cmp::Eq for IWebApplicationUIEvents {}
+impl ::core::fmt::Debug for IWebApplicationUIEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebApplicationUIEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWebApplicationUIEvents {
     type Vtable = IWebApplicationUIEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b2b3f99_328c_41d5_a6f7_7483ed8e71dd);
@@ -446,6 +476,11 @@ impl ::core::cmp::PartialEq for IWebApplicationUpdateEvents {
     }
 }
 impl ::core::cmp::Eq for IWebApplicationUpdateEvents {}
+impl ::core::fmt::Debug for IWebApplicationUpdateEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebApplicationUpdateEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWebApplicationUpdateEvents {
     type Vtable = IWebApplicationUpdateEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e59e6b7_c652_4daf_ad5e_16feb350cde3);

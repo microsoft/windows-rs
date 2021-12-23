@@ -19,6 +19,12 @@ impl ::core::clone::Clone for CorrelationId {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CorrelationId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CorrelationId").field("connId", &self.connId).field("timeStamp", &self.timeStamp).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CorrelationId {
     type Abi = Self;
 }
@@ -49,6 +55,12 @@ impl ::core::marker::Copy for CountedString {}
 impl ::core::clone::Clone for CountedString {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CountedString {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CountedString").field("length", &self.length).field("string", &self.string).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -108,6 +120,12 @@ impl ::core::clone::Clone for FailureCategoryMapping {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FailureCategoryMapping {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FailureCategoryMapping").field("mappingCompliance", &self.mappingCompliance).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FailureCategoryMapping {
     type Abi = Self;
 }
@@ -137,6 +155,11 @@ impl ::core::marker::Copy for FixupInfo {}
 impl ::core::clone::Clone for FixupInfo {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FixupInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FixupInfo").field("state", &self.state).field("percentage", &self.percentage).field("resultCodes", &self.resultCodes).field("fixupMsgId", &self.fixupMsgId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FixupInfo {
@@ -172,6 +195,11 @@ impl ::core::clone::Clone for Ipv4Address {
         *self
     }
 }
+impl ::core::fmt::Debug for Ipv4Address {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Ipv4Address").field("addr", &self.addr).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Ipv4Address {
     type Abi = Self;
 }
@@ -195,6 +223,11 @@ impl ::core::marker::Copy for Ipv6Address {}
 impl ::core::clone::Clone for Ipv6Address {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for Ipv6Address {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Ipv6Address").field("addr", &self.addr).finish()
     }
 }
 unsafe impl ::windows::core::Abi for Ipv6Address {
@@ -225,6 +258,12 @@ impl ::core::marker::Copy for IsolationInfo {}
 impl ::core::clone::Clone for IsolationInfo {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for IsolationInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IsolationInfo").field("isolationState", &self.isolationState).field("probEndTime", &self.probEndTime).field("failureUrl", &self.failureUrl).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -260,6 +299,12 @@ impl ::core::marker::Copy for IsolationInfoEx {}
 impl ::core::clone::Clone for IsolationInfoEx {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for IsolationInfoEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IsolationInfoEx").field("isolationState", &self.isolationState).field("extendedIsolationState", &self.extendedIsolationState).field("probEndTime", &self.probEndTime).field("failureUrl", &self.failureUrl).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -311,6 +356,12 @@ impl ::core::clone::Clone for NapComponentRegistrationInfo {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NapComponentRegistrationInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NapComponentRegistrationInfo").field("id", &self.id).field("friendlyName", &self.friendlyName).field("description", &self.description).field("version", &self.version).field("vendorName", &self.vendorName).field("infoClsid", &self.infoClsid).field("configClsid", &self.configClsid).field("registrationDate", &self.registrationDate).field("componentType", &self.componentType).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NapComponentRegistrationInfo {
     type Abi = Self;
 }
@@ -358,6 +409,11 @@ impl ::core::clone::Clone for NetworkSoH {
         *self
     }
 }
+impl ::core::fmt::Debug for NetworkSoH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NetworkSoH").field("size", &self.size).field("data", &self.data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NetworkSoH {
     type Abi = Self;
 }
@@ -382,6 +438,11 @@ impl ::core::marker::Copy for PrivateData {}
 impl ::core::clone::Clone for PrivateData {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PrivateData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PrivateData").field("size", &self.size).field("data", &self.data).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PrivateData {
@@ -416,6 +477,11 @@ impl ::core::clone::Clone for ResultCodes {
         *self
     }
 }
+impl ::core::fmt::Debug for ResultCodes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ResultCodes").field("count", &self.count).field("results", &self.results).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ResultCodes {
     type Abi = Self;
 }
@@ -440,6 +506,11 @@ impl ::core::marker::Copy for SoH {}
 impl ::core::clone::Clone for SoH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SoH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SoH").field("count", &self.count).field("attributes", &self.attributes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SoH {
@@ -469,6 +540,11 @@ impl ::core::clone::Clone for SoHAttribute {
         *self
     }
 }
+impl ::core::fmt::Debug for SoHAttribute {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SoHAttribute").field("type", &self.r#type).field("size", &self.size).field("value", &self.value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SoHAttribute {
     type Abi = Self;
 }
@@ -495,6 +571,11 @@ impl ::core::marker::Copy for SystemHealthAgentState {}
 impl ::core::clone::Clone for SystemHealthAgentState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SystemHealthAgentState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SystemHealthAgentState").field("id", &self.id).field("shaResultCodes", &self.shaResultCodes).field("failureCategory", &self.failureCategory).field("fixupInfo", &self.fixupInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SystemHealthAgentState {

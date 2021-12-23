@@ -22,6 +22,11 @@ impl ::core::cmp::PartialEq for AccessibilityView {
     }
 }
 impl ::core::cmp::Eq for AccessibilityView {}
+impl ::core::fmt::Debug for AccessibilityView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccessibilityView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AccessibilityView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AccessibilityView;i4)");
 }
@@ -168,6 +173,11 @@ impl ::core::cmp::PartialEq for AppBarAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for AppBarAutomationPeer {}
+impl ::core::fmt::Debug for AppBarAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBarAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppBarAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.AppBarAutomationPeer;{8b4acfeb-89fa-4f13-84be-35ca5b7c9590})");
 }
@@ -408,6 +418,11 @@ impl ::core::cmp::PartialEq for AppBarButtonAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for AppBarButtonAutomationPeer {}
+impl ::core::fmt::Debug for AppBarButtonAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBarButtonAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppBarButtonAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.AppBarButtonAutomationPeer;{443262b2-4f6d-4b76-9d2e-3eff777e8864})");
 }
@@ -641,6 +656,11 @@ impl ::core::cmp::PartialEq for AppBarToggleButtonAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for AppBarToggleButtonAutomationPeer {}
+impl ::core::fmt::Debug for AppBarToggleButtonAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBarToggleButtonAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppBarToggleButtonAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.AppBarToggleButtonAutomationPeer;{8464efad-9655-4aff-9550-63ae9ec8fe9c})");
 }
@@ -854,6 +874,11 @@ impl ::core::cmp::PartialEq for AutoSuggestBoxAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for AutoSuggestBoxAutomationPeer {}
+impl ::core::fmt::Debug for AutoSuggestBoxAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutoSuggestBoxAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutoSuggestBoxAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.AutoSuggestBoxAutomationPeer;{2f32c302-f99b-491d-9726-a5e181643efa})");
 }
@@ -1053,6 +1078,11 @@ impl ::core::cmp::PartialEq for AutomationControlType {
     }
 }
 impl ::core::cmp::Eq for AutomationControlType {}
+impl ::core::fmt::Debug for AutomationControlType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationControlType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationControlType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AutomationControlType;i4)");
 }
@@ -1109,6 +1139,11 @@ impl ::core::cmp::PartialEq for AutomationEvents {
     }
 }
 impl ::core::cmp::Eq for AutomationEvents {}
+impl ::core::fmt::Debug for AutomationEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationEvents {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AutomationEvents;i4)");
 }
@@ -1145,6 +1180,11 @@ impl ::core::cmp::PartialEq for AutomationHeadingLevel {
     }
 }
 impl ::core::cmp::Eq for AutomationHeadingLevel {}
+impl ::core::fmt::Debug for AutomationHeadingLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationHeadingLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationHeadingLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel;i4)");
 }
@@ -1177,6 +1217,11 @@ impl ::core::cmp::PartialEq for AutomationLandmarkType {
     }
 }
 impl ::core::cmp::Eq for AutomationLandmarkType {}
+impl ::core::fmt::Debug for AutomationLandmarkType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationLandmarkType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationLandmarkType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AutomationLandmarkType;i4)");
 }
@@ -1206,6 +1251,11 @@ impl ::core::cmp::PartialEq for AutomationLiveSetting {
     }
 }
 impl ::core::cmp::Eq for AutomationLiveSetting {}
+impl ::core::fmt::Debug for AutomationLiveSetting {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationLiveSetting").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationLiveSetting {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AutomationLiveSetting;i4)");
 }
@@ -1237,6 +1287,11 @@ impl ::core::cmp::PartialEq for AutomationNavigationDirection {
     }
 }
 impl ::core::cmp::Eq for AutomationNavigationDirection {}
+impl ::core::fmt::Debug for AutomationNavigationDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationNavigationDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationNavigationDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AutomationNavigationDirection;i4)");
 }
@@ -1268,6 +1323,11 @@ impl ::core::cmp::PartialEq for AutomationNotificationKind {
     }
 }
 impl ::core::cmp::Eq for AutomationNotificationKind {}
+impl ::core::fmt::Debug for AutomationNotificationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationNotificationKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationNotificationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AutomationNotificationKind;i4)");
 }
@@ -1299,6 +1359,11 @@ impl ::core::cmp::PartialEq for AutomationNotificationProcessing {
     }
 }
 impl ::core::cmp::Eq for AutomationNotificationProcessing {}
+impl ::core::fmt::Debug for AutomationNotificationProcessing {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationNotificationProcessing").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationNotificationProcessing {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AutomationNotificationProcessing;i4)");
 }
@@ -1328,6 +1393,11 @@ impl ::core::cmp::PartialEq for AutomationOrientation {
     }
 }
 impl ::core::cmp::Eq for AutomationOrientation {}
+impl ::core::fmt::Debug for AutomationOrientation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationOrientation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationOrientation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AutomationOrientation;i4)");
 }
@@ -1803,6 +1873,11 @@ impl ::core::cmp::PartialEq for AutomationPeer {
     }
 }
 impl ::core::cmp::Eq for AutomationPeer {}
+impl ::core::fmt::Debug for AutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.AutomationPeer;{35aac87a-62ee-4d3e-a24c-2bc8432d68b7})");
 }
@@ -1962,6 +2037,11 @@ impl ::core::cmp::PartialEq for AutomationPeerAnnotation {
     }
 }
 impl ::core::cmp::Eq for AutomationPeerAnnotation {}
+impl ::core::fmt::Debug for AutomationPeerAnnotation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationPeerAnnotation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationPeerAnnotation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation;{0c456061-52cf-43fa-82f8-07f137351e5a})");
 }
@@ -2060,6 +2140,11 @@ impl ::core::cmp::PartialEq for AutomationStructureChangeType {
     }
 }
 impl ::core::cmp::Eq for AutomationStructureChangeType {}
+impl ::core::fmt::Debug for AutomationStructureChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationStructureChangeType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationStructureChangeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AutomationStructureChangeType;i4)");
 }
@@ -2101,6 +2186,11 @@ impl ::core::cmp::PartialEq for ButtonAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ButtonAutomationPeer {}
+impl ::core::fmt::Debug for ButtonAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ButtonAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ButtonAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ButtonAutomationPeer;{fb77efbe-39ec-4508-8ac3-51a1424027d7})");
 }
@@ -2274,6 +2364,11 @@ impl ::core::cmp::PartialEq for ButtonBaseAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ButtonBaseAutomationPeer {}
+impl ::core::fmt::Debug for ButtonBaseAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ButtonBaseAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ButtonBaseAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ButtonBaseAutomationPeer;{a4f3b5b6-7585-4e0b-96d2-08cf6f28befa})");
 }
@@ -2445,6 +2540,11 @@ impl ::core::cmp::PartialEq for CalendarDatePickerAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for CalendarDatePickerAutomationPeer {}
+impl ::core::fmt::Debug for CalendarDatePickerAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CalendarDatePickerAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CalendarDatePickerAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.CalendarDatePickerAutomationPeer;{40d8938e-db5e-4b03-beba-d10f62419787})");
 }
@@ -2638,6 +2738,11 @@ impl ::core::cmp::PartialEq for CaptureElementAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for CaptureElementAutomationPeer {}
+impl ::core::fmt::Debug for CaptureElementAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CaptureElementAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CaptureElementAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.CaptureElementAutomationPeer;{dcc44ee0-fa45-45c6-8bb7-320d808f5958})");
 }
@@ -2779,6 +2884,11 @@ impl ::core::cmp::PartialEq for CheckBoxAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for CheckBoxAutomationPeer {}
+impl ::core::fmt::Debug for CheckBoxAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CheckBoxAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CheckBoxAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.CheckBoxAutomationPeer;{eb15bc42-c0a9-46c6-ac24-b83de429c733})");
 }
@@ -2986,6 +3096,11 @@ impl ::core::cmp::PartialEq for ColorPickerSliderAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ColorPickerSliderAutomationPeer {}
+impl ::core::fmt::Debug for ColorPickerSliderAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ColorPickerSliderAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ColorPickerSliderAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ColorPickerSliderAutomationPeer;{a514215a-7293-4577-924c-47d4e0bf9b90})");
 }
@@ -3193,6 +3308,11 @@ impl ::core::cmp::PartialEq for ColorSpectrumAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ColorSpectrumAutomationPeer {}
+impl ::core::fmt::Debug for ColorSpectrumAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ColorSpectrumAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ColorSpectrumAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ColorSpectrumAutomationPeer;{15d5ba03-010d-4ff7-9087-f4dd09f831b7})");
 }
@@ -3454,6 +3574,11 @@ impl ::core::cmp::PartialEq for ComboBoxAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ComboBoxAutomationPeer {}
+impl ::core::fmt::Debug for ComboBoxAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ComboBoxAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ComboBoxAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ComboBoxAutomationPeer;{7eb40d0b-75c5-4263-ba6a-d4a54fb0f239})");
 }
@@ -3765,6 +3890,11 @@ impl ::core::cmp::PartialEq for ComboBoxItemAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ComboBoxItemAutomationPeer {}
+impl ::core::fmt::Debug for ComboBoxItemAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ComboBoxItemAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ComboBoxItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ComboBoxItemAutomationPeer;{12ddc76e-9552-446a-82ee-938cc371800f})");
 }
@@ -3911,6 +4041,11 @@ impl ::core::cmp::PartialEq for ComboBoxItemDataAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ComboBoxItemDataAutomationPeer {}
+impl ::core::fmt::Debug for ComboBoxItemDataAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ComboBoxItemDataAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ComboBoxItemDataAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ComboBoxItemDataAutomationPeer;{4fef6df2-289c-4c04-831b-5a668c6d7104})");
 }
@@ -4150,6 +4285,11 @@ impl ::core::cmp::PartialEq for DatePickerAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for DatePickerAutomationPeer {}
+impl ::core::fmt::Debug for DatePickerAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DatePickerAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DatePickerAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.DatePickerAutomationPeer;{d07d357f-a0b9-45dc-991a-76c505e7d0f5})");
 }
@@ -4277,6 +4417,11 @@ impl ::core::cmp::PartialEq for DatePickerFlyoutPresenterAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for DatePickerFlyoutPresenterAutomationPeer {}
+impl ::core::fmt::Debug for DatePickerFlyoutPresenterAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DatePickerFlyoutPresenterAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DatePickerFlyoutPresenterAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.DatePickerFlyoutPresenterAutomationPeer;{752aed38-c2bf-4880-82b2-a6c05e90c135})");
 }
@@ -4418,6 +4563,11 @@ impl ::core::cmp::PartialEq for FlipViewAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for FlipViewAutomationPeer {}
+impl ::core::fmt::Debug for FlipViewAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlipViewAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FlipViewAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.FlipViewAutomationPeer;{8ec0353a-4284-4b00-aef8-a2688ea5e3c4})");
 }
@@ -4651,6 +4801,11 @@ impl ::core::cmp::PartialEq for FlipViewItemAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for FlipViewItemAutomationPeer {}
+impl ::core::fmt::Debug for FlipViewItemAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlipViewItemAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FlipViewItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.FlipViewItemAutomationPeer;{c83034de-fa08-4bd3-aeb2-d2e5bfa04df9})");
 }
@@ -4797,6 +4952,11 @@ impl ::core::cmp::PartialEq for FlipViewItemDataAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for FlipViewItemDataAutomationPeer {}
+impl ::core::fmt::Debug for FlipViewItemDataAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlipViewItemDataAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FlipViewItemDataAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.FlipViewItemDataAutomationPeer;{b0986175-00bc-4118-8a6f-16ee9c15d968})");
 }
@@ -5036,6 +5196,11 @@ impl ::core::cmp::PartialEq for FlyoutPresenterAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for FlyoutPresenterAutomationPeer {}
+impl ::core::fmt::Debug for FlyoutPresenterAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlyoutPresenterAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FlyoutPresenterAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.FlyoutPresenterAutomationPeer;{a01840b4-5fca-456f-98ea-300eb40b585e})");
 }
@@ -5203,6 +5368,11 @@ impl ::core::cmp::PartialEq for FrameworkElementAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for FrameworkElementAutomationPeer {}
+impl ::core::fmt::Debug for FrameworkElementAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FrameworkElementAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FrameworkElementAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer;{b90ad781-bfeb-4451-bd47-9f3a63ebd24a})");
 }
@@ -5324,6 +5494,11 @@ impl ::core::cmp::PartialEq for GridViewAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for GridViewAutomationPeer {}
+impl ::core::fmt::Debug for GridViewAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GridViewAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GridViewAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.GridViewAutomationPeer;{1c4401a4-d951-49ca-8f82-c7f3c60681b0})");
 }
@@ -5603,6 +5778,11 @@ impl ::core::cmp::PartialEq for GridViewHeaderItemAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for GridViewHeaderItemAutomationPeer {}
+impl ::core::fmt::Debug for GridViewHeaderItemAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GridViewHeaderItemAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GridViewHeaderItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.GridViewHeaderItemAutomationPeer;{e3dcef3a-e08a-48e7-b23a-2be5b66e474e})");
 }
@@ -5764,6 +5944,11 @@ impl ::core::cmp::PartialEq for GridViewItemAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for GridViewItemAutomationPeer {}
+impl ::core::fmt::Debug for GridViewItemAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GridViewItemAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GridViewItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.GridViewItemAutomationPeer;{93ef2d07-346c-4166-a4ba-bc6a181e7f33})");
 }
@@ -5910,6 +6095,11 @@ impl ::core::cmp::PartialEq for GridViewItemDataAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for GridViewItemDataAutomationPeer {}
+impl ::core::fmt::Debug for GridViewItemDataAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GridViewItemDataAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GridViewItemDataAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.GridViewItemDataAutomationPeer;{f3f4868f-29d4-4094-8c54-ea61a88294a4})");
 }
@@ -6149,6 +6339,11 @@ impl ::core::cmp::PartialEq for GroupItemAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for GroupItemAutomationPeer {}
+impl ::core::fmt::Debug for GroupItemAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GroupItemAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GroupItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.GroupItemAutomationPeer;{1914fe6d-0740-4236-9ee1-38cf19c1c388})");
 }
@@ -6290,6 +6485,11 @@ impl ::core::cmp::PartialEq for HubAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for HubAutomationPeer {}
+impl ::core::fmt::Debug for HubAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HubAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HubAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.HubAutomationPeer;{4ddee056-4ebc-4620-a05d-903e3c9a4ead})");
 }
@@ -6437,6 +6637,11 @@ impl ::core::cmp::PartialEq for HubSectionAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for HubSectionAutomationPeer {}
+impl ::core::fmt::Debug for HubSectionAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HubSectionAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HubSectionAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.HubSectionAutomationPeer;{16d91ff7-7431-4d82-83ce-cfa3192b0f18})");
 }
@@ -6610,6 +6815,11 @@ impl ::core::cmp::PartialEq for HyperlinkButtonAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for HyperlinkButtonAutomationPeer {}
+impl ::core::fmt::Debug for HyperlinkButtonAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HyperlinkButtonAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HyperlinkButtonAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.HyperlinkButtonAutomationPeer;{aa7afcb1-0edf-46d9-aa9e-0eb21d140097})");
 }
@@ -10386,6 +10596,11 @@ impl ::core::cmp::PartialEq for ImageAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ImageAutomationPeer {}
+impl ::core::fmt::Debug for ImageAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ImageAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ImageAutomationPeer;{9b0bbf8c-60a2-48bf-ab2c-1a52a451d2d4})");
 }
@@ -10513,6 +10728,11 @@ impl ::core::cmp::PartialEq for InkToolbarAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for InkToolbarAutomationPeer {}
+impl ::core::fmt::Debug for InkToolbarAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkToolbarAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkToolbarAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.InkToolbarAutomationPeer;{123baaa4-f2e8-4bcb-9382-5dfdd11fe45f})");
 }
@@ -10675,6 +10895,11 @@ impl ::core::cmp::PartialEq for ItemAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ItemAutomationPeer {}
+impl ::core::fmt::Debug for ItemAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ItemAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ItemAutomationPeer;{953c34f6-3b31-47a7-b3bf-25d3ae99c317})");
 }
@@ -10839,6 +11064,11 @@ impl ::core::cmp::PartialEq for ItemsControlAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ItemsControlAutomationPeer {}
+impl ::core::fmt::Debug for ItemsControlAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ItemsControlAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ItemsControlAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ItemsControlAutomationPeer;{96e76bf1-37f7-4088-925d-65268e83e34d})");
 }
@@ -11006,6 +11236,11 @@ impl ::core::cmp::PartialEq for ListBoxAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ListBoxAutomationPeer {}
+impl ::core::fmt::Debug for ListBoxAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ListBoxAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ListBoxAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ListBoxAutomationPeer;{8cd0d608-b402-4a6e-bd9a-343f8845eb32})");
 }
@@ -11239,6 +11474,11 @@ impl ::core::cmp::PartialEq for ListBoxItemAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ListBoxItemAutomationPeer {}
+impl ::core::fmt::Debug for ListBoxItemAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ListBoxItemAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ListBoxItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ListBoxItemAutomationPeer;{1bc6e1c6-2997-42df-99eb-92bc1dd149fb})");
 }
@@ -11385,6 +11625,11 @@ impl ::core::cmp::PartialEq for ListBoxItemDataAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ListBoxItemDataAutomationPeer {}
+impl ::core::fmt::Debug for ListBoxItemDataAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ListBoxItemDataAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ListBoxItemDataAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ListBoxItemDataAutomationPeer;{fd7d5fee-fde0-482a-8084-dcebba5b9806})");
 }
@@ -11610,6 +11855,11 @@ impl ::core::cmp::PartialEq for ListPickerFlyoutPresenterAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ListPickerFlyoutPresenterAutomationPeer {}
+impl ::core::fmt::Debug for ListPickerFlyoutPresenterAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ListPickerFlyoutPresenterAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ListPickerFlyoutPresenterAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ListPickerFlyoutPresenterAutomationPeer;{56dfdc58-2395-4060-8047-8ea463698a24})");
 }
@@ -11751,6 +12001,11 @@ impl ::core::cmp::PartialEq for ListViewAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ListViewAutomationPeer {}
+impl ::core::fmt::Debug for ListViewAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ListViewAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ListViewAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ListViewAutomationPeer;{73cecc87-c0dc-4260-9148-75e9864a7230})");
 }
@@ -12048,6 +12303,11 @@ impl ::core::cmp::PartialEq for ListViewBaseAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ListViewBaseAutomationPeer {}
+impl ::core::fmt::Debug for ListViewBaseAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ListViewBaseAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ListViewBaseAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ListViewBaseAutomationPeer;{87ec7649-b83d-4e55-9afd-bd835e748f5c})");
 }
@@ -12293,6 +12553,11 @@ impl ::core::cmp::PartialEq for ListViewBaseHeaderItemAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ListViewBaseHeaderItemAutomationPeer {}
+impl ::core::fmt::Debug for ListViewBaseHeaderItemAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ListViewBaseHeaderItemAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ListViewBaseHeaderItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ListViewBaseHeaderItemAutomationPeer;{7cb8b732-c1f0-4a3c-bc14-85dd48dedb85})");
 }
@@ -12434,6 +12699,11 @@ impl ::core::cmp::PartialEq for ListViewHeaderItemAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ListViewHeaderItemAutomationPeer {}
+impl ::core::fmt::Debug for ListViewHeaderItemAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ListViewHeaderItemAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ListViewHeaderItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ListViewHeaderItemAutomationPeer;{67ab1e4b-ad61-4c88-ba45-0f3a8d061f8f})");
 }
@@ -12595,6 +12865,11 @@ impl ::core::cmp::PartialEq for ListViewItemAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ListViewItemAutomationPeer {}
+impl ::core::fmt::Debug for ListViewItemAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ListViewItemAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ListViewItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ListViewItemAutomationPeer;{ca114e70-a16d-4d09-a1cf-1856ef98a9ec})");
 }
@@ -12741,6 +13016,11 @@ impl ::core::cmp::PartialEq for ListViewItemDataAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ListViewItemDataAutomationPeer {}
+impl ::core::fmt::Debug for ListViewItemDataAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ListViewItemDataAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ListViewItemDataAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ListViewItemDataAutomationPeer;{15a8d7fd-d7a5-4a6c-963c-6f7ce464671a})");
 }
@@ -13090,6 +13370,11 @@ impl ::core::cmp::PartialEq for LoopingSelectorAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for LoopingSelectorAutomationPeer {}
+impl ::core::fmt::Debug for LoopingSelectorAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoopingSelectorAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LoopingSelectorAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.LoopingSelectorAutomationPeer;{50b406ca-bae9-4816-8a3a-0cb4f96478a2})");
 }
@@ -13364,6 +13649,11 @@ impl ::core::cmp::PartialEq for LoopingSelectorItemAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for LoopingSelectorItemAutomationPeer {}
+impl ::core::fmt::Debug for LoopingSelectorItemAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoopingSelectorItemAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LoopingSelectorItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.LoopingSelectorItemAutomationPeer;{d3fa68bf-04cf-4f4c-8d3e-4780a19d4788})");
 }
@@ -13550,6 +13840,11 @@ impl ::core::cmp::PartialEq for LoopingSelectorItemDataAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for LoopingSelectorItemDataAutomationPeer {}
+impl ::core::fmt::Debug for LoopingSelectorItemDataAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoopingSelectorItemDataAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LoopingSelectorItemDataAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.LoopingSelectorItemDataAutomationPeer;{ef567e32-7cd2-4d32-9590-1f588d5ef38d})");
 }
@@ -13843,6 +14138,11 @@ impl ::core::cmp::PartialEq for MapControlAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for MapControlAutomationPeer {}
+impl ::core::fmt::Debug for MapControlAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapControlAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapControlAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.MapControlAutomationPeer;{425beee4-f2e8-4bcb-9382-5dfdd11fe45f})");
 }
@@ -14062,6 +14362,11 @@ impl ::core::cmp::PartialEq for MediaElementAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for MediaElementAutomationPeer {}
+impl ::core::fmt::Debug for MediaElementAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaElementAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaElementAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.MediaElementAutomationPeer;{ba0b9fc2-a6e2-41a5-b17a-d1594613efba})");
 }
@@ -14203,6 +14508,11 @@ impl ::core::cmp::PartialEq for MediaPlayerElementAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for MediaPlayerElementAutomationPeer {}
+impl ::core::fmt::Debug for MediaPlayerElementAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlayerElementAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlayerElementAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.MediaPlayerElementAutomationPeer;{02bed209-3f65-4fdd-b5ca-c4750d4e6ea4})");
 }
@@ -14344,6 +14654,11 @@ impl ::core::cmp::PartialEq for MediaTransportControlsAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for MediaTransportControlsAutomationPeer {}
+impl ::core::fmt::Debug for MediaTransportControlsAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaTransportControlsAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaTransportControlsAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.MediaTransportControlsAutomationPeer;{a3ad8d93-79f8-4958-a3c8-980defb83d15})");
 }
@@ -14485,6 +14800,11 @@ impl ::core::cmp::PartialEq for MenuBarAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for MenuBarAutomationPeer {}
+impl ::core::fmt::Debug for MenuBarAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MenuBarAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MenuBarAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.MenuBarAutomationPeer;{4b6adcf1-f274-5592-85a8-7b099e99b320})");
 }
@@ -14653,6 +14973,11 @@ impl ::core::cmp::PartialEq for MenuBarItemAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for MenuBarItemAutomationPeer {}
+impl ::core::fmt::Debug for MenuBarItemAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MenuBarItemAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MenuBarItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.MenuBarItemAutomationPeer;{0fce49b4-cff5-5c4b-98ee-e75fdddf799a})");
 }
@@ -14852,6 +15177,11 @@ impl ::core::cmp::PartialEq for MenuFlyoutItemAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for MenuFlyoutItemAutomationPeer {}
+impl ::core::fmt::Debug for MenuFlyoutItemAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MenuFlyoutItemAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MenuFlyoutItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.MenuFlyoutItemAutomationPeer;{1fc19462-21df-456e-aa11-8fac6b4b2af6})");
 }
@@ -15019,6 +15349,11 @@ impl ::core::cmp::PartialEq for MenuFlyoutPresenterAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for MenuFlyoutPresenterAutomationPeer {}
+impl ::core::fmt::Debug for MenuFlyoutPresenterAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MenuFlyoutPresenterAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MenuFlyoutPresenterAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.MenuFlyoutPresenterAutomationPeer;{e244a871-fcbb-48fc-8a93-41ea134b53ce})");
 }
@@ -15206,6 +15541,11 @@ impl ::core::cmp::PartialEq for NavigationViewItemAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for NavigationViewItemAutomationPeer {}
+impl ::core::fmt::Debug for NavigationViewItemAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NavigationViewItemAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NavigationViewItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.NavigationViewItemAutomationPeer;{309847a5-9971-4d8d-a81c-085c7086a1b9})");
 }
@@ -15367,6 +15707,11 @@ impl ::core::cmp::PartialEq for PasswordBoxAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for PasswordBoxAutomationPeer {}
+impl ::core::fmt::Debug for PasswordBoxAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PasswordBoxAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PasswordBoxAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.PasswordBoxAutomationPeer;{684f065e-3df3-4b9f-82ad-8819db3b218a})");
 }
@@ -15533,6 +15878,11 @@ impl ::core::cmp::PartialEq for PatternInterface {
     }
 }
 impl ::core::cmp::Eq for PatternInterface {}
+impl ::core::fmt::Debug for PatternInterface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PatternInterface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PatternInterface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.PatternInterface;i4)");
 }
@@ -15568,6 +15918,11 @@ impl ::core::cmp::PartialEq for PersonPictureAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for PersonPictureAutomationPeer {}
+impl ::core::fmt::Debug for PersonPictureAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PersonPictureAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PersonPictureAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.PersonPictureAutomationPeer;{27156d4c-a66f-4aaf-8286-4f796d30628c})");
 }
@@ -15695,6 +16050,11 @@ impl ::core::cmp::PartialEq for PickerFlyoutPresenterAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for PickerFlyoutPresenterAutomationPeer {}
+impl ::core::fmt::Debug for PickerFlyoutPresenterAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PickerFlyoutPresenterAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PickerFlyoutPresenterAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.PickerFlyoutPresenterAutomationPeer;{28414bf7-8382-4eae-93c1-d6f035aa8155})");
 }
@@ -15929,6 +16289,11 @@ impl ::core::cmp::PartialEq for PivotAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for PivotAutomationPeer {}
+impl ::core::fmt::Debug for PivotAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PivotAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PivotAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.PivotAutomationPeer;{e715a8f8-3b9d-402c-81e2-6e912ef58981})");
 }
@@ -16168,6 +16533,11 @@ impl ::core::cmp::PartialEq for PivotItemAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for PivotItemAutomationPeer {}
+impl ::core::fmt::Debug for PivotItemAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PivotItemAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PivotItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.PivotItemAutomationPeer;{1a4241ad-5d55-4d27-b40f-2d37506fbe78})");
 }
@@ -16356,6 +16726,11 @@ impl ::core::cmp::PartialEq for PivotItemDataAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for PivotItemDataAutomationPeer {}
+impl ::core::fmt::Debug for PivotItemDataAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PivotItemDataAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PivotItemDataAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.PivotItemDataAutomationPeer;{a2a3b788-ea1d-48b7-88ee-f08b6aa07fee})");
 }
@@ -16575,6 +16950,11 @@ impl ::core::cmp::PartialEq for ProgressBarAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ProgressBarAutomationPeer {}
+impl ::core::fmt::Debug for ProgressBarAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProgressBarAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProgressBarAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ProgressBarAutomationPeer;{93f48f86-d840-4fb6-ac2f-5f779b854b0d})");
 }
@@ -16762,6 +17142,11 @@ impl ::core::cmp::PartialEq for ProgressRingAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ProgressRingAutomationPeer {}
+impl ::core::fmt::Debug for ProgressRingAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProgressRingAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProgressRingAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ProgressRingAutomationPeer;{bc305eee-39d3-4eeb-ac33-2394de123e2e})");
 }
@@ -16939,6 +17324,11 @@ impl ::core::cmp::PartialEq for RadioButtonAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for RadioButtonAutomationPeer {}
+impl ::core::fmt::Debug for RadioButtonAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadioButtonAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadioButtonAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.RadioButtonAutomationPeer;{7e6a5ed8-0b30-4743-b102-dcdf548e3131})");
 }
@@ -17232,6 +17622,11 @@ impl ::core::cmp::PartialEq for RangeBaseAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for RangeBaseAutomationPeer {}
+impl ::core::fmt::Debug for RangeBaseAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RangeBaseAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RangeBaseAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.RangeBaseAutomationPeer;{e454b549-4b2c-42ad-b04b-d35947d1ee50})");
 }
@@ -17399,6 +17794,11 @@ impl ::core::cmp::PartialEq for RatingControlAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for RatingControlAutomationPeer {}
+impl ::core::fmt::Debug for RatingControlAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RatingControlAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RatingControlAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.RatingControlAutomationPeer;{3d14349a-9963-4a47-823c-f457cb3209d5})");
 }
@@ -17523,6 +17923,11 @@ impl ::core::clone::Clone for RawElementProviderRuntimeId {
         *self
     }
 }
+impl ::core::fmt::Debug for RawElementProviderRuntimeId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RawElementProviderRuntimeId").field("Part1", &self.Part1).field("Part2", &self.Part2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RawElementProviderRuntimeId {
     type Abi = Self;
 }
@@ -17578,6 +17983,11 @@ impl ::core::cmp::PartialEq for RepeatButtonAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for RepeatButtonAutomationPeer {}
+impl ::core::fmt::Debug for RepeatButtonAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RepeatButtonAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RepeatButtonAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.RepeatButtonAutomationPeer;{29e41ad5-a8ac-4e8a-83d8-09e37e054257})");
 }
@@ -17765,6 +18175,11 @@ impl ::core::cmp::PartialEq for RichEditBoxAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for RichEditBoxAutomationPeer {}
+impl ::core::fmt::Debug for RichEditBoxAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RichEditBoxAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RichEditBoxAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.RichEditBoxAutomationPeer;{c69f5c04-16ee-467a-a833-c3da8458ad64})");
 }
@@ -17906,6 +18321,11 @@ impl ::core::cmp::PartialEq for RichTextBlockAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for RichTextBlockAutomationPeer {}
+impl ::core::fmt::Debug for RichTextBlockAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RichTextBlockAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RichTextBlockAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.RichTextBlockAutomationPeer;{93a01a9c-9609-41fa-82f3-909c09f49a72})");
 }
@@ -18047,6 +18467,11 @@ impl ::core::cmp::PartialEq for RichTextBlockOverflowAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for RichTextBlockOverflowAutomationPeer {}
+impl ::core::fmt::Debug for RichTextBlockOverflowAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RichTextBlockOverflowAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RichTextBlockOverflowAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.RichTextBlockOverflowAutomationPeer;{8c9a409a-2736-437b-ab36-a16a202f105d})");
 }
@@ -18188,6 +18613,11 @@ impl ::core::cmp::PartialEq for ScrollBarAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ScrollBarAutomationPeer {}
+impl ::core::fmt::Debug for ScrollBarAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScrollBarAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScrollBarAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ScrollBarAutomationPeer;{69e0c369-bbe7-41f2-87ca-aad813fe550e})");
 }
@@ -18441,6 +18871,11 @@ impl ::core::cmp::PartialEq for ScrollViewerAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ScrollViewerAutomationPeer {}
+impl ::core::fmt::Debug for ScrollViewerAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScrollViewerAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScrollViewerAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ScrollViewerAutomationPeer;{d985f259-1b09-4e88-88fd-421750dc6b45})");
 }
@@ -18608,6 +19043,11 @@ impl ::core::cmp::PartialEq for SearchBoxAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for SearchBoxAutomationPeer {}
+impl ::core::fmt::Debug for SearchBoxAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SearchBoxAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SearchBoxAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.SearchBoxAutomationPeer;{854011a4-18a6-4f30-939b-8871afa3f5e9})");
 }
@@ -18776,6 +19216,11 @@ impl ::core::cmp::PartialEq for SelectorAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for SelectorAutomationPeer {}
+impl ::core::fmt::Debug for SelectorAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SelectorAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SelectorAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.SelectorAutomationPeer;{162ac829-7115-43ec-b383-a7b71644069d})");
 }
@@ -19024,6 +19469,11 @@ impl ::core::cmp::PartialEq for SelectorItemAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for SelectorItemAutomationPeer {}
+impl ::core::fmt::Debug for SelectorItemAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SelectorItemAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SelectorItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.SelectorItemAutomationPeer;{ae8b3477-860a-45bb-bf7c-e1b27419d1dd})");
 }
@@ -19232,6 +19682,11 @@ impl ::core::cmp::PartialEq for SemanticZoomAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for SemanticZoomAutomationPeer {}
+impl ::core::fmt::Debug for SemanticZoomAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SemanticZoomAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SemanticZoomAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.SemanticZoomAutomationPeer;{3c2fac6c-a977-47fc-b44e-2754c0b2bea9})");
 }
@@ -19399,6 +19854,11 @@ impl ::core::cmp::PartialEq for SettingsFlyoutAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for SettingsFlyoutAutomationPeer {}
+impl ::core::fmt::Debug for SettingsFlyoutAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SettingsFlyoutAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SettingsFlyoutAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.SettingsFlyoutAutomationPeer;{d0de0cdb-30cf-47a6-a5eb-9c77f0b0d6dd})");
 }
@@ -19540,6 +20000,11 @@ impl ::core::cmp::PartialEq for SliderAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for SliderAutomationPeer {}
+impl ::core::fmt::Debug for SliderAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SliderAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SliderAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.SliderAutomationPeer;{ec30015a-d611-46d0-ae4f-6ecf27dfbaa5})");
 }
@@ -19727,6 +20192,11 @@ impl ::core::cmp::PartialEq for TextBlockAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for TextBlockAutomationPeer {}
+impl ::core::fmt::Debug for TextBlockAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextBlockAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextBlockAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.TextBlockAutomationPeer;{be2057f5-6715-4e69-a050-92bd0ce232a9})");
 }
@@ -19868,6 +20338,11 @@ impl ::core::cmp::PartialEq for TextBoxAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for TextBoxAutomationPeer {}
+impl ::core::fmt::Debug for TextBoxAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextBoxAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextBoxAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.TextBoxAutomationPeer;{3a4f1ca0-5e5d-4d26-9067-e740bf657a9f})");
 }
@@ -20009,6 +20484,11 @@ impl ::core::cmp::PartialEq for ThumbAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ThumbAutomationPeer {}
+impl ::core::fmt::Debug for ThumbAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ThumbAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ThumbAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ThumbAutomationPeer;{dc2949b5-b45e-4d6d-892f-d9422c950efb})");
 }
@@ -20150,6 +20630,11 @@ impl ::core::cmp::PartialEq for TimePickerAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for TimePickerAutomationPeer {}
+impl ::core::fmt::Debug for TimePickerAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimePickerAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimePickerAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.TimePickerAutomationPeer;{a43d44ef-3285-4df7-b4a4-e4cdf36a3a17})");
 }
@@ -20277,6 +20762,11 @@ impl ::core::cmp::PartialEq for TimePickerFlyoutPresenterAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for TimePickerFlyoutPresenterAutomationPeer {}
+impl ::core::fmt::Debug for TimePickerFlyoutPresenterAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimePickerFlyoutPresenterAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimePickerFlyoutPresenterAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.TimePickerFlyoutPresenterAutomationPeer;{da93ee27-82f1-4701-8706-be297bf06043})");
 }
@@ -20433,6 +20923,11 @@ impl ::core::cmp::PartialEq for ToggleButtonAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ToggleButtonAutomationPeer {}
+impl ::core::fmt::Debug for ToggleButtonAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToggleButtonAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToggleButtonAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ToggleButtonAutomationPeer;{62dbe6c5-bc0a-45bb-bf77-ea0f1502891f})");
 }
@@ -20635,6 +21130,11 @@ impl ::core::cmp::PartialEq for ToggleMenuFlyoutItemAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ToggleMenuFlyoutItemAutomationPeer {}
+impl ::core::fmt::Debug for ToggleMenuFlyoutItemAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToggleMenuFlyoutItemAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToggleMenuFlyoutItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ToggleMenuFlyoutItemAutomationPeer;{6b57eafe-6af1-4903-8373-3437bf352345})");
 }
@@ -20817,6 +21317,11 @@ impl ::core::cmp::PartialEq for ToggleSwitchAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for ToggleSwitchAutomationPeer {}
+impl ::core::fmt::Debug for ToggleSwitchAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToggleSwitchAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToggleSwitchAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ToggleSwitchAutomationPeer;{c011f174-e89e-4790-bf9a-78ebb5f59e9f})");
 }
@@ -21005,6 +21510,11 @@ impl ::core::cmp::PartialEq for TreeViewItemAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for TreeViewItemAutomationPeer {}
+impl ::core::fmt::Debug for TreeViewItemAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TreeViewItemAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TreeViewItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.TreeViewItemAutomationPeer;{2331d648-b617-437f-920c-71d450503e65})");
 }
@@ -21192,6 +21702,11 @@ impl ::core::cmp::PartialEq for TreeViewListAutomationPeer {
     }
 }
 impl ::core::cmp::Eq for TreeViewListAutomationPeer {}
+impl ::core::fmt::Debug for TreeViewListAutomationPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TreeViewListAutomationPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TreeViewListAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.TreeViewListAutomationPeer;{71c1b5bc-bb29-4479-a8a8-606be6b823ae})");
 }

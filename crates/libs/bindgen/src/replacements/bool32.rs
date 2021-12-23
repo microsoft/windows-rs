@@ -55,6 +55,12 @@ pub fn gen() -> TokenStream {
 
         impl ::core::cmp::Eq for BOOL {}
 
+        impl ::core::fmt::Debug for BOOL {
+            fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                f.debug_tuple("BOOL").field(&self.0).finish()
+            }
+        }
+
         impl ::core::convert::From<BOOL> for bool {
             fn from(value: BOOL) -> Self {
                 value.as_bool()

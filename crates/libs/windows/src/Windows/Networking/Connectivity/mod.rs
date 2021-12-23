@@ -56,6 +56,11 @@ impl ::core::cmp::PartialEq for AttributedNetworkUsage {
     }
 }
 impl ::core::cmp::Eq for AttributedNetworkUsage {}
+impl ::core::fmt::Debug for AttributedNetworkUsage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AttributedNetworkUsage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AttributedNetworkUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.AttributedNetworkUsage;{f769b039-eca2-45eb-ade1-b0368b756c49})");
 }
@@ -132,6 +137,11 @@ impl ::core::cmp::PartialEq for CellularApnAuthenticationType {
     }
 }
 impl ::core::cmp::Eq for CellularApnAuthenticationType {}
+impl ::core::fmt::Debug for CellularApnAuthenticationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CellularApnAuthenticationType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CellularApnAuthenticationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.CellularApnAuthenticationType;i4)");
 }
@@ -252,6 +262,11 @@ impl ::core::cmp::PartialEq for CellularApnContext {
     }
 }
 impl ::core::cmp::Eq for CellularApnContext {}
+impl ::core::fmt::Debug for CellularApnContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CellularApnContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CellularApnContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.CellularApnContext;{6fa529f4-effd-4542-9ab2-705bbf94943a})");
 }
@@ -360,6 +375,11 @@ impl ::core::cmp::PartialEq for ConnectionCost {
     }
 }
 impl ::core::cmp::Eq for ConnectionCost {}
+impl ::core::fmt::Debug for ConnectionCost {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConnectionCost").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConnectionCost {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionCost;{bad7d829-3416-4b10-a202-bac0b075bdae})");
 }
@@ -614,6 +634,11 @@ impl ::core::cmp::PartialEq for ConnectionProfile {
     }
 }
 impl ::core::cmp::Eq for ConnectionProfile {}
+impl ::core::fmt::Debug for ConnectionProfile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConnectionProfile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConnectionProfile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionProfile;{71ba143c-598e-49d0-84eb-8febaedcc195})");
 }
@@ -690,6 +715,11 @@ impl ::core::cmp::PartialEq for ConnectionProfileDeleteStatus {
     }
 }
 impl ::core::cmp::Eq for ConnectionProfileDeleteStatus {}
+impl ::core::fmt::Debug for ConnectionProfileDeleteStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConnectionProfileDeleteStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConnectionProfileDeleteStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.ConnectionProfileDeleteStatus;i4)");
 }
@@ -855,6 +885,11 @@ impl ::core::cmp::PartialEq for ConnectionProfileFilter {
     }
 }
 impl ::core::cmp::Eq for ConnectionProfileFilter {}
+impl ::core::fmt::Debug for ConnectionProfileFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConnectionProfileFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConnectionProfileFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionProfileFilter;{204c7cc8-bd2d-4e8d-a4b3-455ec337388a})");
 }
@@ -937,6 +972,11 @@ impl ::core::cmp::PartialEq for ConnectionSession {
     }
 }
 impl ::core::cmp::Eq for ConnectionSession {}
+impl ::core::fmt::Debug for ConnectionSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConnectionSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConnectionSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionSession;{ff905d4c-f83b-41b0-8a0c-1462d9c56b73})");
 }
@@ -1049,6 +1089,11 @@ impl ::core::cmp::PartialEq for ConnectivityInterval {
     }
 }
 impl ::core::cmp::Eq for ConnectivityInterval {}
+impl ::core::fmt::Debug for ConnectivityInterval {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConnectivityInterval").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConnectivityInterval {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectivityInterval;{4faa3fff-6746-4824-a964-eed8e87f8709})");
 }
@@ -1198,6 +1243,11 @@ impl ::core::cmp::PartialEq for DataPlanStatus {
     }
 }
 impl ::core::cmp::Eq for DataPlanStatus {}
+impl ::core::fmt::Debug for DataPlanStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataPlanStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataPlanStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.DataPlanStatus;{977a8b8c-3885-40f3-8851-42cd2bd568bb})");
 }
@@ -1283,6 +1333,11 @@ impl ::core::cmp::PartialEq for DataPlanUsage {
     }
 }
 impl ::core::cmp::Eq for DataPlanUsage {}
+impl ::core::fmt::Debug for DataPlanUsage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataPlanUsage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataPlanUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.DataPlanUsage;{b921492d-3b44-47ff-b361-be59e69ed1b0})");
 }
@@ -1375,6 +1430,12 @@ impl ::core::cmp::PartialEq for DataUsage {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for DataUsage {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for DataUsage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataUsage").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for DataUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.DataUsage;{c1431dd3-b146-4d39-b959-0c69b096c512})");
 }
@@ -1463,6 +1524,11 @@ impl ::core::cmp::PartialEq for DataUsageGranularity {
     }
 }
 impl ::core::cmp::Eq for DataUsageGranularity {}
+impl ::core::fmt::Debug for DataUsageGranularity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataUsageGranularity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataUsageGranularity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DataUsageGranularity;i4)");
 }
@@ -1492,6 +1558,11 @@ impl ::core::cmp::PartialEq for DomainConnectivityLevel {
     }
 }
 impl ::core::cmp::Eq for DomainConnectivityLevel {}
+impl ::core::fmt::Debug for DomainConnectivityLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DomainConnectivityLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DomainConnectivityLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DomainConnectivityLevel;i4)");
 }
@@ -2207,6 +2278,11 @@ impl ::core::cmp::PartialEq for IPInformation {
     }
 }
 impl ::core::cmp::Eq for IPInformation {}
+impl ::core::fmt::Debug for IPInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.IPInformation;{d85145e0-138f-47d7-9b3a-36bb488cef33})");
 }
@@ -2436,6 +2512,11 @@ impl ::core::cmp::PartialEq for LanIdentifier {
     }
 }
 impl ::core::cmp::Eq for LanIdentifier {}
+impl ::core::fmt::Debug for LanIdentifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LanIdentifier").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LanIdentifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.LanIdentifier;{48aa53aa-1108-4546-a6cb-9a74da4b7ba0})");
 }
@@ -2521,6 +2602,11 @@ impl ::core::cmp::PartialEq for LanIdentifierData {
     }
 }
 impl ::core::cmp::Eq for LanIdentifierData {}
+impl ::core::fmt::Debug for LanIdentifierData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LanIdentifierData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LanIdentifierData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.LanIdentifierData;{a74e83c3-d639-45be-a36a-c4e4aeaf6d9b})");
 }
@@ -2638,6 +2724,11 @@ impl ::core::cmp::PartialEq for NetworkAdapter {
     }
 }
 impl ::core::cmp::Eq for NetworkAdapter {}
+impl ::core::fmt::Debug for NetworkAdapter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkAdapter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NetworkAdapter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkAdapter;{3b542e03-5388-496c-a8a3-affd39aec2e6})");
 }
@@ -2725,6 +2816,11 @@ impl ::core::cmp::PartialEq for NetworkAuthenticationType {
     }
 }
 impl ::core::cmp::Eq for NetworkAuthenticationType {}
+impl ::core::fmt::Debug for NetworkAuthenticationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkAuthenticationType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NetworkAuthenticationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkAuthenticationType;i4)");
 }
@@ -2755,6 +2851,11 @@ impl ::core::cmp::PartialEq for NetworkConnectivityLevel {
     }
 }
 impl ::core::cmp::Eq for NetworkConnectivityLevel {}
+impl ::core::fmt::Debug for NetworkConnectivityLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkConnectivityLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NetworkConnectivityLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkConnectivityLevel;i4)");
 }
@@ -2785,6 +2886,11 @@ impl ::core::cmp::PartialEq for NetworkCostType {
     }
 }
 impl ::core::cmp::Eq for NetworkCostType {}
+impl ::core::fmt::Debug for NetworkCostType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkCostType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NetworkCostType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkCostType;i4)");
 }
@@ -2823,6 +2929,11 @@ impl ::core::cmp::PartialEq for NetworkEncryptionType {
     }
 }
 impl ::core::cmp::Eq for NetworkEncryptionType {}
+impl ::core::fmt::Debug for NetworkEncryptionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkEncryptionType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NetworkEncryptionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkEncryptionType;i4)");
 }
@@ -2946,6 +3057,11 @@ impl ::core::cmp::PartialEq for NetworkItem {
     }
 }
 impl ::core::cmp::Eq for NetworkItem {}
+impl ::core::fmt::Debug for NetworkItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NetworkItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkItem;{01bc4d39-f5e0-4567-a28c-42080c831b2b})");
 }
@@ -3030,6 +3146,11 @@ impl ::core::cmp::PartialEq for NetworkSecuritySettings {
     }
 }
 impl ::core::cmp::Eq for NetworkSecuritySettings {}
+impl ::core::fmt::Debug for NetworkSecuritySettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkSecuritySettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NetworkSecuritySettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkSecuritySettings;{7ca07e8d-917b-4b5f-b84d-28f7a5ac5402})");
 }
@@ -3162,6 +3283,11 @@ impl ::core::cmp::PartialEq for NetworkStateChangeEventDetails {
     }
 }
 impl ::core::cmp::Eq for NetworkStateChangeEventDetails {}
+impl ::core::fmt::Debug for NetworkStateChangeEventDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkStateChangeEventDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NetworkStateChangeEventDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkStateChangeEventDetails;{1f0cf333-d7a6-44dd-a4e9-687c476b903d})");
 }
@@ -3274,6 +3400,11 @@ impl ::core::cmp::PartialEq for NetworkStatusChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for NetworkStatusChangedEventHandler {}
+impl ::core::fmt::Debug for NetworkStatusChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkStatusChangedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for NetworkStatusChangedEventHandler {
     type Vtable = NetworkStatusChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71ba143f_598e_49d0_84eb_8febaedcc195);
@@ -3307,6 +3438,11 @@ impl ::core::cmp::PartialEq for NetworkTypes {
     }
 }
 impl ::core::cmp::Eq for NetworkTypes {}
+impl ::core::fmt::Debug for NetworkTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkTypes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NetworkTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkTypes;u4)");
 }
@@ -3354,6 +3490,11 @@ impl ::core::cmp::PartialEq for NetworkUsage {
     }
 }
 impl ::core::cmp::Eq for NetworkUsage {}
+impl ::core::fmt::Debug for NetworkUsage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkUsage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NetworkUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkUsage;{49da8fce-9985-4927-bf5b-072b5c65f8d9})");
 }
@@ -3418,6 +3559,11 @@ impl ::core::clone::Clone for NetworkUsageStates {
         *self
     }
 }
+impl ::core::fmt::Debug for NetworkUsageStates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NetworkUsageStates").field("Roaming", &self.Roaming).field("Shared", &self.Shared).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NetworkUsageStates {
     type Abi = Self;
 }
@@ -3478,6 +3624,11 @@ impl ::core::cmp::PartialEq for ProviderNetworkUsage {
     }
 }
 impl ::core::cmp::Eq for ProviderNetworkUsage {}
+impl ::core::fmt::Debug for ProviderNetworkUsage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderNetworkUsage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProviderNetworkUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ProviderNetworkUsage;{5ec69e04-7931-48c8-b8f3-46300fa42728})");
 }
@@ -3563,6 +3714,11 @@ impl ::core::cmp::PartialEq for ProxyConfiguration {
     }
 }
 impl ::core::cmp::Eq for ProxyConfiguration {}
+impl ::core::fmt::Debug for ProxyConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProxyConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProxyConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ProxyConfiguration;{ef3a60b4-9004-4dd6-b7d8-b3e502f4aad0})");
 }
@@ -3638,6 +3794,11 @@ impl ::core::cmp::PartialEq for RoamingStates {
     }
 }
 impl ::core::cmp::Eq for RoamingStates {}
+impl ::core::fmt::Debug for RoamingStates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RoamingStates").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RoamingStates {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.RoamingStates;u4)");
 }
@@ -3696,6 +3857,11 @@ impl ::core::cmp::PartialEq for RoutePolicy {
     }
 }
 impl ::core::cmp::Eq for RoutePolicy {}
+impl ::core::fmt::Debug for RoutePolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RoutePolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RoutePolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.RoutePolicy;{11abc4ac-0fc7-42e4-8742-569923b1ca11})");
 }
@@ -3771,6 +3937,11 @@ impl ::core::cmp::PartialEq for TriStates {
     }
 }
 impl ::core::cmp::Eq for TriStates {}
+impl ::core::fmt::Debug for TriStates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TriStates").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TriStates {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.TriStates;i4)");
 }
@@ -3801,6 +3972,11 @@ impl ::core::cmp::PartialEq for WlanConnectionProfileDetails {
     }
 }
 impl ::core::cmp::Eq for WlanConnectionProfileDetails {}
+impl ::core::fmt::Debug for WlanConnectionProfileDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WlanConnectionProfileDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WlanConnectionProfileDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.WlanConnectionProfileDetails;{562098cb-b35a-4bf1-a884-b7557e88ff86})");
 }
@@ -3918,6 +4094,11 @@ impl ::core::cmp::PartialEq for WwanConnectionProfileDetails {
     }
 }
 impl ::core::cmp::Eq for WwanConnectionProfileDetails {}
+impl ::core::fmt::Debug for WwanConnectionProfileDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WwanConnectionProfileDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WwanConnectionProfileDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.WwanConnectionProfileDetails;{0e4da8fe-835f-4df3-82fd-df556ebc09ef})");
 }
@@ -4005,6 +4186,11 @@ impl ::core::cmp::PartialEq for WwanDataClass {
     }
 }
 impl ::core::cmp::Eq for WwanDataClass {}
+impl ::core::fmt::Debug for WwanDataClass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WwanDataClass").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WwanDataClass {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanDataClass;u4)");
 }
@@ -4036,6 +4222,11 @@ impl ::core::cmp::PartialEq for WwanNetworkIPKind {
     }
 }
 impl ::core::cmp::Eq for WwanNetworkIPKind {}
+impl ::core::fmt::Debug for WwanNetworkIPKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WwanNetworkIPKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WwanNetworkIPKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanNetworkIPKind;i4)");
 }
@@ -4069,6 +4260,11 @@ impl ::core::cmp::PartialEq for WwanNetworkRegistrationState {
     }
 }
 impl ::core::cmp::Eq for WwanNetworkRegistrationState {}
+impl ::core::fmt::Debug for WwanNetworkRegistrationState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WwanNetworkRegistrationState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WwanNetworkRegistrationState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanNetworkRegistrationState;i4)");
 }

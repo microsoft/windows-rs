@@ -44,6 +44,11 @@ impl ::core::cmp::PartialEq for HolographicKeyboard {
     }
 }
 impl ::core::cmp::Eq for HolographicKeyboard {}
+impl ::core::fmt::Debug for HolographicKeyboard {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicKeyboard").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicKeyboard {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Holographic.HolographicKeyboard;{07dd0893-aa21-5e6f-a91b-11b2b3fd7be3})");
 }

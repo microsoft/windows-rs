@@ -399,6 +399,11 @@ impl ::core::cmp::PartialEq for WalletActionKind {
     }
 }
 impl ::core::cmp::Eq for WalletActionKind {}
+impl ::core::fmt::Debug for WalletActionKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletActionKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WalletActionKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletActionKind;i4)");
 }
@@ -466,6 +471,11 @@ impl ::core::cmp::PartialEq for WalletBarcode {
     }
 }
 impl ::core::cmp::Eq for WalletBarcode {}
+impl ::core::fmt::Debug for WalletBarcode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletBarcode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WalletBarcode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletBarcode;{4f857b29-de80-4ea4-a1cd-81cd084dac27})");
 }
@@ -550,6 +560,11 @@ impl ::core::cmp::PartialEq for WalletBarcodeSymbology {
     }
 }
 impl ::core::cmp::Eq for WalletBarcodeSymbology {}
+impl ::core::fmt::Debug for WalletBarcodeSymbology {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletBarcodeSymbology").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WalletBarcodeSymbology {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletBarcodeSymbology;i4)");
 }
@@ -591,6 +606,11 @@ impl ::core::cmp::PartialEq for WalletDetailViewPosition {
     }
 }
 impl ::core::cmp::Eq for WalletDetailViewPosition {}
+impl ::core::fmt::Debug for WalletDetailViewPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletDetailViewPosition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WalletDetailViewPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletDetailViewPosition;i4)");
 }
@@ -1004,6 +1024,11 @@ impl ::core::cmp::PartialEq for WalletItem {
     }
 }
 impl ::core::cmp::Eq for WalletItem {}
+impl ::core::fmt::Debug for WalletItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WalletItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletItem;{20b54be8-118d-4ec4-996c-b963e7bd3e74})");
 }
@@ -1149,6 +1174,11 @@ impl ::core::cmp::PartialEq for WalletItemCustomProperty {
     }
 }
 impl ::core::cmp::Eq for WalletItemCustomProperty {}
+impl ::core::fmt::Debug for WalletItemCustomProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletItemCustomProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WalletItemCustomProperty {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletItemCustomProperty;{b94b40f3-fa00-40fd-98dc-9de46697f1e7})");
 }
@@ -1228,6 +1258,11 @@ impl ::core::cmp::PartialEq for WalletItemKind {
     }
 }
 impl ::core::cmp::Eq for WalletItemKind {}
+impl ::core::fmt::Debug for WalletItemKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletItemKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WalletItemKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletItemKind;i4)");
 }
@@ -1340,6 +1375,11 @@ impl ::core::cmp::PartialEq for WalletItemStore {
     }
 }
 impl ::core::cmp::Eq for WalletItemStore {}
+impl ::core::fmt::Debug for WalletItemStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletItemStore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WalletItemStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletItemStore;{7160484b-6d49-48f8-91a9-40a1d0f13ef4})");
 }
@@ -1463,6 +1503,11 @@ impl ::core::cmp::PartialEq for WalletRelevantLocation {
     }
 }
 impl ::core::cmp::Eq for WalletRelevantLocation {}
+impl ::core::fmt::Debug for WalletRelevantLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletRelevantLocation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WalletRelevantLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletRelevantLocation;{9fd8782a-e3f9-4de1-bab3-bb192e46b3f3})");
 }
@@ -1538,6 +1583,11 @@ impl ::core::cmp::PartialEq for WalletSummaryViewPosition {
     }
 }
 impl ::core::cmp::Eq for WalletSummaryViewPosition {}
+impl ::core::fmt::Debug for WalletSummaryViewPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletSummaryViewPosition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WalletSummaryViewPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletSummaryViewPosition;i4)");
 }
@@ -1647,6 +1697,11 @@ impl ::core::cmp::PartialEq for WalletTransaction {
     }
 }
 impl ::core::cmp::Eq for WalletTransaction {}
+impl ::core::fmt::Debug for WalletTransaction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletTransaction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WalletTransaction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletTransaction;{40e1e940-2606-4519-81cb-bff1c60d1f79})");
 }
@@ -1740,6 +1795,11 @@ impl ::core::cmp::PartialEq for WalletVerb {
     }
 }
 impl ::core::cmp::Eq for WalletVerb {}
+impl ::core::fmt::Debug for WalletVerb {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletVerb").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WalletVerb {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletVerb;{17b826d6-e3c1-4c74-8a94-217aadbc4884})");
 }

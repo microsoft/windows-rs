@@ -854,6 +854,11 @@ impl ::core::cmp::PartialEq for Calendar {
     }
 }
 impl ::core::cmp::Eq for Calendar {}
+impl ::core::fmt::Debug for Calendar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Calendar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Calendar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Calendar;{ca30221d-86d9-40fb-a26b-d44eb7cf08ea})");
 }
@@ -1103,6 +1108,11 @@ impl ::core::cmp::PartialEq for CurrencyAmount {
     }
 }
 impl ::core::cmp::Eq for CurrencyAmount {}
+impl ::core::fmt::Debug for CurrencyAmount {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CurrencyAmount").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CurrencyAmount {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.CurrencyAmount;{74b49942-eb75-443a-95b3-7d723f56f93c})");
 }
@@ -2338,6 +2348,11 @@ impl ::core::cmp::PartialEq for DayOfWeek {
     }
 }
 impl ::core::cmp::Eq for DayOfWeek {}
+impl ::core::fmt::Debug for DayOfWeek {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DayOfWeek").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DayOfWeek {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DayOfWeek;i4)");
 }
@@ -2448,6 +2463,11 @@ impl ::core::cmp::PartialEq for GeographicRegion {
     }
 }
 impl ::core::cmp::Eq for GeographicRegion {}
+impl ::core::fmt::Debug for GeographicRegion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeographicRegion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeographicRegion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.GeographicRegion;{01e9a621-4a64-4ed9-954f-9edeb07bd903})");
 }
@@ -3431,6 +3451,11 @@ impl ::core::cmp::PartialEq for JapanesePhoneme {
     }
 }
 impl ::core::cmp::Eq for JapanesePhoneme {}
+impl ::core::fmt::Debug for JapanesePhoneme {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JapanesePhoneme").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for JapanesePhoneme {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.JapanesePhoneme;{2f6a9300-e85b-43e6-897d-5d82f862df21})");
 }
@@ -3638,6 +3663,11 @@ impl ::core::cmp::PartialEq for Language {
     }
 }
 impl ::core::cmp::Eq for Language {}
+impl ::core::fmt::Debug for Language {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Language").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Language {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Language;{ea79a752-f7c2-4265-b1bd-c4dec4e4f080})");
 }
@@ -3714,6 +3744,11 @@ impl ::core::cmp::PartialEq for LanguageLayoutDirection {
     }
 }
 impl ::core::cmp::Eq for LanguageLayoutDirection {}
+impl ::core::fmt::Debug for LanguageLayoutDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LanguageLayoutDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LanguageLayoutDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.LanguageLayoutDirection;i4)");
 }

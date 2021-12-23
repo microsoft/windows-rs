@@ -420,6 +420,11 @@ impl ::core::cmp::PartialEq for FileInformation {
     }
 }
 impl ::core::cmp::Eq for FileInformation {}
+impl ::core::fmt::Debug for FileInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.BulkAccess.FileInformation;{87a5cb8b-8972-4f40-8de0-d86fb179d8fa})");
 }
@@ -829,6 +834,11 @@ impl ::core::cmp::PartialEq for FileInformationFactory {
     }
 }
 impl ::core::cmp::Eq for FileInformationFactory {}
+impl ::core::fmt::Debug for FileInformationFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileInformationFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileInformationFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.BulkAccess.FileInformationFactory;{401d88be-960f-4d6d-a7d0-1a3861e76c83})");
 }
@@ -1404,6 +1414,11 @@ impl ::core::cmp::PartialEq for FolderInformation {
     }
 }
 impl ::core::cmp::Eq for FolderInformation {}
+impl ::core::fmt::Debug for FolderInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FolderInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FolderInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.BulkAccess.FolderInformation;{87a5cb8b-8972-4f40-8de0-d86fb179d8fa})");
 }
@@ -1831,6 +1846,11 @@ impl ::core::cmp::PartialEq for IStorageItemInformation {
     }
 }
 impl ::core::cmp::Eq for IStorageItemInformation {}
+impl ::core::fmt::Debug for IStorageItemInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageItemInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStorageItemInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{87a5cb8b-8972-4f40-8de0-d86fb179d8fa}");
 }

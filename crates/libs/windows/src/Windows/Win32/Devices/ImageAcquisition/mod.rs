@@ -165,6 +165,12 @@ impl ::core::clone::Clone for DEVICEDIALOGDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVICEDIALOGDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICEDIALOGDATA").field("cbSize", &self.cbSize).field("hwndParent", &self.hwndParent).field("pIWiaItemRoot", &self.pIWiaItemRoot).field("dwFlags", &self.dwFlags).field("lIntent", &self.lIntent).field("lItemCount", &self.lItemCount).field("ppWiaItems", &self.ppWiaItems).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DEVICEDIALOGDATA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -210,6 +216,12 @@ impl ::core::clone::Clone for DEVICEDIALOGDATA2 {
             pbstrFilePaths: self.pbstrFilePaths,
             pWiaItem: self.pWiaItem.clone(),
         }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVICEDIALOGDATA2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICEDIALOGDATA2").field("cbSize", &self.cbSize).field("pIWiaItemRoot", &self.pIWiaItemRoot).field("dwFlags", &self.dwFlags).field("hwndParent", &self.hwndParent).field("bstrFolderName", &self.bstrFolderName).field("bstrFilename", &self.bstrFilename).field("lNumFiles", &self.lNumFiles).field("pbstrFilePaths", &self.pbstrFilePaths).field("pWiaItem", &self.pWiaItem).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -381,6 +393,11 @@ impl ::core::cmp::PartialEq for IEnumWIA_DEV_CAPS {
     }
 }
 impl ::core::cmp::Eq for IEnumWIA_DEV_CAPS {}
+impl ::core::fmt::Debug for IEnumWIA_DEV_CAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumWIA_DEV_CAPS").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumWIA_DEV_CAPS {
     type Vtable = IEnumWIA_DEV_CAPSVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fcc4287_aca6_11d2_a093_00c04f72dc3c);
@@ -456,6 +473,11 @@ impl ::core::cmp::PartialEq for IEnumWIA_DEV_INFO {
     }
 }
 impl ::core::cmp::Eq for IEnumWIA_DEV_INFO {}
+impl ::core::fmt::Debug for IEnumWIA_DEV_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumWIA_DEV_INFO").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumWIA_DEV_INFO {
     type Vtable = IEnumWIA_DEV_INFOVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e38b83c_8cf1_11d1_bf92_0060081ed811);
@@ -530,6 +552,11 @@ impl ::core::cmp::PartialEq for IEnumWIA_FORMAT_INFO {
     }
 }
 impl ::core::cmp::Eq for IEnumWIA_FORMAT_INFO {}
+impl ::core::fmt::Debug for IEnumWIA_FORMAT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumWIA_FORMAT_INFO").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumWIA_FORMAT_INFO {
     type Vtable = IEnumWIA_FORMAT_INFOVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81befc5b_656d_44f1_b24c_d41d51b4dc81);
@@ -604,6 +631,11 @@ impl ::core::cmp::PartialEq for IEnumWiaItem {
     }
 }
 impl ::core::cmp::Eq for IEnumWiaItem {}
+impl ::core::fmt::Debug for IEnumWiaItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumWiaItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumWiaItem {
     type Vtable = IEnumWiaItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e8383fc_3391_11d2_9a33_00c04fa36145);
@@ -678,6 +710,11 @@ impl ::core::cmp::PartialEq for IEnumWiaItem2 {
     }
 }
 impl ::core::cmp::Eq for IEnumWiaItem2 {}
+impl ::core::fmt::Debug for IEnumWiaItem2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumWiaItem2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumWiaItem2 {
     type Vtable = IEnumWiaItem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59970af4_cd0d_44d9_ab24_52295630e582);
@@ -766,6 +803,11 @@ impl ::core::cmp::PartialEq for IWiaAppErrorHandler {
     }
 }
 impl ::core::cmp::Eq for IWiaAppErrorHandler {}
+impl ::core::fmt::Debug for IWiaAppErrorHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaAppErrorHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaAppErrorHandler {
     type Vtable = IWiaAppErrorHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c16186c_d0a6_400c_80f4_d26986a0e734);
@@ -820,6 +862,11 @@ impl ::core::cmp::PartialEq for IWiaDataCallback {
     }
 }
 impl ::core::cmp::Eq for IWiaDataCallback {}
+impl ::core::fmt::Debug for IWiaDataCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaDataCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaDataCallback {
     type Vtable = IWiaDataCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa558a866_a5b0_11d2_a08f_00c04f72dc3c);
@@ -892,6 +939,11 @@ impl ::core::cmp::PartialEq for IWiaDataTransfer {
     }
 }
 impl ::core::cmp::Eq for IWiaDataTransfer {}
+impl ::core::fmt::Debug for IWiaDataTransfer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaDataTransfer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaDataTransfer {
     type Vtable = IWiaDataTransferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6cef998_a5b0_11d2_a08f_00c04f72dc3c);
@@ -993,6 +1045,11 @@ impl ::core::cmp::PartialEq for IWiaDevMgr {
     }
 }
 impl ::core::cmp::Eq for IWiaDevMgr {}
+impl ::core::fmt::Debug for IWiaDevMgr {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaDevMgr").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaDevMgr {
     type Vtable = IWiaDevMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5eb2502a_8cf1_11d1_bf92_0060081ed811);
@@ -1099,6 +1156,11 @@ impl ::core::cmp::PartialEq for IWiaDevMgr2 {
     }
 }
 impl ::core::cmp::Eq for IWiaDevMgr2 {}
+impl ::core::fmt::Debug for IWiaDevMgr2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaDevMgr2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaDevMgr2 {
     type Vtable = IWiaDevMgr2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79c07cf1_cbdd_41ee_8ec3_f00080cada7a);
@@ -1228,6 +1290,11 @@ impl ::core::cmp::PartialEq for IWiaDrvItem {
     }
 }
 impl ::core::cmp::Eq for IWiaDrvItem {}
+impl ::core::fmt::Debug for IWiaDrvItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaDrvItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaDrvItem {
     type Vtable = IWiaDrvItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f02b5c5_b00c_11d2_a094_00c04f72dc3c);
@@ -1304,6 +1371,11 @@ impl ::core::cmp::PartialEq for IWiaErrorHandler {
     }
 }
 impl ::core::cmp::Eq for IWiaErrorHandler {}
+impl ::core::fmt::Debug for IWiaErrorHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaErrorHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaErrorHandler {
     type Vtable = IWiaErrorHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e4a51b1_bc1f_443d_a835_72e890759ef3);
@@ -1360,6 +1432,11 @@ impl ::core::cmp::PartialEq for IWiaEventCallback {
     }
 }
 impl ::core::cmp::Eq for IWiaEventCallback {}
+impl ::core::fmt::Debug for IWiaEventCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaEventCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaEventCallback {
     type Vtable = IWiaEventCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae6287b0_0084_11d2_973b_00a0c9068f2e);
@@ -1426,6 +1503,11 @@ impl ::core::cmp::PartialEq for IWiaImageFilter {
     }
 }
 impl ::core::cmp::Eq for IWiaImageFilter {}
+impl ::core::fmt::Debug for IWiaImageFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaImageFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaImageFilter {
     type Vtable = IWiaImageFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8a79ffa_450b_41f1_8f87_849ccd94ebf6);
@@ -1554,6 +1636,11 @@ impl ::core::cmp::PartialEq for IWiaItem {
     }
 }
 impl ::core::cmp::Eq for IWiaItem {}
+impl ::core::fmt::Debug for IWiaItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaItem {
     type Vtable = IWiaItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4db1ad10_3391_11d2_9a33_00c04fa36145);
@@ -1701,6 +1788,11 @@ impl ::core::cmp::PartialEq for IWiaItem2 {
     }
 }
 impl ::core::cmp::Eq for IWiaItem2 {}
+impl ::core::fmt::Debug for IWiaItem2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaItem2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaItem2 {
     type Vtable = IWiaItem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cba0075_1287_407d_9b77_cf0e030435cc);
@@ -1783,6 +1875,11 @@ impl ::core::cmp::PartialEq for IWiaItemExtras {
     }
 }
 impl ::core::cmp::Eq for IWiaItemExtras {}
+impl ::core::fmt::Debug for IWiaItemExtras {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaItemExtras").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaItemExtras {
     type Vtable = IWiaItemExtrasVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6291ef2c_36ef_4532_876a_8e132593778d);
@@ -1847,6 +1944,11 @@ impl ::core::cmp::PartialEq for IWiaLog {
     }
 }
 impl ::core::cmp::Eq for IWiaLog {}
+impl ::core::fmt::Debug for IWiaLog {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaLog").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaLog {
     type Vtable = IWiaLogVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa00c10b6_82a1_452f_8b6c_86062aad6890);
@@ -1920,6 +2022,11 @@ impl ::core::cmp::PartialEq for IWiaLogEx {
     }
 }
 impl ::core::cmp::Eq for IWiaLogEx {}
+impl ::core::fmt::Debug for IWiaLogEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaLogEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaLogEx {
     type Vtable = IWiaLogExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf1f22ac_7a40_4787_b421_aeb47a1fbd0b);
@@ -2058,6 +2165,11 @@ impl ::core::cmp::PartialEq for IWiaMiniDrv {
     }
 }
 impl ::core::cmp::Eq for IWiaMiniDrv {}
+impl ::core::fmt::Debug for IWiaMiniDrv {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaMiniDrv").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaMiniDrv {
     type Vtable = IWiaMiniDrvVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8cdee14_3c6c_11d2_9a35_00c04fa36145);
@@ -2135,6 +2247,11 @@ impl ::core::cmp::PartialEq for IWiaMiniDrvCallBack {
     }
 }
 impl ::core::cmp::Eq for IWiaMiniDrvCallBack {}
+impl ::core::fmt::Debug for IWiaMiniDrvCallBack {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaMiniDrvCallBack").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaMiniDrvCallBack {
     type Vtable = IWiaMiniDrvCallBackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33a57d5a_3de8_11d2_9a36_00c04fa36145);
@@ -2194,6 +2311,11 @@ impl ::core::cmp::PartialEq for IWiaMiniDrvTransferCallback {
     }
 }
 impl ::core::cmp::Eq for IWiaMiniDrvTransferCallback {}
+impl ::core::fmt::Debug for IWiaMiniDrvTransferCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaMiniDrvTransferCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaMiniDrvTransferCallback {
     type Vtable = IWiaMiniDrvTransferCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9d2ee89_2ce5_4ff0_8adb_c961d1d774ca);
@@ -2248,6 +2370,11 @@ impl ::core::cmp::PartialEq for IWiaNotifyDevMgr {
     }
 }
 impl ::core::cmp::Eq for IWiaNotifyDevMgr {}
+impl ::core::fmt::Debug for IWiaNotifyDevMgr {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaNotifyDevMgr").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaNotifyDevMgr {
     type Vtable = IWiaNotifyDevMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70681ea0_e7bf_4291_9fb1_4e8813a3f78e);
@@ -2307,6 +2434,11 @@ impl ::core::cmp::PartialEq for IWiaPreview {
     }
 }
 impl ::core::cmp::Eq for IWiaPreview {}
+impl ::core::fmt::Debug for IWiaPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaPreview").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaPreview {
     type Vtable = IWiaPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95c2b4fd_33f2_4d86_ad40_9431f0df08f7);
@@ -2436,6 +2568,11 @@ impl ::core::cmp::PartialEq for IWiaPropertyStorage {
     }
 }
 impl ::core::cmp::Eq for IWiaPropertyStorage {}
+impl ::core::fmt::Debug for IWiaPropertyStorage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaPropertyStorage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaPropertyStorage {
     type Vtable = IWiaPropertyStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98b5e8a0_29cc_491a_aac0_e6db4fdcceb6);
@@ -2515,6 +2652,11 @@ impl ::core::cmp::PartialEq for IWiaSegmentationFilter {
     }
 }
 impl ::core::cmp::Eq for IWiaSegmentationFilter {}
+impl ::core::fmt::Debug for IWiaSegmentationFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaSegmentationFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaSegmentationFilter {
     type Vtable = IWiaSegmentationFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec46a697_ac04_4447_8f65_ff63d5154b21);
@@ -2582,6 +2724,11 @@ impl ::core::cmp::PartialEq for IWiaTransfer {
     }
 }
 impl ::core::cmp::Eq for IWiaTransfer {}
+impl ::core::fmt::Debug for IWiaTransfer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaTransfer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaTransfer {
     type Vtable = IWiaTransferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc39d6942_2f4e_4d04_92fe_4ef4d3a1de5a);
@@ -2644,6 +2791,11 @@ impl ::core::cmp::PartialEq for IWiaTransferCallback {
     }
 }
 impl ::core::cmp::Eq for IWiaTransferCallback {}
+impl ::core::fmt::Debug for IWiaTransferCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaTransferCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaTransferCallback {
     type Vtable = IWiaTransferCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27d4eaaf_28a6_4ca5_9aab_e678168b9527);
@@ -2709,6 +2861,11 @@ impl ::core::cmp::PartialEq for IWiaUIExtension {
     }
 }
 impl ::core::cmp::Eq for IWiaUIExtension {}
+impl ::core::fmt::Debug for IWiaUIExtension {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaUIExtension").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaUIExtension {
     type Vtable = IWiaUIExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda319113_50ee_4c80_b460_57d005d44a2c);
@@ -2772,6 +2929,11 @@ impl ::core::cmp::PartialEq for IWiaUIExtension2 {
     }
 }
 impl ::core::cmp::Eq for IWiaUIExtension2 {}
+impl ::core::fmt::Debug for IWiaUIExtension2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaUIExtension2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaUIExtension2 {
     type Vtable = IWiaUIExtension2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x305600d7_5088_46d7_9a15_b77b09cdba7a);
@@ -2888,6 +3050,11 @@ impl ::core::cmp::PartialEq for IWiaVideo {
     }
 }
 impl ::core::cmp::Eq for IWiaVideo {}
+impl ::core::fmt::Debug for IWiaVideo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaVideo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaVideo {
     type Vtable = IWiaVideoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd52920aa_db88_41f0_946c_e00dc0a19cfa);
@@ -3034,6 +3201,40 @@ impl ::core::clone::Clone for MINIDRV_TRANSFER_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MINIDRV_TRANSFER_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MINIDRV_TRANSFER_CONTEXT")
+            .field("lSize", &self.lSize)
+            .field("lWidthInPixels", &self.lWidthInPixels)
+            .field("lLines", &self.lLines)
+            .field("lDepth", &self.lDepth)
+            .field("lXRes", &self.lXRes)
+            .field("lYRes", &self.lYRes)
+            .field("lCompression", &self.lCompression)
+            .field("guidFormatID", &self.guidFormatID)
+            .field("tymed", &self.tymed)
+            .field("hFile", &self.hFile)
+            .field("cbOffset", &self.cbOffset)
+            .field("lBufferSize", &self.lBufferSize)
+            .field("lActiveBuffer", &self.lActiveBuffer)
+            .field("lNumBuffers", &self.lNumBuffers)
+            .field("pBaseBuffer", &self.pBaseBuffer)
+            .field("pTransferBuffer", &self.pTransferBuffer)
+            .field("bTransferDataCB", &self.bTransferDataCB)
+            .field("bClassDrvAllocBuf", &self.bClassDrvAllocBuf)
+            .field("lClientAddress", &self.lClientAddress)
+            .field("pIWiaMiniDrvCallBack", &self.pIWiaMiniDrvCallBack)
+            .field("lImageSize", &self.lImageSize)
+            .field("lHeaderSize", &self.lHeaderSize)
+            .field("lItemSize", &self.lItemSize)
+            .field("cbWidthInBytes", &self.cbWidthInBytes)
+            .field("lPage", &self.lPage)
+            .field("lCurIfdOffset", &self.lCurIfdOffset)
+            .field("lPrevIfdOffset", &self.lPrevIfdOffset)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MINIDRV_TRANSFER_CONTEXT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -3112,6 +3313,11 @@ impl ::core::clone::Clone for RANGEVALUE {
         *self
     }
 }
+impl ::core::fmt::Debug for RANGEVALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RANGEVALUE").field("lMin", &self.lMin).field("lMax", &self.lMax).field("lStep", &self.lStep).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RANGEVALUE {
     type Abi = Self;
 }
@@ -3182,6 +3388,49 @@ impl ::core::clone::Clone for SCANINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SCANINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCANINFO")
+            .field("ADF", &self.ADF)
+            .field("TPA", &self.TPA)
+            .field("Endorser", &self.Endorser)
+            .field("OpticalXResolution", &self.OpticalXResolution)
+            .field("OpticalYResolution", &self.OpticalYResolution)
+            .field("BedWidth", &self.BedWidth)
+            .field("BedHeight", &self.BedHeight)
+            .field("IntensityRange", &self.IntensityRange)
+            .field("ContrastRange", &self.ContrastRange)
+            .field("SupportedCompressionType", &self.SupportedCompressionType)
+            .field("SupportedDataTypes", &self.SupportedDataTypes)
+            .field("WidthPixels", &self.WidthPixels)
+            .field("WidthBytes", &self.WidthBytes)
+            .field("Lines", &self.Lines)
+            .field("DataType", &self.DataType)
+            .field("PixelBits", &self.PixelBits)
+            .field("Intensity", &self.Intensity)
+            .field("Contrast", &self.Contrast)
+            .field("Xresolution", &self.Xresolution)
+            .field("Yresolution", &self.Yresolution)
+            .field("Window", &self.Window)
+            .field("DitherPattern", &self.DitherPattern)
+            .field("Negative", &self.Negative)
+            .field("Mirror", &self.Mirror)
+            .field("AutoBack", &self.AutoBack)
+            .field("ColorDitherPattern", &self.ColorDitherPattern)
+            .field("ToneMap", &self.ToneMap)
+            .field("Compression", &self.Compression)
+            .field("RawDataFormat", &self.RawDataFormat)
+            .field("RawPixelOrder", &self.RawPixelOrder)
+            .field("bNeedDataAlignment", &self.bNeedDataAlignment)
+            .field("DelayBetweenRead", &self.DelayBetweenRead)
+            .field("MaxBufferSize", &self.MaxBufferSize)
+            .field("DeviceIOHandles", &self.DeviceIOHandles)
+            .field("lReserved", &self.lReserved)
+            .field("pMicroDriverContext", &self.pMicroDriverContext)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SCANINFO {
     type Abi = Self;
 }
@@ -3215,6 +3464,11 @@ impl ::core::marker::Copy for SCANWINDOW {}
 impl ::core::clone::Clone for SCANWINDOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCANWINDOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCANWINDOW").field("xPos", &self.xPos).field("yPos", &self.yPos).field("xExtent", &self.xExtent).field("yExtent", &self.yExtent).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCANWINDOW {
@@ -3273,6 +3527,11 @@ impl ::core::clone::Clone for TWAIN_CAPABILITY {
         *self
     }
 }
+impl ::core::fmt::Debug for TWAIN_CAPABILITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TWAIN_CAPABILITY").field("lSize", &self.lSize).field("lMSG", &self.lMSG).field("lCapID", &self.lCapID).field("lConType", &self.lConType).field("lRC", &self.lRC).field("lCC", &self.lCC).field("lDataSize", &self.lDataSize).field("Data", &self.Data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TWAIN_CAPABILITY {
     type Abi = Self;
 }
@@ -3313,6 +3572,12 @@ impl ::core::marker::Copy for VAL {}
 impl ::core::clone::Clone for VAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VAL").field("lVal", &self.lVal).field("dblVal", &self.dblVal).field("pGuid", &self.pGuid).field("pScanInfo", &self.pScanInfo).field("handle", &self.handle).field("ppButtonNames", &self.ppButtonNames).field("pHandle", &self.pHandle).field("lReserved", &self.lReserved).field("szVal", &self.szVal).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3468,6 +3733,24 @@ impl ::core::clone::Clone for WIAS_DOWN_SAMPLE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for WIAS_DOWN_SAMPLE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIAS_DOWN_SAMPLE_INFO")
+            .field("ulOriginalWidth", &self.ulOriginalWidth)
+            .field("ulOriginalHeight", &self.ulOriginalHeight)
+            .field("ulBitsPerPixel", &self.ulBitsPerPixel)
+            .field("ulXRes", &self.ulXRes)
+            .field("ulYRes", &self.ulYRes)
+            .field("ulDownSampledWidth", &self.ulDownSampledWidth)
+            .field("ulDownSampledHeight", &self.ulDownSampledHeight)
+            .field("ulActualSize", &self.ulActualSize)
+            .field("ulDestBufSize", &self.ulDestBufSize)
+            .field("ulSrcBufSize", &self.ulSrcBufSize)
+            .field("pSrcBuffer", &self.pSrcBuffer)
+            .field("pDestBuffer", &self.pDestBuffer)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WIAS_DOWN_SAMPLE_INFO {
     type Abi = Self;
 }
@@ -3496,6 +3779,12 @@ impl ::core::marker::Copy for WIAS_ENDORSER_INFO {}
 impl ::core::clone::Clone for WIAS_ENDORSER_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIAS_ENDORSER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIAS_ENDORSER_INFO").field("ulPageCount", &self.ulPageCount).field("ulNumEndorserValues", &self.ulNumEndorserValues).field("pEndorserValues", &self.pEndorserValues).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3529,6 +3818,12 @@ impl ::core::marker::Copy for WIAS_ENDORSER_VALUE {}
 impl ::core::clone::Clone for WIAS_ENDORSER_VALUE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIAS_ENDORSER_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIAS_ENDORSER_VALUE").field("wszTokenName", &self.wszTokenName).field("wszValue", &self.wszValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3614,6 +3909,11 @@ impl ::core::clone::Clone for WIA_BARCODES {
         *self
     }
 }
+impl ::core::fmt::Debug for WIA_BARCODES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_BARCODES").field("Tag", &self.Tag).field("Version", &self.Version).field("Size", &self.Size).field("Count", &self.Count).field("Barcodes", &self.Barcodes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WIA_BARCODES {
     type Abi = Self;
 }
@@ -3693,6 +3993,11 @@ impl ::core::marker::Copy for WIA_BARCODE_INFO {}
 impl ::core::clone::Clone for WIA_BARCODE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WIA_BARCODE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_BARCODE_INFO").field("Size", &self.Size).field("Type", &self.Type).field("Page", &self.Page).field("Confidence", &self.Confidence).field("XOffset", &self.XOffset).field("YOffset", &self.YOffset).field("Rotation", &self.Rotation).field("Length", &self.Length).field("Text", &self.Text).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WIA_BARCODE_INFO {
@@ -3853,6 +4158,11 @@ impl ::core::clone::Clone for WIA_DATA_CALLBACK_HEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for WIA_DATA_CALLBACK_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_DATA_CALLBACK_HEADER").field("lSize", &self.lSize).field("guidFormatID", &self.guidFormatID).field("lBufferSize", &self.lBufferSize).field("lPageCount", &self.lPageCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WIA_DATA_CALLBACK_HEADER {
     type Abi = Self;
 }
@@ -3909,6 +4219,12 @@ impl ::core::marker::Copy for WIA_DATA_TRANSFER_INFO {}
 impl ::core::clone::Clone for WIA_DATA_TRANSFER_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_DATA_TRANSFER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_DATA_TRANSFER_INFO").field("ulSize", &self.ulSize).field("ulSection", &self.ulSection).field("ulBufferSize", &self.ulBufferSize).field("bDoubleBuffer", &self.bDoubleBuffer).field("ulReserved1", &self.ulReserved1).field("ulReserved2", &self.ulReserved2).field("ulReserved3", &self.ulReserved3).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3972,6 +4288,12 @@ impl ::core::clone::Clone for WIA_DEV_CAP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_DEV_CAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_DEV_CAP").field("guid", &self.guid).field("ulFlags", &self.ulFlags).field("bstrName", &self.bstrName).field("bstrDescription", &self.bstrDescription).field("bstrIcon", &self.bstrIcon).field("bstrCommandline", &self.bstrCommandline).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WIA_DEV_CAP {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -4005,6 +4327,12 @@ impl ::core::marker::Copy for WIA_DEV_CAP_DRV {}
 impl ::core::clone::Clone for WIA_DEV_CAP_DRV {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_DEV_CAP_DRV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_DEV_CAP_DRV").field("guid", &self.guid).field("ulFlags", &self.ulFlags).field("wszName", &self.wszName).field("wszDescription", &self.wszDescription).field("wszIcon", &self.wszIcon).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4081,6 +4409,12 @@ impl ::core::clone::Clone for WIA_DITHER_PATTERN_DATA {
             cbPattern: self.cbPattern,
             pbPattern: self.pbPattern,
         }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_DITHER_PATTERN_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_DITHER_PATTERN_DATA").field("lSize", &self.lSize).field("bstrPatternName", &self.bstrPatternName).field("lPatternWidth", &self.lPatternWidth).field("lPatternLength", &self.lPatternLength).field("cbPattern", &self.cbPattern).field("pbPattern", &self.pbPattern).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4375,6 +4709,11 @@ impl ::core::clone::Clone for WIA_EXTENDED_TRANSFER_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for WIA_EXTENDED_TRANSFER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_EXTENDED_TRANSFER_INFO").field("ulSize", &self.ulSize).field("ulMinBufferSize", &self.ulMinBufferSize).field("ulOptimalBufferSize", &self.ulOptimalBufferSize).field("ulMaxBufferSize", &self.ulMaxBufferSize).field("ulNumBuffers", &self.ulNumBuffers).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WIA_EXTENDED_TRANSFER_INFO {
     type Abi = Self;
 }
@@ -4417,6 +4756,11 @@ impl ::core::marker::Copy for WIA_FORMAT_INFO {}
 impl ::core::clone::Clone for WIA_FORMAT_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WIA_FORMAT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_FORMAT_INFO").field("guidFormatID", &self.guidFormatID).field("lTymed", &self.lTymed).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WIA_FORMAT_INFO {
@@ -4802,6 +5146,11 @@ impl ::core::clone::Clone for WIA_MICR {
         *self
     }
 }
+impl ::core::fmt::Debug for WIA_MICR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_MICR").field("Tag", &self.Tag).field("Version", &self.Version).field("Size", &self.Size).field("Placeholder", &self.Placeholder).field("Reserved", &self.Reserved).field("Count", &self.Count).field("Micr", &self.Micr).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WIA_MICR {
     type Abi = Self;
 }
@@ -4828,6 +5177,11 @@ impl ::core::marker::Copy for WIA_MICR_INFO {}
 impl ::core::clone::Clone for WIA_MICR_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WIA_MICR_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_MICR_INFO").field("Size", &self.Size).field("Page", &self.Page).field("Length", &self.Length).field("Text", &self.Text).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WIA_MICR_INFO {
@@ -5019,6 +5373,11 @@ impl ::core::clone::Clone for WIA_PATCH_CODES {
         *self
     }
 }
+impl ::core::fmt::Debug for WIA_PATCH_CODES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PATCH_CODES").field("Tag", &self.Tag).field("Version", &self.Version).field("Size", &self.Size).field("Count", &self.Count).field("PatchCodes", &self.PatchCodes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WIA_PATCH_CODES {
     type Abi = Self;
 }
@@ -5070,6 +5429,11 @@ impl ::core::marker::Copy for WIA_PATCH_CODE_INFO {}
 impl ::core::clone::Clone for WIA_PATCH_CODE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WIA_PATCH_CODE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PATCH_CODE_INFO").field("Type", &self.Type).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WIA_PATCH_CODE_INFO {
@@ -5247,6 +5611,12 @@ impl ::core::clone::Clone for WIA_PROPERTY_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_PROPERTY_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PROPERTY_CONTEXT").field("cProps", &self.cProps).field("pProps", &self.pProps).field("pChanged", &self.pChanged).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_CONTEXT {
     type Abi = Self;
 }
@@ -5349,6 +5719,12 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PROPERTY_INFO_0_0").field("Nom", &self.Nom).field("ValidBits", &self.ValidBits).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_0 {
     type Abi = Self;
 }
@@ -5378,6 +5754,12 @@ pub struct WIA_PROPERTY_INFO_0_1 {
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_1 {
     fn clone(&self) -> Self {
         Self { cNumList: self.cNumList, Nom: self.Nom.clone(), pList: self.pList }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PROPERTY_INFO_0_1").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5415,6 +5797,12 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PROPERTY_INFO_0_2").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_2 {
     type Abi = Self;
 }
@@ -5446,6 +5834,12 @@ impl ::core::marker::Copy for WIA_PROPERTY_INFO_0_3 {}
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PROPERTY_INFO_0_3").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5483,6 +5877,12 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PROPERTY_INFO_0_4").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_4 {
     type Abi = Self;
 }
@@ -5512,6 +5912,12 @@ impl ::core::marker::Copy for WIA_PROPERTY_INFO_0_5 {}
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_5 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PROPERTY_INFO_0_5").field("Dummy", &self.Dummy).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5550,6 +5956,12 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_6 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PROPERTY_INFO_0_6").field("Min", &self.Min).field("Nom", &self.Nom).field("Max", &self.Max).field("Inc", &self.Inc).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_6 {
     type Abi = Self;
 }
@@ -5585,6 +5997,12 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_7 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PROPERTY_INFO_0_7").field("Min", &self.Min).field("Nom", &self.Nom).field("Max", &self.Max).field("Inc", &self.Inc).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_7 {
     type Abi = Self;
 }
@@ -5615,6 +6033,12 @@ impl ::core::marker::Copy for WIA_PROPID_TO_NAME {}
 impl ::core::clone::Clone for WIA_PROPID_TO_NAME {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_PROPID_TO_NAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PROPID_TO_NAME").field("propid", &self.propid).field("pszName", &self.pszName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5694,6 +6118,31 @@ impl ::core::marker::Copy for WIA_RAW_HEADER {}
 impl ::core::clone::Clone for WIA_RAW_HEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WIA_RAW_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_RAW_HEADER")
+            .field("Tag", &self.Tag)
+            .field("Version", &self.Version)
+            .field("HeaderSize", &self.HeaderSize)
+            .field("XRes", &self.XRes)
+            .field("YRes", &self.YRes)
+            .field("XExtent", &self.XExtent)
+            .field("YExtent", &self.YExtent)
+            .field("BytesPerLine", &self.BytesPerLine)
+            .field("BitsPerPixel", &self.BitsPerPixel)
+            .field("ChannelsPerPixel", &self.ChannelsPerPixel)
+            .field("DataType", &self.DataType)
+            .field("BitsPerChannel", &self.BitsPerChannel)
+            .field("Compression", &self.Compression)
+            .field("PhotometricInterp", &self.PhotometricInterp)
+            .field("LineOrder", &self.LineOrder)
+            .field("RawDataOffset", &self.RawDataOffset)
+            .field("RawDataSize", &self.RawDataSize)
+            .field("PaletteOffset", &self.PaletteOffset)
+            .field("PaletteSize", &self.PaletteSize)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for WIA_RAW_HEADER {
@@ -5899,6 +6348,11 @@ impl ::core::marker::Copy for WiaTransferParams {}
 impl ::core::clone::Clone for WiaTransferParams {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WiaTransferParams {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WiaTransferParams").field("lMessage", &self.lMessage).field("lPercentComplete", &self.lPercentComplete).field("ulTransferredBytes", &self.ulTransferredBytes).field("hrErrorStatus", &self.hrErrorStatus).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WiaTransferParams {

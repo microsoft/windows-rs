@@ -63,6 +63,11 @@ impl ::core::cmp::PartialEq for ITpmVirtualSmartCardManager {
     }
 }
 impl ::core::cmp::Eq for ITpmVirtualSmartCardManager {}
+impl ::core::fmt::Debug for ITpmVirtualSmartCardManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITpmVirtualSmartCardManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITpmVirtualSmartCardManager {
     type Vtable = ITpmVirtualSmartCardManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x112b1dff_d9dc_41f7_869f_d67fee7cb591);
@@ -186,6 +191,11 @@ impl ::core::cmp::PartialEq for ITpmVirtualSmartCardManager2 {
     }
 }
 impl ::core::cmp::Eq for ITpmVirtualSmartCardManager2 {}
+impl ::core::fmt::Debug for ITpmVirtualSmartCardManager2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITpmVirtualSmartCardManager2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITpmVirtualSmartCardManager2 {
     type Vtable = ITpmVirtualSmartCardManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdf8a2b9_02de_47f4_bc26_aa85ab5e5267);
@@ -356,6 +366,11 @@ impl ::core::cmp::PartialEq for ITpmVirtualSmartCardManager3 {
     }
 }
 impl ::core::cmp::Eq for ITpmVirtualSmartCardManager3 {}
+impl ::core::fmt::Debug for ITpmVirtualSmartCardManager3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITpmVirtualSmartCardManager3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITpmVirtualSmartCardManager3 {
     type Vtable = ITpmVirtualSmartCardManager3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c745a97_f375_4150_be17_5950f694c699);
@@ -419,6 +434,11 @@ impl ::core::cmp::PartialEq for ITpmVirtualSmartCardManagerStatusCallback {
     }
 }
 impl ::core::cmp::Eq for ITpmVirtualSmartCardManagerStatusCallback {}
+impl ::core::fmt::Debug for ITpmVirtualSmartCardManagerStatusCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITpmVirtualSmartCardManagerStatusCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITpmVirtualSmartCardManagerStatusCallback {
     type Vtable = ITpmVirtualSmartCardManagerStatusCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a1bb35f_abb8_451c_a1ae_33d98f1bef4a);

@@ -118,6 +118,11 @@ impl ::core::cmp::PartialEq for ISensLogon {
     }
 }
 impl ::core::cmp::Eq for ISensLogon {}
+impl ::core::fmt::Debug for ISensLogon {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISensLogon").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISensLogon {
     type Vtable = ISensLogonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd597bab3_5b9f_11d1_8dd2_00aa004abd5e);
@@ -258,6 +263,11 @@ impl ::core::cmp::PartialEq for ISensLogon2 {
     }
 }
 impl ::core::cmp::Eq for ISensLogon2 {}
+impl ::core::fmt::Debug for ISensLogon2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISensLogon2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISensLogon2 {
     type Vtable = ISensLogon2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd597bab4_5b9f_11d1_8dd2_00aa004abd5e);
@@ -394,6 +404,11 @@ impl ::core::cmp::PartialEq for ISensNetwork {
     }
 }
 impl ::core::cmp::Eq for ISensNetwork {}
+impl ::core::fmt::Debug for ISensNetwork {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISensNetwork").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISensNetwork {
     type Vtable = ISensNetworkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd597bab1_5b9f_11d1_8dd2_00aa004abd5e);
@@ -517,6 +532,11 @@ impl ::core::cmp::PartialEq for ISensOnNow {
     }
 }
 impl ::core::cmp::Eq for ISensOnNow {}
+impl ::core::fmt::Debug for ISensOnNow {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISensOnNow").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISensOnNow {
     type Vtable = ISensOnNowVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd597bab2_5b9f_11d1_8dd2_00aa004abd5e);
@@ -606,6 +626,11 @@ impl ::core::clone::Clone for QOCINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for QOCINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("QOCINFO").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwInSpeed", &self.dwInSpeed).field("dwOutSpeed", &self.dwOutSpeed).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for QOCINFO {
     type Abi = Self;
 }
@@ -646,6 +671,11 @@ impl ::core::marker::Copy for SENS_QOCINFO {}
 impl ::core::clone::Clone for SENS_QOCINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SENS_QOCINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SENS_QOCINFO").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwOutSpeed", &self.dwOutSpeed).field("dwInSpeed", &self.dwInSpeed).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SENS_QOCINFO {

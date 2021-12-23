@@ -12,6 +12,11 @@ impl ::core::clone::Clone for AVRF_BACKTRACE_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for AVRF_BACKTRACE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AVRF_BACKTRACE_INFORMATION").field("Depth", &self.Depth).field("Index", &self.Index).field("ReturnAddresses", &self.ReturnAddresses).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AVRF_BACKTRACE_INFORMATION {
     type Abi = Self;
 }
@@ -42,6 +47,11 @@ impl ::core::marker::Copy for AVRF_HANDLE_OPERATION {}
 impl ::core::clone::Clone for AVRF_HANDLE_OPERATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AVRF_HANDLE_OPERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AVRF_HANDLE_OPERATION").field("Handle", &self.Handle).field("ProcessId", &self.ProcessId).field("ThreadId", &self.ThreadId).field("OperationType", &self.OperationType).field("Spare0", &self.Spare0).field("BackTraceInformation", &self.BackTraceInformation).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AVRF_HANDLE_OPERATION {
@@ -77,6 +87,11 @@ impl ::core::marker::Copy for AVRF_HEAP_ALLOCATION {}
 impl ::core::clone::Clone for AVRF_HEAP_ALLOCATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AVRF_HEAP_ALLOCATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AVRF_HEAP_ALLOCATION").field("HeapHandle", &self.HeapHandle).field("UserAllocation", &self.UserAllocation).field("UserAllocationSize", &self.UserAllocationSize).field("Allocation", &self.Allocation).field("AllocationSize", &self.AllocationSize).field("UserAllocationState", &self.UserAllocationState).field("HeapState", &self.HeapState).field("HeapContext", &self.HeapContext).field("BackTraceInformation", &self.BackTraceInformation).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AVRF_HEAP_ALLOCATION {

@@ -40,6 +40,11 @@ impl ::core::cmp::PartialEq for IDummyHICONIncluder {
     }
 }
 impl ::core::cmp::Eq for IDummyHICONIncluder {}
+impl ::core::fmt::Debug for IDummyHICONIncluder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDummyHICONIncluder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDummyHICONIncluder {
     type Vtable = IDummyHICONIncluderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x947990de_cc28_11d2_a0f7_00805f858fb1);
@@ -99,6 +104,11 @@ impl ::core::cmp::PartialEq for IThumbnailExtractor {
     }
 }
 impl ::core::cmp::Eq for IThumbnailExtractor {}
+impl ::core::fmt::Debug for IThumbnailExtractor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IThumbnailExtractor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IThumbnailExtractor {
     type Vtable = IThumbnailExtractorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x969dc708_5c76_11d1_8d86_0000f804b057);

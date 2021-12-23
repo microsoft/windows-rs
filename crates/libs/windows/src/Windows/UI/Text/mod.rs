@@ -23,6 +23,11 @@ impl ::core::cmp::PartialEq for CaretType {
     }
 }
 impl ::core::cmp::Eq for CaretType {}
+impl ::core::fmt::Debug for CaretType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CaretType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CaretType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.CaretType;i4)");
 }
@@ -119,6 +124,11 @@ impl ::core::cmp::PartialEq for ContentLinkInfo {
     }
 }
 impl ::core::cmp::Eq for ContentLinkInfo {}
+impl ::core::fmt::Debug for ContentLinkInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContentLinkInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContentLinkInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.ContentLinkInfo;{1ed52525-1c5f-48cb-b335-78b50a2ee642})");
 }
@@ -194,6 +204,11 @@ impl ::core::cmp::PartialEq for FindOptions {
     }
 }
 impl ::core::cmp::Eq for FindOptions {}
+impl ::core::fmt::Debug for FindOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FindOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FindOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FindOptions;u4)");
 }
@@ -230,6 +245,11 @@ impl ::core::cmp::PartialEq for FontStretch {
     }
 }
 impl ::core::cmp::Eq for FontStretch {}
+impl ::core::fmt::Debug for FontStretch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FontStretch").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FontStretch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FontStretch;i4)");
 }
@@ -259,6 +279,11 @@ impl ::core::cmp::PartialEq for FontStyle {
     }
 }
 impl ::core::cmp::Eq for FontStyle {}
+impl ::core::fmt::Debug for FontStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FontStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FontStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FontStyle;i4)");
 }
@@ -274,6 +299,11 @@ impl ::core::marker::Copy for FontWeight {}
 impl ::core::clone::Clone for FontWeight {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FontWeight {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FontWeight").field("Weight", &self.Weight).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FontWeight {
@@ -394,6 +424,11 @@ impl ::core::cmp::PartialEq for FontWeights {
     }
 }
 impl ::core::cmp::Eq for FontWeights {}
+impl ::core::fmt::Debug for FontWeights {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FontWeights").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FontWeights {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.FontWeights;{7880a444-01ab-4997-8517-df822a0c45f1})");
 }
@@ -470,6 +505,11 @@ impl ::core::cmp::PartialEq for FormatEffect {
     }
 }
 impl ::core::cmp::Eq for FormatEffect {}
+impl ::core::fmt::Debug for FormatEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FormatEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FormatEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FormatEffect;i4)");
 }
@@ -499,6 +539,11 @@ impl ::core::cmp::PartialEq for HorizontalCharacterAlignment {
     }
 }
 impl ::core::cmp::Eq for HorizontalCharacterAlignment {}
+impl ::core::fmt::Debug for HorizontalCharacterAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HorizontalCharacterAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HorizontalCharacterAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.HorizontalCharacterAlignment;i4)");
 }
@@ -982,6 +1027,11 @@ impl ::core::cmp::PartialEq for ITextCharacterFormat {
     }
 }
 impl ::core::cmp::Eq for ITextCharacterFormat {}
+impl ::core::fmt::Debug for ITextCharacterFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextCharacterFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITextCharacterFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5adef3db-05fb-442d-8065-642afea02ced}");
 }
@@ -1310,6 +1360,11 @@ impl ::core::cmp::PartialEq for ITextDocument {
     }
 }
 impl ::core::cmp::Eq for ITextDocument {}
+impl ::core::fmt::Debug for ITextDocument {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextDocument").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITextDocument {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{beee4ddb-90b2-408c-a2f6-0a0ac31e33e4}");
 }
@@ -1784,6 +1839,11 @@ impl ::core::cmp::PartialEq for ITextParagraphFormat {
     }
 }
 impl ::core::cmp::Eq for ITextParagraphFormat {}
+impl ::core::fmt::Debug for ITextParagraphFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextParagraphFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITextParagraphFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2cf8cfa6-4676-498a-93f5-bbdbfc0bd883}");
 }
@@ -2246,6 +2306,11 @@ impl ::core::cmp::PartialEq for ITextRange {
     }
 }
 impl ::core::cmp::Eq for ITextRange {}
+impl ::core::fmt::Debug for ITextRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextRange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITextRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5b9e4e57-c072-42a0-8945-af503ee54768}");
 }
@@ -2814,6 +2879,11 @@ impl ::core::cmp::PartialEq for ITextSelection {
     }
 }
 impl ::core::cmp::Eq for ITextSelection {}
+impl ::core::fmt::Debug for ITextSelection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextSelection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITextSelection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a6d36724-f28f-430a-b2cf-c343671ec0e9}");
 }
@@ -2863,6 +2933,11 @@ impl ::core::cmp::PartialEq for LetterCase {
     }
 }
 impl ::core::cmp::Eq for LetterCase {}
+impl ::core::fmt::Debug for LetterCase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LetterCase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LetterCase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LetterCase;i4)");
 }
@@ -2897,6 +2972,11 @@ impl ::core::cmp::PartialEq for LineSpacingRule {
     }
 }
 impl ::core::cmp::Eq for LineSpacingRule {}
+impl ::core::fmt::Debug for LineSpacingRule {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineSpacingRule").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineSpacingRule {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LineSpacingRule;i4)");
 }
@@ -2932,6 +3012,11 @@ impl ::core::cmp::PartialEq for LinkType {
     }
 }
 impl ::core::cmp::Eq for LinkType {}
+impl ::core::fmt::Debug for LinkType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LinkType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LinkType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LinkType;i4)");
 }
@@ -2962,6 +3047,11 @@ impl ::core::cmp::PartialEq for MarkerAlignment {
     }
 }
 impl ::core::cmp::Eq for MarkerAlignment {}
+impl ::core::fmt::Debug for MarkerAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MarkerAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MarkerAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerAlignment;i4)");
 }
@@ -2995,6 +3085,11 @@ impl ::core::cmp::PartialEq for MarkerStyle {
     }
 }
 impl ::core::cmp::Eq for MarkerStyle {}
+impl ::core::fmt::Debug for MarkerStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MarkerStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MarkerStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerStyle;i4)");
 }
@@ -3046,6 +3141,11 @@ impl ::core::cmp::PartialEq for MarkerType {
     }
 }
 impl ::core::cmp::Eq for MarkerType {}
+impl ::core::fmt::Debug for MarkerType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MarkerType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MarkerType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerType;i4)");
 }
@@ -3077,6 +3177,11 @@ impl ::core::cmp::PartialEq for ParagraphAlignment {
     }
 }
 impl ::core::cmp::Eq for ParagraphAlignment {}
+impl ::core::fmt::Debug for ParagraphAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ParagraphAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ParagraphAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.ParagraphAlignment;i4)");
 }
@@ -3115,6 +3220,11 @@ impl ::core::cmp::PartialEq for ParagraphStyle {
     }
 }
 impl ::core::cmp::Eq for ParagraphStyle {}
+impl ::core::fmt::Debug for ParagraphStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ParagraphStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ParagraphStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.ParagraphStyle;i4)");
 }
@@ -3149,6 +3259,11 @@ impl ::core::cmp::PartialEq for PointOptions {
     }
 }
 impl ::core::cmp::Eq for PointOptions {}
+impl ::core::fmt::Debug for PointOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PointOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.PointOptions;u4)");
 }
@@ -3180,6 +3295,11 @@ impl ::core::cmp::PartialEq for RangeGravity {
     }
 }
 impl ::core::cmp::Eq for RangeGravity {}
+impl ::core::fmt::Debug for RangeGravity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RangeGravity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RangeGravity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.RangeGravity;i4)");
 }
@@ -3208,6 +3328,11 @@ impl ::core::cmp::PartialEq for RichEditMathMode {
     }
 }
 impl ::core::cmp::Eq for RichEditMathMode {}
+impl ::core::fmt::Debug for RichEditMathMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RichEditMathMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RichEditMathMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.RichEditMathMode;i4)");
 }
@@ -3456,6 +3581,11 @@ impl ::core::cmp::PartialEq for RichEditTextDocument {
     }
 }
 impl ::core::cmp::Eq for RichEditTextDocument {}
+impl ::core::fmt::Debug for RichEditTextDocument {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RichEditTextDocument").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RichEditTextDocument {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.RichEditTextDocument;{beee4ddb-90b2-408c-a2f6-0a0ac31e33e4})");
 }
@@ -3900,6 +4030,11 @@ impl ::core::cmp::PartialEq for RichEditTextRange {
     }
 }
 impl ::core::cmp::Eq for RichEditTextRange {}
+impl ::core::fmt::Debug for RichEditTextRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RichEditTextRange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RichEditTextRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.RichEditTextRange;{5b9e4e57-c072-42a0-8945-af503ee54768})");
 }
@@ -3999,6 +4134,11 @@ impl ::core::cmp::PartialEq for SelectionOptions {
     }
 }
 impl ::core::cmp::Eq for SelectionOptions {}
+impl ::core::fmt::Debug for SelectionOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SelectionOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SelectionOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.SelectionOptions;u4)");
 }
@@ -4030,6 +4170,11 @@ impl ::core::cmp::PartialEq for SelectionType {
     }
 }
 impl ::core::cmp::Eq for SelectionType {}
+impl ::core::fmt::Debug for SelectionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SelectionType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SelectionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.SelectionType;i4)");
 }
@@ -4061,6 +4206,11 @@ impl ::core::cmp::PartialEq for TabAlignment {
     }
 }
 impl ::core::cmp::Eq for TabAlignment {}
+impl ::core::fmt::Debug for TabAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TabAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TabAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TabAlignment;i4)");
 }
@@ -4093,6 +4243,11 @@ impl ::core::cmp::PartialEq for TabLeader {
     }
 }
 impl ::core::cmp::Eq for TabLeader {}
+impl ::core::fmt::Debug for TabLeader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TabLeader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TabLeader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TabLeader;i4)");
 }
@@ -4190,6 +4345,11 @@ impl ::core::cmp::PartialEq for TextDecorations {
     }
 }
 impl ::core::cmp::Eq for TextDecorations {}
+impl ::core::fmt::Debug for TextDecorations {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextDecorations").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextDecorations {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextDecorations;u4)");
 }
@@ -4225,6 +4385,11 @@ impl ::core::cmp::PartialEq for TextGetOptions {
     }
 }
 impl ::core::cmp::Eq for TextGetOptions {}
+impl ::core::fmt::Debug for TextGetOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextGetOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextGetOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextGetOptions;u4)");
 }
@@ -4284,6 +4449,11 @@ impl ::core::cmp::PartialEq for TextRangeUnit {
     }
 }
 impl ::core::cmp::Eq for TextRangeUnit {}
+impl ::core::fmt::Debug for TextRangeUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextRangeUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextRangeUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextRangeUnit;i4)");
 }
@@ -4374,6 +4544,11 @@ impl ::core::cmp::PartialEq for TextScript {
     }
 }
 impl ::core::cmp::Eq for TextScript {}
+impl ::core::fmt::Debug for TextScript {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextScript").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextScript {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextScript;i4)");
 }
@@ -4407,6 +4582,11 @@ impl ::core::cmp::PartialEq for TextSetOptions {
     }
 }
 impl ::core::cmp::Eq for TextSetOptions {}
+impl ::core::fmt::Debug for TextSetOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextSetOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextSetOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextSetOptions;u4)");
 }
@@ -4453,6 +4633,11 @@ impl ::core::cmp::PartialEq for UnderlineType {
     }
 }
 impl ::core::cmp::Eq for UnderlineType {}
+impl ::core::fmt::Debug for UnderlineType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnderlineType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UnderlineType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.UnderlineType;i4)");
 }
@@ -4482,6 +4667,11 @@ impl ::core::cmp::PartialEq for VerticalCharacterAlignment {
     }
 }
 impl ::core::cmp::Eq for VerticalCharacterAlignment {}
+impl ::core::fmt::Debug for VerticalCharacterAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VerticalCharacterAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VerticalCharacterAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.VerticalCharacterAlignment;i4)");
 }

@@ -320,6 +320,11 @@ impl ::core::cmp::PartialEq for VoiceCommand {
     }
 }
 impl ::core::cmp::Eq for VoiceCommand {}
+impl ::core::fmt::Debug for VoiceCommand {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceCommand").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VoiceCommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommand;{936f5273-ec82-42a6-a55c-d2d79ec6f920})");
 }
@@ -396,6 +401,11 @@ impl ::core::cmp::PartialEq for VoiceCommandCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for VoiceCommandCompletedEventArgs {}
+impl ::core::fmt::Debug for VoiceCommandCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceCommandCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VoiceCommandCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletedEventArgs;{c85e675d-fe42-432c-9907-09df9fcf64e8})");
 }
@@ -475,6 +485,11 @@ impl ::core::cmp::PartialEq for VoiceCommandCompletionReason {
     }
 }
 impl ::core::cmp::Eq for VoiceCommandCompletionReason {}
+impl ::core::fmt::Debug for VoiceCommandCompletionReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceCommandCompletionReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VoiceCommandCompletionReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletionReason;i4)");
 }
@@ -505,6 +520,11 @@ impl ::core::cmp::PartialEq for VoiceCommandConfirmationResult {
     }
 }
 impl ::core::cmp::Eq for VoiceCommandConfirmationResult {}
+impl ::core::fmt::Debug for VoiceCommandConfirmationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceCommandConfirmationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VoiceCommandConfirmationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandConfirmationResult;{a022593e-8221-4526-b083-840972262247})");
 }
@@ -686,6 +706,11 @@ impl ::core::cmp::PartialEq for VoiceCommandContentTile {
     }
 }
 impl ::core::cmp::Eq for VoiceCommandContentTile {}
+impl ::core::fmt::Debug for VoiceCommandContentTile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceCommandContentTile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VoiceCommandContentTile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile;{3eefe9f0-b8c7-4c76-a0de-1607895ee327})");
 }
@@ -766,6 +791,11 @@ impl ::core::cmp::PartialEq for VoiceCommandContentTileType {
     }
 }
 impl ::core::cmp::Eq for VoiceCommandContentTileType {}
+impl ::core::fmt::Debug for VoiceCommandContentTileType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceCommandContentTileType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VoiceCommandContentTileType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTileType;i4)");
 }
@@ -813,6 +843,11 @@ impl ::core::cmp::PartialEq for VoiceCommandDefinition {
     }
 }
 impl ::core::cmp::Eq for VoiceCommandDefinition {}
+impl ::core::fmt::Debug for VoiceCommandDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceCommandDefinition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VoiceCommandDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinition;{7972aad0-0974-4979-984b-cb8959cd61ae})");
 }
@@ -917,6 +952,11 @@ impl ::core::cmp::PartialEq for VoiceCommandDisambiguationResult {
     }
 }
 impl ::core::cmp::Eq for VoiceCommandDisambiguationResult {}
+impl ::core::fmt::Debug for VoiceCommandDisambiguationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceCommandDisambiguationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VoiceCommandDisambiguationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandDisambiguationResult;{ecc68cfe-c9ac-45df-a8ea-feea08ef9c5e})");
 }
@@ -1075,6 +1115,11 @@ impl ::core::cmp::PartialEq for VoiceCommandResponse {
     }
 }
 impl ::core::cmp::Eq for VoiceCommandResponse {}
+impl ::core::fmt::Debug for VoiceCommandResponse {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceCommandResponse").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VoiceCommandResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandResponse;{0284b30e-8a3b-4cc4-a6a1-cad5be2716b5})");
 }
@@ -1243,6 +1288,11 @@ impl ::core::cmp::PartialEq for VoiceCommandServiceConnection {
     }
 }
 impl ::core::cmp::Eq for VoiceCommandServiceConnection {}
+impl ::core::fmt::Debug for VoiceCommandServiceConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceCommandServiceConnection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VoiceCommandServiceConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandServiceConnection;{d894bb9f-21da-44a4-98a2-fb131920a9cc})");
 }
@@ -1344,6 +1394,11 @@ impl ::core::cmp::PartialEq for VoiceCommandUserMessage {
     }
 }
 impl ::core::cmp::Eq for VoiceCommandUserMessage {}
+impl ::core::fmt::Debug for VoiceCommandUserMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceCommandUserMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VoiceCommandUserMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandUserMessage;{674eb3c0-44f6-4f07-b979-4c723fc08597})");
 }

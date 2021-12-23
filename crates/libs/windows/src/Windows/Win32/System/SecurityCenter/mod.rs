@@ -86,6 +86,11 @@ impl ::core::cmp::PartialEq for IWSCDefaultProduct {
     }
 }
 impl ::core::cmp::Eq for IWSCDefaultProduct {}
+impl ::core::fmt::Debug for IWSCDefaultProduct {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSCDefaultProduct").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSCDefaultProduct {
     type Vtable = IWSCDefaultProductVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0476d69c_f21a_11e5_9ce9_5e5517507c66);
@@ -203,6 +208,11 @@ impl ::core::cmp::PartialEq for IWSCProductList {
     }
 }
 impl ::core::cmp::Eq for IWSCProductList {}
+impl ::core::fmt::Debug for IWSCProductList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSCProductList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSCProductList {
     type Vtable = IWSCProductListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x722a338c_6e8e_4e72_ac27_1417fb0c81c2);
@@ -347,6 +357,11 @@ impl ::core::cmp::PartialEq for IWscProduct {
     }
 }
 impl ::core::cmp::Eq for IWscProduct {}
+impl ::core::fmt::Debug for IWscProduct {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWscProduct").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWscProduct {
     type Vtable = IWscProductVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c38232e_3a45_4a27_92b0_1a16a975f669);
@@ -550,6 +565,11 @@ impl ::core::cmp::PartialEq for IWscProduct2 {
     }
 }
 impl ::core::cmp::Eq for IWscProduct2 {}
+impl ::core::fmt::Debug for IWscProduct2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWscProduct2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWscProduct2 {
     type Vtable = IWscProduct2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf896ca54_fe09_4403_86d4_23cb488d81d8);
@@ -784,6 +804,11 @@ impl ::core::cmp::PartialEq for IWscProduct3 {
     }
 }
 impl ::core::cmp::Eq for IWscProduct3 {}
+impl ::core::fmt::Debug for IWscProduct3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWscProduct3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWscProduct3 {
     type Vtable = IWscProduct3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55536524_d1d1_4726_8c7c_04996a1904e7);

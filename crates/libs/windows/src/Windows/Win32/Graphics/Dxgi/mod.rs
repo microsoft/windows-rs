@@ -98,6 +98,12 @@ impl ::core::clone::Clone for DXGI_ADAPTER_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXGI_ADAPTER_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_ADAPTER_DESC").field("Description", &self.Description).field("VendorId", &self.VendorId).field("DeviceId", &self.DeviceId).field("SubSysId", &self.SubSysId).field("Revision", &self.Revision).field("DedicatedVideoMemory", &self.DedicatedVideoMemory).field("DedicatedSystemMemory", &self.DedicatedSystemMemory).field("SharedSystemMemory", &self.SharedSystemMemory).field("AdapterLuid", &self.AdapterLuid).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXGI_ADAPTER_DESC {
     type Abi = Self;
 }
@@ -136,6 +142,12 @@ impl ::core::marker::Copy for DXGI_ADAPTER_DESC1 {}
 impl ::core::clone::Clone for DXGI_ADAPTER_DESC1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXGI_ADAPTER_DESC1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_ADAPTER_DESC1").field("Description", &self.Description).field("VendorId", &self.VendorId).field("DeviceId", &self.DeviceId).field("SubSysId", &self.SubSysId).field("Revision", &self.Revision).field("DedicatedVideoMemory", &self.DedicatedVideoMemory).field("DedicatedSystemMemory", &self.DedicatedSystemMemory).field("SharedSystemMemory", &self.SharedSystemMemory).field("AdapterLuid", &self.AdapterLuid).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -182,6 +194,25 @@ impl ::core::clone::Clone for DXGI_ADAPTER_DESC2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXGI_ADAPTER_DESC2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_ADAPTER_DESC2")
+            .field("Description", &self.Description)
+            .field("VendorId", &self.VendorId)
+            .field("DeviceId", &self.DeviceId)
+            .field("SubSysId", &self.SubSysId)
+            .field("Revision", &self.Revision)
+            .field("DedicatedVideoMemory", &self.DedicatedVideoMemory)
+            .field("DedicatedSystemMemory", &self.DedicatedSystemMemory)
+            .field("SharedSystemMemory", &self.SharedSystemMemory)
+            .field("AdapterLuid", &self.AdapterLuid)
+            .field("Flags", &self.Flags)
+            .field("GraphicsPreemptionGranularity", &self.GraphicsPreemptionGranularity)
+            .field("ComputePreemptionGranularity", &self.ComputePreemptionGranularity)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXGI_ADAPTER_DESC2 {
     type Abi = Self;
 }
@@ -222,6 +253,25 @@ impl ::core::marker::Copy for DXGI_ADAPTER_DESC3 {}
 impl ::core::clone::Clone for DXGI_ADAPTER_DESC3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXGI_ADAPTER_DESC3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_ADAPTER_DESC3")
+            .field("Description", &self.Description)
+            .field("VendorId", &self.VendorId)
+            .field("DeviceId", &self.DeviceId)
+            .field("SubSysId", &self.SubSysId)
+            .field("Revision", &self.Revision)
+            .field("DedicatedVideoMemory", &self.DedicatedVideoMemory)
+            .field("DedicatedSystemMemory", &self.DedicatedSystemMemory)
+            .field("SharedSystemMemory", &self.SharedSystemMemory)
+            .field("AdapterLuid", &self.AdapterLuid)
+            .field("Flags", &self.Flags)
+            .field("GraphicsPreemptionGranularity", &self.GraphicsPreemptionGranularity)
+            .field("ComputePreemptionGranularity", &self.ComputePreemptionGranularity)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -309,6 +359,11 @@ impl ::core::clone::Clone for DXGI_DECODE_SWAP_CHAIN_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DXGI_DECODE_SWAP_CHAIN_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_DECODE_SWAP_CHAIN_DESC").field("Flags", &self.Flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_DECODE_SWAP_CHAIN_DESC {
     type Abi = Self;
 }
@@ -333,6 +388,11 @@ impl ::core::marker::Copy for DXGI_DISPLAY_COLOR_SPACE {}
 impl ::core::clone::Clone for DXGI_DISPLAY_COLOR_SPACE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXGI_DISPLAY_COLOR_SPACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_DISPLAY_COLOR_SPACE").field("PrimaryCoordinates", &self.PrimaryCoordinates).field("WhitePoints", &self.WhitePoints).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_DISPLAY_COLOR_SPACE {
@@ -450,6 +510,11 @@ impl ::core::clone::Clone for DXGI_FRAME_STATISTICS {
         *self
     }
 }
+impl ::core::fmt::Debug for DXGI_FRAME_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_FRAME_STATISTICS").field("PresentCount", &self.PresentCount).field("PresentRefreshCount", &self.PresentRefreshCount).field("SyncRefreshCount", &self.SyncRefreshCount).field("SyncQPCTime", &self.SyncQPCTime).field("SyncGPUTime", &self.SyncGPUTime).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_FRAME_STATISTICS {
     type Abi = Self;
 }
@@ -479,6 +544,11 @@ impl ::core::marker::Copy for DXGI_FRAME_STATISTICS_MEDIA {}
 impl ::core::clone::Clone for DXGI_FRAME_STATISTICS_MEDIA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXGI_FRAME_STATISTICS_MEDIA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_FRAME_STATISTICS_MEDIA").field("PresentCount", &self.PresentCount).field("PresentRefreshCount", &self.PresentRefreshCount).field("SyncRefreshCount", &self.SyncRefreshCount).field("SyncQPCTime", &self.SyncQPCTime).field("SyncGPUTime", &self.SyncGPUTime).field("CompositionMode", &self.CompositionMode).field("ApprovedPresentDuration", &self.ApprovedPresentDuration).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_FRAME_STATISTICS_MEDIA {
@@ -541,6 +611,11 @@ impl ::core::clone::Clone for DXGI_HDR_METADATA_HDR10 {
         *self
     }
 }
+impl ::core::fmt::Debug for DXGI_HDR_METADATA_HDR10 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_HDR_METADATA_HDR10").field("RedPrimary", &self.RedPrimary).field("GreenPrimary", &self.GreenPrimary).field("BluePrimary", &self.BluePrimary).field("WhitePoint", &self.WhitePoint).field("MaxMasteringLuminance", &self.MaxMasteringLuminance).field("MinMasteringLuminance", &self.MinMasteringLuminance).field("MaxContentLightLevel", &self.MaxContentLightLevel).field("MaxFrameAverageLightLevel", &self.MaxFrameAverageLightLevel).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_HDR_METADATA_HDR10 {
     type Abi = Self;
 }
@@ -564,6 +639,11 @@ impl ::core::marker::Copy for DXGI_HDR_METADATA_HDR10PLUS {}
 impl ::core::clone::Clone for DXGI_HDR_METADATA_HDR10PLUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXGI_HDR_METADATA_HDR10PLUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_HDR_METADATA_HDR10PLUS").field("Data", &self.Data).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_HDR_METADATA_HDR10PLUS {
@@ -602,6 +682,11 @@ impl ::core::clone::Clone for DXGI_INFO_QUEUE_FILTER {
         *self
     }
 }
+impl ::core::fmt::Debug for DXGI_INFO_QUEUE_FILTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_INFO_QUEUE_FILTER").field("AllowList", &self.AllowList).field("DenyList", &self.DenyList).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_INFO_QUEUE_FILTER {
     type Abi = Self;
 }
@@ -632,6 +717,11 @@ impl ::core::clone::Clone for DXGI_INFO_QUEUE_FILTER_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DXGI_INFO_QUEUE_FILTER_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_INFO_QUEUE_FILTER_DESC").field("NumCategories", &self.NumCategories).field("pCategoryList", &self.pCategoryList).field("NumSeverities", &self.NumSeverities).field("pSeverityList", &self.pSeverityList).field("NumIDs", &self.NumIDs).field("pIDList", &self.pIDList).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_INFO_QUEUE_FILTER_DESC {
     type Abi = Self;
 }
@@ -660,6 +750,11 @@ impl ::core::marker::Copy for DXGI_INFO_QUEUE_MESSAGE {}
 impl ::core::clone::Clone for DXGI_INFO_QUEUE_MESSAGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXGI_INFO_QUEUE_MESSAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_INFO_QUEUE_MESSAGE").field("Producer", &self.Producer).field("Category", &self.Category).field("Severity", &self.Severity).field("ID", &self.ID).field("pDescription", &self.pDescription).field("DescriptionByteLength", &self.DescriptionByteLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_INFO_QUEUE_MESSAGE {
@@ -726,6 +821,11 @@ impl ::core::clone::Clone for DXGI_MAPPED_RECT {
         *self
     }
 }
+impl ::core::fmt::Debug for DXGI_MAPPED_RECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_MAPPED_RECT").field("Pitch", &self.Pitch).field("pBits", &self.pBits).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_MAPPED_RECT {
     type Abi = Self;
 }
@@ -760,6 +860,11 @@ impl ::core::marker::Copy for DXGI_MATRIX_3X2_F {}
 impl ::core::clone::Clone for DXGI_MATRIX_3X2_F {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXGI_MATRIX_3X2_F {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_MATRIX_3X2_F").field("_11", &self._11).field("_12", &self._12).field("_21", &self._21).field("_22", &self._22).field("_31", &self._31).field("_32", &self._32).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_MATRIX_3X2_F {
@@ -802,6 +907,12 @@ impl ::core::marker::Copy for DXGI_MODE_DESC1 {}
 impl ::core::clone::Clone for DXGI_MODE_DESC1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for DXGI_MODE_DESC1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_MODE_DESC1").field("Width", &self.Width).field("Height", &self.Height).field("RefreshRate", &self.RefreshRate).field("Format", &self.Format).field("ScanlineOrdering", &self.ScanlineOrdering).field("Scaling", &self.Scaling).field("Stereo", &self.Stereo).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -1531,6 +1642,12 @@ impl ::core::clone::Clone for DXGI_OUTDUPL_DESC {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for DXGI_OUTDUPL_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_OUTDUPL_DESC").field("ModeDesc", &self.ModeDesc).field("Rotation", &self.Rotation).field("DesktopImageInSystemMemory", &self.DesktopImageInSystemMemory).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for DXGI_OUTDUPL_DESC {
     type Abi = Self;
 }
@@ -1574,6 +1691,21 @@ impl ::core::clone::Clone for DXGI_OUTDUPL_FRAME_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXGI_OUTDUPL_FRAME_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_OUTDUPL_FRAME_INFO")
+            .field("LastPresentTime", &self.LastPresentTime)
+            .field("LastMouseUpdateTime", &self.LastMouseUpdateTime)
+            .field("AccumulatedFrames", &self.AccumulatedFrames)
+            .field("RectsCoalesced", &self.RectsCoalesced)
+            .field("ProtectedContentMaskedOut", &self.ProtectedContentMaskedOut)
+            .field("PointerPosition", &self.PointerPosition)
+            .field("TotalMetadataBufferSize", &self.TotalMetadataBufferSize)
+            .field("PointerShapeBufferSize", &self.PointerShapeBufferSize)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXGI_OUTDUPL_FRAME_INFO {
     type Abi = Self;
 }
@@ -1604,6 +1736,12 @@ impl ::core::marker::Copy for DXGI_OUTDUPL_MOVE_RECT {}
 impl ::core::clone::Clone for DXGI_OUTDUPL_MOVE_RECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXGI_OUTDUPL_MOVE_RECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_OUTDUPL_MOVE_RECT").field("SourcePoint", &self.SourcePoint).field("DestinationRect", &self.DestinationRect).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1640,6 +1778,12 @@ impl ::core::clone::Clone for DXGI_OUTDUPL_POINTER_POSITION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXGI_OUTDUPL_POINTER_POSITION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_OUTDUPL_POINTER_POSITION").field("Position", &self.Position).field("Visible", &self.Visible).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXGI_OUTDUPL_POINTER_POSITION {
     type Abi = Self;
 }
@@ -1673,6 +1817,12 @@ impl ::core::marker::Copy for DXGI_OUTDUPL_POINTER_SHAPE_INFO {}
 impl ::core::clone::Clone for DXGI_OUTDUPL_POINTER_SHAPE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXGI_OUTDUPL_POINTER_SHAPE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_OUTDUPL_POINTER_SHAPE_INFO").field("Type", &self.Type).field("Width", &self.Width).field("Height", &self.Height).field("Pitch", &self.Pitch).field("HotSpot", &self.HotSpot).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1720,6 +1870,12 @@ impl ::core::clone::Clone for DXGI_OUTPUT_DESC {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DXGI_OUTPUT_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_OUTPUT_DESC").field("DeviceName", &self.DeviceName).field("DesktopCoordinates", &self.DesktopCoordinates).field("AttachedToDesktop", &self.AttachedToDesktop).field("Rotation", &self.Rotation).field("Monitor", &self.Monitor).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DXGI_OUTPUT_DESC {
     type Abi = Self;
 }
@@ -1762,6 +1918,27 @@ impl ::core::marker::Copy for DXGI_OUTPUT_DESC1 {}
 impl ::core::clone::Clone for DXGI_OUTPUT_DESC1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DXGI_OUTPUT_DESC1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_OUTPUT_DESC1")
+            .field("DeviceName", &self.DeviceName)
+            .field("DesktopCoordinates", &self.DesktopCoordinates)
+            .field("AttachedToDesktop", &self.AttachedToDesktop)
+            .field("Rotation", &self.Rotation)
+            .field("Monitor", &self.Monitor)
+            .field("BitsPerColor", &self.BitsPerColor)
+            .field("ColorSpace", &self.ColorSpace)
+            .field("RedPrimary", &self.RedPrimary)
+            .field("GreenPrimary", &self.GreenPrimary)
+            .field("BluePrimary", &self.BluePrimary)
+            .field("WhitePoint", &self.WhitePoint)
+            .field("MinLuminance", &self.MinLuminance)
+            .field("MaxLuminance", &self.MaxLuminance)
+            .field("MaxFullFrameLuminance", &self.MaxFullFrameLuminance)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1816,6 +1993,12 @@ impl ::core::clone::Clone for DXGI_PRESENT_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXGI_PRESENT_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_PRESENT_PARAMETERS").field("DirtyRectsCount", &self.DirtyRectsCount).field("pDirtyRects", &self.pDirtyRects).field("pScrollRect", &self.pScrollRect).field("pScrollOffset", &self.pScrollOffset).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXGI_PRESENT_PARAMETERS {
     type Abi = Self;
 }
@@ -1857,6 +2040,11 @@ impl ::core::marker::Copy for DXGI_QUERY_VIDEO_MEMORY_INFO {}
 impl ::core::clone::Clone for DXGI_QUERY_VIDEO_MEMORY_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXGI_QUERY_VIDEO_MEMORY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_QUERY_VIDEO_MEMORY_INFO").field("Budget", &self.Budget).field("CurrentUsage", &self.CurrentUsage).field("AvailableForReservation", &self.AvailableForReservation).field("CurrentReservation", &self.CurrentReservation).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_QUERY_VIDEO_MEMORY_INFO {
@@ -1915,6 +2103,11 @@ impl ::core::clone::Clone for DXGI_RGBA {
         *self
     }
 }
+impl ::core::fmt::Debug for DXGI_RGBA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_RGBA").field("r", &self.r).field("g", &self.g).field("b", &self.b).field("a", &self.a).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_RGBA {
     type Abi = Self;
 }
@@ -1949,6 +2142,12 @@ impl ::core::marker::Copy for DXGI_SHARED_RESOURCE {}
 impl ::core::clone::Clone for DXGI_SHARED_RESOURCE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXGI_SHARED_RESOURCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_SHARED_RESOURCE").field("Handle", &self.Handle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1988,6 +2187,12 @@ impl ::core::marker::Copy for DXGI_SURFACE_DESC {}
 impl ::core::clone::Clone for DXGI_SURFACE_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for DXGI_SURFACE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_SURFACE_DESC").field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).field("SampleDesc", &self.SampleDesc).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2036,6 +2241,12 @@ impl ::core::clone::Clone for DXGI_SWAP_CHAIN_DESC {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for DXGI_SWAP_CHAIN_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_SWAP_CHAIN_DESC").field("BufferDesc", &self.BufferDesc).field("SampleDesc", &self.SampleDesc).field("BufferUsage", &self.BufferUsage).field("BufferCount", &self.BufferCount).field("OutputWindow", &self.OutputWindow).field("Windowed", &self.Windowed).field("SwapEffect", &self.SwapEffect).field("Flags", &self.Flags).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for DXGI_SWAP_CHAIN_DESC {
     type Abi = Self;
 }
@@ -2075,6 +2286,12 @@ impl ::core::marker::Copy for DXGI_SWAP_CHAIN_DESC1 {}
 impl ::core::clone::Clone for DXGI_SWAP_CHAIN_DESC1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for DXGI_SWAP_CHAIN_DESC1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_SWAP_CHAIN_DESC1").field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).field("Stereo", &self.Stereo).field("SampleDesc", &self.SampleDesc).field("BufferUsage", &self.BufferUsage).field("BufferCount", &self.BufferCount).field("Scaling", &self.Scaling).field("SwapEffect", &self.SwapEffect).field("AlphaMode", &self.AlphaMode).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2138,6 +2355,12 @@ impl ::core::marker::Copy for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {}
 impl ::core::clone::Clone for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_SWAP_CHAIN_FULLSCREEN_DESC").field("RefreshRate", &self.RefreshRate).field("ScanlineOrdering", &self.ScanlineOrdering).field("Scaling", &self.Scaling).field("Windowed", &self.Windowed).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2271,6 +2494,11 @@ impl ::core::cmp::PartialEq for IDXGIAdapter {
     }
 }
 impl ::core::cmp::Eq for IDXGIAdapter {}
+impl ::core::fmt::Debug for IDXGIAdapter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIAdapter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIAdapter {
     type Vtable = IDXGIAdapterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2411e7e1_12ac_4ccf_bd14_9798e8534dc0);
@@ -2405,6 +2633,11 @@ impl ::core::cmp::PartialEq for IDXGIAdapter1 {
     }
 }
 impl ::core::cmp::Eq for IDXGIAdapter1 {}
+impl ::core::fmt::Debug for IDXGIAdapter1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIAdapter1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIAdapter1 {
     type Vtable = IDXGIAdapter1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29038f61_3839_4626_91fd_086879011a05);
@@ -2567,6 +2800,11 @@ impl ::core::cmp::PartialEq for IDXGIAdapter2 {
     }
 }
 impl ::core::cmp::Eq for IDXGIAdapter2 {}
+impl ::core::fmt::Debug for IDXGIAdapter2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIAdapter2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIAdapter2 {
     type Vtable = IDXGIAdapter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0aa1ae0a_fa0e_4b84_8644_e05ff8e5acb5);
@@ -2780,6 +3018,11 @@ impl ::core::cmp::PartialEq for IDXGIAdapter3 {
     }
 }
 impl ::core::cmp::Eq for IDXGIAdapter3 {}
+impl ::core::fmt::Debug for IDXGIAdapter3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIAdapter3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIAdapter3 {
     type Vtable = IDXGIAdapter3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x645967a4_1392_4310_a798_8053ce3e93fd);
@@ -3027,6 +3270,11 @@ impl ::core::cmp::PartialEq for IDXGIAdapter4 {
     }
 }
 impl ::core::cmp::Eq for IDXGIAdapter4 {}
+impl ::core::fmt::Debug for IDXGIAdapter4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIAdapter4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIAdapter4 {
     type Vtable = IDXGIAdapter4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c8d99d1_4fbf_4181_a82c_af66bf7bd24e);
@@ -3100,6 +3348,11 @@ impl ::core::cmp::PartialEq for IDXGIDebug {
     }
 }
 impl ::core::cmp::Eq for IDXGIDebug {}
+impl ::core::fmt::Debug for IDXGIDebug {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIDebug").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIDebug {
     type Vtable = IDXGIDebugVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x119e7452_de9e_40fe_8806_88f90c12b441);
@@ -3180,6 +3433,11 @@ impl ::core::cmp::PartialEq for IDXGIDebug1 {
     }
 }
 impl ::core::cmp::Eq for IDXGIDebug1 {}
+impl ::core::fmt::Debug for IDXGIDebug1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIDebug1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIDebug1 {
     type Vtable = IDXGIDebug1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5a05f0c_16f2_4adf_9f4d_a8c4d58ac550);
@@ -3274,6 +3532,11 @@ impl ::core::cmp::PartialEq for IDXGIDecodeSwapChain {
     }
 }
 impl ::core::cmp::Eq for IDXGIDecodeSwapChain {}
+impl ::core::fmt::Debug for IDXGIDecodeSwapChain {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIDecodeSwapChain").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIDecodeSwapChain {
     type Vtable = IDXGIDecodeSwapChainVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2633066b_4514_4c7a_8fd8_12ea98059d18);
@@ -3394,6 +3657,11 @@ impl ::core::cmp::PartialEq for IDXGIDevice {
     }
 }
 impl ::core::cmp::Eq for IDXGIDevice {}
+impl ::core::fmt::Debug for IDXGIDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIDevice {
     type Vtable = IDXGIDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54ec77fa_1377_44e6_8c32_88fd5f44c84c);
@@ -3540,6 +3808,11 @@ impl ::core::cmp::PartialEq for IDXGIDevice1 {
     }
 }
 impl ::core::cmp::Eq for IDXGIDevice1 {}
+impl ::core::fmt::Debug for IDXGIDevice1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIDevice1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIDevice1 {
     type Vtable = IDXGIDevice1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77db970f_6276_48ba_ba28_070143b4392c);
@@ -3723,6 +3996,11 @@ impl ::core::cmp::PartialEq for IDXGIDevice2 {
     }
 }
 impl ::core::cmp::Eq for IDXGIDevice2 {}
+impl ::core::fmt::Debug for IDXGIDevice2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIDevice2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIDevice2 {
     type Vtable = IDXGIDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05008617_fbfd_4051_a790_144884b4f6a9);
@@ -3935,6 +4213,11 @@ impl ::core::cmp::PartialEq for IDXGIDevice3 {
     }
 }
 impl ::core::cmp::Eq for IDXGIDevice3 {}
+impl ::core::fmt::Debug for IDXGIDevice3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIDevice3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIDevice3 {
     type Vtable = IDXGIDevice3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6007896c_3244_4afd_bf18_a6d3beda5023);
@@ -4177,6 +4460,11 @@ impl ::core::cmp::PartialEq for IDXGIDevice4 {
     }
 }
 impl ::core::cmp::Eq for IDXGIDevice4 {}
+impl ::core::fmt::Debug for IDXGIDevice4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIDevice4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIDevice4 {
     type Vtable = IDXGIDevice4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95b4f95f_d8da_4ca4_9ee6_3b76d5968a10);
@@ -4286,6 +4574,11 @@ impl ::core::cmp::PartialEq for IDXGIDeviceSubObject {
     }
 }
 impl ::core::cmp::Eq for IDXGIDeviceSubObject {}
+impl ::core::fmt::Debug for IDXGIDeviceSubObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIDeviceSubObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIDeviceSubObject {
     type Vtable = IDXGIDeviceSubObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d3e0379_f9de_4d58_bb6c_18d62992f1a6);
@@ -4348,6 +4641,11 @@ impl ::core::cmp::PartialEq for IDXGIDisplayControl {
     }
 }
 impl ::core::cmp::Eq for IDXGIDisplayControl {}
+impl ::core::fmt::Debug for IDXGIDisplayControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIDisplayControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIDisplayControl {
     type Vtable = IDXGIDisplayControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea9dbf1a_c88e_4486_854a_98aa0138f30c);
@@ -4464,6 +4762,11 @@ impl ::core::cmp::PartialEq for IDXGIFactory {
     }
 }
 impl ::core::cmp::Eq for IDXGIFactory {}
+impl ::core::fmt::Debug for IDXGIFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIFactory {
     type Vtable = IDXGIFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b7166ec_21c7_44ae_b21a_c9ae321ae369);
@@ -4619,6 +4922,11 @@ impl ::core::cmp::PartialEq for IDXGIFactory1 {
     }
 }
 impl ::core::cmp::Eq for IDXGIFactory1 {}
+impl ::core::fmt::Debug for IDXGIFactory1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIFactory1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIFactory1 {
     type Vtable = IDXGIFactory1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x770aae78_f26f_4dba_a829_253c83d1b387);
@@ -4858,6 +5166,11 @@ impl ::core::cmp::PartialEq for IDXGIFactory2 {
     }
 }
 impl ::core::cmp::Eq for IDXGIFactory2 {}
+impl ::core::fmt::Debug for IDXGIFactory2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIFactory2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIFactory2 {
     type Vtable = IDXGIFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50c83a1c_e072_4c48_87b0_3630fa36a6d0);
@@ -5141,6 +5454,11 @@ impl ::core::cmp::PartialEq for IDXGIFactory3 {
     }
 }
 impl ::core::cmp::Eq for IDXGIFactory3 {}
+impl ::core::fmt::Debug for IDXGIFactory3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIFactory3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIFactory3 {
     type Vtable = IDXGIFactory3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25483823_cd46_4c7d_86ca_47aa95b837bd);
@@ -5456,6 +5774,11 @@ impl ::core::cmp::PartialEq for IDXGIFactory4 {
     }
 }
 impl ::core::cmp::Eq for IDXGIFactory4 {}
+impl ::core::fmt::Debug for IDXGIFactory4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIFactory4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIFactory4 {
     type Vtable = IDXGIFactory4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bc6ea02_ef36_464f_bf0c_21ca39e5168a);
@@ -5798,6 +6121,11 @@ impl ::core::cmp::PartialEq for IDXGIFactory5 {
     }
 }
 impl ::core::cmp::Eq for IDXGIFactory5 {}
+impl ::core::fmt::Debug for IDXGIFactory5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIFactory5").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIFactory5 {
     type Vtable = IDXGIFactory5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7632e1f5_ee65_4dca_87fd_84cd75f8838d);
@@ -6166,6 +6494,11 @@ impl ::core::cmp::PartialEq for IDXGIFactory6 {
     }
 }
 impl ::core::cmp::Eq for IDXGIFactory6 {}
+impl ::core::fmt::Debug for IDXGIFactory6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIFactory6").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIFactory6 {
     type Vtable = IDXGIFactory6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1b6694f_ff09_44a9_b03c_77900a0a1d17);
@@ -6565,6 +6898,11 @@ impl ::core::cmp::PartialEq for IDXGIFactory7 {
     }
 }
 impl ::core::cmp::Eq for IDXGIFactory7 {}
+impl ::core::fmt::Debug for IDXGIFactory7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIFactory7").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIFactory7 {
     type Vtable = IDXGIFactory7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4966eed_76db_44da_84c1_ee9a7afb20a8);
@@ -6669,6 +7007,11 @@ impl ::core::cmp::PartialEq for IDXGIFactoryMedia {
     }
 }
 impl ::core::cmp::Eq for IDXGIFactoryMedia {}
+impl ::core::fmt::Debug for IDXGIFactoryMedia {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIFactoryMedia").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIFactoryMedia {
     type Vtable = IDXGIFactoryMediaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41e7d1f2_a591_4f7b_a2e5_fa9c843e1c12);
@@ -6878,6 +7221,11 @@ impl ::core::cmp::PartialEq for IDXGIInfoQueue {
     }
 }
 impl ::core::cmp::Eq for IDXGIInfoQueue {}
+impl ::core::fmt::Debug for IDXGIInfoQueue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIInfoQueue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIInfoQueue {
     type Vtable = IDXGIInfoQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd67441c7_672a_476f_9e82_cd55b44949ce);
@@ -7042,6 +7390,11 @@ impl ::core::cmp::PartialEq for IDXGIKeyedMutex {
     }
 }
 impl ::core::cmp::Eq for IDXGIKeyedMutex {}
+impl ::core::fmt::Debug for IDXGIKeyedMutex {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIKeyedMutex").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIKeyedMutex {
     type Vtable = IDXGIKeyedMutexVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d8e1289_d7b3_465f_8126_250e349af85d);
@@ -7113,6 +7466,11 @@ impl ::core::cmp::PartialEq for IDXGIObject {
     }
 }
 impl ::core::cmp::Eq for IDXGIObject {}
+impl ::core::fmt::Debug for IDXGIObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIObject {
     type Vtable = IDXGIObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaec22fb8_76f3_4639_9be0_28eb43a67a2e);
@@ -7260,6 +7618,11 @@ impl ::core::cmp::PartialEq for IDXGIOutput {
     }
 }
 impl ::core::cmp::Eq for IDXGIOutput {}
+impl ::core::fmt::Debug for IDXGIOutput {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIOutput").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIOutput {
     type Vtable = IDXGIOutputVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae02eedb_c735_4690_8d52_5a8dc20213aa);
@@ -7465,6 +7828,11 @@ impl ::core::cmp::PartialEq for IDXGIOutput1 {
     }
 }
 impl ::core::cmp::Eq for IDXGIOutput1 {}
+impl ::core::fmt::Debug for IDXGIOutput1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIOutput1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIOutput1 {
     type Vtable = IDXGIOutput1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00cddea8_939b_4b83_a340_a685226666cc);
@@ -7701,6 +8069,11 @@ impl ::core::cmp::PartialEq for IDXGIOutput2 {
     }
 }
 impl ::core::cmp::Eq for IDXGIOutput2 {}
+impl ::core::fmt::Debug for IDXGIOutput2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIOutput2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIOutput2 {
     type Vtable = IDXGIOutput2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x595e39d1_2724_4663_99b1_da969de28364);
@@ -7965,6 +8338,11 @@ impl ::core::cmp::PartialEq for IDXGIOutput3 {
     }
 }
 impl ::core::cmp::Eq for IDXGIOutput3 {}
+impl ::core::fmt::Debug for IDXGIOutput3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIOutput3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIOutput3 {
     type Vtable = IDXGIOutput3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a6bb301_7e7e_41f4_a8e0_5b32f7f99b18);
@@ -8257,6 +8635,11 @@ impl ::core::cmp::PartialEq for IDXGIOutput4 {
     }
 }
 impl ::core::cmp::Eq for IDXGIOutput4 {}
+impl ::core::fmt::Debug for IDXGIOutput4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIOutput4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIOutput4 {
     type Vtable = IDXGIOutput4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc7dca35_2196_414d_9f53_617884032a60);
@@ -8577,6 +8960,11 @@ impl ::core::cmp::PartialEq for IDXGIOutput5 {
     }
 }
 impl ::core::cmp::Eq for IDXGIOutput5 {}
+impl ::core::fmt::Debug for IDXGIOutput5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIOutput5").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIOutput5 {
     type Vtable = IDXGIOutput5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80a07424_ab52_42eb_833c_0c42fd282d98);
@@ -8930,6 +9318,11 @@ impl ::core::cmp::PartialEq for IDXGIOutput6 {
     }
 }
 impl ::core::cmp::Eq for IDXGIOutput6 {}
+impl ::core::fmt::Debug for IDXGIOutput6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIOutput6").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIOutput6 {
     type Vtable = IDXGIOutput6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x068346e8_aaec_4b84_add7_137f513f77a1);
@@ -9092,6 +9485,11 @@ impl ::core::cmp::PartialEq for IDXGIOutputDuplication {
     }
 }
 impl ::core::cmp::Eq for IDXGIOutputDuplication {}
+impl ::core::fmt::Debug for IDXGIOutputDuplication {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIOutputDuplication").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIOutputDuplication {
     type Vtable = IDXGIOutputDuplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x191cfac3_a341_470d_b26e_a864f428319c);
@@ -9238,6 +9636,11 @@ impl ::core::cmp::PartialEq for IDXGIResource {
     }
 }
 impl ::core::cmp::Eq for IDXGIResource {}
+impl ::core::fmt::Debug for IDXGIResource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIResource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIResource {
     type Vtable = IDXGIResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x035f3ab4_482e_4e50_b41f_8a7f8bd8960b);
@@ -9408,6 +9811,11 @@ impl ::core::cmp::PartialEq for IDXGIResource1 {
     }
 }
 impl ::core::cmp::Eq for IDXGIResource1 {}
+impl ::core::fmt::Debug for IDXGIResource1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIResource1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIResource1 {
     type Vtable = IDXGIResource1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30961379_4609_4a41_998e_54fe567ee0c1);
@@ -9544,6 +9952,11 @@ impl ::core::cmp::PartialEq for IDXGISurface {
     }
 }
 impl ::core::cmp::Eq for IDXGISurface {}
+impl ::core::fmt::Debug for IDXGISurface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGISurface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGISurface {
     type Vtable = IDXGISurfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcafcb56c_6ac3_4889_bf47_9e23bbd260ec);
@@ -9707,6 +10120,11 @@ impl ::core::cmp::PartialEq for IDXGISurface1 {
     }
 }
 impl ::core::cmp::Eq for IDXGISurface1 {}
+impl ::core::fmt::Debug for IDXGISurface1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGISurface1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGISurface1 {
     type Vtable = IDXGISurface1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ae63092_6327_4c1b_80ae_bfe12ea32b86);
@@ -9898,6 +10316,11 @@ impl ::core::cmp::PartialEq for IDXGISurface2 {
     }
 }
 impl ::core::cmp::Eq for IDXGISurface2 {}
+impl ::core::fmt::Debug for IDXGISurface2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGISurface2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGISurface2 {
     type Vtable = IDXGISurface2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaba496dd_b617_4cb8_a866_bc44d7eb1fa2);
@@ -10071,6 +10494,11 @@ impl ::core::cmp::PartialEq for IDXGISwapChain {
     }
 }
 impl ::core::cmp::Eq for IDXGISwapChain {}
+impl ::core::fmt::Debug for IDXGISwapChain {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGISwapChain").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGISwapChain {
     type Vtable = IDXGISwapChainVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x310d36a0_d2e7_4c0a_aa04_6a9d23b8886a);
@@ -10328,6 +10756,11 @@ impl ::core::cmp::PartialEq for IDXGISwapChain1 {
     }
 }
 impl ::core::cmp::Eq for IDXGISwapChain1 {}
+impl ::core::fmt::Debug for IDXGISwapChain1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGISwapChain1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGISwapChain1 {
     type Vtable = IDXGISwapChain1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x790a45f7_0d42_4876_983a_0a55cfe6f4aa);
@@ -10654,6 +11087,11 @@ impl ::core::cmp::PartialEq for IDXGISwapChain2 {
     }
 }
 impl ::core::cmp::Eq for IDXGISwapChain2 {}
+impl ::core::fmt::Debug for IDXGISwapChain2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGISwapChain2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGISwapChain2 {
     type Vtable = IDXGISwapChain2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8be2ac4_199f_4946_b331_79599fb98de7);
@@ -11028,6 +11466,11 @@ impl ::core::cmp::PartialEq for IDXGISwapChain3 {
     }
 }
 impl ::core::cmp::Eq for IDXGISwapChain3 {}
+impl ::core::fmt::Debug for IDXGISwapChain3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGISwapChain3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGISwapChain3 {
     type Vtable = IDXGISwapChain3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94d99bdb_f1f8_4ab0_b236_7da0170edab1);
@@ -11433,6 +11876,11 @@ impl ::core::cmp::PartialEq for IDXGISwapChain4 {
     }
 }
 impl ::core::cmp::Eq for IDXGISwapChain4 {}
+impl ::core::fmt::Debug for IDXGISwapChain4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGISwapChain4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGISwapChain4 {
     type Vtable = IDXGISwapChain4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d585d5a_bd4a_489e_b1f4_3dbcb6452ffb);
@@ -11547,6 +11995,11 @@ impl ::core::cmp::PartialEq for IDXGISwapChainMedia {
     }
 }
 impl ::core::cmp::Eq for IDXGISwapChainMedia {}
+impl ::core::fmt::Debug for IDXGISwapChainMedia {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGISwapChainMedia").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGISwapChainMedia {
     type Vtable = IDXGISwapChainMediaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd95b90b_f05f_4f6a_bd65_25bfb264bd84);
@@ -11605,6 +12058,11 @@ impl ::core::cmp::PartialEq for IDXGraphicsAnalysis {
     }
 }
 impl ::core::cmp::Eq for IDXGraphicsAnalysis {}
+impl ::core::fmt::Debug for IDXGraphicsAnalysis {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGraphicsAnalysis").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGraphicsAnalysis {
     type Vtable = IDXGraphicsAnalysisVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f251514_9d4d_4902_9d60_18988ab7d4b5);

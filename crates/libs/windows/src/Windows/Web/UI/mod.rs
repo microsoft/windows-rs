@@ -475,6 +475,11 @@ impl ::core::cmp::PartialEq for IWebViewControl {
     }
 }
 impl ::core::cmp::Eq for IWebViewControl {}
+impl ::core::fmt::Debug for IWebViewControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebViewControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWebViewControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3f921316-bc70-4bda-9136-c94370899fab}");
 }
@@ -656,6 +661,11 @@ impl ::core::cmp::PartialEq for IWebViewControl2 {
     }
 }
 impl ::core::cmp::Eq for IWebViewControl2 {}
+impl ::core::fmt::Debug for IWebViewControl2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebViewControl2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWebViewControl2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4d3c06f9-c8df-41cc-8bd5-2a947b204503}");
 }
@@ -1021,6 +1031,11 @@ impl ::core::cmp::PartialEq for WebViewControlContentLoadingEventArgs {
     }
 }
 impl ::core::cmp::Eq for WebViewControlContentLoadingEventArgs {}
+impl ::core::fmt::Debug for WebViewControlContentLoadingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlContentLoadingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlContentLoadingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlContentLoadingEventArgs;{9a3fccb2-b9bb-404b-a22b-66dccd1250c6})");
 }
@@ -1096,6 +1111,11 @@ impl ::core::cmp::PartialEq for WebViewControlDOMContentLoadedEventArgs {
     }
 }
 impl ::core::cmp::Eq for WebViewControlDOMContentLoadedEventArgs {}
+impl ::core::fmt::Debug for WebViewControlDOMContentLoadedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlDOMContentLoadedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlDOMContentLoadedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlDOMContentLoadedEventArgs;{be8bc008-9541-4545-9ff2-2df585b29f7d})");
 }
@@ -1197,6 +1217,11 @@ impl ::core::cmp::PartialEq for WebViewControlDeferredPermissionRequest {
     }
 }
 impl ::core::cmp::Eq for WebViewControlDeferredPermissionRequest {}
+impl ::core::fmt::Debug for WebViewControlDeferredPermissionRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlDeferredPermissionRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlDeferredPermissionRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlDeferredPermissionRequest;{2ce349e0-d759-445c-9926-8995298f152b})");
 }
@@ -1285,6 +1310,11 @@ impl ::core::cmp::PartialEq for WebViewControlLongRunningScriptDetectedEventArgs
     }
 }
 impl ::core::cmp::Eq for WebViewControlLongRunningScriptDetectedEventArgs {}
+impl ::core::fmt::Debug for WebViewControlLongRunningScriptDetectedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlLongRunningScriptDetectedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlLongRunningScriptDetectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlLongRunningScriptDetectedEventArgs;{2a6e5bba-98b4-45bc-bbeb-0f69ce49c599})");
 }
@@ -1376,6 +1406,11 @@ impl ::core::cmp::PartialEq for WebViewControlNavigationCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for WebViewControlNavigationCompletedEventArgs {}
+impl ::core::fmt::Debug for WebViewControlNavigationCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlNavigationCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlNavigationCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlNavigationCompletedEventArgs;{20409918-4a15-4c46-a55d-f79edb0bde8b})");
 }
@@ -1464,6 +1499,11 @@ impl ::core::cmp::PartialEq for WebViewControlNavigationStartingEventArgs {
     }
 }
 impl ::core::cmp::Eq for WebViewControlNavigationStartingEventArgs {}
+impl ::core::fmt::Debug for WebViewControlNavigationStartingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlNavigationStartingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlNavigationStartingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlNavigationStartingEventArgs;{0c9057c5-0a08-41c7-863b-71e3a9549137})");
 }
@@ -1583,6 +1623,11 @@ impl ::core::cmp::PartialEq for WebViewControlNewWindowRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for WebViewControlNewWindowRequestedEventArgs {}
+impl ::core::fmt::Debug for WebViewControlNewWindowRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlNewWindowRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlNewWindowRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlNewWindowRequestedEventArgs;{3df44bbb-a124-46d5-a083-d02cacdff5ad})");
 }
@@ -1697,6 +1742,11 @@ impl ::core::cmp::PartialEq for WebViewControlPermissionRequest {
     }
 }
 impl ::core::cmp::Eq for WebViewControlPermissionRequest {}
+impl ::core::fmt::Debug for WebViewControlPermissionRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlPermissionRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlPermissionRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlPermissionRequest;{e5bc836c-f22f-40e2-95b2-7729f840eb7f})");
 }
@@ -1771,6 +1821,11 @@ impl ::core::cmp::PartialEq for WebViewControlPermissionRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for WebViewControlPermissionRequestedEventArgs {}
+impl ::core::fmt::Debug for WebViewControlPermissionRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlPermissionRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlPermissionRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlPermissionRequestedEventArgs;{27204d51-2488-4cc5-968e-0a771e59c147})");
 }
@@ -1845,6 +1900,11 @@ impl ::core::cmp::PartialEq for WebViewControlPermissionState {
     }
 }
 impl ::core::cmp::Eq for WebViewControlPermissionState {}
+impl ::core::fmt::Debug for WebViewControlPermissionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlPermissionState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlPermissionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionState;i4)");
 }
@@ -1878,6 +1938,11 @@ impl ::core::cmp::PartialEq for WebViewControlPermissionType {
     }
 }
 impl ::core::cmp::Eq for WebViewControlPermissionType {}
+impl ::core::fmt::Debug for WebViewControlPermissionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlPermissionType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlPermissionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionType;i4)");
 }
@@ -1917,6 +1982,11 @@ impl ::core::cmp::PartialEq for WebViewControlScriptNotifyEventArgs {
     }
 }
 impl ::core::cmp::Eq for WebViewControlScriptNotifyEventArgs {}
+impl ::core::fmt::Debug for WebViewControlScriptNotifyEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlScriptNotifyEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlScriptNotifyEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlScriptNotifyEventArgs;{491de57b-6f49-41bb-b591-51b85b817037})");
 }
@@ -2022,6 +2092,11 @@ impl ::core::cmp::PartialEq for WebViewControlSettings {
     }
 }
 impl ::core::cmp::Eq for WebViewControlSettings {}
+impl ::core::fmt::Debug for WebViewControlSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlSettings;{c9967fbf-5e98-4cfd-8cce-27b0911e3de8})");
 }
@@ -2110,6 +2185,11 @@ impl ::core::cmp::PartialEq for WebViewControlUnsupportedUriSchemeIdentifiedEven
     }
 }
 impl ::core::cmp::Eq for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {}
+impl ::core::fmt::Debug for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlUnsupportedUriSchemeIdentifiedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlUnsupportedUriSchemeIdentifiedEventArgs;{e3b81944-e4fc-43dc-94ca-f980f30bc51d})");
 }
@@ -2202,6 +2282,11 @@ impl ::core::cmp::PartialEq for WebViewControlUnviewableContentIdentifiedEventAr
     }
 }
 impl ::core::cmp::Eq for WebViewControlUnviewableContentIdentifiedEventArgs {}
+impl ::core::fmt::Debug for WebViewControlUnviewableContentIdentifiedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlUnviewableContentIdentifiedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlUnviewableContentIdentifiedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlUnviewableContentIdentifiedEventArgs;{4a9680db-88f2-4e20-b693-b4e2df4aa581})");
 }
@@ -2301,6 +2386,11 @@ impl ::core::cmp::PartialEq for WebViewControlWebResourceRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for WebViewControlWebResourceRequestedEventArgs {}
+impl ::core::fmt::Debug for WebViewControlWebResourceRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlWebResourceRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlWebResourceRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlWebResourceRequestedEventArgs;{44d6524d-55a4-4d8b-891c-931d8e25d42e})");
 }

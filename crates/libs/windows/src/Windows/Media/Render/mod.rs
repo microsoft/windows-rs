@@ -31,6 +31,11 @@ impl ::core::cmp::PartialEq for AudioRenderCategory {
     }
 }
 impl ::core::cmp::Eq for AudioRenderCategory {}
+impl ::core::fmt::Debug for AudioRenderCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioRenderCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioRenderCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Render.AudioRenderCategory;i4)");
 }

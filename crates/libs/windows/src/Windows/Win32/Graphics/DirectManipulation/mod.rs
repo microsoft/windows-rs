@@ -239,6 +239,11 @@ impl ::core::cmp::PartialEq for IDirectManipulationAutoScrollBehavior {
     }
 }
 impl ::core::cmp::Eq for IDirectManipulationAutoScrollBehavior {}
+impl ::core::fmt::Debug for IDirectManipulationAutoScrollBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectManipulationAutoScrollBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectManipulationAutoScrollBehavior {
     type Vtable = IDirectManipulationAutoScrollBehaviorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d5954d4_2003_4356_9b31_d051c9ff0af7);
@@ -303,6 +308,11 @@ impl ::core::cmp::PartialEq for IDirectManipulationCompositor {
     }
 }
 impl ::core::cmp::Eq for IDirectManipulationCompositor {}
+impl ::core::fmt::Debug for IDirectManipulationCompositor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectManipulationCompositor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectManipulationCompositor {
     type Vtable = IDirectManipulationCompositorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x537a0825_0387_4efa_b62f_71eb1f085a7e);
@@ -394,6 +404,11 @@ impl ::core::cmp::PartialEq for IDirectManipulationCompositor2 {
     }
 }
 impl ::core::cmp::Eq for IDirectManipulationCompositor2 {}
+impl ::core::fmt::Debug for IDirectManipulationCompositor2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectManipulationCompositor2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectManipulationCompositor2 {
     type Vtable = IDirectManipulationCompositor2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd38c7822_f1cb_43cb_b4b9_ac0c767a412e);
@@ -482,6 +497,11 @@ impl ::core::cmp::PartialEq for IDirectManipulationContent {
     }
 }
 impl ::core::cmp::Eq for IDirectManipulationContent {}
+impl ::core::fmt::Debug for IDirectManipulationContent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectManipulationContent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectManipulationContent {
     type Vtable = IDirectManipulationContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb89962cb_3d89_442b_bb58_5098fa0f9f16);
@@ -551,6 +571,11 @@ impl ::core::cmp::PartialEq for IDirectManipulationDeferContactService {
     }
 }
 impl ::core::cmp::Eq for IDirectManipulationDeferContactService {}
+impl ::core::fmt::Debug for IDirectManipulationDeferContactService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectManipulationDeferContactService").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectManipulationDeferContactService {
     type Vtable = IDirectManipulationDeferContactServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x652d5c71_fe60_4a98_be70_e5f21291e7f1);
@@ -610,6 +635,11 @@ impl ::core::cmp::PartialEq for IDirectManipulationDragDropBehavior {
     }
 }
 impl ::core::cmp::Eq for IDirectManipulationDragDropBehavior {}
+impl ::core::fmt::Debug for IDirectManipulationDragDropBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectManipulationDragDropBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectManipulationDragDropBehavior {
     type Vtable = IDirectManipulationDragDropBehaviorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x814b5af5_c2c8_4270_a9b7_a198ce8d02fa);
@@ -663,6 +693,11 @@ impl ::core::cmp::PartialEq for IDirectManipulationDragDropEventHandler {
     }
 }
 impl ::core::cmp::Eq for IDirectManipulationDragDropEventHandler {}
+impl ::core::fmt::Debug for IDirectManipulationDragDropEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectManipulationDragDropEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectManipulationDragDropEventHandler {
     type Vtable = IDirectManipulationDragDropEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fa11b10_701b_41ae_b5f2_49e36bd595aa);
@@ -715,6 +750,11 @@ impl ::core::cmp::PartialEq for IDirectManipulationFrameInfoProvider {
     }
 }
 impl ::core::cmp::Eq for IDirectManipulationFrameInfoProvider {}
+impl ::core::fmt::Debug for IDirectManipulationFrameInfoProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectManipulationFrameInfoProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectManipulationFrameInfoProvider {
     type Vtable = IDirectManipulationFrameInfoProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb759dba_6f4c_4c01_874e_19c8a05907f9);
@@ -762,6 +802,11 @@ impl ::core::cmp::PartialEq for IDirectManipulationInteractionEventHandler {
     }
 }
 impl ::core::cmp::Eq for IDirectManipulationInteractionEventHandler {}
+impl ::core::fmt::Debug for IDirectManipulationInteractionEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectManipulationInteractionEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectManipulationInteractionEventHandler {
     type Vtable = IDirectManipulationInteractionEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe43f45b8_42b4_403e_b1f2_273b8f510830);
@@ -842,6 +887,11 @@ impl ::core::cmp::PartialEq for IDirectManipulationManager {
     }
 }
 impl ::core::cmp::Eq for IDirectManipulationManager {}
+impl ::core::fmt::Debug for IDirectManipulationManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectManipulationManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectManipulationManager {
     type Vtable = IDirectManipulationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbf5d3b4_70c7_4163_9322_5a6f660d6fbc);
@@ -963,6 +1013,11 @@ impl ::core::cmp::PartialEq for IDirectManipulationManager2 {
     }
 }
 impl ::core::cmp::Eq for IDirectManipulationManager2 {}
+impl ::core::fmt::Debug for IDirectManipulationManager2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectManipulationManager2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectManipulationManager2 {
     type Vtable = IDirectManipulationManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa1005e9_3d16_484c_bfc9_62b61e56ec4e);
@@ -1110,6 +1165,11 @@ impl ::core::cmp::PartialEq for IDirectManipulationManager3 {
     }
 }
 impl ::core::cmp::Eq for IDirectManipulationManager3 {}
+impl ::core::fmt::Debug for IDirectManipulationManager3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectManipulationManager3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectManipulationManager3 {
     type Vtable = IDirectManipulationManager3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cb6b33d_ffe8_488c_b750_fbdfe88dca8c);
@@ -1207,6 +1267,11 @@ impl ::core::cmp::PartialEq for IDirectManipulationPrimaryContent {
     }
 }
 impl ::core::cmp::Eq for IDirectManipulationPrimaryContent {}
+impl ::core::fmt::Debug for IDirectManipulationPrimaryContent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectManipulationPrimaryContent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectManipulationPrimaryContent {
     type Vtable = IDirectManipulationPrimaryContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc12851e4_1698_4625_b9b1_7ca3ec18630b);
@@ -1267,6 +1332,11 @@ impl ::core::cmp::PartialEq for IDirectManipulationUpdateHandler {
     }
 }
 impl ::core::cmp::Eq for IDirectManipulationUpdateHandler {}
+impl ::core::fmt::Debug for IDirectManipulationUpdateHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectManipulationUpdateHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectManipulationUpdateHandler {
     type Vtable = IDirectManipulationUpdateHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x790b6337_64f8_4ff5_a269_b32bc2af27a7);
@@ -1324,6 +1394,11 @@ impl ::core::cmp::PartialEq for IDirectManipulationUpdateManager {
     }
 }
 impl ::core::cmp::Eq for IDirectManipulationUpdateManager {}
+impl ::core::fmt::Debug for IDirectManipulationUpdateManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectManipulationUpdateManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectManipulationUpdateManager {
     type Vtable = IDirectManipulationUpdateManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0ae62fd_be34_46e7_9caa_d361facbb9cc);
@@ -1495,6 +1570,11 @@ impl ::core::cmp::PartialEq for IDirectManipulationViewport {
     }
 }
 impl ::core::cmp::Eq for IDirectManipulationViewport {}
+impl ::core::fmt::Debug for IDirectManipulationViewport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectManipulationViewport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectManipulationViewport {
     type Vtable = IDirectManipulationViewportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28b85a3d_60a0_48bd_9ba1_5ce8d9ea3a6d);
@@ -1727,6 +1807,11 @@ impl ::core::cmp::PartialEq for IDirectManipulationViewport2 {
     }
 }
 impl ::core::cmp::Eq for IDirectManipulationViewport2 {}
+impl ::core::fmt::Debug for IDirectManipulationViewport2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectManipulationViewport2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectManipulationViewport2 {
     type Vtable = IDirectManipulationViewport2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x923ccaac_61e1_4385_b726_017af189882a);
@@ -1821,6 +1906,11 @@ impl ::core::cmp::PartialEq for IDirectManipulationViewportEventHandler {
     }
 }
 impl ::core::cmp::Eq for IDirectManipulationViewportEventHandler {}
+impl ::core::fmt::Debug for IDirectManipulationViewportEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectManipulationViewportEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectManipulationViewportEventHandler {
     type Vtable = IDirectManipulationViewportEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x952121da_d69f_45f9_b0f9_f23944321a6d);

@@ -189,6 +189,11 @@ impl ::core::cmp::PartialEq for AudioEncodingProperties {
     }
 }
 impl ::core::cmp::Eq for AudioEncodingProperties {}
+impl ::core::fmt::Debug for AudioEncodingProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioEncodingProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioEncodingProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.AudioEncodingProperties;{62bc7a16-005c-4b3b-8a0b-0a090e9687f3})");
 }
@@ -287,6 +292,11 @@ impl ::core::cmp::PartialEq for AudioEncodingQuality {
     }
 }
 impl ::core::cmp::Eq for AudioEncodingQuality {}
+impl ::core::fmt::Debug for AudioEncodingQuality {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioEncodingQuality").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioEncodingQuality {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.AudioEncodingQuality;i4)");
 }
@@ -354,6 +364,11 @@ impl ::core::cmp::PartialEq for ContainerEncodingProperties {
     }
 }
 impl ::core::cmp::Eq for ContainerEncodingProperties {}
+impl ::core::fmt::Debug for ContainerEncodingProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContainerEncodingProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContainerEncodingProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.ContainerEncodingProperties;{59ac2a57-b32a-479e-8a61-4b7f2e9e7ea0})");
 }
@@ -1009,6 +1024,11 @@ impl ::core::cmp::PartialEq for IMediaEncodingProperties {
     }
 }
 impl ::core::cmp::Eq for IMediaEncodingProperties {}
+impl ::core::fmt::Debug for IMediaEncodingProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMediaEncodingProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IMediaEncodingProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b4002af6-acd4-4e5a-a24b-5d7498a8b8c4}");
 }
@@ -1551,6 +1571,11 @@ impl ::core::cmp::PartialEq for ImageEncodingProperties {
     }
 }
 impl ::core::cmp::Eq for ImageEncodingProperties {}
+impl ::core::fmt::Debug for ImageEncodingProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageEncodingProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ImageEncodingProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.ImageEncodingProperties;{78625635-f331-4189-b1c3-b48d5ae034f1})");
 }
@@ -1833,6 +1858,11 @@ impl ::core::cmp::PartialEq for MediaEncodingProfile {
     }
 }
 impl ::core::cmp::Eq for MediaEncodingProfile {}
+impl ::core::fmt::Debug for MediaEncodingProfile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaEncodingProfile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaEncodingProfile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.MediaEncodingProfile;{e7dbf5a8-1db9-4783-876b-3dfe12acfdb3})");
 }
@@ -2309,6 +2339,11 @@ impl ::core::cmp::PartialEq for MediaMirroringOptions {
     }
 }
 impl ::core::cmp::Eq for MediaMirroringOptions {}
+impl ::core::fmt::Debug for MediaMirroringOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaMirroringOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaMirroringOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaMirroringOptions;u4)");
 }
@@ -2338,6 +2373,11 @@ impl ::core::cmp::PartialEq for MediaPixelFormat {
     }
 }
 impl ::core::cmp::Eq for MediaPixelFormat {}
+impl ::core::fmt::Debug for MediaPixelFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPixelFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPixelFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaPixelFormat;i4)");
 }
@@ -2438,6 +2478,12 @@ impl ::core::cmp::PartialEq for MediaPropertySet {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for MediaPropertySet {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for MediaPropertySet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPropertySet").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for MediaPropertySet {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.MediaPropertySet;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};g16;cinterface(IInspectable)))");
@@ -2613,6 +2659,11 @@ impl ::core::cmp::PartialEq for MediaRatio {
     }
 }
 impl ::core::cmp::Eq for MediaRatio {}
+impl ::core::fmt::Debug for MediaRatio {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaRatio").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaRatio {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.MediaRatio;{d2d0fee5-8929-401d-ac78-7d357e378163})");
 }
@@ -2689,6 +2740,11 @@ impl ::core::cmp::PartialEq for MediaRotation {
     }
 }
 impl ::core::cmp::Eq for MediaRotation {}
+impl ::core::fmt::Debug for MediaRotation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaRotation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaRotation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaRotation;i4)");
 }
@@ -2717,6 +2773,11 @@ impl ::core::cmp::PartialEq for MediaThumbnailFormat {
     }
 }
 impl ::core::cmp::Eq for MediaThumbnailFormat {}
+impl ::core::fmt::Debug for MediaThumbnailFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaThumbnailFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaThumbnailFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaThumbnailFormat;i4)");
 }
@@ -2793,6 +2854,11 @@ impl ::core::cmp::PartialEq for SphericalVideoFrameFormat {
     }
 }
 impl ::core::cmp::Eq for SphericalVideoFrameFormat {}
+impl ::core::fmt::Debug for SphericalVideoFrameFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SphericalVideoFrameFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SphericalVideoFrameFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.SphericalVideoFrameFormat;i4)");
 }
@@ -2822,6 +2888,11 @@ impl ::core::cmp::PartialEq for StereoscopicVideoPackingMode {
     }
 }
 impl ::core::cmp::Eq for StereoscopicVideoPackingMode {}
+impl ::core::fmt::Debug for StereoscopicVideoPackingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StereoscopicVideoPackingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StereoscopicVideoPackingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.StereoscopicVideoPackingMode;i4)");
 }
@@ -2932,6 +3003,11 @@ impl ::core::cmp::PartialEq for TimedMetadataEncodingProperties {
     }
 }
 impl ::core::cmp::Eq for TimedMetadataEncodingProperties {}
+impl ::core::fmt::Debug for TimedMetadataEncodingProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedMetadataEncodingProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedMetadataEncodingProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.TimedMetadataEncodingProperties;{b4002af6-acd4-4e5a-a24b-5d7498a8b8c4})");
 }
@@ -3199,6 +3275,11 @@ impl ::core::cmp::PartialEq for VideoEncodingProperties {
     }
 }
 impl ::core::cmp::Eq for VideoEncodingProperties {}
+impl ::core::fmt::Debug for VideoEncodingProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoEncodingProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoEncodingProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.VideoEncodingProperties;{76ee6c9a-37c2-4f2a-880a-1282bbb4373d})");
 }
@@ -3303,6 +3384,11 @@ impl ::core::cmp::PartialEq for VideoEncodingQuality {
     }
 }
 impl ::core::cmp::Eq for VideoEncodingQuality {}
+impl ::core::fmt::Debug for VideoEncodingQuality {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoEncodingQuality").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoEncodingQuality {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.VideoEncodingQuality;i4)");
 }

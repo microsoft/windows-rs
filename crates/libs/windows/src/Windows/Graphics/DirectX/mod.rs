@@ -25,6 +25,11 @@ impl ::core::cmp::PartialEq for DirectXAlphaMode {
     }
 }
 impl ::core::cmp::Eq for DirectXAlphaMode {}
+impl ::core::fmt::Debug for DirectXAlphaMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DirectXAlphaMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DirectXAlphaMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXAlphaMode;i4)");
 }
@@ -76,6 +81,11 @@ impl ::core::cmp::PartialEq for DirectXColorSpace {
     }
 }
 impl ::core::cmp::Eq for DirectXColorSpace {}
+impl ::core::fmt::Debug for DirectXColorSpace {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DirectXColorSpace").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DirectXColorSpace {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXColorSpace;i4)");
 }
@@ -223,6 +233,11 @@ impl ::core::cmp::PartialEq for DirectXPixelFormat {
     }
 }
 impl ::core::cmp::Eq for DirectXPixelFormat {}
+impl ::core::fmt::Debug for DirectXPixelFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DirectXPixelFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DirectXPixelFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4)");
 }
@@ -255,6 +270,11 @@ impl ::core::cmp::PartialEq for DirectXPrimitiveTopology {
     }
 }
 impl ::core::cmp::Eq for DirectXPrimitiveTopology {}
+impl ::core::fmt::Debug for DirectXPrimitiveTopology {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DirectXPrimitiveTopology").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DirectXPrimitiveTopology {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPrimitiveTopology;i4)");
 }

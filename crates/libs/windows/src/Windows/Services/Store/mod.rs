@@ -988,6 +988,11 @@ impl ::core::cmp::PartialEq for StoreAcquireLicenseResult {
     }
 }
 impl ::core::cmp::Eq for StoreAcquireLicenseResult {}
+impl ::core::fmt::Debug for StoreAcquireLicenseResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreAcquireLicenseResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreAcquireLicenseResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreAcquireLicenseResult;{fbd7946d-f040-4cb3-9a39-29bcecdbe22d})");
 }
@@ -1139,6 +1144,11 @@ impl ::core::cmp::PartialEq for StoreAppLicense {
     }
 }
 impl ::core::cmp::Eq for StoreAppLicense {}
+impl ::core::fmt::Debug for StoreAppLicense {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreAppLicense").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreAppLicense {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreAppLicense;{f389f9de-73c0-45ce-9bab-b2fe3e5eafd3})");
 }
@@ -1258,6 +1268,11 @@ impl ::core::cmp::PartialEq for StoreAvailability {
     }
 }
 impl ::core::cmp::Eq for StoreAvailability {}
+impl ::core::fmt::Debug for StoreAvailability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreAvailability").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreAvailability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreAvailability;{fa060325-0ffd-4493-ad43-f1f9918f69fa})");
 }
@@ -1350,6 +1365,11 @@ impl ::core::cmp::PartialEq for StoreCanAcquireLicenseResult {
     }
 }
 impl ::core::cmp::Eq for StoreCanAcquireLicenseResult {}
+impl ::core::fmt::Debug for StoreCanAcquireLicenseResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreCanAcquireLicenseResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreCanAcquireLicenseResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreCanAcquireLicenseResult;{3a693db3-0088-482f-86d5-bd46522663ad})");
 }
@@ -1427,6 +1447,11 @@ impl ::core::cmp::PartialEq for StoreCanLicenseStatus {
     }
 }
 impl ::core::cmp::Eq for StoreCanLicenseStatus {}
+impl ::core::fmt::Debug for StoreCanLicenseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreCanLicenseStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreCanLicenseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreCanLicenseStatus;i4)");
 }
@@ -1517,6 +1542,11 @@ impl ::core::cmp::PartialEq for StoreCollectionData {
     }
 }
 impl ::core::cmp::Eq for StoreCollectionData {}
+impl ::core::fmt::Debug for StoreCollectionData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreCollectionData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreCollectionData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreCollectionData;{8aa4c3b3-5bb3-441a-2ab4-4dab73d5ce67})");
 }
@@ -1617,6 +1647,11 @@ impl ::core::cmp::PartialEq for StoreConsumableResult {
     }
 }
 impl ::core::cmp::Eq for StoreConsumableResult {}
+impl ::core::fmt::Debug for StoreConsumableResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreConsumableResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreConsumableResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreConsumableResult;{ea5dab72-6a00-4052-be5b-bfdab4433352})");
 }
@@ -1693,6 +1728,11 @@ impl ::core::cmp::PartialEq for StoreConsumableStatus {
     }
 }
 impl ::core::cmp::Eq for StoreConsumableStatus {}
+impl ::core::fmt::Debug for StoreConsumableStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreConsumableStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreConsumableStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreConsumableStatus;i4)");
 }
@@ -2073,6 +2113,11 @@ impl ::core::cmp::PartialEq for StoreContext {
     }
 }
 impl ::core::cmp::Eq for StoreContext {}
+impl ::core::fmt::Debug for StoreContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreContext;{ac98b6be-f4fd-4912-babd-5035e5e8bcab})");
 }
@@ -2151,6 +2196,11 @@ impl ::core::cmp::PartialEq for StoreDurationUnit {
     }
 }
 impl ::core::cmp::Eq for StoreDurationUnit {}
+impl ::core::fmt::Debug for StoreDurationUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreDurationUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreDurationUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreDurationUnit;i4)");
 }
@@ -2214,6 +2264,11 @@ impl ::core::cmp::PartialEq for StoreImage {
     }
 }
 impl ::core::cmp::Eq for StoreImage {}
+impl ::core::fmt::Debug for StoreImage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreImage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreImage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreImage;{081fd248-adb4-4b64-a993-784789926ed5})");
 }
@@ -2323,6 +2378,11 @@ impl ::core::cmp::PartialEq for StoreLicense {
     }
 }
 impl ::core::cmp::Eq for StoreLicense {}
+impl ::core::fmt::Debug for StoreLicense {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreLicense").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreLicense {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreLicense;{26dc9579-4c4f-4f30-bc89-649f60e36055})");
 }
@@ -2411,6 +2471,11 @@ impl ::core::cmp::PartialEq for StorePackageInstallOptions {
     }
 }
 impl ::core::cmp::Eq for StorePackageInstallOptions {}
+impl ::core::fmt::Debug for StorePackageInstallOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorePackageInstallOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorePackageInstallOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePackageInstallOptions;{1d3d630c-0ccd-44dd-8c59-80810a729973})");
 }
@@ -2522,6 +2587,11 @@ impl ::core::cmp::PartialEq for StorePackageLicense {
     }
 }
 impl ::core::cmp::Eq for StorePackageLicense {}
+impl ::core::fmt::Debug for StorePackageLicense {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorePackageLicense").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorePackageLicense {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePackageLicense;{0c465714-14e1-4973-bd14-f77724271e99})");
 }
@@ -2633,6 +2703,11 @@ impl ::core::cmp::PartialEq for StorePackageUpdate {
     }
 }
 impl ::core::cmp::Eq for StorePackageUpdate {}
+impl ::core::fmt::Debug for StorePackageUpdate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorePackageUpdate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorePackageUpdate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePackageUpdate;{140fa150-3cbf-4a35-b91f-48271c31b072})");
 }
@@ -2727,6 +2802,11 @@ impl ::core::cmp::PartialEq for StorePackageUpdateResult {
     }
 }
 impl ::core::cmp::Eq for StorePackageUpdateResult {}
+impl ::core::fmt::Debug for StorePackageUpdateResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorePackageUpdateResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorePackageUpdateResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePackageUpdateResult;{e79142ed-61f9-4893-b4fe-cf191603af7b})");
 }
@@ -2808,6 +2888,11 @@ impl ::core::cmp::PartialEq for StorePackageUpdateState {
     }
 }
 impl ::core::cmp::Eq for StorePackageUpdateState {}
+impl ::core::fmt::Debug for StorePackageUpdateState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorePackageUpdateState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorePackageUpdateState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StorePackageUpdateState;i4)");
 }
@@ -2834,6 +2919,11 @@ impl ::core::clone::Clone for StorePackageUpdateStatus {
             TotalDownloadProgress: self.TotalDownloadProgress,
             PackageUpdateState: self.PackageUpdateState,
         }
+    }
+}
+impl ::core::fmt::Debug for StorePackageUpdateStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("StorePackageUpdateStatus").field("PackageFamilyName", &self.PackageFamilyName).field("PackageDownloadSizeInBytes", &self.PackageDownloadSizeInBytes).field("PackageBytesDownloaded", &self.PackageBytesDownloaded).field("PackageDownloadProgress", &self.PackageDownloadProgress).field("TotalDownloadProgress", &self.TotalDownloadProgress).field("PackageUpdateState", &self.PackageUpdateState).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StorePackageUpdateStatus {
@@ -2921,6 +3011,11 @@ impl ::core::cmp::PartialEq for StorePrice {
     }
 }
 impl ::core::cmp::Eq for StorePrice {}
+impl ::core::fmt::Debug for StorePrice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorePrice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorePrice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePrice;{55ba94c4-15f1-407c-8f06-006380f4df0b})");
 }
@@ -3141,6 +3236,11 @@ impl ::core::cmp::PartialEq for StoreProduct {
     }
 }
 impl ::core::cmp::Eq for StoreProduct {}
+impl ::core::fmt::Debug for StoreProduct {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreProduct").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreProduct {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProduct;{320e2c52-d760-450a-a42b-67d1e901ac90})");
 }
@@ -3225,6 +3325,11 @@ impl ::core::cmp::PartialEq for StoreProductOptions {
     }
 }
 impl ::core::cmp::Eq for StoreProductOptions {}
+impl ::core::fmt::Debug for StoreProductOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreProductOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreProductOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProductOptions;{5b34a0f9-a113-4811-8326-16199c927f31})");
 }
@@ -3327,6 +3432,11 @@ impl ::core::cmp::PartialEq for StoreProductPagedQueryResult {
     }
 }
 impl ::core::cmp::Eq for StoreProductPagedQueryResult {}
+impl ::core::fmt::Debug for StoreProductPagedQueryResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreProductPagedQueryResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreProductPagedQueryResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProductPagedQueryResult;{c92718c5-4dd5-4869-a462-ecc6872e43c5})");
 }
@@ -3412,6 +3522,11 @@ impl ::core::cmp::PartialEq for StoreProductQueryResult {
     }
 }
 impl ::core::cmp::Eq for StoreProductQueryResult {}
+impl ::core::fmt::Debug for StoreProductQueryResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreProductQueryResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreProductQueryResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProductQueryResult;{d805e6c5-d456-4ff6-8049-9076d5165f73})");
 }
@@ -3496,6 +3611,11 @@ impl ::core::cmp::PartialEq for StoreProductResult {
     }
 }
 impl ::core::cmp::Eq for StoreProductResult {}
+impl ::core::fmt::Debug for StoreProductResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreProductResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreProductResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProductResult;{b7674f73-3c87-4ee1-8201-f428359bd3af})");
 }
@@ -3609,6 +3729,11 @@ impl ::core::cmp::PartialEq for StorePurchaseProperties {
     }
 }
 impl ::core::cmp::Eq for StorePurchaseProperties {}
+impl ::core::fmt::Debug for StorePurchaseProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorePurchaseProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorePurchaseProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePurchaseProperties;{836278f3-ff87-4364-a5b4-fd2153ebe43b})");
 }
@@ -3693,6 +3818,11 @@ impl ::core::cmp::PartialEq for StorePurchaseResult {
     }
 }
 impl ::core::cmp::Eq for StorePurchaseResult {}
+impl ::core::fmt::Debug for StorePurchaseResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorePurchaseResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorePurchaseResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePurchaseResult;{add28552-f96a-463d-a7bb-c20b4fca6952})");
 }
@@ -3770,6 +3900,11 @@ impl ::core::cmp::PartialEq for StorePurchaseStatus {
     }
 }
 impl ::core::cmp::Eq for StorePurchaseStatus {}
+impl ::core::fmt::Debug for StorePurchaseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorePurchaseStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorePurchaseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StorePurchaseStatus;i4)");
 }
@@ -3881,6 +4016,11 @@ impl ::core::cmp::PartialEq for StoreQueueItem {
     }
 }
 impl ::core::cmp::Eq for StoreQueueItem {}
+impl ::core::fmt::Debug for StoreQueueItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreQueueItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreQueueItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreQueueItem;{56d5c32b-f830-4293-9188-cad2dcde7357})");
 }
@@ -3957,6 +4097,11 @@ impl ::core::cmp::PartialEq for StoreQueueItemCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for StoreQueueItemCompletedEventArgs {}
+impl ::core::fmt::Debug for StoreQueueItemCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreQueueItemCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreQueueItemCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreQueueItemCompletedEventArgs;{1247df6c-b44a-439b-bb07-1d3003d005c2})");
 }
@@ -4044,6 +4189,11 @@ impl ::core::cmp::PartialEq for StoreQueueItemExtendedState {
     }
 }
 impl ::core::cmp::Eq for StoreQueueItemExtendedState {}
+impl ::core::fmt::Debug for StoreQueueItemExtendedState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreQueueItemExtendedState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreQueueItemExtendedState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemExtendedState;i4)");
 }
@@ -4073,6 +4223,11 @@ impl ::core::cmp::PartialEq for StoreQueueItemKind {
     }
 }
 impl ::core::cmp::Eq for StoreQueueItemKind {}
+impl ::core::fmt::Debug for StoreQueueItemKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreQueueItemKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreQueueItemKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemKind;i4)");
 }
@@ -4104,6 +4259,11 @@ impl ::core::cmp::PartialEq for StoreQueueItemState {
     }
 }
 impl ::core::cmp::Eq for StoreQueueItemState {}
+impl ::core::fmt::Debug for StoreQueueItemState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreQueueItemState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreQueueItemState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemState;i4)");
 }
@@ -4158,6 +4318,11 @@ impl ::core::cmp::PartialEq for StoreQueueItemStatus {
     }
 }
 impl ::core::cmp::Eq for StoreQueueItemStatus {}
+impl ::core::fmt::Debug for StoreQueueItemStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreQueueItemStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreQueueItemStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreQueueItemStatus;{9bd6796f-9cc3-4ec3-b2ef-7be433b30174})");
 }
@@ -4258,6 +4423,11 @@ impl ::core::cmp::PartialEq for StoreRateAndReviewResult {
     }
 }
 impl ::core::cmp::Eq for StoreRateAndReviewResult {}
+impl ::core::fmt::Debug for StoreRateAndReviewResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreRateAndReviewResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreRateAndReviewResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreRateAndReviewResult;{9d209d56-a6b5-4121-9b61-ee6d0fbdbdbb})");
 }
@@ -4334,6 +4504,11 @@ impl ::core::cmp::PartialEq for StoreRateAndReviewStatus {
     }
 }
 impl ::core::cmp::Eq for StoreRateAndReviewStatus {}
+impl ::core::fmt::Debug for StoreRateAndReviewStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreRateAndReviewStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreRateAndReviewStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreRateAndReviewStatus;i4)");
 }
@@ -4401,6 +4576,11 @@ impl ::core::cmp::PartialEq for StoreSendRequestResult {
     }
 }
 impl ::core::cmp::Eq for StoreSendRequestResult {}
+impl ::core::fmt::Debug for StoreSendRequestResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreSendRequestResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreSendRequestResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreSendRequestResult;{c73abe60-8272-4502-8a69-6e75153a4299})");
 }
@@ -4628,6 +4808,11 @@ impl ::core::cmp::PartialEq for StoreSku {
     }
 }
 impl ::core::cmp::Eq for StoreSku {}
+impl ::core::fmt::Debug for StoreSku {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreSku").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreSku {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreSku;{397e6f55-4440-4f03-863c-91f3fec83d79})");
 }
@@ -4736,6 +4921,11 @@ impl ::core::cmp::PartialEq for StoreSubscriptionInfo {
     }
 }
 impl ::core::cmp::Eq for StoreSubscriptionInfo {}
+impl ::core::fmt::Debug for StoreSubscriptionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreSubscriptionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreSubscriptionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreSubscriptionInfo;{4189776a-0559-43ac-a9c6-3ab0011fb8eb})");
 }
@@ -4820,6 +5010,11 @@ impl ::core::cmp::PartialEq for StoreUninstallStorePackageResult {
     }
 }
 impl ::core::cmp::Eq for StoreUninstallStorePackageResult {}
+impl ::core::fmt::Debug for StoreUninstallStorePackageResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreUninstallStorePackageResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreUninstallStorePackageResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreUninstallStorePackageResult;{9fca39fd-126f-4cda-b801-1346b8d0a260})");
 }
@@ -4897,6 +5092,11 @@ impl ::core::cmp::PartialEq for StoreUninstallStorePackageStatus {
     }
 }
 impl ::core::cmp::Eq for StoreUninstallStorePackageStatus {}
+impl ::core::fmt::Debug for StoreUninstallStorePackageStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreUninstallStorePackageStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreUninstallStorePackageStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreUninstallStorePackageStatus;i4)");
 }
@@ -4968,6 +5168,11 @@ impl ::core::cmp::PartialEq for StoreVideo {
     }
 }
 impl ::core::cmp::Eq for StoreVideo {}
+impl ::core::fmt::Debug for StoreVideo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreVideo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreVideo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreVideo;{f26cb184-6f5e-4dc2-886c-3c63083c2f94})");
 }

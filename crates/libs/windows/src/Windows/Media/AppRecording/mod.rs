@@ -71,6 +71,11 @@ impl ::core::cmp::PartialEq for AppRecordingManager {
     }
 }
 impl ::core::cmp::Eq for AppRecordingManager {}
+impl ::core::fmt::Debug for AppRecordingManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppRecordingManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppRecordingManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AppRecording.AppRecordingManager;{e7e26076-a044-48e2-a512-3094d574c7cc})");
 }
@@ -172,6 +177,11 @@ impl ::core::cmp::PartialEq for AppRecordingResult {
     }
 }
 impl ::core::cmp::Eq for AppRecordingResult {}
+impl ::core::fmt::Debug for AppRecordingResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppRecordingResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppRecordingResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AppRecording.AppRecordingResult;{3a900864-c66d-46f9-b2d9-5bc2dad070d7})");
 }
@@ -246,6 +256,11 @@ impl ::core::cmp::PartialEq for AppRecordingSaveScreenshotOption {
     }
 }
 impl ::core::cmp::Eq for AppRecordingSaveScreenshotOption {}
+impl ::core::fmt::Debug for AppRecordingSaveScreenshotOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppRecordingSaveScreenshotOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppRecordingSaveScreenshotOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.AppRecording.AppRecordingSaveScreenshotOption;i4)");
 }
@@ -293,6 +308,11 @@ impl ::core::cmp::PartialEq for AppRecordingSaveScreenshotResult {
     }
 }
 impl ::core::cmp::Eq for AppRecordingSaveScreenshotResult {}
+impl ::core::fmt::Debug for AppRecordingSaveScreenshotResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppRecordingSaveScreenshotResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppRecordingSaveScreenshotResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AppRecording.AppRecordingSaveScreenshotResult;{9c5b8d0a-0abb-4457-aaee-24f9c12ec778})");
 }
@@ -378,6 +398,11 @@ impl ::core::cmp::PartialEq for AppRecordingSavedScreenshotInfo {
     }
 }
 impl ::core::cmp::Eq for AppRecordingSavedScreenshotInfo {}
+impl ::core::fmt::Debug for AppRecordingSavedScreenshotInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppRecordingSavedScreenshotInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppRecordingSavedScreenshotInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AppRecording.AppRecordingSavedScreenshotInfo;{9b642d0a-189a-4d00-bf25-e1bb1249d594})");
 }
@@ -479,6 +504,11 @@ impl ::core::cmp::PartialEq for AppRecordingStatus {
     }
 }
 impl ::core::cmp::Eq for AppRecordingStatus {}
+impl ::core::fmt::Debug for AppRecordingStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppRecordingStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppRecordingStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AppRecording.AppRecordingStatus;{1d0cc82c-bc18-4b8a-a6ef-127efab3b5d9})");
 }
@@ -619,6 +649,11 @@ impl ::core::cmp::PartialEq for AppRecordingStatusDetails {
     }
 }
 impl ::core::cmp::Eq for AppRecordingStatusDetails {}
+impl ::core::fmt::Debug for AppRecordingStatusDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppRecordingStatusDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppRecordingStatusDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AppRecording.AppRecordingStatusDetails;{b538a9b0-14ed-4412-ac45-6d672c9c9949})");
 }

@@ -25,6 +25,11 @@ impl ::core::cmp::PartialEq for AudioDecoderDegradation {
     }
 }
 impl ::core::cmp::Eq for AudioDecoderDegradation {}
+impl ::core::fmt::Debug for AudioDecoderDegradation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDecoderDegradation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioDecoderDegradation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.AudioDecoderDegradation;i4)");
 }
@@ -54,6 +59,11 @@ impl ::core::cmp::PartialEq for AudioDecoderDegradationReason {
     }
 }
 impl ::core::cmp::Eq for AudioDecoderDegradationReason {}
+impl ::core::fmt::Debug for AudioDecoderDegradationReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDecoderDegradationReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioDecoderDegradationReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.AudioDecoderDegradationReason;i4)");
 }
@@ -183,6 +193,11 @@ impl ::core::cmp::PartialEq for AudioStreamDescriptor {
     }
 }
 impl ::core::cmp::Eq for AudioStreamDescriptor {}
+impl ::core::fmt::Debug for AudioStreamDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioStreamDescriptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioStreamDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.AudioStreamDescriptor;{1e3692e4-4027-4847-a70b-df1d9a2a7b04})");
 }
@@ -381,6 +396,11 @@ impl ::core::cmp::PartialEq for AudioTrack {
     }
 }
 impl ::core::cmp::Eq for AudioTrack {}
+impl ::core::fmt::Debug for AudioTrack {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioTrack").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioTrack {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.AudioTrack;{03e1fafc-c931-491a-b46b-c10ee8c256b7})");
 }
@@ -479,6 +499,11 @@ impl ::core::cmp::PartialEq for AudioTrackOpenFailedEventArgs {
     }
 }
 impl ::core::cmp::Eq for AudioTrackOpenFailedEventArgs {}
+impl ::core::fmt::Debug for AudioTrackOpenFailedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioTrackOpenFailedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioTrackOpenFailedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.AudioTrackOpenFailedEventArgs;{eeddb9b9-bb7c-4112-bf76-9384676f824b})");
 }
@@ -579,6 +604,11 @@ impl ::core::cmp::PartialEq for AudioTrackSupportInfo {
     }
 }
 impl ::core::cmp::Eq for AudioTrackSupportInfo {}
+impl ::core::fmt::Debug for AudioTrackSupportInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioTrackSupportInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioTrackSupportInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.AudioTrackSupportInfo;{178beff7-cc39-44a6-b951-4a5653f073fa})");
 }
@@ -710,6 +740,11 @@ impl ::core::cmp::PartialEq for ChapterCue {
     }
 }
 impl ::core::cmp::Eq for ChapterCue {}
+impl ::core::fmt::Debug for ChapterCue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChapterCue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChapterCue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.ChapterCue;{72a98001-d38a-4c0a-8fa6-75cddaf4664c})");
 }
@@ -806,6 +841,11 @@ impl ::core::cmp::PartialEq for CodecCategory {
     }
 }
 impl ::core::cmp::Eq for CodecCategory {}
+impl ::core::fmt::Debug for CodecCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CodecCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CodecCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.CodecCategory;i4)");
 }
@@ -869,6 +909,11 @@ impl ::core::cmp::PartialEq for CodecInfo {
     }
 }
 impl ::core::cmp::Eq for CodecInfo {}
+impl ::core::fmt::Debug for CodecInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CodecInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CodecInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.CodecInfo;{51e89f85-ea97-499c-86ac-4ce5e73f3a42})");
 }
@@ -943,6 +988,11 @@ impl ::core::cmp::PartialEq for CodecKind {
     }
 }
 impl ::core::cmp::Eq for CodecKind {}
+impl ::core::fmt::Debug for CodecKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CodecKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CodecKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.CodecKind;i4)");
 }
@@ -981,6 +1031,11 @@ impl ::core::cmp::PartialEq for CodecQuery {
     }
 }
 impl ::core::cmp::Eq for CodecQuery {}
+impl ::core::fmt::Debug for CodecQuery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CodecQuery").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CodecQuery {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.CodecQuery;{222a953a-af61-4e04-808a-a4634e2f3ac4})");
 }
@@ -1492,6 +1547,11 @@ impl ::core::cmp::PartialEq for DataCue {
     }
 }
 impl ::core::cmp::Eq for DataCue {}
+impl ::core::fmt::Debug for DataCue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataCue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataCue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.DataCue;{7c7f676d-1fbc-4e2d-9a87-ee38bd1dc637})");
 }
@@ -1590,6 +1650,11 @@ impl ::core::cmp::PartialEq for FaceDetectedEventArgs {
     }
 }
 impl ::core::cmp::Eq for FaceDetectedEventArgs {}
+impl ::core::fmt::Debug for FaceDetectedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FaceDetectedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FaceDetectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.FaceDetectedEventArgs;{19918426-c65b-46ba-85f8-13880576c90a})");
 }
@@ -1707,6 +1772,11 @@ impl ::core::cmp::PartialEq for FaceDetectionEffect {
     }
 }
 impl ::core::cmp::Eq for FaceDetectionEffect {}
+impl ::core::fmt::Debug for FaceDetectionEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FaceDetectionEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FaceDetectionEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.FaceDetectionEffect;{ae15ebd2-0542-42a9-bc90-f283a29f46c1})");
 }
@@ -1853,6 +1923,12 @@ impl ::core::cmp::PartialEq for FaceDetectionEffectDefinition {
 }
 #[cfg(feature = "Media_Effects")]
 impl ::core::cmp::Eq for FaceDetectionEffectDefinition {}
+#[cfg(feature = "Media_Effects")]
+impl ::core::fmt::Debug for FaceDetectionEffectDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FaceDetectionEffectDefinition").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Media_Effects")]
 unsafe impl ::windows::core::RuntimeType for FaceDetectionEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.FaceDetectionEffectDefinition;{39f38cf0-8d0f-4f3e-84fc-2d46a5297943})");
@@ -2058,6 +2134,11 @@ impl ::core::cmp::PartialEq for FaceDetectionEffectFrame {
     }
 }
 impl ::core::cmp::Eq for FaceDetectionEffectFrame {}
+impl ::core::fmt::Debug for FaceDetectionEffectFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FaceDetectionEffectFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FaceDetectionEffectFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.FaceDetectionEffectFrame;{8ab08993-5dc8-447b-a247-5270bd802ece})");
 }
@@ -2181,6 +2262,11 @@ impl ::core::cmp::PartialEq for FaceDetectionMode {
     }
 }
 impl ::core::cmp::Eq for FaceDetectionMode {}
+impl ::core::fmt::Debug for FaceDetectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FaceDetectionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FaceDetectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.FaceDetectionMode;i4)");
 }
@@ -2216,6 +2302,11 @@ impl ::core::cmp::PartialEq for HighDynamicRangeControl {
     }
 }
 impl ::core::cmp::Eq for HighDynamicRangeControl {}
+impl ::core::fmt::Debug for HighDynamicRangeControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HighDynamicRangeControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HighDynamicRangeControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.HighDynamicRangeControl;{55f1a7ae-d957-4dc9-9d1c-8553a82a7d99})");
 }
@@ -2301,6 +2392,11 @@ impl ::core::cmp::PartialEq for HighDynamicRangeOutput {
     }
 }
 impl ::core::cmp::Eq for HighDynamicRangeOutput {}
+impl ::core::fmt::Debug for HighDynamicRangeOutput {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HighDynamicRangeOutput").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HighDynamicRangeOutput {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.HighDynamicRangeOutput;{0f57806b-253b-4119-bb40-3a90e51384f7})");
 }
@@ -3074,6 +3170,11 @@ impl ::core::cmp::PartialEq for IMediaCue {
     }
 }
 impl ::core::cmp::Eq for IMediaCue {}
+impl ::core::fmt::Debug for IMediaCue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMediaCue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IMediaCue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c7d15e5d-59dc-431f-a0ee-27744323b36d}");
 }
@@ -3174,6 +3275,11 @@ impl ::core::cmp::PartialEq for IMediaSource {
     }
 }
 impl ::core::cmp::Eq for IMediaSource {}
+impl ::core::fmt::Debug for IMediaSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMediaSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IMediaSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e7bfb599-a09d-4c21-bcdf-20af4f86b3d9}");
 }
@@ -3560,6 +3666,11 @@ impl ::core::cmp::PartialEq for IMediaStreamDescriptor {
     }
 }
 impl ::core::cmp::Eq for IMediaStreamDescriptor {}
+impl ::core::fmt::Debug for IMediaStreamDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMediaStreamDescriptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IMediaStreamDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{80f16e6e-92f7-451e-97d2-afd80742da70}");
 }
@@ -3707,6 +3818,11 @@ impl ::core::cmp::PartialEq for IMediaStreamDescriptor2 {
     }
 }
 impl ::core::cmp::Eq for IMediaStreamDescriptor2 {}
+impl ::core::fmt::Debug for IMediaStreamDescriptor2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMediaStreamDescriptor2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IMediaStreamDescriptor2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5073010f-e8b2-4071-b00b-ebf337a76b58}");
 }
@@ -4312,6 +4428,11 @@ impl ::core::cmp::PartialEq for IMediaTrack {
     }
 }
 impl ::core::cmp::Eq for IMediaTrack {}
+impl ::core::fmt::Debug for IMediaTrack {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMediaTrack").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IMediaTrack {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{03e1fafc-c931-491a-b46b-c10ee8c256b7}");
 }
@@ -4668,6 +4789,11 @@ impl ::core::cmp::PartialEq for ISingleSelectMediaTrackList {
     }
 }
 impl ::core::cmp::Eq for ISingleSelectMediaTrackList {}
+impl ::core::fmt::Debug for ISingleSelectMediaTrackList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISingleSelectMediaTrackList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISingleSelectMediaTrackList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{77206f1f-c34f-494f-8077-2bad9ff4ecf1}");
 }
@@ -4934,6 +5060,11 @@ impl ::core::cmp::PartialEq for ITimedMetadataTrackProvider {
     }
 }
 impl ::core::cmp::Eq for ITimedMetadataTrackProvider {}
+impl ::core::fmt::Debug for ITimedMetadataTrackProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITimedMetadataTrackProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITimedMetadataTrackProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3b7f2024-f74e-4ade-93c5-219da05b6856}");
 }
@@ -5569,6 +5700,11 @@ impl ::core::cmp::PartialEq for ImageCue {
     }
 }
 impl ::core::cmp::Eq for ImageCue {}
+impl ::core::fmt::Debug for ImageCue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageCue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ImageCue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.ImageCue;{52828282-367b-440b-9116-3c84570dd270})");
 }
@@ -5685,6 +5821,11 @@ impl ::core::cmp::PartialEq for InitializeMediaStreamSourceRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for InitializeMediaStreamSourceRequestedEventArgs {}
+impl ::core::fmt::Debug for InitializeMediaStreamSourceRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InitializeMediaStreamSourceRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InitializeMediaStreamSourceRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.InitializeMediaStreamSourceRequestedEventArgs;{25bc45e1-9b08-4c2e-a855-4542f1a75deb})");
 }
@@ -5803,6 +5944,11 @@ impl ::core::cmp::PartialEq for LowLightFusionResult {
     }
 }
 impl ::core::cmp::Eq for LowLightFusionResult {}
+impl ::core::fmt::Debug for LowLightFusionResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LowLightFusionResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LowLightFusionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.LowLightFusionResult;{78edbe35-27a0-42e0-9cd3-738d2089de9c})");
 }
@@ -5940,6 +6086,11 @@ impl ::core::cmp::PartialEq for MediaBinder {
     }
 }
 impl ::core::cmp::Eq for MediaBinder {}
+impl ::core::fmt::Debug for MediaBinder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaBinder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaBinder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaBinder;{2b7e40aa-de07-424f-83f1-f1de46c4fa2e})");
 }
@@ -6076,6 +6227,11 @@ impl ::core::cmp::PartialEq for MediaBindingEventArgs {
     }
 }
 impl ::core::cmp::Eq for MediaBindingEventArgs {}
+impl ::core::fmt::Debug for MediaBindingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaBindingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaBindingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaBindingEventArgs;{b61cb25a-1b6d-4630-a86d-2f0837f712e5})");
 }
@@ -6152,6 +6308,11 @@ impl ::core::cmp::PartialEq for MediaCueEventArgs {
     }
 }
 impl ::core::cmp::Eq for MediaCueEventArgs {}
+impl ::core::fmt::Debug for MediaCueEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaCueEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaCueEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaCueEventArgs;{d12f47f7-5fa4-4e68-9fe5-32160dcee57e})");
 }
@@ -6228,6 +6389,11 @@ impl ::core::cmp::PartialEq for MediaDecoderStatus {
     }
 }
 impl ::core::cmp::Eq for MediaDecoderStatus {}
+impl ::core::fmt::Debug for MediaDecoderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaDecoderStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaDecoderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MediaDecoderStatus;i4)");
 }
@@ -6499,6 +6665,11 @@ impl ::core::cmp::PartialEq for MediaSource {
     }
 }
 impl ::core::cmp::Eq for MediaSource {}
+impl ::core::fmt::Debug for MediaSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaSource;{2eb61048-655f-4c37-b813-b4e45dfa0abe})");
 }
@@ -6652,6 +6823,11 @@ impl ::core::cmp::PartialEq for MediaSourceAppServiceConnection {
     }
 }
 impl ::core::cmp::Eq for MediaSourceAppServiceConnection {}
+impl ::core::fmt::Debug for MediaSourceAppServiceConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaSourceAppServiceConnection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaSourceAppServiceConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaSourceAppServiceConnection;{61e1ea97-1916-4810-b7f4-b642be829596})");
 }
@@ -6726,6 +6902,11 @@ impl ::core::cmp::PartialEq for MediaSourceError {
     }
 }
 impl ::core::cmp::Eq for MediaSourceError {}
+impl ::core::fmt::Debug for MediaSourceError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaSourceError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaSourceError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaSourceError;{5c0a8965-37c5-4e9d-8d21-1cdee90cecc6})");
 }
@@ -6802,6 +6983,11 @@ impl ::core::cmp::PartialEq for MediaSourceOpenOperationCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MediaSourceOpenOperationCompletedEventArgs {}
+impl ::core::fmt::Debug for MediaSourceOpenOperationCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaSourceOpenOperationCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaSourceOpenOperationCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaSourceOpenOperationCompletedEventArgs;{fc682ceb-e281-477c-a8e0-1acd654114c8})");
 }
@@ -6879,6 +7065,11 @@ impl ::core::cmp::PartialEq for MediaSourceState {
     }
 }
 impl ::core::cmp::Eq for MediaSourceState {}
+impl ::core::fmt::Debug for MediaSourceState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaSourceState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaSourceState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MediaSourceState;i4)");
 }
@@ -6917,6 +7108,11 @@ impl ::core::cmp::PartialEq for MediaSourceStateChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MediaSourceStateChangedEventArgs {}
+impl ::core::fmt::Debug for MediaSourceStateChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaSourceStateChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaSourceStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaSourceStateChangedEventArgs;{0a30af82-9071-4bac-bc39-ca2a93b717a9})");
 }
@@ -6991,6 +7187,11 @@ impl ::core::cmp::PartialEq for MediaSourceStatus {
     }
 }
 impl ::core::cmp::Eq for MediaSourceStatus {}
+impl ::core::fmt::Debug for MediaSourceStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaSourceStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaSourceStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MediaSourceStatus;i4)");
 }
@@ -7162,6 +7363,11 @@ impl ::core::cmp::PartialEq for MediaStreamSample {
     }
 }
 impl ::core::cmp::Eq for MediaStreamSample {}
+impl ::core::fmt::Debug for MediaStreamSample {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaStreamSample").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSample {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSample;{5c8db627-4b80-4361-9837-6cb7481ad9d6})");
 }
@@ -7301,6 +7507,12 @@ impl ::core::cmp::PartialEq for MediaStreamSamplePropertySet {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for MediaStreamSamplePropertySet {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for MediaStreamSamplePropertySet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaStreamSamplePropertySet").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for MediaStreamSamplePropertySet {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSamplePropertySet;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};g16;cinterface(IInspectable)))");
@@ -7480,6 +7692,11 @@ impl ::core::cmp::PartialEq for MediaStreamSampleProtectionProperties {
     }
 }
 impl ::core::cmp::Eq for MediaStreamSampleProtectionProperties {}
+impl ::core::fmt::Debug for MediaStreamSampleProtectionProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaStreamSampleProtectionProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSampleProtectionProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSampleProtectionProperties;{4eb88292-ecdf-493e-841d-dd4add7caca2})");
 }
@@ -7797,6 +8014,11 @@ impl ::core::cmp::PartialEq for MediaStreamSource {
     }
 }
 impl ::core::cmp::Eq for MediaStreamSource {}
+impl ::core::fmt::Debug for MediaStreamSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaStreamSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSource;{3712d543-45eb-4138-aa62-c01e26f3843f})");
 }
@@ -7895,6 +8117,11 @@ impl ::core::cmp::PartialEq for MediaStreamSourceClosedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MediaStreamSourceClosedEventArgs {}
+impl ::core::fmt::Debug for MediaStreamSourceClosedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaStreamSourceClosedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceClosedEventArgs;{cd8c7eb2-4816-4e24-88f0-491ef7386406})");
 }
@@ -7974,6 +8201,11 @@ impl ::core::cmp::PartialEq for MediaStreamSourceClosedReason {
     }
 }
 impl ::core::cmp::Eq for MediaStreamSourceClosedReason {}
+impl ::core::fmt::Debug for MediaStreamSourceClosedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaStreamSourceClosedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceClosedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MediaStreamSourceClosedReason;i4)");
 }
@@ -8004,6 +8236,11 @@ impl ::core::cmp::PartialEq for MediaStreamSourceClosedRequest {
     }
 }
 impl ::core::cmp::Eq for MediaStreamSourceClosedRequest {}
+impl ::core::fmt::Debug for MediaStreamSourceClosedRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaStreamSourceClosedRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceClosedRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceClosedRequest;{907c00e9-18a3-4951-887a-2c1eebd5c69e})");
 }
@@ -8084,6 +8321,11 @@ impl ::core::cmp::PartialEq for MediaStreamSourceErrorStatus {
     }
 }
 impl ::core::cmp::Eq for MediaStreamSourceErrorStatus {}
+impl ::core::fmt::Debug for MediaStreamSourceErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaStreamSourceErrorStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceErrorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MediaStreamSourceErrorStatus;i4)");
 }
@@ -8115,6 +8357,11 @@ impl ::core::cmp::PartialEq for MediaStreamSourceSampleRenderedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MediaStreamSourceSampleRenderedEventArgs {}
+impl ::core::fmt::Debug for MediaStreamSourceSampleRenderedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaStreamSourceSampleRenderedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceSampleRenderedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceSampleRenderedEventArgs;{9d697b05-d4f2-4c7a-9dfe-8d6cd0b3ee84})");
 }
@@ -8217,6 +8464,11 @@ impl ::core::cmp::PartialEq for MediaStreamSourceSampleRequest {
     }
 }
 impl ::core::cmp::Eq for MediaStreamSourceSampleRequest {}
+impl ::core::fmt::Debug for MediaStreamSourceSampleRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaStreamSourceSampleRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceSampleRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceSampleRequest;{4db341a9-3501-4d9b-83f9-8f235c822532})");
 }
@@ -8290,6 +8542,11 @@ impl ::core::cmp::PartialEq for MediaStreamSourceSampleRequestDeferral {
     }
 }
 impl ::core::cmp::Eq for MediaStreamSourceSampleRequestDeferral {}
+impl ::core::fmt::Debug for MediaStreamSourceSampleRequestDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaStreamSourceSampleRequestDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceSampleRequestDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceSampleRequestDeferral;{7895cc02-f982-43c8-9d16-c62d999319be})");
 }
@@ -8366,6 +8623,11 @@ impl ::core::cmp::PartialEq for MediaStreamSourceSampleRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MediaStreamSourceSampleRequestedEventArgs {}
+impl ::core::fmt::Debug for MediaStreamSourceSampleRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaStreamSourceSampleRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceSampleRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceSampleRequestedEventArgs;{10f9bb9e-71c5-492f-847f-0da1f35e81f8})");
 }
@@ -8442,6 +8704,11 @@ impl ::core::cmp::PartialEq for MediaStreamSourceStartingEventArgs {
     }
 }
 impl ::core::cmp::Eq for MediaStreamSourceStartingEventArgs {}
+impl ::core::fmt::Debug for MediaStreamSourceStartingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaStreamSourceStartingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceStartingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceStartingEventArgs;{f41468f2-c274-4940-a5bb-28a572452fa7})");
 }
@@ -8533,6 +8800,11 @@ impl ::core::cmp::PartialEq for MediaStreamSourceStartingRequest {
     }
 }
 impl ::core::cmp::Eq for MediaStreamSourceStartingRequest {}
+impl ::core::fmt::Debug for MediaStreamSourceStartingRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaStreamSourceStartingRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceStartingRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceStartingRequest;{2a9093e4-35c4-4b1b-a791-0d99db56dd1d})");
 }
@@ -8606,6 +8878,11 @@ impl ::core::cmp::PartialEq for MediaStreamSourceStartingRequestDeferral {
     }
 }
 impl ::core::cmp::Eq for MediaStreamSourceStartingRequestDeferral {}
+impl ::core::fmt::Debug for MediaStreamSourceStartingRequestDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaStreamSourceStartingRequestDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceStartingRequestDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceStartingRequestDeferral;{3f1356a5-6340-4dc4-9910-068ed9f598f8})");
 }
@@ -8698,6 +8975,11 @@ impl ::core::cmp::PartialEq for MediaStreamSourceSwitchStreamsRequest {
     }
 }
 impl ::core::cmp::Eq for MediaStreamSourceSwitchStreamsRequest {}
+impl ::core::fmt::Debug for MediaStreamSourceSwitchStreamsRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaStreamSourceSwitchStreamsRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceSwitchStreamsRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceSwitchStreamsRequest;{41b8808e-38a9-4ec3-9ba0-b69b85501e90})");
 }
@@ -8771,6 +9053,11 @@ impl ::core::cmp::PartialEq for MediaStreamSourceSwitchStreamsRequestDeferral {
     }
 }
 impl ::core::cmp::Eq for MediaStreamSourceSwitchStreamsRequestDeferral {}
+impl ::core::fmt::Debug for MediaStreamSourceSwitchStreamsRequestDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaStreamSourceSwitchStreamsRequestDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceSwitchStreamsRequestDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceSwitchStreamsRequestDeferral;{bee3d835-a505-4f9a-b943-2b8cb1b4bbd9})");
 }
@@ -8847,6 +9134,11 @@ impl ::core::cmp::PartialEq for MediaStreamSourceSwitchStreamsRequestedEventArgs
     }
 }
 impl ::core::cmp::Eq for MediaStreamSourceSwitchStreamsRequestedEventArgs {}
+impl ::core::fmt::Debug for MediaStreamSourceSwitchStreamsRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaStreamSourceSwitchStreamsRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceSwitchStreamsRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceSwitchStreamsRequestedEventArgs;{42202b72-6ea1-4677-981e-350a0da412aa})");
 }
@@ -8922,6 +9214,11 @@ impl ::core::cmp::PartialEq for MediaTrackKind {
     }
 }
 impl ::core::cmp::Eq for MediaTrackKind {}
+impl ::core::fmt::Debug for MediaTrackKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaTrackKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaTrackKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MediaTrackKind;i4)");
 }
@@ -8950,6 +9247,11 @@ impl ::core::cmp::PartialEq for MseAppendMode {
     }
 }
 impl ::core::cmp::Eq for MseAppendMode {}
+impl ::core::fmt::Debug for MseAppendMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MseAppendMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MseAppendMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MseAppendMode;i4)");
 }
@@ -8980,6 +9282,11 @@ impl ::core::cmp::PartialEq for MseEndOfStreamStatus {
     }
 }
 impl ::core::cmp::Eq for MseEndOfStreamStatus {}
+impl ::core::fmt::Debug for MseEndOfStreamStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MseEndOfStreamStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MseEndOfStreamStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MseEndOfStreamStatus;i4)");
 }
@@ -9009,6 +9316,11 @@ impl ::core::cmp::PartialEq for MseReadyState {
     }
 }
 impl ::core::cmp::Eq for MseReadyState {}
+impl ::core::fmt::Debug for MseReadyState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MseReadyState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MseReadyState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MseReadyState;i4)");
 }
@@ -9210,6 +9522,11 @@ impl ::core::cmp::PartialEq for MseSourceBuffer {
     }
 }
 impl ::core::cmp::Eq for MseSourceBuffer {}
+impl ::core::fmt::Debug for MseSourceBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MseSourceBuffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MseSourceBuffer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MseSourceBuffer;{0c1aa3e3-df8d-4079-a3fe-6849184b4e2f})");
 }
@@ -9317,6 +9634,11 @@ impl ::core::cmp::PartialEq for MseSourceBufferList {
     }
 }
 impl ::core::cmp::Eq for MseSourceBufferList {}
+impl ::core::fmt::Debug for MseSourceBufferList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MseSourceBufferList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MseSourceBufferList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MseSourceBufferList;{95fae8e7-a8e7-4ebf-8927-145e940ba511})");
 }
@@ -9521,6 +9843,11 @@ impl ::core::cmp::PartialEq for MseStreamSource {
     }
 }
 impl ::core::cmp::Eq for MseStreamSource {}
+impl ::core::fmt::Debug for MseStreamSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MseStreamSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MseStreamSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MseStreamSource;{b0b4198d-02f4-4923-88dd-81bc3f360ffa})");
 }
@@ -9611,6 +9938,12 @@ impl ::core::clone::Clone for MseTimeRange {
     }
 }
 #[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for MseTimeRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MseTimeRange").field("Start", &self.Start).field("End", &self.End).finish()
+    }
+}
+#[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Abi for MseTimeRange {
     type Abi = Self;
 }
@@ -9696,6 +10029,11 @@ impl ::core::cmp::PartialEq for SceneAnalysisEffect {
     }
 }
 impl ::core::cmp::Eq for SceneAnalysisEffect {}
+impl ::core::fmt::Debug for SceneAnalysisEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneAnalysisEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneAnalysisEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.SceneAnalysisEffect;{c04ba319-ca41-4813-bffd-7b08b0ed2557})");
 }
@@ -9816,6 +10154,12 @@ impl ::core::cmp::PartialEq for SceneAnalysisEffectDefinition {
 }
 #[cfg(feature = "Media_Effects")]
 impl ::core::cmp::Eq for SceneAnalysisEffectDefinition {}
+#[cfg(feature = "Media_Effects")]
+impl ::core::fmt::Debug for SceneAnalysisEffectDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneAnalysisEffectDefinition").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Media_Effects")]
 unsafe impl ::windows::core::RuntimeType for SceneAnalysisEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.SceneAnalysisEffectDefinition;{39f38cf0-8d0f-4f3e-84fc-2d46a5297943})");
@@ -10037,6 +10381,11 @@ impl ::core::cmp::PartialEq for SceneAnalysisEffectFrame {
     }
 }
 impl ::core::cmp::Eq for SceneAnalysisEffectFrame {}
+impl ::core::fmt::Debug for SceneAnalysisEffectFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneAnalysisEffectFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneAnalysisEffectFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.SceneAnalysisEffectFrame;{d8b10e4c-7fd9-42e1-85eb-6572c297c987})");
 }
@@ -10160,6 +10509,11 @@ impl ::core::cmp::PartialEq for SceneAnalysisRecommendation {
     }
 }
 impl ::core::cmp::Eq for SceneAnalysisRecommendation {}
+impl ::core::fmt::Debug for SceneAnalysisRecommendation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneAnalysisRecommendation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneAnalysisRecommendation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.SceneAnalysisRecommendation;i4)");
 }
@@ -10190,6 +10544,11 @@ impl ::core::cmp::PartialEq for SceneAnalyzedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SceneAnalyzedEventArgs {}
+impl ::core::fmt::Debug for SceneAnalyzedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneAnalyzedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneAnalyzedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.SceneAnalyzedEventArgs;{146b9588-2851-45e4-ad55-44cf8df8db4d})");
 }
@@ -10351,6 +10710,11 @@ impl ::core::cmp::PartialEq for SpeechCue {
     }
 }
 impl ::core::cmp::Eq for SpeechCue {}
+impl ::core::fmt::Debug for SpeechCue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechCue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechCue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.SpeechCue;{aee254dc-1725-4bad-8043-a98499b017a2})");
 }
@@ -10453,6 +10817,11 @@ impl ::core::cmp::PartialEq for TimedMetadataKind {
     }
 }
 impl ::core::cmp::Eq for TimedMetadataKind {}
+impl ::core::fmt::Debug for TimedMetadataKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedMetadataKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedMetadataKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedMetadataKind;i4)");
 }
@@ -10552,6 +10921,11 @@ impl ::core::cmp::PartialEq for TimedMetadataStreamDescriptor {
     }
 }
 impl ::core::cmp::Eq for TimedMetadataStreamDescriptor {}
+impl ::core::fmt::Debug for TimedMetadataStreamDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedMetadataStreamDescriptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedMetadataStreamDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedMetadataStreamDescriptor;{80f16e6e-92f7-451e-97d2-afd80742da70})");
 }
@@ -10819,6 +11193,11 @@ impl ::core::cmp::PartialEq for TimedMetadataTrack {
     }
 }
 impl ::core::cmp::Eq for TimedMetadataTrack {}
+impl ::core::fmt::Debug for TimedMetadataTrack {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedMetadataTrack").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedMetadataTrack {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedMetadataTrack;{9e6aed9e-f67a-49a9-b330-cf03b0e9cf07})");
 }
@@ -10925,6 +11304,11 @@ impl ::core::cmp::PartialEq for TimedMetadataTrackError {
     }
 }
 impl ::core::cmp::Eq for TimedMetadataTrackError {}
+impl ::core::fmt::Debug for TimedMetadataTrackError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedMetadataTrackError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedMetadataTrackError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedMetadataTrackError;{b3767915-4114-4819-b9d9-dd76089e72f8})");
 }
@@ -11001,6 +11385,11 @@ impl ::core::cmp::PartialEq for TimedMetadataTrackErrorCode {
     }
 }
 impl ::core::cmp::Eq for TimedMetadataTrackErrorCode {}
+impl ::core::fmt::Debug for TimedMetadataTrackErrorCode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedMetadataTrackErrorCode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedMetadataTrackErrorCode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedMetadataTrackErrorCode;i4)");
 }
@@ -11031,6 +11420,11 @@ impl ::core::cmp::PartialEq for TimedMetadataTrackFailedEventArgs {
     }
 }
 impl ::core::cmp::Eq for TimedMetadataTrackFailedEventArgs {}
+impl ::core::fmt::Debug for TimedMetadataTrackFailedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedMetadataTrackFailedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedMetadataTrackFailedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedMetadataTrackFailedEventArgs;{a57fc9d1-6789-4d4d-b07f-84b4f31acb70})");
 }
@@ -11140,6 +11534,11 @@ impl ::core::cmp::PartialEq for TimedTextBouten {
     }
 }
 impl ::core::cmp::Eq for TimedTextBouten {}
+impl ::core::fmt::Debug for TimedTextBouten {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextBouten").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextBouten {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextBouten;{d9062783-5597-5092-820c-8f738e0f774a})");
 }
@@ -11215,6 +11614,11 @@ impl ::core::cmp::PartialEq for TimedTextBoutenPosition {
     }
 }
 impl ::core::cmp::Eq for TimedTextBoutenPosition {}
+impl ::core::fmt::Debug for TimedTextBoutenPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextBoutenPosition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextBoutenPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextBoutenPosition;i4)");
 }
@@ -11249,6 +11653,11 @@ impl ::core::cmp::PartialEq for TimedTextBoutenType {
     }
 }
 impl ::core::cmp::Eq for TimedTextBoutenType {}
+impl ::core::fmt::Debug for TimedTextBoutenType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextBoutenType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextBoutenType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextBoutenType;i4)");
 }
@@ -11356,6 +11765,11 @@ impl ::core::cmp::PartialEq for TimedTextCue {
     }
 }
 impl ::core::cmp::Eq for TimedTextCue {}
+impl ::core::fmt::Debug for TimedTextCue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextCue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextCue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextCue;{51c79e51-3b86-494d-b359-bb2ea7aca9a9})");
 }
@@ -11453,6 +11867,11 @@ impl ::core::cmp::PartialEq for TimedTextDisplayAlignment {
     }
 }
 impl ::core::cmp::Eq for TimedTextDisplayAlignment {}
+impl ::core::fmt::Debug for TimedTextDisplayAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextDisplayAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextDisplayAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextDisplayAlignment;i4)");
 }
@@ -11469,6 +11888,11 @@ impl ::core::marker::Copy for TimedTextDouble {}
 impl ::core::clone::Clone for TimedTextDouble {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TimedTextDouble {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TimedTextDouble").field("Value", &self.Value).field("Unit", &self.Unit).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TimedTextDouble {
@@ -11513,6 +11937,11 @@ impl ::core::cmp::PartialEq for TimedTextFlowDirection {
     }
 }
 impl ::core::cmp::Eq for TimedTextFlowDirection {}
+impl ::core::fmt::Debug for TimedTextFlowDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextFlowDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextFlowDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextFlowDirection;i4)");
 }
@@ -11542,6 +11971,11 @@ impl ::core::cmp::PartialEq for TimedTextFontStyle {
     }
 }
 impl ::core::cmp::Eq for TimedTextFontStyle {}
+impl ::core::fmt::Debug for TimedTextFontStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextFontStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextFontStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextFontStyle;i4)");
 }
@@ -11593,6 +12027,11 @@ impl ::core::cmp::PartialEq for TimedTextLine {
     }
 }
 impl ::core::cmp::Eq for TimedTextLine {}
+impl ::core::fmt::Debug for TimedTextLine {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextLine").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextLine {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextLine;{978d7ce2-7308-4c66-be50-65777289f5df})");
 }
@@ -11668,6 +12107,11 @@ impl ::core::cmp::PartialEq for TimedTextLineAlignment {
     }
 }
 impl ::core::cmp::Eq for TimedTextLineAlignment {}
+impl ::core::fmt::Debug for TimedTextLineAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextLineAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextLineAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextLineAlignment;i4)");
 }
@@ -11687,6 +12131,11 @@ impl ::core::marker::Copy for TimedTextPadding {}
 impl ::core::clone::Clone for TimedTextPadding {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TimedTextPadding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TimedTextPadding").field("Before", &self.Before).field("After", &self.After).field("Start", &self.Start).field("End", &self.End).field("Unit", &self.Unit).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TimedTextPadding {
@@ -11720,6 +12169,11 @@ impl ::core::marker::Copy for TimedTextPoint {}
 impl ::core::clone::Clone for TimedTextPoint {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TimedTextPoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TimedTextPoint").field("X", &self.X).field("Y", &self.Y).field("Unit", &self.Unit).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TimedTextPoint {
@@ -11923,6 +12377,11 @@ impl ::core::cmp::PartialEq for TimedTextRegion {
     }
 }
 impl ::core::cmp::Eq for TimedTextRegion {}
+impl ::core::fmt::Debug for TimedTextRegion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextRegion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextRegion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextRegion;{1ed0881f-8a06-4222-9f59-b21bf40124b4})");
 }
@@ -12043,6 +12502,11 @@ impl ::core::cmp::PartialEq for TimedTextRuby {
     }
 }
 impl ::core::cmp::Eq for TimedTextRuby {}
+impl ::core::fmt::Debug for TimedTextRuby {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextRuby").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextRuby {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextRuby;{10335c29-5b3c-5693-9959-d05a0bd24628})");
 }
@@ -12121,6 +12585,11 @@ impl ::core::cmp::PartialEq for TimedTextRubyAlign {
     }
 }
 impl ::core::cmp::Eq for TimedTextRubyAlign {}
+impl ::core::fmt::Debug for TimedTextRubyAlign {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextRubyAlign").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextRubyAlign {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextRubyAlign;i4)");
 }
@@ -12150,6 +12619,11 @@ impl ::core::cmp::PartialEq for TimedTextRubyPosition {
     }
 }
 impl ::core::cmp::Eq for TimedTextRubyPosition {}
+impl ::core::fmt::Debug for TimedTextRubyPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextRubyPosition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextRubyPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextRubyPosition;i4)");
 }
@@ -12181,6 +12655,11 @@ impl ::core::cmp::PartialEq for TimedTextRubyReserve {
     }
 }
 impl ::core::cmp::Eq for TimedTextRubyReserve {}
+impl ::core::fmt::Debug for TimedTextRubyReserve {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextRubyReserve").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextRubyReserve {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextRubyReserve;i4)");
 }
@@ -12209,6 +12688,11 @@ impl ::core::cmp::PartialEq for TimedTextScrollMode {
     }
 }
 impl ::core::cmp::Eq for TimedTextScrollMode {}
+impl ::core::fmt::Debug for TimedTextScrollMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextScrollMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextScrollMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextScrollMode;i4)");
 }
@@ -12226,6 +12710,11 @@ impl ::core::marker::Copy for TimedTextSize {}
 impl ::core::clone::Clone for TimedTextSize {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TimedTextSize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TimedTextSize").field("Height", &self.Height).field("Width", &self.Width).field("Unit", &self.Unit).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TimedTextSize {
@@ -12353,6 +12842,11 @@ impl ::core::cmp::PartialEq for TimedTextSource {
     }
 }
 impl ::core::cmp::Eq for TimedTextSource {}
+impl ::core::fmt::Debug for TimedTextSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextSource;{c4ed9ba6-101f-404d-a949-82f33fcd93b7})");
 }
@@ -12438,6 +12932,11 @@ impl ::core::cmp::PartialEq for TimedTextSourceResolveResultEventArgs {
     }
 }
 impl ::core::cmp::Eq for TimedTextSourceResolveResultEventArgs {}
+impl ::core::fmt::Debug for TimedTextSourceResolveResultEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextSourceResolveResultEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextSourceResolveResultEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextSourceResolveResultEventArgs;{48907c9c-dcd8-4c33-9ad3-6cdce7b1c566})");
 }
@@ -12769,6 +13268,11 @@ impl ::core::cmp::PartialEq for TimedTextStyle {
     }
 }
 impl ::core::cmp::Eq for TimedTextStyle {}
+impl ::core::fmt::Debug for TimedTextStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextStyle;{1bb2384d-a825-40c2-a7f5-281eaedf3b55})");
 }
@@ -12883,6 +13387,11 @@ impl ::core::cmp::PartialEq for TimedTextSubformat {
     }
 }
 impl ::core::cmp::Eq for TimedTextSubformat {}
+impl ::core::fmt::Debug for TimedTextSubformat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextSubformat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextSubformat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextSubformat;{d713502f-3261-4722-a0c2-b937b2390f14})");
 }
@@ -12957,6 +13466,11 @@ impl ::core::cmp::PartialEq for TimedTextUnit {
     }
 }
 impl ::core::cmp::Eq for TimedTextUnit {}
+impl ::core::fmt::Debug for TimedTextUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextUnit;i4)");
 }
@@ -12985,6 +13499,11 @@ impl ::core::cmp::PartialEq for TimedTextWeight {
     }
 }
 impl ::core::cmp::Eq for TimedTextWeight {}
+impl ::core::fmt::Debug for TimedTextWeight {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextWeight").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextWeight {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextWeight;i4)");
 }
@@ -13013,6 +13532,11 @@ impl ::core::cmp::PartialEq for TimedTextWrapping {
     }
 }
 impl ::core::cmp::Eq for TimedTextWrapping {}
+impl ::core::fmt::Debug for TimedTextWrapping {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextWrapping").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextWrapping {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextWrapping;i4)");
 }
@@ -13046,6 +13570,11 @@ impl ::core::cmp::PartialEq for TimedTextWritingMode {
     }
 }
 impl ::core::cmp::Eq for TimedTextWritingMode {}
+impl ::core::fmt::Debug for TimedTextWritingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextWritingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedTextWritingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextWritingMode;i4)");
 }
@@ -13111,6 +13640,11 @@ impl ::core::cmp::PartialEq for VideoStabilizationEffect {
     }
 }
 impl ::core::cmp::Eq for VideoStabilizationEffect {}
+impl ::core::fmt::Debug for VideoStabilizationEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoStabilizationEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoStabilizationEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.VideoStabilizationEffect;{0808a650-9698-4e57-877b-bd7cb2ee0f8a})");
 }
@@ -13232,6 +13766,12 @@ impl ::core::cmp::PartialEq for VideoStabilizationEffectDefinition {
 #[cfg(feature = "Media_Effects")]
 impl ::core::cmp::Eq for VideoStabilizationEffectDefinition {}
 #[cfg(feature = "Media_Effects")]
+impl ::core::fmt::Debug for VideoStabilizationEffectDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoStabilizationEffectDefinition").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Media_Effects")]
 unsafe impl ::windows::core::RuntimeType for VideoStabilizationEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.VideoStabilizationEffectDefinition;{39f38cf0-8d0f-4f3e-84fc-2d46a5297943})");
 }
@@ -13346,6 +13886,11 @@ impl ::core::cmp::PartialEq for VideoStabilizationEffectEnabledChangedEventArgs 
     }
 }
 impl ::core::cmp::Eq for VideoStabilizationEffectEnabledChangedEventArgs {}
+impl ::core::fmt::Debug for VideoStabilizationEffectEnabledChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoStabilizationEffectEnabledChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoStabilizationEffectEnabledChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.VideoStabilizationEffectEnabledChangedEventArgs;{187eff28-67bb-4713-b900-4168da164529})");
 }
@@ -13421,6 +13966,11 @@ impl ::core::cmp::PartialEq for VideoStabilizationEffectEnabledChangedReason {
     }
 }
 impl ::core::cmp::Eq for VideoStabilizationEffectEnabledChangedReason {}
+impl ::core::fmt::Debug for VideoStabilizationEffectEnabledChangedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoStabilizationEffectEnabledChangedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoStabilizationEffectEnabledChangedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.VideoStabilizationEffectEnabledChangedReason;i4)");
 }
@@ -13520,6 +14070,11 @@ impl ::core::cmp::PartialEq for VideoStreamDescriptor {
     }
 }
 impl ::core::cmp::Eq for VideoStreamDescriptor {}
+impl ::core::fmt::Debug for VideoStreamDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoStreamDescriptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoStreamDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.VideoStreamDescriptor;{12ee0d55-9c2b-4440-8057-2c7a90f0cbec})");
 }
@@ -13718,6 +14273,11 @@ impl ::core::cmp::PartialEq for VideoTrack {
     }
 }
 impl ::core::cmp::Eq for VideoTrack {}
+impl ::core::fmt::Debug for VideoTrack {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoTrack").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoTrack {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.VideoTrack;{03e1fafc-c931-491a-b46b-c10ee8c256b7})");
 }
@@ -13816,6 +14376,11 @@ impl ::core::cmp::PartialEq for VideoTrackOpenFailedEventArgs {
     }
 }
 impl ::core::cmp::Eq for VideoTrackOpenFailedEventArgs {}
+impl ::core::fmt::Debug for VideoTrackOpenFailedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoTrackOpenFailedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoTrackOpenFailedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.VideoTrackOpenFailedEventArgs;{7679e231-04f9-4c82-a4ee-8602c8bb4754})");
 }
@@ -13900,6 +14465,11 @@ impl ::core::cmp::PartialEq for VideoTrackSupportInfo {
     }
 }
 impl ::core::cmp::Eq for VideoTrackSupportInfo {}
+impl ::core::fmt::Debug for VideoTrackSupportInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoTrackSupportInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoTrackSupportInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.VideoTrackSupportInfo;{4bb534a0-fc5f-450d-8ff0-778d590486de})");
 }

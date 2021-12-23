@@ -104,6 +104,11 @@ impl ::core::cmp::PartialEq for IEnumNetworkConnections {
     }
 }
 impl ::core::cmp::Eq for IEnumNetworkConnections {}
+impl ::core::fmt::Debug for IEnumNetworkConnections {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumNetworkConnections").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumNetworkConnections {
     type Vtable = IEnumNetworkConnectionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00006_570f_4a9b_8d69_199fdba5723b);
@@ -234,6 +239,11 @@ impl ::core::cmp::PartialEq for IEnumNetworks {
     }
 }
 impl ::core::cmp::Eq for IEnumNetworks {}
+impl ::core::fmt::Debug for IEnumNetworks {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumNetworks").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumNetworks {
     type Vtable = IEnumNetworksVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00003_570f_4a9b_8d69_199fdba5723b);
@@ -406,6 +416,11 @@ impl ::core::cmp::PartialEq for INetwork {
     }
 }
 impl ::core::cmp::Eq for INetwork {}
+impl ::core::fmt::Debug for INetwork {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetwork").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetwork {
     type Vtable = INetworkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00002_570f_4a9b_8d69_199fdba5723b);
@@ -559,6 +574,11 @@ impl ::core::cmp::PartialEq for INetworkConnection {
     }
 }
 impl ::core::cmp::Eq for INetworkConnection {}
+impl ::core::fmt::Debug for INetworkConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetworkConnection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetworkConnection {
     type Vtable = INetworkConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00005_570f_4a9b_8d69_199fdba5723b);
@@ -632,6 +652,11 @@ impl ::core::cmp::PartialEq for INetworkConnectionCost {
     }
 }
 impl ::core::cmp::Eq for INetworkConnectionCost {}
+impl ::core::fmt::Debug for INetworkConnectionCost {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetworkConnectionCost").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetworkConnectionCost {
     type Vtable = INetworkConnectionCostVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb0000a_570f_4a9b_8d69_199fdba5723b);
@@ -690,6 +715,11 @@ impl ::core::cmp::PartialEq for INetworkConnectionCostEvents {
     }
 }
 impl ::core::cmp::Eq for INetworkConnectionCostEvents {}
+impl ::core::fmt::Debug for INetworkConnectionCostEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetworkConnectionCostEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetworkConnectionCostEvents {
     type Vtable = INetworkConnectionCostEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb0000b_570f_4a9b_8d69_199fdba5723b);
@@ -747,6 +777,11 @@ impl ::core::cmp::PartialEq for INetworkConnectionEvents {
     }
 }
 impl ::core::cmp::Eq for INetworkConnectionEvents {}
+impl ::core::fmt::Debug for INetworkConnectionEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetworkConnectionEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetworkConnectionEvents {
     type Vtable = INetworkConnectionEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00007_570f_4a9b_8d69_199fdba5723b);
@@ -809,6 +844,11 @@ impl ::core::cmp::PartialEq for INetworkCostManager {
     }
 }
 impl ::core::cmp::Eq for INetworkCostManager {}
+impl ::core::fmt::Debug for INetworkCostManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetworkCostManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetworkCostManager {
     type Vtable = INetworkCostManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00008_570f_4a9b_8d69_199fdba5723b);
@@ -868,6 +908,11 @@ impl ::core::cmp::PartialEq for INetworkCostManagerEvents {
     }
 }
 impl ::core::cmp::Eq for INetworkCostManagerEvents {}
+impl ::core::fmt::Debug for INetworkCostManagerEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetworkCostManagerEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetworkCostManagerEvents {
     type Vtable = INetworkCostManagerEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00009_570f_4a9b_8d69_199fdba5723b);
@@ -933,6 +978,11 @@ impl ::core::cmp::PartialEq for INetworkEvents {
     }
 }
 impl ::core::cmp::Eq for INetworkEvents {}
+impl ::core::fmt::Debug for INetworkEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetworkEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetworkEvents {
     type Vtable = INetworkEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00004_570f_4a9b_8d69_199fdba5723b);
@@ -1073,6 +1123,11 @@ impl ::core::cmp::PartialEq for INetworkListManager {
     }
 }
 impl ::core::cmp::Eq for INetworkListManager {}
+impl ::core::fmt::Debug for INetworkListManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetworkListManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetworkListManager {
     type Vtable = INetworkListManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00000_570f_4a9b_8d69_199fdba5723b);
@@ -1141,6 +1196,11 @@ impl ::core::cmp::PartialEq for INetworkListManagerEvents {
     }
 }
 impl ::core::cmp::Eq for INetworkListManagerEvents {}
+impl ::core::fmt::Debug for INetworkListManagerEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetworkListManagerEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetworkListManagerEvents {
     type Vtable = INetworkListManagerEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00001_570f_4a9b_8d69_199fdba5723b);
@@ -1209,6 +1269,12 @@ impl ::core::marker::Copy for NLM_DATAPLAN_STATUS {}
 impl ::core::clone::Clone for NLM_DATAPLAN_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NLM_DATAPLAN_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NLM_DATAPLAN_STATUS").field("InterfaceGuid", &self.InterfaceGuid).field("UsageData", &self.UsageData).field("DataLimitInMegabytes", &self.DataLimitInMegabytes).field("InboundBandwidthInKbps", &self.InboundBandwidthInKbps).field("OutboundBandwidthInKbps", &self.OutboundBandwidthInKbps).field("NextBillingCycle", &self.NextBillingCycle).field("MaxTransferSizeInMegabytes", &self.MaxTransferSizeInMegabytes).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1297,6 +1363,11 @@ impl ::core::clone::Clone for NLM_SIMULATED_PROFILE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for NLM_SIMULATED_PROFILE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NLM_SIMULATED_PROFILE_INFO").field("ProfileName", &self.ProfileName).field("cost", &self.cost).field("UsageInMegabytes", &self.UsageInMegabytes).field("DataLimitInMegabytes", &self.DataLimitInMegabytes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NLM_SIMULATED_PROFILE_INFO {
     type Abi = Self;
 }
@@ -1320,6 +1391,11 @@ impl ::core::marker::Copy for NLM_SOCKADDR {}
 impl ::core::clone::Clone for NLM_SOCKADDR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NLM_SOCKADDR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NLM_SOCKADDR").field("data", &self.data).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NLM_SOCKADDR {
@@ -1351,6 +1427,12 @@ impl ::core::marker::Copy for NLM_USAGE_DATA {}
 impl ::core::clone::Clone for NLM_USAGE_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NLM_USAGE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NLM_USAGE_DATA").field("UsageInMegabytes", &self.UsageInMegabytes).field("LastSyncTime", &self.LastSyncTime).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

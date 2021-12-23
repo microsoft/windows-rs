@@ -76,6 +76,11 @@ impl ::core::cmp::PartialEq for AddResourcePackageOptions {
     }
 }
 impl ::core::cmp::Eq for AddResourcePackageOptions {}
+impl ::core::fmt::Debug for AddResourcePackageOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AddResourcePackageOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AddResourcePackageOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AddResourcePackageOptions;u4)");
 }
@@ -123,6 +128,11 @@ impl ::core::cmp::PartialEq for AppDisplayInfo {
     }
 }
 impl ::core::cmp::Eq for AppDisplayInfo {}
+impl ::core::fmt::Debug for AppDisplayInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppDisplayInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppDisplayInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppDisplayInfo;{1aeb1103-e4d4-41aa-a4f6-c4a276e79eac})");
 }
@@ -198,6 +208,11 @@ impl ::core::cmp::PartialEq for AppExecutionContext {
     }
 }
 impl ::core::cmp::Eq for AppExecutionContext {}
+impl ::core::fmt::Debug for AppExecutionContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppExecutionContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppExecutionContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppExecutionContext;i4)");
 }
@@ -303,6 +318,11 @@ impl ::core::cmp::PartialEq for AppInfo {
     }
 }
 impl ::core::cmp::Eq for AppInfo {}
+impl ::core::fmt::Debug for AppInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppInfo;{cf7f59b3-6a09-4de8-a6c0-5792d56880d1})");
 }
@@ -506,6 +526,11 @@ impl ::core::cmp::PartialEq for AppInstallerInfo {
     }
 }
 impl ::core::cmp::Eq for AppInstallerInfo {}
+impl ::core::fmt::Debug for AppInstallerInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppInstallerInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppInstallerInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppInstallerInfo;{29ab2ac0-d4f6-42a3-adcd-d6583c659508})");
 }
@@ -580,6 +605,11 @@ impl ::core::cmp::PartialEq for AppInstallerPolicySource {
     }
 }
 impl ::core::cmp::Eq for AppInstallerPolicySource {}
+impl ::core::fmt::Debug for AppInstallerPolicySource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppInstallerPolicySource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppInstallerPolicySource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppInstallerPolicySource;i4)");
 }
@@ -662,6 +692,11 @@ impl ::core::cmp::PartialEq for AppInstance {
     }
 }
 impl ::core::cmp::Eq for AppInstance {}
+impl ::core::fmt::Debug for AppInstance {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppInstance").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppInstance {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppInstance;{675f2b47-f25f-4532-9fd6-3633e0634d01})");
 }
@@ -786,6 +821,11 @@ impl ::core::cmp::PartialEq for EnteredBackgroundEventArgs {
     }
 }
 impl ::core::cmp::Eq for EnteredBackgroundEventArgs {}
+impl ::core::fmt::Debug for EnteredBackgroundEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EnteredBackgroundEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EnteredBackgroundEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.EnteredBackgroundEventArgs;{f722dcc2-9827-403d-aaed-ecca9ac17398})");
 }
@@ -884,6 +924,11 @@ impl ::core::cmp::PartialEq for FullTrustLaunchResult {
     }
 }
 impl ::core::cmp::Eq for FullTrustLaunchResult {}
+impl ::core::fmt::Debug for FullTrustLaunchResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FullTrustLaunchResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FullTrustLaunchResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.FullTrustLaunchResult;i4)");
 }
@@ -922,6 +967,11 @@ impl ::core::cmp::PartialEq for FullTrustProcessLaunchResult {
     }
 }
 impl ::core::cmp::Eq for FullTrustProcessLaunchResult {}
+impl ::core::fmt::Debug for FullTrustProcessLaunchResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FullTrustProcessLaunchResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FullTrustProcessLaunchResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.FullTrustProcessLaunchResult;{8917d888-edfb-515f-8e22-5ebceb69dfd9})");
 }
@@ -1376,6 +1426,11 @@ impl ::core::cmp::PartialEq for IEnteredBackgroundEventArgs {
     }
 }
 impl ::core::cmp::Eq for IEnteredBackgroundEventArgs {}
+impl ::core::fmt::Debug for IEnteredBackgroundEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnteredBackgroundEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IEnteredBackgroundEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f722dcc2-9827-403d-aaed-ecca9ac17398}");
 }
@@ -1525,6 +1580,11 @@ impl ::core::cmp::PartialEq for ILeavingBackgroundEventArgs {
     }
 }
 impl ::core::cmp::Eq for ILeavingBackgroundEventArgs {}
+impl ::core::fmt::Debug for ILeavingBackgroundEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILeavingBackgroundEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ILeavingBackgroundEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{39c6ec9a-ae6e-46f9-a07a-cfc23f88733e}");
 }
@@ -2399,6 +2459,11 @@ impl ::core::cmp::PartialEq for ISuspendingDeferral {
     }
 }
 impl ::core::cmp::Eq for ISuspendingDeferral {}
+impl ::core::fmt::Debug for ISuspendingDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISuspendingDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISuspendingDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{59140509-8bc9-4eb4-b636-dabdc4f46f66}");
 }
@@ -2481,6 +2546,11 @@ impl ::core::cmp::PartialEq for ISuspendingEventArgs {
     }
 }
 impl ::core::cmp::Eq for ISuspendingEventArgs {}
+impl ::core::fmt::Debug for ISuspendingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISuspendingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISuspendingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{96061c05-2dba-4d08-b0bd-2b30a131c6aa}");
 }
@@ -2572,6 +2642,11 @@ impl ::core::cmp::PartialEq for ISuspendingOperation {
     }
 }
 impl ::core::cmp::Eq for ISuspendingOperation {}
+impl ::core::fmt::Debug for ISuspendingOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISuspendingOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISuspendingOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9da4ca41-20e1-4e9b-9f65-a9f435340c3a}");
 }
@@ -2617,6 +2692,11 @@ impl ::core::cmp::PartialEq for LeavingBackgroundEventArgs {
     }
 }
 impl ::core::cmp::Eq for LeavingBackgroundEventArgs {}
+impl ::core::fmt::Debug for LeavingBackgroundEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LeavingBackgroundEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LeavingBackgroundEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LeavingBackgroundEventArgs;{39c6ec9a-ae6e-46f9-a07a-cfc23f88733e})");
 }
@@ -2732,6 +2812,11 @@ impl ::core::cmp::PartialEq for LimitedAccessFeatureRequestResult {
     }
 }
 impl ::core::cmp::Eq for LimitedAccessFeatureRequestResult {}
+impl ::core::fmt::Debug for LimitedAccessFeatureRequestResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LimitedAccessFeatureRequestResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LimitedAccessFeatureRequestResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LimitedAccessFeatureRequestResult;{d45156a6-1e24-5ddd-abb4-6188aba4d5bf})");
 }
@@ -2808,6 +2893,11 @@ impl ::core::cmp::PartialEq for LimitedAccessFeatureStatus {
     }
 }
 impl ::core::cmp::Eq for LimitedAccessFeatureStatus {}
+impl ::core::fmt::Debug for LimitedAccessFeatureStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LimitedAccessFeatureStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LimitedAccessFeatureStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.LimitedAccessFeatureStatus;i4)");
 }
@@ -3207,6 +3297,11 @@ impl ::core::cmp::PartialEq for Package {
     }
 }
 impl ::core::cmp::Eq for Package {}
+impl ::core::fmt::Debug for Package {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Package").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Package {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Package;{163c792f-bd75-413c-bf23-b1fe7b95d825})");
 }
@@ -3420,6 +3515,11 @@ impl ::core::cmp::PartialEq for PackageCatalog {
     }
 }
 impl ::core::cmp::Eq for PackageCatalog {}
+impl ::core::fmt::Debug for PackageCatalog {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageCatalog").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageCatalog {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalog;{230a3751-9de3-4445-be74-91fb325abefe})");
 }
@@ -3502,6 +3602,11 @@ impl ::core::cmp::PartialEq for PackageCatalogAddOptionalPackageResult {
     }
 }
 impl ::core::cmp::Eq for PackageCatalogAddOptionalPackageResult {}
+impl ::core::fmt::Debug for PackageCatalogAddOptionalPackageResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageCatalogAddOptionalPackageResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageCatalogAddOptionalPackageResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalogAddOptionalPackageResult;{3bf10cd4-b4df-47b3-a963-e2fa832f7dd3})");
 }
@@ -3592,6 +3697,11 @@ impl ::core::cmp::PartialEq for PackageCatalogAddResourcePackageResult {
     }
 }
 impl ::core::cmp::Eq for PackageCatalogAddResourcePackageResult {}
+impl ::core::fmt::Debug for PackageCatalogAddResourcePackageResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageCatalogAddResourcePackageResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageCatalogAddResourcePackageResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalogAddResourcePackageResult;{9636ce0d-3e17-493f-aa08-ccec6fdef699})");
 }
@@ -3677,6 +3787,11 @@ impl ::core::cmp::PartialEq for PackageCatalogRemoveOptionalPackagesResult {
     }
 }
 impl ::core::cmp::Eq for PackageCatalogRemoveOptionalPackagesResult {}
+impl ::core::fmt::Debug for PackageCatalogRemoveOptionalPackagesResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageCatalogRemoveOptionalPackagesResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageCatalogRemoveOptionalPackagesResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalogRemoveOptionalPackagesResult;{29d2f97b-d974-4e64-9359-22cadfd79828})");
 }
@@ -3760,6 +3875,11 @@ impl ::core::cmp::PartialEq for PackageCatalogRemoveResourcePackagesResult {
     }
 }
 impl ::core::cmp::Eq for PackageCatalogRemoveResourcePackagesResult {}
+impl ::core::fmt::Debug for PackageCatalogRemoveResourcePackagesResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageCatalogRemoveResourcePackagesResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageCatalogRemoveResourcePackagesResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalogRemoveResourcePackagesResult;{ae719709-1a52-4321-87b3-e5a1a17981a7})");
 }
@@ -3872,6 +3992,11 @@ impl ::core::cmp::PartialEq for PackageContentGroup {
     }
 }
 impl ::core::cmp::Eq for PackageContentGroup {}
+impl ::core::fmt::Debug for PackageContentGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageContentGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageContentGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageContentGroup;{8f62695d-120a-4798-b5e1-5800dda8f2e1})");
 }
@@ -3996,6 +4121,11 @@ impl ::core::cmp::PartialEq for PackageContentGroupStagingEventArgs {
     }
 }
 impl ::core::cmp::Eq for PackageContentGroupStagingEventArgs {}
+impl ::core::fmt::Debug for PackageContentGroupStagingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageContentGroupStagingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageContentGroupStagingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageContentGroupStagingEventArgs;{3d7bc27e-6f27-446c-986e-d4733d4d9113})");
 }
@@ -4072,6 +4202,11 @@ impl ::core::cmp::PartialEq for PackageContentGroupState {
     }
 }
 impl ::core::cmp::Eq for PackageContentGroupState {}
+impl ::core::fmt::Debug for PackageContentGroupState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageContentGroupState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageContentGroupState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageContentGroupState;i4)");
 }
@@ -4175,6 +4310,11 @@ impl ::core::cmp::PartialEq for PackageId {
     }
 }
 impl ::core::cmp::Eq for PackageId {}
+impl ::core::fmt::Debug for PackageId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageId").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageId;{1adb665e-37c7-4790-9980-dd7ae74e8bb2})");
 }
@@ -4236,6 +4376,11 @@ impl ::core::marker::Copy for PackageInstallProgress {}
 impl ::core::clone::Clone for PackageInstallProgress {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PackageInstallProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PackageInstallProgress").field("PercentComplete", &self.PercentComplete).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PackageInstallProgress {
@@ -4314,6 +4459,11 @@ impl ::core::cmp::PartialEq for PackageInstallingEventArgs {
     }
 }
 impl ::core::cmp::Eq for PackageInstallingEventArgs {}
+impl ::core::fmt::Debug for PackageInstallingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageInstallingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageInstallingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageInstallingEventArgs;{97741eb7-ab7a-401a-8b61-eb0e7faff237})");
 }
@@ -4391,6 +4541,11 @@ impl ::core::cmp::PartialEq for PackageSignatureKind {
     }
 }
 impl ::core::cmp::Eq for PackageSignatureKind {}
+impl ::core::fmt::Debug for PackageSignatureKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageSignatureKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageSignatureKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageSignatureKind;i4)");
 }
@@ -4453,6 +4608,11 @@ impl ::core::cmp::PartialEq for PackageStagingEventArgs {
     }
 }
 impl ::core::cmp::Eq for PackageStagingEventArgs {}
+impl ::core::fmt::Debug for PackageStagingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageStagingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageStagingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageStagingEventArgs;{1041682d-54e2-4f51-b828-9ef7046c210f})");
 }
@@ -4625,6 +4785,11 @@ impl ::core::cmp::PartialEq for PackageStatus {
     }
 }
 impl ::core::cmp::Eq for PackageStatus {}
+impl ::core::fmt::Debug for PackageStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageStatus;{5fe74f71-a365-4c09-a02d-046d525ea1da})");
 }
@@ -4701,6 +4866,11 @@ impl ::core::cmp::PartialEq for PackageStatusChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PackageStatusChangedEventArgs {}
+impl ::core::fmt::Debug for PackageStatusChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageStatusChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageStatusChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageStatusChangedEventArgs;{437d714d-bd80-4a70-bc50-f6e796509575})");
 }
@@ -4809,6 +4979,11 @@ impl ::core::cmp::PartialEq for PackageUninstallingEventArgs {
     }
 }
 impl ::core::cmp::Eq for PackageUninstallingEventArgs {}
+impl ::core::fmt::Debug for PackageUninstallingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageUninstallingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageUninstallingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageUninstallingEventArgs;{4443aa52-ab22-44cd-82bb-4ec9b827367a})");
 }
@@ -4886,6 +5061,11 @@ impl ::core::cmp::PartialEq for PackageUpdateAvailability {
     }
 }
 impl ::core::cmp::Eq for PackageUpdateAvailability {}
+impl ::core::fmt::Debug for PackageUpdateAvailability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageUpdateAvailability").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageUpdateAvailability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageUpdateAvailability;i4)");
 }
@@ -4924,6 +5104,11 @@ impl ::core::cmp::PartialEq for PackageUpdateAvailabilityResult {
     }
 }
 impl ::core::cmp::Eq for PackageUpdateAvailabilityResult {}
+impl ::core::fmt::Debug for PackageUpdateAvailabilityResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageUpdateAvailabilityResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageUpdateAvailabilityResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageUpdateAvailabilityResult;{114e5009-199a-48a1-a079-313c45634a71})");
 }
@@ -5040,6 +5225,11 @@ impl ::core::cmp::PartialEq for PackageUpdatingEventArgs {
     }
 }
 impl ::core::cmp::Eq for PackageUpdatingEventArgs {}
+impl ::core::fmt::Debug for PackageUpdatingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageUpdatingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageUpdatingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageUpdatingEventArgs;{cd7b4228-fd74-443e-b114-23e677b0e86f})");
 }
@@ -5104,6 +5294,11 @@ impl ::core::marker::Copy for PackageVersion {}
 impl ::core::clone::Clone for PackageVersion {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PackageVersion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PackageVersion").field("Major", &self.Major).field("Minor", &self.Minor).field("Build", &self.Build).field("Revision", &self.Revision).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PackageVersion {
@@ -5193,6 +5388,11 @@ impl ::core::cmp::PartialEq for StartupTask {
     }
 }
 impl ::core::cmp::Eq for StartupTask {}
+impl ::core::fmt::Debug for StartupTask {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StartupTask").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StartupTask {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.StartupTask;{f75c23c8-b5f2-4f6c-88dd-36cb1d599d17})");
 }
@@ -5270,6 +5470,11 @@ impl ::core::cmp::PartialEq for StartupTaskState {
     }
 }
 impl ::core::cmp::Eq for StartupTaskState {}
+impl ::core::fmt::Debug for StartupTaskState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StartupTaskState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StartupTaskState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.StartupTaskState;i4)");
 }
@@ -5297,6 +5502,11 @@ impl ::core::cmp::PartialEq for SuspendingDeferral {
     }
 }
 impl ::core::cmp::Eq for SuspendingDeferral {}
+impl ::core::fmt::Debug for SuspendingDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SuspendingDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SuspendingDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SuspendingDeferral;{59140509-8bc9-4eb4-b636-dabdc4f46f66})");
 }
@@ -5395,6 +5605,11 @@ impl ::core::cmp::PartialEq for SuspendingEventArgs {
     }
 }
 impl ::core::cmp::Eq for SuspendingEventArgs {}
+impl ::core::fmt::Debug for SuspendingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SuspendingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SuspendingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SuspendingEventArgs;{96061c05-2dba-4d08-b0bd-2b30a131c6aa})");
 }
@@ -5502,6 +5717,11 @@ impl ::core::cmp::PartialEq for SuspendingOperation {
     }
 }
 impl ::core::cmp::Eq for SuspendingOperation {}
+impl ::core::fmt::Debug for SuspendingOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SuspendingOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SuspendingOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SuspendingOperation;{9da4ca41-20e1-4e9b-9f65-a9f435340c3a})");
 }

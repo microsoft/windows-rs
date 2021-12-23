@@ -1,7 +1,8 @@
 use super::*;
 
 pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = gen_ident(def.name());
+    let name = def.name();
+    let ident = gen_ident(name);
     let underlying_type = def.underlying_type();
     let underlying_type = gen_element_name(&underlying_type, gen);
     let is_scoped = def.is_scoped();
@@ -39,15 +40,15 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
             #doc
             #features
             #[repr(transparent)]
-            pub struct #name(pub #underlying_type);
+            pub struct #ident(pub #underlying_type);
             #features
-            impl #name {
+            impl #ident {
                 #(#fields)*
             }
             #features
-            impl ::core::marker::Copy for #name {}
+            impl ::core::marker::Copy for #ident {}
             #features
-            impl ::core::clone::Clone for #name {
+            impl ::core::clone::Clone for #ident {
                 fn clone(&self) -> Self {
                     *self
                 }
@@ -58,14 +59,14 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
             quote! {
                 #doc
                 #features
-                pub const #field_name: #name = #value;
+                pub const #field_name: #ident = #value;
             }
         });
 
         quote! {
             #doc
             #features
-            pub type #name = #underlying_type;
+            pub type #ident = #underlying_type;
             #(#fields)*
         }
     };
@@ -74,17 +75,23 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
         if is_scoped {
             tokens.combine(&quote! {
                 #features
-                unsafe impl ::windows::core::Abi for #name {
+                unsafe impl ::windows::core::Abi for #ident {
                     type Abi = Self;
                 }
                 #features
-                impl ::core::cmp::PartialEq for #name {
+                impl ::core::cmp::PartialEq for #ident {
                     fn eq(&self, other: &Self) -> bool {
                         self.0 == other.0
                     }
                 }
                 #features
-                impl ::core::cmp::Eq for #name {}
+                impl ::core::cmp::Eq for #ident {}
+                #features
+                impl ::core::fmt::Debug for #ident {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                        f.debug_tuple(#name).field(&self.0).finish()
+                    }
+                }
             });
         }
 
@@ -93,11 +100,11 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
 
             tokens.combine(&quote! {
                 #features
-                unsafe impl ::windows::core::RuntimeType for #name {
+                unsafe impl ::windows::core::RuntimeType for #ident {
                     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(#signature);
                 }
                 #features
-                impl ::windows::core::DefaultType for #name {
+                impl ::windows::core::DefaultType for #ident {
                     type DefaultType = Self;
                 }
             });

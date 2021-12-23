@@ -95,6 +95,11 @@ impl ::core::cmp::PartialEq for IAnnotationProvider {
     }
 }
 impl ::core::cmp::Eq for IAnnotationProvider {}
+impl ::core::fmt::Debug for IAnnotationProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAnnotationProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IAnnotationProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{95ba1417-4437-451b-9461-050a49b59d06}");
 }
@@ -182,6 +187,11 @@ impl ::core::cmp::PartialEq for ICustomNavigationProvider {
     }
 }
 impl ::core::cmp::Eq for ICustomNavigationProvider {}
+impl ::core::fmt::Debug for ICustomNavigationProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICustomNavigationProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICustomNavigationProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2bd8a6d0-2fa3-4717-b28c-4917ce54928d}");
 }
@@ -270,6 +280,11 @@ impl ::core::cmp::PartialEq for IDockProvider {
     }
 }
 impl ::core::cmp::Eq for IDockProvider {}
+impl ::core::fmt::Debug for IDockProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDockProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IDockProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{48c243f8-78b1-44a0-ac5f-750757bcde3c}");
 }
@@ -377,6 +392,11 @@ impl ::core::cmp::PartialEq for IDragProvider {
     }
 }
 impl ::core::cmp::Eq for IDragProvider {}
+impl ::core::fmt::Debug for IDragProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDragProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IDragProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2e7786a9-7ffc-4f57-b965-1ef1f373f546}");
 }
@@ -470,6 +490,11 @@ impl ::core::cmp::PartialEq for IDropTargetProvider {
     }
 }
 impl ::core::cmp::Eq for IDropTargetProvider {}
+impl ::core::fmt::Debug for IDropTargetProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDropTargetProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IDropTargetProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7a245bdd-b458-4fe0-98c8-aac89df56d61}");
 }
@@ -563,6 +588,11 @@ impl ::core::cmp::PartialEq for IExpandCollapseProvider {
     }
 }
 impl ::core::cmp::Eq for IExpandCollapseProvider {}
+impl ::core::fmt::Debug for IExpandCollapseProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IExpandCollapseProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IExpandCollapseProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{49ac8399-d626-4543-94b9-a6d9a9593af6}");
 }
@@ -679,6 +709,11 @@ impl ::core::cmp::PartialEq for IGridItemProvider {
     }
 }
 impl ::core::cmp::Eq for IGridItemProvider {}
+impl ::core::fmt::Debug for IGridItemProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGridItemProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IGridItemProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fff3683c-7407-45bb-a936-df3ed6d3837d}");
 }
@@ -781,6 +816,11 @@ impl ::core::cmp::PartialEq for IGridProvider {
     }
 }
 impl ::core::cmp::Eq for IGridProvider {}
+impl ::core::fmt::Debug for IGridProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGridProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IGridProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8b62b7a0-932c-4490-9a13-02fdb39a8f5b}");
 }
@@ -879,6 +919,11 @@ impl ::core::cmp::PartialEq for IInvokeProvider {
     }
 }
 impl ::core::cmp::Eq for IInvokeProvider {}
+impl ::core::fmt::Debug for IInvokeProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInvokeProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IInvokeProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f7d1a187-b13c-4540-b09e-6778e2dc9ba5}");
 }
@@ -961,6 +1006,11 @@ impl ::core::cmp::PartialEq for IItemContainerProvider {
     }
 }
 impl ::core::cmp::Eq for IItemContainerProvider {}
+impl ::core::fmt::Debug for IItemContainerProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IItemContainerProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IItemContainerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ef5cd845-e1d4-40f4-bad5-c7fad44a703e}");
 }
@@ -1064,6 +1114,11 @@ impl ::core::cmp::PartialEq for IMultipleViewProvider {
     }
 }
 impl ::core::cmp::Eq for IMultipleViewProvider {}
+impl ::core::fmt::Debug for IMultipleViewProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMultipleViewProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IMultipleViewProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d014e196-0e50-4843-a5d2-c22897c8845a}");
 }
@@ -1149,6 +1204,11 @@ impl ::core::cmp::PartialEq for IObjectModelProvider {
     }
 }
 impl ::core::cmp::Eq for IObjectModelProvider {}
+impl ::core::fmt::Debug for IObjectModelProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IObjectModelProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IObjectModelProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c3ca36b9-0793-4ed0-bbf4-9ff4e0f98f80}");
 }
@@ -1276,6 +1336,11 @@ impl ::core::cmp::PartialEq for IRangeValueProvider {
     }
 }
 impl ::core::cmp::Eq for IRangeValueProvider {}
+impl ::core::fmt::Debug for IRangeValueProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRangeValueProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IRangeValueProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{838a34a8-7d5f-4079-af03-c3d015e93413}");
 }
@@ -1315,6 +1380,11 @@ impl ::core::cmp::PartialEq for IRawElementProviderSimple {
     }
 }
 impl ::core::cmp::Eq for IRawElementProviderSimple {}
+impl ::core::fmt::Debug for IRawElementProviderSimple {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRawElementProviderSimple").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IRawElementProviderSimple {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Provider.IRawElementProviderSimple;{ec752224-9b77-4720-bb21-4ac89fdb1afd})");
 }
@@ -1448,6 +1518,11 @@ impl ::core::cmp::PartialEq for IScrollItemProvider {
     }
 }
 impl ::core::cmp::Eq for IScrollItemProvider {}
+impl ::core::fmt::Debug for IScrollItemProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IScrollItemProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IScrollItemProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9a3ec090-5d2c-4e42-9ee6-9d58db100b55}");
 }
@@ -1580,6 +1655,11 @@ impl ::core::cmp::PartialEq for IScrollProvider {
     }
 }
 impl ::core::cmp::Eq for IScrollProvider {}
+impl ::core::fmt::Debug for IScrollProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IScrollProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IScrollProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{374bf581-7716-4bbc-82eb-d997006ea999}");
 }
@@ -1692,6 +1772,11 @@ impl ::core::cmp::PartialEq for ISelectionItemProvider {
     }
 }
 impl ::core::cmp::Eq for ISelectionItemProvider {}
+impl ::core::fmt::Debug for ISelectionItemProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISelectionItemProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISelectionItemProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6a4977c1-830d-42d2-bf62-042ebddecc19}");
 }
@@ -1794,6 +1879,11 @@ impl ::core::cmp::PartialEq for ISelectionProvider {
     }
 }
 impl ::core::cmp::Eq for ISelectionProvider {}
+impl ::core::fmt::Debug for ISelectionProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISelectionProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISelectionProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1f018fca-b944-4395-8de1-88f674af51d3}");
 }
@@ -1894,6 +1984,11 @@ impl ::core::cmp::PartialEq for ISpreadsheetItemProvider {
     }
 }
 impl ::core::cmp::Eq for ISpreadsheetItemProvider {}
+impl ::core::fmt::Debug for ISpreadsheetItemProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpreadsheetItemProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISpreadsheetItemProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ebde8f92-6015-4826-b719-47521a81c67e}");
 }
@@ -1978,6 +2073,11 @@ impl ::core::cmp::PartialEq for ISpreadsheetProvider {
     }
 }
 impl ::core::cmp::Eq for ISpreadsheetProvider {}
+impl ::core::fmt::Debug for ISpreadsheetProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpreadsheetProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISpreadsheetProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{15359093-bd99-4cfd-9f07-3b14b315e23d}");
 }
@@ -2108,6 +2208,11 @@ impl ::core::cmp::PartialEq for IStylesProvider {
     }
 }
 impl ::core::cmp::Eq for IStylesProvider {}
+impl ::core::fmt::Debug for IStylesProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStylesProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStylesProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1a5b7a17-7c01-4bec-9cd4-2dfa7dc246cd}");
 }
@@ -2198,6 +2303,11 @@ impl ::core::cmp::PartialEq for ISynchronizedInputProvider {
     }
 }
 impl ::core::cmp::Eq for ISynchronizedInputProvider {}
+impl ::core::fmt::Debug for ISynchronizedInputProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISynchronizedInputProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISynchronizedInputProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3d60cecb-da54-4aa3-b915-e3244427d4ac}");
 }
@@ -2289,6 +2399,11 @@ impl ::core::cmp::PartialEq for ITableItemProvider {
     }
 }
 impl ::core::cmp::Eq for ITableItemProvider {}
+impl ::core::fmt::Debug for ITableItemProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITableItemProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITableItemProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3b2c49cd-1de2-4ee2-a3e1-fb553559d15d}");
 }
@@ -2388,6 +2503,11 @@ impl ::core::cmp::PartialEq for ITableProvider {
     }
 }
 impl ::core::cmp::Eq for ITableProvider {}
+impl ::core::fmt::Debug for ITableProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITableProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITableProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7a8ed399-6824-4595-bab3-464bc9a04417}");
 }
@@ -2480,6 +2600,11 @@ impl ::core::cmp::PartialEq for ITextChildProvider {
     }
 }
 impl ::core::cmp::Eq for ITextChildProvider {}
+impl ::core::fmt::Debug for ITextChildProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextChildProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITextChildProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1133c336-a89b-4130-9be6-55e33334f557}");
 }
@@ -2642,6 +2767,11 @@ impl ::core::cmp::PartialEq for ITextEditProvider {
     }
 }
 impl ::core::cmp::Eq for ITextEditProvider {}
+impl ::core::fmt::Debug for ITextEditProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextEditProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITextEditProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ea3605b4-3a05-400e-b5f9-4e91b40f6176}");
 }
@@ -2766,6 +2896,11 @@ impl ::core::cmp::PartialEq for ITextProvider {
     }
 }
 impl ::core::cmp::Eq for ITextProvider {}
+impl ::core::fmt::Debug for ITextProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITextProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{db5bbc9f-4807-4f2a-8678-1b13f3c60e22}");
 }
@@ -2933,6 +3068,11 @@ impl ::core::cmp::PartialEq for ITextProvider2 {
     }
 }
 impl ::core::cmp::Eq for ITextProvider2 {}
+impl ::core::fmt::Debug for ITextProvider2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextProvider2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITextProvider2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{df1d48bc-0487-4e7f-9d5e-f09e77e41246}");
 }
@@ -3136,6 +3276,11 @@ impl ::core::cmp::PartialEq for ITextRangeProvider {
     }
 }
 impl ::core::cmp::Eq for ITextRangeProvider {}
+impl ::core::fmt::Debug for ITextRangeProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextRangeProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITextRangeProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0274688d-06e9-4f66-9446-28a5be98fbd0}");
 }
@@ -3387,6 +3532,11 @@ impl ::core::cmp::PartialEq for ITextRangeProvider2 {
     }
 }
 impl ::core::cmp::Eq for ITextRangeProvider2 {}
+impl ::core::fmt::Debug for ITextRangeProvider2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextRangeProvider2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITextRangeProvider2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d3be3dfb-9f54-4642-a7a5-5c18d5ee2a3f}");
 }
@@ -3474,6 +3624,11 @@ impl ::core::cmp::PartialEq for IToggleProvider {
     }
 }
 impl ::core::cmp::Eq for IToggleProvider {}
+impl ::core::fmt::Debug for IToggleProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IToggleProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IToggleProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{93b88290-656f-44f7-aeaf-78b8f944d062}");
 }
@@ -3588,6 +3743,11 @@ impl ::core::cmp::PartialEq for ITransformProvider {
     }
 }
 impl ::core::cmp::Eq for ITransformProvider {}
+impl ::core::fmt::Debug for ITransformProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITransformProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITransformProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{79670fdd-f6a9-4a65-af17-861db799a2da}");
 }
@@ -3770,6 +3930,11 @@ impl ::core::cmp::PartialEq for ITransformProvider2 {
     }
 }
 impl ::core::cmp::Eq for ITransformProvider2 {}
+impl ::core::fmt::Debug for ITransformProvider2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITransformProvider2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITransformProvider2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a8b11756-a39f-4e97-8c7d-c1ea8dd633c5}");
 }
@@ -3870,6 +4035,11 @@ impl ::core::cmp::PartialEq for IValueProvider {
     }
 }
 impl ::core::cmp::Eq for IValueProvider {}
+impl ::core::fmt::Debug for IValueProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IValueProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IValueProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2086b7a7-ac0e-47d1-ab9b-2a64292afdf8}");
 }
@@ -3951,6 +4121,11 @@ impl ::core::cmp::PartialEq for IVirtualizedItemProvider {
     }
 }
 impl ::core::cmp::Eq for IVirtualizedItemProvider {}
+impl ::core::fmt::Debug for IVirtualizedItemProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVirtualizedItemProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IVirtualizedItemProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{17d4a04b-d658-48e0-a574-5a516c58dfa7}");
 }
@@ -4091,6 +4266,11 @@ impl ::core::cmp::PartialEq for IWindowProvider {
     }
 }
 impl ::core::cmp::Eq for IWindowProvider {}
+impl ::core::fmt::Debug for IWindowProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWindowProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1baa8b3d-38cf-415a-85d3-20e43a0ec1b1}");
 }

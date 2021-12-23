@@ -183,6 +183,11 @@ impl ::core::cmp::PartialEq for ThreadPoolTimer {
     }
 }
 impl ::core::cmp::Eq for ThreadPoolTimer {}
+impl ::core::fmt::Debug for ThreadPoolTimer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ThreadPoolTimer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ThreadPoolTimer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Threading.ThreadPoolTimer;{594ebe78-55ea-4a88-a50d-3402ae1f9cf2})");
 }
@@ -295,6 +300,11 @@ impl ::core::cmp::PartialEq for TimerDestroyedHandler {
     }
 }
 impl ::core::cmp::Eq for TimerDestroyedHandler {}
+impl ::core::fmt::Debug for TimerDestroyedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimerDestroyedHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for TimerDestroyedHandler {
     type Vtable = TimerDestroyedHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34ed19fa_8384_4eb9_8209_fb5094eeec35);
@@ -365,6 +375,11 @@ impl ::core::cmp::PartialEq for TimerElapsedHandler {
     }
 }
 impl ::core::cmp::Eq for TimerElapsedHandler {}
+impl ::core::fmt::Debug for TimerElapsedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimerElapsedHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for TimerElapsedHandler {
     type Vtable = TimerElapsedHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaaea667_fbeb_49cb_adb2_71184c556e43);
@@ -444,6 +459,12 @@ impl ::core::cmp::PartialEq for WorkItemHandler {
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::Eq for WorkItemHandler {}
 #[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for WorkItemHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WorkItemHandler").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Interface for WorkItemHandler {
     type Vtable = WorkItemHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d1a8b8b_fa66_414f_9cbd_b65fc99d17fa);
@@ -484,6 +505,11 @@ impl ::core::cmp::PartialEq for WorkItemOptions {
     }
 }
 impl ::core::cmp::Eq for WorkItemOptions {}
+impl ::core::fmt::Debug for WorkItemOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WorkItemOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WorkItemOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Threading.WorkItemOptions;u4)");
 }
@@ -513,6 +539,11 @@ impl ::core::cmp::PartialEq for WorkItemPriority {
     }
 }
 impl ::core::cmp::Eq for WorkItemPriority {}
+impl ::core::fmt::Debug for WorkItemPriority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WorkItemPriority").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WorkItemPriority {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Threading.WorkItemPriority;i4)");
 }

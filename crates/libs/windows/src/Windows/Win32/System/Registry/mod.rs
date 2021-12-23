@@ -124,6 +124,11 @@ impl ::core::clone::Clone for DSKTLSYSTEMTIME {
         *self
     }
 }
+impl ::core::fmt::Debug for DSKTLSYSTEMTIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSKTLSYSTEMTIME").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDayOfWeek", &self.wDayOfWeek).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).field("wMilliseconds", &self.wMilliseconds).field("wResult", &self.wResult).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DSKTLSYSTEMTIME {
     type Abi = Self;
 }
@@ -1738,6 +1743,12 @@ impl ::core::clone::Clone for VALENTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VALENTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VALENTA").field("ve_valuename", &self.ve_valuename).field("ve_valuelen", &self.ve_valuelen).field("ve_valueptr", &self.ve_valueptr).field("ve_type", &self.ve_type).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for VALENTA {
     type Abi = Self;
 }
@@ -1770,6 +1781,12 @@ impl ::core::marker::Copy for VALENTW {}
 impl ::core::clone::Clone for VALENTW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VALENTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VALENTW").field("ve_valuename", &self.ve_valuename).field("ve_valuelen", &self.ve_valuelen).field("ve_valueptr", &self.ve_valueptr).field("ve_type", &self.ve_type).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1818,6 +1835,11 @@ impl ::core::clone::Clone for provider_info {
         *self
     }
 }
+impl ::core::fmt::Debug for provider_info {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("provider_info").field("pi_R0_1val", &self.pi_R0_1val.map(|f| f as usize)).field("pi_R0_allvals", &self.pi_R0_allvals.map(|f| f as usize)).field("pi_R3_1val", &self.pi_R3_1val.map(|f| f as usize)).field("pi_R3_allvals", &self.pi_R3_allvals.map(|f| f as usize)).field("pi_flags", &self.pi_flags).field("pi_key_context", &self.pi_key_context).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for provider_info {
     type Abi = Self;
 }
@@ -1847,6 +1869,12 @@ impl ::core::marker::Copy for pvalueA {}
 impl ::core::clone::Clone for pvalueA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for pvalueA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("pvalueA").field("pv_valuename", &self.pv_valuename).field("pv_valuelen", &self.pv_valuelen).field("pv_value_context", &self.pv_value_context).field("pv_type", &self.pv_type).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1885,6 +1913,12 @@ impl ::core::clone::Clone for pvalueW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for pvalueW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("pvalueW").field("pv_valuename", &self.pv_valuename).field("pv_valuelen", &self.pv_valuelen).field("pv_value_context", &self.pv_value_context).field("pv_type", &self.pv_type).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for pvalueW {
     type Abi = Self;
 }
@@ -1913,6 +1947,11 @@ impl ::core::marker::Copy for val_context {}
 impl ::core::clone::Clone for val_context {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for val_context {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("val_context").field("valuelen", &self.valuelen).field("value_context", &self.value_context).field("val_buff_ptr", &self.val_buff_ptr).finish()
     }
 }
 unsafe impl ::windows::core::Abi for val_context {

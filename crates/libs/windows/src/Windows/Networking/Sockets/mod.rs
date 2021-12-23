@@ -15,6 +15,11 @@ impl ::core::clone::Clone for BandwidthStatistics {
         *self
     }
 }
+impl ::core::fmt::Debug for BandwidthStatistics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BandwidthStatistics").field("OutboundBitsPerSecond", &self.OutboundBitsPerSecond).field("InboundBitsPerSecond", &self.InboundBitsPerSecond).field("OutboundBitsPerSecondInstability", &self.OutboundBitsPerSecondInstability).field("InboundBitsPerSecondInstability", &self.InboundBitsPerSecondInstability).field("OutboundBandwidthPeaked", &self.OutboundBandwidthPeaked).field("InboundBandwidthPeaked", &self.InboundBandwidthPeaked).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BandwidthStatistics {
     type Abi = Self;
 }
@@ -162,6 +167,11 @@ impl ::core::cmp::PartialEq for ControlChannelTrigger {
     }
 }
 impl ::core::cmp::Eq for ControlChannelTrigger {}
+impl ::core::fmt::Debug for ControlChannelTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ControlChannelTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ControlChannelTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ControlChannelTrigger;{7d1431a7-ee96-40e8-a199-8703cd969ec3})");
 }
@@ -264,6 +274,11 @@ impl ::core::cmp::PartialEq for ControlChannelTriggerResetReason {
     }
 }
 impl ::core::cmp::Eq for ControlChannelTriggerResetReason {}
+impl ::core::fmt::Debug for ControlChannelTriggerResetReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ControlChannelTriggerResetReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerResetReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerResetReason;i4)");
 }
@@ -292,6 +307,11 @@ impl ::core::cmp::PartialEq for ControlChannelTriggerResourceType {
     }
 }
 impl ::core::cmp::Eq for ControlChannelTriggerResourceType {}
+impl ::core::fmt::Debug for ControlChannelTriggerResourceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ControlChannelTriggerResourceType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerResourceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerResourceType;i4)");
 }
@@ -325,6 +345,11 @@ impl ::core::cmp::PartialEq for ControlChannelTriggerStatus {
     }
 }
 impl ::core::cmp::Eq for ControlChannelTriggerStatus {}
+impl ::core::fmt::Debug for ControlChannelTriggerStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ControlChannelTriggerStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerStatus;i4)");
 }
@@ -524,6 +549,11 @@ impl ::core::cmp::PartialEq for DatagramSocket {
     }
 }
 impl ::core::cmp::Eq for DatagramSocket {}
+impl ::core::fmt::Debug for DatagramSocket {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DatagramSocket").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DatagramSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocket;{7fe25bbb-c3bc-4677-8446-ca28a465a3af})");
 }
@@ -683,6 +713,11 @@ impl ::core::cmp::PartialEq for DatagramSocketControl {
     }
 }
 impl ::core::cmp::Eq for DatagramSocketControl {}
+impl ::core::fmt::Debug for DatagramSocketControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DatagramSocketControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DatagramSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketControl;{52ac3f2e-349a-4135-bb58-b79b2647d390})");
 }
@@ -783,6 +818,11 @@ impl ::core::cmp::PartialEq for DatagramSocketInformation {
     }
 }
 impl ::core::cmp::Eq for DatagramSocketInformation {}
+impl ::core::fmt::Debug for DatagramSocketInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DatagramSocketInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DatagramSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketInformation;{5f1a569a-55fb-48cd-9706-7a974f7b1585})");
 }
@@ -893,6 +933,11 @@ impl ::core::cmp::PartialEq for DatagramSocketMessageReceivedEventArgs {
     }
 }
 impl ::core::cmp::Eq for DatagramSocketMessageReceivedEventArgs {}
+impl ::core::fmt::Debug for DatagramSocketMessageReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DatagramSocketMessageReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DatagramSocketMessageReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs;{9e2ddca2-1712-4ce4-b179-8c652c6d107e})");
 }
@@ -1057,6 +1102,11 @@ impl ::core::cmp::PartialEq for IControlChannelTriggerEventDetails {
     }
 }
 impl ::core::cmp::Eq for IControlChannelTriggerEventDetails {}
+impl ::core::fmt::Debug for IControlChannelTriggerEventDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IControlChannelTriggerEventDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IControlChannelTriggerEventDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1b36e047-89bb-4236-96ac-71d012bb4869}");
 }
@@ -1174,6 +1224,11 @@ impl ::core::cmp::PartialEq for IControlChannelTriggerResetEventDetails {
     }
 }
 impl ::core::cmp::Eq for IControlChannelTriggerResetEventDetails {}
+impl ::core::fmt::Debug for IControlChannelTriggerResetEventDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IControlChannelTriggerResetEventDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IControlChannelTriggerResetEventDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6851038e-8ec4-42fe-9bb2-21e91b7bfcb1}");
 }
@@ -2400,6 +2455,11 @@ impl ::core::cmp::PartialEq for IWebSocket {
     }
 }
 impl ::core::cmp::Eq for IWebSocket {}
+impl ::core::fmt::Debug for IWebSocket {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebSocket").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWebSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f877396f-99b1-4e18-bc08-850c9adf156e}");
 }
@@ -2554,6 +2614,11 @@ impl ::core::cmp::PartialEq for IWebSocketControl {
     }
 }
 impl ::core::cmp::Eq for IWebSocketControl {}
+impl ::core::fmt::Debug for IWebSocketControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebSocketControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWebSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2ec4bdc3-d9a5-455a-9811-de24d45337e9}");
 }
@@ -2722,6 +2787,11 @@ impl ::core::cmp::PartialEq for IWebSocketControl2 {
     }
 }
 impl ::core::cmp::Eq for IWebSocketControl2 {}
+impl ::core::fmt::Debug for IWebSocketControl2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebSocketControl2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWebSocketControl2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{79c3be03-f2ca-461e-af4e-9665bc2d0620}");
 }
@@ -2840,6 +2910,11 @@ impl ::core::cmp::PartialEq for IWebSocketInformation {
     }
 }
 impl ::core::cmp::Eq for IWebSocketInformation {}
+impl ::core::fmt::Debug for IWebSocketInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebSocketInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWebSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5e01e316-c92a-47a5-b25f-07847639d181}");
 }
@@ -2997,6 +3072,11 @@ impl ::core::cmp::PartialEq for IWebSocketInformation2 {
     }
 }
 impl ::core::cmp::Eq for IWebSocketInformation2 {}
+impl ::core::fmt::Debug for IWebSocketInformation2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebSocketInformation2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWebSocketInformation2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ce1d39ce-a1b7-4d43-8269-8d5b981bd47a}");
 }
@@ -3184,6 +3264,11 @@ impl ::core::cmp::PartialEq for MessageWebSocket {
     }
 }
 impl ::core::cmp::Eq for MessageWebSocket {}
+impl ::core::fmt::Debug for MessageWebSocket {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MessageWebSocket").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MessageWebSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocket;{33727d08-34d5-4746-ad7b-8dde5bc2ef88})");
 }
@@ -3439,6 +3524,11 @@ impl ::core::cmp::PartialEq for MessageWebSocketControl {
     }
 }
 impl ::core::cmp::Eq for MessageWebSocketControl {}
+impl ::core::fmt::Debug for MessageWebSocketControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MessageWebSocketControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MessageWebSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocketControl;{8118388a-c629-4f0a-80fb-81fc05538862})");
 }
@@ -3610,6 +3700,11 @@ impl ::core::cmp::PartialEq for MessageWebSocketInformation {
     }
 }
 impl ::core::cmp::Eq for MessageWebSocketInformation {}
+impl ::core::fmt::Debug for MessageWebSocketInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MessageWebSocketInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MessageWebSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocketInformation;{5e01e316-c92a-47a5-b25f-07847639d181})");
 }
@@ -3756,6 +3851,11 @@ impl ::core::cmp::PartialEq for MessageWebSocketMessageReceivedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MessageWebSocketMessageReceivedEventArgs {}
+impl ::core::fmt::Debug for MessageWebSocketMessageReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MessageWebSocketMessageReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MessageWebSocketMessageReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocketMessageReceivedEventArgs;{478c22ac-4c4b-42ed-9ed7-1ef9f94fa3d5})");
 }
@@ -3830,6 +3930,11 @@ impl ::core::cmp::PartialEq for MessageWebSocketReceiveMode {
     }
 }
 impl ::core::cmp::Eq for MessageWebSocketReceiveMode {}
+impl ::core::fmt::Debug for MessageWebSocketReceiveMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MessageWebSocketReceiveMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MessageWebSocketReceiveMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.MessageWebSocketReceiveMode;i4)");
 }
@@ -3848,6 +3953,11 @@ impl ::core::marker::Copy for RoundTripTimeStatistics {}
 impl ::core::clone::Clone for RoundTripTimeStatistics {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RoundTripTimeStatistics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RoundTripTimeStatistics").field("Variance", &self.Variance).field("Max", &self.Max).field("Min", &self.Min).field("Sum", &self.Sum).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RoundTripTimeStatistics {
@@ -3952,6 +4062,11 @@ impl ::core::cmp::PartialEq for ServerMessageWebSocket {
     }
 }
 impl ::core::cmp::Eq for ServerMessageWebSocket {}
+impl ::core::fmt::Debug for ServerMessageWebSocket {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ServerMessageWebSocket").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ServerMessageWebSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerMessageWebSocket;{e3ac9240-813b-5efd-7e11-ae2305fc77f1})");
 }
@@ -4059,6 +4174,11 @@ impl ::core::cmp::PartialEq for ServerMessageWebSocketControl {
     }
 }
 impl ::core::cmp::Eq for ServerMessageWebSocketControl {}
+impl ::core::fmt::Debug for ServerMessageWebSocketControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ServerMessageWebSocketControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ServerMessageWebSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerMessageWebSocketControl;{69c2f051-1c1f-587a-4519-2181610192b7})");
 }
@@ -4151,6 +4271,11 @@ impl ::core::cmp::PartialEq for ServerMessageWebSocketInformation {
     }
 }
 impl ::core::cmp::Eq for ServerMessageWebSocketInformation {}
+impl ::core::fmt::Debug for ServerMessageWebSocketInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ServerMessageWebSocketInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ServerMessageWebSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerMessageWebSocketInformation;{fc32b45f-4448-5505-6cc9-09afa8915f5d})");
 }
@@ -4271,6 +4396,11 @@ impl ::core::cmp::PartialEq for ServerStreamWebSocket {
     }
 }
 impl ::core::cmp::Eq for ServerStreamWebSocket {}
+impl ::core::fmt::Debug for ServerStreamWebSocket {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ServerStreamWebSocket").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ServerStreamWebSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerStreamWebSocket;{2ced5bbf-74f6-55e4-79df-9132680dfee8})");
 }
@@ -4389,6 +4519,11 @@ impl ::core::cmp::PartialEq for ServerStreamWebSocketInformation {
     }
 }
 impl ::core::cmp::Eq for ServerStreamWebSocketInformation {}
+impl ::core::fmt::Debug for ServerStreamWebSocketInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ServerStreamWebSocketInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ServerStreamWebSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerStreamWebSocketInformation;{fc32b45f-4448-5505-6cc9-09aba8915f5d})");
 }
@@ -4463,6 +4598,11 @@ impl ::core::cmp::PartialEq for SocketActivityConnectedStandbyAction {
     }
 }
 impl ::core::cmp::Eq for SocketActivityConnectedStandbyAction {}
+impl ::core::fmt::Debug for SocketActivityConnectedStandbyAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketActivityConnectedStandbyAction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SocketActivityConnectedStandbyAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityConnectedStandbyAction;i4)");
 }
@@ -4507,6 +4647,11 @@ impl ::core::cmp::PartialEq for SocketActivityContext {
     }
 }
 impl ::core::cmp::Eq for SocketActivityContext {}
+impl ::core::fmt::Debug for SocketActivityContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketActivityContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SocketActivityContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.SocketActivityContext;{43b04d64-4c85-4396-a637-1d973f6ebd49})");
 }
@@ -4644,6 +4789,11 @@ impl ::core::cmp::PartialEq for SocketActivityInformation {
     }
 }
 impl ::core::cmp::Eq for SocketActivityInformation {}
+impl ::core::fmt::Debug for SocketActivityInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketActivityInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SocketActivityInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.SocketActivityInformation;{8d8a42e4-a87e-4b74-9968-185b2511defe})");
 }
@@ -4720,6 +4870,11 @@ impl ::core::cmp::PartialEq for SocketActivityKind {
     }
 }
 impl ::core::cmp::Eq for SocketActivityKind {}
+impl ::core::fmt::Debug for SocketActivityKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketActivityKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SocketActivityKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityKind;i4)");
 }
@@ -4758,6 +4913,11 @@ impl ::core::cmp::PartialEq for SocketActivityTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for SocketActivityTriggerDetails {}
+impl ::core::fmt::Debug for SocketActivityTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketActivityTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SocketActivityTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.SocketActivityTriggerDetails;{45f406a7-fc9f-4f81-acad-355fef51e67b})");
 }
@@ -4835,6 +4995,11 @@ impl ::core::cmp::PartialEq for SocketActivityTriggerReason {
     }
 }
 impl ::core::cmp::Eq for SocketActivityTriggerReason {}
+impl ::core::fmt::Debug for SocketActivityTriggerReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketActivityTriggerReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SocketActivityTriggerReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityTriggerReason;i4)");
 }
@@ -4911,6 +5076,11 @@ impl ::core::cmp::PartialEq for SocketErrorStatus {
     }
 }
 impl ::core::cmp::Eq for SocketErrorStatus {}
+impl ::core::fmt::Debug for SocketErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketErrorStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SocketErrorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketErrorStatus;i4)");
 }
@@ -4939,6 +5109,11 @@ impl ::core::cmp::PartialEq for SocketMessageType {
     }
 }
 impl ::core::cmp::Eq for SocketMessageType {}
+impl ::core::fmt::Debug for SocketMessageType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketMessageType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SocketMessageType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketMessageType;i4)");
 }
@@ -4975,6 +5150,11 @@ impl ::core::cmp::PartialEq for SocketProtectionLevel {
     }
 }
 impl ::core::cmp::Eq for SocketProtectionLevel {}
+impl ::core::fmt::Debug for SocketProtectionLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketProtectionLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SocketProtectionLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketProtectionLevel;i4)");
 }
@@ -5003,6 +5183,11 @@ impl ::core::cmp::PartialEq for SocketQualityOfService {
     }
 }
 impl ::core::cmp::Eq for SocketQualityOfService {}
+impl ::core::fmt::Debug for SocketQualityOfService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketQualityOfService").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SocketQualityOfService {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketQualityOfService;i4)");
 }
@@ -5032,6 +5217,11 @@ impl ::core::cmp::PartialEq for SocketSslErrorSeverity {
     }
 }
 impl ::core::cmp::Eq for SocketSslErrorSeverity {}
+impl ::core::fmt::Debug for SocketSslErrorSeverity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketSslErrorSeverity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SocketSslErrorSeverity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketSslErrorSeverity;i4)");
 }
@@ -5211,6 +5401,11 @@ impl ::core::cmp::PartialEq for StreamSocket {
     }
 }
 impl ::core::cmp::Eq for StreamSocket {}
+impl ::core::fmt::Debug for StreamSocket {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StreamSocket").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StreamSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocket;{69a22cf3-fc7b-4857-af38-f6e7de6a5b49})");
 }
@@ -5420,6 +5615,11 @@ impl ::core::cmp::PartialEq for StreamSocketControl {
     }
 }
 impl ::core::cmp::Eq for StreamSocketControl {}
+impl ::core::fmt::Debug for StreamSocketControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StreamSocketControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StreamSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketControl;{fe25adf1-92ab-4af3-9992-0f4c85e36cc4})");
 }
@@ -5604,6 +5804,11 @@ impl ::core::cmp::PartialEq for StreamSocketInformation {
     }
 }
 impl ::core::cmp::Eq for StreamSocketInformation {}
+impl ::core::fmt::Debug for StreamSocketInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StreamSocketInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StreamSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketInformation;{3b80ae30-5e68-4205-88f0-dc85d2e25ded})");
 }
@@ -5781,6 +5986,11 @@ impl ::core::cmp::PartialEq for StreamSocketListener {
     }
 }
 impl ::core::cmp::Eq for StreamSocketListener {}
+impl ::core::fmt::Debug for StreamSocketListener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StreamSocketListener").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StreamSocketListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListener;{ff513437-df9f-4df0-bf82-0ec5d7b35aae})");
 }
@@ -5883,6 +6093,11 @@ impl ::core::cmp::PartialEq for StreamSocketListenerConnectionReceivedEventArgs 
     }
 }
 impl ::core::cmp::Eq for StreamSocketListenerConnectionReceivedEventArgs {}
+impl ::core::fmt::Debug for StreamSocketListenerConnectionReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StreamSocketListenerConnectionReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StreamSocketListenerConnectionReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListenerConnectionReceivedEventArgs;{0c472ea9-373f-447b-85b1-ddd4548803ba})");
 }
@@ -6016,6 +6231,11 @@ impl ::core::cmp::PartialEq for StreamSocketListenerControl {
     }
 }
 impl ::core::cmp::Eq for StreamSocketListenerControl {}
+impl ::core::fmt::Debug for StreamSocketListenerControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StreamSocketListenerControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StreamSocketListenerControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListenerControl;{20d8c576-8d8a-4dba-9722-a16c4d984980})");
 }
@@ -6092,6 +6312,11 @@ impl ::core::cmp::PartialEq for StreamSocketListenerInformation {
     }
 }
 impl ::core::cmp::Eq for StreamSocketListenerInformation {}
+impl ::core::fmt::Debug for StreamSocketListenerInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StreamSocketListenerInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StreamSocketListenerInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListenerInformation;{e62ba82f-a63a-430b-bf62-29e93e5633b4})");
 }
@@ -6256,6 +6481,11 @@ impl ::core::cmp::PartialEq for StreamWebSocket {
     }
 }
 impl ::core::cmp::Eq for StreamWebSocket {}
+impl ::core::fmt::Debug for StreamWebSocket {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StreamWebSocket").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StreamWebSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamWebSocket;{bd4a49d8-b289-45bb-97eb-c7525205a843})");
 }
@@ -6485,6 +6715,11 @@ impl ::core::cmp::PartialEq for StreamWebSocketControl {
     }
 }
 impl ::core::cmp::Eq for StreamWebSocketControl {}
+impl ::core::fmt::Debug for StreamWebSocketControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StreamWebSocketControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StreamWebSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamWebSocketControl;{b4f478b1-a45a-48db-953a-645b7d964c07})");
 }
@@ -6656,6 +6891,11 @@ impl ::core::cmp::PartialEq for StreamWebSocketInformation {
     }
 }
 impl ::core::cmp::Eq for StreamWebSocketInformation {}
+impl ::core::fmt::Debug for StreamWebSocketInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StreamWebSocketInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StreamWebSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamWebSocketInformation;{5e01e316-c92a-47a5-b25f-07847639d181})");
 }
@@ -6784,6 +7024,11 @@ impl ::core::cmp::PartialEq for WebSocketClosedEventArgs {
     }
 }
 impl ::core::cmp::Eq for WebSocketClosedEventArgs {}
+impl ::core::fmt::Debug for WebSocketClosedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebSocketClosedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebSocketClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.WebSocketClosedEventArgs;{ceb78d07-d0a8-4703-a091-c8c2c0915bc3})");
 }
@@ -6890,6 +7135,12 @@ impl ::core::cmp::PartialEq for WebSocketKeepAlive {
 }
 #[cfg(feature = "ApplicationModel_Background")]
 impl ::core::cmp::Eq for WebSocketKeepAlive {}
+#[cfg(feature = "ApplicationModel_Background")]
+impl ::core::fmt::Debug for WebSocketKeepAlive {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebSocketKeepAlive").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel_Background")]
 unsafe impl ::windows::core::RuntimeType for WebSocketKeepAlive {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.WebSocketKeepAlive;{7d13d534-fd12-43ce-8c22-ea1ff13c06df})");
@@ -7046,6 +7297,11 @@ impl ::core::cmp::PartialEq for WebSocketServerCustomValidationRequestedEventArg
     }
 }
 impl ::core::cmp::Eq for WebSocketServerCustomValidationRequestedEventArgs {}
+impl ::core::fmt::Debug for WebSocketServerCustomValidationRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebSocketServerCustomValidationRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebSocketServerCustomValidationRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.WebSocketServerCustomValidationRequestedEventArgs;{ffeffe48-022a-4ab7-8b36-e10af4640e6b})");
 }

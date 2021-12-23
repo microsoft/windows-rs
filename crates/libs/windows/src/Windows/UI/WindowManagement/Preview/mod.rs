@@ -61,6 +61,11 @@ impl ::core::cmp::PartialEq for WindowManagementPreview {
     }
 }
 impl ::core::cmp::Eq for WindowManagementPreview {}
+impl ::core::fmt::Debug for WindowManagementPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowManagementPreview").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WindowManagementPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.Preview.WindowManagementPreview;{4ef55b0d-561d-513c-a67c-2c02b69cef41})");
 }

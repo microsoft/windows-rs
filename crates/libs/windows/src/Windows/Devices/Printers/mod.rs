@@ -416,6 +416,11 @@ impl ::core::cmp::PartialEq for IppAttributeError {
     }
 }
 impl ::core::cmp::Eq for IppAttributeError {}
+impl ::core::fmt::Debug for IppAttributeError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IppAttributeError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IppAttributeError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppAttributeError;{750feda1-9eef-5c39-93e4-46149bbcef27})");
 }
@@ -493,6 +498,11 @@ impl ::core::cmp::PartialEq for IppAttributeErrorReason {
     }
 }
 impl ::core::cmp::Eq for IppAttributeErrorReason {}
+impl ::core::fmt::Debug for IppAttributeErrorReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IppAttributeErrorReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IppAttributeErrorReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeErrorReason;i4)");
 }
@@ -985,6 +995,11 @@ impl ::core::cmp::PartialEq for IppAttributeValue {
     }
 }
 impl ::core::cmp::Eq for IppAttributeValue {}
+impl ::core::fmt::Debug for IppAttributeValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IppAttributeValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IppAttributeValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppAttributeValue;{99407fed-e2bb-59a3-988b-28a974052a26})");
 }
@@ -1078,6 +1093,11 @@ impl ::core::cmp::PartialEq for IppAttributeValueKind {
     }
 }
 impl ::core::cmp::Eq for IppAttributeValueKind {}
+impl ::core::fmt::Debug for IppAttributeValueKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IppAttributeValueKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IppAttributeValueKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeValueKind;i4)");
 }
@@ -1128,6 +1148,11 @@ impl ::core::cmp::PartialEq for IppIntegerRange {
     }
 }
 impl ::core::cmp::Eq for IppIntegerRange {}
+impl ::core::fmt::Debug for IppIntegerRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IppIntegerRange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IppIntegerRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppIntegerRange;{92907346-c3ea-5ed6-bdb1-3752c62c6f7f})");
 }
@@ -1249,6 +1274,11 @@ impl ::core::cmp::PartialEq for IppPrintDevice {
     }
 }
 impl ::core::cmp::Eq for IppPrintDevice {}
+impl ::core::fmt::Debug for IppPrintDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IppPrintDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IppPrintDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppPrintDevice;{d748ac56-76f3-5dc6-afd4-c2a8686b9359})");
 }
@@ -1353,6 +1383,11 @@ impl ::core::cmp::PartialEq for IppResolution {
     }
 }
 impl ::core::cmp::Eq for IppResolution {}
+impl ::core::fmt::Debug for IppResolution {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IppResolution").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IppResolution {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppResolution;{cb493f86-6bf3-56f5-86ce-263d08aead63})");
 }
@@ -1427,6 +1462,11 @@ impl ::core::cmp::PartialEq for IppResolutionUnit {
     }
 }
 impl ::core::cmp::Eq for IppResolutionUnit {}
+impl ::core::fmt::Debug for IppResolutionUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IppResolutionUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IppResolutionUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppResolutionUnit;i4)");
 }
@@ -1466,6 +1506,11 @@ impl ::core::cmp::PartialEq for IppSetAttributesResult {
     }
 }
 impl ::core::cmp::Eq for IppSetAttributesResult {}
+impl ::core::fmt::Debug for IppSetAttributesResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IppSetAttributesResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IppSetAttributesResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppSetAttributesResult;{7d1c7f55-aa9d-58a3-90e9-17bdc5281f07})");
 }
@@ -1562,6 +1607,11 @@ impl ::core::cmp::PartialEq for IppTextWithLanguage {
     }
 }
 impl ::core::cmp::Eq for IppTextWithLanguage {}
+impl ::core::fmt::Debug for IppTextWithLanguage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IppTextWithLanguage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IppTextWithLanguage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppTextWithLanguage;{326447a6-5149-5936-90e8-0c736036bf77})");
 }
@@ -1658,6 +1708,11 @@ impl ::core::cmp::PartialEq for Print3DDevice {
     }
 }
 impl ::core::cmp::Eq for Print3DDevice {}
+impl ::core::fmt::Debug for Print3DDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Print3DDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Print3DDevice;{041c3d19-9713-42a2-9813-7dc3337428d3})");
 }
@@ -1753,6 +1808,11 @@ impl ::core::cmp::PartialEq for PrintSchema {
     }
 }
 impl ::core::cmp::Eq for PrintSchema {}
+impl ::core::fmt::Debug for PrintSchema {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintSchema").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintSchema {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PrintSchema;{c2b98316-26b8-4bfb-8138-9f962c22a35b})");
 }

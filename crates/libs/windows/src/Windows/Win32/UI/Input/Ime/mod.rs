@@ -11,6 +11,11 @@ impl ::core::clone::Clone for APPLETIDLIST {
         *self
     }
 }
+impl ::core::fmt::Debug for APPLETIDLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APPLETIDLIST").field("count", &self.count).field("pIIDList", &self.pIIDList).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for APPLETIDLIST {
     type Abi = Self;
 }
@@ -40,6 +45,12 @@ impl ::core::marker::Copy for APPLYCANDEXPARAM {}
 impl ::core::clone::Clone for APPLYCANDEXPARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for APPLYCANDEXPARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APPLYCANDEXPARAM").field("dwSize", &self.dwSize).field("lpwstrDisplay", &self.lpwstrDisplay).field("lpwstrReading", &self.lpwstrReading).field("dwReserved", &self.dwReserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -90,6 +101,12 @@ impl ::core::clone::Clone for CANDIDATEFORM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CANDIDATEFORM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CANDIDATEFORM").field("dwIndex", &self.dwIndex).field("dwStyle", &self.dwStyle).field("ptCurrentPos", &self.ptCurrentPos).field("rcArea", &self.rcArea).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CANDIDATEFORM {
     type Abi = Self;
 }
@@ -122,6 +139,11 @@ impl ::core::clone::Clone for CANDIDATEINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for CANDIDATEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CANDIDATEINFO").field("dwSize", &self.dwSize).field("dwCount", &self.dwCount).field("dwOffset", &self.dwOffset).field("dwPrivateSize", &self.dwPrivateSize).field("dwPrivateOffset", &self.dwPrivateOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CANDIDATEINFO {
     type Abi = Self;
 }
@@ -151,6 +173,11 @@ impl ::core::marker::Copy for CANDIDATELIST {}
 impl ::core::clone::Clone for CANDIDATELIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CANDIDATELIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CANDIDATELIST").field("dwSize", &self.dwSize).field("dwStyle", &self.dwStyle).field("dwCount", &self.dwCount).field("dwSelection", &self.dwSelection).field("dwPageStart", &self.dwPageStart).field("dwPageSize", &self.dwPageSize).field("dwOffset", &self.dwOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CANDIDATELIST {
@@ -213,6 +240,12 @@ impl ::core::clone::Clone for COMPOSITIONFORM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for COMPOSITIONFORM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMPOSITIONFORM").field("dwStyle", &self.dwStyle).field("ptCurrentPos", &self.ptCurrentPos).field("rcArea", &self.rcArea).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for COMPOSITIONFORM {
     type Abi = Self;
 }
@@ -263,6 +296,37 @@ impl ::core::marker::Copy for COMPOSITIONSTRING {}
 impl ::core::clone::Clone for COMPOSITIONSTRING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for COMPOSITIONSTRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMPOSITIONSTRING")
+            .field("dwSize", &self.dwSize)
+            .field("dwCompReadAttrLen", &self.dwCompReadAttrLen)
+            .field("dwCompReadAttrOffset", &self.dwCompReadAttrOffset)
+            .field("dwCompReadClauseLen", &self.dwCompReadClauseLen)
+            .field("dwCompReadClauseOffset", &self.dwCompReadClauseOffset)
+            .field("dwCompReadStrLen", &self.dwCompReadStrLen)
+            .field("dwCompReadStrOffset", &self.dwCompReadStrOffset)
+            .field("dwCompAttrLen", &self.dwCompAttrLen)
+            .field("dwCompAttrOffset", &self.dwCompAttrOffset)
+            .field("dwCompClauseLen", &self.dwCompClauseLen)
+            .field("dwCompClauseOffset", &self.dwCompClauseOffset)
+            .field("dwCompStrLen", &self.dwCompStrLen)
+            .field("dwCompStrOffset", &self.dwCompStrOffset)
+            .field("dwCursorPos", &self.dwCursorPos)
+            .field("dwDeltaStart", &self.dwDeltaStart)
+            .field("dwResultReadClauseLen", &self.dwResultReadClauseLen)
+            .field("dwResultReadClauseOffset", &self.dwResultReadClauseOffset)
+            .field("dwResultReadStrLen", &self.dwResultReadStrLen)
+            .field("dwResultReadStrOffset", &self.dwResultReadStrOffset)
+            .field("dwResultClauseLen", &self.dwResultClauseLen)
+            .field("dwResultClauseOffset", &self.dwResultClauseOffset)
+            .field("dwResultStrLen", &self.dwResultStrLen)
+            .field("dwResultStrOffset", &self.dwResultStrOffset)
+            .field("dwPrivateSize", &self.dwPrivateSize)
+            .field("dwPrivateOffset", &self.dwPrivateOffset)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for COMPOSITIONSTRING {
@@ -504,6 +568,11 @@ impl ::core::clone::Clone for GUIDELINE {
         *self
     }
 }
+impl ::core::fmt::Debug for GUIDELINE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GUIDELINE").field("dwSize", &self.dwSize).field("dwLevel", &self.dwLevel).field("dwIndex", &self.dwIndex).field("dwStrLen", &self.dwStrLen).field("dwStrOffset", &self.dwStrOffset).field("dwPrivateSize", &self.dwPrivateSize).field("dwPrivateOffset", &self.dwPrivateOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GUIDELINE {
     type Abi = Self;
 }
@@ -644,6 +713,11 @@ impl ::core::cmp::PartialEq for IActiveIME {
     }
 }
 impl ::core::cmp::Eq for IActiveIME {}
+impl ::core::fmt::Debug for IActiveIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IActiveIME").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IActiveIME {
     type Vtable = IActiveIMEVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fe20962_d077_11d0_8fe7_00aa006bcc59);
@@ -834,6 +908,11 @@ impl ::core::cmp::PartialEq for IActiveIME2 {
     }
 }
 impl ::core::cmp::Eq for IActiveIME2 {}
+impl ::core::fmt::Debug for IActiveIME2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IActiveIME2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IActiveIME2 {
     type Vtable = IActiveIME2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1c4bf0e_2d53_11d2_93e1_0060b067b86e);
@@ -1269,6 +1348,11 @@ impl ::core::cmp::PartialEq for IActiveIMMApp {
     }
 }
 impl ::core::cmp::Eq for IActiveIMMApp {}
+impl ::core::fmt::Debug for IActiveIMMApp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IActiveIMMApp").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IActiveIMMApp {
     type Vtable = IActiveIMMAppVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c0e040_62d1_11d1_9326_0060b067b86e);
@@ -1911,6 +1995,11 @@ impl ::core::cmp::PartialEq for IActiveIMMIME {
     }
 }
 impl ::core::cmp::Eq for IActiveIMMIME {}
+impl ::core::fmt::Debug for IActiveIMMIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IActiveIMMIME").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IActiveIMMIME {
     type Vtable = IActiveIMMIMEVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c03411_f96b_11d0_a475_00aa006bcc59);
@@ -2150,6 +2239,11 @@ impl ::core::cmp::PartialEq for IActiveIMMMessagePumpOwner {
     }
 }
 impl ::core::cmp::Eq for IActiveIMMMessagePumpOwner {}
+impl ::core::fmt::Debug for IActiveIMMMessagePumpOwner {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IActiveIMMMessagePumpOwner").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IActiveIMMMessagePumpOwner {
     type Vtable = IActiveIMMMessagePumpOwnerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5cf2cfa_8aeb_11d1_9364_0060b067b86e);
@@ -2212,6 +2306,11 @@ impl ::core::cmp::PartialEq for IActiveIMMRegistrar {
     }
 }
 impl ::core::cmp::Eq for IActiveIMMRegistrar {}
+impl ::core::fmt::Debug for IActiveIMMRegistrar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IActiveIMMRegistrar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IActiveIMMRegistrar {
     type Vtable = IActiveIMMRegistrarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3458082_bd00_11d1_939b_0060b067b86e);
@@ -2280,6 +2379,11 @@ impl ::core::cmp::PartialEq for IEnumInputContext {
     }
 }
 impl ::core::cmp::Eq for IEnumInputContext {}
+impl ::core::fmt::Debug for IEnumInputContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumInputContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumInputContext {
     type Vtable = IEnumInputContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09b5eab0_f997_11d1_93d4_0060b067b86e);
@@ -2350,6 +2454,11 @@ impl ::core::cmp::PartialEq for IEnumRegisterWordA {
     }
 }
 impl ::core::cmp::Eq for IEnumRegisterWordA {}
+impl ::core::fmt::Debug for IEnumRegisterWordA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumRegisterWordA").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumRegisterWordA {
     type Vtable = IEnumRegisterWordAVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c03412_f96b_11d0_a475_00aa006bcc59);
@@ -2420,6 +2529,11 @@ impl ::core::cmp::PartialEq for IEnumRegisterWordW {
     }
 }
 impl ::core::cmp::Eq for IEnumRegisterWordW {}
+impl ::core::fmt::Debug for IEnumRegisterWordW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumRegisterWordW").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumRegisterWordW {
     type Vtable = IEnumRegisterWordWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4955dd31_b159_11d0_8fcf_00aa006bcc59);
@@ -2509,6 +2623,11 @@ impl ::core::cmp::PartialEq for IFEClassFactory {
     }
 }
 impl ::core::cmp::Eq for IFEClassFactory {}
+impl ::core::fmt::Debug for IFEClassFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFEClassFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFEClassFactory {
     type Vtable = IFEClassFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2579,6 +2698,11 @@ impl ::core::cmp::PartialEq for IFECommon {
     }
 }
 impl ::core::cmp::Eq for IFECommon {}
+impl ::core::fmt::Debug for IFECommon {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFECommon").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFECommon {
     type Vtable = IFECommonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x019f7151_e6db_11d0_83c3_00c04fddb82e);
@@ -2825,6 +2949,11 @@ impl ::core::cmp::PartialEq for IFEDictionary {
     }
 }
 impl ::core::cmp::Eq for IFEDictionary {}
+impl ::core::fmt::Debug for IFEDictionary {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFEDictionary").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFEDictionary {
     type Vtable = IFEDictionaryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x019f7153_e6db_11d0_83c3_00c04fddb82e);
@@ -2928,6 +3057,11 @@ impl ::core::cmp::PartialEq for IFELanguage {
     }
 }
 impl ::core::cmp::Eq for IFELanguage {}
+impl ::core::fmt::Debug for IFELanguage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFELanguage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFELanguage {
     type Vtable = IFELanguageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x019f7152_e6db_11d0_83c3_00c04fddb82e);
@@ -3005,6 +3139,11 @@ impl ::core::cmp::PartialEq for IImePad {
     }
 }
 impl ::core::cmp::Eq for IImePad {}
+impl ::core::fmt::Debug for IImePad {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IImePad").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IImePad {
     type Vtable = IImePadVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d8e643a_c3a9_11d1_afef_00805f0c8b6d);
@@ -3077,6 +3216,11 @@ impl ::core::cmp::PartialEq for IImePadApplet {
     }
 }
 impl ::core::cmp::Eq for IImePadApplet {}
+impl ::core::fmt::Debug for IImePadApplet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IImePadApplet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IImePadApplet {
     type Vtable = IImePadAppletVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d8e643b_c3a9_11d1_afef_00805f0c8b6d);
@@ -3142,6 +3286,11 @@ impl ::core::cmp::PartialEq for IImePlugInDictDictionaryList {
     }
 }
 impl ::core::cmp::Eq for IImePlugInDictDictionaryList {}
+impl ::core::fmt::Debug for IImePlugInDictDictionaryList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IImePlugInDictDictionaryList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IImePlugInDictDictionaryList {
     type Vtable = IImePlugInDictDictionaryListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98752974_b0a6_489b_8f6f_bff3769c8eeb);
@@ -3197,6 +3346,11 @@ impl ::core::cmp::PartialEq for IImeSpecifyApplets {
     }
 }
 impl ::core::cmp::Eq for IImeSpecifyApplets {}
+impl ::core::fmt::Debug for IImeSpecifyApplets {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IImeSpecifyApplets").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IImeSpecifyApplets {
     type Vtable = IImeSpecifyAppletsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d8e643c_c3a9_11d1_afef_00805f0c8b6d);
@@ -3270,6 +3424,12 @@ impl ::core::clone::Clone for IMEAPPLETCFG {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for IMEAPPLETCFG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IMEAPPLETCFG").field("dwConfig", &self.dwConfig).field("wchTitle", &self.wchTitle).field("wchTitleFontFace", &self.wchTitleFontFace).field("dwCharSet", &self.dwCharSet).field("iCategory", &self.iCategory).field("hIcon", &self.hIcon).field("langID", &self.langID).field("dummy", &self.dummy).field("lReserved1", &self.lReserved1).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for IMEAPPLETCFG {
     type Abi = Self;
 }
@@ -3311,6 +3471,12 @@ impl ::core::clone::Clone for IMEAPPLETUI {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for IMEAPPLETUI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IMEAPPLETUI").field("hwnd", &self.hwnd).field("dwStyle", &self.dwStyle).field("width", &self.width).field("height", &self.height).field("minWidth", &self.minWidth).field("minHeight", &self.minHeight).field("maxWidth", &self.maxWidth).field("maxHeight", &self.maxHeight).field("lReserved1", &self.lReserved1).field("lReserved2", &self.lReserved2).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IMEAPPLETUI {
     type Abi = Self;
 }
@@ -3338,6 +3504,11 @@ impl ::core::marker::Copy for IMECHARINFO {}
 impl ::core::clone::Clone for IMECHARINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IMECHARINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IMECHARINFO").field("wch", &self.wch).field("dwCharInfo", &self.dwCharInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMECHARINFO {
@@ -3373,6 +3544,12 @@ impl ::core::clone::Clone for IMECHARPOSITION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for IMECHARPOSITION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IMECHARPOSITION").field("dwSize", &self.dwSize).field("dwCharPos", &self.dwCharPos).field("pt", &self.pt).field("cLineHeight", &self.cLineHeight).field("rcDocument", &self.rcDocument).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IMECHARPOSITION {
     type Abi = Self;
 }
@@ -3404,6 +3581,11 @@ impl ::core::marker::Copy for IMECOMPOSITIONSTRINGINFO {}
 impl ::core::clone::Clone for IMECOMPOSITIONSTRINGINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IMECOMPOSITIONSTRINGINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IMECOMPOSITIONSTRINGINFO").field("iCompStrLen", &self.iCompStrLen).field("iCaretPos", &self.iCaretPos).field("iEditStart", &self.iEditStart).field("iEditLen", &self.iEditLen).field("iTargetStart", &self.iTargetStart).field("iTargetLen", &self.iTargetLen).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMECOMPOSITIONSTRINGINFO {
@@ -3570,6 +3752,11 @@ impl ::core::clone::Clone for IMEINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for IMEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IMEINFO").field("dwPrivateDataSize", &self.dwPrivateDataSize).field("fdwProperty", &self.fdwProperty).field("fdwConversionCaps", &self.fdwConversionCaps).field("fdwSentenceCaps", &self.fdwSentenceCaps).field("fdwUICaps", &self.fdwUICaps).field("fdwSCSCaps", &self.fdwSCSCaps).field("fdwSelectCaps", &self.fdwSelectCaps).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IMEINFO {
     type Abi = Self;
 }
@@ -3597,6 +3784,11 @@ impl ::core::clone::Clone for IMEITEM {
         *self
     }
 }
+impl ::core::fmt::Debug for IMEITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IMEITEM").field("cbSize", &self.cbSize).field("iType", &self.iType).field("lpItemData", &self.lpItemData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IMEITEM {
     type Abi = Self;
 }
@@ -3621,6 +3813,11 @@ impl ::core::marker::Copy for IMEITEMCANDIDATE {}
 impl ::core::clone::Clone for IMEITEMCANDIDATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IMEITEMCANDIDATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IMEITEMCANDIDATE").field("uCount", &self.uCount).field("imeItem", &self.imeItem).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMEITEMCANDIDATE {
@@ -3969,6 +4166,12 @@ impl ::core::clone::Clone for IMEMENUITEMINFOA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for IMEMENUITEMINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IMEMENUITEMINFOA").field("cbSize", &self.cbSize).field("fType", &self.fType).field("fState", &self.fState).field("wID", &self.wID).field("hbmpChecked", &self.hbmpChecked).field("hbmpUnchecked", &self.hbmpUnchecked).field("dwItemData", &self.dwItemData).field("szString", &self.szString).field("hbmpItem", &self.hbmpItem).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for IMEMENUITEMINFOA {
     type Abi = Self;
 }
@@ -4006,6 +4209,12 @@ impl ::core::marker::Copy for IMEMENUITEMINFOW {}
 impl ::core::clone::Clone for IMEMENUITEMINFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for IMEMENUITEMINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IMEMENUITEMINFOW").field("cbSize", &self.cbSize).field("fType", &self.fType).field("fState", &self.fState).field("wID", &self.wID).field("hbmpChecked", &self.hbmpChecked).field("hbmpUnchecked", &self.hbmpUnchecked).field("dwItemData", &self.dwItemData).field("szString", &self.szString).field("hbmpItem", &self.hbmpItem).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4252,6 +4461,12 @@ impl ::core::clone::Clone for IMESTRINGCANDIDATE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for IMESTRINGCANDIDATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IMESTRINGCANDIDATE").field("uCount", &self.uCount).field("lpwstr", &self.lpwstr).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IMESTRINGCANDIDATE {
     type Abi = Self;
 }
@@ -4286,6 +4501,12 @@ impl ::core::marker::Copy for IMESTRINGCANDIDATEINFO {}
 impl ::core::clone::Clone for IMESTRINGCANDIDATEINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for IMESTRINGCANDIDATEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IMESTRINGCANDIDATEINFO").field("dwFarEastId", &self.dwFarEastId).field("lpFarEastInfo", &self.lpFarEastInfo).field("fInfoMask", &self.fInfoMask).field("iSelIndex", &self.iSelIndex).field("uCount", &self.uCount).field("lpwstr", &self.lpwstr).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6645,6 +6866,11 @@ impl ::core::clone::Clone for RECONVERTSTRING {
         *self
     }
 }
+impl ::core::fmt::Debug for RECONVERTSTRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RECONVERTSTRING").field("dwSize", &self.dwSize).field("dwVersion", &self.dwVersion).field("dwStrLen", &self.dwStrLen).field("dwStrOffset", &self.dwStrOffset).field("dwCompStrLen", &self.dwCompStrLen).field("dwCompStrOffset", &self.dwCompStrOffset).field("dwTargetStrLen", &self.dwTargetStrLen).field("dwTargetStrOffset", &self.dwTargetStrOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RECONVERTSTRING {
     type Abi = Self;
 }
@@ -6676,6 +6902,12 @@ impl ::core::marker::Copy for REGISTERWORDA {}
 impl ::core::clone::Clone for REGISTERWORDA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for REGISTERWORDA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REGISTERWORDA").field("lpReading", &self.lpReading).field("lpWord", &self.lpWord).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6715,6 +6947,12 @@ impl ::core::marker::Copy for REGISTERWORDW {}
 impl ::core::clone::Clone for REGISTERWORDW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for REGISTERWORDW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REGISTERWORDW").field("lpReading", &self.lpReading).field("lpWord", &self.lpWord).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6775,6 +7013,11 @@ impl ::core::clone::Clone for SOFTKBDDATA {
         *self
     }
 }
+impl ::core::fmt::Debug for SOFTKBDDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOFTKBDDATA").field("uCount", &self.uCount).field("wCode", &self.wCode).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SOFTKBDDATA {
     type Abi = Self;
 }
@@ -6809,6 +7052,12 @@ impl ::core::clone::Clone for STYLEBUFA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STYLEBUFA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STYLEBUFA").field("dwStyle", &self.dwStyle).field("szDescription", &self.szDescription).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STYLEBUFA {
     type Abi = Self;
 }
@@ -6836,6 +7085,11 @@ impl ::core::marker::Copy for STYLEBUFW {}
 impl ::core::clone::Clone for STYLEBUFW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STYLEBUFW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STYLEBUFW").field("dwStyle", &self.dwStyle).field("szDescription", &self.szDescription).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STYLEBUFW {
@@ -6871,6 +7125,12 @@ impl ::core::clone::Clone for TRANSMSG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TRANSMSG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRANSMSG").field("message", &self.message).field("wParam", &self.wParam).field("lParam", &self.lParam).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TRANSMSG {
     type Abi = Self;
 }
@@ -6901,6 +7161,12 @@ impl ::core::marker::Copy for TRANSMSGLIST {}
 impl ::core::clone::Clone for TRANSMSGLIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TRANSMSGLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRANSMSGLIST").field("uMsgCount", &self.uMsgCount).field("TransMsg", &self.TransMsg).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7050,6 +7316,11 @@ impl ::core::clone::Clone for tabIMEFAREASTINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for tabIMEFAREASTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("tabIMEFAREASTINFO").field("dwSize", &self.dwSize).field("dwType", &self.dwType).field("dwData", &self.dwData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for tabIMEFAREASTINFO {
     type Abi = Self;
 }
@@ -7077,6 +7348,12 @@ impl ::core::marker::Copy for tabIMESTRINGINFO {}
 impl ::core::clone::Clone for tabIMESTRINGINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for tabIMESTRINGINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("tabIMESTRINGINFO").field("dwFarEastId", &self.dwFarEastId).field("lpwstr", &self.lpwstr).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -131,6 +131,11 @@ impl ::core::clone::Clone for WNV_NOTIFICATION_PARAM {
         *self
     }
 }
+impl ::core::fmt::Debug for WNV_NOTIFICATION_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNV_NOTIFICATION_PARAM").field("Header", &self.Header).field("NotificationType", &self.NotificationType).field("PendingNotifications", &self.PendingNotifications).field("Buffer", &self.Buffer).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WNV_NOTIFICATION_PARAM {
     type Abi = Self;
 }
@@ -232,6 +237,11 @@ impl ::core::marker::Copy for WNV_OBJECT_HEADER {}
 impl ::core::clone::Clone for WNV_OBJECT_HEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WNV_OBJECT_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNV_OBJECT_HEADER").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("Size", &self.Size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WNV_OBJECT_HEADER {

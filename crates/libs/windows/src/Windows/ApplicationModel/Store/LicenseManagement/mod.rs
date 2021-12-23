@@ -146,6 +146,11 @@ impl ::core::cmp::PartialEq for LicenseRefreshOption {
     }
 }
 impl ::core::cmp::Eq for LicenseRefreshOption {}
+impl ::core::fmt::Debug for LicenseRefreshOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LicenseRefreshOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LicenseRefreshOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.LicenseManagement.LicenseRefreshOption;i4)");
 }
@@ -224,6 +229,11 @@ impl ::core::cmp::PartialEq for LicenseSatisfactionInfo {
     }
 }
 impl ::core::cmp::Eq for LicenseSatisfactionInfo {}
+impl ::core::fmt::Debug for LicenseSatisfactionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LicenseSatisfactionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LicenseSatisfactionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionInfo;{3ccbb08f-db31-48d5-8384-fa17c81474e2})");
 }
@@ -309,6 +319,11 @@ impl ::core::cmp::PartialEq for LicenseSatisfactionResult {
     }
 }
 impl ::core::cmp::Eq for LicenseSatisfactionResult {}
+impl ::core::fmt::Debug for LicenseSatisfactionResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LicenseSatisfactionResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LicenseSatisfactionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionResult;{3c674f73-3c87-4ee1-8201-f428359bd3af})");
 }

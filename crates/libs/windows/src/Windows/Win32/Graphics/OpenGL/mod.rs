@@ -45,6 +45,12 @@ impl ::core::clone::Clone for EMRPIXELFORMAT {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for EMRPIXELFORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRPIXELFORMAT").field("emr", &self.emr).field("pfd", &self.pfd).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::core::Abi for EMRPIXELFORMAT {
     type Abi = Self;
 }
@@ -339,6 +345,11 @@ impl ::core::marker::Copy for GLYPHMETRICSFLOAT {}
 impl ::core::clone::Clone for GLYPHMETRICSFLOAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GLYPHMETRICSFLOAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GLYPHMETRICSFLOAT").field("gmfBlackBoxX", &self.gmfBlackBoxX).field("gmfBlackBoxY", &self.gmfBlackBoxY).field("gmfptGlyphOrigin", &self.gmfptGlyphOrigin).field("gmfCellIncX", &self.gmfCellIncX).field("gmfCellIncY", &self.gmfCellIncY).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GLYPHMETRICSFLOAT {
@@ -1596,6 +1607,36 @@ impl ::core::clone::Clone for LAYERPLANEDESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for LAYERPLANEDESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LAYERPLANEDESCRIPTOR")
+            .field("nSize", &self.nSize)
+            .field("nVersion", &self.nVersion)
+            .field("dwFlags", &self.dwFlags)
+            .field("iPixelType", &self.iPixelType)
+            .field("cColorBits", &self.cColorBits)
+            .field("cRedBits", &self.cRedBits)
+            .field("cRedShift", &self.cRedShift)
+            .field("cGreenBits", &self.cGreenBits)
+            .field("cGreenShift", &self.cGreenShift)
+            .field("cBlueBits", &self.cBlueBits)
+            .field("cBlueShift", &self.cBlueShift)
+            .field("cAlphaBits", &self.cAlphaBits)
+            .field("cAlphaShift", &self.cAlphaShift)
+            .field("cAccumBits", &self.cAccumBits)
+            .field("cAccumRedBits", &self.cAccumRedBits)
+            .field("cAccumGreenBits", &self.cAccumGreenBits)
+            .field("cAccumBlueBits", &self.cAccumBlueBits)
+            .field("cAccumAlphaBits", &self.cAccumAlphaBits)
+            .field("cDepthBits", &self.cDepthBits)
+            .field("cStencilBits", &self.cStencilBits)
+            .field("cAuxBuffers", &self.cAuxBuffers)
+            .field("iLayerPlane", &self.iLayerPlane)
+            .field("bReserved", &self.bReserved)
+            .field("crTransparent", &self.crTransparent)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LAYERPLANEDESCRIPTOR {
     type Abi = Self;
 }
@@ -1680,6 +1721,38 @@ impl ::core::clone::Clone for PIXELFORMATDESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for PIXELFORMATDESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PIXELFORMATDESCRIPTOR")
+            .field("nSize", &self.nSize)
+            .field("nVersion", &self.nVersion)
+            .field("dwFlags", &self.dwFlags)
+            .field("iPixelType", &self.iPixelType)
+            .field("cColorBits", &self.cColorBits)
+            .field("cRedBits", &self.cRedBits)
+            .field("cRedShift", &self.cRedShift)
+            .field("cGreenBits", &self.cGreenBits)
+            .field("cGreenShift", &self.cGreenShift)
+            .field("cBlueBits", &self.cBlueBits)
+            .field("cBlueShift", &self.cBlueShift)
+            .field("cAlphaBits", &self.cAlphaBits)
+            .field("cAlphaShift", &self.cAlphaShift)
+            .field("cAccumBits", &self.cAccumBits)
+            .field("cAccumRedBits", &self.cAccumRedBits)
+            .field("cAccumGreenBits", &self.cAccumGreenBits)
+            .field("cAccumBlueBits", &self.cAccumBlueBits)
+            .field("cAccumAlphaBits", &self.cAccumAlphaBits)
+            .field("cDepthBits", &self.cDepthBits)
+            .field("cStencilBits", &self.cStencilBits)
+            .field("cAuxBuffers", &self.cAuxBuffers)
+            .field("iLayerType", &self.iLayerType)
+            .field("bReserved", &self.bReserved)
+            .field("dwLayerMask", &self.dwLayerMask)
+            .field("dwVisibleMask", &self.dwVisibleMask)
+            .field("dwDamageMask", &self.dwDamageMask)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PIXELFORMATDESCRIPTOR {
     type Abi = Self;
 }
@@ -1704,6 +1777,11 @@ impl ::core::marker::Copy for POINTFLOAT {}
 impl ::core::clone::Clone for POINTFLOAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for POINTFLOAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POINTFLOAT").field("x", &self.x).field("y", &self.y).finish()
     }
 }
 unsafe impl ::windows::core::Abi for POINTFLOAT {

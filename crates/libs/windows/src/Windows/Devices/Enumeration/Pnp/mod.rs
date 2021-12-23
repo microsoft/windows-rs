@@ -200,6 +200,11 @@ impl ::core::cmp::PartialEq for PnpObject {
     }
 }
 impl ::core::cmp::Eq for PnpObject {}
+impl ::core::fmt::Debug for PnpObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PnpObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PnpObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObject;{95c66258-733b-4a8f-93a3-db078ac870c1})");
 }
@@ -318,6 +323,12 @@ impl ::core::cmp::PartialEq for PnpObjectCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for PnpObjectCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for PnpObjectCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PnpObjectCollection").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for PnpObjectCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObjectCollection;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Devices.Enumeration.Pnp.PnpObject;{95c66258-733b-4a8f-93a3-db078ac870c1})))");
@@ -480,6 +491,11 @@ impl ::core::cmp::PartialEq for PnpObjectType {
     }
 }
 impl ::core::cmp::Eq for PnpObjectType {}
+impl ::core::fmt::Debug for PnpObjectType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PnpObjectType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PnpObjectType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.Pnp.PnpObjectType;i4)");
 }
@@ -527,6 +543,11 @@ impl ::core::cmp::PartialEq for PnpObjectUpdate {
     }
 }
 impl ::core::cmp::Eq for PnpObjectUpdate {}
+impl ::core::fmt::Debug for PnpObjectUpdate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PnpObjectUpdate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PnpObjectUpdate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObjectUpdate;{6f59e812-001e-4844-bcc6-432886856a17})");
 }
@@ -688,6 +709,11 @@ impl ::core::cmp::PartialEq for PnpObjectWatcher {
     }
 }
 impl ::core::cmp::Eq for PnpObjectWatcher {}
+impl ::core::fmt::Debug for PnpObjectWatcher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PnpObjectWatcher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PnpObjectWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObjectWatcher;{83c95ca8-4772-4a7a-aca8-e48c42a89c44})");
 }

@@ -88,6 +88,11 @@ impl ::core::cmp::PartialEq for AccountsSettingsPane {
     }
 }
 impl ::core::cmp::Eq for AccountsSettingsPane {}
+impl ::core::fmt::Debug for AccountsSettingsPane {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccountsSettingsPane").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AccountsSettingsPane {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.AccountsSettingsPane;{81ea942c-4f09-4406-a538-838d9b14b7e6})");
 }
@@ -220,6 +225,11 @@ impl ::core::cmp::PartialEq for AccountsSettingsPaneCommandsRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for AccountsSettingsPaneCommandsRequestedEventArgs {}
+impl ::core::fmt::Debug for AccountsSettingsPaneCommandsRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccountsSettingsPaneCommandsRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AccountsSettingsPaneCommandsRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.AccountsSettingsPaneCommandsRequestedEventArgs;{3b68c099-db19-45d0-9abf-95d3773c9330})");
 }
@@ -291,6 +301,11 @@ impl ::core::cmp::PartialEq for AccountsSettingsPaneEventDeferral {
     }
 }
 impl ::core::cmp::Eq for AccountsSettingsPaneEventDeferral {}
+impl ::core::fmt::Debug for AccountsSettingsPaneEventDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccountsSettingsPaneEventDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AccountsSettingsPaneEventDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.AccountsSettingsPaneEventDeferral;{cbf25d3f-e5ba-40ef-93da-65e096e5fb04})");
 }
@@ -395,6 +410,11 @@ impl ::core::cmp::PartialEq for CredentialCommand {
     }
 }
 impl ::core::cmp::Eq for CredentialCommand {}
+impl ::core::fmt::Debug for CredentialCommand {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CredentialCommand").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CredentialCommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.CredentialCommand;{a5f665e6-6143-4a7a-a971-b017ba978ce2})");
 }
@@ -505,6 +525,11 @@ impl ::core::cmp::PartialEq for CredentialCommandCredentialDeletedHandler {
     }
 }
 impl ::core::cmp::Eq for CredentialCommandCredentialDeletedHandler {}
+impl ::core::fmt::Debug for CredentialCommandCredentialDeletedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CredentialCommandCredentialDeletedHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for CredentialCommandCredentialDeletedHandler {
     type Vtable = CredentialCommandCredentialDeletedHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61c0e185_0977_4678_b4e2_98727afbeed9);
@@ -1025,6 +1050,12 @@ impl ::core::cmp::PartialEq for SettingsCommand {
 #[cfg(feature = "UI_Popups")]
 impl ::core::cmp::Eq for SettingsCommand {}
 #[cfg(feature = "UI_Popups")]
+impl ::core::fmt::Debug for SettingsCommand {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SettingsCommand").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "UI_Popups")]
 unsafe impl ::windows::core::RuntimeType for SettingsCommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.SettingsCommand;{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f})");
 }
@@ -1141,6 +1172,12 @@ impl ::core::cmp::PartialEq for SettingsEdgeLocation {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SettingsEdgeLocation {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SettingsEdgeLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SettingsEdgeLocation").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SettingsEdgeLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.SettingsEdgeLocation;i4)");
 }
@@ -1211,6 +1248,12 @@ impl ::core::cmp::PartialEq for SettingsPane {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SettingsPane {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SettingsPane {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SettingsPane").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SettingsPane {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.SettingsPane;{b1cd0932-4570-4c69-8d38-89446561ace0})");
@@ -1303,6 +1346,12 @@ impl ::core::cmp::PartialEq for SettingsPaneCommandsRequest {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SettingsPaneCommandsRequest {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SettingsPaneCommandsRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SettingsPaneCommandsRequest").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SettingsPaneCommandsRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.SettingsPaneCommandsRequest;{44df23ae-5d6e-4068-a168-f47643182114})");
 }
@@ -1394,6 +1443,12 @@ impl ::core::cmp::PartialEq for SettingsPaneCommandsRequestedEventArgs {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SettingsPaneCommandsRequestedEventArgs {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SettingsPaneCommandsRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SettingsPaneCommandsRequestedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SettingsPaneCommandsRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.SettingsPaneCommandsRequestedEventArgs;{205f5d24-1b48-4629-a6ca-2fdfedafb75d})");
 }
@@ -1480,6 +1535,11 @@ impl ::core::cmp::PartialEq for SupportedWebAccountActions {
     }
 }
 impl ::core::cmp::Eq for SupportedWebAccountActions {}
+impl ::core::fmt::Debug for SupportedWebAccountActions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SupportedWebAccountActions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SupportedWebAccountActions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.SupportedWebAccountActions;u4)");
 }
@@ -1511,6 +1571,11 @@ impl ::core::cmp::PartialEq for WebAccountAction {
     }
 }
 impl ::core::cmp::Eq for WebAccountAction {}
+impl ::core::fmt::Debug for WebAccountAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountAction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.WebAccountAction;i4)");
 }
@@ -1571,6 +1636,11 @@ impl ::core::cmp::PartialEq for WebAccountCommand {
     }
 }
 impl ::core::cmp::Eq for WebAccountCommand {}
+impl ::core::fmt::Debug for WebAccountCommand {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountCommand").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountCommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.WebAccountCommand;{caa39398-9cfa-4246-b0c4-a913a3896541})");
 }
@@ -1681,6 +1751,11 @@ impl ::core::cmp::PartialEq for WebAccountCommandInvokedHandler {
     }
 }
 impl ::core::cmp::Eq for WebAccountCommandInvokedHandler {}
+impl ::core::fmt::Debug for WebAccountCommandInvokedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountCommandInvokedHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for WebAccountCommandInvokedHandler {
     type Vtable = WebAccountCommandInvokedHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ee6e459_1705_4a9a_b599_a0c3d6921973);
@@ -1715,6 +1790,11 @@ impl ::core::cmp::PartialEq for WebAccountInvokedArgs {
     }
 }
 impl ::core::cmp::Eq for WebAccountInvokedArgs {}
+impl ::core::fmt::Debug for WebAccountInvokedArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountInvokedArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountInvokedArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.WebAccountInvokedArgs;{e7abcc40-a1d8-4c5d-9a7f-1d34b2f90ad2})");
 }
@@ -1811,6 +1891,11 @@ impl ::core::cmp::PartialEq for WebAccountProviderCommand {
     }
 }
 impl ::core::cmp::Eq for WebAccountProviderCommand {}
+impl ::core::fmt::Debug for WebAccountProviderCommand {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountProviderCommand").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountProviderCommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.WebAccountProviderCommand;{d69bdd9a-a0a6-4e9b-88dc-c71e757a3501})");
 }
@@ -1921,6 +2006,11 @@ impl ::core::cmp::PartialEq for WebAccountProviderCommandInvokedHandler {
     }
 }
 impl ::core::cmp::Eq for WebAccountProviderCommandInvokedHandler {}
+impl ::core::fmt::Debug for WebAccountProviderCommandInvokedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountProviderCommandInvokedHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for WebAccountProviderCommandInvokedHandler {
     type Vtable = WebAccountProviderCommandInvokedHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7de5527_4c8f_42dd_84da_5ec493abdb9a);

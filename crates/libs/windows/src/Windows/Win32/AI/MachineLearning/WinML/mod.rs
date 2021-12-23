@@ -57,6 +57,11 @@ impl ::core::cmp::PartialEq for IMLOperatorAttributes {
     }
 }
 impl ::core::cmp::Eq for IMLOperatorAttributes {}
+impl ::core::fmt::Debug for IMLOperatorAttributes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMLOperatorAttributes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMLOperatorAttributes {
     type Vtable = IMLOperatorAttributesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b1b1759_ec40_466c_aab4_beb5347fd24c);
@@ -116,6 +121,11 @@ impl ::core::cmp::PartialEq for IMLOperatorKernel {
     }
 }
 impl ::core::cmp::Eq for IMLOperatorKernel {}
+impl ::core::fmt::Debug for IMLOperatorKernel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMLOperatorKernel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMLOperatorKernel {
     type Vtable = IMLOperatorKernelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11c4b4a0_b467_4eaa_a1a6_b961d8d0ed79);
@@ -183,6 +193,11 @@ impl ::core::cmp::PartialEq for IMLOperatorKernelContext {
     }
 }
 impl ::core::cmp::Eq for IMLOperatorKernelContext {}
+impl ::core::fmt::Debug for IMLOperatorKernelContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMLOperatorKernelContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMLOperatorKernelContext {
     type Vtable = IMLOperatorKernelContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82536a28_f022_4769_9d3f_8b278f84c0c3);
@@ -316,6 +331,11 @@ impl ::core::cmp::PartialEq for IMLOperatorKernelCreationContext {
     }
 }
 impl ::core::cmp::Eq for IMLOperatorKernelCreationContext {}
+impl ::core::fmt::Debug for IMLOperatorKernelCreationContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMLOperatorKernelCreationContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMLOperatorKernelCreationContext {
     type Vtable = IMLOperatorKernelCreationContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5459b53d_a0fc_4665_addd_70171ef7e631);
@@ -385,6 +405,11 @@ impl ::core::cmp::PartialEq for IMLOperatorKernelFactory {
     }
 }
 impl ::core::cmp::Eq for IMLOperatorKernelFactory {}
+impl ::core::fmt::Debug for IMLOperatorKernelFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMLOperatorKernelFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMLOperatorKernelFactory {
     type Vtable = IMLOperatorKernelFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef15ad6f_0dc9_4908_ab35_a575a30dfbf8);
@@ -438,6 +463,11 @@ impl ::core::cmp::PartialEq for IMLOperatorRegistry {
     }
 }
 impl ::core::cmp::Eq for IMLOperatorRegistry {}
+impl ::core::fmt::Debug for IMLOperatorRegistry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMLOperatorRegistry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMLOperatorRegistry {
     type Vtable = IMLOperatorRegistryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2af9dd2d_b516_4672_9ab5_530c208493ad);
@@ -565,6 +595,11 @@ impl ::core::cmp::PartialEq for IMLOperatorShapeInferenceContext {
     }
 }
 impl ::core::cmp::Eq for IMLOperatorShapeInferenceContext {}
+impl ::core::fmt::Debug for IMLOperatorShapeInferenceContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMLOperatorShapeInferenceContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMLOperatorShapeInferenceContext {
     type Vtable = IMLOperatorShapeInferenceContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x105b6b29_5408_4a68_9959_09b5955a3492);
@@ -632,6 +667,11 @@ impl ::core::cmp::PartialEq for IMLOperatorShapeInferrer {
     }
 }
 impl ::core::cmp::Eq for IMLOperatorShapeInferrer {}
+impl ::core::fmt::Debug for IMLOperatorShapeInferrer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMLOperatorShapeInferrer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMLOperatorShapeInferrer {
     type Vtable = IMLOperatorShapeInferrerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x540be5be_a6c9_40ee_83f6_d2b8b40a7798);
@@ -703,6 +743,11 @@ impl ::core::cmp::PartialEq for IMLOperatorTensor {
     }
 }
 impl ::core::cmp::Eq for IMLOperatorTensor {}
+impl ::core::fmt::Debug for IMLOperatorTensor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMLOperatorTensor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMLOperatorTensor {
     type Vtable = IMLOperatorTensorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fe41f41_f430_440e_aece_54416dc8b9db);
@@ -779,6 +824,11 @@ impl ::core::cmp::PartialEq for IMLOperatorTensorShapeDescription {
     }
 }
 impl ::core::cmp::Eq for IMLOperatorTensorShapeDescription {}
+impl ::core::fmt::Debug for IMLOperatorTensorShapeDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMLOperatorTensorShapeDescription").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMLOperatorTensorShapeDescription {
     type Vtable = IMLOperatorTensorShapeDescriptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf20e8cbe_3b28_4248_be95_f96fbc6e4643);
@@ -898,6 +948,11 @@ impl ::core::cmp::PartialEq for IMLOperatorTypeInferenceContext {
     }
 }
 impl ::core::cmp::Eq for IMLOperatorTypeInferenceContext {}
+impl ::core::fmt::Debug for IMLOperatorTypeInferenceContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMLOperatorTypeInferenceContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMLOperatorTypeInferenceContext {
     type Vtable = IMLOperatorTypeInferenceContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec893bb1_f938_427b_8488_c8dcf775f138);
@@ -963,6 +1018,11 @@ impl ::core::cmp::PartialEq for IMLOperatorTypeInferrer {
     }
 }
 impl ::core::cmp::Eq for IMLOperatorTypeInferrer {}
+impl ::core::fmt::Debug for IMLOperatorTypeInferrer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMLOperatorTypeInferrer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMLOperatorTypeInferrer {
     type Vtable = IMLOperatorTypeInferrerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x781aeb48_9bcb_4797_bf77_8bf455217beb);
@@ -1021,6 +1081,11 @@ impl ::core::cmp::PartialEq for IWinMLEvaluationContext {
     }
 }
 impl ::core::cmp::Eq for IWinMLEvaluationContext {}
+impl ::core::fmt::Debug for IWinMLEvaluationContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWinMLEvaluationContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWinMLEvaluationContext {
     type Vtable = IWinMLEvaluationContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95848f9e_583d_4054_af12_916387cd8426);
@@ -1096,6 +1161,11 @@ impl ::core::cmp::PartialEq for IWinMLModel {
     }
 }
 impl ::core::cmp::Eq for IWinMLModel {}
+impl ::core::fmt::Debug for IWinMLModel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWinMLModel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWinMLModel {
     type Vtable = IWinMLModelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2eeb6a9_f31f_4055_a521_e30b5b33664a);
@@ -1167,6 +1237,11 @@ impl ::core::cmp::PartialEq for IWinMLRuntime {
     }
 }
 impl ::core::cmp::Eq for IWinMLRuntime {}
+impl ::core::fmt::Debug for IWinMLRuntime {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWinMLRuntime").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWinMLRuntime {
     type Vtable = IWinMLRuntimeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0425329_40ae_48d9_bce3_829ef7b8a41a);
@@ -1224,6 +1299,11 @@ impl ::core::cmp::PartialEq for IWinMLRuntimeFactory {
     }
 }
 impl ::core::cmp::Eq for IWinMLRuntimeFactory {}
+impl ::core::fmt::Debug for IWinMLRuntimeFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWinMLRuntimeFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWinMLRuntimeFactory {
     type Vtable = IWinMLRuntimeFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa807b84d_4ae5_4bc0_a76a_941aa246bd41);
@@ -1260,6 +1340,12 @@ impl ::core::marker::Copy for MLOperatorAttribute {}
 impl ::core::clone::Clone for MLOperatorAttribute {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MLOperatorAttribute {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MLOperatorAttribute").field("name", &self.name).field("type", &self.r#type).field("required", &self.required).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1377,6 +1463,11 @@ impl ::core::cmp::PartialEq for MLOperatorAttributeType {
     }
 }
 impl ::core::cmp::Eq for MLOperatorAttributeType {}
+impl ::core::fmt::Debug for MLOperatorAttributeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MLOperatorAttributeType").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub struct MLOperatorEdgeDescription {
@@ -1451,6 +1542,11 @@ impl ::core::cmp::PartialEq for MLOperatorEdgeType {
     }
 }
 impl ::core::cmp::Eq for MLOperatorEdgeType {}
+impl ::core::fmt::Debug for MLOperatorEdgeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MLOperatorEdgeType").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1465,6 +1561,12 @@ impl ::core::marker::Copy for MLOperatorEdgeTypeConstraint {}
 impl ::core::clone::Clone for MLOperatorEdgeTypeConstraint {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MLOperatorEdgeTypeConstraint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MLOperatorEdgeTypeConstraint").field("typeLabel", &self.typeLabel).field("allowedTypes", &self.allowedTypes).field("allowedTypeCount", &self.allowedTypeCount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1508,6 +1610,11 @@ impl ::core::cmp::PartialEq for MLOperatorExecutionType {
     }
 }
 impl ::core::cmp::Eq for MLOperatorExecutionType {}
+impl ::core::fmt::Debug for MLOperatorExecutionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MLOperatorExecutionType").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1529,6 +1636,23 @@ impl ::core::marker::Copy for MLOperatorKernelDescription {}
 impl ::core::clone::Clone for MLOperatorKernelDescription {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MLOperatorKernelDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MLOperatorKernelDescription")
+            .field("domain", &self.domain)
+            .field("name", &self.name)
+            .field("minimumOperatorSetVersion", &self.minimumOperatorSetVersion)
+            .field("executionType", &self.executionType)
+            .field("typeConstraints", &self.typeConstraints)
+            .field("typeConstraintCount", &self.typeConstraintCount)
+            .field("defaultAttributes", &self.defaultAttributes)
+            .field("defaultAttributeCount", &self.defaultAttributeCount)
+            .field("options", &self.options)
+            .field("executionOptions", &self.executionOptions)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1571,6 +1695,11 @@ impl ::core::cmp::PartialEq for MLOperatorKernelOptions {
     }
 }
 impl ::core::cmp::Eq for MLOperatorKernelOptions {}
+impl ::core::fmt::Debug for MLOperatorKernelOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MLOperatorKernelOptions").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 #[repr(transparent)]
 pub struct MLOperatorParameterOptions(pub u32);
@@ -1594,6 +1723,11 @@ impl ::core::cmp::PartialEq for MLOperatorParameterOptions {
     }
 }
 impl ::core::cmp::Eq for MLOperatorParameterOptions {}
+impl ::core::fmt::Debug for MLOperatorParameterOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MLOperatorParameterOptions").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1617,6 +1751,25 @@ impl ::core::marker::Copy for MLOperatorSchemaDescription {}
 impl ::core::clone::Clone for MLOperatorSchemaDescription {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MLOperatorSchemaDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MLOperatorSchemaDescription")
+            .field("name", &self.name)
+            .field("operatorSetVersionAtLastChange", &self.operatorSetVersionAtLastChange)
+            .field("inputs", &self.inputs)
+            .field("inputCount", &self.inputCount)
+            .field("outputs", &self.outputs)
+            .field("outputCount", &self.outputCount)
+            .field("typeConstraints", &self.typeConstraints)
+            .field("typeConstraintCount", &self.typeConstraintCount)
+            .field("attributes", &self.attributes)
+            .field("attributeCount", &self.attributeCount)
+            .field("defaultAttributes", &self.defaultAttributes)
+            .field("defaultAttributeCount", &self.defaultAttributeCount)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1727,6 +1880,11 @@ impl ::core::cmp::PartialEq for MLOperatorSchemaEdgeTypeFormat {
     }
 }
 impl ::core::cmp::Eq for MLOperatorSchemaEdgeTypeFormat {}
+impl ::core::fmt::Debug for MLOperatorSchemaEdgeTypeFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MLOperatorSchemaEdgeTypeFormat").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1740,6 +1898,12 @@ impl ::core::marker::Copy for MLOperatorSetId {}
 impl ::core::clone::Clone for MLOperatorSetId {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MLOperatorSetId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MLOperatorSetId").field("domain", &self.domain).field("version", &self.version).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1796,6 +1960,11 @@ impl ::core::cmp::PartialEq for MLOperatorTensorDataType {
     }
 }
 impl ::core::cmp::Eq for MLOperatorTensorDataType {}
+impl ::core::fmt::Debug for MLOperatorTensorDataType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MLOperatorTensorDataType").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
@@ -1903,6 +2072,11 @@ impl ::core::clone::Clone for WINML_IMAGE_BINDING_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for WINML_IMAGE_BINDING_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINML_IMAGE_BINDING_DESC").field("ElementType", &self.ElementType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).field("DataSize", &self.DataSize).field("pData", &self.pData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINML_IMAGE_BINDING_DESC {
     type Abi = Self;
 }
@@ -1928,6 +2102,11 @@ impl ::core::marker::Copy for WINML_IMAGE_VARIABLE_DESC {}
 impl ::core::clone::Clone for WINML_IMAGE_VARIABLE_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINML_IMAGE_VARIABLE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINML_IMAGE_VARIABLE_DESC").field("ElementType", &self.ElementType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINML_IMAGE_VARIABLE_DESC {
@@ -2060,6 +2239,11 @@ impl ::core::clone::Clone for WINML_MAP_VARIABLE_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for WINML_MAP_VARIABLE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINML_MAP_VARIABLE_DESC").field("KeyType", &self.KeyType).field("Fields", &self.Fields).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINML_MAP_VARIABLE_DESC {
     type Abi = Self;
 }
@@ -2093,6 +2277,12 @@ impl ::core::clone::Clone for WINML_MODEL_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINML_MODEL_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINML_MODEL_DESC").field("Author", &self.Author).field("Name", &self.Name).field("Domain", &self.Domain).field("Description", &self.Description).field("Version", &self.Version).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINML_MODEL_DESC {
     type Abi = Self;
 }
@@ -2123,6 +2313,12 @@ pub struct WINML_RESOURCE_BINDING_DESC {
 impl ::core::clone::Clone for WINML_RESOURCE_BINDING_DESC {
     fn clone(&self) -> Self {
         Self { ElementType: self.ElementType, NumDimensions: self.NumDimensions, pShape: self.pShape, pResource: self.pResource.clone() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for WINML_RESOURCE_BINDING_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINML_RESOURCE_BINDING_DESC").field("ElementType", &self.ElementType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).field("pResource", &self.pResource).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -2227,6 +2423,11 @@ impl ::core::clone::Clone for WINML_SEQUENCE_VARIABLE_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for WINML_SEQUENCE_VARIABLE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINML_SEQUENCE_VARIABLE_DESC").field("ElementType", &self.ElementType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINML_SEQUENCE_VARIABLE_DESC {
     type Abi = Self;
 }
@@ -2254,6 +2455,11 @@ impl ::core::marker::Copy for WINML_TENSOR_BINDING_DESC {}
 impl ::core::clone::Clone for WINML_TENSOR_BINDING_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINML_TENSOR_BINDING_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINML_TENSOR_BINDING_DESC").field("DataType", &self.DataType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).field("DataSize", &self.DataSize).field("pData", &self.pData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINML_TENSOR_BINDING_DESC {
@@ -2317,6 +2523,11 @@ impl ::core::marker::Copy for WINML_TENSOR_VARIABLE_DESC {}
 impl ::core::clone::Clone for WINML_TENSOR_VARIABLE_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINML_TENSOR_VARIABLE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINML_TENSOR_VARIABLE_DESC").field("ElementType", &self.ElementType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINML_TENSOR_VARIABLE_DESC {

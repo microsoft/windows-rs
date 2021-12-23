@@ -849,6 +849,11 @@ impl ::core::cmp::PartialEq for IEnumSpObjectTokens {
     }
 }
 impl ::core::cmp::Eq for IEnumSpObjectTokens {}
+impl ::core::fmt::Debug for IEnumSpObjectTokens {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumSpObjectTokens").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumSpObjectTokens {
     type Vtable = IEnumSpObjectTokensVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06b64f9e_7fda_11d2_b4f2_00c04f797396);
@@ -1081,6 +1086,11 @@ impl ::core::cmp::PartialEq for ISpAudio {
     }
 }
 impl ::core::cmp::Eq for ISpAudio {}
+impl ::core::fmt::Debug for ISpAudio {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpAudio").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpAudio {
     type Vtable = ISpAudioVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc05c768f_fae8_4ec2_8e07_338321c12452);
@@ -1219,6 +1229,11 @@ impl ::core::cmp::PartialEq for ISpContainerLexicon {
     }
 }
 impl ::core::cmp::Eq for ISpContainerLexicon {}
+impl ::core::fmt::Debug for ISpContainerLexicon {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpContainerLexicon").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpContainerLexicon {
     type Vtable = ISpContainerLexiconVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8565572f_c094_41cc_b56e_10bd9c3ff044);
@@ -1343,6 +1358,11 @@ impl ::core::cmp::PartialEq for ISpDataKey {
     }
 }
 impl ::core::cmp::Eq for ISpDataKey {}
+impl ::core::fmt::Debug for ISpDataKey {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpDataKey").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpDataKey {
     type Vtable = ISpDataKeyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14056581_e16c_11d2_bb90_00c04f8ee6c0);
@@ -1423,6 +1443,11 @@ impl ::core::cmp::PartialEq for ISpDisplayAlternates {
     }
 }
 impl ::core::cmp::Eq for ISpDisplayAlternates {}
+impl ::core::fmt::Debug for ISpDisplayAlternates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpDisplayAlternates").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpDisplayAlternates {
     type Vtable = ISpDisplayAlternatesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8d7c7e2_0dde_44b7_afe3_b0c991fbeb5e);
@@ -1483,6 +1508,11 @@ impl ::core::cmp::PartialEq for ISpEnginePronunciation {
     }
 }
 impl ::core::cmp::Eq for ISpEnginePronunciation {}
+impl ::core::fmt::Debug for ISpEnginePronunciation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpEnginePronunciation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpEnginePronunciation {
     type Vtable = ISpEnginePronunciationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc360ce4b_76d1_4214_ad68_52657d5083da);
@@ -1543,6 +1573,11 @@ impl ::core::cmp::PartialEq for ISpEventSink {
     }
 }
 impl ::core::cmp::Eq for ISpEventSink {}
+impl ::core::fmt::Debug for ISpEventSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpEventSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpEventSink {
     type Vtable = ISpEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe7a9cc9_5f9e_11d2_960f_00c04f8ee628);
@@ -1658,6 +1693,11 @@ impl ::core::cmp::PartialEq for ISpEventSource {
     }
 }
 impl ::core::cmp::Eq for ISpEventSource {}
+impl ::core::fmt::Debug for ISpEventSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpEventSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpEventSource {
     type Vtable = ISpEventSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe7a9cce_5f9e_11d2_960f_00c04f8ee628);
@@ -1810,6 +1850,11 @@ impl ::core::cmp::PartialEq for ISpEventSource2 {
     }
 }
 impl ::core::cmp::Eq for ISpEventSource2 {}
+impl ::core::fmt::Debug for ISpEventSource2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpEventSource2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpEventSource2 {
     type Vtable = ISpEventSource2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2373a435_6a4b_429e_a6ac_d4231a61975b);
@@ -1910,6 +1955,11 @@ impl ::core::cmp::PartialEq for ISpGrammarBuilder {
     }
 }
 impl ::core::cmp::Eq for ISpGrammarBuilder {}
+impl ::core::fmt::Debug for ISpGrammarBuilder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpGrammarBuilder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpGrammarBuilder {
     type Vtable = ISpGrammarBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8137828f_591a_4a42_be58_49ea7ebaac68);
@@ -1978,6 +2028,11 @@ impl ::core::cmp::PartialEq for ISpGrammarBuilder2 {
     }
 }
 impl ::core::cmp::Eq for ISpGrammarBuilder2 {}
+impl ::core::fmt::Debug for ISpGrammarBuilder2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpGrammarBuilder2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpGrammarBuilder2 {
     type Vtable = ISpGrammarBuilder2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ab10026_20cc_4b20_8c22_a49c9ba78f60);
@@ -2057,6 +2112,11 @@ impl ::core::cmp::PartialEq for ISpLexicon {
     }
 }
 impl ::core::cmp::Eq for ISpLexicon {}
+impl ::core::fmt::Debug for ISpLexicon {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpLexicon").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpLexicon {
     type Vtable = ISpLexiconVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda41a7c2_5383_4db2_916b_6c1719e3db58);
@@ -2334,6 +2394,11 @@ impl ::core::cmp::PartialEq for ISpMMSysAudio {
     }
 }
 impl ::core::cmp::Eq for ISpMMSysAudio {}
+impl ::core::fmt::Debug for ISpMMSysAudio {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpMMSysAudio").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpMMSysAudio {
     type Vtable = ISpMMSysAudioVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15806f6e_1d70_4b48_98e6_3b1a007509ab);
@@ -2409,6 +2474,11 @@ impl ::core::cmp::PartialEq for ISpNotifyCallback {
     }
 }
 impl ::core::cmp::Eq for ISpNotifyCallback {}
+impl ::core::fmt::Debug for ISpNotifyCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpNotifyCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpNotifyCallback {
     type Vtable = ISpNotifyCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2456,6 +2526,11 @@ impl ::core::cmp::PartialEq for ISpNotifySink {
     }
 }
 impl ::core::cmp::Eq for ISpNotifySink {}
+impl ::core::fmt::Debug for ISpNotifySink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpNotifySink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpNotifySink {
     type Vtable = ISpNotifySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x259684dc_37c3_11d2_9603_00c04f8ee628);
@@ -2531,6 +2606,11 @@ impl ::core::cmp::PartialEq for ISpNotifySource {
     }
 }
 impl ::core::cmp::Eq for ISpNotifySource {}
+impl ::core::fmt::Debug for ISpNotifySource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpNotifySource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpNotifySource {
     type Vtable = ISpNotifySourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5eff4aef_8487_11d2_961c_00c04f8ee628);
@@ -2642,6 +2722,11 @@ impl ::core::cmp::PartialEq for ISpNotifyTranslator {
     }
 }
 impl ::core::cmp::Eq for ISpNotifyTranslator {}
+impl ::core::fmt::Debug for ISpNotifyTranslator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpNotifyTranslator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpNotifyTranslator {
     type Vtable = ISpNotifyTranslatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaca16614_5d3d_11d2_960e_00c04f8ee628);
@@ -2836,6 +2921,11 @@ impl ::core::cmp::PartialEq for ISpObjectToken {
     }
 }
 impl ::core::cmp::Eq for ISpObjectToken {}
+impl ::core::fmt::Debug for ISpObjectToken {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpObjectToken").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpObjectToken {
     type Vtable = ISpObjectTokenVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14056589_e16c_11d2_bb90_00c04f8ee6c0);
@@ -3042,6 +3132,11 @@ impl ::core::cmp::PartialEq for ISpObjectTokenCategory {
     }
 }
 impl ::core::cmp::Eq for ISpObjectTokenCategory {}
+impl ::core::fmt::Debug for ISpObjectTokenCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpObjectTokenCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpObjectTokenCategory {
     type Vtable = ISpObjectTokenCategoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d3d3845_39af_4850_bbf9_40b49780011d);
@@ -3284,6 +3379,11 @@ impl ::core::cmp::PartialEq for ISpObjectTokenInit {
     }
 }
 impl ::core::cmp::Eq for ISpObjectTokenInit {}
+impl ::core::fmt::Debug for ISpObjectTokenInit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpObjectTokenInit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpObjectTokenInit {
     type Vtable = ISpObjectTokenInitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8aab0cf_346f_49d8_9499_c8b03f161d51);
@@ -3383,6 +3483,11 @@ impl ::core::cmp::PartialEq for ISpObjectWithToken {
     }
 }
 impl ::core::cmp::Eq for ISpObjectWithToken {}
+impl ::core::fmt::Debug for ISpObjectWithToken {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpObjectWithToken").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpObjectWithToken {
     type Vtable = ISpObjectWithTokenVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b559f40_e952_11d2_bb91_00c04f8ee6c0);
@@ -3472,6 +3577,11 @@ impl ::core::cmp::PartialEq for ISpPhoneConverter {
     }
 }
 impl ::core::cmp::Eq for ISpPhoneConverter {}
+impl ::core::fmt::Debug for ISpPhoneConverter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpPhoneConverter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpPhoneConverter {
     type Vtable = ISpPhoneConverterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8445c581_0cac_4a38_abfe_9b2ce2826455);
@@ -3548,6 +3658,11 @@ impl ::core::cmp::PartialEq for ISpPhoneticAlphabetConverter {
     }
 }
 impl ::core::cmp::Eq for ISpPhoneticAlphabetConverter {}
+impl ::core::fmt::Debug for ISpPhoneticAlphabetConverter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpPhoneticAlphabetConverter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpPhoneticAlphabetConverter {
     type Vtable = ISpPhoneticAlphabetConverterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x133adcd4_19b4_4020_9fdc_842e78253b17);
@@ -3612,6 +3727,11 @@ impl ::core::cmp::PartialEq for ISpPhoneticAlphabetSelection {
     }
 }
 impl ::core::cmp::Eq for ISpPhoneticAlphabetSelection {}
+impl ::core::fmt::Debug for ISpPhoneticAlphabetSelection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpPhoneticAlphabetSelection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpPhoneticAlphabetSelection {
     type Vtable = ISpPhoneticAlphabetSelectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2745efd_42ce_48ca_81f1_a96e02538a90);
@@ -3683,6 +3803,11 @@ impl ::core::cmp::PartialEq for ISpPhrase {
     }
 }
 impl ::core::cmp::Eq for ISpPhrase {}
+impl ::core::fmt::Debug for ISpPhrase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpPhrase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpPhrase {
     type Vtable = ISpPhraseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a5c0354_b621_4b5a_8791_d306ed379e53);
@@ -3791,6 +3916,11 @@ impl ::core::cmp::PartialEq for ISpPhrase2 {
     }
 }
 impl ::core::cmp::Eq for ISpPhrase2 {}
+impl ::core::fmt::Debug for ISpPhrase2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpPhrase2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpPhrase2 {
     type Vtable = ISpPhrase2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf264da52_e457_4696_b856_a737b717af79);
@@ -3897,6 +4027,11 @@ impl ::core::cmp::PartialEq for ISpPhraseAlt {
     }
 }
 impl ::core::cmp::Eq for ISpPhraseAlt {}
+impl ::core::fmt::Debug for ISpPhraseAlt {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpPhraseAlt").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpPhraseAlt {
     type Vtable = ISpPhraseAltVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fcebc98_4e49_4067_9c6c_d86a0e092e3d);
@@ -3973,6 +4108,11 @@ impl ::core::cmp::PartialEq for ISpProperties {
     }
 }
 impl ::core::cmp::Eq for ISpProperties {}
+impl ::core::fmt::Debug for ISpProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpProperties {
     type Vtable = ISpPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b4fb971_b115_4de1_ad97_e482e3bf6ee4);
@@ -4194,6 +4334,11 @@ impl ::core::cmp::PartialEq for ISpRecoContext {
     }
 }
 impl ::core::cmp::Eq for ISpRecoContext {}
+impl ::core::fmt::Debug for ISpRecoContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpRecoContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpRecoContext {
     type Vtable = ISpRecoContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf740a62f_7c15_489e_8234_940a33d9272d);
@@ -4292,6 +4437,11 @@ impl ::core::cmp::PartialEq for ISpRecoContext2 {
     }
 }
 impl ::core::cmp::Eq for ISpRecoContext2 {}
+impl ::core::fmt::Debug for ISpRecoContext2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpRecoContext2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpRecoContext2 {
     type Vtable = ISpRecoContext2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbead311c_52ff_437f_9464_6b21054ca73d);
@@ -4482,6 +4632,11 @@ impl ::core::cmp::PartialEq for ISpRecoGrammar {
     }
 }
 impl ::core::cmp::Eq for ISpRecoGrammar {}
+impl ::core::fmt::Debug for ISpRecoGrammar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpRecoGrammar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpRecoGrammar {
     type Vtable = ISpRecoGrammarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2177db29_7f45_47d0_8554_067e91c80502);
@@ -4606,6 +4761,11 @@ impl ::core::cmp::PartialEq for ISpRecoGrammar2 {
     }
 }
 impl ::core::cmp::Eq for ISpRecoGrammar2 {}
+impl ::core::fmt::Debug for ISpRecoGrammar2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpRecoGrammar2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpRecoGrammar2 {
     type Vtable = ISpRecoGrammar2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b37bc9e_9ed6_44a3_93d3_18f022b79ec3);
@@ -4739,6 +4899,11 @@ impl ::core::cmp::PartialEq for ISpRecoResult {
     }
 }
 impl ::core::cmp::Eq for ISpRecoResult {}
+impl ::core::fmt::Debug for ISpRecoResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpRecoResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpRecoResult {
     type Vtable = ISpRecoResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20b053be_e235_43cd_9a2a_8d17a48b7842);
@@ -4908,6 +5073,11 @@ impl ::core::cmp::PartialEq for ISpRecoResult2 {
     }
 }
 impl ::core::cmp::Eq for ISpRecoResult2 {}
+impl ::core::fmt::Debug for ISpRecoResult2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpRecoResult2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpRecoResult2 {
     type Vtable = ISpRecoResult2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27cac6c4_88f2_41f2_8817_0c95e59f1e6e);
@@ -5089,6 +5259,11 @@ impl ::core::cmp::PartialEq for ISpRecognizer {
     }
 }
 impl ::core::cmp::Eq for ISpRecognizer {}
+impl ::core::fmt::Debug for ISpRecognizer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpRecognizer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpRecognizer {
     type Vtable = ISpRecognizerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2b5f241_daa0_4507_9e16_5a1eaa2b7a5c);
@@ -5177,6 +5352,11 @@ impl ::core::cmp::PartialEq for ISpRecognizer2 {
     }
 }
 impl ::core::cmp::Eq for ISpRecognizer2 {}
+impl ::core::fmt::Debug for ISpRecognizer2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpRecognizer2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpRecognizer2 {
     type Vtable = ISpRecognizer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fc6d974_c81e_4098_93c5_0147f61ed4d3);
@@ -5318,6 +5498,11 @@ impl ::core::cmp::PartialEq for ISpRegDataKey {
     }
 }
 impl ::core::cmp::Eq for ISpRegDataKey {}
+impl ::core::fmt::Debug for ISpRegDataKey {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpRegDataKey").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpRegDataKey {
     type Vtable = ISpRegDataKeyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92a66e2b_c830_4149_83df_6fc2ba1e7a5b);
@@ -5429,6 +5614,11 @@ impl ::core::cmp::PartialEq for ISpResourceManager {
     }
 }
 impl ::core::cmp::Eq for ISpResourceManager {}
+impl ::core::fmt::Debug for ISpResourceManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpResourceManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpResourceManager {
     type Vtable = ISpResourceManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93384e18_5014_43d5_adbb_a78e055926bd);
@@ -5489,6 +5679,11 @@ impl ::core::cmp::PartialEq for ISpSerializeState {
     }
 }
 impl ::core::cmp::Eq for ISpSerializeState {}
+impl ::core::fmt::Debug for ISpSerializeState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpSerializeState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpSerializeState {
     type Vtable = ISpSerializeStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21b501a0_0ec7_46c9_92c3_a2bc784c54b9);
@@ -5578,6 +5773,11 @@ impl ::core::cmp::PartialEq for ISpShortcut {
     }
 }
 impl ::core::cmp::Eq for ISpShortcut {}
+impl ::core::fmt::Debug for ISpShortcut {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpShortcut").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpShortcut {
     type Vtable = ISpShortcutVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3df681e2_ea56_11d9_8bde_f66bad1e3f3a);
@@ -5792,6 +5992,11 @@ impl ::core::cmp::PartialEq for ISpStream {
     }
 }
 impl ::core::cmp::Eq for ISpStream {}
+impl ::core::fmt::Debug for ISpStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpStream {
     type Vtable = ISpStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12e3cca9_7518_44c5_a5e7_ba5a79cb929e);
@@ -5982,6 +6187,11 @@ impl ::core::cmp::PartialEq for ISpStreamFormat {
     }
 }
 impl ::core::cmp::Eq for ISpStreamFormat {}
+impl ::core::fmt::Debug for ISpStreamFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpStreamFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpStreamFormat {
     type Vtable = ISpStreamFormatVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbed530be_2606_4f4d_a1c0_54c5cda5566f);
@@ -6214,6 +6424,11 @@ impl ::core::cmp::PartialEq for ISpStreamFormatConverter {
     }
 }
 impl ::core::cmp::Eq for ISpStreamFormatConverter {}
+impl ::core::fmt::Debug for ISpStreamFormatConverter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpStreamFormatConverter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpStreamFormatConverter {
     type Vtable = ISpStreamFormatConverterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x678a932c_ea71_4446_9b41_78fda6280a29);
@@ -6304,6 +6519,11 @@ impl ::core::cmp::PartialEq for ISpTranscript {
     }
 }
 impl ::core::cmp::Eq for ISpTranscript {}
+impl ::core::fmt::Debug for ISpTranscript {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpTranscript").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpTranscript {
     type Vtable = ISpTranscriptVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10f63bce_201a_11d3_ac70_00c04f8ee6c0);
@@ -6553,6 +6773,11 @@ impl ::core::cmp::PartialEq for ISpVoice {
     }
 }
 impl ::core::cmp::Eq for ISpVoice {}
+impl ::core::fmt::Debug for ISpVoice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpVoice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpVoice {
     type Vtable = ISpVoiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c44df74_72b9_4992_a1ec_ef996e0422d4);
@@ -6750,6 +6975,11 @@ impl ::core::cmp::PartialEq for ISpXMLRecoResult {
     }
 }
 impl ::core::cmp::Eq for ISpXMLRecoResult {}
+impl ::core::fmt::Debug for ISpXMLRecoResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpXMLRecoResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpXMLRecoResult {
     type Vtable = ISpXMLRecoResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae39362b_45a8_4074_9b9e_ccf49aa2d0b6);
@@ -6950,6 +7180,11 @@ impl ::core::cmp::PartialEq for ISpeechAudio {
     }
 }
 impl ::core::cmp::Eq for ISpeechAudio {}
+impl ::core::fmt::Debug for ISpeechAudio {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechAudio").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechAudio {
     type Vtable = ISpeechAudioVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcff8e175_019e_11d3_a08e_00c04f8ef9b5);
@@ -7095,6 +7330,11 @@ impl ::core::cmp::PartialEq for ISpeechAudioBufferInfo {
     }
 }
 impl ::core::cmp::Eq for ISpeechAudioBufferInfo {}
+impl ::core::fmt::Debug for ISpeechAudioBufferInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechAudioBufferInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechAudioBufferInfo {
     type Vtable = ISpeechAudioBufferInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11b103d8_1142_4edf_a093_82fb3915f8cc);
@@ -7231,6 +7471,11 @@ impl ::core::cmp::PartialEq for ISpeechAudioFormat {
     }
 }
 impl ::core::cmp::Eq for ISpeechAudioFormat {}
+impl ::core::fmt::Debug for ISpeechAudioFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechAudioFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechAudioFormat {
     type Vtable = ISpeechAudioFormatVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6e9c590_3e18_40e3_8299_061f98bde7c7);
@@ -7367,6 +7612,11 @@ impl ::core::cmp::PartialEq for ISpeechAudioStatus {
     }
 }
 impl ::core::cmp::Eq for ISpeechAudioStatus {}
+impl ::core::fmt::Debug for ISpeechAudioStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechAudioStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechAudioStatus {
     type Vtable = ISpeechAudioStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc62d9c91_7458_47f6_862d_1ef86fb0b278);
@@ -7501,6 +7751,11 @@ impl ::core::cmp::PartialEq for ISpeechBaseStream {
     }
 }
 impl ::core::cmp::Eq for ISpeechBaseStream {}
+impl ::core::fmt::Debug for ISpeechBaseStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechBaseStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechBaseStream {
     type Vtable = ISpeechBaseStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6450336f_7d49_4ced_8097_49d6dee37294);
@@ -7665,6 +7920,11 @@ impl ::core::cmp::PartialEq for ISpeechCustomStream {
     }
 }
 impl ::core::cmp::Eq for ISpeechCustomStream {}
+impl ::core::fmt::Debug for ISpeechCustomStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechCustomStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechCustomStream {
     type Vtable = ISpeechCustomStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a9e9f4f_104f_4db8_a115_efd7fd0c97ae);
@@ -7843,6 +8103,11 @@ impl ::core::cmp::PartialEq for ISpeechDataKey {
     }
 }
 impl ::core::cmp::Eq for ISpeechDataKey {}
+impl ::core::fmt::Debug for ISpeechDataKey {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechDataKey").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechDataKey {
     type Vtable = ISpeechDataKeyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce17c09b_4efa_44d5_a4c9_59d9585ab0cd);
@@ -8023,6 +8288,11 @@ impl ::core::cmp::PartialEq for ISpeechFileStream {
     }
 }
 impl ::core::cmp::Eq for ISpeechFileStream {}
+impl ::core::fmt::Debug for ISpeechFileStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechFileStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechFileStream {
     type Vtable = ISpeechFileStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf67f125_ab39_4e93_b4a2_cc2e66e182a7);
@@ -8170,6 +8440,11 @@ impl ::core::cmp::PartialEq for ISpeechGrammarRule {
     }
 }
 impl ::core::cmp::Eq for ISpeechGrammarRule {}
+impl ::core::fmt::Debug for ISpeechGrammarRule {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechGrammarRule").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechGrammarRule {
     type Vtable = ISpeechGrammarRuleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafe719cf_5dd1_44f2_999c_7a399f1cfccc);
@@ -8305,6 +8580,11 @@ impl ::core::cmp::PartialEq for ISpeechGrammarRuleState {
     }
 }
 impl ::core::cmp::Eq for ISpeechGrammarRuleState {}
+impl ::core::fmt::Debug for ISpeechGrammarRuleState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechGrammarRuleState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechGrammarRuleState {
     type Vtable = ISpeechGrammarRuleStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4286f2c_ee67_45ae_b928_28d695362eda);
@@ -8458,6 +8738,11 @@ impl ::core::cmp::PartialEq for ISpeechGrammarRuleStateTransition {
     }
 }
 impl ::core::cmp::Eq for ISpeechGrammarRuleStateTransition {}
+impl ::core::fmt::Debug for ISpeechGrammarRuleStateTransition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechGrammarRuleStateTransition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechGrammarRuleStateTransition {
     type Vtable = ISpeechGrammarRuleStateTransitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcafd1db1_41d1_4a06_9863_e2e81da17a9a);
@@ -8586,6 +8871,11 @@ impl ::core::cmp::PartialEq for ISpeechGrammarRuleStateTransitions {
     }
 }
 impl ::core::cmp::Eq for ISpeechGrammarRuleStateTransitions {}
+impl ::core::fmt::Debug for ISpeechGrammarRuleStateTransitions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechGrammarRuleStateTransitions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechGrammarRuleStateTransitions {
     type Vtable = ISpeechGrammarRuleStateTransitionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeabce657_75bc_44a2_aa7f_c56476742963);
@@ -8731,6 +9021,11 @@ impl ::core::cmp::PartialEq for ISpeechGrammarRules {
     }
 }
 impl ::core::cmp::Eq for ISpeechGrammarRules {}
+impl ::core::fmt::Debug for ISpeechGrammarRules {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechGrammarRules").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechGrammarRules {
     type Vtable = ISpeechGrammarRulesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ffa3b44_fc2d_40d1_8afc_32911c7f1ad1);
@@ -8882,6 +9177,11 @@ impl ::core::cmp::PartialEq for ISpeechLexicon {
     }
 }
 impl ::core::cmp::Eq for ISpeechLexicon {}
+impl ::core::fmt::Debug for ISpeechLexicon {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechLexicon").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechLexicon {
     type Vtable = ISpeechLexiconVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3da7627a_c7ae_4b23_8708_638c50362c25);
@@ -9023,6 +9323,11 @@ impl ::core::cmp::PartialEq for ISpeechLexiconPronunciation {
     }
 }
 impl ::core::cmp::Eq for ISpeechLexiconPronunciation {}
+impl ::core::fmt::Debug for ISpeechLexiconPronunciation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechLexiconPronunciation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechLexiconPronunciation {
     type Vtable = ISpeechLexiconPronunciationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95252c5d_9e43_4f4a_9899_48ee73352f9f);
@@ -9146,6 +9451,11 @@ impl ::core::cmp::PartialEq for ISpeechLexiconPronunciations {
     }
 }
 impl ::core::cmp::Eq for ISpeechLexiconPronunciations {}
+impl ::core::fmt::Debug for ISpeechLexiconPronunciations {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechLexiconPronunciations").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechLexiconPronunciations {
     type Vtable = ISpeechLexiconPronunciationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72829128_5682_4704_a0d4_3e2bb6f2ead3);
@@ -9271,6 +9581,11 @@ impl ::core::cmp::PartialEq for ISpeechLexiconWord {
     }
 }
 impl ::core::cmp::Eq for ISpeechLexiconWord {}
+impl ::core::fmt::Debug for ISpeechLexiconWord {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechLexiconWord").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechLexiconWord {
     type Vtable = ISpeechLexiconWordVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e5b933c_c9be_48ed_8842_1ee51bb1d4ff);
@@ -9392,6 +9707,11 @@ impl ::core::cmp::PartialEq for ISpeechLexiconWords {
     }
 }
 impl ::core::cmp::Eq for ISpeechLexiconWords {}
+impl ::core::fmt::Debug for ISpeechLexiconWords {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechLexiconWords").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechLexiconWords {
     type Vtable = ISpeechLexiconWordsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d199862_415e_47d5_ac4f_faa608b424e6);
@@ -9627,6 +9947,11 @@ impl ::core::cmp::PartialEq for ISpeechMMSysAudio {
     }
 }
 impl ::core::cmp::Eq for ISpeechMMSysAudio {}
+impl ::core::fmt::Debug for ISpeechMMSysAudio {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechMMSysAudio").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechMMSysAudio {
     type Vtable = ISpeechMMSysAudioVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c76af6d_1fd7_4831_81d1_3b71d5a13c44);
@@ -9807,6 +10132,11 @@ impl ::core::cmp::PartialEq for ISpeechMemoryStream {
     }
 }
 impl ::core::cmp::Eq for ISpeechMemoryStream {}
+impl ::core::fmt::Debug for ISpeechMemoryStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechMemoryStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechMemoryStream {
     type Vtable = ISpeechMemoryStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeeb14b68_808b_4abe_a5ea_b51da7588008);
@@ -9991,6 +10321,11 @@ impl ::core::cmp::PartialEq for ISpeechObjectToken {
     }
 }
 impl ::core::cmp::Eq for ISpeechObjectToken {}
+impl ::core::fmt::Debug for ISpeechObjectToken {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechObjectToken").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechObjectToken {
     type Vtable = ISpeechObjectTokenVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc74a3adc_b727_4500_a84a_b526721c8b8c);
@@ -10148,6 +10483,11 @@ impl ::core::cmp::PartialEq for ISpeechObjectTokenCategory {
     }
 }
 impl ::core::cmp::Eq for ISpeechObjectTokenCategory {}
+impl ::core::fmt::Debug for ISpeechObjectTokenCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechObjectTokenCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechObjectTokenCategory {
     type Vtable = ISpeechObjectTokenCategoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca7eac50_2d01_4145_86d4_5ae7d70f4469);
@@ -10275,6 +10615,11 @@ impl ::core::cmp::PartialEq for ISpeechObjectTokens {
     }
 }
 impl ::core::cmp::Eq for ISpeechObjectTokens {}
+impl ::core::fmt::Debug for ISpeechObjectTokens {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechObjectTokens").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechObjectTokens {
     type Vtable = ISpeechObjectTokensVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9285b776_2e7b_4bc0_b53e_580eb6fa967f);
@@ -10400,6 +10745,11 @@ impl ::core::cmp::PartialEq for ISpeechPhoneConverter {
     }
 }
 impl ::core::cmp::Eq for ISpeechPhoneConverter {}
+impl ::core::fmt::Debug for ISpeechPhoneConverter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechPhoneConverter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechPhoneConverter {
     type Vtable = ISpeechPhoneConverterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3e4f353_433f_43d6_89a1_6a62a7054c3d);
@@ -10531,6 +10881,11 @@ impl ::core::cmp::PartialEq for ISpeechPhraseAlternate {
     }
 }
 impl ::core::cmp::Eq for ISpeechPhraseAlternate {}
+impl ::core::fmt::Debug for ISpeechPhraseAlternate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechPhraseAlternate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechPhraseAlternate {
     type Vtable = ISpeechPhraseAlternateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27864a2a_2b9f_4cb8_92d3_0d2722fd1e73);
@@ -10652,6 +11007,11 @@ impl ::core::cmp::PartialEq for ISpeechPhraseAlternates {
     }
 }
 impl ::core::cmp::Eq for ISpeechPhraseAlternates {}
+impl ::core::fmt::Debug for ISpeechPhraseAlternates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechPhraseAlternates").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechPhraseAlternates {
     type Vtable = ISpeechPhraseAlternatesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb238b6d5_f276_4c3d_a6c1_2974801c3cc2);
@@ -10824,6 +11184,11 @@ impl ::core::cmp::PartialEq for ISpeechPhraseElement {
     }
 }
 impl ::core::cmp::Eq for ISpeechPhraseElement {}
+impl ::core::fmt::Debug for ISpeechPhraseElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechPhraseElement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechPhraseElement {
     type Vtable = ISpeechPhraseElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6176f96_e373_4801_b223_3b62c068c0b4);
@@ -10956,6 +11321,11 @@ impl ::core::cmp::PartialEq for ISpeechPhraseElements {
     }
 }
 impl ::core::cmp::Eq for ISpeechPhraseElements {}
+impl ::core::fmt::Debug for ISpeechPhraseElements {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechPhraseElements").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechPhraseElements {
     type Vtable = ISpeechPhraseElementsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0626b328_3478_467d_a0b3_d0853b93dda3);
@@ -11147,6 +11517,11 @@ impl ::core::cmp::PartialEq for ISpeechPhraseInfo {
     }
 }
 impl ::core::cmp::Eq for ISpeechPhraseInfo {}
+impl ::core::fmt::Debug for ISpeechPhraseInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechPhraseInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechPhraseInfo {
     type Vtable = ISpeechPhraseInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x961559cf_4e67_4662_8bf0_d93f1fcd61b3);
@@ -11277,6 +11652,11 @@ impl ::core::cmp::PartialEq for ISpeechPhraseInfoBuilder {
     }
 }
 impl ::core::cmp::Eq for ISpeechPhraseInfoBuilder {}
+impl ::core::fmt::Debug for ISpeechPhraseInfoBuilder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechPhraseInfoBuilder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechPhraseInfoBuilder {
     type Vtable = ISpeechPhraseInfoBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b151836_df3a_4e0a_846c_d2adc9334333);
@@ -11395,6 +11775,11 @@ impl ::core::cmp::PartialEq for ISpeechPhraseProperties {
     }
 }
 impl ::core::cmp::Eq for ISpeechPhraseProperties {}
+impl ::core::fmt::Debug for ISpeechPhraseProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechPhraseProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechPhraseProperties {
     type Vtable = ISpeechPhrasePropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08166b47_102e_4b23_a599_bdb98dbfd1f4);
@@ -11546,6 +11931,11 @@ impl ::core::cmp::PartialEq for ISpeechPhraseProperty {
     }
 }
 impl ::core::cmp::Eq for ISpeechPhraseProperty {}
+impl ::core::fmt::Debug for ISpeechPhraseProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechPhraseProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechPhraseProperty {
     type Vtable = ISpeechPhrasePropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce563d48_961e_4732_a2e1_378a42b430be);
@@ -11679,6 +12069,11 @@ impl ::core::cmp::PartialEq for ISpeechPhraseReplacement {
     }
 }
 impl ::core::cmp::Eq for ISpeechPhraseReplacement {}
+impl ::core::fmt::Debug for ISpeechPhraseReplacement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechPhraseReplacement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechPhraseReplacement {
     type Vtable = ISpeechPhraseReplacementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2890a410_53a7_4fb5_94ec_06d4998e3d02);
@@ -11800,6 +12195,11 @@ impl ::core::cmp::PartialEq for ISpeechPhraseReplacements {
     }
 }
 impl ::core::cmp::Eq for ISpeechPhraseReplacements {}
+impl ::core::fmt::Debug for ISpeechPhraseReplacements {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechPhraseReplacements").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechPhraseReplacements {
     type Vtable = ISpeechPhraseReplacementsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38bc662f_2257_4525_959e_2069d2596c05);
@@ -11945,6 +12345,11 @@ impl ::core::cmp::PartialEq for ISpeechPhraseRule {
     }
 }
 impl ::core::cmp::Eq for ISpeechPhraseRule {}
+impl ::core::fmt::Debug for ISpeechPhraseRule {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechPhraseRule").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechPhraseRule {
     type Vtable = ISpeechPhraseRuleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7bfe112_a4a0_48d9_b602_c313843f6964);
@@ -12070,6 +12475,11 @@ impl ::core::cmp::PartialEq for ISpeechPhraseRules {
     }
 }
 impl ::core::cmp::Eq for ISpeechPhraseRules {}
+impl ::core::fmt::Debug for ISpeechPhraseRules {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechPhraseRules").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechPhraseRules {
     type Vtable = ISpeechPhraseRulesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9047d593_01dd_4b72_81a3_e4a0ca69f407);
@@ -12292,6 +12702,11 @@ impl ::core::cmp::PartialEq for ISpeechRecoContext {
     }
 }
 impl ::core::cmp::Eq for ISpeechRecoContext {}
+impl ::core::fmt::Debug for ISpeechRecoContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechRecoContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechRecoContext {
     type Vtable = ISpeechRecoContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x580aa49d_7e1e_4809_b8e2_57da806104b8);
@@ -12514,6 +12929,11 @@ impl ::core::cmp::PartialEq for ISpeechRecoGrammar {
     }
 }
 impl ::core::cmp::Eq for ISpeechRecoGrammar {}
+impl ::core::fmt::Debug for ISpeechRecoGrammar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechRecoGrammar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechRecoGrammar {
     type Vtable = ISpeechRecoGrammarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6d6f79f_2158_4e50_b5bc_9a9ccd852a09);
@@ -12693,6 +13113,11 @@ impl ::core::cmp::PartialEq for ISpeechRecoResult {
     }
 }
 impl ::core::cmp::Eq for ISpeechRecoResult {}
+impl ::core::fmt::Debug for ISpeechRecoResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechRecoResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechRecoResult {
     type Vtable = ISpeechRecoResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed2879cf_ced9_4ee6_a534_de0191d5468d);
@@ -12879,6 +13304,11 @@ impl ::core::cmp::PartialEq for ISpeechRecoResult2 {
     }
 }
 impl ::core::cmp::Eq for ISpeechRecoResult2 {}
+impl ::core::fmt::Debug for ISpeechRecoResult2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechRecoResult2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechRecoResult2 {
     type Vtable = ISpeechRecoResult2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e0a246d_d3c8_45de_8657_04290c458c3c);
@@ -13058,6 +13488,11 @@ impl ::core::cmp::PartialEq for ISpeechRecoResultDispatch {
     }
 }
 impl ::core::cmp::Eq for ISpeechRecoResultDispatch {}
+impl ::core::fmt::Debug for ISpeechRecoResultDispatch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechRecoResultDispatch").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechRecoResultDispatch {
     type Vtable = ISpeechRecoResultDispatchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d60eb64_aced_40a6_bbf3_4e557f71dee2);
@@ -13199,6 +13634,11 @@ impl ::core::cmp::PartialEq for ISpeechRecoResultTimes {
     }
 }
 impl ::core::cmp::Eq for ISpeechRecoResultTimes {}
+impl ::core::fmt::Debug for ISpeechRecoResultTimes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechRecoResultTimes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechRecoResultTimes {
     type Vtable = ISpeechRecoResultTimesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62b3b8fb_f6e7_41be_bdcb_056b1c29efc0);
@@ -13437,6 +13877,11 @@ impl ::core::cmp::PartialEq for ISpeechRecognizer {
     }
 }
 impl ::core::cmp::Eq for ISpeechRecognizer {}
+impl ::core::fmt::Debug for ISpeechRecognizer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechRecognizer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechRecognizer {
     type Vtable = ISpeechRecognizerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d5f1c0c_bd75_4b08_9478_3b11fea2586c);
@@ -13607,6 +14052,11 @@ impl ::core::cmp::PartialEq for ISpeechRecognizerStatus {
     }
 }
 impl ::core::cmp::Eq for ISpeechRecognizerStatus {}
+impl ::core::fmt::Debug for ISpeechRecognizerStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechRecognizerStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechRecognizerStatus {
     type Vtable = ISpeechRecognizerStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbff9e781_53ec_484e_bb8a_0e1b5551e35c);
@@ -13732,6 +14182,11 @@ impl ::core::cmp::PartialEq for ISpeechResourceLoader {
     }
 }
 impl ::core::cmp::Eq for ISpeechResourceLoader {}
+impl ::core::fmt::Debug for ISpeechResourceLoader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechResourceLoader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechResourceLoader {
     type Vtable = ISpeechResourceLoaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9ac5783_fcd0_4b21_b119_b4f8da8fd2c3);
@@ -13875,6 +14330,11 @@ impl ::core::cmp::PartialEq for ISpeechTextSelectionInformation {
     }
 }
 impl ::core::cmp::Eq for ISpeechTextSelectionInformation {}
+impl ::core::fmt::Debug for ISpeechTextSelectionInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechTextSelectionInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechTextSelectionInformation {
     type Vtable = ISpeechTextSelectionInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b9c7e7a_6eee_4ded_9092_11657279adbe);
@@ -14137,6 +14597,11 @@ impl ::core::cmp::PartialEq for ISpeechVoice {
     }
 }
 impl ::core::cmp::Eq for ISpeechVoice {}
+impl ::core::fmt::Debug for ISpeechVoice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechVoice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechVoice {
     type Vtable = ISpeechVoiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x269316d8_57bd_11d2_9eee_00c04f797396);
@@ -14337,6 +14802,11 @@ impl ::core::cmp::PartialEq for ISpeechVoiceStatus {
     }
 }
 impl ::core::cmp::Eq for ISpeechVoiceStatus {}
+impl ::core::fmt::Debug for ISpeechVoiceStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechVoiceStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechVoiceStatus {
     type Vtable = ISpeechVoiceStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8be47b07_57f6_11d2_9eee_00c04f797396);
@@ -14516,6 +14986,11 @@ impl ::core::cmp::PartialEq for ISpeechWaveFormatEx {
     }
 }
 impl ::core::cmp::Eq for ISpeechWaveFormatEx {}
+impl ::core::fmt::Debug for ISpeechWaveFormatEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechWaveFormatEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechWaveFormatEx {
     type Vtable = ISpeechWaveFormatExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a1ef0d5_1581_4741_88e4_209a49f11a10);
@@ -14713,6 +15188,11 @@ impl ::core::cmp::PartialEq for ISpeechXMLRecoResult {
     }
 }
 impl ::core::cmp::Eq for ISpeechXMLRecoResult {}
+impl ::core::fmt::Debug for ISpeechXMLRecoResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechXMLRecoResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpeechXMLRecoResult {
     type Vtable = ISpeechXMLRecoResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaaec54af_8f85_4924_944d_b79d39d72e19);
@@ -14794,6 +15274,11 @@ impl ::core::clone::Clone for SPAUDIOBUFFERINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for SPAUDIOBUFFERINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPAUDIOBUFFERINFO").field("ulMsMinNotification", &self.ulMsMinNotification).field("ulMsBufferSize", &self.ulMsBufferSize).field("ulMsEventBias", &self.ulMsEventBias).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPAUDIOBUFFERINFO {
     type Abi = Self;
 }
@@ -14841,6 +15326,11 @@ impl ::core::clone::Clone for SPAUDIOSTATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for SPAUDIOSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPAUDIOSTATUS").field("cbFreeBuffSpace", &self.cbFreeBuffSpace).field("cbNonBlockingIO", &self.cbNonBlockingIO).field("State", &self.State).field("CurSeekPos", &self.CurSeekPos).field("CurDevicePos", &self.CurDevicePos).field("dwAudioLevel", &self.dwAudioLevel).field("dwReserved2", &self.dwReserved2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPAUDIOSTATUS {
     type Abi = Self;
 }
@@ -14864,6 +15354,11 @@ impl ::core::marker::Copy for SPBINARYGRAMMAR {}
 impl ::core::clone::Clone for SPBINARYGRAMMAR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SPBINARYGRAMMAR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPBINARYGRAMMAR").field("ulTotalSerializedSize", &self.ulTotalSerializedSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SPBINARYGRAMMAR {
@@ -14950,6 +15445,12 @@ impl ::core::clone::Clone for SPDISPLAYPHRASE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPDISPLAYPHRASE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPDISPLAYPHRASE").field("ulNumTokens", &self.ulNumTokens).field("pTokens", &self.pTokens).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SPDISPLAYPHRASE {
     type Abi = Self;
 }
@@ -14981,6 +15482,12 @@ impl ::core::marker::Copy for SPDISPLAYTOKEN {}
 impl ::core::clone::Clone for SPDISPLAYTOKEN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPDISPLAYTOKEN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPDISPLAYTOKEN").field("pszLexical", &self.pszLexical).field("pszDisplay", &self.pszDisplay).field("bDisplayAttributes", &self.bDisplayAttributes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15071,6 +15578,12 @@ impl ::core::marker::Copy for SPEVENT {}
 impl ::core::clone::Clone for SPEVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPEVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPEVENT").field("_bitfield", &self._bitfield).field("ulStreamNum", &self.ulStreamNum).field("ullAudioStreamOffset", &self.ullAudioStreamOffset).field("wParam", &self.wParam).field("lParam", &self.lParam).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15193,6 +15706,12 @@ impl ::core::clone::Clone for SPEVENTEX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPEVENTEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPEVENTEX").field("_bitfield", &self._bitfield).field("ulStreamNum", &self.ulStreamNum).field("ullAudioStreamOffset", &self.ullAudioStreamOffset).field("wParam", &self.wParam).field("lParam", &self.lParam).field("ullAudioTimeOffset", &self.ullAudioTimeOffset).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SPEVENTEX {
     type Abi = Self;
 }
@@ -15233,6 +15752,11 @@ impl ::core::marker::Copy for SPEVENTSOURCEINFO {}
 impl ::core::clone::Clone for SPEVENTSOURCEINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SPEVENTSOURCEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPEVENTSOURCEINFO").field("ullEventInterest", &self.ullEventInterest).field("ullQueuedInterest", &self.ullQueuedInterest).field("ulCount", &self.ulCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SPEVENTSOURCEINFO {
@@ -15425,6 +15949,11 @@ impl ::core::clone::Clone for SPNORMALIZATIONLIST {
         *self
     }
 }
+impl ::core::fmt::Debug for SPNORMALIZATIONLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPNORMALIZATIONLIST").field("ulSize", &self.ulSize).field("ppszzNormalizedList", &self.ppszzNormalizedList).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPNORMALIZATIONLIST {
     type Abi = Self;
 }
@@ -15481,6 +16010,12 @@ impl ::core::clone::Clone for SPPHRASE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for SPPHRASE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPPHRASE").field("__AnonymousBase_sapi53_L5821_C34", &self.__AnonymousBase_sapi53_L5821_C34).field("pSML", &self.pSML).field("pSemanticErrorInfo", &self.pSemanticErrorInfo).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for SPPHRASE {
     type Abi = Self;
 }
@@ -15523,6 +16058,27 @@ impl ::core::marker::Copy for SPPHRASEELEMENT {}
 impl ::core::clone::Clone for SPPHRASEELEMENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPPHRASEELEMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPPHRASEELEMENT")
+            .field("ulAudioTimeOffset", &self.ulAudioTimeOffset)
+            .field("ulAudioSizeTime", &self.ulAudioSizeTime)
+            .field("ulAudioStreamOffset", &self.ulAudioStreamOffset)
+            .field("ulAudioSizeBytes", &self.ulAudioSizeBytes)
+            .field("ulRetainedStreamOffset", &self.ulRetainedStreamOffset)
+            .field("ulRetainedSizeBytes", &self.ulRetainedSizeBytes)
+            .field("pszDisplayText", &self.pszDisplayText)
+            .field("pszLexicalForm", &self.pszLexicalForm)
+            .field("pszPronunciation", &self.pszPronunciation)
+            .field("bDisplayAttributes", &self.bDisplayAttributes)
+            .field("RequiredConfidence", &self.RequiredConfidence)
+            .field("ActualConfidence", &self.ActualConfidence)
+            .field("Reserved", &self.Reserved)
+            .field("SREngineConfidence", &self.SREngineConfidence)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15643,6 +16199,12 @@ impl ::core::clone::Clone for SPPHRASEPROPERTY_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for SPPHRASEPROPERTY_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPPHRASEPROPERTY_0_0").field("bType", &self.bType).field("bReserved", &self.bReserved).field("usArrayIndex", &self.usArrayIndex).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for SPPHRASEPROPERTY_0_0 {
     type Abi = Self;
 }
@@ -15681,6 +16243,12 @@ impl ::core::marker::Copy for SPPHRASEREPLACEMENT {}
 impl ::core::clone::Clone for SPPHRASEREPLACEMENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPPHRASEREPLACEMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPPHRASEREPLACEMENT").field("bDisplayAttributes", &self.bDisplayAttributes).field("pszReplacementText", &self.pszReplacementText).field("ulFirstElement", &self.ulFirstElement).field("ulCountOfElements", &self.ulCountOfElements).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15724,6 +16292,12 @@ impl ::core::marker::Copy for SPPHRASERULE {}
 impl ::core::clone::Clone for SPPHRASERULE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPPHRASERULE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPPHRASERULE").field("pszName", &self.pszName).field("ulId", &self.ulId).field("ulFirstElement", &self.ulFirstElement).field("ulCountOfElements", &self.ulCountOfElements).field("pNextSibling", &self.pNextSibling).field("pFirstChild", &self.pFirstChild).field("SREngineConfidence", &self.SREngineConfidence).field("Confidence", &self.Confidence).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15772,6 +16346,30 @@ impl ::core::marker::Copy for SPPHRASE_50 {}
 impl ::core::clone::Clone for SPPHRASE_50 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for SPPHRASE_50 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPPHRASE_50")
+            .field("cbSize", &self.cbSize)
+            .field("LangID", &self.LangID)
+            .field("wHomophoneGroupId", &self.wHomophoneGroupId)
+            .field("ullGrammarID", &self.ullGrammarID)
+            .field("ftStartTime", &self.ftStartTime)
+            .field("ullAudioStreamPosition", &self.ullAudioStreamPosition)
+            .field("ulAudioSizeBytes", &self.ulAudioSizeBytes)
+            .field("ulRetainedSizeBytes", &self.ulRetainedSizeBytes)
+            .field("ulAudioSizeTime", &self.ulAudioSizeTime)
+            .field("Rule", &self.Rule)
+            .field("pProperties", &self.pProperties)
+            .field("pElements", &self.pElements)
+            .field("cReplacements", &self.cReplacements)
+            .field("pReplacements", &self.pReplacements)
+            .field("SREngineID", &self.SREngineID)
+            .field("ulSREnginePrivateDataSize", &self.ulSREnginePrivateDataSize)
+            .field("pSREnginePrivateData", &self.pSREnginePrivateData)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -15843,6 +16441,11 @@ impl ::core::clone::Clone for SPRECOCONTEXTSTATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for SPRECOCONTEXTSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPRECOCONTEXTSTATUS").field("eInterference", &self.eInterference).field("szRequestTypeOfUI", &self.szRequestTypeOfUI).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPRECOCONTEXTSTATUS {
     type Abi = Self;
 }
@@ -15891,6 +16494,11 @@ impl ::core::clone::Clone for SPRECOGNIZERSTATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for SPRECOGNIZERSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPRECOGNIZERSTATUS").field("AudioStatus", &self.AudioStatus).field("ullRecognitionStreamPos", &self.ullRecognitionStreamPos).field("ulStreamNumber", &self.ulStreamNumber).field("ulNumActive", &self.ulNumActive).field("clsidEngine", &self.clsidEngine).field("cLangIDs", &self.cLangIDs).field("aLangID", &self.aLangID).field("ullRecognitionStreamTime", &self.ullRecognitionStreamTime).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPRECOGNIZERSTATUS {
     type Abi = Self;
 }
@@ -15920,6 +16528,12 @@ impl ::core::marker::Copy for SPRECORESULTTIMES {}
 impl ::core::clone::Clone for SPRECORESULTTIMES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPRECORESULTTIMES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPRECORESULTTIMES").field("ftStreamTime", &self.ftStreamTime).field("ullLength", &self.ullLength).field("dwTickCount", &self.dwTickCount).field("ullStart", &self.ullStart).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15968,6 +16582,12 @@ impl ::core::marker::Copy for SPRULE {}
 impl ::core::clone::Clone for SPRULE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPRULE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPRULE").field("pszRuleName", &self.pszRuleName).field("ulRuleId", &self.ulRuleId).field("dwAttributes", &self.dwAttributes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16023,6 +16643,12 @@ impl ::core::clone::Clone for SPSEMANTICERRORINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPSEMANTICERRORINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSEMANTICERRORINFO").field("ulLineNumber", &self.ulLineNumber).field("pszScriptLine", &self.pszScriptLine).field("pszSource", &self.pszSource).field("pszDescription", &self.pszDescription).field("hrResultCode", &self.hrResultCode).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SPSEMANTICERRORINFO {
     type Abi = Self;
 }
@@ -16067,6 +16693,11 @@ impl ::core::clone::Clone for SPSERIALIZEDEVENT {
         *self
     }
 }
+impl ::core::fmt::Debug for SPSERIALIZEDEVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSERIALIZEDEVENT").field("_bitfield", &self._bitfield).field("ulStreamNum", &self.ulStreamNum).field("ullAudioStreamOffset", &self.ullAudioStreamOffset).field("SerializedwParam", &self.SerializedwParam).field("SerializedlParam", &self.SerializedlParam).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPSERIALIZEDEVENT {
     type Abi = Self;
 }
@@ -16096,6 +16727,11 @@ impl ::core::clone::Clone for SPSERIALIZEDEVENT64 {
         *self
     }
 }
+impl ::core::fmt::Debug for SPSERIALIZEDEVENT64 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSERIALIZEDEVENT64").field("_bitfield", &self._bitfield).field("ulStreamNum", &self.ulStreamNum).field("ullAudioStreamOffset", &self.ullAudioStreamOffset).field("SerializedwParam", &self.SerializedwParam).field("SerializedlParam", &self.SerializedlParam).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPSERIALIZEDEVENT64 {
     type Abi = Self;
 }
@@ -16121,6 +16757,11 @@ impl ::core::clone::Clone for SPSERIALIZEDPHRASE {
         *self
     }
 }
+impl ::core::fmt::Debug for SPSERIALIZEDPHRASE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSERIALIZEDPHRASE").field("ulSerializedSize", &self.ulSerializedSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPSERIALIZEDPHRASE {
     type Abi = Self;
 }
@@ -16144,6 +16785,11 @@ impl ::core::marker::Copy for SPSERIALIZEDRESULT {}
 impl ::core::clone::Clone for SPSERIALIZEDRESULT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SPSERIALIZEDRESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSERIALIZEDRESULT").field("ulSerializedSize", &self.ulSerializedSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SPSERIALIZEDRESULT {
@@ -16179,6 +16825,12 @@ impl ::core::clone::Clone for SPSHORTCUTPAIR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPSHORTCUTPAIR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSHORTCUTPAIR").field("pNextSHORTCUTPAIR", &self.pNextSHORTCUTPAIR).field("LangID", &self.LangID).field("shType", &self.shType).field("pszDisplay", &self.pszDisplay).field("pszSpoken", &self.pszSpoken).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SPSHORTCUTPAIR {
     type Abi = Self;
 }
@@ -16210,6 +16862,12 @@ impl ::core::marker::Copy for SPSHORTCUTPAIRLIST {}
 impl ::core::clone::Clone for SPSHORTCUTPAIRLIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPSHORTCUTPAIRLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSHORTCUTPAIRLIST").field("ulSize", &self.ulSize).field("pvBuffer", &self.pvBuffer).field("pFirstShortcutPair", &self.pFirstShortcutPair).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16257,6 +16915,11 @@ impl ::core::marker::Copy for SPSTATEHANDLE__ {}
 impl ::core::clone::Clone for SPSTATEHANDLE__ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SPSTATEHANDLE__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSTATEHANDLE__").field("unused", &self.unused).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SPSTATEHANDLE__ {
@@ -16431,6 +17094,11 @@ impl ::core::clone::Clone for SPTEXTSELECTIONINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for SPTEXTSELECTIONINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPTEXTSELECTIONINFO").field("ulStartActiveOffset", &self.ulStartActiveOffset).field("cchActiveChars", &self.cchActiveChars).field("ulStartSelection", &self.ulStartSelection).field("cchSelection", &self.cchSelection).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPTEXTSELECTIONINFO {
     type Abi = Self;
 }
@@ -16495,6 +17163,12 @@ impl ::core::marker::Copy for SPVCONTEXT {}
 impl ::core::clone::Clone for SPVCONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPVCONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPVCONTEXT").field("pCategory", &self.pCategory).field("pBefore", &self.pBefore).field("pAfter", &self.pAfter).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16600,6 +17274,25 @@ impl ::core::clone::Clone for SPVOICESTATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for SPVOICESTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPVOICESTATUS")
+            .field("ulCurrentStream", &self.ulCurrentStream)
+            .field("ulLastStreamQueued", &self.ulLastStreamQueued)
+            .field("hrLastResult", &self.hrLastResult)
+            .field("dwRunningState", &self.dwRunningState)
+            .field("ulInputWordPos", &self.ulInputWordPos)
+            .field("ulInputWordLen", &self.ulInputWordLen)
+            .field("ulInputSentPos", &self.ulInputSentPos)
+            .field("ulInputSentLen", &self.ulInputSentLen)
+            .field("lBookmarkId", &self.lBookmarkId)
+            .field("PhonemeId", &self.PhonemeId)
+            .field("VisemeId", &self.VisemeId)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("dwReserved2", &self.dwReserved2)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPVOICESTATUS {
     type Abi = Self;
 }
@@ -16624,6 +17317,11 @@ impl ::core::marker::Copy for SPVPITCH {}
 impl ::core::clone::Clone for SPVPITCH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SPVPITCH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPVPITCH").field("MiddleAdj", &self.MiddleAdj).field("RangeAdj", &self.RangeAdj).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SPVPITCH {
@@ -16673,6 +17371,12 @@ impl ::core::clone::Clone for SPVSTATE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPVSTATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPVSTATE").field("eAction", &self.eAction).field("LangID", &self.LangID).field("wReserved", &self.wReserved).field("EmphAdj", &self.EmphAdj).field("RateAdj", &self.RateAdj).field("Volume", &self.Volume).field("PitchAdj", &self.PitchAdj).field("SilenceMSecs", &self.SilenceMSecs).field("pPhoneIds", &self.pPhoneIds).field("ePartOfSpeech", &self.ePartOfSpeech).field("Context", &self.Context).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SPVSTATE {
     type Abi = Self;
 }
@@ -16716,6 +17420,12 @@ impl ::core::clone::Clone for SPWORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPWORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPWORD").field("pNextWord", &self.pNextWord).field("LangID", &self.LangID).field("wReserved", &self.wReserved).field("eWordType", &self.eWordType).field("pszWord", &self.pszWord).field("pFirstWordPronunciation", &self.pFirstWordPronunciation).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SPWORD {
     type Abi = Self;
 }
@@ -16747,6 +17457,12 @@ impl ::core::marker::Copy for SPWORDLIST {}
 impl ::core::clone::Clone for SPWORDLIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPWORDLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPWORDLIST").field("ulSize", &self.ulSize).field("pvBuffer", &self.pvBuffer).field("pFirstWord", &self.pFirstWord).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16791,6 +17507,11 @@ impl ::core::clone::Clone for SPWORDPRONUNCIATION {
         *self
     }
 }
+impl ::core::fmt::Debug for SPWORDPRONUNCIATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPWORDPRONUNCIATION").field("pNextWordPronunciation", &self.pNextWordPronunciation).field("eLexiconType", &self.eLexiconType).field("LangID", &self.LangID).field("wPronunciationFlags", &self.wPronunciationFlags).field("ePartOfSpeech", &self.ePartOfSpeech).field("szPronunciation", &self.szPronunciation).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPWORDPRONUNCIATION {
     type Abi = Self;
 }
@@ -16816,6 +17537,11 @@ impl ::core::marker::Copy for SPWORDPRONUNCIATIONLIST {}
 impl ::core::clone::Clone for SPWORDPRONUNCIATIONLIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SPWORDPRONUNCIATIONLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPWORDPRONUNCIATIONLIST").field("ulSize", &self.ulSize).field("pvBuffer", &self.pvBuffer).field("pFirstWordPronunciation", &self.pFirstWordPronunciation).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SPWORDPRONUNCIATIONLIST {
@@ -17576,6 +18302,11 @@ impl ::core::cmp::PartialEq for _ISpeechRecoContextEvents {
     }
 }
 impl ::core::cmp::Eq for _ISpeechRecoContextEvents {}
+impl ::core::fmt::Debug for _ISpeechRecoContextEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_ISpeechRecoContextEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _ISpeechRecoContextEvents {
     type Vtable = _ISpeechRecoContextEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b8fcb42_0e9d_4f00_a048_7b04d6179d3d);
@@ -17677,6 +18408,11 @@ impl ::core::cmp::PartialEq for _ISpeechVoiceEvents {
     }
 }
 impl ::core::cmp::Eq for _ISpeechVoiceEvents {}
+impl ::core::fmt::Debug for _ISpeechVoiceEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_ISpeechVoiceEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _ISpeechVoiceEvents {
     type Vtable = _ISpeechVoiceEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa372acd1_3bef_4bbd_8ffb_cb3e2b416af8);

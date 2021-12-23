@@ -121,6 +121,11 @@ impl ::core::cmp::PartialEq for SystemUpdateAttentionRequiredReason {
     }
 }
 impl ::core::cmp::Eq for SystemUpdateAttentionRequiredReason {}
+impl ::core::fmt::Debug for SystemUpdateAttentionRequiredReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemUpdateAttentionRequiredReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemUpdateAttentionRequiredReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateAttentionRequiredReason;i4)");
 }
@@ -207,6 +212,11 @@ impl ::core::cmp::PartialEq for SystemUpdateItem {
     }
 }
 impl ::core::cmp::Eq for SystemUpdateItem {}
+impl ::core::fmt::Debug for SystemUpdateItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemUpdateItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemUpdateItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Update.SystemUpdateItem;{779740eb-5624-519e-a8e2-09e9173b3fb7})");
 }
@@ -288,6 +298,11 @@ impl ::core::cmp::PartialEq for SystemUpdateItemState {
     }
 }
 impl ::core::cmp::Eq for SystemUpdateItemState {}
+impl ::core::fmt::Debug for SystemUpdateItemState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemUpdateItemState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemUpdateItemState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateItemState;i4)");
 }
@@ -334,6 +349,11 @@ impl ::core::cmp::PartialEq for SystemUpdateLastErrorInfo {
     }
 }
 impl ::core::cmp::Eq for SystemUpdateLastErrorInfo {}
+impl ::core::fmt::Debug for SystemUpdateLastErrorInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemUpdateLastErrorInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemUpdateLastErrorInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Update.SystemUpdateLastErrorInfo;{7ee887f7-8a44-5b6e-bd07-7aece4116ea9})");
 }
@@ -597,6 +617,11 @@ impl ::core::cmp::PartialEq for SystemUpdateManagerState {
     }
 }
 impl ::core::cmp::Eq for SystemUpdateManagerState {}
+impl ::core::fmt::Debug for SystemUpdateManagerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemUpdateManagerState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemUpdateManagerState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateManagerState;i4)");
 }
@@ -625,6 +650,11 @@ impl ::core::cmp::PartialEq for SystemUpdateStartInstallAction {
     }
 }
 impl ::core::cmp::Eq for SystemUpdateStartInstallAction {}
+impl ::core::fmt::Debug for SystemUpdateStartInstallAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemUpdateStartInstallAction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemUpdateStartInstallAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateStartInstallAction;i4)");
 }

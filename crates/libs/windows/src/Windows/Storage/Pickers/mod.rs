@@ -119,6 +119,12 @@ impl ::core::cmp::PartialEq for FileExtensionVector {
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for FileExtensionVector {}
 #[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for FileExtensionVector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileExtensionVector").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for FileExtensionVector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FileExtensionVector;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};string))");
 }
@@ -418,6 +424,11 @@ impl ::core::cmp::PartialEq for FileOpenPicker {
     }
 }
 impl ::core::cmp::Eq for FileOpenPicker {}
+impl ::core::fmt::Debug for FileOpenPicker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileOpenPicker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileOpenPicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FileOpenPicker;{2ca8278a-12c5-4c5f-8977-94547793c241})");
 }
@@ -557,6 +568,12 @@ impl ::core::cmp::PartialEq for FilePickerFileTypesOrderedMap {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for FilePickerFileTypesOrderedMap {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for FilePickerFileTypesOrderedMap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FilePickerFileTypesOrderedMap").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for FilePickerFileTypesOrderedMap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FilePickerFileTypesOrderedMap;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};string;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};string)))");
@@ -756,6 +773,12 @@ impl ::core::cmp::PartialEq for FilePickerSelectedFilesArray {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for FilePickerSelectedFilesArray {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for FilePickerSelectedFilesArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FilePickerSelectedFilesArray").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for FilePickerSelectedFilesArray {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FilePickerSelectedFilesArray;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Storage.StorageFile;{fa3f6186-4214-428c-a64c-14c9ac7315ea})))");
@@ -1058,6 +1081,11 @@ impl ::core::cmp::PartialEq for FileSavePicker {
     }
 }
 impl ::core::cmp::Eq for FileSavePicker {}
+impl ::core::fmt::Debug for FileSavePicker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileSavePicker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileSavePicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FileSavePicker;{3286ffcb-617f-4cc5-af6a-b3fdf29ad145})");
 }
@@ -1240,6 +1268,11 @@ impl ::core::cmp::PartialEq for FolderPicker {
     }
 }
 impl ::core::cmp::Eq for FolderPicker {}
+impl ::core::fmt::Debug for FolderPicker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FolderPicker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FolderPicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FolderPicker;{084f7799-f3fb-400a-99b1-7b4a772fd60d})");
 }
@@ -1651,6 +1684,11 @@ impl ::core::cmp::PartialEq for PickerLocationId {
     }
 }
 impl ::core::cmp::Eq for PickerLocationId {}
+impl ::core::fmt::Debug for PickerLocationId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PickerLocationId").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PickerLocationId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.PickerLocationId;i4)");
 }
@@ -1679,6 +1717,11 @@ impl ::core::cmp::PartialEq for PickerViewMode {
     }
 }
 impl ::core::cmp::Eq for PickerViewMode {}
+impl ::core::fmt::Debug for PickerViewMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PickerViewMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PickerViewMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.PickerViewMode;i4)");
 }

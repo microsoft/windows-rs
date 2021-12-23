@@ -36,6 +36,12 @@ impl ::core::clone::Clone for LDAPAPIFeatureInfoA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LDAPAPIFeatureInfoA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LDAPAPIFeatureInfoA").field("ldapaif_info_version", &self.ldapaif_info_version).field("ldapaif_name", &self.ldapaif_name).field("ldapaif_version", &self.ldapaif_version).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for LDAPAPIFeatureInfoA {
     type Abi = Self;
 }
@@ -67,6 +73,12 @@ impl ::core::marker::Copy for LDAPAPIFeatureInfoW {}
 impl ::core::clone::Clone for LDAPAPIFeatureInfoW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LDAPAPIFeatureInfoW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LDAPAPIFeatureInfoW").field("ldapaif_info_version", &self.ldapaif_info_version).field("ldapaif_name", &self.ldapaif_name).field("ldapaif_version", &self.ldapaif_version).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -111,6 +123,26 @@ impl ::core::marker::Copy for LDAPMessage {}
 impl ::core::clone::Clone for LDAPMessage {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LDAPMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LDAPMessage")
+            .field("lm_msgid", &self.lm_msgid)
+            .field("lm_msgtype", &self.lm_msgtype)
+            .field("lm_ber", &self.lm_ber)
+            .field("lm_chain", &self.lm_chain)
+            .field("lm_next", &self.lm_next)
+            .field("lm_time", &self.lm_time)
+            .field("Connection", &self.Connection)
+            .field("Request", &self.Request)
+            .field("lm_returncode", &self.lm_returncode)
+            .field("lm_referral", &self.lm_referral)
+            .field("lm_chased", &self.lm_chased)
+            .field("lm_eom", &self.lm_eom)
+            .field("ConnectionReferenced", &self.ConnectionReferenced)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -160,6 +192,12 @@ impl ::core::marker::Copy for LDAP_BERVAL {}
 impl ::core::clone::Clone for LDAP_BERVAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LDAP_BERVAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LDAP_BERVAL").field("bv_len", &self.bv_len).field("bv_val", &self.bv_val).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -388,6 +426,12 @@ impl ::core::clone::Clone for LDAP_REFERRAL_CALLBACK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LDAP_REFERRAL_CALLBACK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LDAP_REFERRAL_CALLBACK").field("SizeOfCallbacks", &self.SizeOfCallbacks).field("QueryForConnection", &self.QueryForConnection.map(|f| f as usize)).field("NotifyRoutine", &self.NotifyRoutine.map(|f| f as usize)).field("DereferenceRoutine", &self.DereferenceRoutine.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for LDAP_REFERRAL_CALLBACK {
     type Abi = Self;
 }
@@ -587,6 +631,11 @@ impl ::core::marker::Copy for LDAP_TIMEVAL {}
 impl ::core::clone::Clone for LDAP_TIMEVAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LDAP_TIMEVAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LDAP_TIMEVAL").field("tv_sec", &self.tv_sec).field("tv_usec", &self.tv_usec).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LDAP_TIMEVAL {
@@ -907,6 +956,12 @@ impl ::core::clone::Clone for berelement {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for berelement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("berelement").field("opaque", &self.opaque).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for berelement {
     type Abi = Self;
 }
@@ -999,6 +1054,29 @@ impl ::core::clone::Clone for ldap {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ldap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ldap")
+            .field("ld_sb", &self.ld_sb)
+            .field("ld_host", &self.ld_host)
+            .field("ld_version", &self.ld_version)
+            .field("ld_lberoptions", &self.ld_lberoptions)
+            .field("ld_deref", &self.ld_deref)
+            .field("ld_timelimit", &self.ld_timelimit)
+            .field("ld_sizelimit", &self.ld_sizelimit)
+            .field("ld_errno", &self.ld_errno)
+            .field("ld_matched", &self.ld_matched)
+            .field("ld_error", &self.ld_error)
+            .field("ld_msgid", &self.ld_msgid)
+            .field("Reserved3", &self.Reserved3)
+            .field("ld_cldaptries", &self.ld_cldaptries)
+            .field("ld_cldaptimeout", &self.ld_cldaptimeout)
+            .field("ld_refhoplimit", &self.ld_refhoplimit)
+            .field("ld_options", &self.ld_options)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ldap {
     type Abi = Self;
 }
@@ -1031,6 +1109,12 @@ impl ::core::marker::Copy for ldap_0 {}
 impl ::core::clone::Clone for ldap_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ldap_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ldap_0").field("sb_sd", &self.sb_sd).field("Reserved1", &self.Reserved1).field("sb_naddr", &self.sb_naddr).field("Reserved2", &self.Reserved2).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4408,6 +4492,11 @@ impl ::core::clone::Clone for ldap_version_info {
         *self
     }
 }
+impl ::core::fmt::Debug for ldap_version_info {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ldap_version_info").field("lv_size", &self.lv_size).field("lv_major", &self.lv_major).field("lv_minor", &self.lv_minor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ldap_version_info {
     type Abi = Self;
 }
@@ -4439,6 +4528,12 @@ impl ::core::marker::Copy for ldapapiinfoA {}
 impl ::core::clone::Clone for ldapapiinfoA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ldapapiinfoA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ldapapiinfoA").field("ldapai_info_version", &self.ldapai_info_version).field("ldapai_api_version", &self.ldapai_api_version).field("ldapai_protocol_version", &self.ldapai_protocol_version).field("ldapai_extensions", &self.ldapai_extensions).field("ldapai_vendor_name", &self.ldapai_vendor_name).field("ldapai_vendor_version", &self.ldapai_vendor_version).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4479,6 +4574,12 @@ impl ::core::clone::Clone for ldapapiinfoW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ldapapiinfoW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ldapapiinfoW").field("ldapai_info_version", &self.ldapai_info_version).field("ldapai_api_version", &self.ldapai_api_version).field("ldapai_protocol_version", &self.ldapai_protocol_version).field("ldapai_extensions", &self.ldapai_extensions).field("ldapai_vendor_name", &self.ldapai_vendor_name).field("ldapai_vendor_version", &self.ldapai_vendor_version).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ldapapiinfoW {
     type Abi = Self;
 }
@@ -4513,6 +4614,12 @@ impl ::core::clone::Clone for ldapcontrolA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ldapcontrolA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ldapcontrolA").field("ldctl_oid", &self.ldctl_oid).field("ldctl_value", &self.ldctl_value).field("ldctl_iscritical", &self.ldctl_iscritical).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ldapcontrolA {
     type Abi = Self;
 }
@@ -4544,6 +4651,12 @@ impl ::core::marker::Copy for ldapcontrolW {}
 impl ::core::clone::Clone for ldapcontrolW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ldapcontrolW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ldapcontrolW").field("ldctl_oid", &self.ldctl_oid).field("ldctl_value", &self.ldctl_value).field("ldctl_iscritical", &self.ldctl_iscritical).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4717,6 +4830,12 @@ impl ::core::clone::Clone for ldapsortkeyA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ldapsortkeyA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ldapsortkeyA").field("sk_attrtype", &self.sk_attrtype).field("sk_matchruleoid", &self.sk_matchruleoid).field("sk_reverseorder", &self.sk_reverseorder).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ldapsortkeyA {
     type Abi = Self;
 }
@@ -4748,6 +4867,12 @@ impl ::core::marker::Copy for ldapsortkeyW {}
 impl ::core::clone::Clone for ldapsortkeyW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ldapsortkeyW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ldapsortkeyW").field("sk_attrtype", &self.sk_attrtype).field("sk_matchruleoid", &self.sk_matchruleoid).field("sk_reverseorder", &self.sk_reverseorder).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4787,6 +4912,12 @@ impl ::core::marker::Copy for ldapvlvinfo {}
 impl ::core::clone::Clone for ldapvlvinfo {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ldapvlvinfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ldapvlvinfo").field("ldvlv_version", &self.ldvlv_version).field("ldvlv_before_count", &self.ldvlv_before_count).field("ldvlv_after_count", &self.ldvlv_after_count).field("ldvlv_offset", &self.ldvlv_offset).field("ldvlv_count", &self.ldvlv_count).field("ldvlv_attrvalue", &self.ldvlv_attrvalue).field("ldvlv_context", &self.ldvlv_context).field("ldvlv_extradata", &self.ldvlv_extradata).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

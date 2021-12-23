@@ -63,6 +63,11 @@ impl ::core::cmp::PartialEq for ActivationKind {
     }
 }
 impl ::core::cmp::Eq for ActivationKind {}
+impl ::core::fmt::Debug for ActivationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ActivationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Activation.ActivationKind;i4)");
 }
@@ -94,6 +99,11 @@ impl ::core::cmp::PartialEq for ApplicationExecutionState {
     }
 }
 impl ::core::cmp::Eq for ApplicationExecutionState {}
+impl ::core::fmt::Debug for ApplicationExecutionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationExecutionState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ApplicationExecutionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Activation.ApplicationExecutionState;i4)");
 }
@@ -166,6 +176,11 @@ impl ::core::cmp::PartialEq for AppointmentsProviderAddAppointmentActivatedEvent
     }
 }
 impl ::core::cmp::Eq for AppointmentsProviderAddAppointmentActivatedEventArgs {}
+impl ::core::fmt::Debug for AppointmentsProviderAddAppointmentActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentsProviderAddAppointmentActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentsProviderAddAppointmentActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderAddAppointmentActivatedEventArgs;{a2861367-cee5-4e4d-9ed7-41c34ec18b02})");
 }
@@ -372,6 +387,11 @@ impl ::core::cmp::PartialEq for AppointmentsProviderRemoveAppointmentActivatedEv
     }
 }
 impl ::core::cmp::Eq for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
+impl ::core::fmt::Debug for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentsProviderRemoveAppointmentActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderRemoveAppointmentActivatedEventArgs;{751f3ab8-0b8e-451c-9f15-966e699bac25})");
 }
@@ -578,6 +598,11 @@ impl ::core::cmp::PartialEq for AppointmentsProviderReplaceAppointmentActivatedE
     }
 }
 impl ::core::cmp::Eq for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
+impl ::core::fmt::Debug for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentsProviderReplaceAppointmentActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderReplaceAppointmentActivatedEventArgs;{1551b7d4-a981-4067-8a62-0524e4ade121})");
 }
@@ -800,6 +825,11 @@ impl ::core::cmp::PartialEq for AppointmentsProviderShowAppointmentDetailsActiva
     }
 }
 impl ::core::cmp::Eq for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
+impl ::core::fmt::Debug for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentsProviderShowAppointmentDetailsActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderShowAppointmentDetailsActivatedEventArgs;{3958f065-9841-4ca5-999b-885198b9ef2a})");
 }
@@ -1015,6 +1045,11 @@ impl ::core::cmp::PartialEq for AppointmentsProviderShowTimeFrameActivatedEventA
     }
 }
 impl ::core::cmp::Eq for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
+impl ::core::fmt::Debug for AppointmentsProviderShowTimeFrameActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentsProviderShowTimeFrameActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentsProviderShowTimeFrameActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderShowTimeFrameActivatedEventArgs;{9baeaba6-0e0b-49aa-babc-12b1dc774986})");
 }
@@ -1180,6 +1215,11 @@ impl ::core::cmp::PartialEq for BackgroundActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for BackgroundActivatedEventArgs {}
+impl ::core::fmt::Debug for BackgroundActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.BackgroundActivatedEventArgs;{ab14bee0-e760-440e-a91c-44796de3a92d})");
 }
@@ -1311,6 +1351,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerPreviewActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerPreviewActivatedEventArgs {}
+impl ::core::fmt::Debug for BarcodeScannerPreviewActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerPreviewActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerPreviewActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.BarcodeScannerPreviewActivatedEventArgs;{6772797c-99bf-4349-af22-e4123560371c})");
 }
@@ -1487,6 +1532,11 @@ impl ::core::cmp::PartialEq for CachedFileUpdaterActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for CachedFileUpdaterActivatedEventArgs {}
+impl ::core::fmt::Debug for CachedFileUpdaterActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CachedFileUpdaterActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CachedFileUpdaterActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CachedFileUpdaterActivatedEventArgs;{d06eb1c7-3805-4ecb-b757-6cf15e26fef3})");
 }
@@ -1661,6 +1711,11 @@ impl ::core::cmp::PartialEq for CameraSettingsActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for CameraSettingsActivatedEventArgs {}
+impl ::core::fmt::Debug for CameraSettingsActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraSettingsActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CameraSettingsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CameraSettingsActivatedEventArgs;{fb67a508-2dad-490a-9170-dca036eb114b})");
 }
@@ -1814,6 +1869,11 @@ impl ::core::cmp::PartialEq for CommandLineActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for CommandLineActivatedEventArgs {}
+impl ::core::fmt::Debug for CommandLineActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CommandLineActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CommandLineActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CommandLineActivatedEventArgs;{4506472c-006a-48eb-8afb-d07ab25e3366})");
 }
@@ -1986,6 +2046,11 @@ impl ::core::cmp::PartialEq for CommandLineActivationOperation {
     }
 }
 impl ::core::cmp::Eq for CommandLineActivationOperation {}
+impl ::core::fmt::Debug for CommandLineActivationOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CommandLineActivationOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CommandLineActivationOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CommandLineActivationOperation;{994b2841-c59e-4f69-bcfd-b61ed4e622eb})");
 }
@@ -2111,6 +2176,11 @@ impl ::core::cmp::PartialEq for ContactCallActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ContactCallActivatedEventArgs {}
+impl ::core::fmt::Debug for ContactCallActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactCallActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactCallActivatedEventArgs;{c2df14c7-30eb-41c6-b3bc-5b1694f9dab3})");
 }
@@ -2295,6 +2365,11 @@ impl ::core::cmp::PartialEq for ContactMapActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ContactMapActivatedEventArgs {}
+impl ::core::fmt::Debug for ContactMapActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactMapActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactMapActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactMapActivatedEventArgs;{b32bf870-eee7-4ad2-aaf1-a87effcf00a4})");
 }
@@ -2486,6 +2561,11 @@ impl ::core::cmp::PartialEq for ContactMessageActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ContactMessageActivatedEventArgs {}
+impl ::core::fmt::Debug for ContactMessageActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactMessageActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactMessageActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactMessageActivatedEventArgs;{de598db2-0e03-43b0-bf56-bcc40b3162df})");
 }
@@ -2671,6 +2751,11 @@ impl ::core::cmp::PartialEq for ContactPanelActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ContactPanelActivatedEventArgs {}
+impl ::core::fmt::Debug for ContactPanelActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactPanelActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactPanelActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactPanelActivatedEventArgs;{52bb63e4-d3d4-4b63-8051-4af2082cab80})");
 }
@@ -2838,6 +2923,11 @@ impl ::core::cmp::PartialEq for ContactPickerActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ContactPickerActivatedEventArgs {}
+impl ::core::fmt::Debug for ContactPickerActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactPickerActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactPickerActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactPickerActivatedEventArgs;{ce57aae7-6449-45a7-971f-d113be7a8936})");
 }
@@ -3007,6 +3097,11 @@ impl ::core::cmp::PartialEq for ContactPostActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ContactPostActivatedEventArgs {}
+impl ::core::fmt::Debug for ContactPostActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactPostActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactPostActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactPostActivatedEventArgs;{b35a3c67-f1e7-4655-ad6e-4857588f552f})");
 }
@@ -3198,6 +3293,11 @@ impl ::core::cmp::PartialEq for ContactVideoCallActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ContactVideoCallActivatedEventArgs {}
+impl ::core::fmt::Debug for ContactVideoCallActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactVideoCallActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactVideoCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactVideoCallActivatedEventArgs;{61079db8-e3e7-4b4f-858d-5c63a96ef684})");
 }
@@ -3398,6 +3498,11 @@ impl ::core::cmp::PartialEq for DeviceActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for DeviceActivatedEventArgs {}
+impl ::core::fmt::Debug for DeviceActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.DeviceActivatedEventArgs;{cd50b9a9-ce10-44d2-8234-c355a073ef33})");
 }
@@ -3618,6 +3723,11 @@ impl ::core::cmp::PartialEq for DevicePairingActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for DevicePairingActivatedEventArgs {}
+impl ::core::fmt::Debug for DevicePairingActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DevicePairingActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DevicePairingActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.DevicePairingActivatedEventArgs;{eba0d1e4-ecc6-4148-94ed-f4b37ec05b3e})");
 }
@@ -3826,6 +3936,11 @@ impl ::core::cmp::PartialEq for DialReceiverActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for DialReceiverActivatedEventArgs {}
+impl ::core::fmt::Debug for DialReceiverActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialReceiverActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DialReceiverActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.DialReceiverActivatedEventArgs;{fb777ed7-85ee-456e-a44d-85d730e70aed})");
 }
@@ -4110,6 +4225,11 @@ impl ::core::cmp::PartialEq for FileActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for FileActivatedEventArgs {}
+impl ::core::fmt::Debug for FileActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileActivatedEventArgs;{bb2afc33-93b1-42ed-8b26-236dd9c78496})");
 }
@@ -4382,6 +4502,11 @@ impl ::core::cmp::PartialEq for FileOpenPickerActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for FileOpenPickerActivatedEventArgs {}
+impl ::core::fmt::Debug for FileOpenPickerActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileOpenPickerActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileOpenPickerActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileOpenPickerActivatedEventArgs;{72827082-5525-4bf2-bc09-1f5095d4964d})");
 }
@@ -4594,6 +4719,12 @@ impl ::core::cmp::PartialEq for FileOpenPickerContinuationEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for FileOpenPickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for FileOpenPickerContinuationEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileOpenPickerContinuationEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for FileOpenPickerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileOpenPickerContinuationEventArgs;{f0fa3f3a-d4e8-4ad3-9c34-2308f32fcec9})");
@@ -4837,6 +4968,11 @@ impl ::core::cmp::PartialEq for FileSavePickerActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for FileSavePickerActivatedEventArgs {}
+impl ::core::fmt::Debug for FileSavePickerActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileSavePickerActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileSavePickerActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileSavePickerActivatedEventArgs;{81c19cf1-74e6-4387-82eb-bb8fd64b4346})");
 }
@@ -5049,6 +5185,12 @@ impl ::core::cmp::PartialEq for FileSavePickerContinuationEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for FileSavePickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for FileSavePickerContinuationEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileSavePickerContinuationEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for FileSavePickerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileSavePickerContinuationEventArgs;{2c846fe1-3bad-4f33-8c8b-e46fae824b4b})");
@@ -5290,6 +5432,12 @@ impl ::core::cmp::PartialEq for FolderPickerContinuationEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for FolderPickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for FolderPickerContinuationEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FolderPickerContinuationEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for FolderPickerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FolderPickerContinuationEventArgs;{51882366-9f4b-498f-beb0-42684f6e1c29})");
@@ -5539,6 +5687,11 @@ impl ::core::cmp::PartialEq for IActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IActivatedEventArgs {}
+impl ::core::fmt::Debug for IActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cf651713-cd08-4fd8-b697-a281b6544e2e}");
 }
@@ -5670,6 +5823,11 @@ impl ::core::cmp::PartialEq for IActivatedEventArgsWithUser {
     }
 }
 impl ::core::cmp::Eq for IActivatedEventArgsWithUser {}
+impl ::core::fmt::Debug for IActivatedEventArgsWithUser {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IActivatedEventArgsWithUser").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IActivatedEventArgsWithUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1cf09b9e-9962-4936-80ff-afc8e8ae5c8c}");
 }
@@ -5799,6 +5957,11 @@ impl ::core::cmp::PartialEq for IApplicationViewActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IApplicationViewActivatedEventArgs {}
+impl ::core::fmt::Debug for IApplicationViewActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IApplicationViewActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IApplicationViewActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{930cef4b-b829-40fc-88f4-8513e8a64738}");
 }
@@ -5927,6 +6090,11 @@ impl ::core::cmp::PartialEq for IAppointmentsProviderActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IAppointmentsProviderActivatedEventArgs {}
+impl ::core::fmt::Debug for IAppointmentsProviderActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppointmentsProviderActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IAppointmentsProviderActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3364c405-933c-4e7d-a034-500fb8dcd9f3}");
 }
@@ -6086,6 +6254,11 @@ impl ::core::cmp::PartialEq for IAppointmentsProviderAddAppointmentActivatedEven
     }
 }
 impl ::core::cmp::Eq for IAppointmentsProviderAddAppointmentActivatedEventArgs {}
+impl ::core::fmt::Debug for IAppointmentsProviderAddAppointmentActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppointmentsProviderAddAppointmentActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IAppointmentsProviderAddAppointmentActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a2861367-cee5-4e4d-9ed7-41c34ec18b02}");
 }
@@ -6246,6 +6419,11 @@ impl ::core::cmp::PartialEq for IAppointmentsProviderRemoveAppointmentActivatedE
     }
 }
 impl ::core::cmp::Eq for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {}
+impl ::core::fmt::Debug for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppointmentsProviderRemoveAppointmentActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{751f3ab8-0b8e-451c-9f15-966e699bac25}");
 }
@@ -6406,6 +6584,11 @@ impl ::core::cmp::PartialEq for IAppointmentsProviderReplaceAppointmentActivated
     }
 }
 impl ::core::cmp::Eq for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {}
+impl ::core::fmt::Debug for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppointmentsProviderReplaceAppointmentActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1551b7d4-a981-4067-8a62-0524e4ade121}");
 }
@@ -6582,6 +6765,11 @@ impl ::core::cmp::PartialEq for IAppointmentsProviderShowAppointmentDetailsActiv
     }
 }
 impl ::core::cmp::Eq for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
+impl ::core::fmt::Debug for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3958f065-9841-4ca5-999b-885198b9ef2a}");
 }
@@ -6753,6 +6941,11 @@ impl ::core::cmp::PartialEq for IAppointmentsProviderShowTimeFrameActivatedEvent
     }
 }
 impl ::core::cmp::Eq for IAppointmentsProviderShowTimeFrameActivatedEventArgs {}
+impl ::core::fmt::Debug for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppointmentsProviderShowTimeFrameActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9baeaba6-0e0b-49aa-babc-12b1dc774986}");
 }
@@ -6839,6 +7032,11 @@ impl ::core::cmp::PartialEq for IBackgroundActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IBackgroundActivatedEventArgs {}
+impl ::core::fmt::Debug for IBackgroundActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBackgroundActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ab14bee0-e760-440e-a91c-44796de3a92d}");
 }
@@ -6968,6 +7166,11 @@ impl ::core::cmp::PartialEq for IBarcodeScannerPreviewActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IBarcodeScannerPreviewActivatedEventArgs {}
+impl ::core::fmt::Debug for IBarcodeScannerPreviewActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBarcodeScannerPreviewActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBarcodeScannerPreviewActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6772797c-99bf-4349-af22-e4123560371c}");
 }
@@ -7097,6 +7300,11 @@ impl ::core::cmp::PartialEq for ICachedFileUpdaterActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ICachedFileUpdaterActivatedEventArgs {}
+impl ::core::fmt::Debug for ICachedFileUpdaterActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICachedFileUpdaterActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICachedFileUpdaterActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d06eb1c7-3805-4ecb-b757-6cf15e26fef3}");
 }
@@ -7234,6 +7442,11 @@ impl ::core::cmp::PartialEq for ICameraSettingsActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ICameraSettingsActivatedEventArgs {}
+impl ::core::fmt::Debug for ICameraSettingsActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICameraSettingsActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICameraSettingsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fb67a508-2dad-490a-9170-dca036eb114b}");
 }
@@ -7363,6 +7576,11 @@ impl ::core::cmp::PartialEq for ICommandLineActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ICommandLineActivatedEventArgs {}
+impl ::core::fmt::Debug for ICommandLineActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICommandLineActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICommandLineActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4506472c-006a-48eb-8afb-d07ab25e3366}");
 }
@@ -7514,6 +7732,11 @@ impl ::core::cmp::PartialEq for IContactActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IContactActivatedEventArgs {}
+impl ::core::fmt::Debug for IContactActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IContactActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d627a1c4-c025-4c41-9def-f1eafad075e7}");
 }
@@ -7689,6 +7912,11 @@ impl ::core::cmp::PartialEq for IContactCallActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IContactCallActivatedEventArgs {}
+impl ::core::fmt::Debug for IContactCallActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactCallActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IContactCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c2df14c7-30eb-41c6-b3bc-5b1694f9dab3}");
 }
@@ -7860,6 +8088,11 @@ impl ::core::cmp::PartialEq for IContactMapActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IContactMapActivatedEventArgs {}
+impl ::core::fmt::Debug for IContactMapActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactMapActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IContactMapActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b32bf870-eee7-4ad2-aaf1-a87effcf00a4}");
 }
@@ -8038,6 +8271,11 @@ impl ::core::cmp::PartialEq for IContactMessageActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IContactMessageActivatedEventArgs {}
+impl ::core::fmt::Debug for IContactMessageActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactMessageActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IContactMessageActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{de598db2-0e03-43b0-bf56-bcc40b3162df}");
 }
@@ -8133,6 +8371,11 @@ impl ::core::cmp::PartialEq for IContactPanelActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IContactPanelActivatedEventArgs {}
+impl ::core::fmt::Debug for IContactPanelActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactPanelActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IContactPanelActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{52bb63e4-d3d4-4b63-8051-4af2082cab80}");
 }
@@ -8265,6 +8508,11 @@ impl ::core::cmp::PartialEq for IContactPickerActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IContactPickerActivatedEventArgs {}
+impl ::core::fmt::Debug for IContactPickerActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactPickerActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IContactPickerActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ce57aae7-6449-45a7-971f-d113be7a8936}");
 }
@@ -8441,6 +8689,11 @@ impl ::core::cmp::PartialEq for IContactPostActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IContactPostActivatedEventArgs {}
+impl ::core::fmt::Debug for IContactPostActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactPostActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IContactPostActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b35a3c67-f1e7-4655-ad6e-4857588f552f}");
 }
@@ -8619,6 +8872,11 @@ impl ::core::cmp::PartialEq for IContactVideoCallActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IContactVideoCallActivatedEventArgs {}
+impl ::core::fmt::Debug for IContactVideoCallActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactVideoCallActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IContactVideoCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{61079db8-e3e7-4b4f-858d-5c63a96ef684}");
 }
@@ -8750,6 +9008,11 @@ impl ::core::cmp::PartialEq for IContactsProviderActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IContactsProviderActivatedEventArgs {}
+impl ::core::fmt::Debug for IContactsProviderActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactsProviderActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IContactsProviderActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4580dca8-5750-4916-aa52-c0829521eb94}");
 }
@@ -8879,6 +9142,11 @@ impl ::core::cmp::PartialEq for IContinuationActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IContinuationActivatedEventArgs {}
+impl ::core::fmt::Debug for IContinuationActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContinuationActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IContinuationActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e58106b5-155f-4a94-a742-c7e08f4e188c}");
 }
@@ -9016,6 +9284,11 @@ impl ::core::cmp::PartialEq for IDeviceActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IDeviceActivatedEventArgs {}
+impl ::core::fmt::Debug for IDeviceActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDeviceActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IDeviceActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cd50b9a9-ce10-44d2-8234-c355a073ef33}");
 }
@@ -9146,6 +9419,11 @@ impl ::core::cmp::PartialEq for IDevicePairingActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IDevicePairingActivatedEventArgs {}
+impl ::core::fmt::Debug for IDevicePairingActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDevicePairingActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IDevicePairingActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{eba0d1e4-ecc6-4148-94ed-f4b37ec05b3e}");
 }
@@ -9313,6 +9591,11 @@ impl ::core::cmp::PartialEq for IDialReceiverActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IDialReceiverActivatedEventArgs {}
+impl ::core::fmt::Debug for IDialReceiverActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDialReceiverActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IDialReceiverActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fb777ed7-85ee-456e-a44d-85d730e70aed}");
 }
@@ -9450,6 +9733,11 @@ impl ::core::cmp::PartialEq for IFileActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IFileActivatedEventArgs {}
+impl ::core::fmt::Debug for IFileActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFileActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IFileActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{bb2afc33-93b1-42ed-8b26-236dd9c78496}");
 }
@@ -9580,6 +9868,11 @@ impl ::core::cmp::PartialEq for IFileActivatedEventArgsWithCallerPackageFamilyNa
     }
 }
 impl ::core::cmp::Eq for IFileActivatedEventArgsWithCallerPackageFamilyName {}
+impl ::core::fmt::Debug for IFileActivatedEventArgsWithCallerPackageFamilyName {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFileActivatedEventArgsWithCallerPackageFamilyName").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IFileActivatedEventArgsWithCallerPackageFamilyName {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2d60f06b-d25f-4d25-8653-e1c5e1108309}");
 }
@@ -9748,6 +10041,11 @@ impl ::core::cmp::PartialEq for IFileActivatedEventArgsWithNeighboringFiles {
     }
 }
 impl ::core::cmp::Eq for IFileActivatedEventArgsWithNeighboringFiles {}
+impl ::core::fmt::Debug for IFileActivatedEventArgsWithNeighboringFiles {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFileActivatedEventArgsWithNeighboringFiles").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IFileActivatedEventArgsWithNeighboringFiles {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{433ba1a4-e1e2-48fd-b7fc-b5d6eee65033}");
 }
@@ -9878,6 +10176,11 @@ impl ::core::cmp::PartialEq for IFileOpenPickerActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IFileOpenPickerActivatedEventArgs {}
+impl ::core::fmt::Debug for IFileOpenPickerActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFileOpenPickerActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IFileOpenPickerActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{72827082-5525-4bf2-bc09-1f5095d4964d}");
 }
@@ -9961,6 +10264,11 @@ impl ::core::cmp::PartialEq for IFileOpenPickerActivatedEventArgs2 {
     }
 }
 impl ::core::cmp::Eq for IFileOpenPickerActivatedEventArgs2 {}
+impl ::core::fmt::Debug for IFileOpenPickerActivatedEventArgs2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFileOpenPickerActivatedEventArgs2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IFileOpenPickerActivatedEventArgs2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5e731f66-8d1f-45fb-af1d-73205c8fc7a1}");
 }
@@ -10143,6 +10451,12 @@ impl ::core::cmp::PartialEq for IFileOpenPickerContinuationEventArgs {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for IFileOpenPickerContinuationEventArgs {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for IFileOpenPickerContinuationEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFileOpenPickerContinuationEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for IFileOpenPickerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f0fa3f3a-d4e8-4ad3-9c34-2308f32fcec9}");
 }
@@ -10275,6 +10589,11 @@ impl ::core::cmp::PartialEq for IFileSavePickerActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IFileSavePickerActivatedEventArgs {}
+impl ::core::fmt::Debug for IFileSavePickerActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFileSavePickerActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IFileSavePickerActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{81c19cf1-74e6-4387-82eb-bb8fd64b4346}");
 }
@@ -10366,6 +10685,11 @@ impl ::core::cmp::PartialEq for IFileSavePickerActivatedEventArgs2 {
     }
 }
 impl ::core::cmp::Eq for IFileSavePickerActivatedEventArgs2 {}
+impl ::core::fmt::Debug for IFileSavePickerActivatedEventArgs2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFileSavePickerActivatedEventArgs2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IFileSavePickerActivatedEventArgs2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6b73fe13-2cf2-4d48-8cbc-af67d23f1ce7}");
 }
@@ -10548,6 +10872,12 @@ impl ::core::cmp::PartialEq for IFileSavePickerContinuationEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for IFileSavePickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for IFileSavePickerContinuationEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFileSavePickerContinuationEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for IFileSavePickerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2c846fe1-3bad-4f33-8c8b-e46fae824b4b}");
@@ -10734,6 +11064,12 @@ impl ::core::cmp::PartialEq for IFolderPickerContinuationEventArgs {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for IFolderPickerContinuationEventArgs {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for IFolderPickerContinuationEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFolderPickerContinuationEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for IFolderPickerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{51882366-9f4b-498f-beb0-42684f6e1c29}");
 }
@@ -10873,6 +11209,11 @@ impl ::core::cmp::PartialEq for ILaunchActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ILaunchActivatedEventArgs {}
+impl ::core::fmt::Debug for ILaunchActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILaunchActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ILaunchActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fbc93e26-a14a-4b4f-82b0-33bed920af52}");
 }
@@ -11040,6 +11381,11 @@ impl ::core::cmp::PartialEq for ILaunchActivatedEventArgs2 {
     }
 }
 impl ::core::cmp::Eq for ILaunchActivatedEventArgs2 {}
+impl ::core::fmt::Debug for ILaunchActivatedEventArgs2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILaunchActivatedEventArgs2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ILaunchActivatedEventArgs2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0fd37ebc-9dc9-46b5-9ace-bd95d4565345}");
 }
@@ -11168,6 +11514,11 @@ impl ::core::cmp::PartialEq for ILockScreenActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ILockScreenActivatedEventArgs {}
+impl ::core::fmt::Debug for ILockScreenActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILockScreenActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ILockScreenActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3ca77966-6108-4a41-8220-ee7d133c8532}");
 }
@@ -11335,6 +11686,11 @@ impl ::core::cmp::PartialEq for ILockScreenCallActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ILockScreenCallActivatedEventArgs {}
+impl ::core::fmt::Debug for ILockScreenCallActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILockScreenCallActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ILockScreenCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{06f37fbe-b5f2-448b-b13e-e328ac1c516a}");
 }
@@ -11464,6 +11820,11 @@ impl ::core::cmp::PartialEq for IPhoneCallActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IPhoneCallActivatedEventArgs {}
+impl ::core::fmt::Debug for IPhoneCallActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPhoneCallActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPhoneCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{54615221-a3c1-4ced-b62f-8c60523619ad}");
 }
@@ -11592,6 +11953,11 @@ impl ::core::cmp::PartialEq for IPickerReturnedActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IPickerReturnedActivatedEventArgs {}
+impl ::core::fmt::Debug for IPickerReturnedActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPickerReturnedActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPickerReturnedActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{360defb9-a9d3-4984-a4ed-9ec734604921}");
 }
@@ -11720,6 +12086,11 @@ impl ::core::cmp::PartialEq for IPrelaunchActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IPrelaunchActivatedEventArgs {}
+impl ::core::fmt::Debug for IPrelaunchActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrelaunchActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPrelaunchActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0c44717b-19f7-48d6-b046-cf22826eaa74}");
 }
@@ -11849,6 +12220,11 @@ impl ::core::cmp::PartialEq for IPrint3DWorkflowActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IPrint3DWorkflowActivatedEventArgs {}
+impl ::core::fmt::Debug for IPrint3DWorkflowActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrint3DWorkflowActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPrint3DWorkflowActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3f57e78b-f2ac-4619-8302-ef855e1c9b90}");
 }
@@ -11979,6 +12355,11 @@ impl ::core::cmp::PartialEq for IPrintTaskSettingsActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IPrintTaskSettingsActivatedEventArgs {}
+impl ::core::fmt::Debug for IPrintTaskSettingsActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintTaskSettingsActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPrintTaskSettingsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ee30a0c9-ce56-4865-ba8e-8954ac271107}");
 }
@@ -12109,6 +12490,11 @@ impl ::core::cmp::PartialEq for IProtocolActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IProtocolActivatedEventArgs {}
+impl ::core::fmt::Debug for IProtocolActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProtocolActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IProtocolActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6095f4dd-b7c0-46ab-81fe-d90f36d00d24}");
 }
@@ -12247,6 +12633,11 @@ impl ::core::cmp::PartialEq for IProtocolActivatedEventArgsWithCallerPackageFami
     }
 }
 impl ::core::cmp::Eq for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {}
+impl ::core::fmt::Debug for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d84a0c12-5c8f-438c-83cb-c28fcc0b2fdb}");
 }
@@ -12378,6 +12769,11 @@ impl ::core::cmp::PartialEq for IProtocolForResultsActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IProtocolForResultsActivatedEventArgs {}
+impl ::core::fmt::Debug for IProtocolForResultsActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProtocolForResultsActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IProtocolForResultsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e75132c2-7ae7-4517-80ac-dbe8d7cc5b9c}");
 }
@@ -12507,6 +12903,11 @@ impl ::core::cmp::PartialEq for IRestrictedLaunchActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IRestrictedLaunchActivatedEventArgs {}
+impl ::core::fmt::Debug for IRestrictedLaunchActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRestrictedLaunchActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IRestrictedLaunchActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e0b7ac81-bfc3-4344-a5da-19fd5a27baae}");
 }
@@ -12643,6 +13044,11 @@ impl ::core::cmp::PartialEq for ISearchActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ISearchActivatedEventArgs {}
+impl ::core::fmt::Debug for ISearchActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISearchActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISearchActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8cb36951-58c8-43e3-94bc-41d33f8b630e}");
 }
@@ -12727,6 +13133,11 @@ impl ::core::cmp::PartialEq for ISearchActivatedEventArgsWithLinguisticDetails {
     }
 }
 impl ::core::cmp::Eq for ISearchActivatedEventArgsWithLinguisticDetails {}
+impl ::core::fmt::Debug for ISearchActivatedEventArgsWithLinguisticDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISearchActivatedEventArgsWithLinguisticDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISearchActivatedEventArgsWithLinguisticDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c09f33da-08ab-4931-9b7c-451025f21f81}");
 }
@@ -12857,6 +13268,11 @@ impl ::core::cmp::PartialEq for IShareTargetActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IShareTargetActivatedEventArgs {}
+impl ::core::fmt::Debug for IShareTargetActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IShareTargetActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IShareTargetActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4bdaf9c8-cdb2-4acb-bfc3-6648563378ec}");
 }
@@ -13009,6 +13425,11 @@ impl ::core::cmp::PartialEq for IStartupTaskActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IStartupTaskActivatedEventArgs {}
+impl ::core::fmt::Debug for IStartupTaskActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStartupTaskActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStartupTaskActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{03b11a58-5276-4d91-8621-54611864d5fa}");
 }
@@ -13165,6 +13586,11 @@ impl ::core::cmp::PartialEq for IToastNotificationActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IToastNotificationActivatedEventArgs {}
+impl ::core::fmt::Debug for IToastNotificationActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IToastNotificationActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IToastNotificationActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{92a86f82-5290-431d-be85-c4aaeeb8685f}");
 }
@@ -13296,6 +13722,11 @@ impl ::core::cmp::PartialEq for IUserDataAccountProviderActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IUserDataAccountProviderActivatedEventArgs {}
+impl ::core::fmt::Debug for IUserDataAccountProviderActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUserDataAccountProviderActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IUserDataAccountProviderActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1bc9f723-8ef1-4a51-a63a-fe711eeab607}");
 }
@@ -13426,6 +13857,11 @@ impl ::core::cmp::PartialEq for IViewSwitcherProvider {
     }
 }
 impl ::core::cmp::Eq for IViewSwitcherProvider {}
+impl ::core::fmt::Debug for IViewSwitcherProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IViewSwitcherProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IViewSwitcherProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{33f288a6-5c2c-4d27-bac7-7536088f1219}");
 }
@@ -13556,6 +13992,11 @@ impl ::core::cmp::PartialEq for IVoiceCommandActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IVoiceCommandActivatedEventArgs {}
+impl ::core::fmt::Debug for IVoiceCommandActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVoiceCommandActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IVoiceCommandActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ab92dcfd-8d43-4de6-9775-20704b581b00}");
 }
@@ -13702,6 +14143,11 @@ impl ::core::cmp::PartialEq for IWalletActionActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IWalletActionActivatedEventArgs {}
+impl ::core::fmt::Debug for IWalletActionActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWalletActionActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWalletActionActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fcfc027b-1a1a-4d22-923f-ae6f45fa52d9}");
 }
@@ -13834,6 +14280,11 @@ impl ::core::cmp::PartialEq for IWebAccountProviderActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IWebAccountProviderActivatedEventArgs {}
+impl ::core::fmt::Debug for IWebAccountProviderActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebAccountProviderActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWebAccountProviderActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{72b71774-98ea-4ccf-9752-46d9051004f1}");
 }
@@ -13995,6 +14446,11 @@ impl ::core::cmp::PartialEq for IWebAuthenticationBrokerContinuationEventArgs {
     }
 }
 impl ::core::cmp::Eq for IWebAuthenticationBrokerContinuationEventArgs {}
+impl ::core::fmt::Debug for IWebAuthenticationBrokerContinuationEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebAuthenticationBrokerContinuationEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWebAuthenticationBrokerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{75dda3d4-7714-453d-b7ff-b95e3a1709da}");
 }
@@ -14112,6 +14568,11 @@ impl ::core::cmp::PartialEq for LaunchActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for LaunchActivatedEventArgs {}
+impl ::core::fmt::Debug for LaunchActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LaunchActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LaunchActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.LaunchActivatedEventArgs;{fbc93e26-a14a-4b4f-82b0-33bed920af52})");
 }
@@ -14375,6 +14836,11 @@ impl ::core::cmp::PartialEq for LockScreenActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for LockScreenActivatedEventArgs {}
+impl ::core::fmt::Debug for LockScreenActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LockScreenActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LockScreenActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.LockScreenActivatedEventArgs;{3ca77966-6108-4a41-8220-ee7d133c8532})");
 }
@@ -14575,6 +15041,11 @@ impl ::core::cmp::PartialEq for LockScreenCallActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for LockScreenCallActivatedEventArgs {}
+impl ::core::fmt::Debug for LockScreenCallActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LockScreenCallActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LockScreenCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.LockScreenCallActivatedEventArgs;{06f37fbe-b5f2-448b-b13e-e328ac1c516a})");
 }
@@ -14777,6 +15248,11 @@ impl ::core::cmp::PartialEq for LockScreenComponentActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for LockScreenComponentActivatedEventArgs {}
+impl ::core::fmt::Debug for LockScreenComponentActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LockScreenComponentActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LockScreenComponentActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.LockScreenComponentActivatedEventArgs;{cf651713-cd08-4fd8-b697-a281b6544e2e})");
 }
@@ -14908,6 +15384,11 @@ impl ::core::cmp::PartialEq for PhoneCallActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PhoneCallActivatedEventArgs {}
+impl ::core::fmt::Debug for PhoneCallActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs;{54615221-a3c1-4ced-b62f-8c60523619ad})");
 }
@@ -15074,6 +15555,11 @@ impl ::core::cmp::PartialEq for PickerReturnedActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PickerReturnedActivatedEventArgs {}
+impl ::core::fmt::Debug for PickerReturnedActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PickerReturnedActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PickerReturnedActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.PickerReturnedActivatedEventArgs;{360defb9-a9d3-4984-a4ed-9ec734604921})");
 }
@@ -15219,6 +15705,11 @@ impl ::core::cmp::PartialEq for Print3DWorkflowActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for Print3DWorkflowActivatedEventArgs {}
+impl ::core::fmt::Debug for Print3DWorkflowActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DWorkflowActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Print3DWorkflowActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.Print3DWorkflowActivatedEventArgs;{3f57e78b-f2ac-4619-8302-ef855e1c9b90})");
 }
@@ -15364,6 +15855,11 @@ impl ::core::cmp::PartialEq for PrintTaskSettingsActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PrintTaskSettingsActivatedEventArgs {}
+impl ::core::fmt::Debug for PrintTaskSettingsActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTaskSettingsActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintTaskSettingsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.PrintTaskSettingsActivatedEventArgs;{ee30a0c9-ce56-4865-ba8e-8954ac271107})");
 }
@@ -15552,6 +16048,11 @@ impl ::core::cmp::PartialEq for ProtocolActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ProtocolActivatedEventArgs {}
+impl ::core::fmt::Debug for ProtocolActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtocolActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProtocolActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs;{6095f4dd-b7c0-46ab-81fe-d90f36d00d24})");
 }
@@ -15837,6 +16338,11 @@ impl ::core::cmp::PartialEq for ProtocolForResultsActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ProtocolForResultsActivatedEventArgs {}
+impl ::core::fmt::Debug for ProtocolForResultsActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtocolForResultsActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProtocolForResultsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ProtocolForResultsActivatedEventArgs;{e75132c2-7ae7-4517-80ac-dbe8d7cc5b9c})");
 }
@@ -16100,6 +16606,11 @@ impl ::core::cmp::PartialEq for RestrictedLaunchActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RestrictedLaunchActivatedEventArgs {}
+impl ::core::fmt::Debug for RestrictedLaunchActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RestrictedLaunchActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RestrictedLaunchActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.RestrictedLaunchActivatedEventArgs;{e0b7ac81-bfc3-4344-a5da-19fd5a27baae})");
 }
@@ -16309,6 +16820,11 @@ impl ::core::cmp::PartialEq for SearchActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SearchActivatedEventArgs {}
+impl ::core::fmt::Debug for SearchActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SearchActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SearchActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.SearchActivatedEventArgs;{8cb36951-58c8-43e3-94bc-41d33f8b630e})");
 }
@@ -16551,6 +17067,11 @@ impl ::core::cmp::PartialEq for ShareTargetActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ShareTargetActivatedEventArgs {}
+impl ::core::fmt::Debug for ShareTargetActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ShareTargetActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ShareTargetActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ShareTargetActivatedEventArgs;{4bdaf9c8-cdb2-4acb-bfc3-6648563378ec})");
 }
@@ -16709,6 +17230,11 @@ impl ::core::cmp::PartialEq for SplashScreen {
     }
 }
 impl ::core::cmp::Eq for SplashScreen {}
+impl ::core::fmt::Debug for SplashScreen {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SplashScreen").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SplashScreen {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.SplashScreen;{ca4d975c-d4d6-43f0-97c0-0833c6391c24})");
 }
@@ -16816,6 +17342,11 @@ impl ::core::cmp::PartialEq for StartupTaskActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for StartupTaskActivatedEventArgs {}
+impl ::core::fmt::Debug for StartupTaskActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StartupTaskActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StartupTaskActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.StartupTaskActivatedEventArgs;{03b11a58-5276-4d91-8621-54611864d5fa})");
 }
@@ -16959,6 +17490,11 @@ impl ::core::cmp::PartialEq for TileActivatedInfo {
     }
 }
 impl ::core::cmp::Eq for TileActivatedInfo {}
+impl ::core::fmt::Debug for TileActivatedInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileActivatedInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TileActivatedInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.TileActivatedInfo;{80e4a3b1-3980-4f17-b738-89194e0b8f65})");
 }
@@ -17085,6 +17621,11 @@ impl ::core::cmp::PartialEq for ToastNotificationActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ToastNotificationActivatedEventArgs {}
+impl ::core::fmt::Debug for ToastNotificationActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastNotificationActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToastNotificationActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ToastNotificationActivatedEventArgs;{92a86f82-5290-431d-be85-c4aaeeb8685f})");
 }
@@ -17274,6 +17815,11 @@ impl ::core::cmp::PartialEq for UserDataAccountProviderActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for UserDataAccountProviderActivatedEventArgs {}
+impl ::core::fmt::Debug for UserDataAccountProviderActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAccountProviderActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataAccountProviderActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.UserDataAccountProviderActivatedEventArgs;{1bc9f723-8ef1-4a51-a63a-fe711eeab607})");
 }
@@ -17428,6 +17974,11 @@ impl ::core::cmp::PartialEq for VoiceCommandActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for VoiceCommandActivatedEventArgs {}
+impl ::core::fmt::Debug for VoiceCommandActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceCommandActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VoiceCommandActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.VoiceCommandActivatedEventArgs;{ab92dcfd-8d43-4de6-9775-20704b581b00})");
 }
@@ -17611,6 +18162,11 @@ impl ::core::cmp::PartialEq for WalletActionActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for WalletActionActivatedEventArgs {}
+impl ::core::fmt::Debug for WalletActionActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletActionActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WalletActionActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs;{fcfc027b-1a1a-4d22-923f-ae6f45fa52d9})");
 }
@@ -17765,6 +18321,11 @@ impl ::core::cmp::PartialEq for WebAccountProviderActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for WebAccountProviderActivatedEventArgs {}
+impl ::core::fmt::Debug for WebAccountProviderActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountProviderActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountProviderActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.WebAccountProviderActivatedEventArgs;{72b71774-98ea-4ccf-9752-46d9051004f1})");
 }
@@ -17941,6 +18502,11 @@ impl ::core::cmp::PartialEq for WebAuthenticationBrokerContinuationEventArgs {
     }
 }
 impl ::core::cmp::Eq for WebAuthenticationBrokerContinuationEventArgs {}
+impl ::core::fmt::Debug for WebAuthenticationBrokerContinuationEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAuthenticationBrokerContinuationEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAuthenticationBrokerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.WebAuthenticationBrokerContinuationEventArgs;{75dda3d4-7714-453d-b7ff-b95e3a1709da})");
 }

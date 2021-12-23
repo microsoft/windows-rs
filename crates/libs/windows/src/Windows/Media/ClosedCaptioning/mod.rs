@@ -28,6 +28,11 @@ impl ::core::cmp::PartialEq for ClosedCaptionColor {
     }
 }
 impl ::core::cmp::Eq for ClosedCaptionColor {}
+impl ::core::fmt::Debug for ClosedCaptionColor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClosedCaptionColor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClosedCaptionColor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionColor;i4)");
 }
@@ -60,6 +65,11 @@ impl ::core::cmp::PartialEq for ClosedCaptionEdgeEffect {
     }
 }
 impl ::core::cmp::Eq for ClosedCaptionEdgeEffect {}
+impl ::core::fmt::Debug for ClosedCaptionEdgeEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClosedCaptionEdgeEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClosedCaptionEdgeEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionEdgeEffect;i4)");
 }
@@ -91,6 +101,11 @@ impl ::core::cmp::PartialEq for ClosedCaptionOpacity {
     }
 }
 impl ::core::cmp::Eq for ClosedCaptionOpacity {}
+impl ::core::fmt::Debug for ClosedCaptionOpacity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClosedCaptionOpacity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClosedCaptionOpacity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionOpacity;i4)");
 }
@@ -221,6 +236,11 @@ impl ::core::cmp::PartialEq for ClosedCaptionSize {
     }
 }
 impl ::core::cmp::Eq for ClosedCaptionSize {}
+impl ::core::fmt::Debug for ClosedCaptionSize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClosedCaptionSize").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClosedCaptionSize {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionSize;i4)");
 }
@@ -255,6 +275,11 @@ impl ::core::cmp::PartialEq for ClosedCaptionStyle {
     }
 }
 impl ::core::cmp::Eq for ClosedCaptionStyle {}
+impl ::core::fmt::Debug for ClosedCaptionStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClosedCaptionStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClosedCaptionStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionStyle;i4)");
 }

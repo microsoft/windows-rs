@@ -22,6 +22,11 @@ impl ::core::cmp::PartialEq for GuidanceAudioMeasurementSystem {
     }
 }
 impl ::core::cmp::Eq for GuidanceAudioMeasurementSystem {}
+impl ::core::fmt::Debug for GuidanceAudioMeasurementSystem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceAudioMeasurementSystem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceAudioMeasurementSystem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioMeasurementSystem;i4)");
 }
@@ -54,6 +59,11 @@ impl ::core::cmp::PartialEq for GuidanceAudioNotificationKind {
     }
 }
 impl ::core::cmp::Eq for GuidanceAudioNotificationKind {}
+impl ::core::fmt::Debug for GuidanceAudioNotificationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceAudioNotificationKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceAudioNotificationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotificationKind;i4)");
 }
@@ -101,6 +111,11 @@ impl ::core::cmp::PartialEq for GuidanceAudioNotificationRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for GuidanceAudioNotificationRequestedEventArgs {}
+impl ::core::fmt::Debug for GuidanceAudioNotificationRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceAudioNotificationRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceAudioNotificationRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceAudioNotificationRequestedEventArgs;{ca2aa24a-c7c2-4d4c-9d7c-499576bceddb})");
 }
@@ -180,6 +195,11 @@ impl ::core::cmp::PartialEq for GuidanceAudioNotifications {
     }
 }
 impl ::core::cmp::Eq for GuidanceAudioNotifications {}
+impl ::core::fmt::Debug for GuidanceAudioNotifications {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceAudioNotifications").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceAudioNotifications {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotifications;u4)");
 }
@@ -218,6 +238,11 @@ impl ::core::cmp::PartialEq for GuidanceLaneInfo {
     }
 }
 impl ::core::cmp::Eq for GuidanceLaneInfo {}
+impl ::core::fmt::Debug for GuidanceLaneInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceLaneInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceLaneInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceLaneInfo;{8404d114-6581-43b7-ac15-c9079bf90df1})");
 }
@@ -301,6 +326,11 @@ impl ::core::cmp::PartialEq for GuidanceLaneMarkers {
     }
 }
 impl ::core::cmp::Eq for GuidanceLaneMarkers {}
+impl ::core::fmt::Debug for GuidanceLaneMarkers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceLaneMarkers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceLaneMarkers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceLaneMarkers;u4)");
 }
@@ -420,6 +450,11 @@ impl ::core::cmp::PartialEq for GuidanceManeuver {
     }
 }
 impl ::core::cmp::Eq for GuidanceManeuver {}
+impl ::core::fmt::Debug for GuidanceManeuver {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceManeuver").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceManeuver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceManeuver;{fc09326c-ecc9-4928-a2a1-7232b99b94a1})");
 }
@@ -540,6 +575,11 @@ impl ::core::cmp::PartialEq for GuidanceManeuverKind {
     }
 }
 impl ::core::cmp::Eq for GuidanceManeuverKind {}
+impl ::core::fmt::Debug for GuidanceManeuverKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceManeuverKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceManeuverKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceManeuverKind;i4)");
 }
@@ -603,6 +643,11 @@ impl ::core::cmp::PartialEq for GuidanceMapMatchedCoordinate {
     }
 }
 impl ::core::cmp::Eq for GuidanceMapMatchedCoordinate {}
+impl ::core::fmt::Debug for GuidanceMapMatchedCoordinate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceMapMatchedCoordinate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceMapMatchedCoordinate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceMapMatchedCoordinate;{b7acb168-2912-4a99-aff1-798609b981fe})");
 }
@@ -679,6 +724,11 @@ impl ::core::cmp::PartialEq for GuidanceMode {
     }
 }
 impl ::core::cmp::Eq for GuidanceMode {}
+impl ::core::fmt::Debug for GuidanceMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceMode;i4)");
 }
@@ -936,6 +986,11 @@ impl ::core::cmp::PartialEq for GuidanceNavigator {
     }
 }
 impl ::core::cmp::Eq for GuidanceNavigator {}
+impl ::core::fmt::Debug for GuidanceNavigator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceNavigator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceNavigator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceNavigator;{08f17ef7-8e3f-4d9a-be8a-108f9a012c67})");
 }
@@ -1012,6 +1067,11 @@ impl ::core::cmp::PartialEq for GuidanceReroutedEventArgs {
     }
 }
 impl ::core::cmp::Eq for GuidanceReroutedEventArgs {}
+impl ::core::fmt::Debug for GuidanceReroutedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceReroutedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceReroutedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceReroutedEventArgs;{115d4008-d528-454e-bb94-a50341d2c9f1})");
 }
@@ -1162,6 +1222,11 @@ impl ::core::cmp::PartialEq for GuidanceRoadSegment {
     }
 }
 impl ::core::cmp::Eq for GuidanceRoadSegment {}
+impl ::core::fmt::Debug for GuidanceRoadSegment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceRoadSegment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceRoadSegment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceRoadSegment;{b32758a6-be78-4c63-afe7-6c2957479b3e})");
 }
@@ -1273,6 +1338,11 @@ impl ::core::cmp::PartialEq for GuidanceRoadSignpost {
     }
 }
 impl ::core::cmp::Eq for GuidanceRoadSignpost {}
+impl ::core::fmt::Debug for GuidanceRoadSignpost {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceRoadSignpost").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceRoadSignpost {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceRoadSignpost;{f1a728b6-f77a-4742-8312-53300f9845f0})");
 }
@@ -1421,6 +1491,11 @@ impl ::core::cmp::PartialEq for GuidanceRoute {
     }
 }
 impl ::core::cmp::Eq for GuidanceRoute {}
+impl ::core::fmt::Debug for GuidanceRoute {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceRoute").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceRoute {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceRoute;{3a14545d-801a-40bd-a286-afb2010cce6c})");
 }
@@ -1545,6 +1620,11 @@ impl ::core::cmp::PartialEq for GuidanceTelemetryCollector {
     }
 }
 impl ::core::cmp::Eq for GuidanceTelemetryCollector {}
+impl ::core::fmt::Debug for GuidanceTelemetryCollector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceTelemetryCollector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceTelemetryCollector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceTelemetryCollector;{db1f8da5-b878-4d92-98dd-347d23d38262})");
 }
@@ -1728,6 +1808,11 @@ impl ::core::cmp::PartialEq for GuidanceUpdatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for GuidanceUpdatedEventArgs {}
+impl ::core::fmt::Debug for GuidanceUpdatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceUpdatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceUpdatedEventArgs;{fdac160b-9e8d-4de3-a9fa-b06321d18db9})");
 }

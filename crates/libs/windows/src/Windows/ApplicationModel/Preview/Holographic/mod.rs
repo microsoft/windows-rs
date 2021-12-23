@@ -80,6 +80,12 @@ impl ::core::cmp::PartialEq for HolographicKeyboardPlacementOverridePreview {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for HolographicKeyboardPlacementOverridePreview {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for HolographicKeyboardPlacementOverridePreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicKeyboardPlacementOverridePreview").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for HolographicKeyboardPlacementOverridePreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview;{c8a8ce3a-dfde-5a14-8d5f-182c526dd9c4})");
 }

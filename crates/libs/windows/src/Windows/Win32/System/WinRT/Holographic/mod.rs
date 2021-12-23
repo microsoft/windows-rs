@@ -82,6 +82,11 @@ impl ::core::cmp::PartialEq for IHolographicCameraInterop {
     }
 }
 impl ::core::cmp::Eq for IHolographicCameraInterop {}
+impl ::core::fmt::Debug for IHolographicCameraInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IHolographicCameraInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IHolographicCameraInterop {
     type Vtable = IHolographicCameraInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cc1f9c5_6d02_41fa_9500_e1809eb48eec);
@@ -172,6 +177,11 @@ impl ::core::cmp::PartialEq for IHolographicCameraRenderingParametersInterop {
     }
 }
 impl ::core::cmp::Eq for IHolographicCameraRenderingParametersInterop {}
+impl ::core::fmt::Debug for IHolographicCameraRenderingParametersInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IHolographicCameraRenderingParametersInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IHolographicCameraRenderingParametersInterop {
     type Vtable = IHolographicCameraRenderingParametersInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf75b68d6_d1fd_4707_aafd_fa6f4c0e3bf4);
@@ -273,6 +283,11 @@ impl ::core::cmp::PartialEq for IHolographicQuadLayerInterop {
     }
 }
 impl ::core::cmp::Eq for IHolographicQuadLayerInterop {}
+impl ::core::fmt::Debug for IHolographicQuadLayerInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IHolographicQuadLayerInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IHolographicQuadLayerInterop {
     type Vtable = IHolographicQuadLayerInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfa688f0_639e_4a47_83d7_6b7f5ebf7fed);
@@ -358,6 +373,11 @@ impl ::core::cmp::PartialEq for IHolographicQuadLayerUpdateParametersInterop {
     }
 }
 impl ::core::cmp::Eq for IHolographicQuadLayerUpdateParametersInterop {}
+impl ::core::fmt::Debug for IHolographicQuadLayerUpdateParametersInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IHolographicQuadLayerUpdateParametersInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IHolographicQuadLayerUpdateParametersInterop {
     type Vtable = IHolographicQuadLayerUpdateParametersInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5f549cd_c909_444f_8809_7cc18a9c8920);

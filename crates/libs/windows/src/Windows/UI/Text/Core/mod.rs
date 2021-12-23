@@ -41,6 +41,11 @@ impl ::core::cmp::PartialEq for CoreTextCompositionCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for CoreTextCompositionCompletedEventArgs {}
+impl ::core::fmt::Debug for CoreTextCompositionCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextCompositionCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextCompositionCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextCompositionCompletedEventArgs;{1f34ebb6-b79f-4121-a5e7-fda9b8616e30})");
 }
@@ -125,6 +130,11 @@ impl ::core::cmp::PartialEq for CoreTextCompositionSegment {
     }
 }
 impl ::core::cmp::Eq for CoreTextCompositionSegment {}
+impl ::core::fmt::Debug for CoreTextCompositionSegment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextCompositionSegment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextCompositionSegment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextCompositionSegment;{776c6bd9-4ead-4da7-8f47-3a88b523cc34})");
 }
@@ -210,6 +220,11 @@ impl ::core::cmp::PartialEq for CoreTextCompositionStartedEventArgs {
     }
 }
 impl ::core::cmp::Eq for CoreTextCompositionStartedEventArgs {}
+impl ::core::fmt::Debug for CoreTextCompositionStartedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextCompositionStartedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextCompositionStartedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextCompositionStartedEventArgs;{276b16a9-64e7-4ab0-bc4b-a02d73835bfb})");
 }
@@ -505,6 +520,11 @@ impl ::core::cmp::PartialEq for CoreTextEditContext {
     }
 }
 impl ::core::cmp::Eq for CoreTextEditContext {}
+impl ::core::fmt::Debug for CoreTextEditContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextEditContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextEditContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextEditContext;{bf6608af-4041-47c3-b263-a918eb5eaef2})");
 }
@@ -655,6 +675,11 @@ impl ::core::cmp::PartialEq for CoreTextFormatUpdatingEventArgs {
     }
 }
 impl ::core::cmp::Eq for CoreTextFormatUpdatingEventArgs {}
+impl ::core::fmt::Debug for CoreTextFormatUpdatingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextFormatUpdatingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextFormatUpdatingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextFormatUpdatingEventArgs;{7310bd33-b4a8-43b1-b37b-0724d4aca7ab})");
 }
@@ -732,6 +757,11 @@ impl ::core::cmp::PartialEq for CoreTextFormatUpdatingReason {
     }
 }
 impl ::core::cmp::Eq for CoreTextFormatUpdatingReason {}
+impl ::core::fmt::Debug for CoreTextFormatUpdatingReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextFormatUpdatingReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextFormatUpdatingReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingReason;i4)");
 }
@@ -760,6 +790,11 @@ impl ::core::cmp::PartialEq for CoreTextFormatUpdatingResult {
     }
 }
 impl ::core::cmp::Eq for CoreTextFormatUpdatingResult {}
+impl ::core::fmt::Debug for CoreTextFormatUpdatingResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextFormatUpdatingResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextFormatUpdatingResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingResult;i4)");
 }
@@ -788,6 +823,11 @@ impl ::core::cmp::PartialEq for CoreTextInputPaneDisplayPolicy {
     }
 }
 impl ::core::cmp::Eq for CoreTextInputPaneDisplayPolicy {}
+impl ::core::fmt::Debug for CoreTextInputPaneDisplayPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextInputPaneDisplayPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextInputPaneDisplayPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputPaneDisplayPolicy;i4)");
 }
@@ -881,6 +921,11 @@ impl ::core::cmp::PartialEq for CoreTextInputScope {
     }
 }
 impl ::core::cmp::Eq for CoreTextInputScope {}
+impl ::core::fmt::Debug for CoreTextInputScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextInputScope").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextInputScope {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputScope;i4)");
 }
@@ -933,6 +978,11 @@ impl ::core::cmp::PartialEq for CoreTextLayoutBounds {
     }
 }
 impl ::core::cmp::Eq for CoreTextLayoutBounds {}
+impl ::core::fmt::Debug for CoreTextLayoutBounds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextLayoutBounds").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextLayoutBounds {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextLayoutBounds;{e972c974-4436-4917-80d0-a525e4ca6780})");
 }
@@ -1042,6 +1092,11 @@ impl ::core::cmp::PartialEq for CoreTextLayoutRequest {
     }
 }
 impl ::core::cmp::Eq for CoreTextLayoutRequest {}
+impl ::core::fmt::Debug for CoreTextLayoutRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextLayoutRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextLayoutRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextLayoutRequest;{2555a8cc-51fd-4f03-98bf-ac78174d68e0})");
 }
@@ -1118,6 +1173,11 @@ impl ::core::cmp::PartialEq for CoreTextLayoutRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for CoreTextLayoutRequestedEventArgs {}
+impl ::core::fmt::Debug for CoreTextLayoutRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextLayoutRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextLayoutRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextLayoutRequestedEventArgs;{b1dc6ae0-9a7b-4e9e-a566-4a6b5f8ad676})");
 }
@@ -1180,6 +1240,11 @@ impl ::core::marker::Copy for CoreTextRange {}
 impl ::core::clone::Clone for CoreTextRange {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CoreTextRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CoreTextRange").field("StartCaretPosition", &self.StartCaretPosition).field("EndCaretPosition", &self.EndCaretPosition).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CoreTextRange {
@@ -1248,6 +1313,11 @@ impl ::core::cmp::PartialEq for CoreTextSelectionRequest {
     }
 }
 impl ::core::cmp::Eq for CoreTextSelectionRequest {}
+impl ::core::fmt::Debug for CoreTextSelectionRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextSelectionRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextSelectionRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextSelectionRequest;{f0a70403-208b-4301-883c-74ca7485fd8d})");
 }
@@ -1324,6 +1394,11 @@ impl ::core::cmp::PartialEq for CoreTextSelectionRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for CoreTextSelectionRequestedEventArgs {}
+impl ::core::fmt::Debug for CoreTextSelectionRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextSelectionRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextSelectionRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextSelectionRequestedEventArgs;{13c6682b-f614-421a-8f4b-9ec8a5a37fcd})");
 }
@@ -1430,6 +1505,11 @@ impl ::core::cmp::PartialEq for CoreTextSelectionUpdatingEventArgs {
     }
 }
 impl ::core::cmp::Eq for CoreTextSelectionUpdatingEventArgs {}
+impl ::core::fmt::Debug for CoreTextSelectionUpdatingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextSelectionUpdatingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextSelectionUpdatingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextSelectionUpdatingEventArgs;{d445839f-fe7f-4bd5-8a26-0922c1b3e639})");
 }
@@ -1504,6 +1584,11 @@ impl ::core::cmp::PartialEq for CoreTextSelectionUpdatingResult {
     }
 }
 impl ::core::cmp::Eq for CoreTextSelectionUpdatingResult {}
+impl ::core::fmt::Debug for CoreTextSelectionUpdatingResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextSelectionUpdatingResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextSelectionUpdatingResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextSelectionUpdatingResult;i4)");
 }
@@ -1589,6 +1674,11 @@ impl ::core::cmp::PartialEq for CoreTextServicesManager {
     }
 }
 impl ::core::cmp::Eq for CoreTextServicesManager {}
+impl ::core::fmt::Debug for CoreTextServicesManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextServicesManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextServicesManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextServicesManager;{c2507d83-6e0a-4a8a-bdf8-1948874854ba})");
 }
@@ -1695,6 +1785,11 @@ impl ::core::cmp::PartialEq for CoreTextTextRequest {
     }
 }
 impl ::core::cmp::Eq for CoreTextTextRequest {}
+impl ::core::fmt::Debug for CoreTextTextRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextTextRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextTextRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextTextRequest;{50d950a9-f51e-4cc1-8ca1-e6346d1a61be})");
 }
@@ -1771,6 +1866,11 @@ impl ::core::cmp::PartialEq for CoreTextTextRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for CoreTextTextRequestedEventArgs {}
+impl ::core::fmt::Debug for CoreTextTextRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextTextRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextTextRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextTextRequestedEventArgs;{f096a2d0-41c6-4c02-8b1a-d953b00cabb3})");
 }
@@ -1902,6 +2002,11 @@ impl ::core::cmp::PartialEq for CoreTextTextUpdatingEventArgs {
     }
 }
 impl ::core::cmp::Eq for CoreTextTextUpdatingEventArgs {}
+impl ::core::fmt::Debug for CoreTextTextUpdatingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextTextUpdatingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextTextUpdatingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextTextUpdatingEventArgs;{eea7918d-cc2b-4f03-8ff6-02fd217db450})");
 }
@@ -1976,6 +2081,11 @@ impl ::core::cmp::PartialEq for CoreTextTextUpdatingResult {
     }
 }
 impl ::core::cmp::Eq for CoreTextTextUpdatingResult {}
+impl ::core::fmt::Debug for CoreTextTextUpdatingResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextTextUpdatingResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextTextUpdatingResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextTextUpdatingResult;i4)");
 }

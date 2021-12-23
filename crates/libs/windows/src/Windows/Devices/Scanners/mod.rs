@@ -152,6 +152,11 @@ impl ::core::cmp::PartialEq for IImageScannerFormatConfiguration {
     }
 }
 impl ::core::cmp::Eq for IImageScannerFormatConfiguration {}
+impl ::core::fmt::Debug for IImageScannerFormatConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IImageScannerFormatConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IImageScannerFormatConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ae275d11-dadf-4010-bf10-cca5c83dcbb0}");
 }
@@ -536,6 +541,11 @@ impl ::core::cmp::PartialEq for IImageScannerSourceConfiguration {
     }
 }
 impl ::core::cmp::Eq for IImageScannerSourceConfiguration {}
+impl ::core::fmt::Debug for IImageScannerSourceConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IImageScannerSourceConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IImageScannerSourceConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{bfb50055-0b44-4c82-9e89-205f9c234e59}");
 }
@@ -716,6 +726,11 @@ impl ::core::cmp::PartialEq for ImageScanner {
     }
 }
 impl ::core::cmp::Eq for ImageScanner {}
+impl ::core::fmt::Debug for ImageScanner {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageScanner").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ImageScanner {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScanner;{53a88f78-5298-48a0-8da3-8087519665e0})");
 }
@@ -813,6 +828,11 @@ impl ::core::cmp::PartialEq for ImageScannerAutoConfiguration {
     }
 }
 impl ::core::cmp::Eq for ImageScannerAutoConfiguration {}
+impl ::core::fmt::Debug for ImageScannerAutoConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageScannerAutoConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ImageScannerAutoConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScannerAutoConfiguration;{ae275d11-dadf-4010-bf10-cca5c83dcbb0})");
 }
@@ -910,6 +930,11 @@ impl ::core::cmp::PartialEq for ImageScannerAutoCroppingMode {
     }
 }
 impl ::core::cmp::Eq for ImageScannerAutoCroppingMode {}
+impl ::core::fmt::Debug for ImageScannerAutoCroppingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageScannerAutoCroppingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ImageScannerAutoCroppingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerAutoCroppingMode;i4)");
 }
@@ -940,6 +965,11 @@ impl ::core::cmp::PartialEq for ImageScannerColorMode {
     }
 }
 impl ::core::cmp::Eq for ImageScannerColorMode {}
+impl ::core::fmt::Debug for ImageScannerColorMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageScannerColorMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ImageScannerColorMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerColorMode;i4)");
 }
@@ -1333,6 +1363,11 @@ impl ::core::cmp::PartialEq for ImageScannerFeederConfiguration {
     }
 }
 impl ::core::cmp::Eq for ImageScannerFeederConfiguration {}
+impl ::core::fmt::Debug for ImageScannerFeederConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageScannerFeederConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ImageScannerFeederConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScannerFeederConfiguration;{ae275d11-dadf-4010-bf10-cca5c83dcbb0})");
 }
@@ -1692,6 +1727,11 @@ impl ::core::cmp::PartialEq for ImageScannerFlatbedConfiguration {
     }
 }
 impl ::core::cmp::Eq for ImageScannerFlatbedConfiguration {}
+impl ::core::fmt::Debug for ImageScannerFlatbedConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageScannerFlatbedConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ImageScannerFlatbedConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScannerFlatbedConfiguration;{ae275d11-dadf-4010-bf10-cca5c83dcbb0})");
 }
@@ -1815,6 +1855,11 @@ impl ::core::cmp::PartialEq for ImageScannerFormat {
     }
 }
 impl ::core::cmp::Eq for ImageScannerFormat {}
+impl ::core::fmt::Debug for ImageScannerFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageScannerFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ImageScannerFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerFormat;i4)");
 }
@@ -1853,6 +1898,11 @@ impl ::core::cmp::PartialEq for ImageScannerPreviewResult {
     }
 }
 impl ::core::cmp::Eq for ImageScannerPreviewResult {}
+impl ::core::fmt::Debug for ImageScannerPreviewResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageScannerPreviewResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ImageScannerPreviewResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScannerPreviewResult;{08b7fe8e-8891-441d-be9c-176fa109c8bb})");
 }
@@ -1917,6 +1967,11 @@ impl ::core::clone::Clone for ImageScannerResolution {
         *self
     }
 }
+impl ::core::fmt::Debug for ImageScannerResolution {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ImageScannerResolution").field("DpiX", &self.DpiX).field("DpiY", &self.DpiY).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ImageScannerResolution {
     type Abi = Self;
 }
@@ -1962,6 +2017,11 @@ impl ::core::cmp::PartialEq for ImageScannerScanResult {
     }
 }
 impl ::core::cmp::Eq for ImageScannerScanResult {}
+impl ::core::fmt::Debug for ImageScannerScanResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageScannerScanResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ImageScannerScanResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScannerScanResult;{c91624cd-9037-4e48-84c1-ac0975076bc5})");
 }
@@ -2038,6 +2098,11 @@ impl ::core::cmp::PartialEq for ImageScannerScanSource {
     }
 }
 impl ::core::cmp::Eq for ImageScannerScanSource {}
+impl ::core::fmt::Debug for ImageScannerScanSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageScannerScanSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ImageScannerScanSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerScanSource;i4)");
 }

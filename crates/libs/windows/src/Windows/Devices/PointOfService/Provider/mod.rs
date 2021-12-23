@@ -51,6 +51,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerDisableScannerRequest {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerDisableScannerRequest {}
+impl ::core::fmt::Debug for BarcodeScannerDisableScannerRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerDisableScannerRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerDisableScannerRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequest;{88ecf7c0-37b9-4275-8e77-c8e52ae5a9c8})");
 }
@@ -136,6 +141,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerDisableScannerRequestEventArgs {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerDisableScannerRequestEventArgs {}
+impl ::core::fmt::Debug for BarcodeScannerDisableScannerRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerDisableScannerRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerDisableScannerRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequestEventArgs;{7006e142-e802-46f5-b604-352a15ce9232})");
 }
@@ -240,6 +250,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerEnableScannerRequest {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerEnableScannerRequest {}
+impl ::core::fmt::Debug for BarcodeScannerEnableScannerRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerEnableScannerRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerEnableScannerRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequest;{c0b3e9ba-816a-452b-bd77-b7e453ec446d})");
 }
@@ -325,6 +340,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerEnableScannerRequestEventArgs {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerEnableScannerRequestEventArgs {}
+impl ::core::fmt::Debug for BarcodeScannerEnableScannerRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerEnableScannerRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerEnableScannerRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequestEventArgs;{956c9419-7b4e-4451-8c41-8e10cfbc5b41})");
 }
@@ -449,6 +469,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerFrameReader {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerFrameReader {}
+impl ::core::fmt::Debug for BarcodeScannerFrameReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerFrameReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerFrameReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReader;{dbc72b07-64c3-482b-93c8-65fb33c22208})");
 }
@@ -552,6 +577,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerFrameReaderFrameArrivedEventArgs {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerFrameReaderFrameArrivedEventArgs {}
+impl ::core::fmt::Debug for BarcodeScannerFrameReaderFrameArrivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerFrameReaderFrameArrivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerFrameReaderFrameArrivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReaderFrameArrivedEventArgs;{b0bbd604-54fd-436d-8629-712e787223dd})");
 }
@@ -664,6 +694,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerGetSymbologyAttributesRequest {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerGetSymbologyAttributesRequest {}
+impl ::core::fmt::Debug for BarcodeScannerGetSymbologyAttributesRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerGetSymbologyAttributesRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerGetSymbologyAttributesRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequest;{9774c46a-58e4-4c5f-b8e9-e41467632700})");
 }
@@ -749,6 +784,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerGetSymbologyAttributesRequestEvent
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerGetSymbologyAttributesRequestEventArgs {}
+impl ::core::fmt::Debug for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerGetSymbologyAttributesRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequestEventArgs;{7f89de3e-fb5d-493c-b402-356b24d574a6})");
 }
@@ -853,6 +893,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerHideVideoPreviewRequest {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerHideVideoPreviewRequest {}
+impl ::core::fmt::Debug for BarcodeScannerHideVideoPreviewRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerHideVideoPreviewRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerHideVideoPreviewRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequest;{fa4ebe7f-6670-40e1-b90b-bb10d8d425fa})");
 }
@@ -938,6 +983,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerHideVideoPreviewRequestEventArgs {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerHideVideoPreviewRequestEventArgs {}
+impl ::core::fmt::Debug for BarcodeScannerHideVideoPreviewRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerHideVideoPreviewRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerHideVideoPreviewRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequestEventArgs;{16a281fc-d6be-4bc7-9df1-33741f3eadea})");
 }
@@ -1264,6 +1314,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerProviderConnection {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerProviderConnection {}
+impl ::core::fmt::Debug for BarcodeScannerProviderConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerProviderConnection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerProviderConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerProviderConnection;{b44acbed-0b3a-4fa3-86c5-491ea30780eb})");
 }
@@ -1366,6 +1421,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerProviderTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerProviderTriggerDetails {}
+impl ::core::fmt::Debug for BarcodeScannerProviderTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerProviderTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerProviderTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerProviderTriggerDetails;{50856d82-24e3-48ce-99c7-70aac1cbc9f7})");
 }
@@ -1479,6 +1539,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerSetActiveSymbologiesRequest {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerSetActiveSymbologiesRequest {}
+impl ::core::fmt::Debug for BarcodeScannerSetActiveSymbologiesRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerSetActiveSymbologiesRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerSetActiveSymbologiesRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequest;{db3f32b9-f7da-41a1-9f79-07bcd95f0bdf})");
 }
@@ -1564,6 +1629,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerSetActiveSymbologiesRequestEventAr
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerSetActiveSymbologiesRequestEventArgs {}
+impl ::core::fmt::Debug for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerSetActiveSymbologiesRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequestEventArgs;{06305afa-7bf6-4d52-801a-330272f60ae1})");
 }
@@ -1684,6 +1754,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerSetSymbologyAttributesRequest {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerSetSymbologyAttributesRequest {}
+impl ::core::fmt::Debug for BarcodeScannerSetSymbologyAttributesRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerSetSymbologyAttributesRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerSetSymbologyAttributesRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequest;{32fb814f-a37f-48b0-acea-dce1480f12ae})");
 }
@@ -1769,6 +1844,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerSetSymbologyAttributesRequestEvent
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerSetSymbologyAttributesRequestEventArgs {}
+impl ::core::fmt::Debug for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerSetSymbologyAttributesRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequestEventArgs;{b2b89809-9824-47d4-85bd-d0077baa7bd2})");
 }
@@ -1873,6 +1953,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerStartSoftwareTriggerRequest {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerStartSoftwareTriggerRequest {}
+impl ::core::fmt::Debug for BarcodeScannerStartSoftwareTriggerRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerStartSoftwareTriggerRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerStartSoftwareTriggerRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequest;{e3fa7b27-ff62-4454-af4a-cb6144a3e3f7})");
 }
@@ -1958,6 +2043,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerStartSoftwareTriggerRequestEventAr
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerStartSoftwareTriggerRequestEventArgs {}
+impl ::core::fmt::Debug for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerStartSoftwareTriggerRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequestEventArgs;{2305d843-c88f-4f3b-8c3b-d3df071051ec})");
 }
@@ -2062,6 +2152,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerStopSoftwareTriggerRequest {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerStopSoftwareTriggerRequest {}
+impl ::core::fmt::Debug for BarcodeScannerStopSoftwareTriggerRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerStopSoftwareTriggerRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerStopSoftwareTriggerRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequest;{6f9faf35-e287-4ca8-b70d-5a91d694f668})");
 }
@@ -2147,6 +2242,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerStopSoftwareTriggerRequestEventArg
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
+impl ::core::fmt::Debug for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerStopSoftwareTriggerRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequestEventArgs;{eac34450-4eb7-481a-9273-147a273b99b8})");
 }
@@ -2221,6 +2321,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerTriggerState {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerTriggerState {}
+impl ::core::fmt::Debug for BarcodeScannerTriggerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerTriggerState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerTriggerState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.Provider.BarcodeScannerTriggerState;i4)");
 }
@@ -2283,6 +2388,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerVideoFrame {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerVideoFrame {}
+impl ::core::fmt::Debug for BarcodeScannerVideoFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerVideoFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerVideoFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerVideoFrame;{7e585248-9df7-4121-a175-801d8000112e})");
 }
@@ -2431,6 +2541,11 @@ impl ::core::cmp::PartialEq for BarcodeSymbologyAttributesBuilder {
     }
 }
 impl ::core::cmp::Eq for BarcodeSymbologyAttributesBuilder {}
+impl ::core::fmt::Debug for BarcodeSymbologyAttributesBuilder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeSymbologyAttributesBuilder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeSymbologyAttributesBuilder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeSymbologyAttributesBuilder;{c57b0cbf-e4f5-40b9-84cf-e63fbaea42b4})");
 }

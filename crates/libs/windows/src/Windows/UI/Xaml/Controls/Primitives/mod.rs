@@ -23,6 +23,11 @@ impl ::core::cmp::PartialEq for AnimationDirection {
     }
 }
 impl ::core::cmp::Eq for AnimationDirection {}
+impl ::core::fmt::Debug for AnimationDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AnimationDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.AnimationDirection;i4)");
 }
@@ -53,6 +58,11 @@ impl ::core::cmp::PartialEq for AppBarButtonTemplateSettings {
     }
 }
 impl ::core::cmp::Eq for AppBarButtonTemplateSettings {}
+impl ::core::fmt::Debug for AppBarButtonTemplateSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBarButtonTemplateSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppBarButtonTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.AppBarButtonTemplateSettings;{cbc9b39d-0c95-4951-bff2-13963691c366})");
 }
@@ -222,6 +232,11 @@ impl ::core::cmp::PartialEq for AppBarTemplateSettings {
     }
 }
 impl ::core::cmp::Eq for AppBarTemplateSettings {}
+impl ::core::fmt::Debug for AppBarTemplateSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBarTemplateSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppBarTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.AppBarTemplateSettings;{bcc2a863-eb35-423c-8389-d7827be3bf67})");
 }
@@ -318,6 +333,11 @@ impl ::core::cmp::PartialEq for AppBarToggleButtonTemplateSettings {
     }
 }
 impl ::core::cmp::Eq for AppBarToggleButtonTemplateSettings {}
+impl ::core::fmt::Debug for AppBarToggleButtonTemplateSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBarToggleButtonTemplateSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppBarToggleButtonTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.AppBarToggleButtonTemplateSettings;{aaf99c48-d8f4-40d9-9fa3-3a64f0fec5d8})");
 }
@@ -518,6 +538,11 @@ impl ::core::cmp::PartialEq for ButtonBase {
     }
 }
 impl ::core::cmp::Eq for ButtonBase {}
+impl ::core::fmt::Debug for ButtonBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ButtonBase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ButtonBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ButtonBase;{fa002c1a-494e-46cf-91d4-e14a8d798674})");
 }
@@ -745,6 +770,11 @@ impl ::core::cmp::PartialEq for CalendarPanel {
     }
 }
 impl ::core::cmp::Eq for CalendarPanel {}
+impl ::core::fmt::Debug for CalendarPanel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CalendarPanel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CalendarPanel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.CalendarPanel;{fcd55a2d-02d3-4ee6-9a90-9df3ead00994})");
 }
@@ -1066,6 +1096,11 @@ impl ::core::cmp::PartialEq for CalendarViewTemplateSettings {
     }
 }
 impl ::core::cmp::Eq for CalendarViewTemplateSettings {}
+impl ::core::fmt::Debug for CalendarViewTemplateSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CalendarViewTemplateSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CalendarViewTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.CalendarViewTemplateSettings;{56c71483-64e1-477c-8a0b-cb2f3334b9b0})");
 }
@@ -1395,6 +1430,11 @@ impl ::core::cmp::PartialEq for CarouselPanel {
     }
 }
 impl ::core::cmp::Eq for CarouselPanel {}
+impl ::core::fmt::Debug for CarouselPanel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CarouselPanel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CarouselPanel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.CarouselPanel;{deab78b2-373b-4151-8785-e544d0d9362b})");
 }
@@ -1674,6 +1714,11 @@ impl ::core::cmp::PartialEq for ColorPickerSlider {
     }
 }
 impl ::core::cmp::Eq for ColorPickerSlider {}
+impl ::core::fmt::Debug for ColorPickerSlider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ColorPickerSlider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ColorPickerSlider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ColorPickerSlider;{94394d83-e0df-4c5f-bbcd-8155f4020440})");
 }
@@ -2148,6 +2193,11 @@ impl ::core::cmp::PartialEq for ColorSpectrum {
     }
 }
 impl ::core::cmp::Eq for ColorSpectrum {}
+impl ::core::fmt::Debug for ColorSpectrum {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ColorSpectrum").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ColorSpectrum {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ColorSpectrum;{ce46f271-f509-4f98-8288-e4942fb385df})");
 }
@@ -2388,6 +2438,11 @@ impl ::core::cmp::PartialEq for ComboBoxTemplateSettings {
     }
 }
 impl ::core::cmp::Eq for ComboBoxTemplateSettings {}
+impl ::core::fmt::Debug for ComboBoxTemplateSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ComboBoxTemplateSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ComboBoxTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ComboBoxTemplateSettings;{83285c4e-17f6-4aa3-b61b-e87c718604ea})");
 }
@@ -2496,6 +2551,11 @@ impl ::core::cmp::PartialEq for CommandBarFlyoutCommandBar {
     }
 }
 impl ::core::cmp::Eq for CommandBarFlyoutCommandBar {}
+impl ::core::fmt::Debug for CommandBarFlyoutCommandBar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CommandBarFlyoutCommandBar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CommandBarFlyoutCommandBar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.CommandBarFlyoutCommandBar;{14146e7c-38c4-55c4-b706-ce18f6061e7e})");
 }
@@ -2918,6 +2978,11 @@ impl ::core::cmp::PartialEq for CommandBarFlyoutCommandBarTemplateSettings {
     }
 }
 impl ::core::cmp::Eq for CommandBarFlyoutCommandBarTemplateSettings {}
+impl ::core::fmt::Debug for CommandBarFlyoutCommandBarTemplateSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CommandBarFlyoutCommandBarTemplateSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CommandBarFlyoutCommandBarTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.CommandBarFlyoutCommandBarTemplateSettings;{47642c44-26ff-5d14-9cfc-77dc64f3a447})");
 }
@@ -3103,6 +3168,11 @@ impl ::core::cmp::PartialEq for CommandBarTemplateSettings {
     }
 }
 impl ::core::cmp::Eq for CommandBarTemplateSettings {}
+impl ::core::fmt::Debug for CommandBarTemplateSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CommandBarTemplateSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CommandBarTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.CommandBarTemplateSettings;{61c8f92c-05aa-414a-a2ae-482c5a46c08e})");
 }
@@ -3197,6 +3267,11 @@ impl ::core::cmp::PartialEq for ComponentResourceLocation {
     }
 }
 impl ::core::cmp::Eq for ComponentResourceLocation {}
+impl ::core::fmt::Debug for ComponentResourceLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ComponentResourceLocation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ComponentResourceLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.ComponentResourceLocation;i4)");
 }
@@ -3255,6 +3330,11 @@ impl ::core::cmp::PartialEq for DragCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for DragCompletedEventArgs {}
+impl ::core::fmt::Debug for DragCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DragCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DragCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.DragCompletedEventArgs;{b04f29a1-bd16-48f6-a511-9c2763641331})");
 }
@@ -3387,6 +3467,11 @@ impl ::core::cmp::PartialEq for DragCompletedEventHandler {
     }
 }
 impl ::core::cmp::Eq for DragCompletedEventHandler {}
+impl ::core::fmt::Debug for DragCompletedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DragCompletedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for DragCompletedEventHandler {
     type Vtable = DragCompletedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36b28888_19ac_4b4e_9137_a6cf2b023883);
@@ -3441,6 +3526,11 @@ impl ::core::cmp::PartialEq for DragDeltaEventArgs {
     }
 }
 impl ::core::cmp::Eq for DragDeltaEventArgs {}
+impl ::core::fmt::Debug for DragDeltaEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DragDeltaEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DragDeltaEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.DragDeltaEventArgs;{2c2dd73c-2806-49fc-aae9-6d792b572b6a})");
 }
@@ -3573,6 +3663,11 @@ impl ::core::cmp::PartialEq for DragDeltaEventHandler {
     }
 }
 impl ::core::cmp::Eq for DragDeltaEventHandler {}
+impl ::core::fmt::Debug for DragDeltaEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DragDeltaEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for DragDeltaEventHandler {
     type Vtable = DragDeltaEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ac24f9f_ac28_49e9_9189_dccffeb66472);
@@ -3627,6 +3722,11 @@ impl ::core::cmp::PartialEq for DragStartedEventArgs {
     }
 }
 impl ::core::cmp::Eq for DragStartedEventArgs {}
+impl ::core::fmt::Debug for DragStartedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DragStartedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DragStartedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.DragStartedEventArgs;{9f915dd0-a124-4366-bd85-2408214aeed4})");
 }
@@ -3759,6 +3859,11 @@ impl ::core::cmp::PartialEq for DragStartedEventHandler {
     }
 }
 impl ::core::cmp::Eq for DragStartedEventHandler {}
+impl ::core::fmt::Debug for DragStartedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DragStartedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for DragStartedEventHandler {
     type Vtable = DragStartedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2eea48a_c65a_495d_a2f1_72c66989142d);
@@ -3793,6 +3898,11 @@ impl ::core::cmp::PartialEq for EdgeTransitionLocation {
     }
 }
 impl ::core::cmp::Eq for EdgeTransitionLocation {}
+impl ::core::fmt::Debug for EdgeTransitionLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EdgeTransitionLocation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EdgeTransitionLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.EdgeTransitionLocation;i4)");
 }
@@ -4189,6 +4299,11 @@ impl ::core::cmp::PartialEq for FlyoutBase {
     }
 }
 impl ::core::cmp::Eq for FlyoutBase {}
+impl ::core::fmt::Debug for FlyoutBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlyoutBase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FlyoutBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.FlyoutBase;{723eea0b-d12e-430d-a9f0-9bb32bbf9913})");
 }
@@ -4290,6 +4405,11 @@ impl ::core::cmp::PartialEq for FlyoutBaseClosingEventArgs {
     }
 }
 impl ::core::cmp::Eq for FlyoutBaseClosingEventArgs {}
+impl ::core::fmt::Debug for FlyoutBaseClosingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlyoutBaseClosingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FlyoutBaseClosingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.FlyoutBaseClosingEventArgs;{d075852d-b09a-4fd1-b005-db2ba01206fb})");
 }
@@ -4376,6 +4496,11 @@ impl ::core::cmp::PartialEq for FlyoutPlacementMode {
     }
 }
 impl ::core::cmp::Eq for FlyoutPlacementMode {}
+impl ::core::fmt::Debug for FlyoutPlacementMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlyoutPlacementMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FlyoutPlacementMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode;i4)");
 }
@@ -4406,6 +4531,11 @@ impl ::core::cmp::PartialEq for FlyoutShowMode {
     }
 }
 impl ::core::cmp::Eq for FlyoutShowMode {}
+impl ::core::fmt::Debug for FlyoutShowMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlyoutShowMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FlyoutShowMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.FlyoutShowMode;i4)");
 }
@@ -4496,6 +4626,11 @@ impl ::core::cmp::PartialEq for FlyoutShowOptions {
     }
 }
 impl ::core::cmp::Eq for FlyoutShowOptions {}
+impl ::core::fmt::Debug for FlyoutShowOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlyoutShowOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FlyoutShowOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.FlyoutShowOptions;{57d693ad-0c74-54dd-b110-1ee43fabadd9})");
 }
@@ -4570,6 +4705,11 @@ impl ::core::cmp::PartialEq for GeneratorDirection {
     }
 }
 impl ::core::cmp::Eq for GeneratorDirection {}
+impl ::core::fmt::Debug for GeneratorDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeneratorDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeneratorDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.GeneratorDirection;i4)");
 }
@@ -4586,6 +4726,11 @@ impl ::core::marker::Copy for GeneratorPosition {}
 impl ::core::clone::Clone for GeneratorPosition {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GeneratorPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GeneratorPosition").field("Index", &self.Index).field("Offset", &self.Offset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GeneratorPosition {
@@ -4636,6 +4781,11 @@ impl ::core::cmp::PartialEq for GeneratorPositionHelper {
     }
 }
 impl ::core::cmp::Eq for GeneratorPositionHelper {}
+impl ::core::fmt::Debug for GeneratorPositionHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeneratorPositionHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeneratorPositionHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.GeneratorPositionHelper;{cd40318d-7745-40d9-ab9d-abbda4a7ffea})");
 }
@@ -5194,6 +5344,11 @@ impl ::core::cmp::PartialEq for GridViewItemPresenter {
     }
 }
 impl ::core::cmp::Eq for GridViewItemPresenter {}
+impl ::core::fmt::Debug for GridViewItemPresenter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GridViewItemPresenter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GridViewItemPresenter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.GridViewItemPresenter;{214f9010-56e2-4821-8a1c-2305709af94b})");
 }
@@ -5402,6 +5557,11 @@ impl ::core::cmp::PartialEq for GridViewItemTemplateSettings {
     }
 }
 impl ::core::cmp::Eq for GridViewItemTemplateSettings {}
+impl ::core::fmt::Debug for GridViewItemTemplateSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GridViewItemTemplateSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GridViewItemTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.GridViewItemTemplateSettings;{9e30baaf-165d-4267-a45e-1a43a75706ac})");
 }
@@ -5496,6 +5656,11 @@ impl ::core::cmp::PartialEq for GroupHeaderPlacement {
     }
 }
 impl ::core::cmp::Eq for GroupHeaderPlacement {}
+impl ::core::fmt::Debug for GroupHeaderPlacement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GroupHeaderPlacement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GroupHeaderPlacement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.GroupHeaderPlacement;i4)");
 }
@@ -8350,6 +8515,11 @@ impl ::core::cmp::PartialEq for IScrollSnapPointsInfo {
     }
 }
 impl ::core::cmp::Eq for IScrollSnapPointsInfo {}
+impl ::core::fmt::Debug for IScrollSnapPointsInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IScrollSnapPointsInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IScrollSnapPointsInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1b5d1336-e61b-4d51-be41-fd8ddc55c58c}");
 }
@@ -8837,6 +9007,11 @@ impl ::core::cmp::PartialEq for ItemsChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ItemsChangedEventArgs {}
+impl ::core::fmt::Debug for ItemsChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ItemsChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ItemsChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ItemsChangedEventArgs;{e8b45568-7d10-421e-be29-81839a91de20})");
 }
@@ -8949,6 +9124,11 @@ impl ::core::cmp::PartialEq for ItemsChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ItemsChangedEventHandler {}
+impl ::core::fmt::Debug for ItemsChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ItemsChangedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ItemsChangedEventHandler {
     type Vtable = ItemsChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178257be_a304_482f_8bf0_b9d2e39612a3);
@@ -9049,6 +9229,11 @@ impl ::core::cmp::PartialEq for JumpListItemBackgroundConverter {
     }
 }
 impl ::core::cmp::Eq for JumpListItemBackgroundConverter {}
+impl ::core::fmt::Debug for JumpListItemBackgroundConverter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JumpListItemBackgroundConverter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for JumpListItemBackgroundConverter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.JumpListItemBackgroundConverter;{81177858-d224-410c-b16c-c5b6bb6188b2})");
 }
@@ -9237,6 +9422,11 @@ impl ::core::cmp::PartialEq for JumpListItemForegroundConverter {
     }
 }
 impl ::core::cmp::Eq for JumpListItemForegroundConverter {}
+impl ::core::fmt::Debug for JumpListItemForegroundConverter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JumpListItemForegroundConverter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for JumpListItemForegroundConverter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.JumpListItemForegroundConverter;{1590ed38-c504-4796-a63a-5bfc9eefaae8})");
 }
@@ -9384,6 +9574,11 @@ impl ::core::cmp::PartialEq for LayoutInformation {
     }
 }
 impl ::core::cmp::Eq for LayoutInformation {}
+impl ::core::fmt::Debug for LayoutInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LayoutInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LayoutInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.LayoutInformation;{b5384c9b-c8cf-41b3-bf16-18c8420e72c9})");
 }
@@ -10757,6 +10952,11 @@ impl ::core::cmp::PartialEq for ListViewItemPresenter {
     }
 }
 impl ::core::cmp::Eq for ListViewItemPresenter {}
+impl ::core::fmt::Debug for ListViewItemPresenter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ListViewItemPresenter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ListViewItemPresenter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ListViewItemPresenter;{fc8946bd-a3a2-4969-8174-25b5d3c28033})");
 }
@@ -10963,6 +11163,11 @@ impl ::core::cmp::PartialEq for ListViewItemPresenterCheckMode {
     }
 }
 impl ::core::cmp::Eq for ListViewItemPresenterCheckMode {}
+impl ::core::fmt::Debug for ListViewItemPresenterCheckMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ListViewItemPresenterCheckMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ListViewItemPresenterCheckMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.ListViewItemPresenterCheckMode;i4)");
 }
@@ -10991,6 +11196,11 @@ impl ::core::cmp::PartialEq for ListViewItemPresenterSelectionIndicatorMode {
     }
 }
 impl ::core::cmp::Eq for ListViewItemPresenterSelectionIndicatorMode {}
+impl ::core::fmt::Debug for ListViewItemPresenterSelectionIndicatorMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ListViewItemPresenterSelectionIndicatorMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ListViewItemPresenterSelectionIndicatorMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.ListViewItemPresenterSelectionIndicatorMode;i4)");
 }
@@ -11021,6 +11231,11 @@ impl ::core::cmp::PartialEq for ListViewItemTemplateSettings {
     }
 }
 impl ::core::cmp::Eq for ListViewItemTemplateSettings {}
+impl ::core::fmt::Debug for ListViewItemTemplateSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ListViewItemTemplateSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ListViewItemTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ListViewItemTemplateSettings;{67af84bf-8279-4686-9326-cd189f27575d})");
 }
@@ -11271,6 +11486,11 @@ impl ::core::cmp::PartialEq for LoopingSelector {
     }
 }
 impl ::core::cmp::Eq for LoopingSelector {}
+impl ::core::fmt::Debug for LoopingSelector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoopingSelector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LoopingSelector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.LoopingSelector;{4c9a3e04-4827-49d9-8806-093957b0fd21})");
 }
@@ -11470,6 +11690,11 @@ impl ::core::cmp::PartialEq for LoopingSelectorItem {
     }
 }
 impl ::core::cmp::Eq for LoopingSelectorItem {}
+impl ::core::fmt::Debug for LoopingSelectorItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoopingSelectorItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LoopingSelectorItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.LoopingSelectorItem;{c69714b9-27c6-4433-9d7c-0dbfb2f4344f})");
 }
@@ -11753,6 +11978,11 @@ impl ::core::cmp::PartialEq for LoopingSelectorPanel {
     }
 }
 impl ::core::cmp::Eq for LoopingSelectorPanel {}
+impl ::core::fmt::Debug for LoopingSelectorPanel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoopingSelectorPanel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LoopingSelectorPanel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.LoopingSelectorPanel;{40a9ba70-1011-4778-87f7-6bfd20d6377d})");
 }
@@ -12003,6 +12233,11 @@ impl ::core::cmp::PartialEq for MenuFlyoutItemTemplateSettings {
     }
 }
 impl ::core::cmp::Eq for MenuFlyoutItemTemplateSettings {}
+impl ::core::fmt::Debug for MenuFlyoutItemTemplateSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MenuFlyoutItemTemplateSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MenuFlyoutItemTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.MenuFlyoutItemTemplateSettings;{56ad1809-3a16-4147-81cb-d0b35c834e0f})");
 }
@@ -12099,6 +12334,11 @@ impl ::core::cmp::PartialEq for MenuFlyoutPresenterTemplateSettings {
     }
 }
 impl ::core::cmp::Eq for MenuFlyoutPresenterTemplateSettings {}
+impl ::core::fmt::Debug for MenuFlyoutPresenterTemplateSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MenuFlyoutPresenterTemplateSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MenuFlyoutPresenterTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.MenuFlyoutPresenterTemplateSettings;{d68fd00d-629d-4349-ac51-b877c80983b8})");
 }
@@ -12224,6 +12464,11 @@ impl ::core::cmp::PartialEq for NavigationViewItemPresenter {
     }
 }
 impl ::core::cmp::Eq for NavigationViewItemPresenter {}
+impl ::core::fmt::Debug for NavigationViewItemPresenter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NavigationViewItemPresenter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NavigationViewItemPresenter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.NavigationViewItemPresenter;{9956d3fc-4693-59cb-b6bf-37249058be96})");
 }
@@ -12679,6 +12924,11 @@ impl ::core::cmp::PartialEq for OrientedVirtualizingPanel {
     }
 }
 impl ::core::cmp::Eq for OrientedVirtualizingPanel {}
+impl ::core::fmt::Debug for OrientedVirtualizingPanel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OrientedVirtualizingPanel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for OrientedVirtualizingPanel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.OrientedVirtualizingPanel;{f077b577-39bd-46ee-bdd7-0826beed71b8})");
 }
@@ -12966,6 +13216,11 @@ impl ::core::cmp::PartialEq for PickerFlyoutBase {
     }
 }
 impl ::core::cmp::Eq for PickerFlyoutBase {}
+impl ::core::fmt::Debug for PickerFlyoutBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PickerFlyoutBase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PickerFlyoutBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.PickerFlyoutBase;{e33574ea-1076-44d1-9383-dc24ac5cff2a})");
 }
@@ -13086,6 +13341,11 @@ impl ::core::cmp::PartialEq for PivotHeaderItem {
     }
 }
 impl ::core::cmp::Eq for PivotHeaderItem {}
+impl ::core::fmt::Debug for PivotHeaderItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PivotHeaderItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PivotHeaderItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.PivotHeaderItem;{594572c2-82aa-410b-9e55-fd8e2c98862d})");
 }
@@ -13313,6 +13573,11 @@ impl ::core::cmp::PartialEq for PivotHeaderPanel {
     }
 }
 impl ::core::cmp::Eq for PivotHeaderPanel {}
+impl ::core::fmt::Debug for PivotHeaderPanel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PivotHeaderPanel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PivotHeaderPanel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.PivotHeaderPanel;{21484ebc-9241-4203-bd37-6c08fb096612})");
 }
@@ -13603,6 +13868,11 @@ impl ::core::cmp::PartialEq for PivotPanel {
     }
 }
 impl ::core::cmp::Eq for PivotPanel {}
+impl ::core::fmt::Debug for PivotPanel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PivotPanel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PivotPanel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.PivotPanel;{ad4ebe80-22a9-4ca3-9212-2773b6359ff3})");
 }
@@ -13834,6 +14104,11 @@ impl ::core::cmp::PartialEq for PlacementMode {
     }
 }
 impl ::core::cmp::Eq for PlacementMode {}
+impl ::core::fmt::Debug for PlacementMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlacementMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlacementMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.PlacementMode;i4)");
 }
@@ -14146,6 +14421,11 @@ impl ::core::cmp::PartialEq for Popup {
     }
 }
 impl ::core::cmp::Eq for Popup {}
+impl ::core::fmt::Debug for Popup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Popup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Popup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.Popup;{62418240-e6d3-4705-a1dc-39156456ee29})");
 }
@@ -14343,6 +14623,11 @@ impl ::core::cmp::PartialEq for PopupPlacementMode {
     }
 }
 impl ::core::cmp::Eq for PopupPlacementMode {}
+impl ::core::fmt::Debug for PopupPlacementMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PopupPlacementMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PopupPlacementMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.PopupPlacementMode;i4)");
 }
@@ -14421,6 +14706,11 @@ impl ::core::cmp::PartialEq for ProgressBarTemplateSettings {
     }
 }
 impl ::core::cmp::Eq for ProgressBarTemplateSettings {}
+impl ::core::fmt::Debug for ProgressBarTemplateSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProgressBarTemplateSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProgressBarTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ProgressBarTemplateSettings;{3fe2ea2a-e3f2-4c2b-9488-918d77d2bbe4})");
 }
@@ -14533,6 +14823,11 @@ impl ::core::cmp::PartialEq for ProgressRingTemplateSettings {
     }
 }
 impl ::core::cmp::Eq for ProgressRingTemplateSettings {}
+impl ::core::fmt::Debug for ProgressRingTemplateSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProgressRingTemplateSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProgressRingTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ProgressRingTemplateSettings;{b9b675ec-c723-42e6-83e9-9826272bdc0e})");
 }
@@ -14741,6 +15036,11 @@ impl ::core::cmp::PartialEq for RangeBase {
     }
 }
 impl ::core::cmp::Eq for RangeBase {}
+impl ::core::fmt::Debug for RangeBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RangeBase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RangeBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.RangeBase;{fa002c1a-494e-46cf-91d4-e14a8d798675})");
 }
@@ -14957,6 +15257,11 @@ impl ::core::cmp::PartialEq for RangeBaseValueChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RangeBaseValueChangedEventArgs {}
+impl ::core::fmt::Debug for RangeBaseValueChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RangeBaseValueChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RangeBaseValueChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs;{a1921777-d5c1-4f9c-a7b0-0401b7e6dc5c})");
 }
@@ -15089,6 +15394,11 @@ impl ::core::cmp::PartialEq for RangeBaseValueChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for RangeBaseValueChangedEventHandler {}
+impl ::core::fmt::Debug for RangeBaseValueChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RangeBaseValueChangedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for RangeBaseValueChangedEventHandler {
     type Vtable = RangeBaseValueChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3906fd9_4d1b_4ac8_a43c_c3b908742799);
@@ -15167,6 +15477,11 @@ impl ::core::cmp::PartialEq for RepeatButton {
     }
 }
 impl ::core::cmp::Eq for RepeatButton {}
+impl ::core::fmt::Debug for RepeatButton {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RepeatButton").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RepeatButton {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.RepeatButton;{02200df9-021a-484a-a93b-0f31020314e5})");
 }
@@ -15494,6 +15809,11 @@ impl ::core::cmp::PartialEq for ScrollBar {
     }
 }
 impl ::core::cmp::Eq for ScrollBar {}
+impl ::core::fmt::Debug for ScrollBar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScrollBar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScrollBar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ScrollBar;{f57ae6ca-d1a6-4b90-a4e9-54df1ba8d2ec})");
 }
@@ -15737,6 +16057,11 @@ impl ::core::cmp::PartialEq for ScrollEventArgs {
     }
 }
 impl ::core::cmp::Eq for ScrollEventArgs {}
+impl ::core::fmt::Debug for ScrollEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScrollEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScrollEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ScrollEventArgs;{c57e5168-3afe-448d-b752-2f364c75d743})");
 }
@@ -15869,6 +16194,11 @@ impl ::core::cmp::PartialEq for ScrollEventHandler {
     }
 }
 impl ::core::cmp::Eq for ScrollEventHandler {}
+impl ::core::fmt::Debug for ScrollEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScrollEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ScrollEventHandler {
     type Vtable = ScrollEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8860b0a4_a383_4c83_b306_a1c39d7db87f);
@@ -15908,6 +16238,11 @@ impl ::core::cmp::PartialEq for ScrollEventType {
     }
 }
 impl ::core::cmp::Eq for ScrollEventType {}
+impl ::core::fmt::Debug for ScrollEventType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScrollEventType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScrollEventType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.ScrollEventType;i4)");
 }
@@ -15937,6 +16272,11 @@ impl ::core::cmp::PartialEq for ScrollingIndicatorMode {
     }
 }
 impl ::core::cmp::Eq for ScrollingIndicatorMode {}
+impl ::core::fmt::Debug for ScrollingIndicatorMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScrollingIndicatorMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScrollingIndicatorMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.ScrollingIndicatorMode;i4)");
 }
@@ -16088,6 +16428,11 @@ impl ::core::cmp::PartialEq for Selector {
     }
 }
 impl ::core::cmp::Eq for Selector {}
+impl ::core::fmt::Debug for Selector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Selector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Selector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.Selector;{e30eb3a5-b36b-42dc-8527-cd25136c083c})");
 }
@@ -16355,6 +16700,11 @@ impl ::core::cmp::PartialEq for SelectorItem {
     }
 }
 impl ::core::cmp::Eq for SelectorItem {}
+impl ::core::fmt::Debug for SelectorItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SelectorItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SelectorItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.SelectorItem;{541c8d6c-0283-4581-b945-2a64c28a0646})");
 }
@@ -16628,6 +16978,11 @@ impl ::core::cmp::PartialEq for SettingsFlyoutTemplateSettings {
     }
 }
 impl ::core::cmp::Eq for SettingsFlyoutTemplateSettings {}
+impl ::core::fmt::Debug for SettingsFlyoutTemplateSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SettingsFlyoutTemplateSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SettingsFlyoutTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.SettingsFlyoutTemplateSettings;{bcf14c10-cea7-43f1-9d68-57605ded69d4})");
 }
@@ -16722,6 +17077,11 @@ impl ::core::cmp::PartialEq for SliderSnapsTo {
     }
 }
 impl ::core::cmp::Eq for SliderSnapsTo {}
+impl ::core::fmt::Debug for SliderSnapsTo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SliderSnapsTo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SliderSnapsTo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.SliderSnapsTo;i4)");
 }
@@ -16751,6 +17111,11 @@ impl ::core::cmp::PartialEq for SnapPointsAlignment {
     }
 }
 impl ::core::cmp::Eq for SnapPointsAlignment {}
+impl ::core::fmt::Debug for SnapPointsAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SnapPointsAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SnapPointsAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.SnapPointsAlignment;i4)");
 }
@@ -16821,6 +17186,11 @@ impl ::core::cmp::PartialEq for SplitViewTemplateSettings {
     }
 }
 impl ::core::cmp::Eq for SplitViewTemplateSettings {}
+impl ::core::fmt::Debug for SplitViewTemplateSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SplitViewTemplateSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SplitViewTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.SplitViewTemplateSettings;{c16ab5a7-4996-4443-b199-6b6b89124eab})");
 }
@@ -16986,6 +17356,11 @@ impl ::core::cmp::PartialEq for Thumb {
     }
 }
 impl ::core::cmp::Eq for Thumb {}
+impl ::core::fmt::Debug for Thumb {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Thumb").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Thumb {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.Thumb;{e8b2b281-0d6a-45cf-b333-2402b037f099})");
 }
@@ -17220,6 +17595,11 @@ impl ::core::cmp::PartialEq for TickBar {
     }
 }
 impl ::core::cmp::Eq for TickBar {}
+impl ::core::fmt::Debug for TickBar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TickBar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TickBar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.TickBar;{994683fa-f1f6-487d-a5ac-c15921bfa995})");
 }
@@ -17409,6 +17789,11 @@ impl ::core::cmp::PartialEq for TickPlacement {
     }
 }
 impl ::core::cmp::Eq for TickPlacement {}
+impl ::core::fmt::Debug for TickPlacement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TickPlacement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TickPlacement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.TickPlacement;i4)");
 }
@@ -17535,6 +17920,11 @@ impl ::core::cmp::PartialEq for ToggleButton {
     }
 }
 impl ::core::cmp::Eq for ToggleButton {}
+impl ::core::fmt::Debug for ToggleButton {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToggleButton").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToggleButton {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ToggleButton;{589877fb-0fc7-4036-9d8b-127dfa75c16d})");
 }
@@ -17839,6 +18229,11 @@ impl ::core::cmp::PartialEq for ToggleSwitchTemplateSettings {
     }
 }
 impl ::core::cmp::Eq for ToggleSwitchTemplateSettings {}
+impl ::core::fmt::Debug for ToggleSwitchTemplateSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToggleSwitchTemplateSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToggleSwitchTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ToggleSwitchTemplateSettings;{02b7bdcd-628a-4363-86e0-51d6e2e89e58})");
 }
@@ -17943,6 +18338,11 @@ impl ::core::cmp::PartialEq for ToolTipTemplateSettings {
     }
 }
 impl ::core::cmp::Eq for ToolTipTemplateSettings {}
+impl ::core::fmt::Debug for ToolTipTemplateSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToolTipTemplateSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToolTipTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ToolTipTemplateSettings;{d4388247-0ec4-4506-affd-afac2225b48c})");
 }

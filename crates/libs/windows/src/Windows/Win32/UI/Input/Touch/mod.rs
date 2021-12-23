@@ -42,6 +42,11 @@ impl ::core::clone::Clone for GESTURECONFIG {
         *self
     }
 }
+impl ::core::fmt::Debug for GESTURECONFIG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GESTURECONFIG").field("dwID", &self.dwID).field("dwWant", &self.dwWant).field("dwBlock", &self.dwBlock).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GESTURECONFIG {
     type Abi = Self;
 }
@@ -97,6 +102,12 @@ impl ::core::clone::Clone for GESTUREINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GESTUREINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GESTUREINFO").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("dwID", &self.dwID).field("hwndTarget", &self.hwndTarget).field("ptsLocation", &self.ptsLocation).field("dwInstanceID", &self.dwInstanceID).field("dwSequenceID", &self.dwSequenceID).field("ullArguments", &self.ullArguments).field("cbExtraArgs", &self.cbExtraArgs).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GESTUREINFO {
     type Abi = Self;
 }
@@ -130,6 +141,12 @@ impl ::core::marker::Copy for GESTURENOTIFYSTRUCT {}
 impl ::core::clone::Clone for GESTURENOTIFYSTRUCT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GESTURENOTIFYSTRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GESTURENOTIFYSTRUCT").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("hwndTarget", &self.hwndTarget).field("ptsLocation", &self.ptsLocation).field("dwInstanceID", &self.dwInstanceID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -470,6 +487,11 @@ impl ::core::cmp::PartialEq for IInertiaProcessor {
     }
 }
 impl ::core::cmp::Eq for IInertiaProcessor {}
+impl ::core::fmt::Debug for IInertiaProcessor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInertiaProcessor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInertiaProcessor {
     type Vtable = IInertiaProcessorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18b00c6d_c5ee_41b1_90a9_9d4a929095ad);
@@ -661,6 +683,11 @@ impl ::core::cmp::PartialEq for IManipulationProcessor {
     }
 }
 impl ::core::cmp::Eq for IManipulationProcessor {}
+impl ::core::fmt::Debug for IManipulationProcessor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IManipulationProcessor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IManipulationProcessor {
     type Vtable = IManipulationProcessorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa22ac519_8300_48a0_bef4_f1be8737dba4);
@@ -802,6 +829,12 @@ impl ::core::clone::Clone for TOUCHINPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TOUCHINPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TOUCHINPUT").field("x", &self.x).field("y", &self.y).field("hSource", &self.hSource).field("dwID", &self.dwID).field("dwFlags", &self.dwFlags).field("dwMask", &self.dwMask).field("dwTime", &self.dwTime).field("dwExtraInfo", &self.dwExtraInfo).field("cxContact", &self.cxContact).field("cyContact", &self.cyContact).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TOUCHINPUT {
     type Abi = Self;
 }
@@ -905,6 +938,11 @@ impl ::core::cmp::PartialEq for _IManipulationEvents {
     }
 }
 impl ::core::cmp::Eq for _IManipulationEvents {}
+impl ::core::fmt::Debug for _IManipulationEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_IManipulationEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _IManipulationEvents {
     type Vtable = _IManipulationEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f62c8da_9c53_4b22_93df_927a862bbb03);

@@ -24,6 +24,11 @@ impl ::core::cmp::PartialEq for GazeDeviceConfigurationStatePreview {
     }
 }
 impl ::core::cmp::Eq for GazeDeviceConfigurationStatePreview {}
+impl ::core::fmt::Debug for GazeDeviceConfigurationStatePreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GazeDeviceConfigurationStatePreview").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GazeDeviceConfigurationStatePreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Input.Preview.GazeDeviceConfigurationStatePreview;i4)");
 }
@@ -105,6 +110,11 @@ impl ::core::cmp::PartialEq for GazeDevicePreview {
     }
 }
 impl ::core::cmp::Eq for GazeDevicePreview {}
+impl ::core::fmt::Debug for GazeDevicePreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GazeDevicePreview").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GazeDevicePreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeDevicePreview;{e79e7ee9-b389-11e7-b201-c8d3ffb75721})");
 }
@@ -181,6 +191,11 @@ impl ::core::cmp::PartialEq for GazeDeviceWatcherAddedPreviewEventArgs {
     }
 }
 impl ::core::cmp::Eq for GazeDeviceWatcherAddedPreviewEventArgs {}
+impl ::core::fmt::Debug for GazeDeviceWatcherAddedPreviewEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GazeDeviceWatcherAddedPreviewEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GazeDeviceWatcherAddedPreviewEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeDeviceWatcherAddedPreviewEventArgs;{e79e7eed-b389-11e7-b201-c8d3ffb75721})");
 }
@@ -319,6 +334,11 @@ impl ::core::cmp::PartialEq for GazeDeviceWatcherPreview {
     }
 }
 impl ::core::cmp::Eq for GazeDeviceWatcherPreview {}
+impl ::core::fmt::Debug for GazeDeviceWatcherPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GazeDeviceWatcherPreview").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GazeDeviceWatcherPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeDeviceWatcherPreview;{e79e7ee7-b389-11e7-b201-c8d3ffb75721})");
 }
@@ -395,6 +415,11 @@ impl ::core::cmp::PartialEq for GazeDeviceWatcherRemovedPreviewEventArgs {
     }
 }
 impl ::core::cmp::Eq for GazeDeviceWatcherRemovedPreviewEventArgs {}
+impl ::core::fmt::Debug for GazeDeviceWatcherRemovedPreviewEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GazeDeviceWatcherRemovedPreviewEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GazeDeviceWatcherRemovedPreviewEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeDeviceWatcherRemovedPreviewEventArgs;{f2631f08-0e3f-431f-a606-50b35af94a1c})");
 }
@@ -471,6 +496,11 @@ impl ::core::cmp::PartialEq for GazeDeviceWatcherUpdatedPreviewEventArgs {
     }
 }
 impl ::core::cmp::Eq for GazeDeviceWatcherUpdatedPreviewEventArgs {}
+impl ::core::fmt::Debug for GazeDeviceWatcherUpdatedPreviewEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GazeDeviceWatcherUpdatedPreviewEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GazeDeviceWatcherUpdatedPreviewEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeDeviceWatcherUpdatedPreviewEventArgs;{7fe830ef-7f08-4737-88e1-4a83ae4e4885})");
 }
@@ -560,6 +590,11 @@ impl ::core::cmp::PartialEq for GazeEnteredPreviewEventArgs {
     }
 }
 impl ::core::cmp::Eq for GazeEnteredPreviewEventArgs {}
+impl ::core::fmt::Debug for GazeEnteredPreviewEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GazeEnteredPreviewEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GazeEnteredPreviewEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeEnteredPreviewEventArgs;{2567bf43-1225-489f-9dd1-daa7c50fbf4b})");
 }
@@ -649,6 +684,11 @@ impl ::core::cmp::PartialEq for GazeExitedPreviewEventArgs {
     }
 }
 impl ::core::cmp::Eq for GazeExitedPreviewEventArgs {}
+impl ::core::fmt::Debug for GazeExitedPreviewEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GazeExitedPreviewEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GazeExitedPreviewEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeExitedPreviewEventArgs;{5d0af07e-7d83-40ef-9f0a-fbc1bbdcc5ac})");
 }
@@ -781,6 +821,11 @@ impl ::core::cmp::PartialEq for GazeInputSourcePreview {
     }
 }
 impl ::core::cmp::Eq for GazeInputSourcePreview {}
+impl ::core::fmt::Debug for GazeInputSourcePreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GazeInputSourcePreview").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GazeInputSourcePreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeInputSourcePreview;{e79e7ee8-b389-11e7-b201-c8d3ffb75721})");
 }
@@ -879,6 +924,11 @@ impl ::core::cmp::PartialEq for GazeMovedPreviewEventArgs {
     }
 }
 impl ::core::cmp::Eq for GazeMovedPreviewEventArgs {}
+impl ::core::fmt::Debug for GazeMovedPreviewEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GazeMovedPreviewEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GazeMovedPreviewEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeMovedPreviewEventArgs;{e79e7eeb-b389-11e7-b201-c8d3ffb75721})");
 }
@@ -990,6 +1040,11 @@ impl ::core::cmp::PartialEq for GazePointPreview {
     }
 }
 impl ::core::cmp::Eq for GazePointPreview {}
+impl ::core::fmt::Debug for GazePointPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GazePointPreview").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GazePointPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazePointPreview;{e79e7eea-b389-11e7-b201-c8d3ffb75721})");
 }

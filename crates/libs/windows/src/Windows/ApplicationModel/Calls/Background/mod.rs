@@ -144,6 +144,11 @@ impl ::core::cmp::PartialEq for PhoneCallBlockedReason {
     }
 }
 impl ::core::cmp::Eq for PhoneCallBlockedReason {}
+impl ::core::fmt::Debug for PhoneCallBlockedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallBlockedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneCallBlockedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneCallBlockedReason;i4)");
 }
@@ -190,6 +195,11 @@ impl ::core::cmp::PartialEq for PhoneCallBlockedTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for PhoneCallBlockedTriggerDetails {}
+impl ::core::fmt::Debug for PhoneCallBlockedTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallBlockedTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneCallBlockedTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneCallBlockedTriggerDetails;{a4a690a2-e4c1-427f-864e-e470477ddb67})");
 }
@@ -274,6 +284,11 @@ impl ::core::cmp::PartialEq for PhoneCallOriginDataRequestTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for PhoneCallOriginDataRequestTriggerDetails {}
+impl ::core::fmt::Debug for PhoneCallOriginDataRequestTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallOriginDataRequestTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneCallOriginDataRequestTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneCallOriginDataRequestTriggerDetails;{6e9b5b3f-c54b-4e82-4cc9-e329a4184592})");
 }
@@ -350,6 +365,11 @@ impl ::core::cmp::PartialEq for PhoneIncomingCallDismissedReason {
     }
 }
 impl ::core::cmp::Eq for PhoneIncomingCallDismissedReason {}
+impl ::core::fmt::Debug for PhoneIncomingCallDismissedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneIncomingCallDismissedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneIncomingCallDismissedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedReason;i4)");
 }
@@ -421,6 +441,11 @@ impl ::core::cmp::PartialEq for PhoneIncomingCallDismissedTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for PhoneIncomingCallDismissedTriggerDetails {}
+impl ::core::fmt::Debug for PhoneIncomingCallDismissedTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneIncomingCallDismissedTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneIncomingCallDismissedTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedTriggerDetails;{bad30276-83b6-5732-9c38-0c206546196a})");
 }
@@ -505,6 +530,11 @@ impl ::core::cmp::PartialEq for PhoneIncomingCallNotificationTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for PhoneIncomingCallNotificationTriggerDetails {}
+impl ::core::fmt::Debug for PhoneIncomingCallNotificationTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneIncomingCallNotificationTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneIncomingCallNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallNotificationTriggerDetails;{2b0e6044-9b32-5d42-8222-d2812e39fb21})");
 }
@@ -580,6 +610,11 @@ impl ::core::cmp::PartialEq for PhoneLineChangeKind {
     }
 }
 impl ::core::cmp::Eq for PhoneLineChangeKind {}
+impl ::core::fmt::Debug for PhoneLineChangeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneLineChangeKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneLineChangeKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineChangeKind;i4)");
 }
@@ -626,6 +661,11 @@ impl ::core::cmp::PartialEq for PhoneLineChangedTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for PhoneLineChangedTriggerDetails {}
+impl ::core::fmt::Debug for PhoneLineChangedTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneLineChangedTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneLineChangedTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneLineChangedTriggerDetails;{c6d321e7-d11d-40d8-b2b7-e40a01d66249})");
 }
@@ -708,6 +748,11 @@ impl ::core::cmp::PartialEq for PhoneLineProperties {
     }
 }
 impl ::core::cmp::Eq for PhoneLineProperties {}
+impl ::core::fmt::Debug for PhoneLineProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneLineProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneLineProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineProperties;u4)");
 }
@@ -754,6 +799,11 @@ impl ::core::cmp::PartialEq for PhoneNewVoicemailMessageTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for PhoneNewVoicemailMessageTriggerDetails {}
+impl ::core::fmt::Debug for PhoneNewVoicemailMessageTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneNewVoicemailMessageTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneNewVoicemailMessageTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneNewVoicemailMessageTriggerDetails;{13a8c01b-b831-48d3-8ba9-8d22a6580dcf})");
 }
@@ -834,6 +884,11 @@ impl ::core::cmp::PartialEq for PhoneTriggerType {
     }
 }
 impl ::core::cmp::Eq for PhoneTriggerType {}
+impl ::core::fmt::Debug for PhoneTriggerType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneTriggerType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneTriggerType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneTriggerType;i4)");
 }

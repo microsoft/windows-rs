@@ -149,6 +149,11 @@ impl ::core::cmp::PartialEq for Radio {
     }
 }
 impl ::core::cmp::Eq for Radio {}
+impl ::core::fmt::Debug for Radio {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Radio").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Radio {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Radios.Radio;{252118df-b33e-416a-875f-1cf38ae2d83e})");
 }
@@ -225,6 +230,11 @@ impl ::core::cmp::PartialEq for RadioAccessStatus {
     }
 }
 impl ::core::cmp::Eq for RadioAccessStatus {}
+impl ::core::fmt::Debug for RadioAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadioAccessStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadioAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioAccessStatus;i4)");
 }
@@ -256,6 +266,11 @@ impl ::core::cmp::PartialEq for RadioKind {
     }
 }
 impl ::core::cmp::Eq for RadioKind {}
+impl ::core::fmt::Debug for RadioKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadioKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadioKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioKind;i4)");
 }
@@ -286,6 +301,11 @@ impl ::core::cmp::PartialEq for RadioState {
     }
 }
 impl ::core::cmp::Eq for RadioState {}
+impl ::core::fmt::Debug for RadioState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadioState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadioState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioState;i4)");
 }

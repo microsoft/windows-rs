@@ -23,6 +23,11 @@ impl ::core::cmp::PartialEq for ConnectionRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ConnectionRequestedEventArgs {}
+impl ::core::fmt::Debug for ConnectionRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConnectionRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConnectionRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.ConnectionRequestedEventArgs;{eb6891ae-4f1e-4c66-bd0d-46924a942e08})");
 }
@@ -135,6 +140,11 @@ impl ::core::cmp::PartialEq for DeviceArrivedEventHandler {
     }
 }
 impl ::core::cmp::Eq for DeviceArrivedEventHandler {}
+impl ::core::fmt::Debug for DeviceArrivedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceArrivedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for DeviceArrivedEventHandler {
     type Vtable = DeviceArrivedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa9da69_f6e1_49c9_a49e_8e0fc58fb911);
@@ -205,6 +215,11 @@ impl ::core::cmp::PartialEq for DeviceDepartedEventHandler {
     }
 }
 impl ::core::cmp::Eq for DeviceDepartedEventHandler {}
+impl ::core::fmt::Debug for DeviceDepartedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceDepartedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for DeviceDepartedEventHandler {
     type Vtable = DeviceDepartedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa9da69_f6e2_49c9_a49e_8e0fc58fb911);
@@ -561,6 +576,11 @@ impl ::core::cmp::PartialEq for MessageReceivedHandler {
     }
 }
 impl ::core::cmp::Eq for MessageReceivedHandler {}
+impl ::core::fmt::Debug for MessageReceivedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MessageReceivedHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for MessageReceivedHandler {
     type Vtable = MessageReceivedHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefab0782_f6e2_4675_a045_d8e320c24808);
@@ -631,6 +651,11 @@ impl ::core::cmp::PartialEq for MessageTransmittedHandler {
     }
 }
 impl ::core::cmp::Eq for MessageTransmittedHandler {}
+impl ::core::fmt::Debug for MessageTransmittedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MessageTransmittedHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for MessageTransmittedHandler {
     type Vtable = MessageTransmittedHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefaa0b4a_f6e2_4d7d_856c_78fc8efc021e);
@@ -664,6 +689,11 @@ impl ::core::cmp::PartialEq for PeerDiscoveryTypes {
     }
 }
 impl ::core::cmp::Eq for PeerDiscoveryTypes {}
+impl ::core::fmt::Debug for PeerDiscoveryTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PeerDiscoveryTypes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PeerDiscoveryTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerDiscoveryTypes;u4)");
 }
@@ -888,6 +918,11 @@ impl ::core::cmp::PartialEq for PeerInformation {
     }
 }
 impl ::core::cmp::Eq for PeerInformation {}
+impl ::core::fmt::Debug for PeerInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PeerInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PeerInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.PeerInformation;{20024f08-9fff-45f4-b6e9-408b2ebef373})");
 }
@@ -963,6 +998,11 @@ impl ::core::cmp::PartialEq for PeerRole {
     }
 }
 impl ::core::cmp::Eq for PeerRole {}
+impl ::core::fmt::Debug for PeerRole {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PeerRole").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PeerRole {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerRole;i4)");
 }
@@ -1078,6 +1118,11 @@ impl ::core::cmp::PartialEq for PeerWatcher {
     }
 }
 impl ::core::cmp::Eq for PeerWatcher {}
+impl ::core::fmt::Debug for PeerWatcher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PeerWatcher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PeerWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.PeerWatcher;{3cee21f8-2fa6-4679-9691-03c94a420f34})");
 }
@@ -1156,6 +1201,11 @@ impl ::core::cmp::PartialEq for PeerWatcherStatus {
     }
 }
 impl ::core::cmp::Eq for PeerWatcherStatus {}
+impl ::core::fmt::Debug for PeerWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PeerWatcherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PeerWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerWatcherStatus;i4)");
 }
@@ -1328,6 +1378,11 @@ impl ::core::cmp::PartialEq for ProximityDevice {
     }
 }
 impl ::core::cmp::Eq for ProximityDevice {}
+impl ::core::fmt::Debug for ProximityDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProximityDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProximityDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.ProximityDevice;{efa8a552-f6e1-4329-a0fc-ab6b0fd28262})");
 }
@@ -1429,6 +1484,11 @@ impl ::core::cmp::PartialEq for ProximityMessage {
     }
 }
 impl ::core::cmp::Eq for ProximityMessage {}
+impl ::core::fmt::Debug for ProximityMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProximityMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProximityMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.ProximityMessage;{efab0782-f6e1-4675-a045-d8e320c24808})");
 }
@@ -1507,6 +1567,11 @@ impl ::core::cmp::PartialEq for TriggeredConnectState {
     }
 }
 impl ::core::cmp::Eq for TriggeredConnectState {}
+impl ::core::fmt::Debug for TriggeredConnectState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TriggeredConnectState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TriggeredConnectState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.TriggeredConnectState;i4)");
 }
@@ -1554,6 +1619,11 @@ impl ::core::cmp::PartialEq for TriggeredConnectionStateChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for TriggeredConnectionStateChangedEventArgs {}
+impl ::core::fmt::Debug for TriggeredConnectionStateChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TriggeredConnectionStateChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TriggeredConnectionStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.TriggeredConnectionStateChangedEventArgs;{c6a780ad-f6e1-4d54-96e2-33f620bca88a})");
 }

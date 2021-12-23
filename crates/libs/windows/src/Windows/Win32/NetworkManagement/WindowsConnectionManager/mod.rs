@@ -46,6 +46,12 @@ impl ::core::clone::Clone for NET_INTERFACE_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NET_INTERFACE_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NET_INTERFACE_CONTEXT").field("InterfaceIndex", &self.InterfaceIndex).field("ConfigurationName", &self.ConfigurationName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NET_INTERFACE_CONTEXT {
     type Abi = Self;
 }
@@ -77,6 +83,12 @@ impl ::core::marker::Copy for NET_INTERFACE_CONTEXT_TABLE {}
 impl ::core::clone::Clone for NET_INTERFACE_CONTEXT_TABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NET_INTERFACE_CONTEXT_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NET_INTERFACE_CONTEXT_TABLE").field("InterfaceContextHandle", &self.InterfaceContextHandle).field("NumberOfEntries", &self.NumberOfEntries).field("InterfaceContextArray", &self.InterfaceContextArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -171,6 +183,12 @@ impl ::core::clone::Clone for WCM_BILLING_CYCLE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WCM_BILLING_CYCLE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WCM_BILLING_CYCLE_INFO").field("StartDate", &self.StartDate).field("Duration", &self.Duration).field("Reset", &self.Reset).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WCM_BILLING_CYCLE_INFO {
     type Abi = Self;
 }
@@ -218,6 +236,11 @@ impl ::core::clone::Clone for WCM_CONNECTION_COST_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for WCM_CONNECTION_COST_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WCM_CONNECTION_COST_DATA").field("ConnectionCost", &self.ConnectionCost).field("CostSource", &self.CostSource).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WCM_CONNECTION_COST_DATA {
     type Abi = Self;
 }
@@ -260,6 +283,12 @@ impl ::core::marker::Copy for WCM_DATAPLAN_STATUS {}
 impl ::core::clone::Clone for WCM_DATAPLAN_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WCM_DATAPLAN_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WCM_DATAPLAN_STATUS").field("UsageData", &self.UsageData).field("DataLimitInMegabytes", &self.DataLimitInMegabytes).field("InboundBandwidthInKbps", &self.InboundBandwidthInKbps).field("OutboundBandwidthInKbps", &self.OutboundBandwidthInKbps).field("BillingCycle", &self.BillingCycle).field("MaxTransferSizeInMegabytes", &self.MaxTransferSizeInMegabytes).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -312,6 +341,12 @@ impl ::core::clone::Clone for WCM_POLICY_VALUE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WCM_POLICY_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WCM_POLICY_VALUE").field("fValue", &self.fValue).field("fIsGroupPolicy", &self.fIsGroupPolicy).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WCM_POLICY_VALUE {
     type Abi = Self;
 }
@@ -342,6 +377,11 @@ impl ::core::clone::Clone for WCM_PROFILE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for WCM_PROFILE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WCM_PROFILE_INFO").field("strProfileName", &self.strProfileName).field("AdapterGUID", &self.AdapterGUID).field("Media", &self.Media).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WCM_PROFILE_INFO {
     type Abi = Self;
 }
@@ -366,6 +406,11 @@ impl ::core::marker::Copy for WCM_PROFILE_INFO_LIST {}
 impl ::core::clone::Clone for WCM_PROFILE_INFO_LIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WCM_PROFILE_INFO_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WCM_PROFILE_INFO_LIST").field("dwNumberOfItems", &self.dwNumberOfItems).field("ProfileInfo", &self.ProfileInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WCM_PROFILE_INFO_LIST {
@@ -415,6 +460,11 @@ impl ::core::clone::Clone for WCM_TIME_INTERVAL {
         *self
     }
 }
+impl ::core::fmt::Debug for WCM_TIME_INTERVAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WCM_TIME_INTERVAL").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).field("wMilliseconds", &self.wMilliseconds).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WCM_TIME_INTERVAL {
     type Abi = Self;
 }
@@ -444,6 +494,12 @@ impl ::core::marker::Copy for WCM_USAGE_DATA {}
 impl ::core::clone::Clone for WCM_USAGE_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WCM_USAGE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WCM_USAGE_DATA").field("UsageInMegabytes", &self.UsageInMegabytes).field("LastSyncTime", &self.LastSyncTime).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

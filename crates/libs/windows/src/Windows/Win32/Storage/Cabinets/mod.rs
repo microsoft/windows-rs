@@ -35,6 +35,25 @@ impl ::core::clone::Clone for CCAB {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CCAB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CCAB")
+            .field("cb", &self.cb)
+            .field("cbFolderThresh", &self.cbFolderThresh)
+            .field("cbReserveCFHeader", &self.cbReserveCFHeader)
+            .field("cbReserveCFFolder", &self.cbReserveCFFolder)
+            .field("cbReserveCFData", &self.cbReserveCFData)
+            .field("iCab", &self.iCab)
+            .field("iDisk", &self.iDisk)
+            .field("fFailOnIncompressible", &self.fFailOnIncompressible)
+            .field("setID", &self.setID)
+            .field("szDisk", &self.szDisk)
+            .field("szCab", &self.szCab)
+            .field("szCabPath", &self.szCabPath)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CCAB {
     type Abi = Self;
 }
@@ -66,6 +85,12 @@ impl ::core::marker::Copy for ERF {}
 impl ::core::clone::Clone for ERF {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ERF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ERF").field("erfOper", &self.erfOper).field("erfType", &self.erfType).field("fError", &self.fError).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -202,6 +227,12 @@ impl ::core::marker::Copy for FDICABINETINFO {}
 impl ::core::clone::Clone for FDICABINETINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FDICABINETINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FDICABINETINFO").field("cbCabinet", &self.cbCabinet).field("cFolders", &self.cFolders).field("cFiles", &self.cFiles).field("setID", &self.setID).field("iCabinet", &self.iCabinet).field("fReserve", &self.fReserve).field("hasprev", &self.hasprev).field("hasnext", &self.hasnext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -344,6 +375,12 @@ impl ::core::clone::Clone for FDIDECRYPT_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FDIDECRYPT_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FDIDECRYPT_0_0").field("pHeaderReserve", &self.pHeaderReserve).field("cbHeaderReserve", &self.cbHeaderReserve).field("setID", &self.setID).field("iCabinet", &self.iCabinet).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FDIDECRYPT_0_0 {
     type Abi = Self;
 }
@@ -381,6 +418,12 @@ impl ::core::clone::Clone for FDIDECRYPT_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FDIDECRYPT_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FDIDECRYPT_0_1").field("pDataReserve", &self.pDataReserve).field("cbDataReserve", &self.cbDataReserve).field("pbData", &self.pbData).field("cbData", &self.cbData).field("fSplit", &self.fSplit).field("cbPartial", &self.cbPartial).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FDIDECRYPT_0_1 {
     type Abi = Self;
 }
@@ -412,6 +455,12 @@ impl ::core::marker::Copy for FDIDECRYPT_0_2 {}
 impl ::core::clone::Clone for FDIDECRYPT_0_2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FDIDECRYPT_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FDIDECRYPT_0_2").field("pFolderReserve", &self.pFolderReserve).field("cbFolderReserve", &self.cbFolderReserve).field("iFolder", &self.iFolder).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -525,6 +574,12 @@ impl ::core::clone::Clone for FDINOTIFICATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FDINOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FDINOTIFICATION").field("cb", &self.cb).field("psz1", &self.psz1).field("psz2", &self.psz2).field("psz3", &self.psz3).field("pv", &self.pv).field("hf", &self.hf).field("date", &self.date).field("time", &self.time).field("attribs", &self.attribs).field("setID", &self.setID).field("iCabinet", &self.iCabinet).field("iFolder", &self.iFolder).field("fdie", &self.fdie).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FDINOTIFICATION {
     type Abi = Self;
 }
@@ -572,6 +627,13 @@ impl ::core::marker::Copy for FDISPILLFILE {}
 impl ::core::clone::Clone for FDISPILLFILE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FDISPILLFILE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FDISPILLFILE").field("ach", &self.ach).field("cbFile", &self.cbFile).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]

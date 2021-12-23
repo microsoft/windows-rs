@@ -563,6 +563,11 @@ impl ::core::cmp::PartialEq for UserDataTask {
     }
 }
 impl ::core::cmp::Eq for UserDataTask {}
+impl ::core::fmt::Debug for UserDataTask {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTask").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTask {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTask;{7c6585d1-e0d4-4f99-aee2-bc2d5ddadf4c})");
 }
@@ -640,6 +645,11 @@ impl ::core::cmp::PartialEq for UserDataTaskBatch {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskBatch {}
+impl ::core::fmt::Debug for UserDataTaskBatch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskBatch").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskBatch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskBatch;{382da5fe-20b5-431c-8f42-a5d292ec930c})");
 }
@@ -720,6 +730,11 @@ impl ::core::cmp::PartialEq for UserDataTaskDaysOfWeek {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskDaysOfWeek {}
+impl ::core::fmt::Debug for UserDataTaskDaysOfWeek {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskDaysOfWeek").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskDaysOfWeek {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskDaysOfWeek;u4)");
 }
@@ -748,6 +763,11 @@ impl ::core::cmp::PartialEq for UserDataTaskDetailsKind {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskDetailsKind {}
+impl ::core::fmt::Debug for UserDataTaskDetailsKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskDetailsKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskDetailsKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskDetailsKind;i4)");
 }
@@ -777,6 +797,11 @@ impl ::core::cmp::PartialEq for UserDataTaskKind {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskKind {}
+impl ::core::fmt::Debug for UserDataTaskKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskKind;i4)");
 }
@@ -948,6 +973,11 @@ impl ::core::cmp::PartialEq for UserDataTaskList {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskList {}
+impl ::core::fmt::Debug for UserDataTaskList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskList;{49412e39-7c1d-4df1-bed3-314b7cbf5e4e})");
 }
@@ -1052,6 +1082,11 @@ impl ::core::cmp::PartialEq for UserDataTaskListLimitedWriteOperations {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskListLimitedWriteOperations {}
+impl ::core::fmt::Debug for UserDataTaskListLimitedWriteOperations {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskListLimitedWriteOperations").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskListLimitedWriteOperations {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskListLimitedWriteOperations;{7aa267f2-6078-4183-919e-4f29f19cfae9})");
 }
@@ -1127,6 +1162,11 @@ impl ::core::cmp::PartialEq for UserDataTaskListOtherAppReadAccess {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskListOtherAppReadAccess {}
+impl ::core::fmt::Debug for UserDataTaskListOtherAppReadAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskListOtherAppReadAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskListOtherAppReadAccess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListOtherAppReadAccess;i4)");
 }
@@ -1155,6 +1195,11 @@ impl ::core::cmp::PartialEq for UserDataTaskListOtherAppWriteAccess {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskListOtherAppWriteAccess {}
+impl ::core::fmt::Debug for UserDataTaskListOtherAppWriteAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskListOtherAppWriteAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskListOtherAppWriteAccess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListOtherAppWriteAccess;i4)");
 }
@@ -1244,6 +1289,11 @@ impl ::core::cmp::PartialEq for UserDataTaskListSyncManager {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskListSyncManager {}
+impl ::core::fmt::Debug for UserDataTaskListSyncManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskListSyncManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskListSyncManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncManager;{8e591a95-1dcf-469f-93ec-ba48bb553c6b})");
 }
@@ -1322,6 +1372,11 @@ impl ::core::cmp::PartialEq for UserDataTaskListSyncStatus {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskListSyncStatus {}
+impl ::core::fmt::Debug for UserDataTaskListSyncStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskListSyncStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskListSyncStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncStatus;i4)");
 }
@@ -1382,6 +1437,11 @@ impl ::core::cmp::PartialEq for UserDataTaskManager {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskManager {}
+impl ::core::fmt::Debug for UserDataTaskManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskManager;{8451c914-e60b-48a9-9211-7fb8a56cb84c})");
 }
@@ -1457,6 +1517,11 @@ impl ::core::cmp::PartialEq for UserDataTaskPriority {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskPriority {}
+impl ::core::fmt::Debug for UserDataTaskPriority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskPriority").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskPriority {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskPriority;i4)");
 }
@@ -1486,6 +1551,11 @@ impl ::core::cmp::PartialEq for UserDataTaskQueryKind {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskQueryKind {}
+impl ::core::fmt::Debug for UserDataTaskQueryKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskQueryKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskQueryKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryKind;i4)");
 }
@@ -1541,6 +1611,11 @@ impl ::core::cmp::PartialEq for UserDataTaskQueryOptions {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskQueryOptions {}
+impl ::core::fmt::Debug for UserDataTaskQueryOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskQueryOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskQueryOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryOptions;{959f27ed-909a-4d30-8c1b-331d8fe667e2})");
 }
@@ -1614,6 +1689,11 @@ impl ::core::cmp::PartialEq for UserDataTaskQuerySortProperty {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskQuerySortProperty {}
+impl ::core::fmt::Debug for UserDataTaskQuerySortProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskQuerySortProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskQuerySortProperty {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskQuerySortProperty;i4)");
 }
@@ -1645,6 +1725,11 @@ impl ::core::cmp::PartialEq for UserDataTaskReader {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskReader {}
+impl ::core::fmt::Debug for UserDataTaskReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskReader;{03e688b1-4ccf-4500-883b-e76290cfed63})");
 }
@@ -1836,6 +1921,11 @@ impl ::core::cmp::PartialEq for UserDataTaskRecurrenceProperties {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskRecurrenceProperties {}
+impl ::core::fmt::Debug for UserDataTaskRecurrenceProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskRecurrenceProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskRecurrenceProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceProperties;{73df80b0-27c6-40ce-b149-9cd41485a69e})");
 }
@@ -1914,6 +2004,11 @@ impl ::core::cmp::PartialEq for UserDataTaskRecurrenceUnit {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskRecurrenceUnit {}
+impl ::core::fmt::Debug for UserDataTaskRecurrenceUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskRecurrenceUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskRecurrenceUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceUnit;i4)");
 }
@@ -1999,6 +2094,11 @@ impl ::core::cmp::PartialEq for UserDataTaskRegenerationProperties {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskRegenerationProperties {}
+impl ::core::fmt::Debug for UserDataTaskRegenerationProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskRegenerationProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskRegenerationProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationProperties;{92ab0007-090e-4704-bb5c-84fc0b0d9c31})");
 }
@@ -2075,6 +2175,11 @@ impl ::core::cmp::PartialEq for UserDataTaskRegenerationUnit {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskRegenerationUnit {}
+impl ::core::fmt::Debug for UserDataTaskRegenerationUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskRegenerationUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskRegenerationUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationUnit;i4)");
 }
@@ -2103,6 +2208,11 @@ impl ::core::cmp::PartialEq for UserDataTaskSensitivity {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskSensitivity {}
+impl ::core::fmt::Debug for UserDataTaskSensitivity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskSensitivity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskSensitivity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskSensitivity;i4)");
 }
@@ -2161,6 +2271,11 @@ impl ::core::cmp::PartialEq for UserDataTaskStore {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskStore {}
+impl ::core::fmt::Debug for UserDataTaskStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskStore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskStore;{f06a9cb0-f1db-45ba-8a62-086004c0213d})");
 }
@@ -2235,6 +2350,11 @@ impl ::core::cmp::PartialEq for UserDataTaskStoreAccessType {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskStoreAccessType {}
+impl ::core::fmt::Debug for UserDataTaskStoreAccessType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskStoreAccessType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskStoreAccessType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskStoreAccessType;i4)");
 }
@@ -2266,6 +2386,11 @@ impl ::core::cmp::PartialEq for UserDataTaskWeekOfMonth {
     }
 }
 impl ::core::cmp::Eq for UserDataTaskWeekOfMonth {}
+impl ::core::fmt::Debug for UserDataTaskWeekOfMonth {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskWeekOfMonth").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskWeekOfMonth {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskWeekOfMonth;i4)");
 }

@@ -40,6 +40,11 @@ impl ::core::cmp::PartialEq for AudioMediaFrame {
     }
 }
 impl ::core::cmp::Eq for AudioMediaFrame {}
+impl ::core::fmt::Debug for AudioMediaFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioMediaFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioMediaFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.AudioMediaFrame;{a3a9feff-8021-441b-9a46-e7f0137b7981})");
 }
@@ -125,6 +130,11 @@ impl ::core::cmp::PartialEq for BufferMediaFrame {
     }
 }
 impl ::core::cmp::Eq for BufferMediaFrame {}
+impl ::core::fmt::Debug for BufferMediaFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BufferMediaFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BufferMediaFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.BufferMediaFrame;{b5b153c7-9b84-4062-b79c-a365b2596854})");
 }
@@ -242,6 +252,11 @@ impl ::core::cmp::PartialEq for DepthMediaFrame {
     }
 }
 impl ::core::cmp::Eq for DepthMediaFrame {}
+impl ::core::fmt::Debug for DepthMediaFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DepthMediaFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DepthMediaFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.DepthMediaFrame;{47135e4f-8549-45c0-925b-80d35efdb10a})");
 }
@@ -326,6 +341,11 @@ impl ::core::cmp::PartialEq for DepthMediaFrameFormat {
     }
 }
 impl ::core::cmp::Eq for DepthMediaFrameFormat {}
+impl ::core::fmt::Debug for DepthMediaFrameFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DepthMediaFrameFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DepthMediaFrameFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.DepthMediaFrameFormat;{c312cf40-d729-453e-8780-2e04f140d28e})");
 }
@@ -1041,6 +1061,11 @@ impl ::core::cmp::PartialEq for InfraredMediaFrame {
     }
 }
 impl ::core::cmp::Eq for InfraredMediaFrame {}
+impl ::core::fmt::Debug for InfraredMediaFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InfraredMediaFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InfraredMediaFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.InfraredMediaFrame;{3fd13503-004b-4f0e-91ac-465299b41658})");
 }
@@ -1108,6 +1133,11 @@ impl ::core::cmp::PartialEq for MediaFrameArrivedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MediaFrameArrivedEventArgs {}
+impl ::core::fmt::Debug for MediaFrameArrivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameArrivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaFrameArrivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameArrivedEventArgs;{0b430add-a490-4435-ada1-9affd55239f7})");
 }
@@ -1227,6 +1257,11 @@ impl ::core::cmp::PartialEq for MediaFrameFormat {
     }
 }
 impl ::core::cmp::Eq for MediaFrameFormat {}
+impl ::core::fmt::Debug for MediaFrameFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaFrameFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameFormat;{71902b4e-b279-4a97-a9db-bd5a2fb78f39})");
 }
@@ -1355,6 +1390,11 @@ impl ::core::cmp::PartialEq for MediaFrameReader {
     }
 }
 impl ::core::cmp::Eq for MediaFrameReader {}
+impl ::core::fmt::Debug for MediaFrameReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaFrameReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameReader;{e4c94395-2028-48ed-90b0-d1c1b162e24c})");
 }
@@ -1455,6 +1495,11 @@ impl ::core::cmp::PartialEq for MediaFrameReaderAcquisitionMode {
     }
 }
 impl ::core::cmp::Eq for MediaFrameReaderAcquisitionMode {}
+impl ::core::fmt::Debug for MediaFrameReaderAcquisitionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameReaderAcquisitionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaFrameReaderAcquisitionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameReaderAcquisitionMode;i4)");
 }
@@ -1486,6 +1531,11 @@ impl ::core::cmp::PartialEq for MediaFrameReaderStartStatus {
     }
 }
 impl ::core::cmp::Eq for MediaFrameReaderStartStatus {}
+impl ::core::fmt::Debug for MediaFrameReaderStartStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameReaderStartStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaFrameReaderStartStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameReaderStartStatus;i4)");
 }
@@ -1590,6 +1640,11 @@ impl ::core::cmp::PartialEq for MediaFrameReference {
     }
 }
 impl ::core::cmp::Eq for MediaFrameReference {}
+impl ::core::fmt::Debug for MediaFrameReference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameReference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaFrameReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameReference;{f6b88641-f0dc-4044-8dc9-961cedd05bad})");
 }
@@ -1750,6 +1805,11 @@ impl ::core::cmp::PartialEq for MediaFrameSource {
     }
 }
 impl ::core::cmp::Eq for MediaFrameSource {}
+impl ::core::fmt::Debug for MediaFrameSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaFrameSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSource;{d6782953-90db-46a8-8add-2aa884a8d253})");
 }
@@ -1872,6 +1932,11 @@ impl ::core::cmp::PartialEq for MediaFrameSourceController {
     }
 }
 impl ::core::cmp::Eq for MediaFrameSourceController {}
+impl ::core::fmt::Debug for MediaFrameSourceController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameSourceController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaFrameSourceController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSourceController;{6d076635-316d-4b8f-b7b6-eeb04a8c6525})");
 }
@@ -1956,6 +2021,11 @@ impl ::core::cmp::PartialEq for MediaFrameSourceGetPropertyResult {
     }
 }
 impl ::core::cmp::Eq for MediaFrameSourceGetPropertyResult {}
+impl ::core::fmt::Debug for MediaFrameSourceGetPropertyResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameSourceGetPropertyResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaFrameSourceGetPropertyResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSourceGetPropertyResult;{088616c2-3a64-4bd5-bd2b-e7c898d2f37a})");
 }
@@ -2034,6 +2104,11 @@ impl ::core::cmp::PartialEq for MediaFrameSourceGetPropertyStatus {
     }
 }
 impl ::core::cmp::Eq for MediaFrameSourceGetPropertyStatus {}
+impl ::core::fmt::Debug for MediaFrameSourceGetPropertyStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameSourceGetPropertyStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaFrameSourceGetPropertyStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceGetPropertyStatus;i4)");
 }
@@ -2109,6 +2184,11 @@ impl ::core::cmp::PartialEq for MediaFrameSourceGroup {
     }
 }
 impl ::core::cmp::Eq for MediaFrameSourceGroup {}
+impl ::core::fmt::Debug for MediaFrameSourceGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameSourceGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaFrameSourceGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSourceGroup;{7f605b87-4832-4b5f-ae3d-412faab37d34})");
 }
@@ -2262,6 +2342,11 @@ impl ::core::cmp::PartialEq for MediaFrameSourceInfo {
     }
 }
 impl ::core::cmp::Eq for MediaFrameSourceInfo {}
+impl ::core::fmt::Debug for MediaFrameSourceInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameSourceInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaFrameSourceInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSourceInfo;{87bdc9cd-4601-408f-91cf-038318cd0af3})");
 }
@@ -2341,6 +2426,11 @@ impl ::core::cmp::PartialEq for MediaFrameSourceKind {
     }
 }
 impl ::core::cmp::Eq for MediaFrameSourceKind {}
+impl ::core::fmt::Debug for MediaFrameSourceKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameSourceKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaFrameSourceKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceKind;i4)");
 }
@@ -2373,6 +2463,11 @@ impl ::core::cmp::PartialEq for MediaFrameSourceSetPropertyStatus {
     }
 }
 impl ::core::cmp::Eq for MediaFrameSourceSetPropertyStatus {}
+impl ::core::fmt::Debug for MediaFrameSourceSetPropertyStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameSourceSetPropertyStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaFrameSourceSetPropertyStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceSetPropertyStatus;i4)");
 }
@@ -2394,6 +2489,11 @@ impl ::core::cmp::PartialEq for MultiSourceMediaFrameArrivedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MultiSourceMediaFrameArrivedEventArgs {}
+impl ::core::fmt::Debug for MultiSourceMediaFrameArrivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MultiSourceMediaFrameArrivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MultiSourceMediaFrameArrivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MultiSourceMediaFrameArrivedEventArgs;{63115e01-cf51-48fd-aab0-6d693eb48127})");
 }
@@ -2522,6 +2622,11 @@ impl ::core::cmp::PartialEq for MultiSourceMediaFrameReader {
     }
 }
 impl ::core::cmp::Eq for MultiSourceMediaFrameReader {}
+impl ::core::fmt::Debug for MultiSourceMediaFrameReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MultiSourceMediaFrameReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MultiSourceMediaFrameReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MultiSourceMediaFrameReader;{8d144402-f763-488d-98f2-b437bcf075e7})");
 }
@@ -2625,6 +2730,11 @@ impl ::core::cmp::PartialEq for MultiSourceMediaFrameReaderStartStatus {
     }
 }
 impl ::core::cmp::Eq for MultiSourceMediaFrameReaderStartStatus {}
+impl ::core::fmt::Debug for MultiSourceMediaFrameReaderStartStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MultiSourceMediaFrameReaderStartStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MultiSourceMediaFrameReaderStartStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MultiSourceMediaFrameReaderStartStatus;i4)");
 }
@@ -2661,6 +2771,11 @@ impl ::core::cmp::PartialEq for MultiSourceMediaFrameReference {
     }
 }
 impl ::core::cmp::Eq for MultiSourceMediaFrameReference {}
+impl ::core::fmt::Debug for MultiSourceMediaFrameReference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MultiSourceMediaFrameReference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MultiSourceMediaFrameReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MultiSourceMediaFrameReference;{21964b1a-7fe2-44d6-92e5-298e6d2810e9})");
 }
@@ -2822,6 +2937,11 @@ impl ::core::cmp::PartialEq for VideoMediaFrame {
     }
 }
 impl ::core::cmp::Eq for VideoMediaFrame {}
+impl ::core::fmt::Debug for VideoMediaFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoMediaFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoMediaFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.VideoMediaFrame;{00dd4ccb-32bd-4fe1-a013-7cc13cf5dbcf})");
 }
@@ -2922,6 +3042,11 @@ impl ::core::cmp::PartialEq for VideoMediaFrameFormat {
     }
 }
 impl ::core::cmp::Eq for VideoMediaFrameFormat {}
+impl ::core::fmt::Debug for VideoMediaFrameFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoMediaFrameFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoMediaFrameFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.VideoMediaFrameFormat;{46027fc0-d71b-45c7-8f14-6d9a0ae604e4})");
 }

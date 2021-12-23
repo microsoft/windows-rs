@@ -16,6 +16,11 @@ impl ::core::clone::Clone for DXCoreAdapterMemoryBudget {
         *self
     }
 }
+impl ::core::fmt::Debug for DXCoreAdapterMemoryBudget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXCoreAdapterMemoryBudget").field("budget", &self.budget).field("currentUsage", &self.currentUsage).field("availableForReservation", &self.availableForReservation).field("currentReservation", &self.currentReservation).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXCoreAdapterMemoryBudget {
     type Abi = Self;
 }
@@ -40,6 +45,11 @@ impl ::core::marker::Copy for DXCoreAdapterMemoryBudgetNodeSegmentGroup {}
 impl ::core::clone::Clone for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXCoreAdapterMemoryBudgetNodeSegmentGroup").field("nodeIndex", &self.nodeIndex).field("segmentGroup", &self.segmentGroup).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
@@ -131,6 +141,11 @@ impl ::core::clone::Clone for DXCoreHardwareID {
         *self
     }
 }
+impl ::core::fmt::Debug for DXCoreHardwareID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXCoreHardwareID").field("vendorID", &self.vendorID).field("deviceID", &self.deviceID).field("subSysID", &self.subSysID).field("revision", &self.revision).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXCoreHardwareID {
     type Abi = Self;
 }
@@ -158,6 +173,11 @@ impl ::core::marker::Copy for DXCoreHardwareIDParts {}
 impl ::core::clone::Clone for DXCoreHardwareIDParts {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXCoreHardwareIDParts {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXCoreHardwareIDParts").field("vendorID", &self.vendorID).field("deviceID", &self.deviceID).field("subSystemID", &self.subSystemID).field("subVendorID", &self.subVendorID).field("revisionID", &self.revisionID).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXCoreHardwareIDParts {
@@ -268,6 +288,11 @@ impl ::core::cmp::PartialEq for IDXCoreAdapter {
     }
 }
 impl ::core::cmp::Eq for IDXCoreAdapter {}
+impl ::core::fmt::Debug for IDXCoreAdapter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXCoreAdapter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXCoreAdapter {
     type Vtable = IDXCoreAdapterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0db4c7f_fe5a_42a2_bd62_f2a6cf6fc83e);
@@ -349,6 +374,11 @@ impl ::core::cmp::PartialEq for IDXCoreAdapterFactory {
     }
 }
 impl ::core::cmp::Eq for IDXCoreAdapterFactory {}
+impl ::core::fmt::Debug for IDXCoreAdapterFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXCoreAdapterFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXCoreAdapterFactory {
     type Vtable = IDXCoreAdapterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78ee5945_c36e_4b13_a669_005dd11c0f06);
@@ -428,6 +458,11 @@ impl ::core::cmp::PartialEq for IDXCoreAdapterList {
     }
 }
 impl ::core::cmp::Eq for IDXCoreAdapterList {}
+impl ::core::fmt::Debug for IDXCoreAdapterList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXCoreAdapterList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXCoreAdapterList {
     type Vtable = IDXCoreAdapterListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x526c7776_40e9_459b_b711_f32ad76dfc28);

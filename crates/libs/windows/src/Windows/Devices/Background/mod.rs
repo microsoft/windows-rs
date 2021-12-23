@@ -40,6 +40,11 @@ impl ::core::cmp::PartialEq for DeviceServicingDetails {
     }
 }
 impl ::core::cmp::Eq for DeviceServicingDetails {}
+impl ::core::fmt::Debug for DeviceServicingDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceServicingDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceServicingDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Background.DeviceServicingDetails;{4aabee29-2344-4ac4-8527-4a8ef6905645})");
 }
@@ -124,6 +129,11 @@ impl ::core::cmp::PartialEq for DeviceUseDetails {
     }
 }
 impl ::core::cmp::Eq for DeviceUseDetails {}
+impl ::core::fmt::Debug for DeviceUseDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceUseDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceUseDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Background.DeviceUseDetails;{7d565141-557e-4154-b994-e4f7a11fb323})");
 }

@@ -115,6 +115,11 @@ impl ::core::cmp::PartialEq for Playlist {
     }
 }
 impl ::core::cmp::Eq for Playlist {}
+impl ::core::fmt::Debug for Playlist {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Playlist").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Playlist {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playlists.Playlist;{803736f5-cf44-4d97-83b3-7a089e9ab663})");
 }
@@ -188,6 +193,11 @@ impl ::core::cmp::PartialEq for PlaylistFormat {
     }
 }
 impl ::core::cmp::Eq for PlaylistFormat {}
+impl ::core::fmt::Debug for PlaylistFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlaylistFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlaylistFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playlists.PlaylistFormat;i4)");
 }

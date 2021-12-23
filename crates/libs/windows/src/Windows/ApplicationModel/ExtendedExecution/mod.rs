@@ -24,6 +24,11 @@ impl ::core::cmp::PartialEq for ExtendedExecutionReason {
     }
 }
 impl ::core::cmp::Eq for ExtendedExecutionReason {}
+impl ::core::fmt::Debug for ExtendedExecutionReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExtendedExecutionReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ExtendedExecutionReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionReason;i4)");
 }
@@ -52,6 +57,11 @@ impl ::core::cmp::PartialEq for ExtendedExecutionResult {
     }
 }
 impl ::core::cmp::Eq for ExtendedExecutionResult {}
+impl ::core::fmt::Debug for ExtendedExecutionResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExtendedExecutionResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ExtendedExecutionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionResult;i4)");
 }
@@ -82,6 +92,11 @@ impl ::core::cmp::PartialEq for ExtendedExecutionRevokedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ExtendedExecutionRevokedEventArgs {}
+impl ::core::fmt::Debug for ExtendedExecutionRevokedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExtendedExecutionRevokedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ExtendedExecutionRevokedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedEventArgs;{bfbc9f16-63b5-4c0b-aad6-828af5373ec3})");
 }
@@ -156,6 +171,11 @@ impl ::core::cmp::PartialEq for ExtendedExecutionRevokedReason {
     }
 }
 impl ::core::cmp::Eq for ExtendedExecutionRevokedReason {}
+impl ::core::fmt::Debug for ExtendedExecutionRevokedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExtendedExecutionRevokedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ExtendedExecutionRevokedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedReason;i4)");
 }
@@ -254,6 +274,11 @@ impl ::core::cmp::PartialEq for ExtendedExecutionSession {
     }
 }
 impl ::core::cmp::Eq for ExtendedExecutionSession {}
+impl ::core::fmt::Debug for ExtendedExecutionSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExtendedExecutionSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ExtendedExecutionSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession;{af908a2d-118b-48f1-9308-0c4fc41e200f})");
 }

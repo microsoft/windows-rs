@@ -55,6 +55,11 @@ impl ::core::cmp::PartialEq for IOpcCertificateEnumerator {
     }
 }
 impl ::core::cmp::Eq for IOpcCertificateEnumerator {}
+impl ::core::fmt::Debug for IOpcCertificateEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcCertificateEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcCertificateEnumerator {
     type Vtable = IOpcCertificateEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85131937_8f24_421f_b439_59ab24d140b8);
@@ -124,6 +129,11 @@ impl ::core::cmp::PartialEq for IOpcCertificateSet {
     }
 }
 impl ::core::cmp::Eq for IOpcCertificateSet {}
+impl ::core::fmt::Debug for IOpcCertificateSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcCertificateSet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcCertificateSet {
     type Vtable = IOpcCertificateSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56ea4325_8e2d_4167_b1a4_e486d24c8fa7);
@@ -250,6 +260,11 @@ impl ::core::cmp::PartialEq for IOpcDigitalSignature {
     }
 }
 impl ::core::cmp::Eq for IOpcDigitalSignature {}
+impl ::core::fmt::Debug for IOpcDigitalSignature {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcDigitalSignature").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcDigitalSignature {
     type Vtable = IOpcDigitalSignatureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52ab21dd_1cd0_4949_bc80_0c1232d00cb4);
@@ -338,6 +353,11 @@ impl ::core::cmp::PartialEq for IOpcDigitalSignatureEnumerator {
     }
 }
 impl ::core::cmp::Eq for IOpcDigitalSignatureEnumerator {}
+impl ::core::fmt::Debug for IOpcDigitalSignatureEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcDigitalSignatureEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcDigitalSignatureEnumerator {
     type Vtable = IOpcDigitalSignatureEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x967b6882_0ba3_4358_b9e7_b64c75063c5e);
@@ -430,6 +450,11 @@ impl ::core::cmp::PartialEq for IOpcDigitalSignatureManager {
     }
 }
 impl ::core::cmp::Eq for IOpcDigitalSignatureManager {}
+impl ::core::fmt::Debug for IOpcDigitalSignatureManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcDigitalSignatureManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcDigitalSignatureManager {
     type Vtable = IOpcDigitalSignatureManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5e62a0b_696d_462f_94df_72e33cef2659);
@@ -525,6 +550,11 @@ impl ::core::cmp::PartialEq for IOpcFactory {
     }
 }
 impl ::core::cmp::Eq for IOpcFactory {}
+impl ::core::fmt::Debug for IOpcFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcFactory {
     type Vtable = IOpcFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d0b4446_cd73_4ab3_94f4_8ccdf6116154);
@@ -593,6 +623,11 @@ impl ::core::cmp::PartialEq for IOpcPackage {
     }
 }
 impl ::core::cmp::Eq for IOpcPackage {}
+impl ::core::fmt::Debug for IOpcPackage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcPackage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcPackage {
     type Vtable = IOpcPackageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee70);
@@ -669,6 +704,11 @@ impl ::core::cmp::PartialEq for IOpcPart {
     }
 }
 impl ::core::cmp::Eq for IOpcPart {}
+impl ::core::fmt::Debug for IOpcPart {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcPart").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcPart {
     type Vtable = IOpcPartVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee71);
@@ -745,6 +785,11 @@ impl ::core::cmp::PartialEq for IOpcPartEnumerator {
     }
 }
 impl ::core::cmp::Eq for IOpcPartEnumerator {}
+impl ::core::fmt::Debug for IOpcPartEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcPartEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcPartEnumerator {
     type Vtable = IOpcPartEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee75);
@@ -824,6 +869,11 @@ impl ::core::cmp::PartialEq for IOpcPartSet {
     }
 }
 impl ::core::cmp::Eq for IOpcPartSet {}
+impl ::core::fmt::Debug for IOpcPartSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcPartSet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcPartSet {
     type Vtable = IOpcPartSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee73);
@@ -1102,6 +1152,11 @@ impl ::core::cmp::PartialEq for IOpcPartUri {
     }
 }
 impl ::core::cmp::Eq for IOpcPartUri {}
+impl ::core::fmt::Debug for IOpcPartUri {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcPartUri").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcPartUri {
     type Vtable = IOpcPartUriVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d3babe7_88b2_46ba_85cb_4203cb016c87);
@@ -1236,6 +1291,11 @@ impl ::core::cmp::PartialEq for IOpcRelationship {
     }
 }
 impl ::core::cmp::Eq for IOpcRelationship {}
+impl ::core::fmt::Debug for IOpcRelationship {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcRelationship").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcRelationship {
     type Vtable = IOpcRelationshipVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee72);
@@ -1313,6 +1373,11 @@ impl ::core::cmp::PartialEq for IOpcRelationshipEnumerator {
     }
 }
 impl ::core::cmp::Eq for IOpcRelationshipEnumerator {}
+impl ::core::fmt::Debug for IOpcRelationshipEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcRelationshipEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcRelationshipEnumerator {
     type Vtable = IOpcRelationshipEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee76);
@@ -1377,6 +1442,11 @@ impl ::core::cmp::PartialEq for IOpcRelationshipSelector {
     }
 }
 impl ::core::cmp::Eq for IOpcRelationshipSelector {}
+impl ::core::fmt::Debug for IOpcRelationshipSelector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcRelationshipSelector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcRelationshipSelector {
     type Vtable = IOpcRelationshipSelectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8f26c7f_b28f_4899_84c8_5d5639ede75f);
@@ -1449,6 +1519,11 @@ impl ::core::cmp::PartialEq for IOpcRelationshipSelectorEnumerator {
     }
 }
 impl ::core::cmp::Eq for IOpcRelationshipSelectorEnumerator {}
+impl ::core::fmt::Debug for IOpcRelationshipSelectorEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcRelationshipSelectorEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcRelationshipSelectorEnumerator {
     type Vtable = IOpcRelationshipSelectorEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e50a181_a91b_48ac_88d2_bca3d8f8c0b1);
@@ -1517,6 +1592,11 @@ impl ::core::cmp::PartialEq for IOpcRelationshipSelectorSet {
     }
 }
 impl ::core::cmp::Eq for IOpcRelationshipSelectorSet {}
+impl ::core::fmt::Debug for IOpcRelationshipSelectorSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcRelationshipSelectorSet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcRelationshipSelectorSet {
     type Vtable = IOpcRelationshipSelectorSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e34c269_a4d3_47c0_b5c4_87ff2b3b6136);
@@ -1608,6 +1688,11 @@ impl ::core::cmp::PartialEq for IOpcRelationshipSet {
     }
 }
 impl ::core::cmp::Eq for IOpcRelationshipSet {}
+impl ::core::fmt::Debug for IOpcRelationshipSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcRelationshipSet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcRelationshipSet {
     type Vtable = IOpcRelationshipSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee74);
@@ -1672,6 +1757,11 @@ impl ::core::cmp::PartialEq for IOpcSignatureCustomObject {
     }
 }
 impl ::core::cmp::Eq for IOpcSignatureCustomObject {}
+impl ::core::fmt::Debug for IOpcSignatureCustomObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcSignatureCustomObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcSignatureCustomObject {
     type Vtable = IOpcSignatureCustomObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d77a19e_62c1_44e7_becd_45da5ae51a56);
@@ -1737,6 +1827,11 @@ impl ::core::cmp::PartialEq for IOpcSignatureCustomObjectEnumerator {
     }
 }
 impl ::core::cmp::Eq for IOpcSignatureCustomObjectEnumerator {}
+impl ::core::fmt::Debug for IOpcSignatureCustomObjectEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcSignatureCustomObjectEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcSignatureCustomObjectEnumerator {
     type Vtable = IOpcSignatureCustomObjectEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ee4fe1d_e1b0_4683_8079_7ea0fcf80b4c);
@@ -1804,6 +1899,11 @@ impl ::core::cmp::PartialEq for IOpcSignatureCustomObjectSet {
     }
 }
 impl ::core::cmp::Eq for IOpcSignatureCustomObjectSet {}
+impl ::core::fmt::Debug for IOpcSignatureCustomObjectSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcSignatureCustomObjectSet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcSignatureCustomObjectSet {
     type Vtable = IOpcSignatureCustomObjectSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f792ac5_7947_4e11_bc3d_2659ff046ae1);
@@ -1880,6 +1980,11 @@ impl ::core::cmp::PartialEq for IOpcSignaturePartReference {
     }
 }
 impl ::core::cmp::Eq for IOpcSignaturePartReference {}
+impl ::core::fmt::Debug for IOpcSignaturePartReference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcSignaturePartReference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcSignaturePartReference {
     type Vtable = IOpcSignaturePartReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe24231ca_59f4_484e_b64b_36eeda36072c);
@@ -1956,6 +2061,11 @@ impl ::core::cmp::PartialEq for IOpcSignaturePartReferenceEnumerator {
     }
 }
 impl ::core::cmp::Eq for IOpcSignaturePartReferenceEnumerator {}
+impl ::core::fmt::Debug for IOpcSignaturePartReferenceEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcSignaturePartReferenceEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcSignaturePartReferenceEnumerator {
     type Vtable = IOpcSignaturePartReferenceEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80eb1561_8c77_49cf_8266_459b356ee99a);
@@ -2024,6 +2134,11 @@ impl ::core::cmp::PartialEq for IOpcSignaturePartReferenceSet {
     }
 }
 impl ::core::cmp::Eq for IOpcSignaturePartReferenceSet {}
+impl ::core::fmt::Debug for IOpcSignaturePartReferenceSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcSignaturePartReferenceSet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcSignaturePartReferenceSet {
     type Vtable = IOpcSignaturePartReferenceSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c9fe28c_ecd9_4b22_9d36_7fdde670fec0);
@@ -2108,6 +2223,11 @@ impl ::core::cmp::PartialEq for IOpcSignatureReference {
     }
 }
 impl ::core::cmp::Eq for IOpcSignatureReference {}
+impl ::core::fmt::Debug for IOpcSignatureReference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcSignatureReference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcSignatureReference {
     type Vtable = IOpcSignatureReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b47005e_3011_4edc_be6f_0f65e5ab0342);
@@ -2187,6 +2307,11 @@ impl ::core::cmp::PartialEq for IOpcSignatureReferenceEnumerator {
     }
 }
 impl ::core::cmp::Eq for IOpcSignatureReferenceEnumerator {}
+impl ::core::fmt::Debug for IOpcSignatureReferenceEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcSignatureReferenceEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcSignatureReferenceEnumerator {
     type Vtable = IOpcSignatureReferenceEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfa59a45_28b1_4868_969e_fa8097fdc12a);
@@ -2255,6 +2380,11 @@ impl ::core::cmp::PartialEq for IOpcSignatureReferenceSet {
     }
 }
 impl ::core::cmp::Eq for IOpcSignatureReferenceSet {}
+impl ::core::fmt::Debug for IOpcSignatureReferenceSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcSignatureReferenceSet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcSignatureReferenceSet {
     type Vtable = IOpcSignatureReferenceSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3b02d31_ab12_42dd_9e2f_2b16761c3c1e);
@@ -2336,6 +2466,11 @@ impl ::core::cmp::PartialEq for IOpcSignatureRelationshipReference {
     }
 }
 impl ::core::cmp::Eq for IOpcSignatureRelationshipReference {}
+impl ::core::fmt::Debug for IOpcSignatureRelationshipReference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcSignatureRelationshipReference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcSignatureRelationshipReference {
     type Vtable = IOpcSignatureRelationshipReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57babac6_9d4a_4e50_8b86_e5d4051eae7c);
@@ -2412,6 +2547,11 @@ impl ::core::cmp::PartialEq for IOpcSignatureRelationshipReferenceEnumerator {
     }
 }
 impl ::core::cmp::Eq for IOpcSignatureRelationshipReferenceEnumerator {}
+impl ::core::fmt::Debug for IOpcSignatureRelationshipReferenceEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcSignatureRelationshipReferenceEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcSignatureRelationshipReferenceEnumerator {
     type Vtable = IOpcSignatureRelationshipReferenceEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x773ba3e4_f021_48e4_aa04_9816db5d3495);
@@ -2485,6 +2625,11 @@ impl ::core::cmp::PartialEq for IOpcSignatureRelationshipReferenceSet {
     }
 }
 impl ::core::cmp::Eq for IOpcSignatureRelationshipReferenceSet {}
+impl ::core::fmt::Debug for IOpcSignatureRelationshipReferenceSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcSignatureRelationshipReferenceSet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcSignatureRelationshipReferenceSet {
     type Vtable = IOpcSignatureRelationshipReferenceSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f863ca5_3631_404c_828d_807e0715069b);
@@ -2622,6 +2767,11 @@ impl ::core::cmp::PartialEq for IOpcSigningOptions {
     }
 }
 impl ::core::cmp::Eq for IOpcSigningOptions {}
+impl ::core::fmt::Debug for IOpcSigningOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcSigningOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcSigningOptions {
     type Vtable = IOpcSigningOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50d2d6a5_7aeb_46c0_b241_43ab0e9b407e);
@@ -2880,6 +3030,11 @@ impl ::core::cmp::PartialEq for IOpcUri {
     }
 }
 impl ::core::cmp::Eq for IOpcUri {}
+impl ::core::fmt::Debug for IOpcUri {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOpcUri").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOpcUri {
     type Vtable = IOpcUriVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc9c1b9b_d62c_49eb_aef0_3b4e0b28ebed);

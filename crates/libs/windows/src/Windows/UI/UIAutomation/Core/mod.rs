@@ -10,6 +10,11 @@ impl ::core::clone::Clone for AutomationAnnotationTypeRegistration {
         *self
     }
 }
+impl ::core::fmt::Debug for AutomationAnnotationTypeRegistration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AutomationAnnotationTypeRegistration").field("LocalId", &self.LocalId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationAnnotationTypeRegistration {
     type Abi = Self;
 }
@@ -39,6 +44,11 @@ impl ::core::marker::Copy for AutomationRemoteOperationOperandId {}
 impl ::core::clone::Clone for AutomationRemoteOperationOperandId {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AutomationRemoteOperationOperandId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AutomationRemoteOperationOperandId").field("Value", &self.Value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AutomationRemoteOperationOperandId {
@@ -117,6 +127,11 @@ impl ::core::cmp::PartialEq for AutomationRemoteOperationResult {
     }
 }
 impl ::core::cmp::Eq for AutomationRemoteOperationResult {}
+impl ::core::fmt::Debug for AutomationRemoteOperationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationRemoteOperationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationRemoteOperationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.AutomationRemoteOperationResult;{e0f80c42-4a67-5534-bf5a-09e8a99b36b1})");
 }
@@ -194,6 +209,11 @@ impl ::core::cmp::PartialEq for AutomationRemoteOperationStatus {
     }
 }
 impl ::core::cmp::Eq for AutomationRemoteOperationStatus {}
+impl ::core::fmt::Debug for AutomationRemoteOperationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationRemoteOperationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationRemoteOperationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.UIAutomation.Core.AutomationRemoteOperationStatus;i4)");
 }
@@ -282,6 +302,11 @@ impl ::core::cmp::PartialEq for CoreAutomationRemoteOperation {
     }
 }
 impl ::core::cmp::Eq for CoreAutomationRemoteOperation {}
+impl ::core::fmt::Debug for CoreAutomationRemoteOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreAutomationRemoteOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreAutomationRemoteOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperation;{3ac656f4-e2bc-5c6e-b8e7-b224fb74b060})");
 }
@@ -368,6 +393,11 @@ impl ::core::cmp::PartialEq for CoreAutomationRemoteOperationContext {
     }
 }
 impl ::core::cmp::Eq for CoreAutomationRemoteOperationContext {}
+impl ::core::fmt::Debug for CoreAutomationRemoteOperationContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreAutomationRemoteOperationContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreAutomationRemoteOperationContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperationContext;{b9af9cbb-3d3e-5918-a16b-7861626a3aeb})");
 }
@@ -506,6 +536,11 @@ impl ::core::cmp::PartialEq for ICoreAutomationConnectionBoundObjectProvider {
     }
 }
 impl ::core::cmp::Eq for ICoreAutomationConnectionBoundObjectProvider {}
+impl ::core::fmt::Debug for ICoreAutomationConnectionBoundObjectProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreAutomationConnectionBoundObjectProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICoreAutomationConnectionBoundObjectProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0620bb64-9616-5593-be3a-eb8e6daeb3fa}");
 }
@@ -672,6 +707,11 @@ impl ::core::cmp::PartialEq for ICoreAutomationRemoteOperationExtensionProvider 
     }
 }
 impl ::core::cmp::Eq for ICoreAutomationRemoteOperationExtensionProvider {}
+impl ::core::fmt::Debug for ICoreAutomationRemoteOperationExtensionProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreAutomationRemoteOperationExtensionProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICoreAutomationRemoteOperationExtensionProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{88f53e67-dc69-553b-a0aa-70477e724da8}");
 }
@@ -907,6 +947,11 @@ impl ::core::cmp::PartialEq for RemoteAutomationClientSession {
     }
 }
 impl ::core::cmp::Eq for RemoteAutomationClientSession {}
+impl ::core::fmt::Debug for RemoteAutomationClientSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteAutomationClientSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteAutomationClientSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.RemoteAutomationClientSession;{5c8a091d-94cc-5b33-afdb-678cded2bd54})");
 }
@@ -991,6 +1036,11 @@ impl ::core::cmp::PartialEq for RemoteAutomationConnectionRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RemoteAutomationConnectionRequestedEventArgs {}
+impl ::core::fmt::Debug for RemoteAutomationConnectionRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteAutomationConnectionRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteAutomationConnectionRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.RemoteAutomationConnectionRequestedEventArgs;{ea3319a8-e3a8-5dc6-adf8-044e46b14af5})");
 }
@@ -1067,6 +1117,11 @@ impl ::core::cmp::PartialEq for RemoteAutomationDisconnectedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RemoteAutomationDisconnectedEventArgs {}
+impl ::core::fmt::Debug for RemoteAutomationDisconnectedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteAutomationDisconnectedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteAutomationDisconnectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.RemoteAutomationDisconnectedEventArgs;{bbb33a3d-5d90-5c38-9eb2-dd9dcc1b2e3f})");
 }
@@ -1168,6 +1223,11 @@ impl ::core::cmp::PartialEq for RemoteAutomationWindow {
     }
 }
 impl ::core::cmp::Eq for RemoteAutomationWindow {}
+impl ::core::fmt::Debug for RemoteAutomationWindow {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteAutomationWindow").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteAutomationWindow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.RemoteAutomationWindow;{7c607689-496d-512a-9bd5-c050cfaf1428})");
 }

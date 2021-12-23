@@ -40,6 +40,11 @@ impl ::core::cmp::PartialEq for INotificationActivationCallback {
     }
 }
 impl ::core::cmp::Eq for INotificationActivationCallback {}
+impl ::core::fmt::Debug for INotificationActivationCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INotificationActivationCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INotificationActivationCallback {
     type Vtable = INotificationActivationCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53e31837_6600_4a81_9395_75cffe746f94);
@@ -66,6 +71,12 @@ impl ::core::marker::Copy for NOTIFICATION_USER_INPUT_DATA {}
 impl ::core::clone::Clone for NOTIFICATION_USER_INPUT_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NOTIFICATION_USER_INPUT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NOTIFICATION_USER_INPUT_DATA").field("Key", &self.Key).field("Value", &self.Value).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -29,6 +29,11 @@ impl ::core::cmp::PartialEq for Direct3DBindings {
     }
 }
 impl ::core::cmp::Eq for Direct3DBindings {}
+impl ::core::fmt::Debug for Direct3DBindings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Direct3DBindings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Direct3DBindings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DBindings;u4)");
 }
@@ -45,6 +50,11 @@ impl ::core::marker::Copy for Direct3DMultisampleDescription {}
 impl ::core::clone::Clone for Direct3DMultisampleDescription {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for Direct3DMultisampleDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Direct3DMultisampleDescription").field("Count", &self.Count).field("Quality", &self.Quality).finish()
     }
 }
 unsafe impl ::windows::core::Abi for Direct3DMultisampleDescription {
@@ -79,6 +89,11 @@ impl ::core::marker::Copy for Direct3DSurfaceDescription {}
 impl ::core::clone::Clone for Direct3DSurfaceDescription {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for Direct3DSurfaceDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Direct3DSurfaceDescription").field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).field("MultisampleDescription", &self.MultisampleDescription).finish()
     }
 }
 unsafe impl ::windows::core::Abi for Direct3DSurfaceDescription {
@@ -125,6 +140,11 @@ impl ::core::cmp::PartialEq for Direct3DUsage {
     }
 }
 impl ::core::cmp::Eq for Direct3DUsage {}
+impl ::core::fmt::Debug for Direct3DUsage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Direct3DUsage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Direct3DUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DUsage;i4)");
 }
@@ -224,6 +244,11 @@ impl ::core::cmp::PartialEq for IDirect3DDevice {
     }
 }
 impl ::core::cmp::Eq for IDirect3DDevice {}
+impl ::core::fmt::Debug for IDirect3DDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IDirect3DDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a37624ab-8d5f-4650-9d3e-9eae3d9bc670}");
 }
@@ -338,6 +363,11 @@ impl ::core::cmp::PartialEq for IDirect3DSurface {
     }
 }
 impl ::core::cmp::Eq for IDirect3DSurface {}
+impl ::core::fmt::Debug for IDirect3DSurface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DSurface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IDirect3DSurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0bf4a146-13c1-4694-bee3-7abf15eaf586}");
 }

@@ -58,6 +58,11 @@ impl ::core::clone::Clone for WEB_SOCKET_BUFFER_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WEB_SOCKET_BUFFER_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEB_SOCKET_BUFFER_0").field("pbReason", &self.pbReason).field("ulReasonLength", &self.ulReasonLength).field("usStatus", &self.usStatus).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WEB_SOCKET_BUFFER_0 {
     type Abi = Self;
 }
@@ -82,6 +87,11 @@ impl ::core::marker::Copy for WEB_SOCKET_BUFFER_1 {}
 impl ::core::clone::Clone for WEB_SOCKET_BUFFER_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WEB_SOCKET_BUFFER_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEB_SOCKET_BUFFER_1").field("pbBuffer", &self.pbBuffer).field("ulBufferLength", &self.ulBufferLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WEB_SOCKET_BUFFER_1 {
@@ -159,6 +169,12 @@ impl ::core::clone::Clone for WEB_SOCKET_HTTP_HEADER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WEB_SOCKET_HTTP_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEB_SOCKET_HTTP_HEADER").field("pcName", &self.pcName).field("ulNameLength", &self.ulNameLength).field("pcValue", &self.pcValue).field("ulValueLength", &self.ulValueLength).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEB_SOCKET_HTTP_HEADER {
     type Abi = Self;
 }
@@ -189,6 +205,11 @@ impl ::core::marker::Copy for WEB_SOCKET_PROPERTY {}
 impl ::core::clone::Clone for WEB_SOCKET_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WEB_SOCKET_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEB_SOCKET_PROPERTY").field("Type", &self.Type).field("pvValue", &self.pvValue).field("ulValueSize", &self.ulValueSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WEB_SOCKET_PROPERTY {

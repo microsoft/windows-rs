@@ -51,6 +51,11 @@ impl ::core::cmp::PartialEq for ISceSvcAttachmentData {
     }
 }
 impl ::core::cmp::Eq for ISceSvcAttachmentData {}
+impl ::core::fmt::Debug for ISceSvcAttachmentData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISceSvcAttachmentData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISceSvcAttachmentData {
     type Vtable = ISceSvcAttachmentDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17c35fde_200d_11d1_affb_00c04fb984f9);
@@ -115,6 +120,11 @@ impl ::core::cmp::PartialEq for ISceSvcAttachmentPersistInfo {
     }
 }
 impl ::core::cmp::Eq for ISceSvcAttachmentPersistInfo {}
+impl ::core::fmt::Debug for ISceSvcAttachmentPersistInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISceSvcAttachmentPersistInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISceSvcAttachmentPersistInfo {
     type Vtable = ISceSvcAttachmentPersistInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d90e0d0_200d_11d1_affb_00c04fb984f9);
@@ -198,6 +208,11 @@ impl ::core::clone::Clone for SCESVC_ANALYSIS_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for SCESVC_ANALYSIS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCESVC_ANALYSIS_INFO").field("Count", &self.Count).field("Lines", &self.Lines).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCESVC_ANALYSIS_INFO {
     type Abi = Self;
 }
@@ -223,6 +238,11 @@ impl ::core::marker::Copy for SCESVC_ANALYSIS_LINE {}
 impl ::core::clone::Clone for SCESVC_ANALYSIS_LINE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCESVC_ANALYSIS_LINE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCESVC_ANALYSIS_LINE").field("Key", &self.Key).field("Value", &self.Value).field("ValueLen", &self.ValueLen).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCESVC_ANALYSIS_LINE {
@@ -258,6 +278,12 @@ impl ::core::clone::Clone for SCESVC_CALLBACK_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SCESVC_CALLBACK_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCESVC_CALLBACK_INFO").field("sceHandle", &self.sceHandle).field("pfQueryInfo", &self.pfQueryInfo.map(|f| f as usize)).field("pfSetInfo", &self.pfSetInfo.map(|f| f as usize)).field("pfFreeInfo", &self.pfFreeInfo.map(|f| f as usize)).field("pfLogInfo", &self.pfLogInfo.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SCESVC_CALLBACK_INFO {
     type Abi = Self;
 }
@@ -287,6 +313,11 @@ impl ::core::clone::Clone for SCESVC_CONFIGURATION_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for SCESVC_CONFIGURATION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCESVC_CONFIGURATION_INFO").field("Count", &self.Count).field("Lines", &self.Lines).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCESVC_CONFIGURATION_INFO {
     type Abi = Self;
 }
@@ -312,6 +343,11 @@ impl ::core::marker::Copy for SCESVC_CONFIGURATION_LINE {}
 impl ::core::clone::Clone for SCESVC_CONFIGURATION_LINE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCESVC_CONFIGURATION_LINE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCESVC_CONFIGURATION_LINE").field("Key", &self.Key).field("Value", &self.Value).field("ValueLen", &self.ValueLen).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCESVC_CONFIGURATION_LINE {

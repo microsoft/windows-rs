@@ -129,6 +129,11 @@ impl ::core::cmp::PartialEq for UserDataAvailability {
     }
 }
 impl ::core::cmp::Eq for UserDataAvailability {}
+impl ::core::fmt::Debug for UserDataAvailability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAvailability").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataAvailability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataAvailability;i4)");
 }
@@ -160,6 +165,11 @@ impl ::core::cmp::PartialEq for UserDataAvailabilityStateChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for UserDataAvailabilityStateChangedEventArgs {}
+impl ::core::fmt::Debug for UserDataAvailabilityStateChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAvailabilityStateChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataAvailabilityStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataAvailabilityStateChangedEventArgs;{a76582c9-06a2-4273-a803-834c9f87fbeb})");
 }
@@ -245,6 +255,11 @@ impl ::core::cmp::PartialEq for UserDataBufferUnprotectResult {
     }
 }
 impl ::core::cmp::Eq for UserDataBufferUnprotectResult {}
+impl ::core::fmt::Debug for UserDataBufferUnprotectResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataBufferUnprotectResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataBufferUnprotectResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataBufferUnprotectResult;{8efd0e90-fa9a-46a4-a377-01cebf1e74d8})");
 }
@@ -319,6 +334,11 @@ impl ::core::cmp::PartialEq for UserDataBufferUnprotectStatus {
     }
 }
 impl ::core::cmp::Eq for UserDataBufferUnprotectStatus {}
+impl ::core::fmt::Debug for UserDataBufferUnprotectStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataBufferUnprotectStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataBufferUnprotectStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataBufferUnprotectStatus;i4)");
 }
@@ -420,6 +440,11 @@ impl ::core::cmp::PartialEq for UserDataProtectionManager {
     }
 }
 impl ::core::cmp::Eq for UserDataProtectionManager {}
+impl ::core::fmt::Debug for UserDataProtectionManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataProtectionManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataProtectionManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataProtectionManager;{1f13237d-b42e-4a88-9480-0f240924c876})");
 }
@@ -496,6 +521,11 @@ impl ::core::cmp::PartialEq for UserDataStorageItemProtectionInfo {
     }
 }
 impl ::core::cmp::Eq for UserDataStorageItemProtectionInfo {}
+impl ::core::fmt::Debug for UserDataStorageItemProtectionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataStorageItemProtectionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataStorageItemProtectionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataStorageItemProtectionInfo;{5b6680f6-e87f-40a1-b19d-a6187a0c662f})");
 }
@@ -571,6 +601,11 @@ impl ::core::cmp::PartialEq for UserDataStorageItemProtectionStatus {
     }
 }
 impl ::core::cmp::Eq for UserDataStorageItemProtectionStatus {}
+impl ::core::fmt::Debug for UserDataStorageItemProtectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataStorageItemProtectionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataStorageItemProtectionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataStorageItemProtectionStatus;i4)");
 }

@@ -24,6 +24,11 @@ impl ::core::clone::Clone for CONTACT_AGGREGATION_BLOB {
         *self
     }
 }
+impl ::core::fmt::Debug for CONTACT_AGGREGATION_BLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONTACT_AGGREGATION_BLOB").field("dwCount", &self.dwCount).field("lpb", &self.lpb).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CONTACT_AGGREGATION_BLOB {
     type Abi = Self;
 }
@@ -104,6 +109,11 @@ impl ::core::cmp::PartialEq for IContact {
     }
 }
 impl ::core::cmp::Eq for IContact {}
+impl ::core::fmt::Debug for IContact {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContact").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContact {
     type Vtable = IContactVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf941b671_bda7_4f77_884a_f46462f226a7);
@@ -201,6 +211,11 @@ impl ::core::cmp::PartialEq for IContactAggregationAggregate {
     }
 }
 impl ::core::cmp::Eq for IContactAggregationAggregate {}
+impl ::core::fmt::Debug for IContactAggregationAggregate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactAggregationAggregate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContactAggregationAggregate {
     type Vtable = IContactAggregationAggregateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ed1c814_cd30_43c8_9b8d_2e489e53d54b);
@@ -282,6 +297,11 @@ impl ::core::cmp::PartialEq for IContactAggregationAggregateCollection {
     }
 }
 impl ::core::cmp::Eq for IContactAggregationAggregateCollection {}
+impl ::core::fmt::Debug for IContactAggregationAggregateCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactAggregationAggregateCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContactAggregationAggregateCollection {
     type Vtable = IContactAggregationAggregateCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2359f3a6_3a68_40af_98db_0f9eb143c3bb);
@@ -424,6 +444,11 @@ impl ::core::cmp::PartialEq for IContactAggregationContact {
     }
 }
 impl ::core::cmp::Eq for IContactAggregationContact {}
+impl ::core::fmt::Debug for IContactAggregationContact {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactAggregationContact").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContactAggregationContact {
     type Vtable = IContactAggregationContactVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1eb22e86_4c86_41f0_9f9f_c251e9fda6c3);
@@ -525,6 +550,11 @@ impl ::core::cmp::PartialEq for IContactAggregationContactCollection {
     }
 }
 impl ::core::cmp::Eq for IContactAggregationContactCollection {}
+impl ::core::fmt::Debug for IContactAggregationContactCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactAggregationContactCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContactAggregationContactCollection {
     type Vtable = IContactAggregationContactCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x826e66fa_81de_43ca_a6fb_8c785cd996c6);
@@ -628,6 +658,11 @@ impl ::core::cmp::PartialEq for IContactAggregationGroup {
     }
 }
 impl ::core::cmp::Eq for IContactAggregationGroup {}
+impl ::core::fmt::Debug for IContactAggregationGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactAggregationGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContactAggregationGroup {
     type Vtable = IContactAggregationGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc93c545f_1284_499b_96af_07372af473e0);
@@ -710,6 +745,11 @@ impl ::core::cmp::PartialEq for IContactAggregationGroupCollection {
     }
 }
 impl ::core::cmp::Eq for IContactAggregationGroupCollection {}
+impl ::core::fmt::Debug for IContactAggregationGroupCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactAggregationGroupCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContactAggregationGroupCollection {
     type Vtable = IContactAggregationGroupCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20a19a9c_d2f3_4b83_9143_beffd2cc226d);
@@ -848,6 +888,11 @@ impl ::core::cmp::PartialEq for IContactAggregationLink {
     }
 }
 impl ::core::cmp::Eq for IContactAggregationLink {}
+impl ::core::fmt::Debug for IContactAggregationLink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactAggregationLink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContactAggregationLink {
     type Vtable = IContactAggregationLinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6813323_a183_4654_8627_79b30de3a0ec);
@@ -944,6 +989,11 @@ impl ::core::cmp::PartialEq for IContactAggregationLinkCollection {
     }
 }
 impl ::core::cmp::Eq for IContactAggregationLinkCollection {}
+impl ::core::fmt::Debug for IContactAggregationLinkCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactAggregationLinkCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContactAggregationLinkCollection {
     type Vtable = IContactAggregationLinkCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8bc0e93_fb55_4f28_b9fa_b1c274153292);
@@ -1074,6 +1124,11 @@ impl ::core::cmp::PartialEq for IContactAggregationManager {
     }
 }
 impl ::core::cmp::Eq for IContactAggregationManager {}
+impl ::core::fmt::Debug for IContactAggregationManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactAggregationManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContactAggregationManager {
     type Vtable = IContactAggregationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d865989_4b1f_4b60_8f34_c2ad468b2b50);
@@ -1258,6 +1313,11 @@ impl ::core::cmp::PartialEq for IContactAggregationServerPerson {
     }
 }
 impl ::core::cmp::Eq for IContactAggregationServerPerson {}
+impl ::core::fmt::Debug for IContactAggregationServerPerson {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactAggregationServerPerson").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContactAggregationServerPerson {
     type Vtable = IContactAggregationServerPersonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fdc3d4b_1b82_4334_85c5_25184ee5a5f2);
@@ -1374,6 +1434,11 @@ impl ::core::cmp::PartialEq for IContactAggregationServerPersonCollection {
     }
 }
 impl ::core::cmp::Eq for IContactAggregationServerPersonCollection {}
+impl ::core::fmt::Debug for IContactAggregationServerPersonCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactAggregationServerPersonCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContactAggregationServerPersonCollection {
     type Vtable = IContactAggregationServerPersonCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f730a4a_6604_47b6_a987_669ecf1e5751);
@@ -1443,6 +1508,11 @@ impl ::core::cmp::PartialEq for IContactCollection {
     }
 }
 impl ::core::cmp::Eq for IContactCollection {}
+impl ::core::fmt::Debug for IContactCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContactCollection {
     type Vtable = IContactCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6afa338_d779_11d9_8bde_f66bad1e3f3a);
@@ -1523,6 +1593,11 @@ impl ::core::cmp::PartialEq for IContactManager {
     }
 }
 impl ::core::cmp::Eq for IContactManager {}
+impl ::core::fmt::Debug for IContactManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContactManager {
     type Vtable = IContactManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad553d98_deb1_474a_8e17_fc0c2075b738);
@@ -1644,6 +1719,11 @@ impl ::core::cmp::PartialEq for IContactProperties {
     }
 }
 impl ::core::cmp::Eq for IContactProperties {}
+impl ::core::fmt::Debug for IContactProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContactProperties {
     type Vtable = IContactPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70dd27dd_5cbd_46e8_bef0_23b6b346288f);
@@ -1748,6 +1828,11 @@ impl ::core::cmp::PartialEq for IContactPropertyCollection {
     }
 }
 impl ::core::cmp::Eq for IContactPropertyCollection {}
+impl ::core::fmt::Debug for IContactPropertyCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContactPropertyCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContactPropertyCollection {
     type Vtable = IContactPropertyCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffd3adf8_fa64_4328_b1b6_2e0db509cb3c);

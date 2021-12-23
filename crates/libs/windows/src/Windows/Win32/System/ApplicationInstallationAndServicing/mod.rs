@@ -22,6 +22,12 @@ impl ::core::clone::Clone for ACTCTXA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTCTXA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTCTXA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpSource", &self.lpSource).field("wProcessorArchitecture", &self.wProcessorArchitecture).field("wLangId", &self.wLangId).field("lpAssemblyDirectory", &self.lpAssemblyDirectory).field("lpResourceName", &self.lpResourceName).field("lpApplicationName", &self.lpApplicationName).field("hModule", &self.hModule).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACTCTXA {
     type Abi = Self;
 }
@@ -59,6 +65,12 @@ impl ::core::marker::Copy for ACTCTXW {}
 impl ::core::clone::Clone for ACTCTXW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTCTXW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTCTXW").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpSource", &self.lpSource).field("wProcessorArchitecture", &self.wProcessorArchitecture).field("wLangId", &self.wLangId).field("lpAssemblyDirectory", &self.lpAssemblyDirectory).field("lpResourceName", &self.lpResourceName).field("lpApplicationName", &self.lpApplicationName).field("hModule", &self.hModule).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -127,6 +139,25 @@ impl ::core::clone::Clone for ACTCTX_SECTION_KEYED_DATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
+impl ::core::fmt::Debug for ACTCTX_SECTION_KEYED_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTCTX_SECTION_KEYED_DATA")
+            .field("cbSize", &self.cbSize)
+            .field("ulDataFormatVersion", &self.ulDataFormatVersion)
+            .field("lpData", &self.lpData)
+            .field("ulLength", &self.ulLength)
+            .field("lpSectionGlobalData", &self.lpSectionGlobalData)
+            .field("ulSectionGlobalDataLength", &self.ulSectionGlobalDataLength)
+            .field("lpSectionBase", &self.lpSectionBase)
+            .field("ulSectionTotalLength", &self.ulSectionTotalLength)
+            .field("hActCtx", &self.hActCtx)
+            .field("ulAssemblyRosterIndex", &self.ulAssemblyRosterIndex)
+            .field("ulFlags", &self.ulFlags)
+            .field("AssemblyMetadata", &self.AssemblyMetadata)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 unsafe impl ::windows::core::Abi for ACTCTX_SECTION_KEYED_DATA {
     type Abi = Self;
 }
@@ -177,6 +208,32 @@ impl ::core::clone::Clone for ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION")
+            .field("ulFlags", &self.ulFlags)
+            .field("ulEncodedAssemblyIdentityLength", &self.ulEncodedAssemblyIdentityLength)
+            .field("ulManifestPathType", &self.ulManifestPathType)
+            .field("ulManifestPathLength", &self.ulManifestPathLength)
+            .field("liManifestLastWriteTime", &self.liManifestLastWriteTime)
+            .field("ulPolicyPathType", &self.ulPolicyPathType)
+            .field("ulPolicyPathLength", &self.ulPolicyPathLength)
+            .field("liPolicyLastWriteTime", &self.liPolicyLastWriteTime)
+            .field("ulMetadataSatelliteRosterIndex", &self.ulMetadataSatelliteRosterIndex)
+            .field("ulManifestVersionMajor", &self.ulManifestVersionMajor)
+            .field("ulManifestVersionMinor", &self.ulManifestVersionMinor)
+            .field("ulPolicyVersionMajor", &self.ulPolicyVersionMajor)
+            .field("ulPolicyVersionMinor", &self.ulPolicyVersionMinor)
+            .field("ulAssemblyDirectoryNameLength", &self.ulAssemblyDirectoryNameLength)
+            .field("lpAssemblyEncodedAssemblyIdentity", &self.lpAssemblyEncodedAssemblyIdentity)
+            .field("lpAssemblyManifestPath", &self.lpAssemblyManifestPath)
+            .field("lpAssemblyPolicyPath", &self.lpAssemblyPolicyPath)
+            .field("lpAssemblyDirectoryName", &self.lpAssemblyDirectoryName)
+            .field("ulFileCount", &self.ulFileCount)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
     type Abi = Self;
 }
@@ -204,6 +261,11 @@ impl ::core::marker::Copy for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {}
 impl ::core::clone::Clone for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION").field("ElementCount", &self.ElementCount).field("Elements", &self.Elements).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
@@ -246,6 +308,25 @@ impl ::core::clone::Clone for ACTIVATION_CONTEXT_DETAILED_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTIVATION_CONTEXT_DETAILED_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTIVATION_CONTEXT_DETAILED_INFORMATION")
+            .field("dwFlags", &self.dwFlags)
+            .field("ulFormatVersion", &self.ulFormatVersion)
+            .field("ulAssemblyCount", &self.ulAssemblyCount)
+            .field("ulRootManifestPathType", &self.ulRootManifestPathType)
+            .field("ulRootManifestPathChars", &self.ulRootManifestPathChars)
+            .field("ulRootConfigurationPathType", &self.ulRootConfigurationPathType)
+            .field("ulRootConfigurationPathChars", &self.ulRootConfigurationPathChars)
+            .field("ulAppDirPathType", &self.ulAppDirPathType)
+            .field("ulAppDirPathChars", &self.ulAppDirPathChars)
+            .field("lpRootManifestPath", &self.lpRootManifestPath)
+            .field("lpRootConfigurationPath", &self.lpRootConfigurationPath)
+            .field("lpAppDirPath", &self.lpAppDirPath)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_DETAILED_INFORMATION {
     type Abi = Self;
 }
@@ -275,6 +356,11 @@ impl ::core::clone::Clone for ACTIVATION_CONTEXT_QUERY_INDEX {
         *self
     }
 }
+impl ::core::fmt::Debug for ACTIVATION_CONTEXT_QUERY_INDEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTIVATION_CONTEXT_QUERY_INDEX").field("ulAssemblyIndex", &self.ulAssemblyIndex).field("ulFileIndexInAssembly", &self.ulFileIndexInAssembly).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_QUERY_INDEX {
     type Abi = Self;
 }
@@ -300,6 +386,11 @@ impl ::core::marker::Copy for ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {}
 impl ::core::clone::Clone for ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION").field("ulFlags", &self.ulFlags).field("RunLevel", &self.RunLevel).field("UiAccess", &self.UiAccess).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
@@ -449,6 +540,12 @@ impl ::core::clone::Clone for ASSEMBLY_FILE_DETAILED_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ASSEMBLY_FILE_DETAILED_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ASSEMBLY_FILE_DETAILED_INFORMATION").field("ulFlags", &self.ulFlags).field("ulFilenameLength", &self.ulFilenameLength).field("ulPathLength", &self.ulPathLength).field("lpFileName", &self.lpFileName).field("lpFilePath", &self.lpFilePath).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ASSEMBLY_FILE_DETAILED_INFORMATION {
     type Abi = Self;
 }
@@ -482,6 +579,12 @@ impl ::core::marker::Copy for ASSEMBLY_INFO {}
 impl ::core::clone::Clone for ASSEMBLY_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ASSEMBLY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ASSEMBLY_INFO").field("cbAssemblyInfo", &self.cbAssemblyInfo).field("dwAssemblyFlags", &self.dwAssemblyFlags).field("uliAssemblySizeInKB", &self.uliAssemblySizeInKB).field("pszCurrentAssemblyPathBuf", &self.pszCurrentAssemblyPathBuf).field("cchBuf", &self.cchBuf).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -727,6 +830,11 @@ impl ::core::clone::Clone for COMPATIBILITY_CONTEXT_ELEMENT {
         *self
     }
 }
+impl ::core::fmt::Debug for COMPATIBILITY_CONTEXT_ELEMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMPATIBILITY_CONTEXT_ELEMENT").field("Id", &self.Id).field("Type", &self.Type).field("MaxVersionTested", &self.MaxVersionTested).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for COMPATIBILITY_CONTEXT_ELEMENT {
     type Abi = Self;
 }
@@ -930,6 +1038,11 @@ impl ::core::clone::Clone for DELTA_HASH {
         *self
     }
 }
+impl ::core::fmt::Debug for DELTA_HASH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DELTA_HASH").field("HashSize", &self.HashSize).field("HashValue", &self.HashValue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DELTA_HASH {
     type Abi = Self;
 }
@@ -962,6 +1075,12 @@ impl ::core::marker::Copy for DELTA_HEADER_INFO {}
 impl ::core::clone::Clone for DELTA_HEADER_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DELTA_HEADER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DELTA_HEADER_INFO").field("FileTypeSet", &self.FileTypeSet).field("FileType", &self.FileType).field("Flags", &self.Flags).field("TargetSize", &self.TargetSize).field("TargetFileTime", &self.TargetFileTime).field("TargetHashAlgId", &self.TargetHashAlgId).field("TargetHash", &self.TargetHash).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1061,6 +1180,11 @@ impl ::core::marker::Copy for DELTA_OUTPUT {}
 impl ::core::clone::Clone for DELTA_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DELTA_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DELTA_OUTPUT").field("lpStart", &self.lpStart).field("uSize", &self.uSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DELTA_OUTPUT {
@@ -1548,6 +1672,12 @@ impl ::core::clone::Clone for FUSION_INSTALL_REFERENCE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FUSION_INSTALL_REFERENCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FUSION_INSTALL_REFERENCE").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("guidScheme", &self.guidScheme).field("szIdentifier", &self.szIdentifier).field("szNonCannonicalData", &self.szNonCannonicalData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FUSION_INSTALL_REFERENCE {
     type Abi = Self;
 }
@@ -1857,6 +1987,11 @@ impl ::core::cmp::PartialEq for IAssemblyCache {
     }
 }
 impl ::core::cmp::Eq for IAssemblyCache {}
+impl ::core::fmt::Debug for IAssemblyCache {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAssemblyCache").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAssemblyCache {
     type Vtable = IAssemblyCacheVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe707dcde_d1cd_11d2_bab9_00c04f8eceae);
@@ -1926,6 +2061,11 @@ impl ::core::cmp::PartialEq for IAssemblyCacheItem {
     }
 }
 impl ::core::cmp::Eq for IAssemblyCacheItem {}
+impl ::core::fmt::Debug for IAssemblyCacheItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAssemblyCacheItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAssemblyCacheItem {
     type Vtable = IAssemblyCacheItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e3aaeb4_d1cd_11d2_bab9_00c04f8eceae);
@@ -2017,6 +2157,11 @@ impl ::core::cmp::PartialEq for IAssemblyName {
     }
 }
 impl ::core::cmp::Eq for IAssemblyName {}
+impl ::core::fmt::Debug for IAssemblyName {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAssemblyName").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAssemblyName {
     type Vtable = IAssemblyNameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd193bc0_b4bc_11d2_9833_00c04fc31d2e);
@@ -2093,6 +2238,11 @@ impl ::core::cmp::PartialEq for IEnumMsmDependency {
     }
 }
 impl ::core::cmp::Eq for IEnumMsmDependency {}
+impl ::core::fmt::Debug for IEnumMsmDependency {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumMsmDependency").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumMsmDependency {
     type Vtable = IEnumMsmDependencyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda82c_2c26_11d2_ad65_00a0c9af11a6);
@@ -2161,6 +2311,11 @@ impl ::core::cmp::PartialEq for IEnumMsmError {
     }
 }
 impl ::core::cmp::Eq for IEnumMsmError {}
+impl ::core::fmt::Debug for IEnumMsmError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumMsmError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumMsmError {
     type Vtable = IEnumMsmErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda829_2c26_11d2_ad65_00a0c9af11a6);
@@ -2230,6 +2385,11 @@ impl ::core::cmp::PartialEq for IEnumMsmString {
     }
 }
 impl ::core::cmp::Eq for IEnumMsmString {}
+impl ::core::fmt::Debug for IEnumMsmString {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumMsmString").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumMsmString {
     type Vtable = IEnumMsmStringVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda826_2c26_11d2_ad65_00a0c9af11a6);
@@ -2342,6 +2502,11 @@ impl ::core::cmp::PartialEq for IMsmDependencies {
     }
 }
 impl ::core::cmp::Eq for IMsmDependencies {}
+impl ::core::fmt::Debug for IMsmDependencies {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMsmDependencies").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMsmDependencies {
     type Vtable = IMsmDependenciesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda82d_2c26_11d2_ad65_00a0c9af11a6);
@@ -2460,6 +2625,11 @@ impl ::core::cmp::PartialEq for IMsmDependency {
     }
 }
 impl ::core::cmp::Eq for IMsmDependency {}
+impl ::core::fmt::Debug for IMsmDependency {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMsmDependency").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMsmDependency {
     type Vtable = IMsmDependencyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda82b_2c26_11d2_ad65_00a0c9af11a6);
@@ -2599,6 +2769,11 @@ impl ::core::cmp::PartialEq for IMsmError {
     }
 }
 impl ::core::cmp::Eq for IMsmError {}
+impl ::core::fmt::Debug for IMsmError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMsmError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMsmError {
     type Vtable = IMsmErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda828_2c26_11d2_ad65_00a0c9af11a6);
@@ -2724,6 +2899,11 @@ impl ::core::cmp::PartialEq for IMsmErrors {
     }
 }
 impl ::core::cmp::Eq for IMsmErrors {}
+impl ::core::fmt::Debug for IMsmErrors {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMsmErrors").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMsmErrors {
     type Vtable = IMsmErrorsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda82a_2c26_11d2_ad65_00a0c9af11a6);
@@ -2833,6 +3013,11 @@ impl ::core::cmp::PartialEq for IMsmGetFiles {
     }
 }
 impl ::core::cmp::Eq for IMsmGetFiles {}
+impl ::core::fmt::Debug for IMsmGetFiles {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMsmGetFiles").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMsmGetFiles {
     type Vtable = IMsmGetFilesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7041ae26_2d78_11d2_888a_00a0c981b015);
@@ -2997,6 +3182,11 @@ impl ::core::cmp::PartialEq for IMsmMerge {
     }
 }
 impl ::core::cmp::Eq for IMsmMerge {}
+impl ::core::fmt::Debug for IMsmMerge {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMsmMerge").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMsmMerge {
     type Vtable = IMsmMergeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda82e_2c26_11d2_ad65_00a0c9af11a6);
@@ -3133,6 +3323,11 @@ impl ::core::cmp::PartialEq for IMsmStrings {
     }
 }
 impl ::core::cmp::Eq for IMsmStrings {}
+impl ::core::fmt::Debug for IMsmStrings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMsmStrings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMsmStrings {
     type Vtable = IMsmStringsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda827_2c26_11d2_ad65_00a0c9af11a6);
@@ -3725,6 +3920,11 @@ impl ::core::cmp::PartialEq for IPMApplicationInfo {
     }
 }
 impl ::core::cmp::Eq for IPMApplicationInfo {}
+impl ::core::fmt::Debug for IPMApplicationInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMApplicationInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMApplicationInfo {
     type Vtable = IPMApplicationInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50afb58a_438c_4088_9789_f8c4899829c7);
@@ -3874,6 +4074,11 @@ impl ::core::cmp::PartialEq for IPMApplicationInfoEnumerator {
     }
 }
 impl ::core::cmp::Eq for IPMApplicationInfoEnumerator {}
+impl ::core::fmt::Debug for IPMApplicationInfoEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMApplicationInfoEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMApplicationInfoEnumerator {
     type Vtable = IPMApplicationInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ec42a96_4d46_4dc6_a3d9_a7acaac0f5fa);
@@ -3991,6 +4196,11 @@ impl ::core::cmp::PartialEq for IPMBackgroundServiceAgentInfo {
     }
 }
 impl ::core::cmp::Eq for IPMBackgroundServiceAgentInfo {}
+impl ::core::fmt::Debug for IPMBackgroundServiceAgentInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMBackgroundServiceAgentInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMBackgroundServiceAgentInfo {
     type Vtable = IPMBackgroundServiceAgentInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a8b46da_928c_4879_998c_09dc96f3d490);
@@ -4069,6 +4279,11 @@ impl ::core::cmp::PartialEq for IPMBackgroundServiceAgentInfoEnumerator {
     }
 }
 impl ::core::cmp::Eq for IPMBackgroundServiceAgentInfoEnumerator {}
+impl ::core::fmt::Debug for IPMBackgroundServiceAgentInfoEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMBackgroundServiceAgentInfoEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMBackgroundServiceAgentInfoEnumerator {
     type Vtable = IPMBackgroundServiceAgentInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18eb2072_ab56_43b3_872c_beafb7a6b391);
@@ -4143,6 +4358,11 @@ impl ::core::cmp::PartialEq for IPMBackgroundWorkerInfo {
     }
 }
 impl ::core::cmp::Eq for IPMBackgroundWorkerInfo {}
+impl ::core::fmt::Debug for IPMBackgroundWorkerInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMBackgroundWorkerInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMBackgroundWorkerInfo {
     type Vtable = IPMBackgroundWorkerInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7dd4531b_d3bf_4b6b_94f3_69c098b1497d);
@@ -4204,6 +4424,11 @@ impl ::core::cmp::PartialEq for IPMBackgroundWorkerInfoEnumerator {
     }
 }
 impl ::core::cmp::Eq for IPMBackgroundWorkerInfoEnumerator {}
+impl ::core::fmt::Debug for IPMBackgroundWorkerInfoEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMBackgroundWorkerInfoEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMBackgroundWorkerInfoEnumerator {
     type Vtable = IPMBackgroundWorkerInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87f479f8_90d8_4ec7_92b9_72787e2f636b);
@@ -4403,6 +4628,11 @@ impl ::core::cmp::PartialEq for IPMDeploymentManager {
     }
 }
 impl ::core::cmp::Eq for IPMDeploymentManager {}
+impl ::core::fmt::Debug for IPMDeploymentManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMDeploymentManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMDeploymentManager {
     type Vtable = IPMDeploymentManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35f785fa_1979_4a8b_bc8f_fd70eb0d1544);
@@ -4594,6 +4824,11 @@ impl ::core::cmp::PartialEq for IPMEnumerationManager {
     }
 }
 impl ::core::cmp::Eq for IPMEnumerationManager {}
+impl ::core::fmt::Debug for IPMEnumerationManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMEnumerationManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMEnumerationManager {
     type Vtable = IPMEnumerationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x698d57c2_292d_4cf3_b73c_d95a6922ed9a);
@@ -4679,6 +4914,11 @@ impl ::core::cmp::PartialEq for IPMExtensionCachedFileUpdaterInfo {
     }
 }
 impl ::core::cmp::Eq for IPMExtensionCachedFileUpdaterInfo {}
+impl ::core::fmt::Debug for IPMExtensionCachedFileUpdaterInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMExtensionCachedFileUpdaterInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMExtensionCachedFileUpdaterInfo {
     type Vtable = IPMExtensionCachedFileUpdaterInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2d77509_4e58_4ba9_af7e_b642e370e1b0);
@@ -4733,6 +4973,11 @@ impl ::core::cmp::PartialEq for IPMExtensionContractInfo {
     }
 }
 impl ::core::cmp::Eq for IPMExtensionContractInfo {}
+impl ::core::fmt::Debug for IPMExtensionContractInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMExtensionContractInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMExtensionContractInfo {
     type Vtable = IPMExtensionContractInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5666373_7ba1_467c_b819_b175db1c295b);
@@ -4817,6 +5062,11 @@ impl ::core::cmp::PartialEq for IPMExtensionFileExtensionInfo {
     }
 }
 impl ::core::cmp::Eq for IPMExtensionFileExtensionInfo {}
+impl ::core::fmt::Debug for IPMExtensionFileExtensionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMExtensionFileExtensionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMExtensionFileExtensionInfo {
     type Vtable = IPMExtensionFileExtensionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b87cb6c_0b88_4989_a4ec_033714f710d4);
@@ -4889,6 +5139,11 @@ impl ::core::cmp::PartialEq for IPMExtensionFileOpenPickerInfo {
     }
 }
 impl ::core::cmp::Eq for IPMExtensionFileOpenPickerInfo {}
+impl ::core::fmt::Debug for IPMExtensionFileOpenPickerInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMExtensionFileOpenPickerInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMExtensionFileOpenPickerInfo {
     type Vtable = IPMExtensionFileOpenPickerInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dc91d25_9606_420c_9a78_e034a3418345);
@@ -4951,6 +5206,11 @@ impl ::core::cmp::PartialEq for IPMExtensionFileSavePickerInfo {
     }
 }
 impl ::core::cmp::Eq for IPMExtensionFileSavePickerInfo {}
+impl ::core::fmt::Debug for IPMExtensionFileSavePickerInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMExtensionFileSavePickerInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMExtensionFileSavePickerInfo {
     type Vtable = IPMExtensionFileSavePickerInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38005cba_f81a_493e_a0f8_922c8680da43);
@@ -5032,6 +5292,11 @@ impl ::core::cmp::PartialEq for IPMExtensionInfo {
     }
 }
 impl ::core::cmp::Eq for IPMExtensionInfo {}
+impl ::core::fmt::Debug for IPMExtensionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMExtensionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMExtensionInfo {
     type Vtable = IPMExtensionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49acde79_9788_4d0a_8aa0_1746afdb9e9d);
@@ -5095,6 +5360,11 @@ impl ::core::cmp::PartialEq for IPMExtensionInfoEnumerator {
     }
 }
 impl ::core::cmp::Eq for IPMExtensionInfoEnumerator {}
+impl ::core::fmt::Debug for IPMExtensionInfoEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMExtensionInfoEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMExtensionInfoEnumerator {
     type Vtable = IPMExtensionInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x403b9e82_1171_4573_8e6f_6f33f39b83dd);
@@ -5148,6 +5418,11 @@ impl ::core::cmp::PartialEq for IPMExtensionProtocolInfo {
     }
 }
 impl ::core::cmp::Eq for IPMExtensionProtocolInfo {}
+impl ::core::fmt::Debug for IPMExtensionProtocolInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMExtensionProtocolInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMExtensionProtocolInfo {
     type Vtable = IPMExtensionProtocolInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e3fa036_51eb_4453_baff_b8d8e4b46c8e);
@@ -5215,6 +5490,11 @@ impl ::core::cmp::PartialEq for IPMExtensionShareTargetInfo {
     }
 }
 impl ::core::cmp::Eq for IPMExtensionShareTargetInfo {}
+impl ::core::fmt::Debug for IPMExtensionShareTargetInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMExtensionShareTargetInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMExtensionShareTargetInfo {
     type Vtable = IPMExtensionShareTargetInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5471f48b_c65c_4656_8c70_242e31195fea);
@@ -5381,6 +5661,11 @@ impl ::core::cmp::PartialEq for IPMLiveTileJobInfo {
     }
 }
 impl ::core::cmp::Eq for IPMLiveTileJobInfo {}
+impl ::core::fmt::Debug for IPMLiveTileJobInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMLiveTileJobInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMLiveTileJobInfo {
     type Vtable = IPMLiveTileJobInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6009a81f_4710_4697_b5f6_2208f6057b8e);
@@ -5464,6 +5749,11 @@ impl ::core::cmp::PartialEq for IPMLiveTileJobInfoEnumerator {
     }
 }
 impl ::core::cmp::Eq for IPMLiveTileJobInfoEnumerator {}
+impl ::core::fmt::Debug for IPMLiveTileJobInfoEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMLiveTileJobInfoEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMLiveTileJobInfoEnumerator {
     type Vtable = IPMLiveTileJobInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc042582_9415_4f36_9f99_06f104c07c03);
@@ -5615,6 +5905,11 @@ impl ::core::cmp::PartialEq for IPMTaskInfo {
     }
 }
 impl ::core::cmp::Eq for IPMTaskInfo {}
+impl ::core::fmt::Debug for IPMTaskInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMTaskInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMTaskInfo {
     type Vtable = IPMTaskInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf1d8c33_1bf5_4ee0_b549_6b9dd3834942);
@@ -5700,6 +5995,11 @@ impl ::core::cmp::PartialEq for IPMTaskInfoEnumerator {
     }
 }
 impl ::core::cmp::Eq for IPMTaskInfoEnumerator {}
+impl ::core::fmt::Debug for IPMTaskInfoEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMTaskInfoEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMTaskInfoEnumerator {
     type Vtable = IPMTaskInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0630b0f8_0bbc_4821_be74_c7995166ed2a);
@@ -5867,6 +6167,11 @@ impl ::core::cmp::PartialEq for IPMTileInfo {
     }
 }
 impl ::core::cmp::Eq for IPMTileInfo {}
+impl ::core::fmt::Debug for IPMTileInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMTileInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMTileInfo {
     type Vtable = IPMTileInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1604833_2b08_4001_82cd_183ad734f752);
@@ -5958,6 +6263,11 @@ impl ::core::cmp::PartialEq for IPMTileInfoEnumerator {
     }
 }
 impl ::core::cmp::Eq for IPMTileInfoEnumerator {}
+impl ::core::fmt::Debug for IPMTileInfoEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMTileInfoEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMTileInfoEnumerator {
     type Vtable = IPMTileInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xded83065_e462_4b2c_acb5_e39cea61c874);
@@ -6006,6 +6316,11 @@ impl ::core::cmp::PartialEq for IPMTilePropertyEnumerator {
     }
 }
 impl ::core::cmp::Eq for IPMTilePropertyEnumerator {}
+impl ::core::fmt::Debug for IPMTilePropertyEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMTilePropertyEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMTilePropertyEnumerator {
     type Vtable = IPMTilePropertyEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc4cd629_9047_4250_aac8_930e47812421);
@@ -6064,6 +6379,11 @@ impl ::core::cmp::PartialEq for IPMTilePropertyInfo {
     }
 }
 impl ::core::cmp::Eq for IPMTilePropertyInfo {}
+impl ::core::fmt::Debug for IPMTilePropertyInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMTilePropertyInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMTilePropertyInfo {
     type Vtable = IPMTilePropertyInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c2b8017_1efa_42a7_86c0_6d4b640bf528);
@@ -6149,6 +6469,11 @@ impl ::core::cmp::PartialEq for IValidate {
     }
 }
 impl ::core::cmp::Eq for IValidate {}
+impl ::core::fmt::Debug for IValidate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IValidate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IValidate {
     type Vtable = IValidateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe482e5c6_e31e_4143_a2e6_dbc3d8e4b8d3);
@@ -6345,6 +6670,11 @@ impl ::core::clone::Clone for MSIFILEHASHINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for MSIFILEHASHINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSIFILEHASHINFO").field("dwFileHashInfoSize", &self.dwFileHashInfoSize).field("dwData", &self.dwData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MSIFILEHASHINFO {
     type Abi = Self;
 }
@@ -6434,6 +6764,12 @@ impl ::core::clone::Clone for MSIPATCHSEQUENCEINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MSIPATCHSEQUENCEINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSIPATCHSEQUENCEINFOA").field("szPatchData", &self.szPatchData).field("ePatchDataType", &self.ePatchDataType).field("dwOrder", &self.dwOrder).field("uStatus", &self.uStatus).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MSIPATCHSEQUENCEINFOA {
     type Abi = Self;
 }
@@ -6466,6 +6802,12 @@ impl ::core::marker::Copy for MSIPATCHSEQUENCEINFOW {}
 impl ::core::clone::Clone for MSIPATCHSEQUENCEINFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MSIPATCHSEQUENCEINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSIPATCHSEQUENCEINFOW").field("szPatchData", &self.szPatchData).field("ePatchDataType", &self.ePatchDataType).field("dwOrder", &self.dwOrder).field("uStatus", &self.uStatus).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10586,6 +10928,11 @@ impl ::core::clone::Clone for PATCH_IGNORE_RANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for PATCH_IGNORE_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PATCH_IGNORE_RANGE").field("OffsetInOldFile", &self.OffsetInOldFile).field("LengthInBytes", &self.LengthInBytes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PATCH_IGNORE_RANGE {
     type Abi = Self;
 }
@@ -10610,6 +10957,11 @@ impl ::core::marker::Copy for PATCH_INTERLEAVE_MAP {}
 impl ::core::clone::Clone for PATCH_INTERLEAVE_MAP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PATCH_INTERLEAVE_MAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PATCH_INTERLEAVE_MAP").field("CountRanges", &self.CountRanges).field("Range", &self.Range).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PATCH_INTERLEAVE_MAP {
@@ -10637,6 +10989,11 @@ impl ::core::marker::Copy for PATCH_INTERLEAVE_MAP_0 {}
 impl ::core::clone::Clone for PATCH_INTERLEAVE_MAP_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PATCH_INTERLEAVE_MAP_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PATCH_INTERLEAVE_MAP_0").field("OldOffset", &self.OldOffset).field("OldLength", &self.OldLength).field("NewLength", &self.NewLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PATCH_INTERLEAVE_MAP_0 {
@@ -10744,6 +11101,12 @@ impl ::core::clone::Clone for PATCH_OLD_FILE_INFO_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PATCH_OLD_FILE_INFO_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PATCH_OLD_FILE_INFO_A").field("SizeOfThisStruct", &self.SizeOfThisStruct).field("OldFileName", &self.OldFileName).field("IgnoreRangeCount", &self.IgnoreRangeCount).field("IgnoreRangeArray", &self.IgnoreRangeArray).field("RetainRangeCount", &self.RetainRangeCount).field("RetainRangeArray", &self.RetainRangeArray).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PATCH_OLD_FILE_INFO_A {
     type Abi = Self;
 }
@@ -10778,6 +11141,12 @@ impl ::core::marker::Copy for PATCH_OLD_FILE_INFO_H {}
 impl ::core::clone::Clone for PATCH_OLD_FILE_INFO_H {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PATCH_OLD_FILE_INFO_H {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PATCH_OLD_FILE_INFO_H").field("SizeOfThisStruct", &self.SizeOfThisStruct).field("OldFileHandle", &self.OldFileHandle).field("IgnoreRangeCount", &self.IgnoreRangeCount).field("IgnoreRangeArray", &self.IgnoreRangeArray).field("RetainRangeCount", &self.RetainRangeCount).field("RetainRangeArray", &self.RetainRangeArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10818,6 +11187,12 @@ impl ::core::clone::Clone for PATCH_OLD_FILE_INFO_W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PATCH_OLD_FILE_INFO_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PATCH_OLD_FILE_INFO_W").field("SizeOfThisStruct", &self.SizeOfThisStruct).field("OldFileName", &self.OldFileName).field("IgnoreRangeCount", &self.IgnoreRangeCount).field("IgnoreRangeArray", &self.IgnoreRangeArray).field("RetainRangeCount", &self.RetainRangeCount).field("RetainRangeArray", &self.RetainRangeArray).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PATCH_OLD_FILE_INFO_W {
     type Abi = Self;
 }
@@ -10855,6 +11230,22 @@ impl ::core::marker::Copy for PATCH_OPTION_DATA {}
 impl ::core::clone::Clone for PATCH_OPTION_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PATCH_OPTION_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PATCH_OPTION_DATA")
+            .field("SizeOfThisStruct", &self.SizeOfThisStruct)
+            .field("SymbolOptionFlags", &self.SymbolOptionFlags)
+            .field("NewFileSymbolPath", &self.NewFileSymbolPath)
+            .field("OldFileSymbolPathArray", &self.OldFileSymbolPathArray)
+            .field("ExtendedOptionFlags", &self.ExtendedOptionFlags)
+            .field("SymLoadCallback", &self.SymLoadCallback.map(|f| f as usize))
+            .field("SymLoadContext", &self.SymLoadContext)
+            .field("InterleaveMapArray", &self.InterleaveMapArray)
+            .field("MaxLzxWindowSize", &self.MaxLzxWindowSize)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10920,6 +11311,11 @@ impl ::core::marker::Copy for PATCH_RETAIN_RANGE {}
 impl ::core::clone::Clone for PATCH_RETAIN_RANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PATCH_RETAIN_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PATCH_RETAIN_RANGE").field("OffsetInOldFile", &self.OffsetInOldFile).field("LengthInBytes", &self.LengthInBytes).field("OffsetInNewFile", &self.OffsetInNewFile).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PATCH_RETAIN_RANGE {
@@ -10999,6 +11395,11 @@ impl ::core::marker::Copy for PMSIHANDLE {}
 impl ::core::clone::Clone for PMSIHANDLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PMSIHANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PMSIHANDLE").field("m_h", &self.m_h).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PMSIHANDLE {
@@ -11106,6 +11507,12 @@ impl ::core::clone::Clone for PM_BSATASKID {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PM_BSATASKID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PM_BSATASKID").field("ProductID", &self.ProductID).field("TaskID", &self.TaskID).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PM_BSATASKID {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -11134,6 +11541,12 @@ pub struct PM_BWTASKID {
 impl ::core::clone::Clone for PM_BWTASKID {
     fn clone(&self) -> Self {
         Self { ProductID: self.ProductID, TaskID: self.TaskID.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PM_BWTASKID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PM_BWTASKID").field("ProductID", &self.ProductID).field("TaskID", &self.TaskID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11337,6 +11750,12 @@ impl ::core::clone::Clone for PM_EXTENSIONCONSUMER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PM_EXTENSIONCONSUMER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PM_EXTENSIONCONSUMER").field("ConsumerPID", &self.ConsumerPID).field("ExtensionID", &self.ExtensionID).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PM_EXTENSIONCONSUMER {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -11385,6 +11804,12 @@ impl ::core::clone::Clone for PM_INSTALLINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PM_INSTALLINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PM_INSTALLINFO").field("ProductID", &self.ProductID).field("PackagePath", &self.PackagePath).field("InstanceID", &self.InstanceID).field("pbLicense", &self.pbLicense).field("cbLicense", &self.cbLicense).field("IsUninstallDisabled", &self.IsUninstallDisabled).field("DeploymentOptions", &self.DeploymentOptions).field("OfferID", &self.OfferID).field("MarketplaceAppVersion", &self.MarketplaceAppVersion).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PM_INSTALLINFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -11413,6 +11838,12 @@ pub struct PM_INVOCATIONINFO {
 impl ::core::clone::Clone for PM_INVOCATIONINFO {
     fn clone(&self) -> Self {
         Self { URIBaseOrAUMID: self.URIBaseOrAUMID.clone(), URIFragmentOrArgs: self.URIFragmentOrArgs.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PM_INVOCATIONINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PM_INVOCATIONINFO").field("URIBaseOrAUMID", &self.URIBaseOrAUMID).field("URIFragmentOrArgs", &self.URIFragmentOrArgs).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11488,6 +11919,12 @@ impl ::core::clone::Clone for PM_STARTAPPBLOB {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PM_STARTAPPBLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PM_STARTAPPBLOB").field("cbSize", &self.cbSize).field("ProductID", &self.ProductID).field("AppTitle", &self.AppTitle).field("IconPath", &self.IconPath).field("IsUninstallable", &self.IsUninstallable).field("AppInstallType", &self.AppInstallType).field("InstanceID", &self.InstanceID).field("State", &self.State).field("IsModern", &self.IsModern).field("IsModernLightUp", &self.IsModernLightUp).field("LightUpSupportMask", &self.LightUpSupportMask).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PM_STARTAPPBLOB {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -11541,6 +11978,26 @@ impl ::core::clone::Clone for PM_STARTTILEBLOB {
             IsModern: self.IsModern,
             InvocationInfo: self.InvocationInfo.clone(),
         }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PM_STARTTILEBLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PM_STARTTILEBLOB")
+            .field("cbSize", &self.cbSize)
+            .field("ProductID", &self.ProductID)
+            .field("TileID", &self.TileID)
+            .field("TemplateType", &self.TemplateType)
+            .field("HubPosition", &self.HubPosition)
+            .field("HubVisibilityBitmask", &self.HubVisibilityBitmask)
+            .field("IsDefault", &self.IsDefault)
+            .field("TileType", &self.TileType)
+            .field("pbPropBlob", &self.pbPropBlob)
+            .field("cbPropBlob", &self.cbPropBlob)
+            .field("IsRestoring", &self.IsRestoring)
+            .field("IsModern", &self.IsModern)
+            .field("InvocationInfo", &self.InvocationInfo)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11666,6 +12123,12 @@ impl ::core::clone::Clone for PM_UPDATEINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PM_UPDATEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PM_UPDATEINFO").field("ProductID", &self.ProductID).field("PackagePath", &self.PackagePath).field("InstanceID", &self.InstanceID).field("pbLicense", &self.pbLicense).field("cbLicense", &self.cbLicense).field("MarketplaceAppVersion", &self.MarketplaceAppVersion).field("DeploymentOptions", &self.DeploymentOptions).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PM_UPDATEINFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -11708,6 +12171,12 @@ impl ::core::clone::Clone for PM_UPDATEINFO_LEGACY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PM_UPDATEINFO_LEGACY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PM_UPDATEINFO_LEGACY").field("ProductID", &self.ProductID).field("PackagePath", &self.PackagePath).field("InstanceID", &self.InstanceID).field("pbLicense", &self.pbLicense).field("cbLicense", &self.cbLicense).field("MarketplaceAppVersion", &self.MarketplaceAppVersion).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PM_UPDATEINFO_LEGACY {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -11741,6 +12210,11 @@ impl ::core::marker::Copy for PROTECTED_FILE_DATA {}
 impl ::core::clone::Clone for PROTECTED_FILE_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PROTECTED_FILE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROTECTED_FILE_DATA").field("FileName", &self.FileName).field("FileNumber", &self.FileNumber).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROTECTED_FILE_DATA {
@@ -12297,6 +12771,11 @@ impl ::core::marker::Copy for _tagAPPTASKTYPE {}
 impl ::core::clone::Clone for _tagAPPTASKTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _tagAPPTASKTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_tagAPPTASKTYPE").field("ProductID", &self.ProductID).field("TaskType", &self.TaskType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _tagAPPTASKTYPE {

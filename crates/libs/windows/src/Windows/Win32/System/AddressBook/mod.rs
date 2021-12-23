@@ -16,6 +16,12 @@ impl ::core::clone::Clone for ADRENTRY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for ADRENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADRENTRY").field("ulReserved1", &self.ulReserved1).field("cValues", &self.cValues).field("rgPropVals", &self.rgPropVals).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for ADRENTRY {
     type Abi = Self;
 }
@@ -46,6 +52,12 @@ impl ::core::marker::Copy for ADRLIST {}
 impl ::core::clone::Clone for ADRLIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for ADRLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADRLIST").field("cEntries", &self.cEntries).field("aEntries", &self.aEntries).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -95,6 +107,31 @@ impl ::core::marker::Copy for ADRPARM {}
 impl ::core::clone::Clone for ADRPARM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for ADRPARM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADRPARM")
+            .field("cbABContEntryID", &self.cbABContEntryID)
+            .field("lpABContEntryID", &self.lpABContEntryID)
+            .field("ulFlags", &self.ulFlags)
+            .field("lpReserved", &self.lpReserved)
+            .field("ulHelpContext", &self.ulHelpContext)
+            .field("lpszHelpFileName", &self.lpszHelpFileName)
+            .field("lpfnABSDI", &self.lpfnABSDI.map(|f| f as usize))
+            .field("lpfnDismiss", &self.lpfnDismiss.map(|f| f as usize))
+            .field("lpvDismissContext", &self.lpvDismissContext)
+            .field("lpszCaption", &self.lpszCaption)
+            .field("lpszNewEntryTitle", &self.lpszNewEntryTitle)
+            .field("lpszDestWellsTitle", &self.lpszDestWellsTitle)
+            .field("cDestFields", &self.cDestFields)
+            .field("nDestFieldFocus", &self.nDestFieldFocus)
+            .field("lppszDestTitles", &self.lppszDestTitles)
+            .field("lpulDestComps", &self.lpulDestComps)
+            .field("lpContRestriction", &self.lpContRestriction)
+            .field("lpHierRestriction", &self.lpHierRestriction)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -188,6 +225,11 @@ impl ::core::clone::Clone for DTBLBUTTON {
         *self
     }
 }
+impl ::core::fmt::Debug for DTBLBUTTON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DTBLBUTTON").field("ulbLpszLabel", &self.ulbLpszLabel).field("ulFlags", &self.ulFlags).field("ulPRControl", &self.ulPRControl).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DTBLBUTTON {
     type Abi = Self;
 }
@@ -213,6 +255,11 @@ impl ::core::marker::Copy for DTBLCHECKBOX {}
 impl ::core::clone::Clone for DTBLCHECKBOX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DTBLCHECKBOX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DTBLCHECKBOX").field("ulbLpszLabel", &self.ulbLpszLabel).field("ulFlags", &self.ulFlags).field("ulPRPropertyName", &self.ulPRPropertyName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DTBLCHECKBOX {
@@ -244,6 +291,11 @@ impl ::core::clone::Clone for DTBLCOMBOBOX {
         *self
     }
 }
+impl ::core::fmt::Debug for DTBLCOMBOBOX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DTBLCOMBOBOX").field("ulbLpszCharsAllowed", &self.ulbLpszCharsAllowed).field("ulFlags", &self.ulFlags).field("ulNumCharsAllowed", &self.ulNumCharsAllowed).field("ulPRPropertyName", &self.ulPRPropertyName).field("ulPRTableName", &self.ulPRTableName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DTBLCOMBOBOX {
     type Abi = Self;
 }
@@ -270,6 +322,11 @@ impl ::core::marker::Copy for DTBLDDLBX {}
 impl ::core::clone::Clone for DTBLDDLBX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DTBLDDLBX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DTBLDDLBX").field("ulFlags", &self.ulFlags).field("ulPRDisplayProperty", &self.ulPRDisplayProperty).field("ulPRSetProperty", &self.ulPRSetProperty).field("ulPRTableName", &self.ulPRTableName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DTBLDDLBX {
@@ -300,6 +357,11 @@ impl ::core::clone::Clone for DTBLEDIT {
         *self
     }
 }
+impl ::core::fmt::Debug for DTBLEDIT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DTBLEDIT").field("ulbLpszCharsAllowed", &self.ulbLpszCharsAllowed).field("ulFlags", &self.ulFlags).field("ulNumCharsAllowed", &self.ulNumCharsAllowed).field("ulPropTag", &self.ulPropTag).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DTBLEDIT {
     type Abi = Self;
 }
@@ -326,6 +388,11 @@ impl ::core::clone::Clone for DTBLGROUPBOX {
         *self
     }
 }
+impl ::core::fmt::Debug for DTBLGROUPBOX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DTBLGROUPBOX").field("ulbLpszLabel", &self.ulbLpszLabel).field("ulFlags", &self.ulFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DTBLGROUPBOX {
     type Abi = Self;
 }
@@ -350,6 +417,11 @@ impl ::core::marker::Copy for DTBLLABEL {}
 impl ::core::clone::Clone for DTBLLABEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DTBLLABEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DTBLLABEL").field("ulbLpszLabelName", &self.ulbLpszLabelName).field("ulFlags", &self.ulFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DTBLLABEL {
@@ -379,6 +451,11 @@ impl ::core::clone::Clone for DTBLLBX {
         *self
     }
 }
+impl ::core::fmt::Debug for DTBLLBX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DTBLLBX").field("ulFlags", &self.ulFlags).field("ulPRSetProperty", &self.ulPRSetProperty).field("ulPRTableName", &self.ulPRTableName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DTBLLBX {
     type Abi = Self;
 }
@@ -405,6 +482,11 @@ impl ::core::clone::Clone for DTBLMVDDLBX {
         *self
     }
 }
+impl ::core::fmt::Debug for DTBLMVDDLBX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DTBLMVDDLBX").field("ulFlags", &self.ulFlags).field("ulMVPropTag", &self.ulMVPropTag).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DTBLMVDDLBX {
     type Abi = Self;
 }
@@ -429,6 +511,11 @@ impl ::core::marker::Copy for DTBLMVLISTBOX {}
 impl ::core::clone::Clone for DTBLMVLISTBOX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DTBLMVLISTBOX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DTBLMVLISTBOX").field("ulFlags", &self.ulFlags).field("ulMVPropTag", &self.ulMVPropTag).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DTBLMVLISTBOX {
@@ -459,6 +546,11 @@ impl ::core::clone::Clone for DTBLPAGE {
         *self
     }
 }
+impl ::core::fmt::Debug for DTBLPAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DTBLPAGE").field("ulbLpszLabel", &self.ulbLpszLabel).field("ulFlags", &self.ulFlags).field("ulbLpszComponent", &self.ulbLpszComponent).field("ulContext", &self.ulContext).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DTBLPAGE {
     type Abi = Self;
 }
@@ -486,6 +578,11 @@ impl ::core::marker::Copy for DTBLRADIOBUTTON {}
 impl ::core::clone::Clone for DTBLRADIOBUTTON {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DTBLRADIOBUTTON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DTBLRADIOBUTTON").field("ulbLpszLabel", &self.ulbLpszLabel).field("ulFlags", &self.ulFlags).field("ulcButtons", &self.ulcButtons).field("ulPropTag", &self.ulPropTag).field("lReturnValue", &self.lReturnValue).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DTBLRADIOBUTTON {
@@ -664,6 +761,11 @@ impl ::core::clone::Clone for ENTRYID {
         *self
     }
 }
+impl ::core::fmt::Debug for ENTRYID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENTRYID").field("abFlags", &self.abFlags).field("ab", &self.ab).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ENTRYID {
     type Abi = Self;
 }
@@ -693,6 +795,11 @@ impl ::core::clone::Clone for ERROR_NOTIFICATION {
         *self
     }
 }
+impl ::core::fmt::Debug for ERROR_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ERROR_NOTIFICATION").field("cbEntryID", &self.cbEntryID).field("lpEntryID", &self.lpEntryID).field("scode", &self.scode).field("ulFlags", &self.ulFlags).field("lpMAPIError", &self.lpMAPIError).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ERROR_NOTIFICATION {
     type Abi = Self;
 }
@@ -718,6 +825,11 @@ impl ::core::marker::Copy for EXTENDED_NOTIFICATION {}
 impl ::core::clone::Clone for EXTENDED_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EXTENDED_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXTENDED_NOTIFICATION").field("ulEvent", &self.ulEvent).field("cb", &self.cb).field("pbEventParameters", &self.pbEventParameters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EXTENDED_NOTIFICATION {
@@ -946,6 +1058,11 @@ impl ::core::clone::Clone for FLATENTRY {
         *self
     }
 }
+impl ::core::fmt::Debug for FLATENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FLATENTRY").field("cb", &self.cb).field("abEntry", &self.abEntry).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FLATENTRY {
     type Abi = Self;
 }
@@ -973,6 +1090,11 @@ impl ::core::clone::Clone for FLATENTRYLIST {
         *self
     }
 }
+impl ::core::fmt::Debug for FLATENTRYLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FLATENTRYLIST").field("cEntries", &self.cEntries).field("cbEntries", &self.cbEntries).field("abEntries", &self.abEntries).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FLATENTRYLIST {
     type Abi = Self;
 }
@@ -998,6 +1120,11 @@ impl ::core::marker::Copy for FLATMTSIDLIST {}
 impl ::core::clone::Clone for FLATMTSIDLIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FLATMTSIDLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FLATMTSIDLIST").field("cMTSIDs", &self.cMTSIDs).field("cbMTSIDs", &self.cbMTSIDs).field("abMTSIDs", &self.abMTSIDs).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FLATMTSIDLIST {
@@ -1489,6 +1616,11 @@ impl ::core::cmp::PartialEq for IABContainer {
     }
 }
 impl ::core::cmp::Eq for IABContainer {}
+impl ::core::fmt::Debug for IABContainer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IABContainer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IABContainer {
     type Vtable = IABContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -1710,6 +1842,11 @@ impl ::core::cmp::PartialEq for IAddrBook {
     }
 }
 impl ::core::cmp::Eq for IAddrBook {}
+impl ::core::fmt::Debug for IAddrBook {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAddrBook").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAddrBook {
     type Vtable = IAddrBookVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -1865,6 +2002,11 @@ impl ::core::cmp::PartialEq for IAttach {
     }
 }
 impl ::core::cmp::Eq for IAttach {}
+impl ::core::fmt::Debug for IAttach {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAttach").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAttach {
     type Vtable = IAttachVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2058,6 +2200,11 @@ impl ::core::cmp::PartialEq for IDistList {
     }
 }
 impl ::core::cmp::Eq for IDistList {}
+impl ::core::fmt::Debug for IDistList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDistList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDistList {
     type Vtable = IDistListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2137,6 +2284,11 @@ impl ::core::cmp::PartialEq for IMAPIAdviseSink {
     }
 }
 impl ::core::cmp::Eq for IMAPIAdviseSink {}
+impl ::core::fmt::Debug for IMAPIAdviseSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMAPIAdviseSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMAPIAdviseSink {
     type Vtable = IMAPIAdviseSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2278,6 +2430,11 @@ impl ::core::cmp::PartialEq for IMAPIContainer {
     }
 }
 impl ::core::cmp::Eq for IMAPIContainer {}
+impl ::core::fmt::Debug for IMAPIContainer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMAPIContainer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMAPIContainer {
     type Vtable = IMAPIContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2360,6 +2517,11 @@ impl ::core::cmp::PartialEq for IMAPIControl {
     }
 }
 impl ::core::cmp::Eq for IMAPIControl {}
+impl ::core::fmt::Debug for IMAPIControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMAPIControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMAPIControl {
     type Vtable = IMAPIControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2569,6 +2731,11 @@ impl ::core::cmp::PartialEq for IMAPIFolder {
     }
 }
 impl ::core::cmp::Eq for IMAPIFolder {}
+impl ::core::fmt::Debug for IMAPIFolder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMAPIFolder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMAPIFolder {
     type Vtable = IMAPIFolderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2669,6 +2836,11 @@ impl ::core::cmp::PartialEq for IMAPIProgress {
     }
 }
 impl ::core::cmp::Eq for IMAPIProgress {}
+impl ::core::fmt::Debug for IMAPIProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMAPIProgress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMAPIProgress {
     type Vtable = IMAPIProgressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2769,6 +2941,11 @@ impl ::core::cmp::PartialEq for IMAPIProp {
     }
 }
 impl ::core::cmp::Eq for IMAPIProp {}
+impl ::core::fmt::Debug for IMAPIProp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMAPIProp").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMAPIProp {
     type Vtable = IMAPIPropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2915,6 +3092,11 @@ impl ::core::cmp::PartialEq for IMAPIStatus {
     }
 }
 impl ::core::cmp::Eq for IMAPIStatus {}
+impl ::core::fmt::Debug for IMAPIStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMAPIStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMAPIStatus {
     type Vtable = IMAPIStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -3077,6 +3259,11 @@ impl ::core::cmp::PartialEq for IMAPITable {
     }
 }
 impl ::core::cmp::Eq for IMAPITable {}
+impl ::core::fmt::Debug for IMAPITable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMAPITable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMAPITable {
     type Vtable = IMAPITableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -3343,6 +3530,11 @@ impl ::core::cmp::PartialEq for IMailUser {
     }
 }
 impl ::core::cmp::Eq for IMailUser {}
+impl ::core::fmt::Debug for IMailUser {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMailUser").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMailUser {
     type Vtable = IMailUserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -3509,6 +3701,11 @@ impl ::core::cmp::PartialEq for IMessage {
     }
 }
 impl ::core::cmp::Eq for IMessage {}
+impl ::core::fmt::Debug for IMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMessage {
     type Vtable = IMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -3705,6 +3902,11 @@ impl ::core::cmp::PartialEq for IMsgStore {
     }
 }
 impl ::core::cmp::Eq for IMsgStore {}
+impl ::core::fmt::Debug for IMsgStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMsgStore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMsgStore {
     type Vtable = IMsgStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -3849,6 +4051,11 @@ impl ::core::cmp::PartialEq for IProfSect {
     }
 }
 impl ::core::cmp::Eq for IProfSect {}
+impl ::core::fmt::Debug for IProfSect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProfSect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProfSect {
     type Vtable = IProfSectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -3995,6 +4202,11 @@ impl ::core::cmp::PartialEq for IPropData {
     }
 }
 impl ::core::cmp::Eq for IPropData {}
+impl ::core::fmt::Debug for IPropData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropData {
     type Vtable = IPropDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -4086,6 +4298,11 @@ impl ::core::cmp::PartialEq for IProviderAdmin {
     }
 }
 impl ::core::cmp::Eq for IProviderAdmin {}
+impl ::core::fmt::Debug for IProviderAdmin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProviderAdmin").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProviderAdmin {
     type Vtable = IProviderAdminVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -4183,6 +4400,11 @@ impl ::core::cmp::PartialEq for ITableData {
     }
 }
 impl ::core::cmp::Eq for ITableData {}
+impl ::core::fmt::Debug for ITableData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITableData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITableData {
     type Vtable = ITableDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -4252,6 +4474,11 @@ impl ::core::cmp::PartialEq for IWABExtInit {
     }
 }
 impl ::core::cmp::Eq for IWABExtInit {}
+impl ::core::fmt::Debug for IWABExtInit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWABExtInit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWABExtInit {
     type Vtable = IWABExtInitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea22ebf0_87a4_11d1_9acf_00a0c91f9c8b);
@@ -4356,6 +4583,11 @@ impl ::core::cmp::PartialEq for IWABOBJECT_ {
     }
 }
 impl ::core::cmp::Eq for IWABOBJECT_ {}
+impl ::core::fmt::Debug for IWABOBJECT_ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWABOBJECT_").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWABOBJECT_ {
     type Vtable = IWABOBJECT_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -4529,6 +4761,11 @@ impl ::core::cmp::PartialEq for IWABObject {
     }
 }
 impl ::core::cmp::Eq for IWABObject {}
+impl ::core::fmt::Debug for IWABObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWABObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWABObject {
     type Vtable = IWABObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -4656,6 +4893,11 @@ impl ::core::clone::Clone for MAPIERROR {
         *self
     }
 }
+impl ::core::fmt::Debug for MAPIERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MAPIERROR").field("ulVersion", &self.ulVersion).field("lpszError", &self.lpszError).field("lpszComponent", &self.lpszComponent).field("ulLowLevelError", &self.ulLowLevelError).field("ulContext", &self.ulContext).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MAPIERROR {
     type Abi = Self;
 }
@@ -4777,6 +5019,11 @@ impl ::core::clone::Clone for MAPIUID {
         *self
     }
 }
+impl ::core::fmt::Debug for MAPIUID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MAPIUID").field("ab", &self.ab).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MAPIUID {
     type Abi = Self;
 }
@@ -4841,6 +5088,11 @@ impl ::core::clone::Clone for MTSID {
         *self
     }
 }
+impl ::core::fmt::Debug for MTSID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MTSID").field("cb", &self.cb).field("ab", &self.ab).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MTSID {
     type Abi = Self;
 }
@@ -4874,6 +5126,11 @@ impl ::core::marker::Copy for NEWMAIL_NOTIFICATION {}
 impl ::core::clone::Clone for NEWMAIL_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NEWMAIL_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NEWMAIL_NOTIFICATION").field("cbEntryID", &self.cbEntryID).field("lpEntryID", &self.lpEntryID).field("cbParentID", &self.cbParentID).field("lpParentID", &self.lpParentID).field("ulFlags", &self.ulFlags).field("lpszMessageClass", &self.lpszMessageClass).field("ulMessageFlags", &self.ulMessageFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NEWMAIL_NOTIFICATION {
@@ -4973,6 +5230,11 @@ impl ::core::clone::Clone for NOTIFKEY {
         *self
     }
 }
+impl ::core::fmt::Debug for NOTIFKEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NOTIFKEY").field("cb", &self.cb).field("ab", &self.ab).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NOTIFKEY {
     type Abi = Self;
 }
@@ -5005,6 +5267,11 @@ impl ::core::marker::Copy for OBJECT_NOTIFICATION {}
 impl ::core::clone::Clone for OBJECT_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OBJECT_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OBJECT_NOTIFICATION").field("cbEntryID", &self.cbEntryID).field("lpEntryID", &self.lpEntryID).field("ulObjType", &self.ulObjType).field("cbParentID", &self.cbParentID).field("lpParentID", &self.lpParentID).field("cbOldID", &self.cbOldID).field("lpOldID", &self.lpOldID).field("cbOldParentID", &self.cbOldParentID).field("lpOldParentID", &self.lpOldParentID).field("lpPropTagArray", &self.lpPropTagArray).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OBJECT_NOTIFICATION {
@@ -5115,6 +5382,12 @@ impl ::core::clone::Clone for SAndRestriction {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for SAndRestriction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SAndRestriction").field("cRes", &self.cRes).field("lpRes", &self.lpRes).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for SAndRestriction {
     type Abi = Self;
 }
@@ -5144,6 +5417,11 @@ impl ::core::clone::Clone for SAppTimeArray {
         *self
     }
 }
+impl ::core::fmt::Debug for SAppTimeArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SAppTimeArray").field("cValues", &self.cValues).field("lpat", &self.lpat).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SAppTimeArray {
     type Abi = Self;
 }
@@ -5168,6 +5446,11 @@ impl ::core::marker::Copy for SBinary {}
 impl ::core::clone::Clone for SBinary {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SBinary {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SBinary").field("cb", &self.cb).field("lpb", &self.lpb).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SBinary {
@@ -5196,6 +5479,11 @@ impl ::core::clone::Clone for SBinaryArray {
         *self
     }
 }
+impl ::core::fmt::Debug for SBinaryArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SBinaryArray").field("cValues", &self.cValues).field("lpbin", &self.lpbin).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SBinaryArray {
     type Abi = Self;
 }
@@ -5221,6 +5509,11 @@ impl ::core::marker::Copy for SBitMaskRestriction {}
 impl ::core::clone::Clone for SBitMaskRestriction {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SBitMaskRestriction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SBitMaskRestriction").field("relBMR", &self.relBMR).field("ulPropTag", &self.ulPropTag).field("ulMask", &self.ulMask).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SBitMaskRestriction {
@@ -5254,6 +5547,12 @@ impl ::core::clone::Clone for SCommentRestriction {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for SCommentRestriction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCommentRestriction").field("cValues", &self.cValues).field("lpRes", &self.lpRes).field("lpProp", &self.lpProp).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for SCommentRestriction {
     type Abi = Self;
 }
@@ -5284,6 +5583,11 @@ impl ::core::clone::Clone for SComparePropsRestriction {
         *self
     }
 }
+impl ::core::fmt::Debug for SComparePropsRestriction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SComparePropsRestriction").field("relop", &self.relop).field("ulPropTag1", &self.ulPropTag1).field("ulPropTag2", &self.ulPropTag2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SComparePropsRestriction {
     type Abi = Self;
 }
@@ -5312,6 +5616,12 @@ impl ::core::marker::Copy for SContentRestriction {}
 impl ::core::clone::Clone for SContentRestriction {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for SContentRestriction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SContentRestriction").field("ulFuzzyLevel", &self.ulFuzzyLevel).field("ulPropTag", &self.ulPropTag).field("lpProp", &self.lpProp).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -5348,6 +5658,12 @@ impl ::core::clone::Clone for SCurrencyArray {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for SCurrencyArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCurrencyArray").field("cValues", &self.cValues).field("lpcur", &self.lpcur).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for SCurrencyArray {
     type Abi = Self;
 }
@@ -5381,6 +5697,12 @@ impl ::core::clone::Clone for SDateTimeArray {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SDateTimeArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SDateTimeArray").field("cValues", &self.cValues).field("lpft", &self.lpft).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SDateTimeArray {
     type Abi = Self;
 }
@@ -5408,6 +5730,11 @@ impl ::core::marker::Copy for SDoubleArray {}
 impl ::core::clone::Clone for SDoubleArray {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SDoubleArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SDoubleArray").field("cValues", &self.cValues).field("lpdbl", &self.lpdbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SDoubleArray {
@@ -5441,6 +5768,11 @@ impl ::core::clone::Clone for SExistRestriction {
         *self
     }
 }
+impl ::core::fmt::Debug for SExistRestriction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SExistRestriction").field("ulReserved1", &self.ulReserved1).field("ulPropTag", &self.ulPropTag).field("ulReserved2", &self.ulReserved2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SExistRestriction {
     type Abi = Self;
 }
@@ -5465,6 +5797,11 @@ impl ::core::marker::Copy for SGuidArray {}
 impl ::core::clone::Clone for SGuidArray {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SGuidArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SGuidArray").field("cValues", &self.cValues).field("lpguid", &self.lpguid).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SGuidArray {
@@ -5497,6 +5834,12 @@ impl ::core::clone::Clone for SLPSTRArray {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SLPSTRArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SLPSTRArray").field("cValues", &self.cValues).field("lppszA", &self.lppszA).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SLPSTRArray {
     type Abi = Self;
 }
@@ -5526,6 +5869,11 @@ impl ::core::clone::Clone for SLargeIntegerArray {
         *self
     }
 }
+impl ::core::fmt::Debug for SLargeIntegerArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SLargeIntegerArray").field("cValues", &self.cValues).field("lpli", &self.lpli).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SLargeIntegerArray {
     type Abi = Self;
 }
@@ -5550,6 +5898,11 @@ impl ::core::marker::Copy for SLongArray {}
 impl ::core::clone::Clone for SLongArray {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SLongArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SLongArray").field("cValues", &self.cValues).field("lpl", &self.lpl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SLongArray {
@@ -5579,6 +5932,12 @@ impl ::core::marker::Copy for SNotRestriction {}
 impl ::core::clone::Clone for SNotRestriction {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for SNotRestriction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SNotRestriction").field("ulReserved", &self.ulReserved).field("lpRes", &self.lpRes).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -5615,6 +5974,12 @@ impl ::core::clone::Clone for SOrRestriction {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for SOrRestriction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOrRestriction").field("cRes", &self.cRes).field("lpRes", &self.lpRes).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for SOrRestriction {
     type Abi = Self;
 }
@@ -5645,6 +6010,11 @@ impl ::core::clone::Clone for SPropProblem {
         *self
     }
 }
+impl ::core::fmt::Debug for SPropProblem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPropProblem").field("ulIndex", &self.ulIndex).field("ulPropTag", &self.ulPropTag).field("scode", &self.scode).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPropProblem {
     type Abi = Self;
 }
@@ -5671,6 +6041,11 @@ impl ::core::clone::Clone for SPropProblemArray {
         *self
     }
 }
+impl ::core::fmt::Debug for SPropProblemArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPropProblemArray").field("cProblem", &self.cProblem).field("aProblem", &self.aProblem).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPropProblemArray {
     type Abi = Self;
 }
@@ -5695,6 +6070,11 @@ impl ::core::marker::Copy for SPropTagArray {}
 impl ::core::clone::Clone for SPropTagArray {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SPropTagArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPropTagArray").field("cValues", &self.cValues).field("aulPropTag", &self.aulPropTag).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SPropTagArray {
@@ -5762,6 +6142,12 @@ impl ::core::clone::Clone for SPropertyRestriction {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for SPropertyRestriction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPropertyRestriction").field("relop", &self.relop).field("ulPropTag", &self.ulPropTag).field("lpProp", &self.lpProp).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for SPropertyRestriction {
     type Abi = Self;
 }
@@ -5789,6 +6175,11 @@ impl ::core::marker::Copy for SRealArray {}
 impl ::core::clone::Clone for SRealArray {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SRealArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SRealArray").field("cValues", &self.cValues).field("lpflt", &self.lpflt).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SRealArray {
@@ -5897,6 +6288,12 @@ impl ::core::clone::Clone for SRow {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for SRow {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SRow").field("ulAdrEntryPad", &self.ulAdrEntryPad).field("cValues", &self.cValues).field("lpProps", &self.lpProps).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for SRow {
     type Abi = Self;
 }
@@ -5930,6 +6327,12 @@ impl ::core::clone::Clone for SRowSet {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for SRowSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SRowSet").field("cRows", &self.cRows).field("aRow", &self.aRow).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for SRowSet {
     type Abi = Self;
 }
@@ -5959,6 +6362,11 @@ impl ::core::clone::Clone for SShortArray {
         *self
     }
 }
+impl ::core::fmt::Debug for SShortArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SShortArray").field("cValues", &self.cValues).field("lpi", &self.lpi).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SShortArray {
     type Abi = Self;
 }
@@ -5986,6 +6394,11 @@ impl ::core::clone::Clone for SSizeRestriction {
         *self
     }
 }
+impl ::core::fmt::Debug for SSizeRestriction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SSizeRestriction").field("relop", &self.relop).field("ulPropTag", &self.ulPropTag).field("cb", &self.cb).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SSizeRestriction {
     type Abi = Self;
 }
@@ -6010,6 +6423,11 @@ impl ::core::marker::Copy for SSortOrder {}
 impl ::core::clone::Clone for SSortOrder {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SSortOrder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SSortOrder").field("ulPropTag", &self.ulPropTag).field("ulOrder", &self.ulOrder).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SSortOrder {
@@ -6040,6 +6458,11 @@ impl ::core::clone::Clone for SSortOrderSet {
         *self
     }
 }
+impl ::core::fmt::Debug for SSortOrderSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SSortOrderSet").field("cSorts", &self.cSorts).field("cCategories", &self.cCategories).field("cExpanded", &self.cExpanded).field("aSort", &self.aSort).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SSortOrderSet {
     type Abi = Self;
 }
@@ -6067,6 +6490,12 @@ impl ::core::marker::Copy for SSubRestriction {}
 impl ::core::clone::Clone for SSubRestriction {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for SSubRestriction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SSubRestriction").field("ulSubObject", &self.ulSubObject).field("lpRes", &self.lpRes).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6105,6 +6534,12 @@ impl ::core::clone::Clone for STATUS_OBJECT_NOTIFICATION {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for STATUS_OBJECT_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STATUS_OBJECT_NOTIFICATION").field("cbEntryID", &self.cbEntryID).field("lpEntryID", &self.lpEntryID).field("cValues", &self.cValues).field("lpPropVals", &self.lpPropVals).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for STATUS_OBJECT_NOTIFICATION {
     type Abi = Self;
 }
@@ -6135,6 +6570,12 @@ impl ::core::marker::Copy for SWStringArray {}
 impl ::core::clone::Clone for SWStringArray {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SWStringArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SWStringArray").field("cValues", &self.cValues).field("lppszW", &self.lppszW).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6521,6 +6962,12 @@ impl ::core::clone::Clone for WABEXTDISPLAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WABEXTDISPLAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WABEXTDISPLAY").field("cbSize", &self.cbSize).field("lpWABObject", &self.lpWABObject).field("lpAdrBook", &self.lpAdrBook).field("lpPropObj", &self.lpPropObj).field("fReadOnly", &self.fReadOnly).field("fDataChanged", &self.fDataChanged).field("ulFlags", &self.ulFlags).field("lpv", &self.lpv).field("lpsz", &self.lpsz).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WABEXTDISPLAY {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -6552,6 +6999,12 @@ pub struct WABIMPORTPARAM {
 impl ::core::clone::Clone for WABIMPORTPARAM {
     fn clone(&self) -> Self {
         Self { cbSize: self.cbSize, lpAdrBook: self.lpAdrBook.clone(), hWnd: self.hWnd, ulFlags: self.ulFlags, lpszFileName: self.lpszFileName }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WABIMPORTPARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WABIMPORTPARAM").field("cbSize", &self.cbSize).field("lpAdrBook", &self.lpAdrBook).field("hWnd", &self.hWnd).field("ulFlags", &self.ulFlags).field("lpszFileName", &self.lpszFileName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6606,6 +7059,12 @@ impl ::core::marker::Copy for WAB_PARAM {}
 impl ::core::clone::Clone for WAB_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WAB_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WAB_PARAM").field("cbSize", &self.cbSize).field("hwnd", &self.hwnd).field("szFileName", &self.szFileName).field("ulFlags", &self.ulFlags).field("guidPSExt", &self.guidPSExt).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6735,6 +7194,11 @@ impl ::core::marker::Copy for _flaglist {}
 impl ::core::clone::Clone for _flaglist {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _flaglist {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_flaglist").field("cFlags", &self.cFlags).field("ulFlag", &self.ulFlag).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _flaglist {

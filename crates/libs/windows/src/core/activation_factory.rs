@@ -42,6 +42,6 @@ unsafe impl Interface for IActivationFactory {
 
 impl core::fmt::Debug for IActivationFactory {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "{:?}", self.0)
+        f.debug_tuple("IActivationFactory").field(&self.0).finish()
     }
 }

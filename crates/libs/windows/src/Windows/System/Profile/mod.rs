@@ -80,6 +80,11 @@ impl ::core::cmp::PartialEq for AnalyticsVersionInfo {
     }
 }
 impl ::core::cmp::Eq for AnalyticsVersionInfo {}
+impl ::core::fmt::Debug for AnalyticsVersionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnalyticsVersionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AnalyticsVersionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.AnalyticsVersionInfo;{926130b8-9955-4c74-bdc1-7cd0decf9b03})");
 }
@@ -234,6 +239,11 @@ impl ::core::cmp::PartialEq for HardwareToken {
     }
 }
 impl ::core::cmp::Eq for HardwareToken {}
+impl ::core::fmt::Debug for HardwareToken {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HardwareToken").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HardwareToken {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.HardwareToken;{28f6d4c0-fb12-40a4-8167-7f4e03d2724c})");
 }
@@ -853,6 +863,11 @@ impl ::core::cmp::PartialEq for PlatformDataCollectionLevel {
     }
 }
 impl ::core::cmp::Eq for PlatformDataCollectionLevel {}
+impl ::core::fmt::Debug for PlatformDataCollectionLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDataCollectionLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlatformDataCollectionLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.PlatformDataCollectionLevel;i4)");
 }
@@ -1015,6 +1030,11 @@ impl ::core::cmp::PartialEq for SystemIdentificationInfo {
     }
 }
 impl ::core::cmp::Eq for SystemIdentificationInfo {}
+impl ::core::fmt::Debug for SystemIdentificationInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemIdentificationInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemIdentificationInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.SystemIdentificationInfo;{0c659e7d-c3c2-4d33-a2df-21bc41916eb3})");
 }
@@ -1091,6 +1111,11 @@ impl ::core::cmp::PartialEq for SystemIdentificationSource {
     }
 }
 impl ::core::cmp::Eq for SystemIdentificationSource {}
+impl ::core::fmt::Debug for SystemIdentificationSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemIdentificationSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemIdentificationSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemIdentificationSource;i4)");
 }
@@ -1120,6 +1145,11 @@ impl ::core::cmp::PartialEq for SystemOutOfBoxExperienceState {
     }
 }
 impl ::core::cmp::Eq for SystemOutOfBoxExperienceState {}
+impl ::core::fmt::Debug for SystemOutOfBoxExperienceState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemOutOfBoxExperienceState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemOutOfBoxExperienceState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemOutOfBoxExperienceState;i4)");
 }
@@ -1190,6 +1220,11 @@ impl ::core::cmp::PartialEq for UnsupportedAppRequirement {
     }
 }
 impl ::core::cmp::Eq for UnsupportedAppRequirement {}
+impl ::core::fmt::Debug for UnsupportedAppRequirement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnsupportedAppRequirement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UnsupportedAppRequirement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.UnsupportedAppRequirement;{6182445c-894b-5cbc-8976-a98e0a9b998d})");
 }
@@ -1264,6 +1299,11 @@ impl ::core::cmp::PartialEq for UnsupportedAppRequirementReasons {
     }
 }
 impl ::core::cmp::Eq for UnsupportedAppRequirementReasons {}
+impl ::core::fmt::Debug for UnsupportedAppRequirementReasons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnsupportedAppRequirementReasons").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UnsupportedAppRequirementReasons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.UnsupportedAppRequirementReasons;u4)");
 }

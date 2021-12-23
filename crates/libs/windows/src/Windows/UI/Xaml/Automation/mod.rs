@@ -61,6 +61,11 @@ impl ::core::cmp::PartialEq for AnnotationPatternIdentifiers {
     }
 }
 impl ::core::cmp::Eq for AnnotationPatternIdentifiers {}
+impl ::core::fmt::Debug for AnnotationPatternIdentifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnnotationPatternIdentifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AnnotationPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.AnnotationPatternIdentifiers;{d475a0c1-48b2-4e40-a6cf-3dc4b638c0de})");
 }
@@ -156,6 +161,11 @@ impl ::core::cmp::PartialEq for AnnotationType {
     }
 }
 impl ::core::cmp::Eq for AnnotationType {}
+impl ::core::fmt::Debug for AnnotationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnnotationType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AnnotationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AnnotationType;i4)");
 }
@@ -185,6 +195,11 @@ impl ::core::cmp::PartialEq for AutomationActiveEnd {
     }
 }
 impl ::core::cmp::Eq for AutomationActiveEnd {}
+impl ::core::fmt::Debug for AutomationActiveEnd {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationActiveEnd").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationActiveEnd {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationActiveEnd;i4)");
 }
@@ -219,6 +234,11 @@ impl ::core::cmp::PartialEq for AutomationAnimationStyle {
     }
 }
 impl ::core::cmp::Eq for AutomationAnimationStyle {}
+impl ::core::fmt::Debug for AutomationAnimationStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationAnimationStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationAnimationStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationAnimationStyle;i4)");
 }
@@ -312,6 +332,11 @@ impl ::core::cmp::PartialEq for AutomationAnnotation {
     }
 }
 impl ::core::cmp::Eq for AutomationAnnotation {}
+impl ::core::fmt::Debug for AutomationAnnotation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationAnnotation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationAnnotation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.AutomationAnnotation;{fb3c30ca-03d8-4618-91bf-e4d84f4af318})");
 }
@@ -411,6 +436,11 @@ impl ::core::cmp::PartialEq for AutomationBulletStyle {
     }
 }
 impl ::core::cmp::Eq for AutomationBulletStyle {}
+impl ::core::fmt::Debug for AutomationBulletStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationBulletStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationBulletStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationBulletStyle;i4)");
 }
@@ -439,6 +469,11 @@ impl ::core::cmp::PartialEq for AutomationCaretBidiMode {
     }
 }
 impl ::core::cmp::Eq for AutomationCaretBidiMode {}
+impl ::core::fmt::Debug for AutomationCaretBidiMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationCaretBidiMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationCaretBidiMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationCaretBidiMode;i4)");
 }
@@ -468,6 +503,11 @@ impl ::core::cmp::PartialEq for AutomationCaretPosition {
     }
 }
 impl ::core::cmp::Eq for AutomationCaretPosition {}
+impl ::core::fmt::Debug for AutomationCaretPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationCaretPosition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationCaretPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationCaretPosition;i4)");
 }
@@ -803,6 +843,11 @@ impl ::core::cmp::PartialEq for AutomationElementIdentifiers {
     }
 }
 impl ::core::cmp::Eq for AutomationElementIdentifiers {}
+impl ::core::fmt::Debug for AutomationElementIdentifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationElementIdentifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationElementIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.AutomationElementIdentifiers;{e68a63cf-4345-4e2d-8a6a-49cce1fa2dcc})");
 }
@@ -879,6 +924,11 @@ impl ::core::cmp::PartialEq for AutomationFlowDirections {
     }
 }
 impl ::core::cmp::Eq for AutomationFlowDirections {}
+impl ::core::fmt::Debug for AutomationFlowDirections {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationFlowDirections").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationFlowDirections {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationFlowDirections;i4)");
 }
@@ -910,6 +960,11 @@ impl ::core::cmp::PartialEq for AutomationOutlineStyles {
     }
 }
 impl ::core::cmp::Eq for AutomationOutlineStyles {}
+impl ::core::fmt::Debug for AutomationOutlineStyles {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationOutlineStyles").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationOutlineStyles {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationOutlineStyles;i4)");
 }
@@ -1494,6 +1549,11 @@ impl ::core::cmp::PartialEq for AutomationProperties {
     }
 }
 impl ::core::cmp::Eq for AutomationProperties {}
+impl ::core::fmt::Debug for AutomationProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.AutomationProperties;{68d7232c-e622-48e9-af0b-1ffa33cc5cba})");
 }
@@ -1561,6 +1621,11 @@ impl ::core::cmp::PartialEq for AutomationProperty {
     }
 }
 impl ::core::cmp::Eq for AutomationProperty {}
+impl ::core::fmt::Debug for AutomationProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationProperty {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.AutomationProperty;{b627195b-3227-4e16-9534-ddece30ddb46})");
 }
@@ -1648,6 +1713,11 @@ impl ::core::cmp::PartialEq for AutomationStyleId {
     }
 }
 impl ::core::cmp::Eq for AutomationStyleId {}
+impl ::core::fmt::Debug for AutomationStyleId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationStyleId").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationStyleId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationStyleId;i4)");
 }
@@ -1693,6 +1763,11 @@ impl ::core::cmp::PartialEq for AutomationTextDecorationLineStyle {
     }
 }
 impl ::core::cmp::Eq for AutomationTextDecorationLineStyle {}
+impl ::core::fmt::Debug for AutomationTextDecorationLineStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationTextDecorationLineStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationTextDecorationLineStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationTextDecorationLineStyle;i4)");
 }
@@ -1723,6 +1798,11 @@ impl ::core::cmp::PartialEq for AutomationTextEditChangeType {
     }
 }
 impl ::core::cmp::Eq for AutomationTextEditChangeType {}
+impl ::core::fmt::Debug for AutomationTextEditChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationTextEditChangeType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationTextEditChangeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationTextEditChangeType;i4)");
 }
@@ -1757,6 +1837,11 @@ impl ::core::cmp::PartialEq for DockPatternIdentifiers {
     }
 }
 impl ::core::cmp::Eq for DockPatternIdentifiers {}
+impl ::core::fmt::Debug for DockPatternIdentifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DockPatternIdentifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DockPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.DockPatternIdentifiers;{ccd7f4e6-e4f9-47ff-bde7-378b11f78e09})");
 }
@@ -1835,6 +1920,11 @@ impl ::core::cmp::PartialEq for DockPosition {
     }
 }
 impl ::core::cmp::Eq for DockPosition {}
+impl ::core::fmt::Debug for DockPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DockPosition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DockPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.DockPosition;i4)");
 }
@@ -1890,6 +1980,11 @@ impl ::core::cmp::PartialEq for DragPatternIdentifiers {
     }
 }
 impl ::core::cmp::Eq for DragPatternIdentifiers {}
+impl ::core::fmt::Debug for DragPatternIdentifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DragPatternIdentifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DragPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.DragPatternIdentifiers;{6266e985-4d07-4e80-82eb-8f96690a1a0c})");
 }
@@ -1977,6 +2072,11 @@ impl ::core::cmp::PartialEq for DropTargetPatternIdentifiers {
     }
 }
 impl ::core::cmp::Eq for DropTargetPatternIdentifiers {}
+impl ::core::fmt::Debug for DropTargetPatternIdentifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DropTargetPatternIdentifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DropTargetPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.DropTargetPatternIdentifiers;{11865133-a6fe-4634-bd18-0ef612b7b208})");
 }
@@ -2057,6 +2157,11 @@ impl ::core::cmp::PartialEq for ExpandCollapsePatternIdentifiers {
     }
 }
 impl ::core::cmp::Eq for ExpandCollapsePatternIdentifiers {}
+impl ::core::fmt::Debug for ExpandCollapsePatternIdentifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExpandCollapsePatternIdentifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ExpandCollapsePatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.ExpandCollapsePatternIdentifiers;{b006bac0-751b-4d55-92cb-613ec1bdf5d0})");
 }
@@ -2133,6 +2238,11 @@ impl ::core::cmp::PartialEq for ExpandCollapseState {
     }
 }
 impl ::core::cmp::Eq for ExpandCollapseState {}
+impl ::core::fmt::Debug for ExpandCollapseState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExpandCollapseState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ExpandCollapseState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.ExpandCollapseState;i4)");
 }
@@ -2195,6 +2305,11 @@ impl ::core::cmp::PartialEq for GridItemPatternIdentifiers {
     }
 }
 impl ::core::cmp::Eq for GridItemPatternIdentifiers {}
+impl ::core::fmt::Debug for GridItemPatternIdentifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GridItemPatternIdentifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GridItemPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.GridItemPatternIdentifiers;{757744f1-3285-4fb1-803b-2545bd431599})");
 }
@@ -2282,6 +2397,11 @@ impl ::core::cmp::PartialEq for GridPatternIdentifiers {
     }
 }
 impl ::core::cmp::Eq for GridPatternIdentifiers {}
+impl ::core::fmt::Debug for GridPatternIdentifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GridPatternIdentifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GridPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.GridPatternIdentifiers;{c902980f-96c5-450c-9044-7e52c24f9e94})");
 }
@@ -3687,6 +3807,11 @@ impl ::core::cmp::PartialEq for MultipleViewPatternIdentifiers {
     }
 }
 impl ::core::cmp::Eq for MultipleViewPatternIdentifiers {}
+impl ::core::fmt::Debug for MultipleViewPatternIdentifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MultipleViewPatternIdentifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MultipleViewPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.MultipleViewPatternIdentifiers;{5d5cd3b8-1e12-488b-b0ea-5e6cb89816e1})");
 }
@@ -3802,6 +3927,11 @@ impl ::core::cmp::PartialEq for RangeValuePatternIdentifiers {
     }
 }
 impl ::core::cmp::Eq for RangeValuePatternIdentifiers {}
+impl ::core::fmt::Debug for RangeValuePatternIdentifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RangeValuePatternIdentifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RangeValuePatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.RangeValuePatternIdentifiers;{f8760f45-33c9-467d-bc9e-d1515263ace1})");
 }
@@ -3877,6 +4007,11 @@ impl ::core::cmp::PartialEq for RowOrColumnMajor {
     }
 }
 impl ::core::cmp::Eq for RowOrColumnMajor {}
+impl ::core::fmt::Debug for RowOrColumnMajor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RowOrColumnMajor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RowOrColumnMajor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.RowOrColumnMajor;i4)");
 }
@@ -3908,6 +4043,11 @@ impl ::core::cmp::PartialEq for ScrollAmount {
     }
 }
 impl ::core::cmp::Eq for ScrollAmount {}
+impl ::core::fmt::Debug for ScrollAmount {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScrollAmount").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScrollAmount {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.ScrollAmount;i4)");
 }
@@ -3984,6 +4124,11 @@ impl ::core::cmp::PartialEq for ScrollPatternIdentifiers {
     }
 }
 impl ::core::cmp::Eq for ScrollPatternIdentifiers {}
+impl ::core::fmt::Debug for ScrollPatternIdentifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScrollPatternIdentifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScrollPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.ScrollPatternIdentifiers;{366b1003-425c-4951-ae83-d521e73bc696})");
 }
@@ -4071,6 +4216,11 @@ impl ::core::cmp::PartialEq for SelectionItemPatternIdentifiers {
     }
 }
 impl ::core::cmp::Eq for SelectionItemPatternIdentifiers {}
+impl ::core::fmt::Debug for SelectionItemPatternIdentifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SelectionItemPatternIdentifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SelectionItemPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.SelectionItemPatternIdentifiers;{2dafa41a-3ef8-4bb5-a02b-3ee1b2274740})");
 }
@@ -4165,6 +4315,11 @@ impl ::core::cmp::PartialEq for SelectionPatternIdentifiers {
     }
 }
 impl ::core::cmp::Eq for SelectionPatternIdentifiers {}
+impl ::core::fmt::Debug for SelectionPatternIdentifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SelectionPatternIdentifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SelectionPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.SelectionPatternIdentifiers;{4aa66fb0-e3f7-475f-b78d-f8a83bb730c4})");
 }
@@ -4245,6 +4400,11 @@ impl ::core::cmp::PartialEq for SpreadsheetItemPatternIdentifiers {
     }
 }
 impl ::core::cmp::Eq for SpreadsheetItemPatternIdentifiers {}
+impl ::core::fmt::Debug for SpreadsheetItemPatternIdentifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpreadsheetItemPatternIdentifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpreadsheetItemPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.SpreadsheetItemPatternIdentifiers;{84347e19-ca4b-46a2-a794-c87928a3b1ab})");
 }
@@ -4367,6 +4527,11 @@ impl ::core::cmp::PartialEq for StylesPatternIdentifiers {
     }
 }
 impl ::core::cmp::Eq for StylesPatternIdentifiers {}
+impl ::core::fmt::Debug for StylesPatternIdentifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StylesPatternIdentifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StylesPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.StylesPatternIdentifiers;{b0e4e201-e89d-436b-8287-4f7903466879})");
 }
@@ -4442,6 +4607,11 @@ impl ::core::cmp::PartialEq for SupportedTextSelection {
     }
 }
 impl ::core::cmp::Eq for SupportedTextSelection {}
+impl ::core::fmt::Debug for SupportedTextSelection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SupportedTextSelection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SupportedTextSelection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.SupportedTextSelection;i4)");
 }
@@ -4474,6 +4644,11 @@ impl ::core::cmp::PartialEq for SynchronizedInputType {
     }
 }
 impl ::core::cmp::Eq for SynchronizedInputType {}
+impl ::core::fmt::Debug for SynchronizedInputType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SynchronizedInputType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SynchronizedInputType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.SynchronizedInputType;i4)");
 }
@@ -4515,6 +4690,11 @@ impl ::core::cmp::PartialEq for TableItemPatternIdentifiers {
     }
 }
 impl ::core::cmp::Eq for TableItemPatternIdentifiers {}
+impl ::core::fmt::Debug for TableItemPatternIdentifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TableItemPatternIdentifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TableItemPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.TableItemPatternIdentifiers;{c326e5ad-8077-4c64-98e4-e83bcf1b4389})");
 }
@@ -4609,6 +4789,11 @@ impl ::core::cmp::PartialEq for TablePatternIdentifiers {
     }
 }
 impl ::core::cmp::Eq for TablePatternIdentifiers {}
+impl ::core::fmt::Debug for TablePatternIdentifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TablePatternIdentifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TablePatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.TablePatternIdentifiers;{38d104fe-0d0c-412a-bf8d-51ede683baf5})");
 }
@@ -4689,6 +4874,11 @@ impl ::core::cmp::PartialEq for TogglePatternIdentifiers {
     }
 }
 impl ::core::cmp::Eq for TogglePatternIdentifiers {}
+impl ::core::fmt::Debug for TogglePatternIdentifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TogglePatternIdentifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TogglePatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.TogglePatternIdentifiers;{7e191f6b-34d4-4ae7-83ac-29f88882d985})");
 }
@@ -4764,6 +4954,11 @@ impl ::core::cmp::PartialEq for ToggleState {
     }
 }
 impl ::core::cmp::Eq for ToggleState {}
+impl ::core::fmt::Debug for ToggleState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToggleState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToggleState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.ToggleState;i4)");
 }
@@ -4819,6 +5014,11 @@ impl ::core::cmp::PartialEq for TransformPattern2Identifiers {
     }
 }
 impl ::core::cmp::Eq for TransformPattern2Identifiers {}
+impl ::core::fmt::Debug for TransformPattern2Identifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TransformPattern2Identifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TransformPattern2Identifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.TransformPattern2Identifiers;{08aaa03d-dea7-402f-8097-9a2783d60e5d})");
 }
@@ -4913,6 +5113,11 @@ impl ::core::cmp::PartialEq for TransformPatternIdentifiers {
     }
 }
 impl ::core::cmp::Eq for TransformPatternIdentifiers {}
+impl ::core::fmt::Debug for TransformPatternIdentifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TransformPatternIdentifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TransformPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.TransformPatternIdentifiers;{e4115b8c-c3c8-4a37-b994-2709a7811665})");
 }
@@ -5000,6 +5205,11 @@ impl ::core::cmp::PartialEq for ValuePatternIdentifiers {
     }
 }
 impl ::core::cmp::Eq for ValuePatternIdentifiers {}
+impl ::core::fmt::Debug for ValuePatternIdentifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ValuePatternIdentifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ValuePatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.ValuePatternIdentifiers;{425bf64c-5333-4e41-b470-2bad14ecd085})");
 }
@@ -5077,6 +5287,11 @@ impl ::core::cmp::PartialEq for WindowInteractionState {
     }
 }
 impl ::core::cmp::Eq for WindowInteractionState {}
+impl ::core::fmt::Debug for WindowInteractionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowInteractionState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WindowInteractionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.WindowInteractionState;i4)");
 }
@@ -5146,6 +5361,11 @@ impl ::core::cmp::PartialEq for WindowPatternIdentifiers {
     }
 }
 impl ::core::cmp::Eq for WindowPatternIdentifiers {}
+impl ::core::fmt::Debug for WindowPatternIdentifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowPatternIdentifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WindowPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.WindowPatternIdentifiers;{39f78bb4-7032-41e2-b79e-27b74a8628de})");
 }
@@ -5221,6 +5441,11 @@ impl ::core::cmp::PartialEq for WindowVisualState {
     }
 }
 impl ::core::cmp::Eq for WindowVisualState {}
+impl ::core::fmt::Debug for WindowVisualState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowVisualState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WindowVisualState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.WindowVisualState;i4)");
 }
@@ -5252,6 +5477,11 @@ impl ::core::cmp::PartialEq for ZoomUnit {
     }
 }
 impl ::core::cmp::Eq for ZoomUnit {}
+impl ::core::fmt::Debug for ZoomUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ZoomUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ZoomUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.ZoomUnit;i4)");
 }

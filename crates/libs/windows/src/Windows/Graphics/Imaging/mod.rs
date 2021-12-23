@@ -22,6 +22,11 @@ impl ::core::cmp::PartialEq for BitmapAlphaMode {
     }
 }
 impl ::core::cmp::Eq for BitmapAlphaMode {}
+impl ::core::fmt::Debug for BitmapAlphaMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapAlphaMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BitmapAlphaMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapAlphaMode;i4)");
 }
@@ -40,6 +45,11 @@ impl ::core::marker::Copy for BitmapBounds {}
 impl ::core::clone::Clone for BitmapBounds {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BitmapBounds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BitmapBounds").field("X", &self.X).field("Y", &self.Y).field("Width", &self.Width).field("Height", &self.Height).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BitmapBounds {
@@ -109,6 +119,11 @@ impl ::core::cmp::PartialEq for BitmapBuffer {
     }
 }
 impl ::core::cmp::Eq for BitmapBuffer {}
+impl ::core::fmt::Debug for BitmapBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapBuffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BitmapBuffer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapBuffer;{a53e04c4-399c-438c-b28f-a63a6b83d1a1})");
 }
@@ -236,6 +251,11 @@ impl ::core::cmp::PartialEq for BitmapBufferAccessMode {
     }
 }
 impl ::core::cmp::Eq for BitmapBufferAccessMode {}
+impl ::core::fmt::Debug for BitmapBufferAccessMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapBufferAccessMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BitmapBufferAccessMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapBufferAccessMode;i4)");
 }
@@ -292,6 +312,11 @@ impl ::core::cmp::PartialEq for BitmapCodecInformation {
     }
 }
 impl ::core::cmp::Eq for BitmapCodecInformation {}
+impl ::core::fmt::Debug for BitmapCodecInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapCodecInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BitmapCodecInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapCodecInformation;{400caaf2-c4b0-4392-a3b0-6f6f9ba95cb4})");
 }
@@ -625,6 +650,11 @@ impl ::core::cmp::PartialEq for BitmapDecoder {
     }
 }
 impl ::core::cmp::Eq for BitmapDecoder {}
+impl ::core::fmt::Debug for BitmapDecoder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapDecoder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BitmapDecoder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapDecoder;{acef22ba-1d74-4c91-9dfc-9620745233e6})");
 }
@@ -944,6 +974,11 @@ impl ::core::cmp::PartialEq for BitmapEncoder {
     }
 }
 impl ::core::cmp::Eq for BitmapEncoder {}
+impl ::core::fmt::Debug for BitmapEncoder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapEncoder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BitmapEncoder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapEncoder;{2bc468e3-e1f8-4b54-95e8-32919551ce62})");
 }
@@ -1019,6 +1054,11 @@ impl ::core::cmp::PartialEq for BitmapFlip {
     }
 }
 impl ::core::cmp::Eq for BitmapFlip {}
+impl ::core::fmt::Debug for BitmapFlip {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapFlip").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BitmapFlip {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapFlip;i4)");
 }
@@ -1167,6 +1207,11 @@ impl ::core::cmp::PartialEq for BitmapFrame {
     }
 }
 impl ::core::cmp::Eq for BitmapFrame {}
+impl ::core::fmt::Debug for BitmapFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BitmapFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapFrame;{72a49a1c-8081-438d-91bc-94ecfc8185c6})");
 }
@@ -1287,6 +1332,11 @@ impl ::core::cmp::PartialEq for BitmapInterpolationMode {
     }
 }
 impl ::core::cmp::Eq for BitmapInterpolationMode {}
+impl ::core::fmt::Debug for BitmapInterpolationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapInterpolationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BitmapInterpolationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapInterpolationMode;i4)");
 }
@@ -1322,6 +1372,11 @@ impl ::core::cmp::PartialEq for BitmapPixelFormat {
     }
 }
 impl ::core::cmp::Eq for BitmapPixelFormat {}
+impl ::core::fmt::Debug for BitmapPixelFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapPixelFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BitmapPixelFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapPixelFormat;i4)");
 }
@@ -1340,6 +1395,11 @@ impl ::core::marker::Copy for BitmapPlaneDescription {}
 impl ::core::clone::Clone for BitmapPlaneDescription {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BitmapPlaneDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BitmapPlaneDescription").field("StartIndex", &self.StartIndex).field("Width", &self.Width).field("Height", &self.Height).field("Stride", &self.Stride).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BitmapPlaneDescription {
@@ -1396,6 +1456,11 @@ impl ::core::cmp::PartialEq for BitmapProperties {
     }
 }
 impl ::core::cmp::Eq for BitmapProperties {}
+impl ::core::fmt::Debug for BitmapProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BitmapProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapProperties;{ea9f4f1b-b505-4450-a4d1-e8ca94529d8d})");
 }
@@ -1495,6 +1560,11 @@ impl ::core::cmp::PartialEq for BitmapPropertiesView {
     }
 }
 impl ::core::cmp::Eq for BitmapPropertiesView {}
+impl ::core::fmt::Debug for BitmapPropertiesView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapPropertiesView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BitmapPropertiesView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapPropertiesView;{7e0fe87a-3a70-48f8-9c55-196cf5a545f5})");
 }
@@ -1664,6 +1734,12 @@ impl ::core::cmp::PartialEq for BitmapPropertySet {
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for BitmapPropertySet {}
 #[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for BitmapPropertySet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapPropertySet").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for BitmapPropertySet {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapPropertySet;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};string;rc(Windows.Graphics.Imaging.BitmapTypedValue;{cd8044a9-2443-4000-b0cd-79316c56f589})))");
 }
@@ -1820,6 +1896,11 @@ impl ::core::cmp::PartialEq for BitmapRotation {
     }
 }
 impl ::core::cmp::Eq for BitmapRotation {}
+impl ::core::fmt::Debug for BitmapRotation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapRotation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BitmapRotation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapRotation;i4)");
 }
@@ -1836,6 +1917,11 @@ impl ::core::marker::Copy for BitmapSize {}
 impl ::core::clone::Clone for BitmapSize {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BitmapSize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BitmapSize").field("Width", &self.Width).field("Height", &self.Height).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BitmapSize {
@@ -1959,6 +2045,11 @@ impl ::core::cmp::PartialEq for BitmapTransform {
     }
 }
 impl ::core::cmp::Eq for BitmapTransform {}
+impl ::core::fmt::Debug for BitmapTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BitmapTransform {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapTransform;{ae755344-e268-4d35-adcf-e995d31a8d34})");
 }
@@ -2057,6 +2148,11 @@ impl ::core::cmp::PartialEq for BitmapTypedValue {
     }
 }
 impl ::core::cmp::Eq for BitmapTypedValue {}
+impl ::core::fmt::Debug for BitmapTypedValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapTypedValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BitmapTypedValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapTypedValue;{cd8044a9-2443-4000-b0cd-79316c56f589})");
 }
@@ -2131,6 +2227,11 @@ impl ::core::cmp::PartialEq for ColorManagementMode {
     }
 }
 impl ::core::cmp::Eq for ColorManagementMode {}
+impl ::core::fmt::Debug for ColorManagementMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ColorManagementMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ColorManagementMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.ColorManagementMode;i4)");
 }
@@ -2159,6 +2260,11 @@ impl ::core::cmp::PartialEq for ExifOrientationMode {
     }
 }
 impl ::core::cmp::Eq for ExifOrientationMode {}
+impl ::core::fmt::Debug for ExifOrientationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExifOrientationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ExifOrientationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.ExifOrientationMode;i4)");
 }
@@ -2538,6 +2644,11 @@ impl ::core::cmp::PartialEq for IBitmapFrame {
     }
 }
 impl ::core::cmp::Eq for IBitmapFrame {}
+impl ::core::fmt::Debug for IBitmapFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBitmapFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBitmapFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{72a49a1c-8081-438d-91bc-94ecfc8185c6}");
 }
@@ -2774,6 +2885,11 @@ impl ::core::cmp::PartialEq for IBitmapFrameWithSoftwareBitmap {
     }
 }
 impl ::core::cmp::Eq for IBitmapFrameWithSoftwareBitmap {}
+impl ::core::fmt::Debug for IBitmapFrameWithSoftwareBitmap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBitmapFrameWithSoftwareBitmap").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBitmapFrameWithSoftwareBitmap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fe287c9a-420c-4963-87ad-691436e08383}");
 }
@@ -2881,6 +2997,11 @@ impl ::core::cmp::PartialEq for IBitmapPropertiesView {
     }
 }
 impl ::core::cmp::Eq for IBitmapPropertiesView {}
+impl ::core::fmt::Debug for IBitmapPropertiesView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBitmapPropertiesView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBitmapPropertiesView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7e0fe87a-3a70-48f8-9c55-196cf5a545f5}");
 }
@@ -3205,6 +3326,12 @@ impl ::core::cmp::PartialEq for ImageStream {
 #[cfg(feature = "Storage_Streams")]
 impl ::core::cmp::Eq for ImageStream {}
 #[cfg(feature = "Storage_Streams")]
+impl ::core::fmt::Debug for ImageStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageStream").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::core::RuntimeType for ImageStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.ImageStream;{cc254827-4b3d-438f-9232-10c76bc7e038})");
 }
@@ -3449,6 +3576,11 @@ impl ::core::cmp::PartialEq for JpegSubsamplingMode {
     }
 }
 impl ::core::cmp::Eq for JpegSubsamplingMode {}
+impl ::core::fmt::Debug for JpegSubsamplingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JpegSubsamplingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for JpegSubsamplingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.JpegSubsamplingMode;i4)");
 }
@@ -3479,6 +3611,11 @@ impl ::core::cmp::PartialEq for PixelDataProvider {
     }
 }
 impl ::core::cmp::Eq for PixelDataProvider {}
+impl ::core::fmt::Debug for PixelDataProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PixelDataProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PixelDataProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.PixelDataProvider;{dd831f25-185c-4595-9fb9-ccbe6ec18a6f})");
 }
@@ -3558,6 +3695,11 @@ impl ::core::cmp::PartialEq for PngFilterMode {
     }
 }
 impl ::core::cmp::Eq for PngFilterMode {}
+impl ::core::fmt::Debug for PngFilterMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PngFilterMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PngFilterMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.PngFilterMode;i4)");
 }
@@ -3762,6 +3904,11 @@ impl ::core::cmp::PartialEq for SoftwareBitmap {
     }
 }
 impl ::core::cmp::Eq for SoftwareBitmap {}
+impl ::core::fmt::Debug for SoftwareBitmap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SoftwareBitmap").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SoftwareBitmap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.SoftwareBitmap;{689e0708-7eef-483f-963f-da938818e073})");
 }
@@ -3868,6 +4015,11 @@ impl ::core::cmp::PartialEq for TiffCompressionMode {
     }
 }
 impl ::core::cmp::Eq for TiffCompressionMode {}
+impl ::core::fmt::Debug for TiffCompressionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TiffCompressionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TiffCompressionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.TiffCompressionMode;i4)");
 }

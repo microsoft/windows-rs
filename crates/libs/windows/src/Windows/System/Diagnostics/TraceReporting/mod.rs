@@ -92,6 +92,11 @@ impl ::core::cmp::PartialEq for PlatformDiagnosticActionState {
     }
 }
 impl ::core::cmp::Eq for PlatformDiagnosticActionState {}
+impl ::core::fmt::Debug for PlatformDiagnosticActionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDiagnosticActionState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticActionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticActionState;i4)");
 }
@@ -191,6 +196,11 @@ impl ::core::cmp::PartialEq for PlatformDiagnosticEscalationType {
     }
 }
 impl ::core::cmp::Eq for PlatformDiagnosticEscalationType {}
+impl ::core::fmt::Debug for PlatformDiagnosticEscalationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDiagnosticEscalationType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticEscalationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEscalationType;i4)");
 }
@@ -220,6 +230,11 @@ impl ::core::cmp::PartialEq for PlatformDiagnosticEventBufferLatencies {
     }
 }
 impl ::core::cmp::Eq for PlatformDiagnosticEventBufferLatencies {}
+impl ::core::fmt::Debug for PlatformDiagnosticEventBufferLatencies {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDiagnosticEventBufferLatencies").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticEventBufferLatencies {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEventBufferLatencies;u4)");
 }
@@ -290,6 +305,11 @@ impl ::core::cmp::PartialEq for PlatformDiagnosticTraceInfo {
     }
 }
 impl ::core::cmp::Eq for PlatformDiagnosticTraceInfo {}
+impl ::core::fmt::Debug for PlatformDiagnosticTraceInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDiagnosticTraceInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTraceInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo;{f870ed97-d597-4bf7-88dc-cf5c7dc2a1d2})");
 }
@@ -364,6 +384,11 @@ impl ::core::cmp::PartialEq for PlatformDiagnosticTracePriority {
     }
 }
 impl ::core::cmp::Eq for PlatformDiagnosticTracePriority {}
+impl ::core::fmt::Debug for PlatformDiagnosticTracePriority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDiagnosticTracePriority").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTracePriority {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTracePriority;i4)");
 }
@@ -402,6 +427,11 @@ impl ::core::cmp::PartialEq for PlatformDiagnosticTraceRuntimeInfo {
     }
 }
 impl ::core::cmp::Eq for PlatformDiagnosticTraceRuntimeInfo {}
+impl ::core::fmt::Debug for PlatformDiagnosticTraceRuntimeInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDiagnosticTraceRuntimeInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTraceRuntimeInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceRuntimeInfo;{3d4d5e2d-01d8-4768-8554-1eb1ca610986})");
 }
@@ -477,6 +507,11 @@ impl ::core::cmp::PartialEq for PlatformDiagnosticTraceSlotState {
     }
 }
 impl ::core::cmp::Eq for PlatformDiagnosticTraceSlotState {}
+impl ::core::fmt::Debug for PlatformDiagnosticTraceSlotState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDiagnosticTraceSlotState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTraceSlotState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceSlotState;i4)");
 }
@@ -506,6 +541,11 @@ impl ::core::cmp::PartialEq for PlatformDiagnosticTraceSlotType {
     }
 }
 impl ::core::cmp::Eq for PlatformDiagnosticTraceSlotType {}
+impl ::core::fmt::Debug for PlatformDiagnosticTraceSlotType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDiagnosticTraceSlotType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTraceSlotType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceSlotType;i4)");
 }

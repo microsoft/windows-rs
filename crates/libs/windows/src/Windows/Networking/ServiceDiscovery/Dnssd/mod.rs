@@ -55,6 +55,11 @@ impl ::core::cmp::PartialEq for DnssdRegistrationResult {
     }
 }
 impl ::core::cmp::Eq for DnssdRegistrationResult {}
+impl ::core::fmt::Debug for DnssdRegistrationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DnssdRegistrationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DnssdRegistrationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationResult;{3d786ad2-e606-5350-73ea-7e97f066162f})");
 }
@@ -157,6 +162,11 @@ impl ::core::cmp::PartialEq for DnssdRegistrationStatus {
     }
 }
 impl ::core::cmp::Eq for DnssdRegistrationStatus {}
+impl ::core::fmt::Debug for DnssdRegistrationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DnssdRegistrationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DnssdRegistrationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationStatus;i4)");
 }
@@ -310,6 +320,11 @@ impl ::core::cmp::PartialEq for DnssdServiceInstance {
     }
 }
 impl ::core::cmp::Eq for DnssdServiceInstance {}
+impl ::core::fmt::Debug for DnssdServiceInstance {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DnssdServiceInstance").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DnssdServiceInstance {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstance;{e246db7e-98a5-4ca1-b9e4-c253d33c35ff})");
 }
@@ -454,6 +469,12 @@ impl ::core::cmp::PartialEq for DnssdServiceInstanceCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for DnssdServiceInstanceCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for DnssdServiceInstanceCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DnssdServiceInstanceCollection").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for DnssdServiceInstanceCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstanceCollection;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstance;{e246db7e-98a5-4ca1-b9e4-c253d33c35ff})))");
@@ -666,6 +687,11 @@ impl ::core::cmp::PartialEq for DnssdServiceWatcher {
     }
 }
 impl ::core::cmp::Eq for DnssdServiceWatcher {}
+impl ::core::fmt::Debug for DnssdServiceWatcher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DnssdServiceWatcher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DnssdServiceWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcher;{cc34d9c1-db7d-4b69-983d-c6f83f205682})");
 }
@@ -744,6 +770,11 @@ impl ::core::cmp::PartialEq for DnssdServiceWatcherStatus {
     }
 }
 impl ::core::cmp::Eq for DnssdServiceWatcherStatus {}
+impl ::core::fmt::Debug for DnssdServiceWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DnssdServiceWatcherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DnssdServiceWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcherStatus;i4)");
 }

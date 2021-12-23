@@ -109,6 +109,11 @@ impl ::core::cmp::PartialEq for AdvancedColorInfo {
     }
 }
 impl ::core::cmp::Eq for AdvancedColorInfo {}
+impl ::core::fmt::Debug for AdvancedColorInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdvancedColorInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdvancedColorInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.AdvancedColorInfo;{8797dcfb-b229-4081-ae9a-2cc85e34ad6a})");
 }
@@ -184,6 +189,11 @@ impl ::core::cmp::PartialEq for AdvancedColorKind {
     }
 }
 impl ::core::cmp::Eq for AdvancedColorKind {}
+impl ::core::fmt::Debug for AdvancedColorKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdvancedColorKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdvancedColorKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.AdvancedColorKind;i4)");
 }
@@ -330,6 +340,11 @@ impl ::core::cmp::PartialEq for BrightnessOverride {
     }
 }
 impl ::core::cmp::Eq for BrightnessOverride {}
+impl ::core::fmt::Debug for BrightnessOverride {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BrightnessOverride").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BrightnessOverride {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.BrightnessOverride;{96c9621a-c143-4392-bedd-4a7e9574c8fd})");
 }
@@ -440,6 +455,11 @@ impl ::core::cmp::PartialEq for BrightnessOverrideSettings {
     }
 }
 impl ::core::cmp::Eq for BrightnessOverrideSettings {}
+impl ::core::fmt::Debug for BrightnessOverrideSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BrightnessOverrideSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BrightnessOverrideSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.BrightnessOverrideSettings;{d112ab2a-7604-4dba-bcf8-4b6f49502cb0})");
 }
@@ -528,6 +548,11 @@ impl ::core::cmp::PartialEq for ColorOverrideSettings {
     }
 }
 impl ::core::cmp::Eq for ColorOverrideSettings {}
+impl ::core::fmt::Debug for ColorOverrideSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ColorOverrideSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ColorOverrideSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.ColorOverrideSettings;{fbefa134-4a81-4c4d-a5b6-7d1b5c4bd00b})");
 }
@@ -602,6 +627,11 @@ impl ::core::cmp::PartialEq for DisplayBrightnessOverrideOptions {
     }
 }
 impl ::core::cmp::Eq for DisplayBrightnessOverrideOptions {}
+impl ::core::fmt::Debug for DisplayBrightnessOverrideOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayBrightnessOverrideOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayBrightnessOverrideOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessOverrideOptions;u4)");
 }
@@ -631,6 +661,11 @@ impl ::core::cmp::PartialEq for DisplayBrightnessOverrideScenario {
     }
 }
 impl ::core::cmp::Eq for DisplayBrightnessOverrideScenario {}
+impl ::core::fmt::Debug for DisplayBrightnessOverrideScenario {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayBrightnessOverrideScenario").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayBrightnessOverrideScenario {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessOverrideScenario;i4)");
 }
@@ -661,6 +696,11 @@ impl ::core::cmp::PartialEq for DisplayBrightnessScenario {
     }
 }
 impl ::core::cmp::Eq for DisplayBrightnessScenario {}
+impl ::core::fmt::Debug for DisplayBrightnessScenario {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayBrightnessScenario").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayBrightnessScenario {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessScenario;i4)");
 }
@@ -688,6 +728,11 @@ impl ::core::cmp::PartialEq for DisplayColorOverrideScenario {
     }
 }
 impl ::core::cmp::Eq for DisplayColorOverrideScenario {}
+impl ::core::fmt::Debug for DisplayColorOverrideScenario {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayColorOverrideScenario").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayColorOverrideScenario {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayColorOverrideScenario;i4)");
 }
@@ -827,6 +872,11 @@ impl ::core::cmp::PartialEq for DisplayEnhancementOverride {
     }
 }
 impl ::core::cmp::Eq for DisplayEnhancementOverride {}
+impl ::core::fmt::Debug for DisplayEnhancementOverride {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayEnhancementOverride").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayEnhancementOverride {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayEnhancementOverride;{429594cf-d97a-4b02-a428-5c4292f7f522})");
 }
@@ -920,6 +970,11 @@ impl ::core::cmp::PartialEq for DisplayEnhancementOverrideCapabilities {
     }
 }
 impl ::core::cmp::Eq for DisplayEnhancementOverrideCapabilities {}
+impl ::core::fmt::Debug for DisplayEnhancementOverrideCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayEnhancementOverrideCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayEnhancementOverrideCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayEnhancementOverrideCapabilities;{457060de-ee5a-47b7-9918-1e51e812ccc8})");
 }
@@ -996,6 +1051,11 @@ impl ::core::cmp::PartialEq for DisplayEnhancementOverrideCapabilitiesChangedEve
     }
 }
 impl ::core::cmp::Eq for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
+impl ::core::fmt::Debug for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayEnhancementOverrideCapabilitiesChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayEnhancementOverrideCapabilitiesChangedEventArgs;{db61e664-15fa-49da-8b77-07dbd2af585d})");
 }
@@ -1281,6 +1341,11 @@ impl ::core::cmp::PartialEq for DisplayInformation {
     }
 }
 impl ::core::cmp::Eq for DisplayInformation {}
+impl ::core::fmt::Debug for DisplayInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayInformation;{bed112ae-adc3-4dc9-ae65-851f4d7d4799})");
 }
@@ -1358,6 +1423,11 @@ impl ::core::cmp::PartialEq for DisplayOrientations {
     }
 }
 impl ::core::cmp::Eq for DisplayOrientations {}
+impl ::core::fmt::Debug for DisplayOrientations {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayOrientations").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayOrientations {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayOrientations;u4)");
 }
@@ -1575,6 +1645,12 @@ impl ::core::cmp::PartialEq for DisplayPropertiesEventHandler {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for DisplayPropertiesEventHandler {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for DisplayPropertiesEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayPropertiesEventHandler").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for DisplayPropertiesEventHandler {
     type Vtable = DisplayPropertiesEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbdd8b01_f1a1_46d1_9ee3_543bcc995980);
@@ -1621,6 +1697,11 @@ impl ::core::cmp::PartialEq for DisplayServices {
     }
 }
 impl ::core::cmp::Eq for DisplayServices {}
+impl ::core::fmt::Debug for DisplayServices {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayServices").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayServices {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayServices;{1b54f32b-890d-5747-bd26-fdbdeb0c8a71})");
 }
@@ -1695,6 +1776,11 @@ impl ::core::cmp::PartialEq for HdrMetadataFormat {
     }
 }
 impl ::core::cmp::Eq for HdrMetadataFormat {}
+impl ::core::fmt::Debug for HdrMetadataFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdrMetadataFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HdrMetadataFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.HdrMetadataFormat;i4)");
 }
@@ -2209,6 +2295,11 @@ impl ::core::clone::Clone for NitRange {
         *self
     }
 }
+impl ::core::fmt::Debug for NitRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NitRange").field("MinNits", &self.MinNits).field("MaxNits", &self.MaxNits).field("StepSizeNits", &self.StepSizeNits).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NitRange {
     type Abi = Self;
 }
@@ -2266,6 +2357,11 @@ impl ::core::cmp::PartialEq for ResolutionScale {
     }
 }
 impl ::core::cmp::Eq for ResolutionScale {}
+impl ::core::fmt::Debug for ResolutionScale {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ResolutionScale").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ResolutionScale {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.ResolutionScale;i4)");
 }

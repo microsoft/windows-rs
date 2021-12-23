@@ -11,6 +11,11 @@ impl ::core::clone::Clone for CATALOG_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for CATALOG_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CATALOG_INFO").field("cbStruct", &self.cbStruct).field("wszCatalogFile", &self.wszCatalogFile).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CATALOG_INFO {
     type Abi = Self;
 }
@@ -42,6 +47,12 @@ impl ::core::marker::Copy for CRYPTCATATTRIBUTE {}
 impl ::core::clone::Clone for CRYPTCATATTRIBUTE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CRYPTCATATTRIBUTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CRYPTCATATTRIBUTE").field("cbStruct", &self.cbStruct).field("pwszReferenceTag", &self.pwszReferenceTag).field("dwAttrTypeAndAction", &self.dwAttrTypeAndAction).field("cbValue", &self.cbValue).field("pbValue", &self.pbValue).field("dwReserved", &self.dwReserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -80,6 +91,12 @@ impl ::core::marker::Copy for CRYPTCATCDF {}
 impl ::core::clone::Clone for CRYPTCATCDF {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CRYPTCATCDF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CRYPTCATCDF").field("cbStruct", &self.cbStruct).field("hFile", &self.hFile).field("dwCurFilePos", &self.dwCurFilePos).field("dwLastMemberOffset", &self.dwLastMemberOffset).field("fEOF", &self.fEOF).field("pwszResultDir", &self.pwszResultDir).field("hCATStore", &self.hCATStore).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -125,6 +142,24 @@ impl ::core::clone::Clone for CRYPTCATMEMBER {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+impl ::core::fmt::Debug for CRYPTCATMEMBER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CRYPTCATMEMBER")
+            .field("cbStruct", &self.cbStruct)
+            .field("pwszReferenceTag", &self.pwszReferenceTag)
+            .field("pwszFileName", &self.pwszFileName)
+            .field("gSubjectType", &self.gSubjectType)
+            .field("fdwMemberFlags", &self.fdwMemberFlags)
+            .field("pIndirectData", &self.pIndirectData)
+            .field("dwCertVersion", &self.dwCertVersion)
+            .field("dwReserved", &self.dwReserved)
+            .field("hReserved", &self.hReserved)
+            .field("sEncodedIndirectData", &self.sEncodedIndirectData)
+            .field("sEncodedMemberInfo", &self.sEncodedMemberInfo)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
 unsafe impl ::windows::core::Abi for CRYPTCATMEMBER {
     type Abi = Self;
 }
@@ -163,6 +198,12 @@ impl ::core::marker::Copy for CRYPTCATSTORE {}
 impl ::core::clone::Clone for CRYPTCATSTORE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CRYPTCATSTORE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CRYPTCATSTORE").field("cbStruct", &self.cbStruct).field("dwPublicVersion", &self.dwPublicVersion).field("pwszP7File", &self.pwszP7File).field("hProv", &self.hProv).field("dwEncodingType", &self.dwEncodingType).field("fdwStoreFlags", &self.fdwStoreFlags).field("hReserved", &self.hReserved).field("hAttrs", &self.hAttrs).field("hCryptMsg", &self.hCryptMsg).field("hSorted", &self.hSorted).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -39,6 +39,11 @@ impl ::core::cmp::PartialEq for AudioCaptureEffectsManager {
     }
 }
 impl ::core::cmp::Eq for AudioCaptureEffectsManager {}
+impl ::core::fmt::Debug for AudioCaptureEffectsManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioCaptureEffectsManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioCaptureEffectsManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioCaptureEffectsManager;{8f85c271-038d-4393-8298-540110608eef})");
 }
@@ -115,6 +120,11 @@ impl ::core::cmp::PartialEq for AudioEffect {
     }
 }
 impl ::core::cmp::Eq for AudioEffect {}
+impl ::core::fmt::Debug for AudioEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioEffect;{34aafa51-9207-4055-be93-6e5734a86ae4})");
 }
@@ -220,6 +230,11 @@ impl ::core::cmp::PartialEq for AudioEffectDefinition {
     }
 }
 impl ::core::cmp::Eq for AudioEffectDefinition {}
+impl ::core::fmt::Debug for AudioEffectDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioEffectDefinition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioEffectDefinition;{e4d7f974-7d80-4f73-9089-e31c9db9c294})");
 }
@@ -334,6 +349,11 @@ impl ::core::cmp::PartialEq for AudioEffectType {
     }
 }
 impl ::core::cmp::Eq for AudioEffectType {}
+impl ::core::fmt::Debug for AudioEffectType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioEffectType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioEffectType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.AudioEffectType;i4)");
 }
@@ -448,6 +468,11 @@ impl ::core::cmp::PartialEq for AudioRenderEffectsManager {
     }
 }
 impl ::core::cmp::Eq for AudioRenderEffectsManager {}
+impl ::core::fmt::Debug for AudioRenderEffectsManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioRenderEffectsManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioRenderEffectsManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioRenderEffectsManager;{4dc98966-8751-42b2-bfcb-39ca7864bd47})");
 }
@@ -550,6 +575,11 @@ impl ::core::cmp::PartialEq for CompositeVideoFrameContext {
     }
 }
 impl ::core::cmp::Eq for CompositeVideoFrameContext {}
+impl ::core::fmt::Debug for CompositeVideoFrameContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositeVideoFrameContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositeVideoFrameContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.CompositeVideoFrameContext;{6c30024b-f514-4278-a5f7-b9188049d110})");
 }
@@ -716,6 +746,11 @@ impl ::core::cmp::PartialEq for IAudioEffectDefinition {
     }
 }
 impl ::core::cmp::Eq for IAudioEffectDefinition {}
+impl ::core::fmt::Debug for IAudioEffectDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioEffectDefinition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IAudioEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e4d7f974-7d80-4f73-9089-e31c9db9c294}");
 }
@@ -952,6 +987,11 @@ impl ::core::cmp::PartialEq for IBasicAudioEffect {
     }
 }
 impl ::core::cmp::Eq for IBasicAudioEffect {}
+impl ::core::fmt::Debug for IBasicAudioEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBasicAudioEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBasicAudioEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8c062c53-6bc0-48b8-a99a-4b41550f1359}");
 }
@@ -1115,6 +1155,11 @@ impl ::core::cmp::PartialEq for IBasicVideoEffect {
     }
 }
 impl ::core::cmp::Eq for IBasicVideoEffect {}
+impl ::core::fmt::Debug for IBasicVideoEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBasicVideoEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBasicVideoEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8262c7ef-b360-40be-949b-2ff42ff35693}");
 }
@@ -1335,6 +1380,11 @@ impl ::core::cmp::PartialEq for IVideoCompositor {
     }
 }
 impl ::core::cmp::Eq for IVideoCompositor {}
+impl ::core::fmt::Debug for IVideoCompositor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVideoCompositor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IVideoCompositor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8510b43e-420c-420f-96c7-7c98bba1fc55}");
 }
@@ -1431,6 +1481,11 @@ impl ::core::cmp::PartialEq for IVideoCompositorDefinition {
     }
 }
 impl ::core::cmp::Eq for IVideoCompositorDefinition {}
+impl ::core::fmt::Debug for IVideoCompositorDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVideoCompositorDefinition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IVideoCompositorDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7946b8d0-2010-4ae3-9ab2-2cef42edd4d2}");
 }
@@ -1544,6 +1599,11 @@ impl ::core::cmp::PartialEq for IVideoEffectDefinition {
     }
 }
 impl ::core::cmp::Eq for IVideoEffectDefinition {}
+impl ::core::fmt::Debug for IVideoEffectDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVideoEffectDefinition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IVideoEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{39f38cf0-8d0f-4f3e-84fc-2d46a5297943}");
 }
@@ -1700,6 +1760,11 @@ impl ::core::cmp::PartialEq for MediaEffectClosedReason {
     }
 }
 impl ::core::cmp::Eq for MediaEffectClosedReason {}
+impl ::core::fmt::Debug for MediaEffectClosedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaEffectClosedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaEffectClosedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.MediaEffectClosedReason;i4)");
 }
@@ -1729,6 +1794,11 @@ impl ::core::cmp::PartialEq for MediaMemoryTypes {
     }
 }
 impl ::core::cmp::Eq for MediaMemoryTypes {}
+impl ::core::fmt::Debug for MediaMemoryTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaMemoryTypes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaMemoryTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.MediaMemoryTypes;i4)");
 }
@@ -1767,6 +1837,11 @@ impl ::core::cmp::PartialEq for ProcessAudioFrameContext {
     }
 }
 impl ::core::cmp::Eq for ProcessAudioFrameContext {}
+impl ::core::fmt::Debug for ProcessAudioFrameContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProcessAudioFrameContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProcessAudioFrameContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.ProcessAudioFrameContext;{4cd92946-1222-4a27-a586-fb3e20273255})");
 }
@@ -1851,6 +1926,11 @@ impl ::core::cmp::PartialEq for ProcessVideoFrameContext {
     }
 }
 impl ::core::cmp::Eq for ProcessVideoFrameContext {}
+impl ::core::fmt::Debug for ProcessVideoFrameContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProcessVideoFrameContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProcessVideoFrameContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.ProcessVideoFrameContext;{276f0e2b-6461-401e-ba78-0fdad6114eec})");
 }
@@ -1956,6 +2036,11 @@ impl ::core::cmp::PartialEq for SlowMotionEffectDefinition {
     }
 }
 impl ::core::cmp::Eq for SlowMotionEffectDefinition {}
+impl ::core::fmt::Debug for SlowMotionEffectDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SlowMotionEffectDefinition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SlowMotionEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.SlowMotionEffectDefinition;{35053cd0-176c-4763-82c4-1b02dbe31737})");
 }
@@ -2083,6 +2168,11 @@ impl ::core::cmp::PartialEq for VideoCompositorDefinition {
     }
 }
 impl ::core::cmp::Eq for VideoCompositorDefinition {}
+impl ::core::fmt::Debug for VideoCompositorDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoCompositorDefinition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoCompositorDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoCompositorDefinition;{7946b8d0-2010-4ae3-9ab2-2cef42edd4d2})");
 }
@@ -2210,6 +2300,11 @@ impl ::core::cmp::PartialEq for VideoEffectDefinition {
     }
 }
 impl ::core::cmp::Eq for VideoEffectDefinition {}
+impl ::core::fmt::Debug for VideoEffectDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoEffectDefinition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoEffectDefinition;{39f38cf0-8d0f-4f3e-84fc-2d46a5297943})");
 }
@@ -2422,6 +2517,11 @@ impl ::core::cmp::PartialEq for VideoTransformEffectDefinition {
     }
 }
 impl ::core::cmp::Eq for VideoTransformEffectDefinition {}
+impl ::core::fmt::Debug for VideoTransformEffectDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoTransformEffectDefinition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoTransformEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoTransformEffectDefinition;{39f38cf0-8d0f-4f3e-84fc-2d46a5297943})");
 }
@@ -2583,6 +2683,11 @@ impl ::core::cmp::PartialEq for VideoTransformSphericalProjection {
     }
 }
 impl ::core::cmp::Eq for VideoTransformSphericalProjection {}
+impl ::core::fmt::Debug for VideoTransformSphericalProjection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoTransformSphericalProjection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoTransformSphericalProjection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoTransformSphericalProjection;{cf4401f0-9bf2-4c39-9f41-e022514a8468})");
 }

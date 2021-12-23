@@ -43,6 +43,11 @@ impl ::core::cmp::PartialEq for AppServiceClosedEventArgs {
     }
 }
 impl ::core::cmp::Eq for AppServiceClosedEventArgs {}
+impl ::core::fmt::Debug for AppServiceClosedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppServiceClosedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppServiceClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceClosedEventArgs;{de6016f6-cb03-4d35-ac8d-cc6303239731})");
 }
@@ -119,6 +124,11 @@ impl ::core::cmp::PartialEq for AppServiceClosedStatus {
     }
 }
 impl ::core::cmp::Eq for AppServiceClosedStatus {}
+impl ::core::fmt::Debug for AppServiceClosedStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppServiceClosedStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppServiceClosedStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceClosedStatus;i4)");
 }
@@ -265,6 +275,11 @@ impl ::core::cmp::PartialEq for AppServiceConnection {
     }
 }
 impl ::core::cmp::Eq for AppServiceConnection {}
+impl ::core::fmt::Debug for AppServiceConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppServiceConnection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppServiceConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceConnection;{9dd474a2-871f-4d52-89a9-9e090531bd27})");
 }
@@ -375,6 +390,11 @@ impl ::core::cmp::PartialEq for AppServiceConnectionStatus {
     }
 }
 impl ::core::cmp::Eq for AppServiceConnectionStatus {}
+impl ::core::fmt::Debug for AppServiceConnectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppServiceConnectionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppServiceConnectionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceConnectionStatus;i4)");
 }
@@ -402,6 +422,11 @@ impl ::core::cmp::PartialEq for AppServiceDeferral {
     }
 }
 impl ::core::cmp::Eq for AppServiceDeferral {}
+impl ::core::fmt::Debug for AppServiceDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppServiceDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppServiceDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceDeferral;{7e1b5322-eab0-4248-ae04-fdf93838e472})");
 }
@@ -488,6 +513,11 @@ impl ::core::cmp::PartialEq for AppServiceRequest {
     }
 }
 impl ::core::cmp::Eq for AppServiceRequest {}
+impl ::core::fmt::Debug for AppServiceRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppServiceRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceRequest;{20e58d9d-18de-4b01-80ba-90a76204e3c8})");
 }
@@ -572,6 +602,11 @@ impl ::core::cmp::PartialEq for AppServiceRequestReceivedEventArgs {
     }
 }
 impl ::core::cmp::Eq for AppServiceRequestReceivedEventArgs {}
+impl ::core::fmt::Debug for AppServiceRequestReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppServiceRequestReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppServiceRequestReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceRequestReceivedEventArgs;{6e122360-ff65-44ae-9e45-857fe4180681})");
 }
@@ -657,6 +692,11 @@ impl ::core::cmp::PartialEq for AppServiceResponse {
     }
 }
 impl ::core::cmp::Eq for AppServiceResponse {}
+impl ::core::fmt::Debug for AppServiceResponse {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppServiceResponse").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppServiceResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceResponse;{8d503cec-9aa3-4e68-9559-9de63e372ce4})");
 }
@@ -740,6 +780,11 @@ impl ::core::cmp::PartialEq for AppServiceResponseStatus {
     }
 }
 impl ::core::cmp::Eq for AppServiceResponseStatus {}
+impl ::core::fmt::Debug for AppServiceResponseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppServiceResponseStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppServiceResponseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceResponseStatus;i4)");
 }
@@ -811,6 +856,11 @@ impl ::core::cmp::PartialEq for AppServiceTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for AppServiceTriggerDetails {}
+impl ::core::fmt::Debug for AppServiceTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppServiceTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppServiceTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceTriggerDetails;{88a2dcac-ad28-41b8-80bb-bdf1b2169e19})");
 }
@@ -1181,6 +1231,11 @@ impl ::core::cmp::PartialEq for StatelessAppServiceResponse {
     }
 }
 impl ::core::cmp::Eq for StatelessAppServiceResponse {}
+impl ::core::fmt::Debug for StatelessAppServiceResponse {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StatelessAppServiceResponse").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StatelessAppServiceResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.StatelessAppServiceResponse;{43754af7-a9ec-52fe-82e7-939b68dc9388})");
 }
@@ -1268,6 +1323,11 @@ impl ::core::cmp::PartialEq for StatelessAppServiceResponseStatus {
     }
 }
 impl ::core::cmp::Eq for StatelessAppServiceResponseStatus {}
+impl ::core::fmt::Debug for StatelessAppServiceResponseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StatelessAppServiceResponseStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StatelessAppServiceResponseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.StatelessAppServiceResponseStatus;i4)");
 }

@@ -357,6 +357,11 @@ impl ::core::clone::Clone for INPUT_INJECTION_VALUE {
         *self
     }
 }
+impl ::core::fmt::Debug for INPUT_INJECTION_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INPUT_INJECTION_VALUE").field("page", &self.page).field("usage", &self.usage).field("value", &self.value).field("index", &self.index).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for INPUT_INJECTION_VALUE {
     type Abi = Self;
 }
@@ -446,6 +451,11 @@ impl ::core::marker::Copy for INPUT_TRANSFORM_0_0 {}
 impl ::core::clone::Clone for INPUT_TRANSFORM_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for INPUT_TRANSFORM_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INPUT_TRANSFORM_0_0").field("_11", &self._11).field("_12", &self._12).field("_13", &self._13).field("_14", &self._14).field("_21", &self._21).field("_22", &self._22).field("_23", &self._23).field("_24", &self._24).field("_31", &self._31).field("_32", &self._32).field("_33", &self._33).field("_34", &self._34).field("_41", &self._41).field("_42", &self._42).field("_43", &self._43).field("_44", &self._44).finish()
     }
 }
 unsafe impl ::windows::core::Abi for INPUT_TRANSFORM_0_0 {
@@ -616,6 +626,29 @@ impl ::core::clone::Clone for POINTER_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for POINTER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POINTER_INFO")
+            .field("pointerType", &self.pointerType)
+            .field("pointerId", &self.pointerId)
+            .field("frameId", &self.frameId)
+            .field("pointerFlags", &self.pointerFlags)
+            .field("sourceDevice", &self.sourceDevice)
+            .field("hwndTarget", &self.hwndTarget)
+            .field("ptPixelLocation", &self.ptPixelLocation)
+            .field("ptHimetricLocation", &self.ptHimetricLocation)
+            .field("ptPixelLocationRaw", &self.ptPixelLocationRaw)
+            .field("ptHimetricLocationRaw", &self.ptHimetricLocationRaw)
+            .field("dwTime", &self.dwTime)
+            .field("historyCount", &self.historyCount)
+            .field("InputData", &self.InputData)
+            .field("dwKeyStates", &self.dwKeyStates)
+            .field("PerformanceCount", &self.PerformanceCount)
+            .field("ButtonChangeType", &self.ButtonChangeType)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for POINTER_INFO {
     type Abi = Self;
 }
@@ -654,6 +687,12 @@ impl ::core::clone::Clone for POINTER_PEN_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for POINTER_PEN_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POINTER_PEN_INFO").field("pointerInfo", &self.pointerInfo).field("penFlags", &self.penFlags).field("penMask", &self.penMask).field("pressure", &self.pressure).field("rotation", &self.rotation).field("tiltX", &self.tiltX).field("tiltY", &self.tiltY).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for POINTER_PEN_INFO {
     type Abi = Self;
 }
@@ -689,6 +728,12 @@ impl ::core::marker::Copy for POINTER_TOUCH_INFO {}
 impl ::core::clone::Clone for POINTER_TOUCH_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for POINTER_TOUCH_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POINTER_TOUCH_INFO").field("pointerInfo", &self.pointerInfo).field("touchFlags", &self.touchFlags).field("touchMask", &self.touchMask).field("rcContact", &self.rcContact).field("rcContactRaw", &self.rcContactRaw).field("orientation", &self.orientation).field("pressure", &self.pressure).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]

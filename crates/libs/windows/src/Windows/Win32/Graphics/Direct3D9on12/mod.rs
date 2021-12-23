@@ -22,6 +22,12 @@ impl ::core::clone::Clone for D3D9ON12_ARGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D9ON12_ARGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D9ON12_ARGS").field("Enable9On12", &self.Enable9On12).field("pD3D12Device", &self.pD3D12Device).field("ppD3D12Queues", &self.ppD3D12Queues).field("NumQueues", &self.NumQueues).field("NodeMask", &self.NodeMask).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D9ON12_ARGS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -119,6 +125,11 @@ impl ::core::cmp::PartialEq for IDirect3DDevice9On12 {
     }
 }
 impl ::core::cmp::Eq for IDirect3DDevice9On12 {}
+impl ::core::fmt::Debug for IDirect3DDevice9On12 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DDevice9On12").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3DDevice9On12 {
     type Vtable = IDirect3DDevice9On12Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7fda234_b589_4049_940d_8878977531c8);

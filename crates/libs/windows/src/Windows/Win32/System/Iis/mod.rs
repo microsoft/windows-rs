@@ -65,6 +65,11 @@ impl ::core::cmp::PartialEq for AsyncIFtpAuthenticationProvider {
     }
 }
 impl ::core::cmp::Eq for AsyncIFtpAuthenticationProvider {}
+impl ::core::fmt::Debug for AsyncIFtpAuthenticationProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIFtpAuthenticationProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIFtpAuthenticationProvider {
     type Vtable = AsyncIFtpAuthenticationProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc24efb65_9f3e_4996_8fb1_ce166916bab5);
@@ -126,6 +131,11 @@ impl ::core::cmp::PartialEq for AsyncIFtpAuthorizationProvider {
     }
 }
 impl ::core::cmp::Eq for AsyncIFtpAuthorizationProvider {}
+impl ::core::fmt::Debug for AsyncIFtpAuthorizationProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIFtpAuthorizationProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIFtpAuthorizationProvider {
     type Vtable = AsyncIFtpAuthorizationProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x860dc339_07e5_4a5c_9c61_8820cea012bc);
@@ -187,6 +197,11 @@ impl ::core::cmp::PartialEq for AsyncIFtpHomeDirectoryProvider {
     }
 }
 impl ::core::cmp::Eq for AsyncIFtpHomeDirectoryProvider {}
+impl ::core::fmt::Debug for AsyncIFtpHomeDirectoryProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIFtpHomeDirectoryProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIFtpHomeDirectoryProvider {
     type Vtable = AsyncIFtpHomeDirectoryProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73f81638_6295_42bd_a2be_4a657f7c479c);
@@ -247,6 +262,11 @@ impl ::core::cmp::PartialEq for AsyncIFtpLogProvider {
     }
 }
 impl ::core::cmp::Eq for AsyncIFtpLogProvider {}
+impl ::core::fmt::Debug for AsyncIFtpLogProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIFtpLogProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIFtpLogProvider {
     type Vtable = AsyncIFtpLogProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00a0ae46_2498_48b2_95e6_df678ed7d49f);
@@ -307,6 +327,11 @@ impl ::core::cmp::PartialEq for AsyncIFtpPostprocessProvider {
     }
 }
 impl ::core::cmp::Eq for AsyncIFtpPostprocessProvider {}
+impl ::core::fmt::Debug for AsyncIFtpPostprocessProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIFtpPostprocessProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIFtpPostprocessProvider {
     type Vtable = AsyncIFtpPostprocessProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa16b2542_9694_4eb1_a564_6c2e91fdc133);
@@ -367,6 +392,11 @@ impl ::core::cmp::PartialEq for AsyncIFtpPreprocessProvider {
     }
 }
 impl ::core::cmp::Eq for AsyncIFtpPreprocessProvider {}
+impl ::core::fmt::Debug for AsyncIFtpPreprocessProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIFtpPreprocessProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIFtpPreprocessProvider {
     type Vtable = AsyncIFtpPreprocessProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ff5fd8f_fd8e_48b1_a3e0_bf7073db4db5);
@@ -428,6 +458,11 @@ impl ::core::cmp::PartialEq for AsyncIFtpRoleProvider {
     }
 }
 impl ::core::cmp::Eq for AsyncIFtpRoleProvider {}
+impl ::core::fmt::Debug for AsyncIFtpRoleProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIFtpRoleProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIFtpRoleProvider {
     type Vtable = AsyncIFtpRoleProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e83bf99_70ec_41ca_84b6_aca7c7a62caf);
@@ -496,6 +531,11 @@ impl ::core::cmp::PartialEq for AsyncIMSAdminBaseSinkW {
     }
 }
 impl ::core::cmp::Eq for AsyncIMSAdminBaseSinkW {}
+impl ::core::fmt::Debug for AsyncIMSAdminBaseSinkW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIMSAdminBaseSinkW").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIMSAdminBaseSinkW {
     type Vtable = AsyncIMSAdminBaseSinkWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9e69613_b80d_11d0_b9b9_00a0c922e750);
@@ -526,6 +566,12 @@ impl ::core::marker::Copy for CERT_CONTEXT_EX {}
 impl ::core::clone::Clone for CERT_CONTEXT_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::fmt::Debug for CERT_CONTEXT_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CERT_CONTEXT_EX").field("CertContext", &self.CertContext).field("cbAllocated", &self.cbAllocated).field("dwCertificateFlags", &self.dwCertificateFlags).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -566,6 +612,12 @@ pub struct CONFIGURATION_ENTRY {
 impl ::core::clone::Clone for CONFIGURATION_ENTRY {
     fn clone(&self) -> Self {
         Self { bstrKey: self.bstrKey.clone(), bstrValue: self.bstrValue.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CONFIGURATION_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONFIGURATION_ENTRY").field("bstrKey", &self.bstrKey).field("bstrValue", &self.bstrValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -662,6 +714,30 @@ impl ::core::marker::Copy for EXTENSION_CONTROL_BLOCK {}
 impl ::core::clone::Clone for EXTENSION_CONTROL_BLOCK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EXTENSION_CONTROL_BLOCK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXTENSION_CONTROL_BLOCK")
+            .field("cbSize", &self.cbSize)
+            .field("dwVersion", &self.dwVersion)
+            .field("ConnID", &self.ConnID)
+            .field("dwHttpStatusCode", &self.dwHttpStatusCode)
+            .field("lpszLogData", &self.lpszLogData)
+            .field("lpszMethod", &self.lpszMethod)
+            .field("lpszQueryString", &self.lpszQueryString)
+            .field("lpszPathInfo", &self.lpszPathInfo)
+            .field("lpszPathTranslated", &self.lpszPathTranslated)
+            .field("cbTotalBytes", &self.cbTotalBytes)
+            .field("cbAvailable", &self.cbAvailable)
+            .field("lpbData", &self.lpbData)
+            .field("lpszContentType", &self.lpszContentType)
+            .field("GetServerVariable", &self.GetServerVariable)
+            .field("WriteClient", &self.WriteClient)
+            .field("ReadClient", &self.ReadClient)
+            .field("ServerSupportFunction", &self.ServerSupportFunction)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -769,6 +845,12 @@ impl ::core::clone::Clone for HSE_CUSTOM_ERROR_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_CUSTOM_ERROR_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_CUSTOM_ERROR_INFO").field("pszStatus", &self.pszStatus).field("uHttpSubError", &self.uHttpSubError).field("fAsync", &self.fAsync).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HSE_CUSTOM_ERROR_INFO {
     type Abi = Self;
 }
@@ -806,6 +888,12 @@ impl ::core::clone::Clone for HSE_EXEC_UNICODE_URL_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_EXEC_UNICODE_URL_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_EXEC_UNICODE_URL_INFO").field("pszUrl", &self.pszUrl).field("pszMethod", &self.pszMethod).field("pszChildHeaders", &self.pszChildHeaders).field("pUserInfo", &self.pUserInfo).field("pEntity", &self.pEntity).field("dwExecUrlFlags", &self.dwExecUrlFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HSE_EXEC_UNICODE_URL_INFO {
     type Abi = Self;
 }
@@ -840,6 +928,12 @@ impl ::core::clone::Clone for HSE_EXEC_UNICODE_URL_USER_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_EXEC_UNICODE_URL_USER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_EXEC_UNICODE_URL_USER_INFO").field("hImpersonationToken", &self.hImpersonationToken).field("pszCustomUserName", &self.pszCustomUserName).field("pszCustomAuthType", &self.pszCustomAuthType).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HSE_EXEC_UNICODE_URL_USER_INFO {
     type Abi = Self;
 }
@@ -869,6 +963,11 @@ impl ::core::marker::Copy for HSE_EXEC_URL_ENTITY_INFO {}
 impl ::core::clone::Clone for HSE_EXEC_URL_ENTITY_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HSE_EXEC_URL_ENTITY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_EXEC_URL_ENTITY_INFO").field("cbAvailable", &self.cbAvailable).field("lpbData", &self.lpbData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HSE_EXEC_URL_ENTITY_INFO {
@@ -911,6 +1010,12 @@ impl ::core::clone::Clone for HSE_EXEC_URL_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_EXEC_URL_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_EXEC_URL_INFO").field("pszUrl", &self.pszUrl).field("pszMethod", &self.pszMethod).field("pszChildHeaders", &self.pszChildHeaders).field("pUserInfo", &self.pUserInfo).field("pEntity", &self.pEntity).field("dwExecUrlFlags", &self.dwExecUrlFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HSE_EXEC_URL_INFO {
     type Abi = Self;
 }
@@ -945,6 +1050,11 @@ impl ::core::clone::Clone for HSE_EXEC_URL_STATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for HSE_EXEC_URL_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_EXEC_URL_STATUS").field("uHttpStatusCode", &self.uHttpStatusCode).field("uHttpSubStatus", &self.uHttpSubStatus).field("dwWin32Error", &self.dwWin32Error).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HSE_EXEC_URL_STATUS {
     type Abi = Self;
 }
@@ -973,6 +1083,12 @@ impl ::core::marker::Copy for HSE_EXEC_URL_USER_INFO {}
 impl ::core::clone::Clone for HSE_EXEC_URL_USER_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_EXEC_URL_USER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_EXEC_URL_USER_INFO").field("hImpersonationToken", &self.hImpersonationToken).field("pszCustomUserName", &self.pszCustomUserName).field("pszCustomAuthType", &self.pszCustomAuthType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1116,6 +1232,12 @@ impl ::core::clone::Clone for HSE_RESPONSE_VECTOR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_RESPONSE_VECTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_RESPONSE_VECTOR").field("dwFlags", &self.dwFlags).field("pszStatus", &self.pszStatus).field("pszHeaders", &self.pszHeaders).field("nElementCount", &self.nElementCount).field("lpElementArray", &self.lpElementArray).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HSE_RESPONSE_VECTOR {
     type Abi = Self;
 }
@@ -1149,6 +1271,12 @@ impl ::core::marker::Copy for HSE_SEND_HEADER_EX_INFO {}
 impl ::core::clone::Clone for HSE_SEND_HEADER_EX_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_SEND_HEADER_EX_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_SEND_HEADER_EX_INFO").field("pszStatus", &self.pszStatus).field("pszHeader", &self.pszHeader).field("cchStatus", &self.cchStatus).field("cchHeader", &self.cchHeader).field("fKeepConn", &self.fKeepConn).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1206,6 +1334,12 @@ impl ::core::clone::Clone for HSE_TF_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_TF_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_TF_INFO").field("pfnHseIO", &self.pfnHseIO.map(|f| f as usize)).field("pContext", &self.pContext).field("hFile", &self.hFile).field("pszStatusCode", &self.pszStatusCode).field("BytesToWrite", &self.BytesToWrite).field("Offset", &self.Offset).field("pHead", &self.pHead).field("HeadLength", &self.HeadLength).field("pTail", &self.pTail).field("TailLength", &self.TailLength).field("dwFlags", &self.dwFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HSE_TF_INFO {
     type Abi = Self;
 }
@@ -1241,6 +1375,12 @@ impl ::core::clone::Clone for HSE_TRACE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_TRACE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_TRACE_INFO").field("fTraceRequest", &self.fTraceRequest).field("TraceContextId", &self.TraceContextId).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HSE_TRACE_INFO {
     type Abi = Self;
 }
@@ -1270,6 +1410,11 @@ impl ::core::marker::Copy for HSE_UNICODE_URL_MAPEX_INFO {}
 impl ::core::clone::Clone for HSE_UNICODE_URL_MAPEX_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HSE_UNICODE_URL_MAPEX_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_UNICODE_URL_MAPEX_INFO").field("lpszPath", &self.lpszPath).field("dwFlags", &self.dwFlags).field("cchMatchingPath", &self.cchMatchingPath).field("cchMatchingURL", &self.cchMatchingURL).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HSE_UNICODE_URL_MAPEX_INFO {
@@ -1328,6 +1473,12 @@ impl ::core::clone::Clone for HSE_URL_MAPEX_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_URL_MAPEX_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_URL_MAPEX_INFO").field("lpszPath", &self.lpszPath).field("dwFlags", &self.dwFlags).field("cchMatchingPath", &self.cchMatchingPath).field("cchMatchingURL", &self.cchMatchingURL).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HSE_URL_MAPEX_INFO {
     type Abi = Self;
 }
@@ -1357,6 +1508,11 @@ impl ::core::marker::Copy for HSE_VECTOR_ELEMENT {}
 impl ::core::clone::Clone for HSE_VECTOR_ELEMENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HSE_VECTOR_ELEMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_VECTOR_ELEMENT").field("ElementType", &self.ElementType).field("pvContext", &self.pvContext).field("cbOffset", &self.cbOffset).field("cbSize", &self.cbSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HSE_VECTOR_ELEMENT {
@@ -1390,6 +1546,12 @@ impl ::core::marker::Copy for HSE_VERSION_INFO {}
 impl ::core::clone::Clone for HSE_VERSION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_VERSION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_VERSION_INFO").field("dwExtensionVersion", &self.dwExtensionVersion).field("lpszExtensionDesc", &self.lpszExtensionDesc).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1431,6 +1593,12 @@ impl ::core::clone::Clone for HTTP_FILTER_ACCESS_DENIED {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_FILTER_ACCESS_DENIED {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_FILTER_ACCESS_DENIED").field("pszURL", &self.pszURL).field("pszPhysicalPath", &self.pszPhysicalPath).field("dwReason", &self.dwReason).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_FILTER_ACCESS_DENIED {
     type Abi = Self;
 }
@@ -1463,6 +1631,12 @@ impl ::core::marker::Copy for HTTP_FILTER_AUTHENT {}
 impl ::core::clone::Clone for HTTP_FILTER_AUTHENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_FILTER_AUTHENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_FILTER_AUTHENT").field("pszUser", &self.pszUser).field("cbUserBuff", &self.cbUserBuff).field("pszPassword", &self.pszPassword).field("cbPasswordBuff", &self.cbPasswordBuff).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1501,6 +1675,12 @@ impl ::core::marker::Copy for HTTP_FILTER_AUTH_COMPLETE_INFO {}
 impl ::core::clone::Clone for HTTP_FILTER_AUTH_COMPLETE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_FILTER_AUTH_COMPLETE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_FILTER_AUTH_COMPLETE_INFO").field("GetHeader", &self.GetHeader).field("SetHeader", &self.SetHeader).field("AddHeader", &self.AddHeader).field("GetUserToken", &self.GetUserToken).field("HttpStatus", &self.HttpStatus).field("fResetAuth", &self.fResetAuth).field("dwReserved", &self.dwReserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1546,6 +1726,24 @@ impl ::core::clone::Clone for HTTP_FILTER_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_FILTER_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_FILTER_CONTEXT")
+            .field("cbSize", &self.cbSize)
+            .field("Revision", &self.Revision)
+            .field("ServerContext", &self.ServerContext)
+            .field("ulReserved", &self.ulReserved)
+            .field("fIsSecurePort", &self.fIsSecurePort)
+            .field("pFilterContext", &self.pFilterContext)
+            .field("GetServerVariable", &self.GetServerVariable)
+            .field("AddResponseHeaders", &self.AddResponseHeaders)
+            .field("WriteClient", &self.WriteClient)
+            .field("AllocMem", &self.AllocMem)
+            .field("ServerSupportFunction", &self.ServerSupportFunction)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_FILTER_CONTEXT {
     type Abi = Self;
 }
@@ -1588,6 +1786,24 @@ impl ::core::clone::Clone for HTTP_FILTER_LOG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_FILTER_LOG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_FILTER_LOG")
+            .field("pszClientHostName", &self.pszClientHostName)
+            .field("pszClientUserName", &self.pszClientUserName)
+            .field("pszServerName", &self.pszServerName)
+            .field("pszOperation", &self.pszOperation)
+            .field("pszTarget", &self.pszTarget)
+            .field("pszParameters", &self.pszParameters)
+            .field("dwHttpStatus", &self.dwHttpStatus)
+            .field("dwWin32Status", &self.dwWin32Status)
+            .field("dwBytesSent", &self.dwBytesSent)
+            .field("dwBytesRecvd", &self.dwBytesRecvd)
+            .field("msTimeForProcessing", &self.msTimeForProcessing)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_FILTER_LOG {
     type Abi = Self;
 }
@@ -1620,6 +1836,11 @@ impl ::core::clone::Clone for HTTP_FILTER_PREPROC_HEADERS {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_FILTER_PREPROC_HEADERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_FILTER_PREPROC_HEADERS").field("GetHeader", &self.GetHeader).field("SetHeader", &self.SetHeader).field("AddHeader", &self.AddHeader).field("HttpStatus", &self.HttpStatus).field("dwReserved", &self.dwReserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_FILTER_PREPROC_HEADERS {
     type Abi = Self;
 }
@@ -1646,6 +1867,11 @@ impl ::core::marker::Copy for HTTP_FILTER_RAW_DATA {}
 impl ::core::clone::Clone for HTTP_FILTER_RAW_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_FILTER_RAW_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_FILTER_RAW_DATA").field("pvInData", &self.pvInData).field("cbInData", &self.cbInData).field("cbInBuffer", &self.cbInBuffer).field("dwReserved", &self.dwReserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_FILTER_RAW_DATA {
@@ -1676,6 +1902,12 @@ impl ::core::marker::Copy for HTTP_FILTER_URL_MAP {}
 impl ::core::clone::Clone for HTTP_FILTER_URL_MAP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_FILTER_URL_MAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_FILTER_URL_MAP").field("pszURL", &self.pszURL).field("pszPhysicalPath", &self.pszPhysicalPath).field("cbPathBuff", &self.cbPathBuff).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1717,6 +1949,12 @@ impl ::core::clone::Clone for HTTP_FILTER_URL_MAP_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_FILTER_URL_MAP_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_FILTER_URL_MAP_EX").field("pszURL", &self.pszURL).field("pszPhysicalPath", &self.pszPhysicalPath).field("cbPathBuff", &self.cbPathBuff).field("dwFlags", &self.dwFlags).field("cchMatchingPath", &self.cchMatchingPath).field("cchMatchingURL", &self.cchMatchingURL).field("pszScriptMapEntry", &self.pszScriptMapEntry).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_FILTER_URL_MAP_EX {
     type Abi = Self;
 }
@@ -1752,6 +1990,12 @@ impl ::core::clone::Clone for HTTP_FILTER_VERSION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_FILTER_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_FILTER_VERSION").field("dwServerFilterVersion", &self.dwServerFilterVersion).field("dwFilterVersion", &self.dwFilterVersion).field("lpszFilterDesc", &self.lpszFilterDesc).field("dwFlags", &self.dwFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_FILTER_VERSION {
     type Abi = Self;
 }
@@ -1784,6 +2028,12 @@ impl ::core::marker::Copy for HTTP_TRACE_CONFIGURATION {}
 impl ::core::clone::Clone for HTTP_TRACE_CONFIGURATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_TRACE_CONFIGURATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_TRACE_CONFIGURATION").field("pProviderGuid", &self.pProviderGuid).field("dwAreas", &self.dwAreas).field("dwVerbosity", &self.dwVerbosity).field("fProviderEnabled", &self.fProviderEnabled).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1831,6 +2081,26 @@ impl ::core::clone::Clone for HTTP_TRACE_EVENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_TRACE_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_TRACE_EVENT")
+            .field("pProviderGuid", &self.pProviderGuid)
+            .field("dwArea", &self.dwArea)
+            .field("pAreaGuid", &self.pAreaGuid)
+            .field("dwEvent", &self.dwEvent)
+            .field("pszEventName", &self.pszEventName)
+            .field("dwEventVersion", &self.dwEventVersion)
+            .field("dwVerbosity", &self.dwVerbosity)
+            .field("pActivityGuid", &self.pActivityGuid)
+            .field("pRelatedActivityGuid", &self.pRelatedActivityGuid)
+            .field("dwTimeStamp", &self.dwTimeStamp)
+            .field("dwFlags", &self.dwFlags)
+            .field("cEventItems", &self.cEventItems)
+            .field("pEventItems", &self.pEventItems)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_TRACE_EVENT {
     type Abi = Self;
 }
@@ -1866,6 +2136,12 @@ impl ::core::marker::Copy for HTTP_TRACE_EVENT_ITEM {}
 impl ::core::clone::Clone for HTTP_TRACE_EVENT_ITEM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_TRACE_EVENT_ITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_TRACE_EVENT_ITEM").field("pszName", &self.pszName).field("dwDataType", &self.dwDataType).field("pbData", &self.pbData).field("cbData", &self.cbData).field("pszDataDescription", &self.pszDataDescription).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1994,6 +2270,11 @@ impl ::core::cmp::PartialEq for IADMEXT {
     }
 }
 impl ::core::cmp::Eq for IADMEXT {}
+impl ::core::fmt::Debug for IADMEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IADMEXT").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IADMEXT {
     type Vtable = IADMEXTVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51dfe970_f6f2_11d0_b9bd_00a0c922e750);
@@ -2049,6 +2330,11 @@ impl ::core::cmp::PartialEq for IFtpAuthenticationProvider {
     }
 }
 impl ::core::cmp::Eq for IFtpAuthenticationProvider {}
+impl ::core::fmt::Debug for IFtpAuthenticationProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFtpAuthenticationProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFtpAuthenticationProvider {
     type Vtable = IFtpAuthenticationProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4659f95c_d5a8_4707_b2fc_6fd5794246cf);
@@ -2104,6 +2390,11 @@ impl ::core::cmp::PartialEq for IFtpAuthorizationProvider {
     }
 }
 impl ::core::cmp::Eq for IFtpAuthorizationProvider {}
+impl ::core::fmt::Debug for IFtpAuthorizationProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFtpAuthorizationProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFtpAuthorizationProvider {
     type Vtable = IFtpAuthorizationProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa50ae7a1_a35a_42b4_a4f3_f4f7057a05d1);
@@ -2159,6 +2450,11 @@ impl ::core::cmp::PartialEq for IFtpHomeDirectoryProvider {
     }
 }
 impl ::core::cmp::Eq for IFtpHomeDirectoryProvider {}
+impl ::core::fmt::Debug for IFtpHomeDirectoryProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFtpHomeDirectoryProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFtpHomeDirectoryProvider {
     type Vtable = IFtpHomeDirectoryProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0933b392_18dd_4097_8b9c_83325c35d9a6);
@@ -2213,6 +2509,11 @@ impl ::core::cmp::PartialEq for IFtpLogProvider {
     }
 }
 impl ::core::cmp::Eq for IFtpLogProvider {}
+impl ::core::fmt::Debug for IFtpLogProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFtpLogProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFtpLogProvider {
     type Vtable = IFtpLogProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa18a94cc_8299_4408_816c_7c3baca1a40e);
@@ -2268,6 +2569,11 @@ impl ::core::cmp::PartialEq for IFtpPostprocessProvider {
     }
 }
 impl ::core::cmp::Eq for IFtpPostprocessProvider {}
+impl ::core::fmt::Debug for IFtpPostprocessProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFtpPostprocessProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFtpPostprocessProvider {
     type Vtable = IFtpPostprocessProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4522cbc6_16cd_49ad_8653_9a2c579e4280);
@@ -2323,6 +2629,11 @@ impl ::core::cmp::PartialEq for IFtpPreprocessProvider {
     }
 }
 impl ::core::cmp::Eq for IFtpPreprocessProvider {}
+impl ::core::fmt::Debug for IFtpPreprocessProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFtpPreprocessProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFtpPreprocessProvider {
     type Vtable = IFtpPreprocessProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3c19b60_5a28_471a_8f93_ab30411cee82);
@@ -2377,6 +2688,11 @@ impl ::core::cmp::PartialEq for IFtpProviderConstruct {
     }
 }
 impl ::core::cmp::Eq for IFtpProviderConstruct {}
+impl ::core::fmt::Debug for IFtpProviderConstruct {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFtpProviderConstruct").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFtpProviderConstruct {
     type Vtable = IFtpProviderConstructVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d1a3f7b_412d_447c_b199_64f967e9a2da);
@@ -2432,6 +2748,11 @@ impl ::core::cmp::PartialEq for IFtpRoleProvider {
     }
 }
 impl ::core::cmp::Eq for IFtpRoleProvider {}
+impl ::core::fmt::Debug for IFtpRoleProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFtpRoleProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFtpRoleProvider {
     type Vtable = IFtpRoleProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x909c850d_8ca0_4674_96b8_cc2941535725);
@@ -2764,6 +3085,11 @@ impl ::core::cmp::PartialEq for IMSAdminBase2W {
     }
 }
 impl ::core::cmp::Eq for IMSAdminBase2W {}
+impl ::core::fmt::Debug for IMSAdminBase2W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSAdminBase2W").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSAdminBase2W {
     type Vtable = IMSAdminBase2WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8298d101_f992_43b7_8eca_5052d885b995);
@@ -3102,6 +3428,11 @@ impl ::core::cmp::PartialEq for IMSAdminBase3W {
     }
 }
 impl ::core::cmp::Eq for IMSAdminBase3W {}
+impl ::core::fmt::Debug for IMSAdminBase3W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSAdminBase3W").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSAdminBase3W {
     type Vtable = IMSAdminBase3WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf612954d_3b0b_4c56_9563_227b7be624b4);
@@ -3225,6 +3556,11 @@ impl ::core::cmp::PartialEq for IMSAdminBaseSinkW {
     }
 }
 impl ::core::cmp::Eq for IMSAdminBaseSinkW {}
+impl ::core::fmt::Debug for IMSAdminBaseSinkW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSAdminBaseSinkW").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSAdminBaseSinkW {
     type Vtable = IMSAdminBaseSinkWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9e69612_b80d_11d0_b9b9_00a0c922e750);
@@ -3426,6 +3762,11 @@ impl ::core::cmp::PartialEq for IMSAdminBaseW {
     }
 }
 impl ::core::cmp::Eq for IMSAdminBaseW {}
+impl ::core::fmt::Debug for IMSAdminBaseW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSAdminBaseW").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSAdminBaseW {
     type Vtable = IMSAdminBaseWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70b51430_b6ca_11d0_b9b9_00a0c922e750);
@@ -3531,6 +3872,11 @@ impl ::core::cmp::PartialEq for IMSImpExpHelpW {
     }
 }
 impl ::core::cmp::Eq for IMSImpExpHelpW {}
+impl ::core::fmt::Debug for IMSImpExpHelpW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSImpExpHelpW").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSImpExpHelpW {
     type Vtable = IMSImpExpHelpWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29ff67ff_8050_480f_9f30_cc41635f2f9d);
@@ -3576,6 +3922,31 @@ impl ::core::marker::Copy for LOGGING_PARAMETERS {}
 impl ::core::clone::Clone for LOGGING_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LOGGING_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOGGING_PARAMETERS")
+            .field("pszSessionId", &self.pszSessionId)
+            .field("pszSiteName", &self.pszSiteName)
+            .field("pszUserName", &self.pszUserName)
+            .field("pszHostName", &self.pszHostName)
+            .field("pszRemoteIpAddress", &self.pszRemoteIpAddress)
+            .field("dwRemoteIpPort", &self.dwRemoteIpPort)
+            .field("pszLocalIpAddress", &self.pszLocalIpAddress)
+            .field("dwLocalIpPort", &self.dwLocalIpPort)
+            .field("BytesSent", &self.BytesSent)
+            .field("BytesReceived", &self.BytesReceived)
+            .field("pszCommand", &self.pszCommand)
+            .field("pszCommandParameters", &self.pszCommandParameters)
+            .field("pszFullPath", &self.pszFullPath)
+            .field("dwElapsedMilliseconds", &self.dwElapsedMilliseconds)
+            .field("FtpStatus", &self.FtpStatus)
+            .field("FtpSubStatus", &self.FtpSubStatus)
+            .field("hrStatus", &self.hrStatus)
+            .field("pszInformation", &self.pszInformation)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4021,6 +4392,12 @@ impl ::core::marker::Copy for MD_CHANGE_OBJECT_W {}
 impl ::core::clone::Clone for MD_CHANGE_OBJECT_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MD_CHANGE_OBJECT_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MD_CHANGE_OBJECT_W").field("pszMDPath", &self.pszMDPath).field("dwMDChangeType", &self.dwMDChangeType).field("dwMDNumDataIDs", &self.dwMDNumDataIDs).field("pdwMDDataIDs", &self.pdwMDDataIDs).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4991,6 +5368,11 @@ impl ::core::clone::Clone for METADATA_GETALL_RECORD {
         *self
     }
 }
+impl ::core::fmt::Debug for METADATA_GETALL_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("METADATA_GETALL_RECORD").field("dwMDIdentifier", &self.dwMDIdentifier).field("dwMDAttributes", &self.dwMDAttributes).field("dwMDUserType", &self.dwMDUserType).field("dwMDDataType", &self.dwMDDataType).field("dwMDDataLen", &self.dwMDDataLen).field("dwMDDataOffset", &self.dwMDDataOffset).field("dwMDDataTag", &self.dwMDDataTag).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for METADATA_GETALL_RECORD {
     type Abi = Self;
 }
@@ -5015,6 +5397,11 @@ impl ::core::marker::Copy for METADATA_HANDLE_INFO {}
 impl ::core::clone::Clone for METADATA_HANDLE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for METADATA_HANDLE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("METADATA_HANDLE_INFO").field("dwMDPermissions", &self.dwMDPermissions).field("dwMDSystemChangeNumber", &self.dwMDSystemChangeNumber).finish()
     }
 }
 unsafe impl ::windows::core::Abi for METADATA_HANDLE_INFO {
@@ -5068,6 +5455,11 @@ impl ::core::marker::Copy for METADATA_RECORD {}
 impl ::core::clone::Clone for METADATA_RECORD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for METADATA_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("METADATA_RECORD").field("dwMDIdentifier", &self.dwMDIdentifier).field("dwMDAttributes", &self.dwMDAttributes).field("dwMDUserType", &self.dwMDUserType).field("dwMDDataType", &self.dwMDDataType).field("dwMDDataLen", &self.dwMDDataLen).field("pbMDData", &self.pbMDData).field("dwMDDataTag", &self.dwMDDataTag).finish()
     }
 }
 unsafe impl ::windows::core::Abi for METADATA_RECORD {
@@ -5162,6 +5554,33 @@ impl ::core::clone::Clone for POST_PROCESS_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for POST_PROCESS_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POST_PROCESS_PARAMETERS")
+            .field("pszSessionId", &self.pszSessionId)
+            .field("pszSiteName", &self.pszSiteName)
+            .field("pszUserName", &self.pszUserName)
+            .field("pszHostName", &self.pszHostName)
+            .field("pszRemoteIpAddress", &self.pszRemoteIpAddress)
+            .field("dwRemoteIpPort", &self.dwRemoteIpPort)
+            .field("pszLocalIpAddress", &self.pszLocalIpAddress)
+            .field("dwLocalIpPort", &self.dwLocalIpPort)
+            .field("BytesSent", &self.BytesSent)
+            .field("BytesReceived", &self.BytesReceived)
+            .field("pszCommand", &self.pszCommand)
+            .field("pszCommandParameters", &self.pszCommandParameters)
+            .field("pszFullPath", &self.pszFullPath)
+            .field("pszPhysicalPath", &self.pszPhysicalPath)
+            .field("FtpStatus", &self.FtpStatus)
+            .field("FtpSubStatus", &self.FtpSubStatus)
+            .field("hrStatus", &self.hrStatus)
+            .field("SessionStartTime", &self.SessionStartTime)
+            .field("BytesSentPerSession", &self.BytesSentPerSession)
+            .field("BytesReceivedPerSession", &self.BytesReceivedPerSession)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for POST_PROCESS_PARAMETERS {
     type Abi = Self;
 }
@@ -5203,6 +5622,26 @@ impl ::core::marker::Copy for PRE_PROCESS_PARAMETERS {}
 impl ::core::clone::Clone for PRE_PROCESS_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRE_PROCESS_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRE_PROCESS_PARAMETERS")
+            .field("pszSessionId", &self.pszSessionId)
+            .field("pszSiteName", &self.pszSiteName)
+            .field("pszUserName", &self.pszUserName)
+            .field("pszHostName", &self.pszHostName)
+            .field("pszRemoteIpAddress", &self.pszRemoteIpAddress)
+            .field("dwRemoteIpPort", &self.dwRemoteIpPort)
+            .field("pszLocalIpAddress", &self.pszLocalIpAddress)
+            .field("dwLocalIpPort", &self.dwLocalIpPort)
+            .field("pszCommand", &self.pszCommand)
+            .field("pszCommandParameters", &self.pszCommandParameters)
+            .field("SessionStartTime", &self.SessionStartTime)
+            .field("BytesSentPerSession", &self.BytesSentPerSession)
+            .field("BytesReceivedPerSession", &self.BytesReceivedPerSession)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

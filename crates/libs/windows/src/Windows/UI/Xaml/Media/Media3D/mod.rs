@@ -267,6 +267,11 @@ impl ::core::cmp::PartialEq for CompositeTransform3D {
     }
 }
 impl ::core::cmp::Eq for CompositeTransform3D {}
+impl ::core::fmt::Debug for CompositeTransform3D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositeTransform3D").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositeTransform3D {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Media3D.CompositeTransform3D;{8977cb01-af8d-4af5-b084-c08eb9704abe})");
 }
@@ -573,6 +578,11 @@ impl ::core::clone::Clone for Matrix3D {
         *self
     }
 }
+impl ::core::fmt::Debug for Matrix3D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Matrix3D").field("M11", &self.M11).field("M12", &self.M12).field("M13", &self.M13).field("M14", &self.M14).field("M21", &self.M21).field("M22", &self.M22).field("M23", &self.M23).field("M24", &self.M24).field("M31", &self.M31).field("M32", &self.M32).field("M33", &self.M33).field("M34", &self.M34).field("OffsetX", &self.OffsetX).field("OffsetY", &self.OffsetY).field("OffsetZ", &self.OffsetZ).field("M44", &self.M44).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Matrix3D {
     type Abi = Self;
 }
@@ -656,6 +666,11 @@ impl ::core::cmp::PartialEq for Matrix3DHelper {
     }
 }
 impl ::core::cmp::Eq for Matrix3DHelper {}
+impl ::core::fmt::Debug for Matrix3DHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Matrix3DHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Matrix3DHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Media3D.Matrix3DHelper;{e48c10ef-9927-4c9b-8213-07775512ba04})");
 }
@@ -796,6 +811,11 @@ impl ::core::cmp::PartialEq for PerspectiveTransform3D {
     }
 }
 impl ::core::cmp::Eq for PerspectiveTransform3D {}
+impl ::core::fmt::Debug for PerspectiveTransform3D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerspectiveTransform3D").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PerspectiveTransform3D {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Media3D.PerspectiveTransform3D;{9a7b532a-30f9-40a1-96c9-c59d87f95ac3})");
 }
@@ -903,6 +923,11 @@ impl ::core::cmp::PartialEq for Transform3D {
     }
 }
 impl ::core::cmp::Eq for Transform3D {}
+impl ::core::fmt::Debug for Transform3D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Transform3D").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Transform3D {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Media3D.Transform3D;{ae3ed43a-a9fc-4c31-86cd-56d9ca251a69})");
 }

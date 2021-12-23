@@ -167,6 +167,11 @@ impl ::core::cmp::PartialEq for ArcadeStick {
     }
 }
 impl ::core::cmp::Eq for ArcadeStick {}
+impl ::core::fmt::Debug for ArcadeStick {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ArcadeStick").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ArcadeStick {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ArcadeStick;{b14a539d-befb-4c81-8051-15ecf3b13036})");
 }
@@ -296,6 +301,11 @@ impl ::core::cmp::PartialEq for ArcadeStickButtons {
     }
 }
 impl ::core::cmp::Eq for ArcadeStickButtons {}
+impl ::core::fmt::Debug for ArcadeStickButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ArcadeStickButtons").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ArcadeStickButtons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ArcadeStickButtons;u4)");
 }
@@ -312,6 +322,11 @@ impl ::core::marker::Copy for ArcadeStickReading {}
 impl ::core::clone::Clone for ArcadeStickReading {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ArcadeStickReading {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ArcadeStickReading").field("Timestamp", &self.Timestamp).field("Buttons", &self.Buttons).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ArcadeStickReading {
@@ -499,6 +514,11 @@ impl ::core::cmp::PartialEq for FlightStick {
     }
 }
 impl ::core::cmp::Eq for FlightStick {}
+impl ::core::fmt::Debug for FlightStick {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlightStick").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FlightStick {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.FlightStick;{b4a2c01c-b83b-4459-a1a9-97b03c33da7c})");
 }
@@ -618,6 +638,11 @@ impl ::core::cmp::PartialEq for FlightStickButtons {
     }
 }
 impl ::core::cmp::Eq for FlightStickButtons {}
+impl ::core::fmt::Debug for FlightStickButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlightStickButtons").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FlightStickButtons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.FlightStickButtons;u4)");
 }
@@ -639,6 +664,11 @@ impl ::core::marker::Copy for FlightStickReading {}
 impl ::core::clone::Clone for FlightStickReading {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FlightStickReading {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FlightStickReading").field("Timestamp", &self.Timestamp).field("Buttons", &self.Buttons).field("HatSwitch", &self.HatSwitch).field("Roll", &self.Roll).field("Pitch", &self.Pitch).field("Yaw", &self.Yaw).field("Throttle", &self.Throttle).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FlightStickReading {
@@ -750,6 +780,11 @@ impl ::core::cmp::PartialEq for GameControllerButtonLabel {
     }
 }
 impl ::core::cmp::Eq for GameControllerButtonLabel {}
+impl ::core::fmt::Debug for GameControllerButtonLabel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameControllerButtonLabel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GameControllerButtonLabel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerButtonLabel;i4)");
 }
@@ -779,6 +814,11 @@ impl ::core::cmp::PartialEq for GameControllerSwitchKind {
     }
 }
 impl ::core::cmp::Eq for GameControllerSwitchKind {}
+impl ::core::fmt::Debug for GameControllerSwitchKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameControllerSwitchKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GameControllerSwitchKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchKind;i4)");
 }
@@ -814,6 +854,11 @@ impl ::core::cmp::PartialEq for GameControllerSwitchPosition {
     }
 }
 impl ::core::cmp::Eq for GameControllerSwitchPosition {}
+impl ::core::fmt::Debug for GameControllerSwitchPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameControllerSwitchPosition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GameControllerSwitchPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchPosition;i4)");
 }
@@ -995,6 +1040,11 @@ impl ::core::cmp::PartialEq for Gamepad {
     }
 }
 impl ::core::cmp::Eq for Gamepad {}
+impl ::core::fmt::Debug for Gamepad {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Gamepad").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Gamepad {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Gamepad;{bc7bb43c-0a69-3903-9e9d-a50f86a45de5})");
 }
@@ -1130,6 +1180,11 @@ impl ::core::cmp::PartialEq for GamepadButtons {
     }
 }
 impl ::core::cmp::Eq for GamepadButtons {}
+impl ::core::fmt::Debug for GamepadButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GamepadButtons").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GamepadButtons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GamepadButtons;u4)");
 }
@@ -1152,6 +1207,11 @@ impl ::core::marker::Copy for GamepadReading {}
 impl ::core::clone::Clone for GamepadReading {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GamepadReading {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GamepadReading").field("Timestamp", &self.Timestamp).field("Buttons", &self.Buttons).field("LeftTrigger", &self.LeftTrigger).field("RightTrigger", &self.RightTrigger).field("LeftThumbstickX", &self.LeftThumbstickX).field("LeftThumbstickY", &self.LeftThumbstickY).field("RightThumbstickX", &self.RightThumbstickX).field("RightThumbstickY", &self.RightThumbstickY).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GamepadReading {
@@ -1186,6 +1246,11 @@ impl ::core::marker::Copy for GamepadVibration {}
 impl ::core::clone::Clone for GamepadVibration {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GamepadVibration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GamepadVibration").field("LeftMotor", &self.LeftMotor).field("RightMotor", &self.RightMotor).field("LeftTrigger", &self.LeftTrigger).field("RightTrigger", &self.RightTrigger).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GamepadVibration {
@@ -1249,6 +1314,11 @@ impl ::core::cmp::PartialEq for Headset {
     }
 }
 impl ::core::cmp::Eq for Headset {}
+impl ::core::fmt::Debug for Headset {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Headset").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Headset {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Headset;{3fd156ef-6925-3fa8-9181-029c5223ae3b})");
 }
@@ -1561,6 +1631,11 @@ impl ::core::cmp::PartialEq for IGameController {
     }
 }
 impl ::core::cmp::Eq for IGameController {}
+impl ::core::fmt::Debug for IGameController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGameController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IGameController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1baf6522-5f64-42c5-8267-b9fe2215bfbd}");
 }
@@ -1659,6 +1734,11 @@ impl ::core::cmp::PartialEq for IGameControllerBatteryInfo {
     }
 }
 impl ::core::cmp::Eq for IGameControllerBatteryInfo {}
+impl ::core::fmt::Debug for IGameControllerBatteryInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGameControllerBatteryInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IGameControllerBatteryInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{dcecc681-3963-4da6-955d-553f3b6f6161}");
 }
@@ -2025,6 +2105,11 @@ impl ::core::cmp::PartialEq for OptionalUINavigationButtons {
     }
 }
 impl ::core::cmp::Eq for OptionalUINavigationButtons {}
+impl ::core::fmt::Debug for OptionalUINavigationButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OptionalUINavigationButtons").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for OptionalUINavigationButtons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.OptionalUINavigationButtons;u4)");
 }
@@ -2242,6 +2327,11 @@ impl ::core::cmp::PartialEq for RacingWheel {
     }
 }
 impl ::core::cmp::Eq for RacingWheel {}
+impl ::core::fmt::Debug for RacingWheel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RacingWheel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RacingWheel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.RacingWheel;{f546656f-e106-4c82-a90f-554012904b85})");
 }
@@ -2381,6 +2471,11 @@ impl ::core::cmp::PartialEq for RacingWheelButtons {
     }
 }
 impl ::core::cmp::Eq for RacingWheelButtons {}
+impl ::core::fmt::Debug for RacingWheelButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RacingWheelButtons").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RacingWheelButtons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.RacingWheelButtons;u4)");
 }
@@ -2403,6 +2498,11 @@ impl ::core::marker::Copy for RacingWheelReading {}
 impl ::core::clone::Clone for RacingWheelReading {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RacingWheelReading {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RacingWheelReading").field("Timestamp", &self.Timestamp).field("Buttons", &self.Buttons).field("PatternShifterGear", &self.PatternShifterGear).field("Wheel", &self.Wheel).field("Throttle", &self.Throttle).field("Brake", &self.Brake).field("Clutch", &self.Clutch).field("Handbrake", &self.Handbrake).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RacingWheelReading {
@@ -2664,6 +2764,11 @@ impl ::core::cmp::PartialEq for RawGameController {
     }
 }
 impl ::core::cmp::Eq for RawGameController {}
+impl ::core::fmt::Debug for RawGameController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RawGameController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RawGameController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.RawGameController;{7cad6d91-a7e1-4f71-9a78-33e9c5dfea62})");
 }
@@ -2789,6 +2894,11 @@ impl ::core::cmp::PartialEq for RequiredUINavigationButtons {
     }
 }
 impl ::core::cmp::Eq for RequiredUINavigationButtons {}
+impl ::core::fmt::Debug for RequiredUINavigationButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RequiredUINavigationButtons").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RequiredUINavigationButtons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.RequiredUINavigationButtons;u4)");
 }
@@ -2965,6 +3075,11 @@ impl ::core::cmp::PartialEq for UINavigationController {
     }
 }
 impl ::core::cmp::Eq for UINavigationController {}
+impl ::core::fmt::Debug for UINavigationController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UINavigationController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UINavigationController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.UINavigationController;{e5aeefdd-f50e-4a55-8cdc-d33229548175})");
 }
@@ -3072,6 +3187,11 @@ impl ::core::marker::Copy for UINavigationReading {}
 impl ::core::clone::Clone for UINavigationReading {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UINavigationReading {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UINavigationReading").field("Timestamp", &self.Timestamp).field("RequiredButtons", &self.RequiredButtons).field("OptionalButtons", &self.OptionalButtons).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UINavigationReading {

@@ -217,6 +217,11 @@ impl ::core::cmp::PartialEq for IConnectionRequestCallback {
     }
 }
 impl ::core::cmp::Eq for IConnectionRequestCallback {}
+impl ::core::fmt::Debug for IConnectionRequestCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IConnectionRequestCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IConnectionRequestCallback {
     type Vtable = IConnectionRequestCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x272c9ae0_7161_4ae0_91bd_9f448ee9c427);
@@ -277,6 +282,11 @@ impl ::core::cmp::PartialEq for IEnumPortableDeviceConnectors {
     }
 }
 impl ::core::cmp::Eq for IEnumPortableDeviceConnectors {}
+impl ::core::fmt::Debug for IEnumPortableDeviceConnectors {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumPortableDeviceConnectors").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumPortableDeviceConnectors {
     type Vtable = IEnumPortableDeviceConnectorsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfdef549_9247_454f_bd82_06fe80853faa);
@@ -350,6 +360,11 @@ impl ::core::cmp::PartialEq for IEnumPortableDeviceObjectIDs {
     }
 }
 impl ::core::cmp::Eq for IEnumPortableDeviceObjectIDs {}
+impl ::core::fmt::Debug for IEnumPortableDeviceObjectIDs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumPortableDeviceObjectIDs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumPortableDeviceObjectIDs {
     type Vtable = IEnumPortableDeviceObjectIDsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10ece955_cf41_4728_bfa0_41eedf1bbf19);
@@ -412,6 +427,11 @@ impl ::core::cmp::PartialEq for IMediaRadioManager {
     }
 }
 impl ::core::cmp::Eq for IMediaRadioManager {}
+impl ::core::fmt::Debug for IMediaRadioManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMediaRadioManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMediaRadioManager {
     type Vtable = IMediaRadioManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cfdcab5_fc47_42a5_9241_074b58830e73);
@@ -475,6 +495,11 @@ impl ::core::cmp::PartialEq for IMediaRadioManagerNotifySink {
     }
 }
 impl ::core::cmp::Eq for IMediaRadioManagerNotifySink {}
+impl ::core::fmt::Debug for IMediaRadioManagerNotifySink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMediaRadioManagerNotifySink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMediaRadioManagerNotifySink {
     type Vtable = IMediaRadioManagerNotifySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89d81f5f_c147_49ed_a11c_77b20c31e7c9);
@@ -576,6 +601,11 @@ impl ::core::cmp::PartialEq for IPortableDevice {
     }
 }
 impl ::core::cmp::Eq for IPortableDevice {}
+impl ::core::fmt::Debug for IPortableDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDevice {
     type Vtable = IPortableDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x625e2df8_6392_4cf0_9ad1_3cfa5f17775c);
@@ -692,6 +722,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceCapabilities {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceCapabilities {}
+impl ::core::fmt::Debug for IPortableDeviceCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceCapabilities {
     type Vtable = IPortableDeviceCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c8c6dbf_e3dc_4061_becc_8542e810d126);
@@ -780,6 +815,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceConnector {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceConnector {}
+impl ::core::fmt::Debug for IPortableDeviceConnector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceConnector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceConnector {
     type Vtable = IPortableDeviceConnectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x625e2df8_6392_4cf0_9ad1_3cfa5f17775c);
@@ -885,6 +925,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceContent {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceContent {}
+impl ::core::fmt::Debug for IPortableDeviceContent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceContent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceContent {
     type Vtable = IPortableDeviceContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a96ed84_7c73_4480_9938_bf5af477d426);
@@ -1021,6 +1066,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceContent2 {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceContent2 {}
+impl ::core::fmt::Debug for IPortableDeviceContent2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceContent2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceContent2 {
     type Vtable = IPortableDeviceContent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b4add96_f6bf_4034_8708_eca72bf10554);
@@ -1201,6 +1251,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceDataStream {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceDataStream {}
+impl ::core::fmt::Debug for IPortableDeviceDataStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceDataStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceDataStream {
     type Vtable = IPortableDeviceDataStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88e04db3_1012_4d64_9996_f703a950d3f4);
@@ -1279,6 +1334,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceDispatchFactory {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceDispatchFactory {}
+impl ::core::fmt::Debug for IPortableDeviceDispatchFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceDispatchFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceDispatchFactory {
     type Vtable = IPortableDeviceDispatchFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e1eafc3_e3d7_4132_96fa_759c0f9d1e0f);
@@ -1332,6 +1392,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceEventCallback {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceEventCallback {}
+impl ::core::fmt::Debug for IPortableDeviceEventCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceEventCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceEventCallback {
     type Vtable = IPortableDeviceEventCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8792a31_f385_493c_a893_40f64eb45f6e);
@@ -1397,6 +1462,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceKeyCollection {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceKeyCollection {}
+impl ::core::fmt::Debug for IPortableDeviceKeyCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceKeyCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceKeyCollection {
     type Vtable = IPortableDeviceKeyCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdada2357_e0ad_492e_98db_dd61c53ba353);
@@ -1485,6 +1555,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceManager {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceManager {}
+impl ::core::fmt::Debug for IPortableDeviceManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceManager {
     type Vtable = IPortableDeviceManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1567595_4c2f_4574_a6fa_ecef917b9a40);
@@ -1576,6 +1651,11 @@ impl ::core::cmp::PartialEq for IPortableDevicePropVariantCollection {
     }
 }
 impl ::core::cmp::Eq for IPortableDevicePropVariantCollection {}
+impl ::core::fmt::Debug for IPortableDevicePropVariantCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDevicePropVariantCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDevicePropVariantCollection {
     type Vtable = IPortableDevicePropVariantCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89b2e422_4f1b_4316_bcef_a44afea83eb3);
@@ -1665,6 +1745,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceProperties {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceProperties {}
+impl ::core::fmt::Debug for IPortableDeviceProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceProperties {
     type Vtable = IPortableDevicePropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f6d695c_03df_4439_a809_59266beee3a6);
@@ -1747,6 +1832,11 @@ impl ::core::cmp::PartialEq for IPortableDevicePropertiesBulk {
     }
 }
 impl ::core::cmp::Eq for IPortableDevicePropertiesBulk {}
+impl ::core::fmt::Debug for IPortableDevicePropertiesBulk {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDevicePropertiesBulk").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDevicePropertiesBulk {
     type Vtable = IPortableDevicePropertiesBulkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x482b05c0_4056_44ed_9e0f_5e23b009da93);
@@ -1812,6 +1902,11 @@ impl ::core::cmp::PartialEq for IPortableDevicePropertiesBulkCallback {
     }
 }
 impl ::core::cmp::Eq for IPortableDevicePropertiesBulkCallback {}
+impl ::core::fmt::Debug for IPortableDevicePropertiesBulkCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDevicePropertiesBulkCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDevicePropertiesBulkCallback {
     type Vtable = IPortableDevicePropertiesBulkCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9deacb80_11e8_40e3_a9f3_f557986a7845);
@@ -1893,6 +1988,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceResources {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceResources {}
+impl ::core::fmt::Debug for IPortableDeviceResources {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceResources").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceResources {
     type Vtable = IPortableDeviceResourcesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd8878ac_d841_4d17_891c_e6829cdb6934);
@@ -2007,6 +2107,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceService {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceService {}
+impl ::core::fmt::Debug for IPortableDeviceService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceService").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceService {
     type Vtable = IPortableDeviceServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3bd3a44_d7b5_40a9_98b7_2fa4d01dec08);
@@ -2079,6 +2184,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceServiceActivation {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceServiceActivation {}
+impl ::core::fmt::Debug for IPortableDeviceServiceActivation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceServiceActivation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceServiceActivation {
     type Vtable = IPortableDeviceServiceActivationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe56b0534_d9b9_425c_9b99_75f97cb3d7c8);
@@ -2212,6 +2322,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceServiceCapabilities {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceServiceCapabilities {}
+impl ::core::fmt::Debug for IPortableDeviceServiceCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceServiceCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceServiceCapabilities {
     type Vtable = IPortableDeviceServiceCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24dbd89d_413e_43e0_bd5b_197f3c56c886);
@@ -2290,6 +2405,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceServiceManager {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceServiceManager {}
+impl ::core::fmt::Debug for IPortableDeviceServiceManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceServiceManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceServiceManager {
     type Vtable = IPortableDeviceServiceManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8abc4e9_a84a_47a9_80b3_c5d9b172a961);
@@ -2345,6 +2465,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceServiceMethodCallback {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceServiceMethodCallback {}
+impl ::core::fmt::Debug for IPortableDeviceServiceMethodCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceServiceMethodCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceServiceMethodCallback {
     type Vtable = IPortableDeviceServiceMethodCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc424233c_afce_4828_a756_7ed7a2350083);
@@ -2400,6 +2525,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceServiceMethods {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceServiceMethods {}
+impl ::core::fmt::Debug for IPortableDeviceServiceMethods {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceServiceMethods").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceServiceMethods {
     type Vtable = IPortableDeviceServiceMethodsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe20333c9_fd34_412d_a381_cc6f2d820df7);
@@ -2454,6 +2584,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceServiceOpenCallback {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceServiceOpenCallback {}
+impl ::core::fmt::Debug for IPortableDeviceServiceOpenCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceServiceOpenCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceServiceOpenCallback {
     type Vtable = IPortableDeviceServiceOpenCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbced49c8_8efe_41ed_960b_61313abd47a9);
@@ -2506,6 +2641,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceUnitsStream {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceUnitsStream {}
+impl ::core::fmt::Debug for IPortableDeviceUnitsStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceUnitsStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceUnitsStream {
     type Vtable = IPortableDeviceUnitsStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e98025f_bfc4_47a2_9a5f_bc900a507c67);
@@ -2769,6 +2909,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceValues {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceValues {}
+impl ::core::fmt::Debug for IPortableDeviceValues {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceValues").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceValues {
     type Vtable = IPortableDeviceValuesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6848f6f2_3155_4f86_b6f5_263eeeab3143);
@@ -2915,6 +3060,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceValuesCollection {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceValuesCollection {}
+impl ::core::fmt::Debug for IPortableDeviceValuesCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceValuesCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceValuesCollection {
     type Vtable = IPortableDeviceValuesCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e3f2d79_4e07_48c4_8208_d8c2e5af4a99);
@@ -3024,6 +3174,11 @@ impl ::core::cmp::PartialEq for IPortableDeviceWebControl {
     }
 }
 impl ::core::cmp::Eq for IPortableDeviceWebControl {}
+impl ::core::fmt::Debug for IPortableDeviceWebControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPortableDeviceWebControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPortableDeviceWebControl {
     type Vtable = IPortableDeviceWebControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94fc7953_5ca1_483a_8aee_df52e7747d00);
@@ -3119,6 +3274,11 @@ impl ::core::cmp::PartialEq for IRadioInstance {
     }
 }
 impl ::core::cmp::Eq for IRadioInstance {}
+impl ::core::fmt::Debug for IRadioInstance {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRadioInstance").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRadioInstance {
     type Vtable = IRadioInstanceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70aa1c9e_f2b4_4c61_86d3_6b9fb75fd1a2);
@@ -3187,6 +3347,11 @@ impl ::core::cmp::PartialEq for IRadioInstanceCollection {
     }
 }
 impl ::core::cmp::Eq for IRadioInstanceCollection {}
+impl ::core::fmt::Debug for IRadioInstanceCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRadioInstanceCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRadioInstanceCollection {
     type Vtable = IRadioInstanceCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5791fae_5665_4e0c_95be_5fde31644185);
@@ -3254,6 +3419,11 @@ impl ::core::cmp::PartialEq for IWpdSerializer {
     }
 }
 impl ::core::cmp::Eq for IWpdSerializer {}
+impl ::core::fmt::Debug for IWpdSerializer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWpdSerializer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWpdSerializer {
     type Vtable = IWpdSerializerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb32f4002_bb27_45ff_af4f_06631c1e8dad);
@@ -3555,6 +3725,12 @@ impl ::core::marker::Copy for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {}
 impl ::core::clone::Clone for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::fmt::Debug for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WPD_COMMAND_ACCESS_LOOKUP_ENTRY").field("Command", &self.Command).field("AccessType", &self.AccessType).field("AccessProperty", &self.AccessProperty).finish()
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]

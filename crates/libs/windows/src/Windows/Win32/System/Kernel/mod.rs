@@ -22,6 +22,12 @@ impl ::core::clone::Clone for CSTRING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CSTRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CSTRING").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CSTRING {
     type Abi = Self;
 }
@@ -71,6 +77,12 @@ impl ::core::clone::Clone for EXCEPTION_REGISTRATION_RECORD {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+impl ::core::fmt::Debug for EXCEPTION_REGISTRATION_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXCEPTION_REGISTRATION_RECORD").field("Next", &self.Next).field("Handler", &self.Handler.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 unsafe impl ::windows::core::Abi for EXCEPTION_REGISTRATION_RECORD {
     type Abi = Self;
 }
@@ -114,6 +126,12 @@ impl ::core::clone::Clone for FLOATING_SAVE_AREA {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for FLOATING_SAVE_AREA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FLOATING_SAVE_AREA").field("ControlWord", &self.ControlWord).field("StatusWord", &self.StatusWord).field("TagWord", &self.TagWord).field("ErrorOffset", &self.ErrorOffset).field("ErrorSelector", &self.ErrorSelector).field("DataOffset", &self.DataOffset).field("DataSelector", &self.DataSelector).field("RegisterArea", &self.RegisterArea).field("Cr0NpxState", &self.Cr0NpxState).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for FLOATING_SAVE_AREA {
     type Abi = Self;
 }
@@ -154,6 +172,12 @@ impl ::core::clone::Clone for FLOATING_SAVE_AREA {
     }
 }
 #[cfg(target_arch = "x86")]
+impl ::core::fmt::Debug for FLOATING_SAVE_AREA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FLOATING_SAVE_AREA").field("ControlWord", &self.ControlWord).field("StatusWord", &self.StatusWord).field("TagWord", &self.TagWord).field("ErrorOffset", &self.ErrorOffset).field("ErrorSelector", &self.ErrorSelector).field("DataOffset", &self.DataOffset).field("DataSelector", &self.DataSelector).field("RegisterArea", &self.RegisterArea).field("Spare0", &self.Spare0).finish()
+    }
+}
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for FLOATING_SAVE_AREA {
     type Abi = Self;
 }
@@ -183,6 +207,11 @@ impl ::core::clone::Clone for LIST_ENTRY {
         *self
     }
 }
+impl ::core::fmt::Debug for LIST_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LIST_ENTRY").field("Flink", &self.Flink).field("Blink", &self.Blink).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LIST_ENTRY {
     type Abi = Self;
 }
@@ -209,6 +238,11 @@ impl ::core::clone::Clone for LIST_ENTRY32 {
         *self
     }
 }
+impl ::core::fmt::Debug for LIST_ENTRY32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LIST_ENTRY32").field("Flink", &self.Flink).field("Blink", &self.Blink).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LIST_ENTRY32 {
     type Abi = Self;
 }
@@ -233,6 +267,11 @@ impl ::core::marker::Copy for LIST_ENTRY64 {}
 impl ::core::clone::Clone for LIST_ENTRY64 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LIST_ENTRY64 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LIST_ENTRY64").field("Flink", &self.Flink).field("Blink", &self.Blink).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LIST_ENTRY64 {
@@ -348,6 +387,11 @@ impl ::core::clone::Clone for OBJECTID {
         *self
     }
 }
+impl ::core::fmt::Debug for OBJECTID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OBJECTID").field("Lineage", &self.Lineage).field("Uniquifier", &self.Uniquifier).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for OBJECTID {
     type Abi = Self;
 }
@@ -378,6 +422,11 @@ impl ::core::clone::Clone for OBJECT_ATTRIBUTES32 {
         *self
     }
 }
+impl ::core::fmt::Debug for OBJECT_ATTRIBUTES32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OBJECT_ATTRIBUTES32").field("Length", &self.Length).field("RootDirectory", &self.RootDirectory).field("ObjectName", &self.ObjectName).field("Attributes", &self.Attributes).field("SecurityDescriptor", &self.SecurityDescriptor).field("SecurityQualityOfService", &self.SecurityQualityOfService).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for OBJECT_ATTRIBUTES32 {
     type Abi = Self;
 }
@@ -406,6 +455,11 @@ impl ::core::marker::Copy for OBJECT_ATTRIBUTES64 {}
 impl ::core::clone::Clone for OBJECT_ATTRIBUTES64 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OBJECT_ATTRIBUTES64 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OBJECT_ATTRIBUTES64").field("Length", &self.Length).field("RootDirectory", &self.RootDirectory).field("ObjectName", &self.ObjectName).field("Attributes", &self.Attributes).field("SecurityDescriptor", &self.SecurityDescriptor).field("SecurityQualityOfService", &self.SecurityQualityOfService).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OBJECT_ATTRIBUTES64 {
@@ -457,6 +511,11 @@ impl ::core::marker::Copy for PROCESSOR_NUMBER {}
 impl ::core::clone::Clone for PROCESSOR_NUMBER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PROCESSOR_NUMBER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESSOR_NUMBER").field("Group", &self.Group).field("Number", &self.Number).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROCESSOR_NUMBER {
@@ -586,6 +645,11 @@ impl ::core::marker::Copy for RTL_BALANCED_NODE_0_0 {}
 impl ::core::clone::Clone for RTL_BALANCED_NODE_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RTL_BALANCED_NODE_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RTL_BALANCED_NODE_0_0").field("Left", &self.Left).field("Right", &self.Right).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RTL_BALANCED_NODE_0_0 {
@@ -739,6 +803,11 @@ impl ::core::clone::Clone for SINGLE_LIST_ENTRY {
         *self
     }
 }
+impl ::core::fmt::Debug for SINGLE_LIST_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SINGLE_LIST_ENTRY").field("Next", &self.Next).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SINGLE_LIST_ENTRY {
     type Abi = Self;
 }
@@ -764,6 +833,11 @@ impl ::core::clone::Clone for SINGLE_LIST_ENTRY32 {
         *self
     }
 }
+impl ::core::fmt::Debug for SINGLE_LIST_ENTRY32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SINGLE_LIST_ENTRY32").field("Next", &self.Next).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SINGLE_LIST_ENTRY32 {
     type Abi = Self;
 }
@@ -787,6 +861,11 @@ impl ::core::marker::Copy for SLIST_ENTRY {}
 impl ::core::clone::Clone for SLIST_ENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SLIST_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SLIST_ENTRY").field("Next", &self.Next).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SLIST_ENTRY {
@@ -852,6 +931,12 @@ impl ::core::clone::Clone for SLIST_HEADER_0 {
     }
 }
 #[cfg(target_arch = "aarch64")]
+impl ::core::fmt::Debug for SLIST_HEADER_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SLIST_HEADER_0").field("Alignment", &self.Alignment).field("Region", &self.Region).finish()
+    }
+}
+#[cfg(target_arch = "aarch64")]
 unsafe impl ::windows::core::Abi for SLIST_HEADER_0 {
     type Abi = Self;
 }
@@ -882,6 +967,12 @@ impl ::core::marker::Copy for SLIST_HEADER_1 {}
 impl ::core::clone::Clone for SLIST_HEADER_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(target_arch = "aarch64")]
+impl ::core::fmt::Debug for SLIST_HEADER_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SLIST_HEADER_1").field("_bitfield1", &self._bitfield1).field("_bitfield2", &self._bitfield2).finish()
     }
 }
 #[cfg(target_arch = "aarch64")]
@@ -951,6 +1042,12 @@ impl ::core::clone::Clone for SLIST_HEADER_0 {
     }
 }
 #[cfg(target_arch = "x86_64")]
+impl ::core::fmt::Debug for SLIST_HEADER_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SLIST_HEADER_0").field("Alignment", &self.Alignment).field("Region", &self.Region).finish()
+    }
+}
+#[cfg(target_arch = "x86_64")]
 unsafe impl ::windows::core::Abi for SLIST_HEADER_0 {
     type Abi = Self;
 }
@@ -981,6 +1078,12 @@ impl ::core::marker::Copy for SLIST_HEADER_1 {}
 impl ::core::clone::Clone for SLIST_HEADER_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(target_arch = "x86_64")]
+impl ::core::fmt::Debug for SLIST_HEADER_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SLIST_HEADER_1").field("_bitfield1", &self._bitfield1).field("_bitfield2", &self._bitfield2).finish()
     }
 }
 #[cfg(target_arch = "x86_64")]
@@ -1051,6 +1154,12 @@ impl ::core::clone::Clone for SLIST_HEADER_0 {
     }
 }
 #[cfg(target_arch = "x86")]
+impl ::core::fmt::Debug for SLIST_HEADER_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SLIST_HEADER_0").field("Next", &self.Next).field("Depth", &self.Depth).field("CpuId", &self.CpuId).finish()
+    }
+}
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for SLIST_HEADER_0 {
     type Abi = Self;
 }
@@ -1085,6 +1194,12 @@ impl ::core::clone::Clone for STRING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STRING").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STRING {
     type Abi = Self;
 }
@@ -1115,6 +1230,11 @@ impl ::core::clone::Clone for STRING32 {
         *self
     }
 }
+impl ::core::fmt::Debug for STRING32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STRING32").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STRING32 {
     type Abi = Self;
 }
@@ -1140,6 +1260,11 @@ impl ::core::marker::Copy for STRING64 {}
 impl ::core::clone::Clone for STRING64 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STRING64 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STRING64").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STRING64 {
@@ -1223,6 +1348,11 @@ impl ::core::marker::Copy for WNF_STATE_NAME {}
 impl ::core::clone::Clone for WNF_STATE_NAME {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WNF_STATE_NAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNF_STATE_NAME").field("Data", &self.Data).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WNF_STATE_NAME {

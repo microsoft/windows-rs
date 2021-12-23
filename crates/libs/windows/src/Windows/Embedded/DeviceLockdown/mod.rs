@@ -65,6 +65,11 @@ impl ::core::cmp::PartialEq for DeviceLockdownProfileInformation {
     }
 }
 impl ::core::cmp::Eq for DeviceLockdownProfileInformation {}
+impl ::core::fmt::Debug for DeviceLockdownProfileInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceLockdownProfileInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceLockdownProfileInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Embedded.DeviceLockdown.DeviceLockdownProfileInformation;{7980e14e-45b1-4a96-92fc-62756b739678})");
 }

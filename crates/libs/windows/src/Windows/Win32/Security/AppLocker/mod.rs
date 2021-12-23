@@ -25,6 +25,25 @@ impl ::core::clone::Clone for SAFER_CODE_PROPERTIES_V1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SAFER_CODE_PROPERTIES_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SAFER_CODE_PROPERTIES_V1")
+            .field("cbSize", &self.cbSize)
+            .field("dwCheckFlags", &self.dwCheckFlags)
+            .field("ImagePath", &self.ImagePath)
+            .field("hImageFileHandle", &self.hImageFileHandle)
+            .field("UrlZoneId", &self.UrlZoneId)
+            .field("ImageHash", &self.ImageHash)
+            .field("dwImageHashSize", &self.dwImageHashSize)
+            .field("ImageSize", &self.ImageSize)
+            .field("HashAlgorithm", &self.HashAlgorithm)
+            .field("pByteBlock", &self.pByteBlock)
+            .field("hWndParent", &self.hWndParent)
+            .field("dwWVTUIChoice", &self.dwWVTUIChoice)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SAFER_CODE_PROPERTIES_V1 {
     type Abi = Self;
 }
@@ -70,6 +89,30 @@ impl ::core::marker::Copy for SAFER_CODE_PROPERTIES_V2 {}
 impl ::core::clone::Clone for SAFER_CODE_PROPERTIES_V2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SAFER_CODE_PROPERTIES_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SAFER_CODE_PROPERTIES_V2")
+            .field("cbSize", &self.cbSize)
+            .field("dwCheckFlags", &self.dwCheckFlags)
+            .field("ImagePath", &self.ImagePath)
+            .field("hImageFileHandle", &self.hImageFileHandle)
+            .field("UrlZoneId", &self.UrlZoneId)
+            .field("ImageHash", &self.ImageHash)
+            .field("dwImageHashSize", &self.dwImageHashSize)
+            .field("ImageSize", &self.ImageSize)
+            .field("HashAlgorithm", &self.HashAlgorithm)
+            .field("pByteBlock", &self.pByteBlock)
+            .field("hWndParent", &self.hWndParent)
+            .field("dwWVTUIChoice", &self.dwWVTUIChoice)
+            .field("PackageMoniker", &self.PackageMoniker)
+            .field("PackagePublisher", &self.PackagePublisher)
+            .field("PackageName", &self.PackageName)
+            .field("PackageVersion", &self.PackageVersion)
+            .field("PackageIsFramework", &self.PackageIsFramework)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -136,6 +179,12 @@ impl ::core::clone::Clone for SAFER_HASH_IDENTIFICATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SAFER_HASH_IDENTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SAFER_HASH_IDENTIFICATION").field("header", &self.header).field("Description", &self.Description).field("FriendlyName", &self.FriendlyName).field("HashSize", &self.HashSize).field("ImageHash", &self.ImageHash).field("HashAlgorithm", &self.HashAlgorithm).field("ImageSize", &self.ImageSize).field("dwSaferFlags", &self.dwSaferFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SAFER_HASH_IDENTIFICATION {
     type Abi = Self;
 }
@@ -171,6 +220,12 @@ impl ::core::clone::Clone for SAFER_HASH_IDENTIFICATION2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SAFER_HASH_IDENTIFICATION2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SAFER_HASH_IDENTIFICATION2").field("hashIdentification", &self.hashIdentification).field("HashSize", &self.HashSize).field("ImageHash", &self.ImageHash).field("HashAlgorithm", &self.HashAlgorithm).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SAFER_HASH_IDENTIFICATION2 {
     type Abi = Self;
 }
@@ -203,6 +258,12 @@ impl ::core::marker::Copy for SAFER_IDENTIFICATION_HEADER {}
 impl ::core::clone::Clone for SAFER_IDENTIFICATION_HEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SAFER_IDENTIFICATION_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SAFER_IDENTIFICATION_HEADER").field("dwIdentificationType", &self.dwIdentificationType).field("cbStructSize", &self.cbStructSize).field("IdentificationGuid", &self.IdentificationGuid).field("lastModified", &self.lastModified).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -305,6 +366,12 @@ impl ::core::clone::Clone for SAFER_PATHNAME_IDENTIFICATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SAFER_PATHNAME_IDENTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SAFER_PATHNAME_IDENTIFICATION").field("header", &self.header).field("Description", &self.Description).field("ImageName", &self.ImageName).field("dwSaferFlags", &self.dwSaferFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SAFER_PATHNAME_IDENTIFICATION {
     type Abi = Self;
 }
@@ -380,6 +447,12 @@ impl ::core::marker::Copy for SAFER_URLZONE_IDENTIFICATION {}
 impl ::core::clone::Clone for SAFER_URLZONE_IDENTIFICATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SAFER_URLZONE_IDENTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SAFER_URLZONE_IDENTIFICATION").field("header", &self.header).field("UrlZoneId", &self.UrlZoneId).field("dwSaferFlags", &self.dwSaferFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

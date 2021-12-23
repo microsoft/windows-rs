@@ -53,6 +53,11 @@ impl ::core::clone::Clone for AspectInfo {
         *self
     }
 }
+impl ::core::fmt::Debug for AspectInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AspectInfo").field("cb", &self.cb).field("dwFlags", &self.dwFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AspectInfo {
     type Abi = Self;
 }
@@ -115,6 +120,11 @@ impl ::core::clone::Clone for CADWORD {
         *self
     }
 }
+impl ::core::fmt::Debug for CADWORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CADWORD").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CADWORD {
     type Abi = Self;
 }
@@ -145,6 +155,12 @@ impl ::core::clone::Clone for CALPOLESTR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CALPOLESTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CALPOLESTR").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CALPOLESTR {
     type Abi = Self;
 }
@@ -172,6 +188,11 @@ impl ::core::marker::Copy for CAUUID {}
 impl ::core::clone::Clone for CAUUID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CAUUID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAUUID").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CAUUID {
@@ -246,6 +267,11 @@ impl ::core::clone::Clone for CLEANLOCALSTORAGE {
         Self { pInterface: self.pInterface.clone(), pStorage: self.pStorage, flags: self.flags }
     }
 }
+impl ::core::fmt::Debug for CLEANLOCALSTORAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLEANLOCALSTORAGE").field("pInterface", &self.pInterface).field("pStorage", &self.pStorage).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLEANLOCALSTORAGE {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -298,6 +324,12 @@ impl ::core::marker::Copy for CONTROLINFO {}
 impl ::core::clone::Clone for CONTROLINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::fmt::Debug for CONTROLINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONTROLINFO").field("cb", &self.cb).field("hAccel", &self.hAccel).field("cAccel", &self.cAccel).field("dwFlags", &self.dwFlags).finish()
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -870,6 +902,12 @@ impl ::core::clone::Clone for ExtentInfo {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ExtentInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ExtentInfo").field("cb", &self.cb).field("dwExtentMode", &self.dwExtentMode).field("sizelProposed", &self.sizelProposed).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ExtentInfo {
     type Abi = Self;
 }
@@ -1290,6 +1328,11 @@ impl ::core::cmp::PartialEq for IAdviseSinkEx {
     }
 }
 impl ::core::cmp::Eq for IAdviseSinkEx {}
+impl ::core::fmt::Debug for IAdviseSinkEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAdviseSinkEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAdviseSinkEx {
     type Vtable = IAdviseSinkExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3af24290_0c96_11ce_a0cf_00aa00600ab8);
@@ -1353,6 +1396,11 @@ impl ::core::cmp::PartialEq for ICanHandleException {
     }
 }
 impl ::core::cmp::Eq for ICanHandleException {}
+impl ::core::fmt::Debug for ICanHandleException {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICanHandleException").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICanHandleException {
     type Vtable = ICanHandleExceptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5598e60_b307_11d1_b27d_006008c3fbfb);
@@ -1453,6 +1501,11 @@ impl ::core::cmp::PartialEq for IClassFactory2 {
     }
 }
 impl ::core::cmp::Eq for IClassFactory2 {}
+impl ::core::fmt::Debug for IClassFactory2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IClassFactory2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IClassFactory2 {
     type Vtable = IClassFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb196b28f_bab4_101a_b69c_00aa00341d07);
@@ -1514,6 +1567,11 @@ impl ::core::cmp::PartialEq for IContinue {
     }
 }
 impl ::core::cmp::Eq for IContinue {}
+impl ::core::fmt::Debug for IContinue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContinue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContinue {
     type Vtable = IContinueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000012a_0000_0000_c000_000000000046);
@@ -1566,6 +1624,11 @@ impl ::core::cmp::PartialEq for IContinueCallback {
     }
 }
 impl ::core::cmp::Eq for IContinueCallback {}
+impl ::core::fmt::Debug for IContinueCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContinueCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContinueCallback {
     type Vtable = IContinueCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb722bcca_4e68_101b_a2bc_00aa00404770);
@@ -1639,6 +1702,11 @@ impl ::core::cmp::PartialEq for ICreateErrorInfo {
     }
 }
 impl ::core::cmp::Eq for ICreateErrorInfo {}
+impl ::core::fmt::Debug for ICreateErrorInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICreateErrorInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICreateErrorInfo {
     type Vtable = ICreateErrorInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22f03340_547d_101b_8e65_08002b2bd119);
@@ -1799,6 +1867,11 @@ impl ::core::cmp::PartialEq for ICreateTypeInfo {
     }
 }
 impl ::core::cmp::Eq for ICreateTypeInfo {}
+impl ::core::fmt::Debug for ICreateTypeInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICreateTypeInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICreateTypeInfo {
     type Vtable = ICreateTypeInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020405_0000_0000_c000_000000000046);
@@ -2074,6 +2147,11 @@ impl ::core::cmp::PartialEq for ICreateTypeInfo2 {
     }
 }
 impl ::core::cmp::Eq for ICreateTypeInfo2 {}
+impl ::core::fmt::Debug for ICreateTypeInfo2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICreateTypeInfo2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICreateTypeInfo2 {
     type Vtable = ICreateTypeInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0002040e_0000_0000_c000_000000000046);
@@ -2224,6 +2302,11 @@ impl ::core::cmp::PartialEq for ICreateTypeLib {
     }
 }
 impl ::core::cmp::Eq for ICreateTypeLib {}
+impl ::core::fmt::Debug for ICreateTypeLib {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICreateTypeLib").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICreateTypeLib {
     type Vtable = ICreateTypeLibVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020406_0000_0000_c000_000000000046);
@@ -2369,6 +2452,11 @@ impl ::core::cmp::PartialEq for ICreateTypeLib2 {
     }
 }
 impl ::core::cmp::Eq for ICreateTypeLib2 {}
+impl ::core::fmt::Debug for ICreateTypeLib2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICreateTypeLib2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICreateTypeLib2 {
     type Vtable = ICreateTypeLib2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0002040f_0000_0000_c000_000000000046);
@@ -2747,6 +2835,11 @@ impl ::core::cmp::PartialEq for IDispError {
     }
 }
 impl ::core::cmp::Eq for IDispError {}
+impl ::core::fmt::Debug for IDispError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDispError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDispError {
     type Vtable = IDispErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6ef9861_c720_11d0_9337_00a0c90dcaa9);
@@ -2890,6 +2983,11 @@ impl ::core::cmp::PartialEq for IDispatchEx {
     }
 }
 impl ::core::cmp::Eq for IDispatchEx {}
+impl ::core::fmt::Debug for IDispatchEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDispatchEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDispatchEx {
     type Vtable = IDispatchExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6ef9860_c720_11d0_9337_00a0c90dcaa9);
@@ -2966,6 +3064,11 @@ impl ::core::cmp::PartialEq for IDropSource {
     }
 }
 impl ::core::cmp::Eq for IDropSource {}
+impl ::core::fmt::Debug for IDropSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDropSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDropSource {
     type Vtable = IDropSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000121_0000_0000_c000_000000000046);
@@ -3025,6 +3128,11 @@ impl ::core::cmp::PartialEq for IDropSourceNotify {
     }
 }
 impl ::core::cmp::Eq for IDropSourceNotify {}
+impl ::core::fmt::Debug for IDropSourceNotify {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDropSourceNotify").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDropSourceNotify {
     type Vtable = IDropSourceNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000012b_0000_0000_c000_000000000046);
@@ -3094,6 +3202,11 @@ impl ::core::cmp::PartialEq for IDropTarget {
     }
 }
 impl ::core::cmp::Eq for IDropTarget {}
+impl ::core::fmt::Debug for IDropTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDropTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDropTarget {
     type Vtable = IDropTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000122_0000_0000_c000_000000000046);
@@ -3159,6 +3272,11 @@ impl ::core::cmp::PartialEq for IEnterpriseDropTarget {
     }
 }
 impl ::core::cmp::Eq for IEnterpriseDropTarget {}
+impl ::core::fmt::Debug for IEnterpriseDropTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnterpriseDropTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnterpriseDropTarget {
     type Vtable = IEnterpriseDropTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390e3878_fd55_4e18_819d_4682081c0cfd);
@@ -3228,6 +3346,11 @@ impl ::core::cmp::PartialEq for IEnumOLEVERB {
     }
 }
 impl ::core::cmp::Eq for IEnumOLEVERB {}
+impl ::core::fmt::Debug for IEnumOLEVERB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumOLEVERB").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumOLEVERB {
     type Vtable = IEnumOLEVERBVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000104_0000_0000_c000_000000000046);
@@ -3297,6 +3420,11 @@ impl ::core::cmp::PartialEq for IEnumOleDocumentViews {
     }
 }
 impl ::core::cmp::Eq for IEnumOleDocumentViews {}
+impl ::core::fmt::Debug for IEnumOleDocumentViews {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumOleDocumentViews").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumOleDocumentViews {
     type Vtable = IEnumOleDocumentViewsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb722bcc8_4e68_101b_a2bc_00aa00404770);
@@ -3365,6 +3493,11 @@ impl ::core::cmp::PartialEq for IEnumOleUndoUnits {
     }
 }
 impl ::core::cmp::Eq for IEnumOleUndoUnits {}
+impl ::core::fmt::Debug for IEnumOleUndoUnits {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumOleUndoUnits").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumOleUndoUnits {
     type Vtable = IEnumOleUndoUnitsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3e7c340_ef97_11ce_9bc9_00aa00608e01);
@@ -3434,6 +3567,11 @@ impl ::core::cmp::PartialEq for IEnumVARIANT {
     }
 }
 impl ::core::cmp::Eq for IEnumVARIANT {}
+impl ::core::fmt::Debug for IEnumVARIANT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumVARIANT").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumVARIANT {
     type Vtable = IEnumVARIANTVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020404_0000_0000_c000_000000000046);
@@ -3610,6 +3748,11 @@ impl ::core::cmp::PartialEq for IFont {
     }
 }
 impl ::core::cmp::Eq for IFont {}
+impl ::core::fmt::Debug for IFont {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFont").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFont {
     type Vtable = IFontVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbef6e002_a874_101a_8bba_00aa00300cab);
@@ -3744,6 +3887,11 @@ impl ::core::cmp::PartialEq for IFontDisp {
     }
 }
 impl ::core::cmp::Eq for IFontDisp {}
+impl ::core::fmt::Debug for IFontDisp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFontDisp").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFontDisp {
     type Vtable = IFontDispVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbef6e003_a874_101a_8bba_00aa00300cab);
@@ -3845,6 +3993,11 @@ impl ::core::cmp::PartialEq for IFontEventsDisp {
     }
 }
 impl ::core::cmp::Eq for IFontEventsDisp {}
+impl ::core::fmt::Debug for IFontEventsDisp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFontEventsDisp").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFontEventsDisp {
     type Vtable = IFontEventsDispVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ef6100a_af88_11d0_9846_00c04fc29993);
@@ -3910,6 +4063,11 @@ impl ::core::cmp::PartialEq for IGetOleObject {
     }
 }
 impl ::core::cmp::Eq for IGetOleObject {}
+impl ::core::fmt::Debug for IGetOleObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetOleObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGetOleObject {
     type Vtable = IGetOleObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a701da0_4feb_101b_a82e_08002b2b2337);
@@ -3957,6 +4115,11 @@ impl ::core::cmp::PartialEq for IGetVBAObject {
     }
 }
 impl ::core::cmp::Eq for IGetVBAObject {}
+impl ::core::fmt::Debug for IGetVBAObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetVBAObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGetVBAObject {
     type Vtable = IGetVBAObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91733a60_3f4c_101b_a3f6_00aa0034e4e9);
@@ -3996,6 +4159,12 @@ impl ::core::marker::Copy for INTERFACEDATA {}
 impl ::core::clone::Clone for INTERFACEDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for INTERFACEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERFACEDATA").field("pmethdata", &self.pmethdata).field("cMembers", &self.cMembers).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -4084,6 +4253,11 @@ impl ::core::cmp::PartialEq for IObjectIdentity {
     }
 }
 impl ::core::cmp::Eq for IObjectIdentity {}
+impl ::core::fmt::Debug for IObjectIdentity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IObjectIdentity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IObjectIdentity {
     type Vtable = IObjectIdentityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca04b7e6_0d21_11d1_8cc5_00c04fc2b085);
@@ -4136,6 +4310,11 @@ impl ::core::cmp::PartialEq for IObjectWithSite {
     }
 }
 impl ::core::cmp::Eq for IObjectWithSite {}
+impl ::core::fmt::Debug for IObjectWithSite {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IObjectWithSite").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IObjectWithSite {
     type Vtable = IObjectWithSiteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc4801a3_2ba9_11cf_a229_00aa003d7352);
@@ -4214,6 +4393,11 @@ impl ::core::cmp::PartialEq for IOleAdviseHolder {
     }
 }
 impl ::core::cmp::Eq for IOleAdviseHolder {}
+impl ::core::fmt::Debug for IOleAdviseHolder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleAdviseHolder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleAdviseHolder {
     type Vtable = IOleAdviseHolderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000111_0000_0000_c000_000000000046);
@@ -4296,6 +4480,11 @@ impl ::core::cmp::PartialEq for IOleCache {
     }
 }
 impl ::core::cmp::Eq for IOleCache {}
+impl ::core::fmt::Debug for IOleCache {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleCache").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleCache {
     type Vtable = IOleCacheVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000011e_0000_0000_c000_000000000046);
@@ -4407,6 +4596,11 @@ impl ::core::cmp::PartialEq for IOleCache2 {
     }
 }
 impl ::core::cmp::Eq for IOleCache2 {}
+impl ::core::fmt::Debug for IOleCache2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleCache2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleCache2 {
     type Vtable = IOleCache2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000128_0000_0000_c000_000000000046);
@@ -4475,6 +4669,11 @@ impl ::core::cmp::PartialEq for IOleCacheControl {
     }
 }
 impl ::core::cmp::Eq for IOleCacheControl {}
+impl ::core::fmt::Debug for IOleCacheControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleCacheControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleCacheControl {
     type Vtable = IOleCacheControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000129_0000_0000_c000_000000000046);
@@ -4553,6 +4752,11 @@ impl ::core::cmp::PartialEq for IOleClientSite {
     }
 }
 impl ::core::cmp::Eq for IOleClientSite {}
+impl ::core::fmt::Debug for IOleClientSite {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleClientSite").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleClientSite {
     type Vtable = IOleClientSiteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000118_0000_0000_c000_000000000046);
@@ -4617,6 +4821,11 @@ impl ::core::cmp::PartialEq for IOleCommandTarget {
     }
 }
 impl ::core::cmp::Eq for IOleCommandTarget {}
+impl ::core::fmt::Debug for IOleCommandTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleCommandTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleCommandTarget {
     type Vtable = IOleCommandTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb722bccb_4e68_101b_a2bc_00aa00404770);
@@ -4703,6 +4912,11 @@ impl ::core::cmp::PartialEq for IOleContainer {
     }
 }
 impl ::core::cmp::Eq for IOleContainer {}
+impl ::core::fmt::Debug for IOleContainer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleContainer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleContainer {
     type Vtable = IOleContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000011b_0000_0000_c000_000000000046);
@@ -4775,6 +4989,11 @@ impl ::core::cmp::PartialEq for IOleControl {
     }
 }
 impl ::core::cmp::Eq for IOleControl {}
+impl ::core::fmt::Debug for IOleControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleControl {
     type Vtable = IOleControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb196b288_bab4_101a_b69c_00aa00341d07);
@@ -4863,6 +5082,11 @@ impl ::core::cmp::PartialEq for IOleControlSite {
     }
 }
 impl ::core::cmp::Eq for IOleControlSite {}
+impl ::core::fmt::Debug for IOleControlSite {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleControlSite").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleControlSite {
     type Vtable = IOleControlSiteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb196b289_bab4_101a_b69c_00aa00341d07);
@@ -4937,6 +5161,11 @@ impl ::core::cmp::PartialEq for IOleDocument {
     }
 }
 impl ::core::cmp::Eq for IOleDocument {}
+impl ::core::fmt::Debug for IOleDocument {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleDocument").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleDocument {
     type Vtable = IOleDocumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb722bcc5_4e68_101b_a2bc_00aa00404770);
@@ -4992,6 +5221,11 @@ impl ::core::cmp::PartialEq for IOleDocumentSite {
     }
 }
 impl ::core::cmp::Eq for IOleDocumentSite {}
+impl ::core::fmt::Debug for IOleDocumentSite {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleDocumentSite").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleDocumentSite {
     type Vtable = IOleDocumentSiteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb722bcc7_4e68_101b_a2bc_00aa00404770);
@@ -5098,6 +5332,11 @@ impl ::core::cmp::PartialEq for IOleDocumentView {
     }
 }
 impl ::core::cmp::Eq for IOleDocumentView {}
+impl ::core::fmt::Debug for IOleDocumentView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleDocumentView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleDocumentView {
     type Vtable = IOleDocumentViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb722bcc6_4e68_101b_a2bc_00aa00404770);
@@ -5221,6 +5460,11 @@ impl ::core::cmp::PartialEq for IOleInPlaceActiveObject {
     }
 }
 impl ::core::cmp::Eq for IOleInPlaceActiveObject {}
+impl ::core::fmt::Debug for IOleInPlaceActiveObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleInPlaceActiveObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleInPlaceActiveObject {
     type Vtable = IOleInPlaceActiveObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000117_0000_0000_c000_000000000046);
@@ -5384,6 +5628,11 @@ impl ::core::cmp::PartialEq for IOleInPlaceFrame {
     }
 }
 impl ::core::cmp::Eq for IOleInPlaceFrame {}
+impl ::core::fmt::Debug for IOleInPlaceFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleInPlaceFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleInPlaceFrame {
     type Vtable = IOleInPlaceFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000116_0000_0000_c000_000000000046);
@@ -5503,6 +5752,11 @@ impl ::core::cmp::PartialEq for IOleInPlaceObject {
     }
 }
 impl ::core::cmp::Eq for IOleInPlaceObject {}
+impl ::core::fmt::Debug for IOleInPlaceObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleInPlaceObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleInPlaceObject {
     type Vtable = IOleInPlaceObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000113_0000_0000_c000_000000000046);
@@ -5638,6 +5892,11 @@ impl ::core::cmp::PartialEq for IOleInPlaceObjectWindowless {
     }
 }
 impl ::core::cmp::Eq for IOleInPlaceObjectWindowless {}
+impl ::core::fmt::Debug for IOleInPlaceObjectWindowless {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleInPlaceObjectWindowless").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleInPlaceObjectWindowless {
     type Vtable = IOleInPlaceObjectWindowlessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c2056cc_5ef4_101b_8bc8_00aa003e3b29);
@@ -5772,6 +6031,11 @@ impl ::core::cmp::PartialEq for IOleInPlaceSite {
     }
 }
 impl ::core::cmp::Eq for IOleInPlaceSite {}
+impl ::core::fmt::Debug for IOleInPlaceSite {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleInPlaceSite").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleInPlaceSite {
     type Vtable = IOleInPlaceSiteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000119_0000_0000_c000_000000000046);
@@ -5946,6 +6210,11 @@ impl ::core::cmp::PartialEq for IOleInPlaceSiteEx {
     }
 }
 impl ::core::cmp::Eq for IOleInPlaceSiteEx {}
+impl ::core::fmt::Debug for IOleInPlaceSiteEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleInPlaceSiteEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleInPlaceSiteEx {
     type Vtable = IOleInPlaceSiteExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c2cad80_3424_11cf_b670_00aa004cd6d8);
@@ -6204,6 +6473,11 @@ impl ::core::cmp::PartialEq for IOleInPlaceSiteWindowless {
     }
 }
 impl ::core::cmp::Eq for IOleInPlaceSiteWindowless {}
+impl ::core::fmt::Debug for IOleInPlaceSiteWindowless {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleInPlaceSiteWindowless").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleInPlaceSiteWindowless {
     type Vtable = IOleInPlaceSiteWindowlessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x922eada0_3424_11cf_b670_00aa004cd6d8);
@@ -6347,6 +6621,11 @@ impl ::core::cmp::PartialEq for IOleInPlaceUIWindow {
     }
 }
 impl ::core::cmp::Eq for IOleInPlaceUIWindow {}
+impl ::core::fmt::Debug for IOleInPlaceUIWindow {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleInPlaceUIWindow").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleInPlaceUIWindow {
     type Vtable = IOleInPlaceUIWindowVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000115_0000_0000_c000_000000000046);
@@ -6479,6 +6758,11 @@ impl ::core::cmp::PartialEq for IOleItemContainer {
     }
 }
 impl ::core::cmp::Eq for IOleItemContainer {}
+impl ::core::fmt::Debug for IOleItemContainer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleItemContainer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleItemContainer {
     type Vtable = IOleItemContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000011c_0000_0000_c000_000000000046);
@@ -6592,6 +6876,11 @@ impl ::core::cmp::PartialEq for IOleLink {
     }
 }
 impl ::core::cmp::Eq for IOleLink {}
+impl ::core::fmt::Debug for IOleLink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleLink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleLink {
     type Vtable = IOleLinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000011d_0000_0000_c000_000000000046);
@@ -6762,6 +7051,11 @@ impl ::core::cmp::PartialEq for IOleObject {
     }
 }
 impl ::core::cmp::Eq for IOleObject {}
+impl ::core::fmt::Debug for IOleObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleObject {
     type Vtable = IOleObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000112_0000_0000_c000_000000000046);
@@ -6902,6 +7196,11 @@ impl ::core::cmp::PartialEq for IOleParentUndoUnit {
     }
 }
 impl ::core::cmp::Eq for IOleParentUndoUnit {}
+impl ::core::fmt::Debug for IOleParentUndoUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleParentUndoUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleParentUndoUnit {
     type Vtable = IOleParentUndoUnitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1faf330_ef97_11ce_9bc9_00aa00608e01);
@@ -6996,6 +7295,11 @@ impl ::core::cmp::PartialEq for IOleUILinkContainerA {
     }
 }
 impl ::core::cmp::Eq for IOleUILinkContainerA {}
+impl ::core::fmt::Debug for IOleUILinkContainerA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleUILinkContainerA").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleUILinkContainerA {
     type Vtable = IOleUILinkContainerAVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -7090,6 +7394,11 @@ impl ::core::cmp::PartialEq for IOleUILinkContainerW {
     }
 }
 impl ::core::cmp::Eq for IOleUILinkContainerW {}
+impl ::core::fmt::Debug for IOleUILinkContainerW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleUILinkContainerW").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleUILinkContainerW {
     type Vtable = IOleUILinkContainerWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -7210,6 +7519,11 @@ impl ::core::cmp::PartialEq for IOleUILinkInfoA {
     }
 }
 impl ::core::cmp::Eq for IOleUILinkInfoA {}
+impl ::core::fmt::Debug for IOleUILinkInfoA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleUILinkInfoA").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleUILinkInfoA {
     type Vtable = IOleUILinkInfoAVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -7332,6 +7646,11 @@ impl ::core::cmp::PartialEq for IOleUILinkInfoW {
     }
 }
 impl ::core::cmp::Eq for IOleUILinkInfoW {}
+impl ::core::fmt::Debug for IOleUILinkInfoW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleUILinkInfoW").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleUILinkInfoW {
     type Vtable = IOleUILinkInfoWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -7414,6 +7733,11 @@ impl ::core::cmp::PartialEq for IOleUIObjInfoA {
     }
 }
 impl ::core::cmp::Eq for IOleUIObjInfoA {}
+impl ::core::fmt::Debug for IOleUIObjInfoA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleUIObjInfoA").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleUIObjInfoA {
     type Vtable = IOleUIObjInfoAVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -7490,6 +7814,11 @@ impl ::core::cmp::PartialEq for IOleUIObjInfoW {
     }
 }
 impl ::core::cmp::Eq for IOleUIObjInfoW {}
+impl ::core::fmt::Debug for IOleUIObjInfoW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleUIObjInfoW").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleUIObjInfoW {
     type Vtable = IOleUIObjInfoWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -7601,6 +7930,11 @@ impl ::core::cmp::PartialEq for IOleUndoManager {
     }
 }
 impl ::core::cmp::Eq for IOleUndoManager {}
+impl ::core::fmt::Debug for IOleUndoManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleUndoManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleUndoManager {
     type Vtable = IOleUndoManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd001f200_ef97_11ce_9bc9_00aa00608e01);
@@ -7682,6 +8016,11 @@ impl ::core::cmp::PartialEq for IOleUndoUnit {
     }
 }
 impl ::core::cmp::Eq for IOleUndoUnit {}
+impl ::core::fmt::Debug for IOleUndoUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleUndoUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleUndoUnit {
     type Vtable = IOleUndoUnitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x894ad3b0_ef97_11ce_9bc9_00aa00608e01);
@@ -7745,6 +8084,11 @@ impl ::core::cmp::PartialEq for IOleWindow {
     }
 }
 impl ::core::cmp::Eq for IOleWindow {}
+impl ::core::fmt::Debug for IOleWindow {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOleWindow").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOleWindow {
     type Vtable = IOleWindowVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000114_0000_0000_c000_000000000046);
@@ -7801,6 +8145,11 @@ impl ::core::cmp::PartialEq for IParseDisplayName {
     }
 }
 impl ::core::cmp::Eq for IParseDisplayName {}
+impl ::core::fmt::Debug for IParseDisplayName {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IParseDisplayName").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IParseDisplayName {
     type Vtable = IParseDisplayNameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000011a_0000_0000_c000_000000000046);
@@ -7872,6 +8221,11 @@ impl ::core::cmp::PartialEq for IPerPropertyBrowsing {
     }
 }
 impl ::core::cmp::Eq for IPerPropertyBrowsing {}
+impl ::core::fmt::Debug for IPerPropertyBrowsing {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPerPropertyBrowsing").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPerPropertyBrowsing {
     type Vtable = IPerPropertyBrowsingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x376bd3aa_3845_101b_84ed_08002b2ec713);
@@ -7970,6 +8324,11 @@ impl ::core::cmp::PartialEq for IPersistPropertyBag {
     }
 }
 impl ::core::cmp::Eq for IPersistPropertyBag {}
+impl ::core::fmt::Debug for IPersistPropertyBag {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPersistPropertyBag").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPersistPropertyBag {
     type Vtable = IPersistPropertyBagVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37d84f60_42cb_11ce_8135_00aa004bb851);
@@ -8072,6 +8431,11 @@ impl ::core::cmp::PartialEq for IPersistPropertyBag2 {
     }
 }
 impl ::core::cmp::Eq for IPersistPropertyBag2 {}
+impl ::core::fmt::Debug for IPersistPropertyBag2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPersistPropertyBag2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPersistPropertyBag2 {
     type Vtable = IPersistPropertyBag2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22f55881_280b_11d0_a8a9_00a0c90c2004);
@@ -8198,6 +8562,11 @@ impl ::core::cmp::PartialEq for IPicture {
     }
 }
 impl ::core::cmp::Eq for IPicture {}
+impl ::core::fmt::Debug for IPicture {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPicture").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPicture {
     type Vtable = IPictureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bf80980_bf32_101a_8bbb_00aa00300cab);
@@ -8336,6 +8705,11 @@ impl ::core::cmp::PartialEq for IPicture2 {
     }
 }
 impl ::core::cmp::Eq for IPicture2 {}
+impl ::core::fmt::Debug for IPicture2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPicture2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPicture2 {
     type Vtable = IPicture2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5185dd8_2012_4b0b_aad9_f052c6bd482b);
@@ -8449,6 +8823,11 @@ impl ::core::cmp::PartialEq for IPictureDisp {
     }
 }
 impl ::core::cmp::Eq for IPictureDisp {}
+impl ::core::fmt::Debug for IPictureDisp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPictureDisp").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPictureDisp {
     type Vtable = IPictureDispVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bf80981_bf32_101a_8bbb_00aa00300cab);
@@ -8519,6 +8898,11 @@ impl ::core::cmp::PartialEq for IPointerInactive {
     }
 }
 impl ::core::cmp::Eq for IPointerInactive {}
+impl ::core::fmt::Debug for IPointerInactive {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPointerInactive").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPointerInactive {
     type Vtable = IPointerInactiveVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55980ba0_35aa_11cf_b671_00aa004cd6d8);
@@ -8584,6 +8968,11 @@ impl ::core::cmp::PartialEq for IPrint {
     }
 }
 impl ::core::cmp::Eq for IPrint {}
+impl ::core::fmt::Debug for IPrint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrint").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrint {
     type Vtable = IPrintVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb722bcc9_4e68_101b_a2bc_00aa00404770);
@@ -8643,6 +9032,11 @@ impl ::core::cmp::PartialEq for IPropertyNotifySink {
     }
 }
 impl ::core::cmp::Eq for IPropertyNotifySink {}
+impl ::core::fmt::Debug for IPropertyNotifySink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyNotifySink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyNotifySink {
     type Vtable = IPropertyNotifySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bfbbc02_eff1_101a_84ed_00aa00341d07);
@@ -8742,6 +9136,11 @@ impl ::core::cmp::PartialEq for IPropertyPage {
     }
 }
 impl ::core::cmp::Eq for IPropertyPage {}
+impl ::core::fmt::Debug for IPropertyPage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyPage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyPage {
     type Vtable = IPropertyPageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb196b28d_bab4_101a_b69c_00aa00341d07);
@@ -8879,6 +9278,11 @@ impl ::core::cmp::PartialEq for IPropertyPage2 {
     }
 }
 impl ::core::cmp::Eq for IPropertyPage2 {}
+impl ::core::fmt::Debug for IPropertyPage2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyPage2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyPage2 {
     type Vtable = IPropertyPage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01e44665_24ac_101b_84ed_08002b2ec713);
@@ -8962,6 +9366,11 @@ impl ::core::cmp::PartialEq for IPropertyPageSite {
     }
 }
 impl ::core::cmp::Eq for IPropertyPageSite {}
+impl ::core::fmt::Debug for IPropertyPageSite {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyPageSite").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyPageSite {
     type Vtable = IPropertyPageSiteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb196b28c_bab4_101a_b69c_00aa00341d07);
@@ -9020,6 +9429,11 @@ impl ::core::cmp::PartialEq for IProtectFocus {
     }
 }
 impl ::core::cmp::Eq for IProtectFocus {}
+impl ::core::fmt::Debug for IProtectFocus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProtectFocus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProtectFocus {
     type Vtable = IProtectFocusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd81f90a3_8156_44f7_ad28_5abb87003274);
@@ -9087,6 +9501,11 @@ impl ::core::cmp::PartialEq for IProtectedModeMenuServices {
     }
 }
 impl ::core::cmp::Eq for IProtectedModeMenuServices {}
+impl ::core::fmt::Debug for IProtectedModeMenuServices {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProtectedModeMenuServices").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProtectedModeMenuServices {
     type Vtable = IProtectedModeMenuServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73c105ee_9dff_4a07_b83c_7eff290c266e);
@@ -9146,6 +9565,11 @@ impl ::core::cmp::PartialEq for IProvideClassInfo {
     }
 }
 impl ::core::cmp::Eq for IProvideClassInfo {}
+impl ::core::fmt::Debug for IProvideClassInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProvideClassInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProvideClassInfo {
     type Vtable = IProvideClassInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb196b283_bab4_101a_b69c_00aa00341d07);
@@ -9226,6 +9650,11 @@ impl ::core::cmp::PartialEq for IProvideClassInfo2 {
     }
 }
 impl ::core::cmp::Eq for IProvideClassInfo2 {}
+impl ::core::fmt::Debug for IProvideClassInfo2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProvideClassInfo2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProvideClassInfo2 {
     type Vtable = IProvideClassInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6bc3ac0_dbaa_11ce_9de3_00aa004bb851);
@@ -9337,6 +9766,11 @@ impl ::core::cmp::PartialEq for IProvideMultipleClassInfo {
     }
 }
 impl ::core::cmp::Eq for IProvideMultipleClassInfo {}
+impl ::core::fmt::Debug for IProvideMultipleClassInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProvideMultipleClassInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProvideMultipleClassInfo {
     type Vtable = IProvideMultipleClassInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7aba9c1_8983_11cf_8f20_00805f2cd064);
@@ -9394,6 +9828,11 @@ impl ::core::cmp::PartialEq for IProvideRuntimeContext {
     }
 }
 impl ::core::cmp::Eq for IProvideRuntimeContext {}
+impl ::core::fmt::Debug for IProvideRuntimeContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProvideRuntimeContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProvideRuntimeContext {
     type Vtable = IProvideRuntimeContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10e2414a_ec59_49d2_bc51_5add2c36febc);
@@ -9453,6 +9892,11 @@ impl ::core::cmp::PartialEq for IQuickActivate {
     }
 }
 impl ::core::cmp::Eq for IQuickActivate {}
+impl ::core::fmt::Debug for IQuickActivate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IQuickActivate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IQuickActivate {
     type Vtable = IQuickActivateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf51ed10_62fe_11cf_bf86_00a0c9034836);
@@ -9583,6 +10027,11 @@ impl ::core::cmp::PartialEq for IRecordInfo {
     }
 }
 impl ::core::cmp::Eq for IRecordInfo {}
+impl ::core::fmt::Debug for IRecordInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRecordInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRecordInfo {
     type Vtable = IRecordInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000002f_0000_0000_c000_000000000046);
@@ -9664,6 +10113,11 @@ impl ::core::cmp::PartialEq for ISimpleFrameSite {
     }
 }
 impl ::core::cmp::Eq for ISimpleFrameSite {}
+impl ::core::fmt::Debug for ISimpleFrameSite {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISimpleFrameSite").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISimpleFrameSite {
     type Vtable = ISimpleFrameSiteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x742b0e01_14e6_101b_914e_00aa00300cab);
@@ -9720,6 +10174,11 @@ impl ::core::cmp::PartialEq for ISpecifyPropertyPages {
     }
 }
 impl ::core::cmp::Eq for ISpecifyPropertyPages {}
+impl ::core::fmt::Debug for ISpecifyPropertyPages {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpecifyPropertyPages").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpecifyPropertyPages {
     type Vtable = ISpecifyPropertyPagesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb196b28b_bab4_101a_b69c_00aa00341d07);
@@ -9774,6 +10233,11 @@ impl ::core::cmp::PartialEq for ITypeChangeEvents {
     }
 }
 impl ::core::cmp::Eq for ITypeChangeEvents {}
+impl ::core::fmt::Debug for ITypeChangeEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITypeChangeEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITypeChangeEvents {
     type Vtable = ITypeChangeEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020410_0000_0000_c000_000000000046);
@@ -9831,6 +10295,11 @@ impl ::core::cmp::PartialEq for ITypeFactory {
     }
 }
 impl ::core::cmp::Eq for ITypeFactory {}
+impl ::core::fmt::Debug for ITypeFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITypeFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITypeFactory {
     type Vtable = ITypeFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000002e_0000_0000_c000_000000000046);
@@ -9897,6 +10366,11 @@ impl ::core::cmp::PartialEq for ITypeMarshal {
     }
 }
 impl ::core::cmp::Eq for ITypeMarshal {}
+impl ::core::fmt::Debug for ITypeMarshal {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITypeMarshal").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITypeMarshal {
     type Vtable = ITypeMarshalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000002d_0000_0000_c000_000000000046);
@@ -9953,6 +10427,11 @@ impl ::core::cmp::PartialEq for IVBFormat {
     }
 }
 impl ::core::cmp::Eq for IVBFormat {}
+impl ::core::fmt::Debug for IVBFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVBFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVBFormat {
     type Vtable = IVBFormatVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9849fd60_3768_101b_8d72_ae6164ffe3cf);
@@ -10008,6 +10487,11 @@ impl ::core::cmp::PartialEq for IVBGetControl {
     }
 }
 impl ::core::cmp::Eq for IVBGetControl {}
+impl ::core::fmt::Debug for IVBGetControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVBGetControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVBGetControl {
     type Vtable = IVBGetControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40a050a0_3c31_101b_a82e_08002b2b2337);
@@ -10062,6 +10546,11 @@ impl ::core::cmp::PartialEq for IVariantChangeType {
     }
 }
 impl ::core::cmp::Eq for IVariantChangeType {}
+impl ::core::fmt::Debug for IVariantChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVariantChangeType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVariantChangeType {
     type Vtable = IVariantChangeTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6ef9862_c720_11d0_9337_00a0c90dcaa9);
@@ -10139,6 +10628,11 @@ impl ::core::cmp::PartialEq for IViewObject {
     }
 }
 impl ::core::cmp::Eq for IViewObject {}
+impl ::core::fmt::Debug for IViewObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IViewObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IViewObject {
     type Vtable = IViewObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000010d_0000_0000_c000_000000000046);
@@ -10250,6 +10744,11 @@ impl ::core::cmp::PartialEq for IViewObject2 {
     }
 }
 impl ::core::cmp::Eq for IViewObject2 {}
+impl ::core::fmt::Debug for IViewObject2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IViewObject2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IViewObject2 {
     type Vtable = IViewObject2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000127_0000_0000_c000_000000000046);
@@ -10412,6 +10911,11 @@ impl ::core::cmp::PartialEq for IViewObjectEx {
     }
 }
 impl ::core::cmp::Eq for IViewObjectEx {}
+impl ::core::fmt::Debug for IViewObjectEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IViewObjectEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IViewObjectEx {
     type Vtable = IViewObjectExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3af24292_0c96_11ce_a0cf_00aa00600ab8);
@@ -10484,6 +10988,11 @@ impl ::core::cmp::PartialEq for IZoomEvents {
     }
 }
 impl ::core::cmp::Eq for IZoomEvents {}
+impl ::core::fmt::Debug for IZoomEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IZoomEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IZoomEvents {
     type Vtable = IZoomEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41b68150_904c_4e17_a0ba_a438182e359d);
@@ -10560,6 +11069,12 @@ impl ::core::marker::Copy for LICINFO {}
 impl ::core::clone::Clone for LICINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LICINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LICINFO").field("cbLicInfo", &self.cbLicInfo).field("fRuntimeKeyAvail", &self.fRuntimeKeyAvail).field("fLicVerified", &self.fLicVerified).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10679,6 +11194,12 @@ impl ::core::clone::Clone for METHODDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for METHODDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("METHODDATA").field("szName", &self.szName).field("ppdata", &self.ppdata).field("dispid", &self.dispid).field("iMeth", &self.iMeth).field("cc", &self.cc).field("cArgs", &self.cArgs).field("wFlags", &self.wFlags).field("vtReturn", &self.vtReturn).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for METHODDATA {
     type Abi = Self;
 }
@@ -10734,6 +11255,11 @@ impl ::core::marker::Copy for NUMPARSE {}
 impl ::core::clone::Clone for NUMPARSE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NUMPARSE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NUMPARSE").field("cDig", &self.cDig).field("dwInFlags", &self.dwInFlags).field("dwOutFlags", &self.dwOutFlags).field("cchUsed", &self.cchUsed).field("nBaseShift", &self.nBaseShift).field("nPwr10", &self.nPwr10).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NUMPARSE {
@@ -10804,6 +11330,12 @@ impl ::core::clone::Clone for OBJECTDESCRIPTOR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OBJECTDESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OBJECTDESCRIPTOR").field("cbSize", &self.cbSize).field("clsid", &self.clsid).field("dwDrawAspect", &self.dwDrawAspect).field("sizel", &self.sizel).field("pointl", &self.pointl).field("dwStatus", &self.dwStatus).field("dwFullUserTypeName", &self.dwFullUserTypeName).field("dwSrcOfCopy", &self.dwSrcOfCopy).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OBJECTDESCRIPTOR {
     type Abi = Self;
 }
@@ -10845,6 +11377,12 @@ impl ::core::marker::Copy for OCPFIPARAMS {}
 impl ::core::clone::Clone for OCPFIPARAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OCPFIPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OCPFIPARAMS").field("cbStructSize", &self.cbStructSize).field("hWndOwner", &self.hWndOwner).field("x", &self.x).field("y", &self.y).field("lpszCaption", &self.lpszCaption).field("cObjects", &self.cObjects).field("lplpUnk", &self.lplpUnk).field("cPages", &self.cPages).field("lpPages", &self.lpPages).field("lcid", &self.lcid).field("dispidInitialProperty", &self.dispidInitialProperty).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10890,6 +11428,12 @@ impl ::core::clone::Clone for OIFI {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for OIFI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OIFI").field("cb", &self.cb).field("fMDIApp", &self.fMDIApp).field("hwndFrame", &self.hwndFrame).field("haccel", &self.haccel).field("cAccelEntries", &self.cAccelEntries).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OIFI {
     type Abi = Self;
 }
@@ -10925,6 +11469,11 @@ impl ::core::marker::Copy for OLECMD {}
 impl ::core::clone::Clone for OLECMD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OLECMD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLECMD").field("cmdID", &self.cmdID).field("cmdf", &self.cmdf).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OLECMD {
@@ -11337,6 +11886,11 @@ impl ::core::clone::Clone for OLECMDTEXT {
         *self
     }
 }
+impl ::core::fmt::Debug for OLECMDTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLECMDTEXT").field("cmdtextf", &self.cmdtextf).field("cwActual", &self.cwActual).field("cwBuf", &self.cwBuf).field("rgwz", &self.rgwz).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for OLECMDTEXT {
     type Abi = Self;
 }
@@ -11494,6 +12048,12 @@ impl ::core::clone::Clone for OLEUIBUSYA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
+impl ::core::fmt::Debug for OLEUIBUSYA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUIBUSYA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("hTask", &self.hTask).field("lphWndDialog", &self.lphWndDialog).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
 unsafe impl ::windows::core::Abi for OLEUIBUSYA {
     type Abi = Self;
 }
@@ -11533,6 +12093,12 @@ impl ::core::marker::Copy for OLEUIBUSYW {}
 impl ::core::clone::Clone for OLEUIBUSYW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
+impl ::core::fmt::Debug for OLEUIBUSYW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUIBUSYW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("hTask", &self.hTask).field("lphWndDialog", &self.lphWndDialog).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
@@ -11580,6 +12146,26 @@ impl ::core::clone::Clone for OLEUICHANGEICONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OLEUICHANGEICONA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUICHANGEICONA")
+            .field("cbStruct", &self.cbStruct)
+            .field("dwFlags", &self.dwFlags)
+            .field("hWndOwner", &self.hWndOwner)
+            .field("lpszCaption", &self.lpszCaption)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lCustData", &self.lCustData)
+            .field("hInstance", &self.hInstance)
+            .field("lpszTemplate", &self.lpszTemplate)
+            .field("hResource", &self.hResource)
+            .field("hMetaPict", &self.hMetaPict)
+            .field("clsid", &self.clsid)
+            .field("szIconExe", &self.szIconExe)
+            .field("cchIconExe", &self.cchIconExe)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OLEUICHANGEICONA {
     type Abi = Self;
 }
@@ -11621,6 +12207,26 @@ impl ::core::marker::Copy for OLEUICHANGEICONW {}
 impl ::core::clone::Clone for OLEUICHANGEICONW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OLEUICHANGEICONW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUICHANGEICONW")
+            .field("cbStruct", &self.cbStruct)
+            .field("dwFlags", &self.dwFlags)
+            .field("hWndOwner", &self.hWndOwner)
+            .field("lpszCaption", &self.lpszCaption)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lCustData", &self.lCustData)
+            .field("hInstance", &self.hInstance)
+            .field("lpszTemplate", &self.lpszTemplate)
+            .field("hResource", &self.hResource)
+            .field("hMetaPict", &self.hMetaPict)
+            .field("clsid", &self.clsid)
+            .field("szIconExe", &self.szIconExe)
+            .field("cchIconExe", &self.cchIconExe)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11688,6 +12294,30 @@ impl ::core::clone::Clone for OLEUICHANGESOURCEA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
+impl ::core::fmt::Debug for OLEUICHANGESOURCEA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUICHANGESOURCEA")
+            .field("cbStruct", &self.cbStruct)
+            .field("dwFlags", &self.dwFlags)
+            .field("hWndOwner", &self.hWndOwner)
+            .field("lpszCaption", &self.lpszCaption)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lCustData", &self.lCustData)
+            .field("hInstance", &self.hInstance)
+            .field("lpszTemplate", &self.lpszTemplate)
+            .field("hResource", &self.hResource)
+            .field("lpOFN", &self.lpOFN)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("lpOleUILinkContainer", &self.lpOleUILinkContainer)
+            .field("dwLink", &self.dwLink)
+            .field("lpszDisplayName", &self.lpszDisplayName)
+            .field("nFileLength", &self.nFileLength)
+            .field("lpszFrom", &self.lpszFrom)
+            .field("lpszTo", &self.lpszTo)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 unsafe impl ::windows::core::Abi for OLEUICHANGESOURCEA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -11752,6 +12382,30 @@ impl ::core::clone::Clone for OLEUICHANGESOURCEW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
+impl ::core::fmt::Debug for OLEUICHANGESOURCEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUICHANGESOURCEW")
+            .field("cbStruct", &self.cbStruct)
+            .field("dwFlags", &self.dwFlags)
+            .field("hWndOwner", &self.hWndOwner)
+            .field("lpszCaption", &self.lpszCaption)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lCustData", &self.lCustData)
+            .field("hInstance", &self.hInstance)
+            .field("lpszTemplate", &self.lpszTemplate)
+            .field("hResource", &self.hResource)
+            .field("lpOFN", &self.lpOFN)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("lpOleUILinkContainer", &self.lpOleUILinkContainer)
+            .field("dwLink", &self.dwLink)
+            .field("lpszDisplayName", &self.lpszDisplayName)
+            .field("nFileLength", &self.nFileLength)
+            .field("lpszFrom", &self.lpszFrom)
+            .field("lpszTo", &self.lpszTo)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 unsafe impl ::windows::core::Abi for OLEUICHANGESOURCEW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -11802,6 +12456,35 @@ impl ::core::marker::Copy for OLEUICONVERTA {}
 impl ::core::clone::Clone for OLEUICONVERTA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OLEUICONVERTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUICONVERTA")
+            .field("cbStruct", &self.cbStruct)
+            .field("dwFlags", &self.dwFlags)
+            .field("hWndOwner", &self.hWndOwner)
+            .field("lpszCaption", &self.lpszCaption)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lCustData", &self.lCustData)
+            .field("hInstance", &self.hInstance)
+            .field("lpszTemplate", &self.lpszTemplate)
+            .field("hResource", &self.hResource)
+            .field("clsid", &self.clsid)
+            .field("clsidConvertDefault", &self.clsidConvertDefault)
+            .field("clsidActivateDefault", &self.clsidActivateDefault)
+            .field("clsidNew", &self.clsidNew)
+            .field("dvAspect", &self.dvAspect)
+            .field("wFormat", &self.wFormat)
+            .field("fIsLinkedObject", &self.fIsLinkedObject)
+            .field("hMetaPict", &self.hMetaPict)
+            .field("lpszUserType", &self.lpszUserType)
+            .field("fObjectsIconChanged", &self.fObjectsIconChanged)
+            .field("lpszDefLabel", &self.lpszDefLabel)
+            .field("cClsidExclude", &self.cClsidExclude)
+            .field("lpClsidExclude", &self.lpClsidExclude)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11858,6 +12541,35 @@ impl ::core::clone::Clone for OLEUICONVERTW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OLEUICONVERTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUICONVERTW")
+            .field("cbStruct", &self.cbStruct)
+            .field("dwFlags", &self.dwFlags)
+            .field("hWndOwner", &self.hWndOwner)
+            .field("lpszCaption", &self.lpszCaption)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lCustData", &self.lCustData)
+            .field("hInstance", &self.hInstance)
+            .field("lpszTemplate", &self.lpszTemplate)
+            .field("hResource", &self.hResource)
+            .field("clsid", &self.clsid)
+            .field("clsidConvertDefault", &self.clsidConvertDefault)
+            .field("clsidActivateDefault", &self.clsidActivateDefault)
+            .field("clsidNew", &self.clsidNew)
+            .field("dvAspect", &self.dvAspect)
+            .field("wFormat", &self.wFormat)
+            .field("fIsLinkedObject", &self.fIsLinkedObject)
+            .field("hMetaPict", &self.hMetaPict)
+            .field("lpszUserType", &self.lpszUserType)
+            .field("fObjectsIconChanged", &self.fObjectsIconChanged)
+            .field("lpszDefLabel", &self.lpszDefLabel)
+            .field("cClsidExclude", &self.cClsidExclude)
+            .field("lpClsidExclude", &self.lpClsidExclude)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OLEUICONVERTW {
     type Abi = Self;
 }
@@ -11905,6 +12617,12 @@ impl ::core::clone::Clone for OLEUIEDITLINKSA {
             hResource: self.hResource,
             lpOleUILinkContainer: self.lpOleUILinkContainer.clone(),
         }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OLEUIEDITLINKSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUIEDITLINKSA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("lpOleUILinkContainer", &self.lpOleUILinkContainer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11958,6 +12676,12 @@ impl ::core::clone::Clone for OLEUIEDITLINKSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OLEUIEDITLINKSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUIEDITLINKSW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("lpOleUILinkContainer", &self.lpOleUILinkContainer).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OLEUIEDITLINKSW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -11996,6 +12720,12 @@ impl ::core::clone::Clone for OLEUIGNRLPROPSA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for OLEUIGNRLPROPSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUIGNRLPROPSA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OLEUIGNRLPROPSA {
     type Abi = Self;
 }
@@ -12031,6 +12761,12 @@ impl ::core::marker::Copy for OLEUIGNRLPROPSW {}
 impl ::core::clone::Clone for OLEUIGNRLPROPSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for OLEUIGNRLPROPSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUIGNRLPROPSW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -12105,6 +12841,35 @@ impl ::core::clone::Clone for OLEUIINSERTOBJECTA {
             sc: self.sc,
             hMetaPict: self.hMetaPict,
         }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::fmt::Debug for OLEUIINSERTOBJECTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUIINSERTOBJECTA")
+            .field("cbStruct", &self.cbStruct)
+            .field("dwFlags", &self.dwFlags)
+            .field("hWndOwner", &self.hWndOwner)
+            .field("lpszCaption", &self.lpszCaption)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lCustData", &self.lCustData)
+            .field("hInstance", &self.hInstance)
+            .field("lpszTemplate", &self.lpszTemplate)
+            .field("hResource", &self.hResource)
+            .field("clsid", &self.clsid)
+            .field("lpszFile", &self.lpszFile)
+            .field("cchFile", &self.cchFile)
+            .field("cClsidExclude", &self.cClsidExclude)
+            .field("lpClsidExclude", &self.lpClsidExclude)
+            .field("iid", &self.iid)
+            .field("oleRender", &self.oleRender)
+            .field("lpFormatEtc", &self.lpFormatEtc)
+            .field("lpIOleClientSite", &self.lpIOleClientSite)
+            .field("lpIStorage", &self.lpIStorage)
+            .field("ppvObj", &self.ppvObj)
+            .field("sc", &self.sc)
+            .field("hMetaPict", &self.hMetaPict)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -12203,6 +12968,35 @@ impl ::core::clone::Clone for OLEUIINSERTOBJECTW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::fmt::Debug for OLEUIINSERTOBJECTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUIINSERTOBJECTW")
+            .field("cbStruct", &self.cbStruct)
+            .field("dwFlags", &self.dwFlags)
+            .field("hWndOwner", &self.hWndOwner)
+            .field("lpszCaption", &self.lpszCaption)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lCustData", &self.lCustData)
+            .field("hInstance", &self.hInstance)
+            .field("lpszTemplate", &self.lpszTemplate)
+            .field("hResource", &self.hResource)
+            .field("clsid", &self.clsid)
+            .field("lpszFile", &self.lpszFile)
+            .field("cchFile", &self.cchFile)
+            .field("cClsidExclude", &self.cClsidExclude)
+            .field("lpClsidExclude", &self.lpClsidExclude)
+            .field("iid", &self.iid)
+            .field("oleRender", &self.oleRender)
+            .field("lpFormatEtc", &self.lpFormatEtc)
+            .field("lpIOleClientSite", &self.lpIOleClientSite)
+            .field("lpIStorage", &self.lpIStorage)
+            .field("ppvObj", &self.ppvObj)
+            .field("sc", &self.sc)
+            .field("hMetaPict", &self.hMetaPict)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for OLEUIINSERTOBJECTW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -12262,6 +13056,12 @@ impl ::core::clone::Clone for OLEUILINKPROPSA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for OLEUILINKPROPSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUILINKPROPSA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OLEUILINKPROPSA {
     type Abi = Self;
 }
@@ -12297,6 +13097,12 @@ impl ::core::marker::Copy for OLEUILINKPROPSW {}
 impl ::core::clone::Clone for OLEUILINKPROPSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for OLEUILINKPROPSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUILINKPROPSW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -12350,6 +13156,12 @@ impl ::core::clone::Clone for OLEUIOBJECTPROPSA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for OLEUIOBJECTPROPSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUIOBJECTPROPSA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("lpPS", &self.lpPS).field("dwObject", &self.dwObject).field("lpObjInfo", &self.lpObjInfo).field("dwLink", &self.dwLink).field("lpLinkInfo", &self.lpLinkInfo).field("lpGP", &self.lpGP).field("lpVP", &self.lpVP).field("lpLP", &self.lpLP).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OLEUIOBJECTPROPSA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -12400,6 +13212,12 @@ impl ::core::clone::Clone for OLEUIOBJECTPROPSW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for OLEUIOBJECTPROPSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUIOBJECTPROPSW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("lpPS", &self.lpPS).field("dwObject", &self.dwObject).field("lpObjInfo", &self.lpObjInfo).field("dwLink", &self.dwLink).field("lpLinkInfo", &self.lpLinkInfo).field("lpGP", &self.lpGP).field("lpVP", &self.lpVP).field("lpLP", &self.lpLP).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OLEUIOBJECTPROPSW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -12436,6 +13254,12 @@ impl ::core::clone::Clone for OLEUIPASTEENTRYA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for OLEUIPASTEENTRYA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUIPASTEENTRYA").field("fmtetc", &self.fmtetc).field("lpstrFormatName", &self.lpstrFormatName).field("lpstrResultText", &self.lpstrResultText).field("dwFlags", &self.dwFlags).field("dwScratchSpace", &self.dwScratchSpace).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for OLEUIPASTEENTRYA {
     type Abi = Self;
 }
@@ -12469,6 +13293,12 @@ impl ::core::marker::Copy for OLEUIPASTEENTRYW {}
 impl ::core::clone::Clone for OLEUIPASTEENTRYW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for OLEUIPASTEENTRYW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUIPASTEENTRYW").field("fmtetc", &self.fmtetc).field("lpstrFormatName", &self.lpstrFormatName).field("lpstrResultText", &self.lpstrResultText).field("dwFlags", &self.dwFlags).field("dwScratchSpace", &self.dwScratchSpace).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -12568,6 +13398,33 @@ impl ::core::clone::Clone for OLEUIPASTESPECIALA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for OLEUIPASTESPECIALA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUIPASTESPECIALA")
+            .field("cbStruct", &self.cbStruct)
+            .field("dwFlags", &self.dwFlags)
+            .field("hWndOwner", &self.hWndOwner)
+            .field("lpszCaption", &self.lpszCaption)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lCustData", &self.lCustData)
+            .field("hInstance", &self.hInstance)
+            .field("lpszTemplate", &self.lpszTemplate)
+            .field("hResource", &self.hResource)
+            .field("lpSrcDataObj", &self.lpSrcDataObj)
+            .field("arrPasteEntries", &self.arrPasteEntries)
+            .field("cPasteEntries", &self.cPasteEntries)
+            .field("arrLinkTypes", &self.arrLinkTypes)
+            .field("cLinkTypes", &self.cLinkTypes)
+            .field("cClsidExclude", &self.cClsidExclude)
+            .field("lpClsidExclude", &self.lpClsidExclude)
+            .field("nSelectedIndex", &self.nSelectedIndex)
+            .field("fLink", &self.fLink)
+            .field("hMetaPict", &self.hMetaPict)
+            .field("sizel", &self.sizel)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for OLEUIPASTESPECIALA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -12657,6 +13514,33 @@ impl ::core::clone::Clone for OLEUIPASTESPECIALW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for OLEUIPASTESPECIALW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUIPASTESPECIALW")
+            .field("cbStruct", &self.cbStruct)
+            .field("dwFlags", &self.dwFlags)
+            .field("hWndOwner", &self.hWndOwner)
+            .field("lpszCaption", &self.lpszCaption)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lCustData", &self.lCustData)
+            .field("hInstance", &self.hInstance)
+            .field("lpszTemplate", &self.lpszTemplate)
+            .field("hResource", &self.hResource)
+            .field("lpSrcDataObj", &self.lpSrcDataObj)
+            .field("arrPasteEntries", &self.arrPasteEntries)
+            .field("cPasteEntries", &self.cPasteEntries)
+            .field("arrLinkTypes", &self.arrLinkTypes)
+            .field("cLinkTypes", &self.cLinkTypes)
+            .field("cClsidExclude", &self.cClsidExclude)
+            .field("lpClsidExclude", &self.lpClsidExclude)
+            .field("nSelectedIndex", &self.nSelectedIndex)
+            .field("fLink", &self.fLink)
+            .field("hMetaPict", &self.hMetaPict)
+            .field("sizel", &self.sizel)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for OLEUIPASTESPECIALW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -12716,6 +13600,12 @@ impl ::core::clone::Clone for OLEUIVIEWPROPSA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for OLEUIVIEWPROPSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUIVIEWPROPSA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).field("nScaleMin", &self.nScaleMin).field("nScaleMax", &self.nScaleMax).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OLEUIVIEWPROPSA {
     type Abi = Self;
 }
@@ -12753,6 +13643,12 @@ impl ::core::marker::Copy for OLEUIVIEWPROPSW {}
 impl ::core::clone::Clone for OLEUIVIEWPROPSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for OLEUIVIEWPROPSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEUIVIEWPROPSW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).field("nScaleMin", &self.nScaleMin).field("nScaleMax", &self.nScaleMax).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -12960,6 +13856,12 @@ impl ::core::marker::Copy for OLEVERB {}
 impl ::core::clone::Clone for OLEVERB {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OLEVERB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEVERB").field("lVerb", &self.lVerb).field("lpszVerbName", &self.lpszVerbName).field("fuFlags", &self.fuFlags).field("grfAttribs", &self.grfAttribs).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13699,6 +14601,11 @@ impl ::core::clone::Clone for OleMenuGroupWidths {
         *self
     }
 }
+impl ::core::fmt::Debug for OleMenuGroupWidths {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OleMenuGroupWidths").field("width", &self.width).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for OleMenuGroupWidths {
     type Abi = Self;
 }
@@ -14363,6 +15270,11 @@ impl ::core::clone::Clone for PAGERANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for PAGERANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PAGERANGE").field("nFromPage", &self.nFromPage).field("nToPage", &self.nToPage).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PAGERANGE {
     type Abi = Self;
 }
@@ -14393,6 +15305,12 @@ impl ::core::marker::Copy for PAGESET {}
 impl ::core::clone::Clone for PAGESET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PAGESET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PAGESET").field("cbStruct", &self.cbStruct).field("fOddPages", &self.fOddPages).field("fEvenPages", &self.fEvenPages).field("cPageRange", &self.cPageRange).field("rgPages", &self.rgPages).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14429,6 +15347,12 @@ impl ::core::clone::Clone for PARAMDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PARAMDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PARAMDATA").field("szName", &self.szName).field("vt", &self.vt).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PARAMDATA {
     type Abi = Self;
 }
@@ -14459,6 +15383,12 @@ impl ::core::marker::Copy for PARAMDESC {}
 impl ::core::clone::Clone for PARAMDESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for PARAMDESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PARAMDESC").field("pparamdescex", &self.pparamdescex).field("wParamFlags", &self.wParamFlags).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -14621,6 +15551,12 @@ impl ::core::clone::Clone for PICTDESC_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for PICTDESC_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PICTDESC_0_0").field("hbitmap", &self.hbitmap).field("hpal", &self.hpal).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for PICTDESC_0_0 {
     type Abi = Self;
 }
@@ -14650,6 +15586,12 @@ impl ::core::marker::Copy for PICTDESC_0_1 {}
 impl ::core::clone::Clone for PICTDESC_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for PICTDESC_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PICTDESC_0_1").field("hemf", &self.hemf).finish()
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14685,6 +15627,12 @@ impl ::core::clone::Clone for PICTDESC_0_2 {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for PICTDESC_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PICTDESC_0_2").field("hicon", &self.hicon).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for PICTDESC_0_2 {
     type Abi = Self;
 }
@@ -14716,6 +15664,12 @@ impl ::core::marker::Copy for PICTDESC_0_3 {}
 impl ::core::clone::Clone for PICTDESC_0_3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for PICTDESC_0_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PICTDESC_0_3").field("hmeta", &self.hmeta).field("xExt", &self.xExt).field("yExt", &self.yExt).finish()
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14766,6 +15720,11 @@ impl ::core::marker::Copy for POINTF {}
 impl ::core::clone::Clone for POINTF {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for POINTF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POINTF").field("x", &self.x).field("y", &self.y).finish()
     }
 }
 unsafe impl ::windows::core::Abi for POINTF {
@@ -14831,6 +15790,12 @@ impl ::core::marker::Copy for PROPPAGEINFO {}
 impl ::core::clone::Clone for PROPPAGEINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PROPPAGEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROPPAGEINFO").field("cb", &self.cb).field("pszTitle", &self.pszTitle).field("size", &self.size).field("pszDocString", &self.pszDocString).field("pszHelpFile", &self.pszHelpFile).field("dwHelpContext", &self.dwHelpContext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14928,6 +15893,29 @@ impl ::core::clone::Clone for QACONTAINER {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for QACONTAINER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("QACONTAINER")
+            .field("cbSize", &self.cbSize)
+            .field("pClientSite", &self.pClientSite)
+            .field("pAdviseSink", &self.pAdviseSink)
+            .field("pPropertyNotifySink", &self.pPropertyNotifySink)
+            .field("pUnkEventSink", &self.pUnkEventSink)
+            .field("dwAmbientFlags", &self.dwAmbientFlags)
+            .field("colorFore", &self.colorFore)
+            .field("colorBack", &self.colorBack)
+            .field("pFont", &self.pFont)
+            .field("pUndoMgr", &self.pUndoMgr)
+            .field("dwAppearance", &self.dwAppearance)
+            .field("lcid", &self.lcid)
+            .field("hpal", &self.hpal)
+            .field("pBindHost", &self.pBindHost)
+            .field("pOleControlSite", &self.pOleControlSite)
+            .field("pServiceProvider", &self.pServiceProvider)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for QACONTAINER {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -14977,6 +15965,11 @@ impl ::core::marker::Copy for QACONTROL {}
 impl ::core::clone::Clone for QACONTROL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for QACONTROL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("QACONTROL").field("cbSize", &self.cbSize).field("dwMiscStatus", &self.dwMiscStatus).field("dwViewStatus", &self.dwViewStatus).field("dwEventCookie", &self.dwEventCookie).field("dwPropNotifyCookie", &self.dwPropNotifyCookie).field("dwPointerActivationPolicy", &self.dwPointerActivationPolicy).finish()
     }
 }
 unsafe impl ::windows::core::Abi for QACONTROL {
@@ -15741,6 +16734,12 @@ impl ::core::marker::Copy for UDATE {}
 impl ::core::clone::Clone for UDATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for UDATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UDATE").field("st", &self.st).field("wDayOfYear", &self.wDayOfYear).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20596,6 +21595,11 @@ impl ::core::clone::Clone for _wireBRECORD {
         Self { fFlags: self.fFlags, clSize: self.clSize, pRecInfo: self.pRecInfo.clone(), pRecord: self.pRecord }
     }
 }
+impl ::core::fmt::Debug for _wireBRECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_wireBRECORD").field("fFlags", &self.fFlags).field("clSize", &self.clSize).field("pRecInfo", &self.pRecInfo).field("pRecord", &self.pRecord).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _wireBRECORD {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -20733,6 +21737,11 @@ impl ::core::clone::Clone for _wireSAFEARR_BRECORD {
         *self
     }
 }
+impl ::core::fmt::Debug for _wireSAFEARR_BRECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_wireSAFEARR_BRECORD").field("Size", &self.Size).field("aRecord", &self.aRecord).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _wireSAFEARR_BRECORD {
     type Abi = Self;
 }
@@ -20760,6 +21769,12 @@ impl ::core::marker::Copy for _wireSAFEARR_BSTR {}
 impl ::core::clone::Clone for _wireSAFEARR_BSTR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for _wireSAFEARR_BSTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_wireSAFEARR_BSTR").field("Size", &self.Size).field("aBstr", &self.aBstr).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -20796,6 +21811,12 @@ impl ::core::clone::Clone for _wireSAFEARR_DISPATCH {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for _wireSAFEARR_DISPATCH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_wireSAFEARR_DISPATCH").field("Size", &self.Size).field("apDispatch", &self.apDispatch).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for _wireSAFEARR_DISPATCH {
     type Abi = Self;
 }
@@ -20826,6 +21847,11 @@ impl ::core::clone::Clone for _wireSAFEARR_HAVEIID {
         *self
     }
 }
+impl ::core::fmt::Debug for _wireSAFEARR_HAVEIID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_wireSAFEARR_HAVEIID").field("Size", &self.Size).field("apUnknown", &self.apUnknown).field("iid", &self.iid).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _wireSAFEARR_HAVEIID {
     type Abi = Self;
 }
@@ -20850,6 +21876,11 @@ impl ::core::marker::Copy for _wireSAFEARR_UNKNOWN {}
 impl ::core::clone::Clone for _wireSAFEARR_UNKNOWN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _wireSAFEARR_UNKNOWN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_wireSAFEARR_UNKNOWN").field("Size", &self.Size).field("apUnknown", &self.apUnknown).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _wireSAFEARR_UNKNOWN {
@@ -20879,6 +21910,12 @@ impl ::core::marker::Copy for _wireSAFEARR_VARIANT {}
 impl ::core::clone::Clone for _wireSAFEARR_VARIANT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for _wireSAFEARR_VARIANT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_wireSAFEARR_VARIANT").field("Size", &self.Size).field("aVariant", &self.aVariant).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]

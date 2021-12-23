@@ -17,6 +17,12 @@ impl ::core::clone::Clone for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIAGNOSTIC_DATA_EVENT_BINARY_STATS").field("moduleName", &self.moduleName).field("friendlyModuleName", &self.friendlyModuleName).field("eventCount", &self.eventCount).field("uploadSizeBytes", &self.uploadSizeBytes).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
     type Abi = Self;
 }
@@ -50,6 +56,12 @@ impl ::core::clone::Clone for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION").field("id", &self.id).field("name", &self.name).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
     type Abi = Self;
 }
@@ -79,6 +91,12 @@ impl ::core::marker::Copy for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {}
 impl ::core::clone::Clone for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION").field("name", &self.name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -116,6 +134,12 @@ impl ::core::clone::Clone for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION").field("privacyTag", &self.privacyTag).field("name", &self.name).field("description", &self.description).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
     type Abi = Self;
 }
@@ -145,6 +169,11 @@ impl ::core::clone::Clone for DIAGNOSTIC_DATA_EVENT_TAG_STATS {
         *self
     }
 }
+impl ::core::fmt::Debug for DIAGNOSTIC_DATA_EVENT_TAG_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIAGNOSTIC_DATA_EVENT_TAG_STATS").field("privacyTag", &self.privacyTag).field("eventCount", &self.eventCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_EVENT_TAG_STATS {
     type Abi = Self;
 }
@@ -170,6 +199,11 @@ impl ::core::marker::Copy for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {}
 impl ::core::clone::Clone for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION").field("hoursOfHistoryToKeep", &self.hoursOfHistoryToKeep).field("maxStoreMegabytes", &self.maxStoreMegabytes).field("requestedMaxStoreMegabytes", &self.requestedMaxStoreMegabytes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
@@ -199,6 +233,11 @@ impl ::core::marker::Copy for DIAGNOSTIC_DATA_GENERAL_STATS {}
 impl ::core::clone::Clone for DIAGNOSTIC_DATA_GENERAL_STATS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIAGNOSTIC_DATA_GENERAL_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIAGNOSTIC_DATA_GENERAL_STATS").field("optInLevel", &self.optInLevel).field("transcriptSizeBytes", &self.transcriptSizeBytes).field("oldestEventTimestamp", &self.oldestEventTimestamp).field("totalEventCountLast24Hours", &self.totalEventCountLast24Hours).field("averageDailyEvents", &self.averageDailyEvents).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_GENERAL_STATS {
@@ -243,6 +282,27 @@ impl ::core::clone::Clone for DIAGNOSTIC_DATA_RECORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIAGNOSTIC_DATA_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIAGNOSTIC_DATA_RECORD")
+            .field("rowId", &self.rowId)
+            .field("timestamp", &self.timestamp)
+            .field("eventKeywords", &self.eventKeywords)
+            .field("fullEventName", &self.fullEventName)
+            .field("providerGroupGuid", &self.providerGroupGuid)
+            .field("producerName", &self.producerName)
+            .field("privacyTags", &self.privacyTags)
+            .field("privacyTagCount", &self.privacyTagCount)
+            .field("categoryIds", &self.categoryIds)
+            .field("categoryIdCount", &self.categoryIdCount)
+            .field("isCoreData", &self.isCoreData)
+            .field("extra1", &self.extra1)
+            .field("extra2", &self.extra2)
+            .field("extra3", &self.extra3)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_RECORD {
     type Abi = Self;
 }
@@ -279,6 +339,12 @@ impl ::core::marker::Copy for DIAGNOSTIC_DATA_SEARCH_CRITERIA {}
 impl ::core::clone::Clone for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIAGNOSTIC_DATA_SEARCH_CRITERIA").field("producerNames", &self.producerNames).field("producerNameCount", &self.producerNameCount).field("textToMatch", &self.textToMatch).field("categoryIds", &self.categoryIds).field("categoryIdCount", &self.categoryIdCount).field("privacyTags", &self.privacyTags).field("privacyTagCount", &self.privacyTagCount).field("coreDataOnly", &self.coreDataOnly).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -330,6 +396,30 @@ impl ::core::clone::Clone for DIAGNOSTIC_REPORT_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIAGNOSTIC_REPORT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIAGNOSTIC_REPORT_DATA")
+            .field("signature", &self.signature)
+            .field("bucketId", &self.bucketId)
+            .field("reportId", &self.reportId)
+            .field("creationTime", &self.creationTime)
+            .field("sizeInBytes", &self.sizeInBytes)
+            .field("cabId", &self.cabId)
+            .field("reportStatus", &self.reportStatus)
+            .field("reportIntegratorId", &self.reportIntegratorId)
+            .field("fileNames", &self.fileNames)
+            .field("fileCount", &self.fileCount)
+            .field("friendlyEventName", &self.friendlyEventName)
+            .field("applicationName", &self.applicationName)
+            .field("applicationPath", &self.applicationPath)
+            .field("description", &self.description)
+            .field("bucketIdString", &self.bucketIdString)
+            .field("legacyBucketId", &self.legacyBucketId)
+            .field("reportKey", &self.reportKey)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DIAGNOSTIC_REPORT_DATA {
     type Abi = Self;
 }
@@ -359,6 +449,11 @@ impl ::core::clone::Clone for DIAGNOSTIC_REPORT_PARAMETER {
         *self
     }
 }
+impl ::core::fmt::Debug for DIAGNOSTIC_REPORT_PARAMETER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIAGNOSTIC_REPORT_PARAMETER").field("name", &self.name).field("value", &self.value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DIAGNOSTIC_REPORT_PARAMETER {
     type Abi = Self;
 }
@@ -383,6 +478,11 @@ impl ::core::marker::Copy for DIAGNOSTIC_REPORT_SIGNATURE {}
 impl ::core::clone::Clone for DIAGNOSTIC_REPORT_SIGNATURE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DIAGNOSTIC_REPORT_SIGNATURE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIAGNOSTIC_REPORT_SIGNATURE").field("eventName", &self.eventName).field("parameters", &self.parameters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DIAGNOSTIC_REPORT_SIGNATURE {

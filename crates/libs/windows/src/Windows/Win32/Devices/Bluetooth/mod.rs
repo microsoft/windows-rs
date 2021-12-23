@@ -367,6 +367,12 @@ impl ::core::clone::Clone for BLUETOOTH_COD_PAIRS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BLUETOOTH_COD_PAIRS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BLUETOOTH_COD_PAIRS").field("ulCODMask", &self.ulCODMask).field("pcszDescription", &self.pcszDescription).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for BLUETOOTH_COD_PAIRS {
     type Abi = Self;
 }
@@ -448,6 +454,12 @@ impl ::core::clone::Clone for BLUETOOTH_DEVICE_SEARCH_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BLUETOOTH_DEVICE_SEARCH_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BLUETOOTH_DEVICE_SEARCH_PARAMS").field("dwSize", &self.dwSize).field("fReturnAuthenticated", &self.fReturnAuthenticated).field("fReturnRemembered", &self.fReturnRemembered).field("fReturnUnknown", &self.fReturnUnknown).field("fReturnConnected", &self.fReturnConnected).field("fIssueInquiry", &self.fIssueInquiry).field("cTimeoutMultiplier", &self.cTimeoutMultiplier).field("hRadio", &self.hRadio).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for BLUETOOTH_DEVICE_SEARCH_PARAMS {
     type Abi = Self;
 }
@@ -474,6 +486,11 @@ impl ::core::marker::Copy for BLUETOOTH_FIND_RADIO_PARAMS {}
 impl ::core::clone::Clone for BLUETOOTH_FIND_RADIO_PARAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BLUETOOTH_FIND_RADIO_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BLUETOOTH_FIND_RADIO_PARAMS").field("dwSize", &self.dwSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BLUETOOTH_FIND_RADIO_PARAMS {
@@ -572,6 +589,11 @@ impl ::core::clone::Clone for BLUETOOTH_NUMERIC_COMPARISON_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for BLUETOOTH_NUMERIC_COMPARISON_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BLUETOOTH_NUMERIC_COMPARISON_INFO").field("NumericValue", &self.NumericValue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BLUETOOTH_NUMERIC_COMPARISON_INFO {
     type Abi = Self;
 }
@@ -596,6 +618,11 @@ impl ::core::marker::Copy for BLUETOOTH_OOB_DATA_INFO {}
 impl ::core::clone::Clone for BLUETOOTH_OOB_DATA_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BLUETOOTH_OOB_DATA_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BLUETOOTH_OOB_DATA_INFO").field("C", &self.C).field("R", &self.R).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BLUETOOTH_OOB_DATA_INFO {
@@ -623,6 +650,11 @@ impl ::core::clone::Clone for BLUETOOTH_PASSKEY_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for BLUETOOTH_PASSKEY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BLUETOOTH_PASSKEY_INFO").field("passkey", &self.passkey).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BLUETOOTH_PASSKEY_INFO {
     type Abi = Self;
 }
@@ -647,6 +679,11 @@ impl ::core::marker::Copy for BLUETOOTH_PIN_INFO {}
 impl ::core::clone::Clone for BLUETOOTH_PIN_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BLUETOOTH_PIN_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BLUETOOTH_PIN_INFO").field("pin", &self.pin).field("pinLength", &self.pinLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BLUETOOTH_PIN_INFO {
@@ -722,6 +759,28 @@ impl ::core::clone::Clone for BLUETOOTH_SELECT_DEVICE_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BLUETOOTH_SELECT_DEVICE_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BLUETOOTH_SELECT_DEVICE_PARAMS")
+            .field("dwSize", &self.dwSize)
+            .field("cNumOfClasses", &self.cNumOfClasses)
+            .field("prgClassOfDevices", &self.prgClassOfDevices)
+            .field("pszInfo", &self.pszInfo)
+            .field("hwndParent", &self.hwndParent)
+            .field("fForceAuthentication", &self.fForceAuthentication)
+            .field("fShowAuthenticated", &self.fShowAuthenticated)
+            .field("fShowRemembered", &self.fShowRemembered)
+            .field("fShowUnknown", &self.fShowUnknown)
+            .field("fAddNewDeviceWizard", &self.fAddNewDeviceWizard)
+            .field("fSkipServicesPage", &self.fSkipServicesPage)
+            .field("pfnDeviceCallback", &self.pfnDeviceCallback.map(|f| f as usize))
+            .field("pvParam", &self.pvParam)
+            .field("cNumDevices", &self.cNumDevices)
+            .field("pDevices", &self.pDevices)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for BLUETOOTH_SELECT_DEVICE_PARAMS {
     type Abi = Self;
 }
@@ -788,6 +847,12 @@ impl ::core::marker::Copy for BTH_DEVICE_INFO {}
 impl ::core::clone::Clone for BTH_DEVICE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BTH_DEVICE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BTH_DEVICE_INFO").field("flags", &self.flags).field("address", &self.address).field("classOfDevice", &self.classOfDevice).field("name", &self.name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -991,6 +1056,11 @@ impl ::core::clone::Clone for BTH_HCI_EVENT_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for BTH_HCI_EVENT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BTH_HCI_EVENT_INFO").field("bthAddress", &self.bthAddress).field("connectionType", &self.connectionType).field("connected", &self.connected).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BTH_HCI_EVENT_INFO {
     type Abi = Self;
 }
@@ -1108,6 +1178,11 @@ impl ::core::marker::Copy for BTH_L2CAP_EVENT_INFO {}
 impl ::core::clone::Clone for BTH_L2CAP_EVENT_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BTH_L2CAP_EVENT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BTH_L2CAP_EVENT_INFO").field("bthAddress", &self.bthAddress).field("psm", &self.psm).field("connected", &self.connected).field("initiated", &self.initiated).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BTH_L2CAP_EVENT_INFO {
@@ -1462,6 +1537,11 @@ impl ::core::clone::Clone for BTH_PING_RSP {
         *self
     }
 }
+impl ::core::fmt::Debug for BTH_PING_RSP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BTH_PING_RSP").field("dataLen", &self.dataLen).field("data", &self.data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BTH_PING_RSP {
     type Abi = Self;
 }
@@ -1544,6 +1624,12 @@ impl ::core::marker::Copy for BTH_RADIO_IN_RANGE {}
 impl ::core::clone::Clone for BTH_RADIO_IN_RANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BTH_RADIO_IN_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BTH_RADIO_IN_RANGE").field("deviceInfo", &self.deviceInfo).field("previousDeviceFlags", &self.previousDeviceFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2688,6 +2774,11 @@ impl ::core::clone::Clone for RFCOMM_MSC_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for RFCOMM_MSC_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RFCOMM_MSC_DATA").field("Signals", &self.Signals).field("Break", &self.Break).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RFCOMM_MSC_DATA {
     type Abi = Self;
 }
@@ -2713,6 +2804,11 @@ impl ::core::marker::Copy for RFCOMM_RLS_DATA {}
 impl ::core::clone::Clone for RFCOMM_RLS_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RFCOMM_RLS_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RFCOMM_RLS_DATA").field("LineStatus", &self.LineStatus).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RFCOMM_RLS_DATA {
@@ -2744,6 +2840,11 @@ impl ::core::marker::Copy for RFCOMM_RPN_DATA {}
 impl ::core::clone::Clone for RFCOMM_RPN_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RFCOMM_RPN_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RFCOMM_RPN_DATA").field("Baud", &self.Baud).field("Data", &self.Data).field("FlowControl", &self.FlowControl).field("XonChar", &self.XonChar).field("XoffChar", &self.XoffChar).field("ParameterMask1", &self.ParameterMask1).field("ParameterMask2", &self.ParameterMask2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RFCOMM_RPN_DATA {
@@ -3089,6 +3190,12 @@ impl ::core::clone::Clone for SDP_ELEMENT_DATA_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SDP_ELEMENT_DATA_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SDP_ELEMENT_DATA_0_0").field("value", &self.value).field("length", &self.length).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0_0 {
     type Abi = Self;
 }
@@ -3119,6 +3226,12 @@ impl ::core::marker::Copy for SDP_ELEMENT_DATA_0_1 {}
 impl ::core::clone::Clone for SDP_ELEMENT_DATA_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SDP_ELEMENT_DATA_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SDP_ELEMENT_DATA_0_1").field("value", &self.value).field("length", &self.length).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3155,6 +3268,12 @@ impl ::core::clone::Clone for SDP_ELEMENT_DATA_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SDP_ELEMENT_DATA_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SDP_ELEMENT_DATA_0_2").field("value", &self.value).field("length", &self.length).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0_2 {
     type Abi = Self;
 }
@@ -3185,6 +3304,12 @@ impl ::core::marker::Copy for SDP_ELEMENT_DATA_0_3 {}
 impl ::core::clone::Clone for SDP_ELEMENT_DATA_0_3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SDP_ELEMENT_DATA_0_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SDP_ELEMENT_DATA_0_3").field("value", &self.value).field("length", &self.length).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3227,6 +3352,11 @@ impl ::core::marker::Copy for SDP_LARGE_INTEGER_16 {}
 impl ::core::clone::Clone for SDP_LARGE_INTEGER_16 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SDP_LARGE_INTEGER_16 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SDP_LARGE_INTEGER_16").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SDP_LARGE_INTEGER_16 {
@@ -3306,6 +3436,11 @@ impl ::core::clone::Clone for SDP_STRING_TYPE_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for SDP_STRING_TYPE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SDP_STRING_TYPE_DATA").field("encoding", &self.encoding).field("mibeNum", &self.mibeNum).field("attributeId", &self.attributeId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SDP_STRING_TYPE_DATA {
     type Abi = Self;
 }
@@ -3352,6 +3487,11 @@ impl ::core::marker::Copy for SDP_ULARGE_INTEGER_16 {}
 impl ::core::clone::Clone for SDP_ULARGE_INTEGER_16 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SDP_ULARGE_INTEGER_16 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SDP_ULARGE_INTEGER_16").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SDP_ULARGE_INTEGER_16 {
@@ -3459,6 +3599,11 @@ impl ::core::marker::Copy for SdpAttributeRange {}
 impl ::core::clone::Clone for SdpAttributeRange {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SdpAttributeRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SdpAttributeRange").field("minAttribute", &self.minAttribute).field("maxAttribute", &self.maxAttribute).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SdpAttributeRange {

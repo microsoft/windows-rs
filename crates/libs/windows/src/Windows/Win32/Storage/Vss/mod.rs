@@ -67,6 +67,11 @@ impl ::core::cmp::PartialEq for IVssAdmin {
     }
 }
 impl ::core::cmp::Eq for IVssAdmin {}
+impl ::core::fmt::Debug for IVssAdmin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssAdmin").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssAdmin {
     type Vtable = IVssAdminVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77ed5996_2f63_11d3_8a39_00c04f72d8e3);
@@ -169,6 +174,11 @@ impl ::core::cmp::PartialEq for IVssAdminEx {
     }
 }
 impl ::core::cmp::Eq for IVssAdminEx {}
+impl ::core::fmt::Debug for IVssAdminEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssAdminEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssAdminEx {
     type Vtable = IVssAdminExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7858a9f8_b1fa_41a6_964f_b9b36b8cd8d8);
@@ -235,6 +245,11 @@ impl ::core::cmp::PartialEq for IVssAsync {
     }
 }
 impl ::core::cmp::Eq for IVssAsync {}
+impl ::core::fmt::Debug for IVssAsync {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssAsync").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssAsync {
     type Vtable = IVssAsyncVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x507c37b4_cf5b_4e95_b0af_14eb9767467e);
@@ -462,6 +477,11 @@ impl ::core::cmp::PartialEq for IVssComponent {
     }
 }
 impl ::core::cmp::Eq for IVssComponent {}
+impl ::core::fmt::Debug for IVssComponent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssComponent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssComponent {
     type Vtable = IVssComponentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2c72c96_c121_4518_b627_e5a93d010ead);
@@ -805,6 +825,11 @@ impl ::core::cmp::PartialEq for IVssComponentEx {
     }
 }
 impl ::core::cmp::Eq for IVssComponentEx {}
+impl ::core::fmt::Debug for IVssComponentEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssComponentEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssComponentEx {
     type Vtable = IVssComponentExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x156c8b5e_f131_4bd7_9c97_d1923be7e1fa);
@@ -1191,6 +1216,11 @@ impl ::core::cmp::PartialEq for IVssComponentEx2 {
     }
 }
 impl ::core::cmp::Eq for IVssComponentEx2 {}
+impl ::core::fmt::Debug for IVssComponentEx2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssComponentEx2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssComponentEx2 {
     type Vtable = IVssComponentEx2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b5be0f2_07a9_4e4b_bdd3_cfdc8e2c0d2d);
@@ -1351,6 +1381,11 @@ impl ::core::cmp::PartialEq for IVssCreateExpressWriterMetadata {
     }
 }
 impl ::core::cmp::Eq for IVssCreateExpressWriterMetadata {}
+impl ::core::fmt::Debug for IVssCreateExpressWriterMetadata {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssCreateExpressWriterMetadata").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssCreateExpressWriterMetadata {
     type Vtable = IVssCreateExpressWriterMetadataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c772e77_b26e_427f_92dd_c996f41ea5e3);
@@ -1451,6 +1486,11 @@ impl ::core::cmp::PartialEq for IVssCreateWriterMetadata {
     }
 }
 impl ::core::cmp::Eq for IVssCreateWriterMetadata {}
+impl ::core::fmt::Debug for IVssCreateWriterMetadata {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssCreateWriterMetadata").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssCreateWriterMetadata {
     type Vtable = IVssCreateWriterMetadataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -1546,6 +1586,11 @@ impl ::core::cmp::PartialEq for IVssDifferentialSoftwareSnapshotMgmt {
     }
 }
 impl ::core::cmp::Eq for IVssDifferentialSoftwareSnapshotMgmt {}
+impl ::core::fmt::Debug for IVssDifferentialSoftwareSnapshotMgmt {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssDifferentialSoftwareSnapshotMgmt").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssDifferentialSoftwareSnapshotMgmt {
     type Vtable = IVssDifferentialSoftwareSnapshotMgmtVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x214a0f28_b737_4026_b847_4f9e37d79529);
@@ -1665,6 +1710,11 @@ impl ::core::cmp::PartialEq for IVssDifferentialSoftwareSnapshotMgmt2 {
     }
 }
 impl ::core::cmp::Eq for IVssDifferentialSoftwareSnapshotMgmt2 {}
+impl ::core::fmt::Debug for IVssDifferentialSoftwareSnapshotMgmt2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssDifferentialSoftwareSnapshotMgmt2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssDifferentialSoftwareSnapshotMgmt2 {
     type Vtable = IVssDifferentialSoftwareSnapshotMgmt2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x949d7353_675f_4275_8969_f044c6277815);
@@ -1831,6 +1881,11 @@ impl ::core::cmp::PartialEq for IVssDifferentialSoftwareSnapshotMgmt3 {
     }
 }
 impl ::core::cmp::Eq for IVssDifferentialSoftwareSnapshotMgmt3 {}
+impl ::core::fmt::Debug for IVssDifferentialSoftwareSnapshotMgmt3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssDifferentialSoftwareSnapshotMgmt3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssDifferentialSoftwareSnapshotMgmt3 {
     type Vtable = IVssDifferentialSoftwareSnapshotMgmt3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x383f7e71_a4c5_401f_b27f_f826289f8458);
@@ -1911,6 +1966,11 @@ impl ::core::cmp::PartialEq for IVssEnumMgmtObject {
     }
 }
 impl ::core::cmp::Eq for IVssEnumMgmtObject {}
+impl ::core::fmt::Debug for IVssEnumMgmtObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssEnumMgmtObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssEnumMgmtObject {
     type Vtable = IVssEnumMgmtObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01954e6b_9254_4e6e_808c_c9e05d007696);
@@ -1978,6 +2038,11 @@ impl ::core::cmp::PartialEq for IVssEnumObject {
     }
 }
 impl ::core::cmp::Eq for IVssEnumObject {}
+impl ::core::fmt::Debug for IVssEnumObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssEnumObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssEnumObject {
     type Vtable = IVssEnumObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae1c7110_2f60_11d3_8a39_00c04f72d8e3);
@@ -2050,6 +2115,11 @@ impl ::core::cmp::PartialEq for IVssExpressWriter {
     }
 }
 impl ::core::cmp::Eq for IVssExpressWriter {}
+impl ::core::fmt::Debug for IVssExpressWriter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssExpressWriter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssExpressWriter {
     type Vtable = IVssExpressWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe33affdc_59c7_47b1_97d5_4266598f6235);
@@ -2142,6 +2212,11 @@ impl ::core::cmp::PartialEq for IVssFileShareSnapshotProvider {
     }
 }
 impl ::core::cmp::Eq for IVssFileShareSnapshotProvider {}
+impl ::core::fmt::Debug for IVssFileShareSnapshotProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssFileShareSnapshotProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssFileShareSnapshotProvider {
     type Vtable = IVssFileShareSnapshotProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8636060_7c2e_11df_8c4a_0800200c9a66);
@@ -2231,6 +2306,11 @@ impl ::core::cmp::PartialEq for IVssHardwareSnapshotProvider {
     }
 }
 impl ::core::cmp::Eq for IVssHardwareSnapshotProvider {}
+impl ::core::fmt::Debug for IVssHardwareSnapshotProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssHardwareSnapshotProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssHardwareSnapshotProvider {
     type Vtable = IVssHardwareSnapshotProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9593a157_44e9_4344_bbeb_44fbf9b06b10);
@@ -2361,6 +2441,11 @@ impl ::core::cmp::PartialEq for IVssHardwareSnapshotProviderEx {
     }
 }
 impl ::core::cmp::Eq for IVssHardwareSnapshotProviderEx {}
+impl ::core::fmt::Debug for IVssHardwareSnapshotProviderEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssHardwareSnapshotProviderEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssHardwareSnapshotProviderEx {
     type Vtable = IVssHardwareSnapshotProviderExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f5ba925_cdb1_4d11_a71f_339eb7e709fd);
@@ -2455,6 +2540,11 @@ impl ::core::cmp::PartialEq for IVssProviderCreateSnapshotSet {
     }
 }
 impl ::core::cmp::Eq for IVssProviderCreateSnapshotSet {}
+impl ::core::fmt::Debug for IVssProviderCreateSnapshotSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssProviderCreateSnapshotSet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssProviderCreateSnapshotSet {
     type Vtable = IVssProviderCreateSnapshotSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f894e5b_1e39_4778_8e23_9abad9f0e08c);
@@ -2518,6 +2608,11 @@ impl ::core::cmp::PartialEq for IVssProviderNotifications {
     }
 }
 impl ::core::cmp::Eq for IVssProviderNotifications {}
+impl ::core::fmt::Debug for IVssProviderNotifications {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssProviderNotifications").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssProviderNotifications {
     type Vtable = IVssProviderNotificationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe561901f_03a5_4afe_86d0_72baeece7004);
@@ -2583,6 +2678,11 @@ impl ::core::cmp::PartialEq for IVssSnapshotMgmt {
     }
 }
 impl ::core::cmp::Eq for IVssSnapshotMgmt {}
+impl ::core::fmt::Debug for IVssSnapshotMgmt {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssSnapshotMgmt").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssSnapshotMgmt {
     type Vtable = IVssSnapshotMgmtVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa7df749_66e7_4986_a27f_e2f04ae53772);
@@ -2638,6 +2738,11 @@ impl ::core::cmp::PartialEq for IVssSnapshotMgmt2 {
     }
 }
 impl ::core::cmp::Eq for IVssSnapshotMgmt2 {}
+impl ::core::fmt::Debug for IVssSnapshotMgmt2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssSnapshotMgmt2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssSnapshotMgmt2 {
     type Vtable = IVssSnapshotMgmt2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f61ec39_fe82_45f2_a3f0_768b5d427102);
@@ -2729,6 +2834,11 @@ impl ::core::cmp::PartialEq for IVssSoftwareSnapshotProvider {
     }
 }
 impl ::core::cmp::Eq for IVssSoftwareSnapshotProvider {}
+impl ::core::fmt::Debug for IVssSoftwareSnapshotProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssSoftwareSnapshotProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssSoftwareSnapshotProvider {
     type Vtable = IVssSoftwareSnapshotProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x609e123e_2c5a_44d3_8f01_0b1d9a47d1ff);
@@ -2804,6 +2914,11 @@ impl ::core::cmp::PartialEq for IVssWMDependency {
     }
 }
 impl ::core::cmp::Eq for IVssWMDependency {}
+impl ::core::fmt::Debug for IVssWMDependency {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssWMDependency").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssWMDependency {
     type Vtable = IVssWMDependencyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2884,6 +2999,11 @@ impl ::core::cmp::PartialEq for IVssWMFiledesc {
     }
 }
 impl ::core::cmp::Eq for IVssWMFiledesc {}
+impl ::core::fmt::Debug for IVssWMFiledesc {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssWMFiledesc").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssWMFiledesc {
     type Vtable = IVssWMFiledescVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2932,6 +3052,11 @@ impl ::core::cmp::PartialEq for IVssWriterComponents {
     }
 }
 impl ::core::cmp::Eq for IVssWriterComponents {}
+impl ::core::fmt::Debug for IVssWriterComponents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssWriterComponents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssWriterComponents {
     type Vtable = IVssWriterComponentsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -3072,6 +3197,11 @@ impl ::core::cmp::PartialEq for IVssWriterImpl {
     }
 }
 impl ::core::cmp::Eq for IVssWriterImpl {}
+impl ::core::fmt::Debug for IVssWriterImpl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVssWriterImpl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVssWriterImpl {
     type Vtable = IVssWriterImplVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -3220,6 +3350,11 @@ impl ::core::clone::Clone for VSS_DIFF_AREA_PROP {
         *self
     }
 }
+impl ::core::fmt::Debug for VSS_DIFF_AREA_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSS_DIFF_AREA_PROP").field("m_pwszVolumeName", &self.m_pwszVolumeName).field("m_pwszDiffAreaVolumeName", &self.m_pwszDiffAreaVolumeName).field("m_llMaximumDiffSpace", &self.m_llMaximumDiffSpace).field("m_llAllocatedDiffSpace", &self.m_llAllocatedDiffSpace).field("m_llUsedDiffSpace", &self.m_llUsedDiffSpace).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_DIFF_AREA_PROP {
     type Abi = Self;
 }
@@ -3246,6 +3381,11 @@ impl ::core::marker::Copy for VSS_DIFF_VOLUME_PROP {}
 impl ::core::clone::Clone for VSS_DIFF_VOLUME_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VSS_DIFF_VOLUME_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSS_DIFF_VOLUME_PROP").field("m_pwszVolumeName", &self.m_pwszVolumeName).field("m_pwszVolumeDisplayName", &self.m_pwszVolumeDisplayName).field("m_llVolumeFreeSpace", &self.m_llVolumeFreeSpace).field("m_llVolumeTotalSpace", &self.m_llVolumeTotalSpace).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VSS_DIFF_VOLUME_PROP {
@@ -3677,6 +3817,11 @@ impl ::core::clone::Clone for VSS_PROVIDER_PROP {
         *self
     }
 }
+impl ::core::fmt::Debug for VSS_PROVIDER_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSS_PROVIDER_PROP").field("m_ProviderId", &self.m_ProviderId).field("m_pwszProviderName", &self.m_pwszProviderName).field("m_eProviderType", &self.m_eProviderType).field("m_pwszProviderVersion", &self.m_pwszProviderVersion).field("m_ProviderVersionId", &self.m_ProviderVersionId).field("m_ClassId", &self.m_ClassId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_PROVIDER_PROP {
     type Abi = Self;
 }
@@ -3804,6 +3949,25 @@ impl ::core::marker::Copy for VSS_SNAPSHOT_PROP {}
 impl ::core::clone::Clone for VSS_SNAPSHOT_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VSS_SNAPSHOT_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSS_SNAPSHOT_PROP")
+            .field("m_SnapshotId", &self.m_SnapshotId)
+            .field("m_SnapshotSetId", &self.m_SnapshotSetId)
+            .field("m_lSnapshotsCount", &self.m_lSnapshotsCount)
+            .field("m_pwszSnapshotDeviceObject", &self.m_pwszSnapshotDeviceObject)
+            .field("m_pwszOriginalVolumeName", &self.m_pwszOriginalVolumeName)
+            .field("m_pwszOriginatingMachine", &self.m_pwszOriginatingMachine)
+            .field("m_pwszServiceMachine", &self.m_pwszServiceMachine)
+            .field("m_pwszExposedName", &self.m_pwszExposedName)
+            .field("m_pwszExposedPath", &self.m_pwszExposedPath)
+            .field("m_ProviderId", &self.m_ProviderId)
+            .field("m_lSnapshotAttributes", &self.m_lSnapshotAttributes)
+            .field("m_tsCreationTimestamp", &self.m_tsCreationTimestamp)
+            .field("m_eStatus", &self.m_eStatus)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for VSS_SNAPSHOT_PROP {
@@ -3940,6 +4104,11 @@ impl ::core::clone::Clone for VSS_VOLUME_PROP {
         *self
     }
 }
+impl ::core::fmt::Debug for VSS_VOLUME_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSS_VOLUME_PROP").field("m_pwszVolumeName", &self.m_pwszVolumeName).field("m_pwszVolumeDisplayName", &self.m_pwszVolumeDisplayName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_VOLUME_PROP {
     type Abi = Self;
 }
@@ -3971,6 +4140,12 @@ impl ::core::marker::Copy for VSS_VOLUME_PROTECTION_INFO {}
 impl ::core::clone::Clone for VSS_VOLUME_PROTECTION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VSS_VOLUME_PROTECTION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSS_VOLUME_PROTECTION_INFO").field("m_protectionLevel", &self.m_protectionLevel).field("m_volumeIsOfflineForProtection", &self.m_volumeIsOfflineForProtection).field("m_protectionFault", &self.m_protectionFault).field("m_failureStatus", &self.m_failureStatus).field("m_volumeHasUnusedDiffArea", &self.m_volumeHasUnusedDiffArea).field("m_reserved", &self.m_reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

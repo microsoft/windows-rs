@@ -227,6 +227,11 @@ impl ::core::cmp::PartialEq for MediaTranscoder {
     }
 }
 impl ::core::cmp::Eq for MediaTranscoder {}
+impl ::core::fmt::Debug for MediaTranscoder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaTranscoder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaTranscoder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Transcoding.MediaTranscoder;{190c99d2-a0aa-4d34-86bc-eed1b12c2f5b})");
 }
@@ -301,6 +306,11 @@ impl ::core::cmp::PartialEq for MediaVideoProcessingAlgorithm {
     }
 }
 impl ::core::cmp::Eq for MediaVideoProcessingAlgorithm {}
+impl ::core::fmt::Debug for MediaVideoProcessingAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaVideoProcessingAlgorithm").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaVideoProcessingAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.MediaVideoProcessingAlgorithm;i4)");
 }
@@ -348,6 +358,11 @@ impl ::core::cmp::PartialEq for PrepareTranscodeResult {
     }
 }
 impl ::core::cmp::Eq for PrepareTranscodeResult {}
+impl ::core::fmt::Debug for PrepareTranscodeResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrepareTranscodeResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrepareTranscodeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Transcoding.PrepareTranscodeResult;{05f25dce-994f-4a34-9d68-97ccce1730d6})");
 }
@@ -424,6 +439,11 @@ impl ::core::cmp::PartialEq for TranscodeFailureReason {
     }
 }
 impl ::core::cmp::Eq for TranscodeFailureReason {}
+impl ::core::fmt::Debug for TranscodeFailureReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TranscodeFailureReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TranscodeFailureReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.TranscodeFailureReason;i4)");
 }

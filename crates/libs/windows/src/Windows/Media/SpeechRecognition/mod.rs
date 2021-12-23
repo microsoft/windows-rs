@@ -196,6 +196,11 @@ impl ::core::cmp::PartialEq for ISpeechRecognitionConstraint {
     }
 }
 impl ::core::cmp::Eq for ISpeechRecognitionConstraint {}
+impl ::core::fmt::Debug for ISpeechRecognitionConstraint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpeechRecognitionConstraint").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISpeechRecognitionConstraint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{79ac1628-4d68-43c4-8911-40dc4101b55b}");
 }
@@ -737,6 +742,11 @@ impl ::core::cmp::PartialEq for SpeechContinuousRecognitionCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpeechContinuousRecognitionCompletedEventArgs {}
+impl ::core::fmt::Debug for SpeechContinuousRecognitionCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechContinuousRecognitionCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechContinuousRecognitionCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionCompletedEventArgs;{e3d069bb-e30c-5e18-424b-7fbe81f8fbd0})");
 }
@@ -811,6 +821,11 @@ impl ::core::cmp::PartialEq for SpeechContinuousRecognitionMode {
     }
 }
 impl ::core::cmp::Eq for SpeechContinuousRecognitionMode {}
+impl ::core::fmt::Debug for SpeechContinuousRecognitionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechContinuousRecognitionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechContinuousRecognitionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionMode;i4)");
 }
@@ -841,6 +856,11 @@ impl ::core::cmp::PartialEq for SpeechContinuousRecognitionResultGeneratedEventA
     }
 }
 impl ::core::cmp::Eq for SpeechContinuousRecognitionResultGeneratedEventArgs {}
+impl ::core::fmt::Debug for SpeechContinuousRecognitionResultGeneratedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechContinuousRecognitionResultGeneratedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechContinuousRecognitionResultGeneratedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionResultGeneratedEventArgs;{19091e1e-6e7e-5a46-40fb-76594f786504})");
 }
@@ -1004,6 +1024,11 @@ impl ::core::cmp::PartialEq for SpeechContinuousRecognitionSession {
     }
 }
 impl ::core::cmp::Eq for SpeechContinuousRecognitionSession {}
+impl ::core::fmt::Debug for SpeechContinuousRecognitionSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechContinuousRecognitionSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechContinuousRecognitionSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionSession;{6a213c04-6614-49f8-99a2-b5e9b3a085c8})");
 }
@@ -1083,6 +1108,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionAudioProblem {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionAudioProblem {}
+impl ::core::fmt::Debug for SpeechRecognitionAudioProblem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionAudioProblem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionAudioProblem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionAudioProblem;i4)");
 }
@@ -1113,6 +1143,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionCompilationResult {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionCompilationResult {}
+impl ::core::fmt::Debug for SpeechRecognitionCompilationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionCompilationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionCompilationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionCompilationResult;{407e6c5d-6ac7-4da4-9cc1-2fce32cf7489})");
 }
@@ -1189,6 +1224,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionConfidence {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionConfidence {}
+impl ::core::fmt::Debug for SpeechRecognitionConfidence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionConfidence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionConfidence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConfidence;i4)");
 }
@@ -1218,6 +1258,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionConstraintProbability {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionConstraintProbability {}
+impl ::core::fmt::Debug for SpeechRecognitionConstraintProbability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionConstraintProbability").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionConstraintProbability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConstraintProbability;i4)");
 }
@@ -1248,6 +1293,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionConstraintType {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionConstraintType {}
+impl ::core::fmt::Debug for SpeechRecognitionConstraintType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionConstraintType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionConstraintType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConstraintType;i4)");
 }
@@ -1347,6 +1397,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionGrammarFileConstraint {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionGrammarFileConstraint {}
+impl ::core::fmt::Debug for SpeechRecognitionGrammarFileConstraint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionGrammarFileConstraint").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionGrammarFileConstraint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint;{b5031a8f-85ca-4fa4-b11a-474fc41b3835})");
 }
@@ -1445,6 +1500,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionHypothesis {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionHypothesis {}
+impl ::core::fmt::Debug for SpeechRecognitionHypothesis {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionHypothesis").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionHypothesis {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionHypothesis;{7a7b25b0-99c5-4f7d-bf84-10aa1302b634})");
 }
@@ -1521,6 +1581,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionHypothesisGeneratedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionHypothesisGeneratedEventArgs {}
+impl ::core::fmt::Debug for SpeechRecognitionHypothesisGeneratedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionHypothesisGeneratedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionHypothesisGeneratedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionHypothesisGeneratedEventArgs;{55161a7a-8023-5866-411d-1213bb271476})");
 }
@@ -1666,6 +1731,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionListConstraint {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionListConstraint {}
+impl ::core::fmt::Debug for SpeechRecognitionListConstraint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionListConstraint").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionListConstraint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionListConstraint;{09c487e9-e4ad-4526-81f2-4946fb481d98})");
 }
@@ -1764,6 +1834,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionQualityDegradingEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionQualityDegradingEventArgs {}
+impl ::core::fmt::Debug for SpeechRecognitionQualityDegradingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionQualityDegradingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionQualityDegradingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionQualityDegradingEventArgs;{4fe24105-8c3a-4c7e-8d0a-5bd4f5b14ad8})");
 }
@@ -1916,6 +1991,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionResult {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionResult {}
+impl ::core::fmt::Debug for SpeechRecognitionResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionResult;{4e303157-034e-4652-857e-d0454cc4beec})");
 }
@@ -1999,6 +2079,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionResultStatus {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionResultStatus {}
+impl ::core::fmt::Debug for SpeechRecognitionResultStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionResultStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionResultStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionResultStatus;i4)");
 }
@@ -2028,6 +2113,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionScenario {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionScenario {}
+impl ::core::fmt::Debug for SpeechRecognitionScenario {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionScenario").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionScenario {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionScenario;i4)");
 }
@@ -2059,6 +2149,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionSemanticInterpretation {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionSemanticInterpretation {}
+impl ::core::fmt::Debug for SpeechRecognitionSemanticInterpretation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionSemanticInterpretation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionSemanticInterpretation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionSemanticInterpretation;{aae1da9b-7e32-4c1f-89fe-0c65f486f52e})");
 }
@@ -2209,6 +2304,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionTopicConstraint {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionTopicConstraint {}
+impl ::core::fmt::Debug for SpeechRecognitionTopicConstraint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionTopicConstraint").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionTopicConstraint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint;{bf6fdf19-825d-4e69-a681-36e48cf1c93e})");
 }
@@ -2346,6 +2446,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionVoiceCommandDefinitionConstrain
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionVoiceCommandDefinitionConstraint {}
+impl ::core::fmt::Debug for SpeechRecognitionVoiceCommandDefinitionConstraint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionVoiceCommandDefinitionConstraint").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionVoiceCommandDefinitionConstraint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionVoiceCommandDefinitionConstraint;{f2791c2b-1ef4-4ae7-9d77-b6ff10b8a3c2})");
 }
@@ -2635,6 +2740,11 @@ impl ::core::cmp::PartialEq for SpeechRecognizer {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognizer {}
+impl ::core::fmt::Debug for SpeechRecognizer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognizer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognizer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognizer;{0bc3c9cb-c26a-40f2-aeb5-8096b2e48073})");
 }
@@ -2740,6 +2850,11 @@ impl ::core::cmp::PartialEq for SpeechRecognizerState {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognizerState {}
+impl ::core::fmt::Debug for SpeechRecognizerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognizerState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognizerState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognizerState;i4)");
 }
@@ -2770,6 +2885,11 @@ impl ::core::cmp::PartialEq for SpeechRecognizerStateChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognizerStateChangedEventArgs {}
+impl ::core::fmt::Debug for SpeechRecognizerStateChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognizerStateChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognizerStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognizerStateChangedEventArgs;{563d4f09-ba03-4bad-ad81-ddc6c4dab0c3})");
 }
@@ -2883,6 +3003,11 @@ impl ::core::cmp::PartialEq for SpeechRecognizerTimeouts {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognizerTimeouts {}
+impl ::core::fmt::Debug for SpeechRecognizerTimeouts {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognizerTimeouts").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognizerTimeouts {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognizerTimeouts;{2ef76fca-6a3c-4dca-a153-df1bc88a79af})");
 }
@@ -3003,6 +3128,11 @@ impl ::core::cmp::PartialEq for SpeechRecognizerUIOptions {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognizerUIOptions {}
+impl ::core::fmt::Debug for SpeechRecognizerUIOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognizerUIOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognizerUIOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognizerUIOptions;{7888d641-b92b-44ba-a25f-d1864630641f})");
 }
@@ -3124,6 +3254,11 @@ impl ::core::cmp::PartialEq for VoiceCommandSet {
     }
 }
 impl ::core::cmp::Eq for VoiceCommandSet {}
+impl ::core::fmt::Debug for VoiceCommandSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceCommandSet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VoiceCommandSet {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.VoiceCommandSet;{0bedda75-46e6-4b11-a088-5c68632899b5})");
 }

@@ -81,6 +81,11 @@ impl ::core::cmp::PartialEq for IDummyMBNUCMExt {
     }
 }
 impl ::core::cmp::Eq for IDummyMBNUCMExt {}
+impl ::core::fmt::Debug for IDummyMBNUCMExt {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDummyMBNUCMExt").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDummyMBNUCMExt {
     type Vtable = IDummyMBNUCMExtVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_ffff_4bbb_aaee_338e368af6fa);
@@ -174,6 +179,11 @@ impl ::core::cmp::PartialEq for IMbnConnection {
     }
 }
 impl ::core::cmp::Eq for IMbnConnection {}
+impl ::core::fmt::Debug for IMbnConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnConnection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnConnection {
     type Vtable = IMbnConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_200d_4bbb_aaee_338e368af6fa);
@@ -244,6 +254,11 @@ impl ::core::cmp::PartialEq for IMbnConnectionContext {
     }
 }
 impl ::core::cmp::Eq for IMbnConnectionContext {}
+impl ::core::fmt::Debug for IMbnConnectionContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnConnectionContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnConnectionContext {
     type Vtable = IMbnConnectionContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_200b_4bbb_aaee_338e368af6fa);
@@ -303,6 +318,11 @@ impl ::core::cmp::PartialEq for IMbnConnectionContextEvents {
     }
 }
 impl ::core::cmp::Eq for IMbnConnectionContextEvents {}
+impl ::core::fmt::Debug for IMbnConnectionContextEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnConnectionContextEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnConnectionContextEvents {
     type Vtable = IMbnConnectionContextEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_200c_4bbb_aaee_338e368af6fa);
@@ -368,6 +388,11 @@ impl ::core::cmp::PartialEq for IMbnConnectionEvents {
     }
 }
 impl ::core::cmp::Eq for IMbnConnectionEvents {}
+impl ::core::fmt::Debug for IMbnConnectionEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnConnectionEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnConnectionEvents {
     type Vtable = IMbnConnectionEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_200e_4bbb_aaee_338e368af6fa);
@@ -431,6 +456,11 @@ impl ::core::cmp::PartialEq for IMbnConnectionManager {
     }
 }
 impl ::core::cmp::Eq for IMbnConnectionManager {}
+impl ::core::fmt::Debug for IMbnConnectionManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnConnectionManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnConnectionManager {
     type Vtable = IMbnConnectionManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_201d_4bbb_aaee_338e368af6fa);
@@ -490,6 +520,11 @@ impl ::core::cmp::PartialEq for IMbnConnectionManagerEvents {
     }
 }
 impl ::core::cmp::Eq for IMbnConnectionManagerEvents {}
+impl ::core::fmt::Debug for IMbnConnectionManagerEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnConnectionManagerEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnConnectionManagerEvents {
     type Vtable = IMbnConnectionManagerEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_201e_4bbb_aaee_338e368af6fa);
@@ -554,6 +589,11 @@ impl ::core::cmp::PartialEq for IMbnConnectionProfile {
     }
 }
 impl ::core::cmp::Eq for IMbnConnectionProfile {}
+impl ::core::fmt::Debug for IMbnConnectionProfile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnConnectionProfile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnConnectionProfile {
     type Vtable = IMbnConnectionProfileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2010_4bbb_aaee_338e368af6fa);
@@ -610,6 +650,11 @@ impl ::core::cmp::PartialEq for IMbnConnectionProfileEvents {
     }
 }
 impl ::core::cmp::Eq for IMbnConnectionProfileEvents {}
+impl ::core::fmt::Debug for IMbnConnectionProfileEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnConnectionProfileEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnConnectionProfileEvents {
     type Vtable = IMbnConnectionProfileEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2011_4bbb_aaee_338e368af6fa);
@@ -670,6 +715,11 @@ impl ::core::cmp::PartialEq for IMbnConnectionProfileManager {
     }
 }
 impl ::core::cmp::Eq for IMbnConnectionProfileManager {}
+impl ::core::fmt::Debug for IMbnConnectionProfileManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnConnectionProfileManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnConnectionProfileManager {
     type Vtable = IMbnConnectionProfileManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_200f_4bbb_aaee_338e368af6fa);
@@ -731,6 +781,11 @@ impl ::core::cmp::PartialEq for IMbnConnectionProfileManagerEvents {
     }
 }
 impl ::core::cmp::Eq for IMbnConnectionProfileManagerEvents {}
+impl ::core::fmt::Debug for IMbnConnectionProfileManagerEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnConnectionProfileManagerEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnConnectionProfileManagerEvents {
     type Vtable = IMbnConnectionProfileManagerEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_201f_4bbb_aaee_338e368af6fa);
@@ -847,6 +902,11 @@ impl ::core::cmp::PartialEq for IMbnDeviceService {
     }
 }
 impl ::core::cmp::Eq for IMbnDeviceService {}
+impl ::core::fmt::Debug for IMbnDeviceService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnDeviceService").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnDeviceService {
     type Vtable = IMbnDeviceServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3bb9a71_dc70_4be9_a4da_7886ae8b191b);
@@ -918,6 +978,11 @@ impl ::core::cmp::PartialEq for IMbnDeviceServiceStateEvents {
     }
 }
 impl ::core::cmp::Eq for IMbnDeviceServiceStateEvents {}
+impl ::core::fmt::Debug for IMbnDeviceServiceStateEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnDeviceServiceStateEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnDeviceServiceStateEvents {
     type Vtable = IMbnDeviceServiceStateEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d3ff196_89ee_49d8_8b60_33ffddffc58d);
@@ -989,6 +1054,11 @@ impl ::core::cmp::PartialEq for IMbnDeviceServicesContext {
     }
 }
 impl ::core::cmp::Eq for IMbnDeviceServicesContext {}
+impl ::core::fmt::Debug for IMbnDeviceServicesContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnDeviceServicesContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnDeviceServicesContext {
     type Vtable = IMbnDeviceServicesContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc5ac347_1592_4068_80bb_6a57580150d8);
@@ -1092,6 +1162,11 @@ impl ::core::cmp::PartialEq for IMbnDeviceServicesEvents {
     }
 }
 impl ::core::cmp::Eq for IMbnDeviceServicesEvents {}
+impl ::core::fmt::Debug for IMbnDeviceServicesEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnDeviceServicesEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnDeviceServicesEvents {
     type Vtable = IMbnDeviceServicesEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a900c19_6824_4e97_b76e_cf239d0ca642);
@@ -1162,6 +1237,11 @@ impl ::core::cmp::PartialEq for IMbnDeviceServicesManager {
     }
 }
 impl ::core::cmp::Eq for IMbnDeviceServicesManager {}
+impl ::core::fmt::Debug for IMbnDeviceServicesManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnDeviceServicesManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnDeviceServicesManager {
     type Vtable = IMbnDeviceServicesManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20a26258_6811_4478_ac1d_13324e45e41c);
@@ -1271,6 +1351,11 @@ impl ::core::cmp::PartialEq for IMbnInterface {
     }
 }
 impl ::core::cmp::Eq for IMbnInterface {}
+impl ::core::fmt::Debug for IMbnInterface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnInterface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnInterface {
     type Vtable = IMbnInterfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2001_4bbb_aaee_338e368af6fa);
@@ -1367,6 +1452,11 @@ impl ::core::cmp::PartialEq for IMbnInterfaceEvents {
     }
 }
 impl ::core::cmp::Eq for IMbnInterfaceEvents {}
+impl ::core::fmt::Debug for IMbnInterfaceEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnInterfaceEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnInterfaceEvents {
     type Vtable = IMbnInterfaceEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2002_4bbb_aaee_338e368af6fa);
@@ -1434,6 +1524,11 @@ impl ::core::cmp::PartialEq for IMbnInterfaceManager {
     }
 }
 impl ::core::cmp::Eq for IMbnInterfaceManager {}
+impl ::core::fmt::Debug for IMbnInterfaceManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnInterfaceManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnInterfaceManager {
     type Vtable = IMbnInterfaceManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_201b_4bbb_aaee_338e368af6fa);
@@ -1493,6 +1588,11 @@ impl ::core::cmp::PartialEq for IMbnInterfaceManagerEvents {
     }
 }
 impl ::core::cmp::Eq for IMbnInterfaceManagerEvents {}
+impl ::core::fmt::Debug for IMbnInterfaceManagerEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnInterfaceManagerEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnInterfaceManagerEvents {
     type Vtable = IMbnInterfaceManagerEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_201c_4bbb_aaee_338e368af6fa);
@@ -1575,6 +1675,11 @@ impl ::core::cmp::PartialEq for IMbnMultiCarrier {
     }
 }
 impl ::core::cmp::Eq for IMbnMultiCarrier {}
+impl ::core::fmt::Debug for IMbnMultiCarrier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnMultiCarrier").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnMultiCarrier {
     type Vtable = IMbnMultiCarrierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2020_4bbb_aaee_338e368af6fa);
@@ -1652,6 +1757,11 @@ impl ::core::cmp::PartialEq for IMbnMultiCarrierEvents {
     }
 }
 impl ::core::cmp::Eq for IMbnMultiCarrierEvents {}
+impl ::core::fmt::Debug for IMbnMultiCarrierEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnMultiCarrierEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnMultiCarrierEvents {
     type Vtable = IMbnMultiCarrierEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcdddab6_2021_4bbb_aaee_338e368af6fa);
@@ -1764,6 +1874,11 @@ impl ::core::cmp::PartialEq for IMbnPin {
     }
 }
 impl ::core::cmp::Eq for IMbnPin {}
+impl ::core::fmt::Debug for IMbnPin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnPin").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnPin {
     type Vtable = IMbnPinVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2007_4bbb_aaee_338e368af6fa);
@@ -1847,6 +1962,11 @@ impl ::core::cmp::PartialEq for IMbnPinEvents {
     }
 }
 impl ::core::cmp::Eq for IMbnPinEvents {}
+impl ::core::fmt::Debug for IMbnPinEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnPinEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnPinEvents {
     type Vtable = IMbnPinEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2008_4bbb_aaee_338e368af6fa);
@@ -1915,6 +2035,11 @@ impl ::core::cmp::PartialEq for IMbnPinManager {
     }
 }
 impl ::core::cmp::Eq for IMbnPinManager {}
+impl ::core::fmt::Debug for IMbnPinManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnPinManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnPinManager {
     type Vtable = IMbnPinManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2005_4bbb_aaee_338e368af6fa);
@@ -1974,6 +2099,11 @@ impl ::core::cmp::PartialEq for IMbnPinManagerEvents {
     }
 }
 impl ::core::cmp::Eq for IMbnPinManagerEvents {}
+impl ::core::fmt::Debug for IMbnPinManagerEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnPinManagerEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnPinManagerEvents {
     type Vtable = IMbnPinManagerEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2006_4bbb_aaee_338e368af6fa);
@@ -2038,6 +2168,11 @@ impl ::core::cmp::PartialEq for IMbnRadio {
     }
 }
 impl ::core::cmp::Eq for IMbnRadio {}
+impl ::core::fmt::Debug for IMbnRadio {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnRadio").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnRadio {
     type Vtable = IMbnRadioVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdccccab6_201f_4bbb_aaee_338e368af6fa);
@@ -2096,6 +2231,11 @@ impl ::core::cmp::PartialEq for IMbnRadioEvents {
     }
 }
 impl ::core::cmp::Eq for IMbnRadioEvents {}
+impl ::core::fmt::Debug for IMbnRadioEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnRadioEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnRadioEvents {
     type Vtable = IMbnRadioEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcdddab6_201f_4bbb_aaee_338e368af6fa);
@@ -2199,6 +2339,11 @@ impl ::core::cmp::PartialEq for IMbnRegistration {
     }
 }
 impl ::core::cmp::Eq for IMbnRegistration {}
+impl ::core::fmt::Debug for IMbnRegistration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnRegistration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnRegistration {
     type Vtable = IMbnRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2009_4bbb_aaee_338e368af6fa);
@@ -2276,6 +2421,11 @@ impl ::core::cmp::PartialEq for IMbnRegistrationEvents {
     }
 }
 impl ::core::cmp::Eq for IMbnRegistrationEvents {}
+impl ::core::fmt::Debug for IMbnRegistrationEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnRegistrationEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnRegistrationEvents {
     type Vtable = IMbnRegistrationEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_200a_4bbb_aaee_338e368af6fa);
@@ -2333,6 +2483,11 @@ impl ::core::cmp::PartialEq for IMbnServiceActivation {
     }
 }
 impl ::core::cmp::Eq for IMbnServiceActivation {}
+impl ::core::fmt::Debug for IMbnServiceActivation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnServiceActivation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnServiceActivation {
     type Vtable = IMbnServiceActivationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2017_4bbb_aaee_338e368af6fa);
@@ -2387,6 +2542,11 @@ impl ::core::cmp::PartialEq for IMbnServiceActivationEvents {
     }
 }
 impl ::core::cmp::Eq for IMbnServiceActivationEvents {}
+impl ::core::fmt::Debug for IMbnServiceActivationEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnServiceActivationEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnServiceActivationEvents {
     type Vtable = IMbnServiceActivationEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2018_4bbb_aaee_338e368af6fa);
@@ -2446,6 +2606,11 @@ impl ::core::cmp::PartialEq for IMbnSignal {
     }
 }
 impl ::core::cmp::Eq for IMbnSignal {}
+impl ::core::fmt::Debug for IMbnSignal {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnSignal").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnSignal {
     type Vtable = IMbnSignalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2003_4bbb_aaee_338e368af6fa);
@@ -2499,6 +2664,11 @@ impl ::core::cmp::PartialEq for IMbnSignalEvents {
     }
 }
 impl ::core::cmp::Eq for IMbnSignalEvents {}
+impl ::core::fmt::Debug for IMbnSignalEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnSignalEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnSignalEvents {
     type Vtable = IMbnSignalEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2004_4bbb_aaee_338e368af6fa);
@@ -2585,6 +2755,11 @@ impl ::core::cmp::PartialEq for IMbnSms {
     }
 }
 impl ::core::cmp::Eq for IMbnSms {}
+impl ::core::fmt::Debug for IMbnSms {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnSms").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnSms {
     type Vtable = IMbnSmsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2015_4bbb_aaee_338e368af6fa);
@@ -2673,6 +2848,11 @@ impl ::core::cmp::PartialEq for IMbnSmsConfiguration {
     }
 }
 impl ::core::cmp::Eq for IMbnSmsConfiguration {}
+impl ::core::fmt::Debug for IMbnSmsConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnSmsConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnSmsConfiguration {
     type Vtable = IMbnSmsConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2012_4bbb_aaee_338e368af6fa);
@@ -2758,6 +2938,11 @@ impl ::core::cmp::PartialEq for IMbnSmsEvents {
     }
 }
 impl ::core::cmp::Eq for IMbnSmsEvents {}
+impl ::core::fmt::Debug for IMbnSmsEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnSmsEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnSmsEvents {
     type Vtable = IMbnSmsEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2016_4bbb_aaee_338e368af6fa);
@@ -2836,6 +3021,11 @@ impl ::core::cmp::PartialEq for IMbnSmsReadMsgPdu {
     }
 }
 impl ::core::cmp::Eq for IMbnSmsReadMsgPdu {}
+impl ::core::fmt::Debug for IMbnSmsReadMsgPdu {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnSmsReadMsgPdu").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnSmsReadMsgPdu {
     type Vtable = IMbnSmsReadMsgPduVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2013_4bbb_aaee_338e368af6fa);
@@ -2932,6 +3122,11 @@ impl ::core::cmp::PartialEq for IMbnSmsReadMsgTextCdma {
     }
 }
 impl ::core::cmp::Eq for IMbnSmsReadMsgTextCdma {}
+impl ::core::fmt::Debug for IMbnSmsReadMsgTextCdma {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnSmsReadMsgTextCdma").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnSmsReadMsgTextCdma {
     type Vtable = IMbnSmsReadMsgTextCdmaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2014_4bbb_aaee_338e368af6fa);
@@ -3008,6 +3203,11 @@ impl ::core::cmp::PartialEq for IMbnSubscriberInformation {
     }
 }
 impl ::core::cmp::Eq for IMbnSubscriberInformation {}
+impl ::core::fmt::Debug for IMbnSubscriberInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnSubscriberInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnSubscriberInformation {
     type Vtable = IMbnSubscriberInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x459ecc43_bcf5_11dc_a8a8_001321f1405f);
@@ -3071,6 +3271,11 @@ impl ::core::cmp::PartialEq for IMbnVendorSpecificEvents {
     }
 }
 impl ::core::cmp::Eq for IMbnVendorSpecificEvents {}
+impl ::core::fmt::Debug for IMbnVendorSpecificEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnVendorSpecificEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnVendorSpecificEvents {
     type Vtable = IMbnVendorSpecificEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_201a_4bbb_aaee_338e368af6fa);
@@ -3128,6 +3333,11 @@ impl ::core::cmp::PartialEq for IMbnVendorSpecificOperation {
     }
 }
 impl ::core::cmp::Eq for IMbnVendorSpecificOperation {}
+impl ::core::fmt::Debug for IMbnVendorSpecificOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMbnVendorSpecificOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMbnVendorSpecificOperation {
     type Vtable = IMbnVendorSpecificOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2019_4bbb_aaee_338e368af6fa);
@@ -3252,6 +3462,12 @@ impl ::core::clone::Clone for MBN_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MBN_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_CONTEXT").field("contextID", &self.contextID).field("contextType", &self.contextType).field("accessString", &self.accessString).field("userName", &self.userName).field("password", &self.password).field("compression", &self.compression).field("authType", &self.authType).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MBN_CONTEXT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -3366,6 +3582,12 @@ impl ::core::clone::Clone for MBN_DEVICE_SERVICE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MBN_DEVICE_SERVICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_DEVICE_SERVICE").field("deviceServiceID", &self.deviceServiceID).field("dataWriteSupported", &self.dataWriteSupported).field("dataReadSupported", &self.dataReadSupported).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MBN_DEVICE_SERVICE {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -3432,6 +3654,26 @@ impl ::core::clone::Clone for MBN_INTERFACE_CAPS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MBN_INTERFACE_CAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_INTERFACE_CAPS")
+            .field("cellularClass", &self.cellularClass)
+            .field("voiceClass", &self.voiceClass)
+            .field("dataClass", &self.dataClass)
+            .field("customDataClass", &self.customDataClass)
+            .field("gsmBandClass", &self.gsmBandClass)
+            .field("cdmaBandClass", &self.cdmaBandClass)
+            .field("customBandClass", &self.customBandClass)
+            .field("smsCaps", &self.smsCaps)
+            .field("controlCaps", &self.controlCaps)
+            .field("deviceID", &self.deviceID)
+            .field("manufacturer", &self.manufacturer)
+            .field("model", &self.model)
+            .field("firmwareInfo", &self.firmwareInfo)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MBN_INTERFACE_CAPS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -3494,6 +3736,11 @@ impl ::core::marker::Copy for MBN_PIN_INFO {}
 impl ::core::clone::Clone for MBN_PIN_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MBN_PIN_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_PIN_INFO").field("pinState", &self.pinState).field("pinType", &self.pinType).field("attemptsRemaining", &self.attemptsRemaining).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MBN_PIN_INFO {
@@ -3564,6 +3811,12 @@ impl ::core::clone::Clone for MBN_PROVIDER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MBN_PROVIDER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_PROVIDER").field("providerID", &self.providerID).field("providerState", &self.providerState).field("providerName", &self.providerName).field("dataClass", &self.dataClass).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MBN_PROVIDER {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -3594,6 +3847,12 @@ pub struct MBN_PROVIDER2 {
 impl ::core::clone::Clone for MBN_PROVIDER2 {
     fn clone(&self) -> Self {
         Self { provider: self.provider.clone(), cellularClass: self.cellularClass, signalStrength: self.signalStrength, signalError: self.signalError }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MBN_PROVIDER2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_PROVIDER2").field("provider", &self.provider).field("cellularClass", &self.cellularClass).field("signalStrength", &self.signalStrength).field("signalError", &self.signalError).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3766,6 +4025,11 @@ impl ::core::clone::Clone for MBN_SMS_FILTER {
         *self
     }
 }
+impl ::core::fmt::Debug for MBN_SMS_FILTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_SMS_FILTER").field("flag", &self.flag).field("messageIndex", &self.messageIndex).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MBN_SMS_FILTER {
     type Abi = Self;
 }
@@ -3820,6 +4084,11 @@ impl ::core::marker::Copy for MBN_SMS_STATUS_INFO {}
 impl ::core::clone::Clone for MBN_SMS_STATUS_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MBN_SMS_STATUS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_SMS_STATUS_INFO").field("flag", &self.flag).field("messageIndex", &self.messageIndex).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MBN_SMS_STATUS_INFO {
@@ -3877,6 +4146,11 @@ impl ::core::clone::Clone for __DummyPinType__ {
         *self
     }
 }
+impl ::core::fmt::Debug for __DummyPinType__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("__DummyPinType__").field("pinType", &self.pinType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for __DummyPinType__ {
     type Abi = Self;
 }
@@ -3913,6 +4187,26 @@ impl ::core::marker::Copy for __mbnapi_ReferenceRemainingTypes__ {}
 impl ::core::clone::Clone for __mbnapi_ReferenceRemainingTypes__ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for __mbnapi_ReferenceRemainingTypes__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("__mbnapi_ReferenceRemainingTypes__")
+            .field("bandClass", &self.bandClass)
+            .field("contextConstants", &self.contextConstants)
+            .field("ctrlCaps", &self.ctrlCaps)
+            .field("dataClass", &self.dataClass)
+            .field("interfaceCapsConstants", &self.interfaceCapsConstants)
+            .field("pinConstants", &self.pinConstants)
+            .field("providerConstants", &self.providerConstants)
+            .field("providerState", &self.providerState)
+            .field("registrationConstants", &self.registrationConstants)
+            .field("signalConstants", &self.signalConstants)
+            .field("smsCaps", &self.smsCaps)
+            .field("smsConstants", &self.smsConstants)
+            .field("wwaextSmsConstants", &self.wwaextSmsConstants)
+            .field("smsStatusFlag", &self.smsStatusFlag)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for __mbnapi_ReferenceRemainingTypes__ {

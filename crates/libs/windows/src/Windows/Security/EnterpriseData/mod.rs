@@ -32,6 +32,11 @@ impl ::core::cmp::PartialEq for BufferProtectUnprotectResult {
     }
 }
 impl ::core::cmp::Eq for BufferProtectUnprotectResult {}
+impl ::core::fmt::Debug for BufferProtectUnprotectResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BufferProtectUnprotectResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BufferProtectUnprotectResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.BufferProtectUnprotectResult;{47995edc-6cec-4e3a-b251-9e7485d79e7a})");
 }
@@ -116,6 +121,11 @@ impl ::core::cmp::PartialEq for DataProtectionInfo {
     }
 }
 impl ::core::cmp::Eq for DataProtectionInfo {}
+impl ::core::fmt::Debug for DataProtectionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataProtectionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataProtectionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.DataProtectionInfo;{8420b0c1-5e31-4405-9540-3f943af0cb26})");
 }
@@ -254,6 +264,11 @@ impl ::core::cmp::PartialEq for DataProtectionStatus {
     }
 }
 impl ::core::cmp::Eq for DataProtectionStatus {}
+impl ::core::fmt::Debug for DataProtectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataProtectionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataProtectionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.DataProtectionStatus;i4)");
 }
@@ -284,6 +299,11 @@ impl ::core::cmp::PartialEq for EnforcementLevel {
     }
 }
 impl ::core::cmp::Eq for EnforcementLevel {}
+impl ::core::fmt::Debug for EnforcementLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EnforcementLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EnforcementLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.EnforcementLevel;i4)");
 }
@@ -338,6 +358,11 @@ impl ::core::cmp::PartialEq for FileProtectionInfo {
     }
 }
 impl ::core::cmp::Eq for FileProtectionInfo {}
+impl ::core::fmt::Debug for FileProtectionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileProtectionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileProtectionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.FileProtectionInfo;{4ee96486-147e-4dd0-8faf-5253ed91ad0c})");
 }
@@ -540,6 +565,11 @@ impl ::core::cmp::PartialEq for FileProtectionStatus {
     }
 }
 impl ::core::cmp::Eq for FileProtectionStatus {}
+impl ::core::fmt::Debug for FileProtectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileProtectionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileProtectionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.FileProtectionStatus;i4)");
 }
@@ -632,6 +662,11 @@ impl ::core::cmp::PartialEq for FileUnprotectOptions {
     }
 }
 impl ::core::cmp::Eq for FileUnprotectOptions {}
+impl ::core::fmt::Debug for FileUnprotectOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileUnprotectOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileUnprotectOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.FileUnprotectOptions;{7d1312f1-3b0d-4dd8-a1f8-1ec53822e2f3})");
 }
@@ -1309,6 +1344,11 @@ impl ::core::cmp::PartialEq for ProtectedAccessResumedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ProtectedAccessResumedEventArgs {}
+impl ::core::fmt::Debug for ProtectedAccessResumedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectedAccessResumedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProtectedAccessResumedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedAccessResumedEventArgs;{ac4dca59-5d80-4e95-8c5f-8539450eebe0})");
 }
@@ -1404,6 +1444,11 @@ impl ::core::cmp::PartialEq for ProtectedAccessSuspendingEventArgs {
     }
 }
 impl ::core::cmp::Eq for ProtectedAccessSuspendingEventArgs {}
+impl ::core::fmt::Debug for ProtectedAccessSuspendingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectedAccessSuspendingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProtectedAccessSuspendingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedAccessSuspendingEventArgs;{75a193e0-a344-429f-b975-04fc1f88c185})");
 }
@@ -1489,6 +1534,11 @@ impl ::core::cmp::PartialEq for ProtectedContainerExportResult {
     }
 }
 impl ::core::cmp::Eq for ProtectedContainerExportResult {}
+impl ::core::fmt::Debug for ProtectedContainerExportResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectedContainerExportResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProtectedContainerExportResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedContainerExportResult;{3948ef95-f7fb-4b42-afb0-df70b41543c1})");
 }
@@ -1574,6 +1624,11 @@ impl ::core::cmp::PartialEq for ProtectedContainerImportResult {
     }
 }
 impl ::core::cmp::Eq for ProtectedContainerImportResult {}
+impl ::core::fmt::Debug for ProtectedContainerImportResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectedContainerImportResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProtectedContainerImportResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedContainerImportResult;{cdb780d1-e7bb-4d1a-9339-34dc41149f9b})");
 }
@@ -1651,6 +1706,11 @@ impl ::core::cmp::PartialEq for ProtectedContentRevokedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ProtectedContentRevokedEventArgs {}
+impl ::core::fmt::Debug for ProtectedContentRevokedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectedContentRevokedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProtectedContentRevokedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedContentRevokedEventArgs;{63686821-58b9-47ee-93d9-f0f741cf43f0})");
 }
@@ -1745,6 +1805,11 @@ impl ::core::cmp::PartialEq for ProtectedFileCreateResult {
     }
 }
 impl ::core::cmp::Eq for ProtectedFileCreateResult {}
+impl ::core::fmt::Debug for ProtectedFileCreateResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectedFileCreateResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProtectedFileCreateResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedFileCreateResult;{28e3ed6a-e9e7-4a03-9f53-bdb16172699b})");
 }
@@ -1825,6 +1890,11 @@ impl ::core::cmp::PartialEq for ProtectedImportExportStatus {
     }
 }
 impl ::core::cmp::Eq for ProtectedImportExportStatus {}
+impl ::core::fmt::Debug for ProtectedImportExportStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectedImportExportStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProtectedImportExportStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectedImportExportStatus;i4)");
 }
@@ -1855,6 +1925,11 @@ impl ::core::cmp::PartialEq for ProtectionPolicyAuditAction {
     }
 }
 impl ::core::cmp::Eq for ProtectionPolicyAuditAction {}
+impl ::core::fmt::Debug for ProtectionPolicyAuditAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectionPolicyAuditAction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProtectionPolicyAuditAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectionPolicyAuditAction;i4)");
 }
@@ -1948,6 +2023,11 @@ impl ::core::cmp::PartialEq for ProtectionPolicyAuditInfo {
     }
 }
 impl ::core::cmp::Eq for ProtectionPolicyAuditInfo {}
+impl ::core::fmt::Debug for ProtectionPolicyAuditInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectionPolicyAuditInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProtectionPolicyAuditInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectionPolicyAuditInfo;{425ab7e4-feb7-44fc-b3bb-c3c4d7ecbebb})");
 }
@@ -2023,6 +2103,11 @@ impl ::core::cmp::PartialEq for ProtectionPolicyEvaluationResult {
     }
 }
 impl ::core::cmp::Eq for ProtectionPolicyEvaluationResult {}
+impl ::core::fmt::Debug for ProtectionPolicyEvaluationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectionPolicyEvaluationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProtectionPolicyEvaluationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectionPolicyEvaluationResult;i4)");
 }
@@ -2374,6 +2459,11 @@ impl ::core::cmp::PartialEq for ProtectionPolicyManager {
     }
 }
 impl ::core::cmp::Eq for ProtectionPolicyManager {}
+impl ::core::fmt::Debug for ProtectionPolicyManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectionPolicyManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProtectionPolicyManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectionPolicyManager;{d5703e18-a08d-47e6-a240-9934d7165eb5})");
 }
@@ -2448,6 +2538,11 @@ impl ::core::cmp::PartialEq for ProtectionPolicyRequestAccessBehavior {
     }
 }
 impl ::core::cmp::Eq for ProtectionPolicyRequestAccessBehavior {}
+impl ::core::fmt::Debug for ProtectionPolicyRequestAccessBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectionPolicyRequestAccessBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProtectionPolicyRequestAccessBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectionPolicyRequestAccessBehavior;i4)");
 }
@@ -2476,6 +2571,11 @@ impl ::core::cmp::PartialEq for ThreadNetworkContext {
     }
 }
 impl ::core::cmp::Eq for ThreadNetworkContext {}
+impl ::core::fmt::Debug for ThreadNetworkContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ThreadNetworkContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ThreadNetworkContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ThreadNetworkContext;{fa4ea8e9-ef13-405a-b12c-d7348c6f41fc})");
 }

@@ -60,6 +60,11 @@ impl ::core::cmp::PartialEq for EyesPose {
     }
 }
 impl ::core::cmp::Eq for EyesPose {}
+impl ::core::fmt::Debug for EyesPose {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EyesPose").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EyesPose {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.People.EyesPose;{682a9b23-8a1e-5b86-a060-906ffacb62a4})");
 }
@@ -158,6 +163,11 @@ impl ::core::cmp::PartialEq for HandJointKind {
     }
 }
 impl ::core::cmp::Eq for HandJointKind {}
+impl ::core::fmt::Debug for HandJointKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HandJointKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HandJointKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.People.HandJointKind;i4)");
 }
@@ -242,6 +252,11 @@ impl ::core::cmp::PartialEq for HandMeshObserver {
     }
 }
 impl ::core::cmp::Eq for HandMeshObserver {}
+impl ::core::fmt::Debug for HandMeshObserver {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HandMeshObserver").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HandMeshObserver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.People.HandMeshObserver;{85ae30cb-6fc3-55c4-a7b4-29e33896ca69})");
 }
@@ -310,6 +325,12 @@ impl ::core::clone::Clone for HandMeshVertex {
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for HandMeshVertex {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HandMeshVertex").field("Position", &self.Position).field("Normal", &self.Normal).finish()
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::core::Abi for HandMeshVertex {
     type Abi = Self;
 }
@@ -374,6 +395,11 @@ impl ::core::cmp::PartialEq for HandMeshVertexState {
     }
 }
 impl ::core::cmp::Eq for HandMeshVertexState {}
+impl ::core::fmt::Debug for HandMeshVertexState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HandMeshVertexState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HandMeshVertexState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.People.HandMeshVertexState;{046c5fef-1d8b-55de-ab2c-1cd424886d8f})");
 }
@@ -475,6 +501,11 @@ impl ::core::cmp::PartialEq for HandPose {
     }
 }
 impl ::core::cmp::Eq for HandPose {}
+impl ::core::fmt::Debug for HandPose {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HandPose").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HandPose {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.People.HandPose;{4d98e79a-bb08-5d09-91de-df0dd3fae46c})");
 }
@@ -570,6 +601,11 @@ impl ::core::cmp::PartialEq for HeadPose {
     }
 }
 impl ::core::cmp::Eq for HeadPose {}
+impl ::core::fmt::Debug for HeadPose {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HeadPose").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HeadPose {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.People.HeadPose;{7f5ac5a5-49db-379f-9429-32a2faf34fa6})");
 }
@@ -777,6 +813,12 @@ impl ::core::clone::Clone for JointPose {
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for JointPose {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JointPose").field("Orientation", &self.Orientation).field("Position", &self.Position).field("Radius", &self.Radius).field("Accuracy", &self.Accuracy).finish()
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::core::Abi for JointPose {
     type Abi = Self;
 }
@@ -824,6 +866,11 @@ impl ::core::cmp::PartialEq for JointPoseAccuracy {
     }
 }
 impl ::core::cmp::Eq for JointPoseAccuracy {}
+impl ::core::fmt::Debug for JointPoseAccuracy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JointPoseAccuracy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for JointPoseAccuracy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.People.JointPoseAccuracy;i4)");
 }

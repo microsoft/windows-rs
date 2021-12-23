@@ -21,6 +21,11 @@ impl ::core::cmp::PartialEq for BitmapCreateOptions {
     }
 }
 impl ::core::cmp::Eq for BitmapCreateOptions {}
+impl ::core::fmt::Debug for BitmapCreateOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapCreateOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BitmapCreateOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Imaging.BitmapCreateOptions;u4)");
 }
@@ -285,6 +290,11 @@ impl ::core::cmp::PartialEq for BitmapImage {
     }
 }
 impl ::core::cmp::Eq for BitmapImage {}
+impl ::core::fmt::Debug for BitmapImage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapImage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BitmapImage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.BitmapImage;{31af3271-e3b4-442d-a341-4c0226b2725b})");
 }
@@ -463,6 +473,11 @@ impl ::core::cmp::PartialEq for BitmapSource {
     }
 }
 impl ::core::cmp::Eq for BitmapSource {}
+impl ::core::fmt::Debug for BitmapSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BitmapSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.BitmapSource;{23d86411-202f-41b2-8c5b-a8a3b333800b})");
 }
@@ -577,6 +592,11 @@ impl ::core::cmp::PartialEq for DecodePixelType {
     }
 }
 impl ::core::cmp::Eq for DecodePixelType {}
+impl ::core::fmt::Debug for DecodePixelType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DecodePixelType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DecodePixelType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Imaging.DecodePixelType;i4)");
 }
@@ -612,6 +632,11 @@ impl ::core::cmp::PartialEq for DownloadProgressEventArgs {
     }
 }
 impl ::core::cmp::Eq for DownloadProgressEventArgs {}
+impl ::core::fmt::Debug for DownloadProgressEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DownloadProgressEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DownloadProgressEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.DownloadProgressEventArgs;{7311e0d4-fe94-4e70-9b90-cdd47ac23afb})");
 }
@@ -724,6 +749,11 @@ impl ::core::cmp::PartialEq for DownloadProgressEventHandler {
     }
 }
 impl ::core::cmp::Eq for DownloadProgressEventHandler {}
+impl ::core::fmt::Debug for DownloadProgressEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DownloadProgressEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for DownloadProgressEventHandler {
     type Vtable = DownloadProgressEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1abaee23_74ee_4cc7_99ba_b171e3cda61e);
@@ -1394,6 +1424,11 @@ impl ::core::cmp::PartialEq for RenderTargetBitmap {
     }
 }
 impl ::core::cmp::Eq for RenderTargetBitmap {}
+impl ::core::fmt::Debug for RenderTargetBitmap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RenderTargetBitmap").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RenderTargetBitmap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap;{500dee81-893c-4c0a-8fec-4678ac717589})");
 }
@@ -1524,6 +1559,11 @@ impl ::core::cmp::PartialEq for SoftwareBitmapSource {
     }
 }
 impl ::core::cmp::Eq for SoftwareBitmapSource {}
+impl ::core::fmt::Debug for SoftwareBitmapSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SoftwareBitmapSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SoftwareBitmapSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource;{d2dd9ed0-d3c5-4056-91b5-b7c1d1e8130e})");
 }
@@ -1677,6 +1717,11 @@ impl ::core::cmp::PartialEq for SurfaceImageSource {
     }
 }
 impl ::core::cmp::Eq for SurfaceImageSource {}
+impl ::core::fmt::Debug for SurfaceImageSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SurfaceImageSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SurfaceImageSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.SurfaceImageSource;{62f7d416-c714-4c4c-8273-f839bc58135c})");
 }
@@ -1911,6 +1956,11 @@ impl ::core::cmp::PartialEq for SvgImageSource {
     }
 }
 impl ::core::cmp::Eq for SvgImageSource {}
+impl ::core::fmt::Debug for SvgImageSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SvgImageSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SvgImageSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.SvgImageSource;{03e1cec3-0ca8-4a4e-8d7c-c808a0838586})");
 }
@@ -2027,6 +2077,11 @@ impl ::core::cmp::PartialEq for SvgImageSourceFailedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SvgImageSourceFailedEventArgs {}
+impl ::core::fmt::Debug for SvgImageSourceFailedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SvgImageSourceFailedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SvgImageSourceFailedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.SvgImageSourceFailedEventArgs;{68bb3170-3ccc-4035-ac01-9834543d744e})");
 }
@@ -2103,6 +2158,11 @@ impl ::core::cmp::PartialEq for SvgImageSourceLoadStatus {
     }
 }
 impl ::core::cmp::Eq for SvgImageSourceLoadStatus {}
+impl ::core::fmt::Debug for SvgImageSourceLoadStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SvgImageSourceLoadStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SvgImageSourceLoadStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Imaging.SvgImageSourceLoadStatus;i4)");
 }
@@ -2124,6 +2184,11 @@ impl ::core::cmp::PartialEq for SvgImageSourceOpenedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SvgImageSourceOpenedEventArgs {}
+impl ::core::fmt::Debug for SvgImageSourceOpenedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SvgImageSourceOpenedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SvgImageSourceOpenedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.SvgImageSourceOpenedEventArgs;{85ef4c16-748e-4008-95c7-6a23dd7316db})");
 }
@@ -2211,6 +2276,11 @@ impl ::core::cmp::PartialEq for VirtualSurfaceImageSource {
     }
 }
 impl ::core::cmp::Eq for VirtualSurfaceImageSource {}
+impl ::core::fmt::Debug for VirtualSurfaceImageSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VirtualSurfaceImageSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VirtualSurfaceImageSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.VirtualSurfaceImageSource;{4a711fea-bfac-11e0-a06a-9de44724019b})");
 }
@@ -2365,6 +2435,11 @@ impl ::core::cmp::PartialEq for WriteableBitmap {
     }
 }
 impl ::core::cmp::Eq for WriteableBitmap {}
+impl ::core::fmt::Debug for WriteableBitmap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WriteableBitmap").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WriteableBitmap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.WriteableBitmap;{bf0b7e6f-df7c-4a85-8413-a1216285835c})");
 }
@@ -2492,6 +2567,11 @@ impl ::core::cmp::PartialEq for XamlRenderingBackgroundTask {
     }
 }
 impl ::core::cmp::Eq for XamlRenderingBackgroundTask {}
+impl ::core::fmt::Debug for XamlRenderingBackgroundTask {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XamlRenderingBackgroundTask").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XamlRenderingBackgroundTask {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.XamlRenderingBackgroundTask;{5d5fe9aa-533e-44b8-a975-fc5f1e3bff52})");
 }

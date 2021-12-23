@@ -26,6 +26,11 @@ impl ::core::cmp::PartialEq for AltitudeReferenceSystem {
     }
 }
 impl ::core::cmp::Eq for AltitudeReferenceSystem {}
+impl ::core::fmt::Debug for AltitudeReferenceSystem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AltitudeReferenceSystem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AltitudeReferenceSystem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.AltitudeReferenceSystem;i4)");
 }
@@ -43,6 +48,11 @@ impl ::core::marker::Copy for BasicGeoposition {}
 impl ::core::clone::Clone for BasicGeoposition {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BasicGeoposition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BasicGeoposition").field("Latitude", &self.Latitude).field("Longitude", &self.Longitude).field("Altitude", &self.Altitude).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BasicGeoposition {
@@ -122,6 +132,11 @@ impl ::core::cmp::PartialEq for CivicAddress {
     }
 }
 impl ::core::cmp::Eq for CivicAddress {}
+impl ::core::fmt::Debug for CivicAddress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CivicAddress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CivicAddress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.CivicAddress;{a8567a1a-64f4-4d48-bcea-f6b008eca34c})");
 }
@@ -309,6 +324,11 @@ impl ::core::cmp::PartialEq for GeoboundingBox {
     }
 }
 impl ::core::cmp::Eq for GeoboundingBox {}
+impl ::core::fmt::Debug for GeoboundingBox {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeoboundingBox").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeoboundingBox {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeoboundingBox;{0896c80b-274f-43da-9a06-cbfcdaeb4ec2})");
 }
@@ -465,6 +485,11 @@ impl ::core::cmp::PartialEq for Geocircle {
     }
 }
 impl ::core::cmp::Eq for Geocircle {}
+impl ::core::fmt::Debug for Geocircle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Geocircle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Geocircle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geocircle;{39e45843-a7f9-4e63-92a7-ba0c28d124b1})");
 }
@@ -667,6 +692,11 @@ impl ::core::cmp::PartialEq for Geocoordinate {
     }
 }
 impl ::core::cmp::Eq for Geocoordinate {}
+impl ::core::fmt::Debug for Geocoordinate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Geocoordinate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Geocoordinate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geocoordinate;{ee21a3aa-976a-4c70-803d-083ea55bcbc4})");
 }
@@ -780,6 +810,11 @@ impl ::core::cmp::PartialEq for GeocoordinateSatelliteData {
     }
 }
 impl ::core::cmp::Eq for GeocoordinateSatelliteData {}
+impl ::core::fmt::Debug for GeocoordinateSatelliteData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeocoordinateSatelliteData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeocoordinateSatelliteData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeocoordinateSatelliteData;{c32a74d9-2608-474c-912c-06dd490f4af7})");
 }
@@ -855,6 +890,11 @@ impl ::core::cmp::PartialEq for GeolocationAccessStatus {
     }
 }
 impl ::core::cmp::Eq for GeolocationAccessStatus {}
+impl ::core::fmt::Debug for GeolocationAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeolocationAccessStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeolocationAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.GeolocationAccessStatus;i4)");
 }
@@ -1053,6 +1093,11 @@ impl ::core::cmp::PartialEq for Geolocator {
     }
 }
 impl ::core::cmp::Eq for Geolocator {}
+impl ::core::fmt::Debug for Geolocator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Geolocator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Geolocator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geolocator;{a9c3bf62-4524-4989-8aa9-de019d2e551f})");
 }
@@ -1183,6 +1228,11 @@ impl ::core::cmp::PartialEq for Geopath {
     }
 }
 impl ::core::cmp::Eq for Geopath {}
+impl ::core::fmt::Debug for Geopath {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Geopath").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Geopath {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geopath;{e53fd7b9-2da4-4714-a652-de8593289898})");
 }
@@ -1331,6 +1381,11 @@ impl ::core::cmp::PartialEq for Geopoint {
     }
 }
 impl ::core::cmp::Eq for Geopoint {}
+impl ::core::fmt::Debug for Geopoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Geopoint").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Geopoint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geopoint;{6bfa00eb-e56e-49bb-9caf-cbaa78a8bcef})");
 }
@@ -1445,6 +1500,11 @@ impl ::core::cmp::PartialEq for Geoposition {
     }
 }
 impl ::core::cmp::Eq for Geoposition {}
+impl ::core::fmt::Debug for Geoposition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Geoposition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Geoposition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geoposition;{c18d0454-7d41-4ff7-a957-9dffb4ef7f5b})");
 }
@@ -1521,6 +1581,11 @@ impl ::core::cmp::PartialEq for GeoshapeType {
     }
 }
 impl ::core::cmp::Eq for GeoshapeType {}
+impl ::core::fmt::Debug for GeoshapeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeoshapeType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeoshapeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.GeoshapeType;i4)");
 }
@@ -1568,6 +1633,11 @@ impl ::core::cmp::PartialEq for Geovisit {
     }
 }
 impl ::core::cmp::Eq for Geovisit {}
+impl ::core::fmt::Debug for Geovisit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Geovisit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Geovisit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geovisit;{b1877a76-9ef6-41ab-a0dd-793ece76e2de})");
 }
@@ -1689,6 +1759,11 @@ impl ::core::cmp::PartialEq for GeovisitMonitor {
     }
 }
 impl ::core::cmp::Eq for GeovisitMonitor {}
+impl ::core::fmt::Debug for GeovisitMonitor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeovisitMonitor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeovisitMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeovisitMonitor;{80118aaf-5944-4591-83c1-396647f54f2c})");
 }
@@ -1765,6 +1840,11 @@ impl ::core::cmp::PartialEq for GeovisitStateChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for GeovisitStateChangedEventArgs {}
+impl ::core::fmt::Debug for GeovisitStateChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeovisitStateChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeovisitStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeovisitStateChangedEventArgs;{ceb4d1ff-8b53-4968-beed-4cecd029ce15})");
 }
@@ -1842,6 +1922,11 @@ impl ::core::cmp::PartialEq for GeovisitTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for GeovisitTriggerDetails {}
+impl ::core::fmt::Debug for GeovisitTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeovisitTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeovisitTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeovisitTriggerDetails;{ea770d9e-d1c9-454b-99b7-b2f8cdd2482f})");
 }
@@ -2488,6 +2573,11 @@ impl ::core::cmp::PartialEq for IGeoshape {
     }
 }
 impl ::core::cmp::Eq for IGeoshape {}
+impl ::core::fmt::Debug for IGeoshape {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGeoshape").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IGeoshape {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c99ca2af-c729-43c1-8fab-d6dec914df7e}");
 }
@@ -2686,6 +2776,11 @@ impl ::core::cmp::PartialEq for PositionAccuracy {
     }
 }
 impl ::core::cmp::Eq for PositionAccuracy {}
+impl ::core::fmt::Debug for PositionAccuracy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PositionAccuracy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PositionAccuracy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionAccuracy;i4)");
 }
@@ -2716,6 +2811,11 @@ impl ::core::cmp::PartialEq for PositionChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PositionChangedEventArgs {}
+impl ::core::fmt::Debug for PositionChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PositionChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PositionChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.PositionChangedEventArgs;{37859ce5-9d1e-46c5-bf3b-6ad8cac1a093})");
 }
@@ -2795,6 +2895,11 @@ impl ::core::cmp::PartialEq for PositionSource {
     }
 }
 impl ::core::cmp::Eq for PositionSource {}
+impl ::core::fmt::Debug for PositionSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PositionSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PositionSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionSource;i4)");
 }
@@ -2827,6 +2932,11 @@ impl ::core::cmp::PartialEq for PositionStatus {
     }
 }
 impl ::core::cmp::Eq for PositionStatus {}
+impl ::core::fmt::Debug for PositionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PositionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PositionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionStatus;i4)");
 }
@@ -2857,6 +2967,11 @@ impl ::core::cmp::PartialEq for StatusChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for StatusChangedEventArgs {}
+impl ::core::fmt::Debug for StatusChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StatusChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StatusChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.StatusChangedEventArgs;{3453d2da-8c93-4111-a205-9aecfc9be5c0})");
 }
@@ -2941,6 +3056,11 @@ impl ::core::cmp::PartialEq for VenueData {
     }
 }
 impl ::core::cmp::Eq for VenueData {}
+impl ::core::fmt::Debug for VenueData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VenueData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VenueData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.VenueData;{66f39187-60e3-4b2f-b527-4f53f1c3c677})");
 }
@@ -3015,6 +3135,11 @@ impl ::core::cmp::PartialEq for VisitMonitoringScope {
     }
 }
 impl ::core::cmp::Eq for VisitMonitoringScope {}
+impl ::core::fmt::Debug for VisitMonitoringScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VisitMonitoringScope").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VisitMonitoringScope {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.VisitMonitoringScope;i4)");
 }
@@ -3045,6 +3170,11 @@ impl ::core::cmp::PartialEq for VisitStateChange {
     }
 }
 impl ::core::cmp::Eq for VisitStateChange {}
+impl ::core::fmt::Debug for VisitStateChange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VisitStateChange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VisitStateChange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.VisitStateChange;i4)");
 }

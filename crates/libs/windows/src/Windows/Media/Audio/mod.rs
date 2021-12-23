@@ -133,6 +133,11 @@ impl ::core::cmp::PartialEq for AudioDeviceInputNode {
     }
 }
 impl ::core::cmp::Eq for AudioDeviceInputNode {}
+impl ::core::fmt::Debug for AudioDeviceInputNode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDeviceInputNode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioDeviceInputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioDeviceInputNode;{b01b6be1-6f4e-49e2-ac01-559d62beb3a9})");
 }
@@ -302,6 +307,11 @@ impl ::core::cmp::PartialEq for AudioDeviceNodeCreationStatus {
     }
 }
 impl ::core::cmp::Eq for AudioDeviceNodeCreationStatus {}
+impl ::core::fmt::Debug for AudioDeviceNodeCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDeviceNodeCreationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioDeviceNodeCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioDeviceNodeCreationStatus;i4)");
 }
@@ -423,6 +433,11 @@ impl ::core::cmp::PartialEq for AudioDeviceOutputNode {
     }
 }
 impl ::core::cmp::Eq for AudioDeviceOutputNode {}
+impl ::core::fmt::Debug for AudioDeviceOutputNode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDeviceOutputNode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioDeviceOutputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioDeviceOutputNode;{362edbff-ff1c-4434-9e0f-bd2ef522ac82})");
 }
@@ -776,6 +791,11 @@ impl ::core::cmp::PartialEq for AudioFileInputNode {
     }
 }
 impl ::core::cmp::Eq for AudioFileInputNode {}
+impl ::core::fmt::Debug for AudioFileInputNode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioFileInputNode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioFileInputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFileInputNode;{905b67c8-6f65-4cd4-8890-4694843c276d})");
 }
@@ -945,6 +965,11 @@ impl ::core::cmp::PartialEq for AudioFileNodeCreationStatus {
     }
 }
 impl ::core::cmp::Eq for AudioFileNodeCreationStatus {}
+impl ::core::fmt::Debug for AudioFileNodeCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioFileNodeCreationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioFileNodeCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioFileNodeCreationStatus;i4)");
 }
@@ -1071,6 +1096,11 @@ impl ::core::cmp::PartialEq for AudioFileOutputNode {
     }
 }
 impl ::core::cmp::Eq for AudioFileOutputNode {}
+impl ::core::fmt::Debug for AudioFileOutputNode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioFileOutputNode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioFileOutputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFileOutputNode;{50e01980-5166-4093-80f8-ada00089e9cf})");
 }
@@ -1195,6 +1225,11 @@ impl ::core::cmp::PartialEq for AudioFrameCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for AudioFrameCompletedEventArgs {}
+impl ::core::fmt::Debug for AudioFrameCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioFrameCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioFrameCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFrameCompletedEventArgs;{dc7c829e-0208-4504-a5a8-f0f268920a65})");
 }
@@ -1433,6 +1468,11 @@ impl ::core::cmp::PartialEq for AudioFrameInputNode {
     }
 }
 impl ::core::cmp::Eq for AudioFrameInputNode {}
+impl ::core::fmt::Debug for AudioFrameInputNode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioFrameInputNode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioFrameInputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFrameInputNode;{01b266c7-fd96-4ff5-a3c5-d27a9bf44237})");
 }
@@ -1678,6 +1718,11 @@ impl ::core::cmp::PartialEq for AudioFrameOutputNode {
     }
 }
 impl ::core::cmp::Eq for AudioFrameOutputNode {}
+impl ::core::fmt::Debug for AudioFrameOutputNode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioFrameOutputNode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioFrameOutputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFrameOutputNode;{b847371b-3299-45f5-88b3-c9d12a3f1cc8})");
 }
@@ -2100,6 +2145,11 @@ impl ::core::cmp::PartialEq for AudioGraph {
     }
 }
 impl ::core::cmp::Eq for AudioGraph {}
+impl ::core::fmt::Debug for AudioGraph {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioGraph").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioGraph {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraph;{1ad46eed-e48c-4e14-9660-2c4f83e9cdd8})");
 }
@@ -2205,6 +2255,12 @@ impl ::core::cmp::PartialEq for AudioGraphBatchUpdater {
 }
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::Eq for AudioGraphBatchUpdater {}
+#[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for AudioGraphBatchUpdater {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioGraphBatchUpdater").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::RuntimeType for AudioGraphBatchUpdater {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraphBatchUpdater;{30d5a829-7fa4-4026-83bb-d75bae4ea99e})");
@@ -2333,6 +2389,11 @@ impl ::core::cmp::PartialEq for AudioGraphConnection {
     }
 }
 impl ::core::cmp::Eq for AudioGraphConnection {}
+impl ::core::fmt::Debug for AudioGraphConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioGraphConnection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioGraphConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraphConnection;{763070ed-d04e-4fac-b233-600b42edd469})");
 }
@@ -2409,6 +2470,11 @@ impl ::core::cmp::PartialEq for AudioGraphCreationStatus {
     }
 }
 impl ::core::cmp::Eq for AudioGraphCreationStatus {}
+impl ::core::fmt::Debug for AudioGraphCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioGraphCreationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioGraphCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioGraphCreationStatus;i4)");
 }
@@ -2541,6 +2607,11 @@ impl ::core::cmp::PartialEq for AudioGraphSettings {
     }
 }
 impl ::core::cmp::Eq for AudioGraphSettings {}
+impl ::core::fmt::Debug for AudioGraphSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioGraphSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioGraphSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraphSettings;{1d59647f-e6fe-4628-84f8-9d8bdba25785})");
 }
@@ -2617,6 +2688,11 @@ impl ::core::cmp::PartialEq for AudioGraphUnrecoverableError {
     }
 }
 impl ::core::cmp::Eq for AudioGraphUnrecoverableError {}
+impl ::core::fmt::Debug for AudioGraphUnrecoverableError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioGraphUnrecoverableError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioGraphUnrecoverableError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioGraphUnrecoverableError;i4)");
 }
@@ -2647,6 +2723,11 @@ impl ::core::cmp::PartialEq for AudioGraphUnrecoverableErrorOccurredEventArgs {
     }
 }
 impl ::core::cmp::Eq for AudioGraphUnrecoverableErrorOccurredEventArgs {}
+impl ::core::fmt::Debug for AudioGraphUnrecoverableErrorOccurredEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioGraphUnrecoverableErrorOccurredEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioGraphUnrecoverableErrorOccurredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraphUnrecoverableErrorOccurredEventArgs;{c3d9cbe0-3ff6-4fb3-b262-50d435c55423})");
 }
@@ -2855,6 +2936,11 @@ impl ::core::cmp::PartialEq for AudioNodeEmitter {
     }
 }
 impl ::core::cmp::Eq for AudioNodeEmitter {}
+impl ::core::fmt::Debug for AudioNodeEmitter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioNodeEmitter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitter;{3676971d-880a-47b8-adf7-1323a9d965be})");
 }
@@ -2947,6 +3033,11 @@ impl ::core::cmp::PartialEq for AudioNodeEmitterConeProperties {
     }
 }
 impl ::core::cmp::Eq for AudioNodeEmitterConeProperties {}
+impl ::core::fmt::Debug for AudioNodeEmitterConeProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioNodeEmitterConeProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterConeProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitterConeProperties;{e99b2cee-02ca-4375-9326-0c6ae4bcdfb5})");
 }
@@ -3021,6 +3112,11 @@ impl ::core::cmp::PartialEq for AudioNodeEmitterDecayKind {
     }
 }
 impl ::core::cmp::Eq for AudioNodeEmitterDecayKind {}
+impl ::core::fmt::Debug for AudioNodeEmitterDecayKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioNodeEmitterDecayKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterDecayKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterDecayKind;i4)");
 }
@@ -3094,6 +3190,11 @@ impl ::core::cmp::PartialEq for AudioNodeEmitterDecayModel {
     }
 }
 impl ::core::cmp::Eq for AudioNodeEmitterDecayModel {}
+impl ::core::fmt::Debug for AudioNodeEmitterDecayModel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioNodeEmitterDecayModel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterDecayModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitterDecayModel;{1d1d5af7-0d53-4fa9-bd84-d5816a86f3ff})");
 }
@@ -3178,6 +3279,11 @@ impl ::core::cmp::PartialEq for AudioNodeEmitterNaturalDecayModelProperties {
     }
 }
 impl ::core::cmp::Eq for AudioNodeEmitterNaturalDecayModelProperties {}
+impl ::core::fmt::Debug for AudioNodeEmitterNaturalDecayModelProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioNodeEmitterNaturalDecayModelProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterNaturalDecayModelProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitterNaturalDecayModelProperties;{48934bcf-cf2c-4efc-9331-75bd22df1f0c})");
 }
@@ -3252,6 +3358,11 @@ impl ::core::cmp::PartialEq for AudioNodeEmitterSettings {
     }
 }
 impl ::core::cmp::Eq for AudioNodeEmitterSettings {}
+impl ::core::fmt::Debug for AudioNodeEmitterSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioNodeEmitterSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterSettings;u4)");
 }
@@ -3309,6 +3420,11 @@ impl ::core::cmp::PartialEq for AudioNodeEmitterShape {
     }
 }
 impl ::core::cmp::Eq for AudioNodeEmitterShape {}
+impl ::core::fmt::Debug for AudioNodeEmitterShape {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioNodeEmitterShape").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterShape {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitterShape;{ea0311c5-e73d-44bc-859c-45553bbc4828})");
 }
@@ -3383,6 +3499,11 @@ impl ::core::cmp::PartialEq for AudioNodeEmitterShapeKind {
     }
 }
 impl ::core::cmp::Eq for AudioNodeEmitterShapeKind {}
+impl ::core::fmt::Debug for AudioNodeEmitterShapeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioNodeEmitterShapeKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterShapeKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterShapeKind;i4)");
 }
@@ -3470,6 +3591,11 @@ impl ::core::cmp::PartialEq for AudioNodeListener {
     }
 }
 impl ::core::cmp::Eq for AudioNodeListener {}
+impl ::core::fmt::Debug for AudioNodeListener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioNodeListener").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioNodeListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeListener;{d9722e16-0c0a-41da-b755-6c77835fb1eb})");
 }
@@ -3625,6 +3751,11 @@ impl ::core::cmp::PartialEq for AudioPlaybackConnection {
     }
 }
 impl ::core::cmp::Eq for AudioPlaybackConnection {}
+impl ::core::fmt::Debug for AudioPlaybackConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioPlaybackConnection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioPlaybackConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioPlaybackConnection;{1a4c1dea-cafc-50e7-8718-ea3f81cbfa51})");
 }
@@ -3735,6 +3866,11 @@ impl ::core::cmp::PartialEq for AudioPlaybackConnectionOpenResult {
     }
 }
 impl ::core::cmp::Eq for AudioPlaybackConnectionOpenResult {}
+impl ::core::fmt::Debug for AudioPlaybackConnectionOpenResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioPlaybackConnectionOpenResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioPlaybackConnectionOpenResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioPlaybackConnectionOpenResult;{4e656aef-39f9-5fc9-a519-a5bbfd9fe921})");
 }
@@ -3811,6 +3947,11 @@ impl ::core::cmp::PartialEq for AudioPlaybackConnectionOpenResultStatus {
     }
 }
 impl ::core::cmp::Eq for AudioPlaybackConnectionOpenResultStatus {}
+impl ::core::fmt::Debug for AudioPlaybackConnectionOpenResultStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioPlaybackConnectionOpenResultStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioPlaybackConnectionOpenResultStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioPlaybackConnectionOpenResultStatus;i4)");
 }
@@ -3839,6 +3980,11 @@ impl ::core::cmp::PartialEq for AudioPlaybackConnectionState {
     }
 }
 impl ::core::cmp::Eq for AudioPlaybackConnectionState {}
+impl ::core::fmt::Debug for AudioPlaybackConnectionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioPlaybackConnectionState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioPlaybackConnectionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioPlaybackConnectionState;i4)");
 }
@@ -3951,6 +4097,11 @@ impl ::core::cmp::PartialEq for AudioStateMonitor {
     }
 }
 impl ::core::cmp::Eq for AudioStateMonitor {}
+impl ::core::fmt::Debug for AudioStateMonitor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioStateMonitor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioStateMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioStateMonitor;{1d13d136-0199-4cdc-b84e-e72c2b581ece})");
 }
@@ -4128,6 +4279,11 @@ impl ::core::cmp::PartialEq for AudioSubmixNode {
     }
 }
 impl ::core::cmp::Eq for AudioSubmixNode {}
+impl ::core::fmt::Debug for AudioSubmixNode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioSubmixNode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioSubmixNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioSubmixNode;{d148005c-8428-4784-b7fd-a99d468c5d20})");
 }
@@ -4312,6 +4468,11 @@ impl ::core::cmp::PartialEq for CreateAudioDeviceInputNodeResult {
     }
 }
 impl ::core::cmp::Eq for CreateAudioDeviceInputNodeResult {}
+impl ::core::fmt::Debug for CreateAudioDeviceInputNodeResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CreateAudioDeviceInputNodeResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CreateAudioDeviceInputNodeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioDeviceInputNodeResult;{16eec7a8-1ca7-40ef-91a4-d346e0aa1bba})");
 }
@@ -4404,6 +4565,11 @@ impl ::core::cmp::PartialEq for CreateAudioDeviceOutputNodeResult {
     }
 }
 impl ::core::cmp::Eq for CreateAudioDeviceOutputNodeResult {}
+impl ::core::fmt::Debug for CreateAudioDeviceOutputNodeResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CreateAudioDeviceOutputNodeResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CreateAudioDeviceOutputNodeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioDeviceOutputNodeResult;{f7776d27-1d9a-47f7-9cd4-2859cc1b7bff})");
 }
@@ -4496,6 +4662,11 @@ impl ::core::cmp::PartialEq for CreateAudioFileInputNodeResult {
     }
 }
 impl ::core::cmp::Eq for CreateAudioFileInputNodeResult {}
+impl ::core::fmt::Debug for CreateAudioFileInputNodeResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CreateAudioFileInputNodeResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CreateAudioFileInputNodeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioFileInputNodeResult;{ce83d61c-e297-4c50-9ce7-1c7a69d6bd09})");
 }
@@ -4588,6 +4759,11 @@ impl ::core::cmp::PartialEq for CreateAudioFileOutputNodeResult {
     }
 }
 impl ::core::cmp::Eq for CreateAudioFileOutputNodeResult {}
+impl ::core::fmt::Debug for CreateAudioFileOutputNodeResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CreateAudioFileOutputNodeResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CreateAudioFileOutputNodeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioFileOutputNodeResult;{47d6ba7b-e909-453f-866e-5540cda734ff})");
 }
@@ -4680,6 +4856,11 @@ impl ::core::cmp::PartialEq for CreateAudioGraphResult {
     }
 }
 impl ::core::cmp::Eq for CreateAudioGraphResult {}
+impl ::core::fmt::Debug for CreateAudioGraphResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CreateAudioGraphResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CreateAudioGraphResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioGraphResult;{5453ef7e-7bde-4b76-bb5d-48f79cfc8c0b})");
 }
@@ -4772,6 +4953,11 @@ impl ::core::cmp::PartialEq for CreateMediaSourceAudioInputNodeResult {
     }
 }
 impl ::core::cmp::Eq for CreateMediaSourceAudioInputNodeResult {}
+impl ::core::fmt::Debug for CreateMediaSourceAudioInputNodeResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CreateMediaSourceAudioInputNodeResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CreateMediaSourceAudioInputNodeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateMediaSourceAudioInputNodeResult;{46a658a3-53c0-4d59-9e51-cc1d1044a4c4})");
 }
@@ -4909,6 +5095,11 @@ impl ::core::cmp::PartialEq for EchoEffectDefinition {
     }
 }
 impl ::core::cmp::Eq for EchoEffectDefinition {}
+impl ::core::fmt::Debug for EchoEffectDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EchoEffectDefinition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EchoEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.EchoEffectDefinition;{0e4d3faa-36b8-4c91-b9da-11f44a8a6610})");
 }
@@ -5042,6 +5233,11 @@ impl ::core::cmp::PartialEq for EqualizerBand {
     }
 }
 impl ::core::cmp::Eq for EqualizerBand {}
+impl ::core::fmt::Debug for EqualizerBand {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EqualizerBand").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EqualizerBand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.EqualizerBand;{c00a5a6a-262d-4b85-9bb7-43280b62ed0c})");
 }
@@ -5149,6 +5345,11 @@ impl ::core::cmp::PartialEq for EqualizerEffectDefinition {
     }
 }
 impl ::core::cmp::Eq for EqualizerEffectDefinition {}
+impl ::core::fmt::Debug for EqualizerEffectDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EqualizerEffectDefinition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EqualizerEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.EqualizerEffectDefinition;{023f6f1f-83fe-449a-a822-c696442d16b0})");
 }
@@ -5251,6 +5452,11 @@ impl ::core::cmp::PartialEq for FrameInputNodeQuantumStartedEventArgs {
     }
 }
 impl ::core::cmp::Eq for FrameInputNodeQuantumStartedEventArgs {}
+impl ::core::fmt::Debug for FrameInputNodeQuantumStartedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FrameInputNodeQuantumStartedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FrameInputNodeQuantumStartedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.FrameInputNodeQuantumStartedEventArgs;{3d9bd498-a306-4f06-bd9f-e9efc8226304})");
 }
@@ -5919,6 +6125,11 @@ impl ::core::cmp::PartialEq for IAudioInputNode {
     }
 }
 impl ::core::cmp::Eq for IAudioInputNode {}
+impl ::core::fmt::Debug for IAudioInputNode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioInputNode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IAudioInputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d148005c-8428-4784-b7fd-a99d468c5d20}");
 }
@@ -6176,6 +6387,11 @@ impl ::core::cmp::PartialEq for IAudioInputNode2 {
     }
 }
 impl ::core::cmp::Eq for IAudioInputNode2 {}
+impl ::core::fmt::Debug for IAudioInputNode2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioInputNode2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IAudioInputNode2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{905156b7-ca68-4c6d-a8bc-e3ee17fe3fd2}");
 }
@@ -6353,6 +6569,11 @@ impl ::core::cmp::PartialEq for IAudioNode {
     }
 }
 impl ::core::cmp::Eq for IAudioNode {}
+impl ::core::fmt::Debug for IAudioNode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioNode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IAudioNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{15389d7f-dbd8-4819-bf03-668e9357cd6d}");
 }
@@ -6802,6 +7023,11 @@ impl ::core::cmp::PartialEq for IAudioNodeWithListener {
     }
 }
 impl ::core::cmp::Eq for IAudioNodeWithListener {}
+impl ::core::fmt::Debug for IAudioNodeWithListener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioNodeWithListener").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IAudioNodeWithListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0e0f907c-79ff-4544-9eeb-01257b15105a}");
 }
@@ -7663,6 +7889,11 @@ impl ::core::cmp::PartialEq for LimiterEffectDefinition {
     }
 }
 impl ::core::cmp::Eq for LimiterEffectDefinition {}
+impl ::core::fmt::Debug for LimiterEffectDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LimiterEffectDefinition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LimiterEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.LimiterEffectDefinition;{6b755d19-2603-47ba-bdeb-39055e3486dc})");
 }
@@ -7972,6 +8203,11 @@ impl ::core::cmp::PartialEq for MediaSourceAudioInputNode {
     }
 }
 impl ::core::cmp::Eq for MediaSourceAudioInputNode {}
+impl ::core::fmt::Debug for MediaSourceAudioInputNode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaSourceAudioInputNode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaSourceAudioInputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.MediaSourceAudioInputNode;{99d8983b-a88a-4041-8e4f-ddbac0c91fd3})");
 }
@@ -8140,6 +8376,11 @@ impl ::core::cmp::PartialEq for MediaSourceAudioInputNodeCreationStatus {
     }
 }
 impl ::core::cmp::Eq for MediaSourceAudioInputNodeCreationStatus {}
+impl ::core::fmt::Debug for MediaSourceAudioInputNodeCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaSourceAudioInputNodeCreationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaSourceAudioInputNodeCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.MediaSourceAudioInputNodeCreationStatus;i4)");
 }
@@ -8168,6 +8409,11 @@ impl ::core::cmp::PartialEq for MixedRealitySpatialAudioFormatPolicy {
     }
 }
 impl ::core::cmp::Eq for MixedRealitySpatialAudioFormatPolicy {}
+impl ::core::fmt::Debug for MixedRealitySpatialAudioFormatPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MixedRealitySpatialAudioFormatPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MixedRealitySpatialAudioFormatPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.MixedRealitySpatialAudioFormatPolicy;i4)");
 }
@@ -8197,6 +8443,11 @@ impl ::core::cmp::PartialEq for QuantumSizeSelectionMode {
     }
 }
 impl ::core::cmp::Eq for QuantumSizeSelectionMode {}
+impl ::core::fmt::Debug for QuantumSizeSelectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("QuantumSizeSelectionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for QuantumSizeSelectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.QuantumSizeSelectionMode;i4)");
 }
@@ -8548,6 +8799,11 @@ impl ::core::cmp::PartialEq for ReverbEffectDefinition {
     }
 }
 impl ::core::cmp::Eq for ReverbEffectDefinition {}
+impl ::core::fmt::Debug for ReverbEffectDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ReverbEffectDefinition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ReverbEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.ReverbEffectDefinition;{4606aa89-f563-4d0a-8f6e-f0cddff35d84})");
 }
@@ -8650,6 +8906,11 @@ impl ::core::cmp::PartialEq for SetDefaultSpatialAudioFormatResult {
     }
 }
 impl ::core::cmp::Eq for SetDefaultSpatialAudioFormatResult {}
+impl ::core::fmt::Debug for SetDefaultSpatialAudioFormatResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SetDefaultSpatialAudioFormatResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SetDefaultSpatialAudioFormatResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.SetDefaultSpatialAudioFormatResult;{1c2aa511-1400-5e70-9ea9-ae151241e8ea})");
 }
@@ -8728,6 +8989,11 @@ impl ::core::cmp::PartialEq for SetDefaultSpatialAudioFormatStatus {
     }
 }
 impl ::core::cmp::Eq for SetDefaultSpatialAudioFormatStatus {}
+impl ::core::fmt::Debug for SetDefaultSpatialAudioFormatStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SetDefaultSpatialAudioFormatStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SetDefaultSpatialAudioFormatStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.SetDefaultSpatialAudioFormatStatus;i4)");
 }
@@ -8826,6 +9092,11 @@ impl ::core::cmp::PartialEq for SpatialAudioDeviceConfiguration {
     }
 }
 impl ::core::cmp::Eq for SpatialAudioDeviceConfiguration {}
+impl ::core::fmt::Debug for SpatialAudioDeviceConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialAudioDeviceConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialAudioDeviceConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.SpatialAudioDeviceConfiguration;{ee830034-61cf-5749-9da4-10f0fe028199})");
 }
@@ -8937,6 +9208,11 @@ impl ::core::cmp::PartialEq for SpatialAudioFormatConfiguration {
     }
 }
 impl ::core::cmp::Eq for SpatialAudioFormatConfiguration {}
+impl ::core::fmt::Debug for SpatialAudioFormatConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialAudioFormatConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialAudioFormatConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.SpatialAudioFormatConfiguration;{32df09a8-50f0-5395-9923-7d44ca71ed6d})");
 }
@@ -9077,6 +9353,11 @@ impl ::core::cmp::PartialEq for SpatialAudioModel {
     }
 }
 impl ::core::cmp::Eq for SpatialAudioModel {}
+impl ::core::fmt::Debug for SpatialAudioModel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialAudioModel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialAudioModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.SpatialAudioModel;i4)");
 }

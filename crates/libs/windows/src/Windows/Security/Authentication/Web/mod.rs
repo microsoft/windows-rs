@@ -96,6 +96,11 @@ impl ::core::cmp::PartialEq for TokenBindingKeyType {
     }
 }
 impl ::core::cmp::Eq for TokenBindingKeyType {}
+impl ::core::fmt::Debug for TokenBindingKeyType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TokenBindingKeyType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TokenBindingKeyType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.TokenBindingKeyType;i4)");
 }
@@ -199,6 +204,11 @@ impl ::core::cmp::PartialEq for WebAuthenticationOptions {
     }
 }
 impl ::core::cmp::Eq for WebAuthenticationOptions {}
+impl ::core::fmt::Debug for WebAuthenticationOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAuthenticationOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAuthenticationOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationOptions;u4)");
 }
@@ -245,6 +255,11 @@ impl ::core::cmp::PartialEq for WebAuthenticationResult {
     }
 }
 impl ::core::cmp::Eq for WebAuthenticationResult {}
+impl ::core::fmt::Debug for WebAuthenticationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAuthenticationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAuthenticationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.WebAuthenticationResult;{64002b4b-ede9-470a-a5cd-0323faf6e262})");
 }
@@ -318,6 +333,11 @@ impl ::core::cmp::PartialEq for WebAuthenticationStatus {
     }
 }
 impl ::core::cmp::Eq for WebAuthenticationStatus {}
+impl ::core::fmt::Debug for WebAuthenticationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAuthenticationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAuthenticationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationStatus;i4)");
 }

@@ -50,6 +50,11 @@ impl ::core::cmp::PartialEq for IWICImageEncoder {
     }
 }
 impl ::core::cmp::Eq for IWICImageEncoder {}
+impl ::core::fmt::Debug for IWICImageEncoder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICImageEncoder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICImageEncoder {
     type Vtable = IWICImageEncoderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04c75bf8_3ce1_473b_acc5_3cc4f5e94999);
@@ -259,6 +264,11 @@ impl ::core::cmp::PartialEq for IWICImagingFactory2 {
     }
 }
 impl ::core::cmp::Eq for IWICImagingFactory2 {}
+impl ::core::fmt::Debug for IWICImagingFactory2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWICImagingFactory2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWICImagingFactory2 {
     type Vtable = IWICImagingFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b816b45_1996_4476_b132_de9e247c8af0);
