@@ -39,7 +39,16 @@ pub fn gen(def: &Field, gen: &Gen) -> TokenStream {
     } else if let Some(guid) = GUID::from_attributes(def.attributes()) {
         let value = gen_guid(&guid, gen);
         let guid = gen_element_name(&ElementType::GUID, gen);
-        quote! { pub const #name: #guid = #value; }
+        quote! {
+            pub const #name: #guid = #value;
+            #[cfg(feature = "guid_hashmap")]
+            inventory::submit! {
+                crate::core::GuidConst {
+                    name: stringify!(#name),
+                    guid: #value,
+                }
+            }
+        }
     } else if let Some((guid, id)) = get_property_key(def.attributes()) {
         let kind = gen_sig(&signature, gen);
         let guid = gen_guid(&guid, gen);
@@ -49,6 +58,13 @@ pub fn gen(def: &Field, gen: &Gen) -> TokenStream {
                 fmtid: #guid,
                 pid: #id,
             };
+            #[cfg(feature = "guid_hashmap")]
+            inventory::submit! {
+                crate::core::GuidConst {
+                    name: stringify!(#name),
+                    guid: #guid,
+                }
+            }
         }
     } else {
         quote! {}

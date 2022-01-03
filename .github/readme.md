@@ -88,3 +88,17 @@ fn main() {
     }
 }
 ```
+
+## guid_hashmap
+
+It's really common for Windows APIs to return GUID constants. If you need to convert a GUID to a 
+human readable name you can use the `guid_hashmap` feature to accomplish that. First, add `"guid_hashmap"`
+to your features list for `windows` in `Cargo.toml`. Then, you may call
+`windows::core::build_guid_hashmap()` in your code when you want to build this hashmap. The values in this
+hashmap are intended for consumption by programmers, not end users. A word of caution: This hashmap isn't
+cheap to build. Consider putting it in a [`lazy_static`](https://crates.io/crates/lazy_static) or using
+some other mechanism to avoid constructing it repeatedly. If Windows returns a GUID not contained in this
+HashMap that may be because the feature for generating that GUID constant wasn't enabled. Look over the
+feature list and consider which features might contain your unidentified GUID value.
+
+

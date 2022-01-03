@@ -7,6 +7,8 @@ mod delay_load;
 mod error;
 mod factory_cache;
 mod guid;
+#[cfg(feature = "guid_hashmap")]
+mod guid_hashmap;
 mod heap;
 mod hresult;
 mod hstring;
@@ -36,6 +38,8 @@ pub use error::*;
 #[doc(hidden)]
 pub use factory_cache::*;
 pub use guid::*;
+#[cfg(feature = "guid_hashmap")]
+pub use guid_hashmap::*;
 #[doc(hidden)]
 pub use heap::*;
 pub use hresult::*;
