@@ -1124,9 +1124,9 @@ unsafe impl ::windows::core::Interface for IAsyncAction {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a648006_843a_4da9_865b_9d26e5dfad7b);
 }
 pub trait IAsyncActionImpl: IAsyncInfoImpl {
-    fn SetCompleted();
-    fn Completed();
-    fn GetResults();
+    fn SetCompleted(&self, handler: &::core::option::Option<AsyncActionCompletedHandler>) -> ::windows::core::Result<()>;
+    fn Completed(&self) -> ::windows::core::Result<AsyncActionCompletedHandler>;
+    fn GetResults(&self) -> ::windows::core::Result<()>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1333,11 +1333,11 @@ pub trait IAsyncActionWithProgressImpl<TProgress>: IAsyncInfoImpl
 where
     TProgress: ::windows::core::RuntimeType + 'static,
 {
-    fn SetProgress();
-    fn Progress();
-    fn SetCompleted();
-    fn Completed();
-    fn GetResults();
+    fn SetProgress(&self, handler: &::core::option::Option<AsyncActionProgressHandler<TProgress>>) -> ::windows::core::Result<()>;
+    fn Progress(&self) -> ::windows::core::Result<AsyncActionProgressHandler<TProgress>>;
+    fn SetCompleted(&self, handler: &::core::option::Option<AsyncActionWithProgressCompletedHandler<TProgress>>) -> ::windows::core::Result<()>;
+    fn Completed(&self) -> ::windows::core::Result<AsyncActionWithProgressCompletedHandler<TProgress>>;
+    fn GetResults(&self) -> ::windows::core::Result<()>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1460,11 +1460,11 @@ unsafe impl ::windows::core::Interface for IAsyncInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000036_0000_0000_c000_000000000046);
 }
 pub trait IAsyncInfoImpl {
-    fn Id();
-    fn Status();
-    fn ErrorCode();
-    fn Cancel();
-    fn Close();
+    fn Id(&self) -> ::windows::core::Result<u32>;
+    fn Status(&self) -> ::windows::core::Result<AsyncStatus>;
+    fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1663,9 +1663,9 @@ pub trait IAsyncOperationImpl<TResult>: IAsyncInfoImpl
 where
     TResult: ::windows::core::RuntimeType + 'static,
 {
-    fn SetCompleted();
-    fn Completed();
-    fn GetResults();
+    fn SetCompleted(&self, handler: &::core::option::Option<AsyncOperationCompletedHandler<TResult>>) -> ::windows::core::Result<()>;
+    fn Completed(&self) -> ::windows::core::Result<AsyncOperationCompletedHandler<TResult>>;
+    fn GetResults(&self) -> ::windows::core::Result<TResult>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1880,11 +1880,11 @@ where
     TResult: ::windows::core::RuntimeType + 'static,
     TProgress: ::windows::core::RuntimeType + 'static,
 {
-    fn SetProgress();
-    fn Progress();
-    fn SetCompleted();
-    fn Completed();
-    fn GetResults();
+    fn SetProgress(&self, handler: &::core::option::Option<AsyncOperationProgressHandler<TResult, TProgress>>) -> ::windows::core::Result<()>;
+    fn Progress(&self) -> ::windows::core::Result<AsyncOperationProgressHandler<TResult, TProgress>>;
+    fn SetCompleted(&self, handler: &::core::option::Option<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>) -> ::windows::core::Result<()>;
+    fn Completed(&self) -> ::windows::core::Result<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>;
+    fn GetResults(&self) -> ::windows::core::Result<TResult>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1980,7 +1980,7 @@ unsafe impl ::windows::core::Interface for IClosable {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30d5a829_7fa4_4026_83bb_d75bae4ea99e);
 }
 pub trait IClosableImpl {
-    fn Close();
+    fn Close(&self) -> ::windows::core::Result<()>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2002,7 +2002,7 @@ unsafe impl ::windows::core::Interface for IDeferral {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeferralImpl: IClosableImpl {
-    fn Complete();
+    fn Complete(&self) -> ::windows::core::Result<()>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2024,7 +2024,7 @@ unsafe impl ::windows::core::Interface for IDeferralFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeferralFactoryImpl {
-    fn Create();
+    fn Create(&self, handler: &::core::option::Option<DeferralCompletedHandler>) -> ::windows::core::Result<Deferral>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2114,7 +2114,7 @@ unsafe impl ::windows::core::Interface for IGetActivationFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4edb8ee2_96dd_49a7_94f7_4607ddab8e3c);
 }
 pub trait IGetActivationFactoryImpl {
-    fn GetActivationFactory();
+    fn GetActivationFactory(&self, activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2136,9 +2136,9 @@ unsafe impl ::windows::core::Interface for IGuidHelperStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGuidHelperStaticsImpl {
-    fn CreateNewGuid();
-    fn Empty();
-    fn Equals();
+    fn CreateNewGuid(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Empty(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Equals(&self, target: &::windows::core::GUID, value: &::windows::core::GUID) -> ::windows::core::Result<bool>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2257,7 +2257,7 @@ unsafe impl ::windows::core::Interface for IMemoryBuffer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc4dd2a_245b_11e4_af98_689423260cf8);
 }
 pub trait IMemoryBufferImpl: IClosableImpl {
-    fn CreateReference();
+    fn CreateReference(&self) -> ::windows::core::Result<IMemoryBufferReference>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2279,7 +2279,7 @@ unsafe impl ::windows::core::Interface for IMemoryBufferFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMemoryBufferFactoryImpl {
-    fn Create();
+    fn Create(&self, capacity: u32) -> ::windows::core::Result<MemoryBuffer>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2409,9 +2409,9 @@ unsafe impl ::windows::core::Interface for IMemoryBufferReference {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc4dd29_245b_11e4_af98_689423260cf8);
 }
 pub trait IMemoryBufferReferenceImpl: IClosableImpl {
-    fn Capacity();
-    fn Closed();
-    fn RemoveClosed();
+    fn Capacity(&self) -> ::windows::core::Result<u32>;
+    fn Closed(&self, handler: &::core::option::Option<TypedEventHandler<IMemoryBufferReference, ::windows::core::IInspectable>>) -> ::windows::core::Result<EventRegistrationToken>;
+    fn RemoveClosed(&self, cookie: &EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2750,45 +2750,45 @@ unsafe impl ::windows::core::Interface for IPropertyValue {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bd682dd_7554_40e9_9a9b_82654ede7e62);
 }
 pub trait IPropertyValueImpl {
-    fn Type();
-    fn IsNumericScalar();
-    fn GetUInt8();
-    fn GetInt16();
-    fn GetUInt16();
-    fn GetInt32();
-    fn GetUInt32();
-    fn GetInt64();
-    fn GetUInt64();
-    fn GetSingle();
-    fn GetDouble();
-    fn GetChar16();
-    fn GetBoolean();
-    fn GetString();
-    fn GetGuid();
-    fn GetDateTime();
-    fn GetTimeSpan();
-    fn GetPoint();
-    fn GetSize();
-    fn GetRect();
-    fn GetUInt8Array();
-    fn GetInt16Array();
-    fn GetUInt16Array();
-    fn GetInt32Array();
-    fn GetUInt32Array();
-    fn GetInt64Array();
-    fn GetUInt64Array();
-    fn GetSingleArray();
-    fn GetDoubleArray();
-    fn GetChar16Array();
-    fn GetBooleanArray();
-    fn GetStringArray();
-    fn GetInspectableArray();
-    fn GetGuidArray();
-    fn GetDateTimeArray();
-    fn GetTimeSpanArray();
-    fn GetPointArray();
-    fn GetSizeArray();
-    fn GetRectArray();
+    fn Type(&self) -> ::windows::core::Result<PropertyType>;
+    fn IsNumericScalar(&self) -> ::windows::core::Result<bool>;
+    fn GetUInt8(&self) -> ::windows::core::Result<u8>;
+    fn GetInt16(&self) -> ::windows::core::Result<i16>;
+    fn GetUInt16(&self) -> ::windows::core::Result<u16>;
+    fn GetInt32(&self) -> ::windows::core::Result<i32>;
+    fn GetUInt32(&self) -> ::windows::core::Result<u32>;
+    fn GetInt64(&self) -> ::windows::core::Result<i64>;
+    fn GetUInt64(&self) -> ::windows::core::Result<u64>;
+    fn GetSingle(&self) -> ::windows::core::Result<f32>;
+    fn GetDouble(&self) -> ::windows::core::Result<f64>;
+    fn GetChar16(&self) -> ::windows::core::Result<u16>;
+    fn GetBoolean(&self) -> ::windows::core::Result<bool>;
+    fn GetString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetGuid(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetDateTime(&self) -> ::windows::core::Result<DateTime>;
+    fn GetTimeSpan(&self) -> ::windows::core::Result<TimeSpan>;
+    fn GetPoint(&self) -> ::windows::core::Result<Point>;
+    fn GetSize(&self) -> ::windows::core::Result<Size>;
+    fn GetRect(&self) -> ::windows::core::Result<Rect>;
+    fn GetUInt8Array(&self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()>;
+    fn GetInt16Array(&self, value: &mut ::windows::core::Array<i16>) -> ::windows::core::Result<()>;
+    fn GetUInt16Array(&self, value: &mut ::windows::core::Array<u16>) -> ::windows::core::Result<()>;
+    fn GetInt32Array(&self, value: &mut ::windows::core::Array<i32>) -> ::windows::core::Result<()>;
+    fn GetUInt32Array(&self, value: &mut ::windows::core::Array<u32>) -> ::windows::core::Result<()>;
+    fn GetInt64Array(&self, value: &mut ::windows::core::Array<i64>) -> ::windows::core::Result<()>;
+    fn GetUInt64Array(&self, value: &mut ::windows::core::Array<u64>) -> ::windows::core::Result<()>;
+    fn GetSingleArray(&self, value: &mut ::windows::core::Array<f32>) -> ::windows::core::Result<()>;
+    fn GetDoubleArray(&self, value: &mut ::windows::core::Array<f64>) -> ::windows::core::Result<()>;
+    fn GetChar16Array(&self, value: &mut ::windows::core::Array<u16>) -> ::windows::core::Result<()>;
+    fn GetBooleanArray(&self, value: &mut ::windows::core::Array<bool>) -> ::windows::core::Result<()>;
+    fn GetStringArray(&self, value: &mut ::windows::core::Array<::windows::core::HSTRING>) -> ::windows::core::Result<()>;
+    fn GetInspectableArray(&self, value: &mut ::windows::core::Array<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn GetGuidArray(&self, value: &mut ::windows::core::Array<::windows::core::GUID>) -> ::windows::core::Result<()>;
+    fn GetDateTimeArray(&self, value: &mut ::windows::core::Array<DateTime>) -> ::windows::core::Result<()>;
+    fn GetTimeSpanArray(&self, value: &mut ::windows::core::Array<TimeSpan>) -> ::windows::core::Result<()>;
+    fn GetPointArray(&self, value: &mut ::windows::core::Array<Point>) -> ::windows::core::Result<()>;
+    fn GetSizeArray(&self, value: &mut ::windows::core::Array<Size>) -> ::windows::core::Result<()>;
+    fn GetRectArray(&self, value: &mut ::windows::core::Array<Rect>) -> ::windows::core::Result<()>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2848,45 +2848,45 @@ unsafe impl ::windows::core::Interface for IPropertyValueStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPropertyValueStaticsImpl {
-    fn CreateEmpty();
-    fn CreateUInt8();
-    fn CreateInt16();
-    fn CreateUInt16();
-    fn CreateInt32();
-    fn CreateUInt32();
-    fn CreateInt64();
-    fn CreateUInt64();
-    fn CreateSingle();
-    fn CreateDouble();
-    fn CreateChar16();
-    fn CreateBoolean();
-    fn CreateString();
-    fn CreateInspectable();
-    fn CreateGuid();
-    fn CreateDateTime();
-    fn CreateTimeSpan();
-    fn CreatePoint();
-    fn CreateSize();
-    fn CreateRect();
-    fn CreateUInt8Array();
-    fn CreateInt16Array();
-    fn CreateUInt16Array();
-    fn CreateInt32Array();
-    fn CreateUInt32Array();
-    fn CreateInt64Array();
-    fn CreateUInt64Array();
-    fn CreateSingleArray();
-    fn CreateDoubleArray();
-    fn CreateChar16Array();
-    fn CreateBooleanArray();
-    fn CreateStringArray();
-    fn CreateInspectableArray();
-    fn CreateGuidArray();
-    fn CreateDateTimeArray();
-    fn CreateTimeSpanArray();
-    fn CreatePointArray();
-    fn CreateSizeArray();
-    fn CreateRectArray();
+    fn CreateEmpty(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateUInt8(&self, value: u8) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateInt16(&self, value: i16) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateUInt16(&self, value: u16) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateInt32(&self, value: i32) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateUInt32(&self, value: u32) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateInt64(&self, value: i64) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateUInt64(&self, value: u64) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateSingle(&self, value: f32) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateDouble(&self, value: f64) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateChar16(&self, value: u16) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateBoolean(&self, value: bool) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateString(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateInspectable(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateGuid(&self, value: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateDateTime(&self, value: &DateTime) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateTimeSpan(&self, value: &TimeSpan) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreatePoint(&self, value: &Point) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateSize(&self, value: &Size) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateRect(&self, value: &Rect) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateUInt8Array(&self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateInt16Array(&self, value: &[<i16 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateUInt16Array(&self, value: &[<u16 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateInt32Array(&self, value: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateUInt32Array(&self, value: &[<u32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateInt64Array(&self, value: &[<i64 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateUInt64Array(&self, value: &[<u64 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateSingleArray(&self, value: &[<f32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateDoubleArray(&self, value: &[<f64 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateChar16Array(&self, value: &[<u16 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateBooleanArray(&self, value: &[<bool as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateStringArray(&self, value: &[<::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateInspectableArray(&self, value: &[<::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateGuidArray(&self, value: &[<::windows::core::GUID as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateDateTimeArray(&self, value: &[<DateTime as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateTimeSpanArray(&self, value: &[<TimeSpan as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreatePointArray(&self, value: &[<Point as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateSizeArray(&self, value: &[<Size as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateRectArray(&self, value: &[<Rect as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3296,7 +3296,7 @@ pub trait IReferenceImpl<T>: IPropertyValueImpl
 where
     T: ::windows::core::RuntimeType + 'static,
 {
-    fn Value();
+    fn Value(&self) -> ::windows::core::Result<T>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3671,7 +3671,7 @@ pub trait IReferenceArrayImpl<T>: IPropertyValueImpl
 where
     T: ::windows::core::RuntimeType + 'static,
 {
-    fn Value();
+    fn Value(&self) -> ::windows::core::Result<::windows::core::Array<T>>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3764,7 +3764,7 @@ unsafe impl ::windows::core::Interface for IStringable {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96369f54_8eb6_48f0_abce_c1b211e627c3);
 }
 pub trait IStringableImpl {
-    fn ToString();
+    fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3786,8 +3786,8 @@ unsafe impl ::windows::core::Interface for IUriEscapeStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUriEscapeStaticsImpl {
-    fn UnescapeComponent();
-    fn EscapeComponent();
+    fn UnescapeComponent(&self, tounescape: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EscapeComponent(&self, toescape: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3810,23 +3810,23 @@ unsafe impl ::windows::core::Interface for IUriRuntimeClass {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUriRuntimeClassImpl {
-    fn AbsoluteUri();
-    fn DisplayUri();
-    fn Domain();
-    fn Extension();
-    fn Fragment();
-    fn Host();
-    fn Password();
-    fn Path();
-    fn Query();
-    fn QueryParsed();
-    fn RawUri();
-    fn SchemeName();
-    fn UserName();
-    fn Port();
-    fn Suspicious();
-    fn Equals();
-    fn CombineUri();
+    fn AbsoluteUri(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayUri(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Domain(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Extension(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Fragment(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Host(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Password(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Query(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn QueryParsed(&self) -> ::windows::core::Result<WwwFormUrlDecoder>;
+    fn RawUri(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SchemeName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn UserName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Port(&self) -> ::windows::core::Result<i32>;
+    fn Suspicious(&self) -> ::windows::core::Result<bool>;
+    fn Equals(&self, puri: &::core::option::Option<Uri>) -> ::windows::core::Result<bool>;
+    fn CombineUri(&self, relativeuri: &::windows::core::HSTRING) -> ::windows::core::Result<Uri>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3864,8 +3864,8 @@ unsafe impl ::windows::core::Interface for IUriRuntimeClassFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUriRuntimeClassFactoryImpl {
-    fn CreateUri();
-    fn CreateWithRelativeUri();
+    fn CreateUri(&self, uri: &::windows::core::HSTRING) -> ::windows::core::Result<Uri>;
+    fn CreateWithRelativeUri(&self, baseuri: &::windows::core::HSTRING, relativeuri: &::windows::core::HSTRING) -> ::windows::core::Result<Uri>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3888,8 +3888,8 @@ unsafe impl ::windows::core::Interface for IUriRuntimeClassWithAbsoluteCanonical
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUriRuntimeClassWithAbsoluteCanonicalUriImpl {
-    fn AbsoluteCanonicalUri();
-    fn DisplayIri();
+    fn AbsoluteCanonicalUri(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayIri(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3988,8 +3988,8 @@ unsafe impl ::windows::core::Interface for IWwwFormUrlDecoderEntry {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x125e7431_f678_4e8e_b670_20a9b06c512d);
 }
 pub trait IWwwFormUrlDecoderEntryImpl {
-    fn Name();
-    fn Value();
+    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4012,7 +4012,7 @@ unsafe impl ::windows::core::Interface for IWwwFormUrlDecoderRuntimeClass {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWwwFormUrlDecoderRuntimeClassImpl: IIterableImpl<IWwwFormUrlDecoderEntry> + IVectorViewImpl<IWwwFormUrlDecoderEntry> {
-    fn GetFirstValueByName();
+    fn GetFirstValueByName(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4034,7 +4034,7 @@ unsafe impl ::windows::core::Interface for IWwwFormUrlDecoderRuntimeClassFactory
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWwwFormUrlDecoderRuntimeClassFactoryImpl {
-    fn CreateWwwFormUrlDecoder();
+    fn CreateWwwFormUrlDecoder(&self, query: &::windows::core::HSTRING) -> ::windows::core::Result<WwwFormUrlDecoder>;
 }
 #[repr(C)]
 #[doc(hidden)]

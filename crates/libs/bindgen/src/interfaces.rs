@@ -226,7 +226,8 @@ fn gen_implement(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
 
     let methods = def.methods().map(|method| {
         let name = gen_ident(&method.rust_name());
-        quote! { fn #name(); }
+        let signature = gen_impl_signature(def, &method, gen);
+        quote! { fn #name #signature; }
     });
 
     quote!{

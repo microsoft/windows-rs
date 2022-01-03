@@ -328,6 +328,8 @@ fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
     let name = gen_param_name(&param.param);
     let kind = gen_element_name(&param.signature.kind, gen);
 
+    // TODO: probably simplify this once the trait is called since the target type can be inferred safely
+
     if param.signature.is_array {
         let abi_size_name: TokenStream = format!("{}_array_size", param.param.name()).into();
 
@@ -348,5 +350,73 @@ fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
         }
     } else {
         quote! { ::core::mem::transmute_copy(&#name) }
+    }
+}
+
+pub fn gen_impl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> TokenStream {
+    let sig = method.signature(&def.generics);
+    let is_delegate = def.kind() == TypeKind::Delegate;
+
+    if def.is_winrt() {
+        let params = sig.params.iter().map(|p| gen_winrt_produce_type(p,  !is_delegate, gen));
+
+        let return_sig = if let Some(return_sig) = &sig.return_sig {
+            let tokens = gen_element_name(&return_sig.kind, gen);
+    
+            if return_sig.is_array {
+                quote! { ::windows::core::Array<#tokens> }
+            } else {
+                tokens
+            }
+        } else {
+            quote! { () }
+        };
+    
+        let this = if is_delegate{
+            quote! {}
+        } else {
+            quote! { &self, }
+        };
+
+        quote! { (#this #(#params),*) -> ::windows::core::Result<#return_sig> }
+    } else {
+        quote!{
+            ()
+        }
+    }
+}
+
+fn gen_winrt_produce_type(param: &MethodParam, include_param_names: bool, gen: &Gen) -> TokenStream {
+    let tokens = gen_element_name(&param.signature.kind, gen);
+
+    let sig = if param.signature.is_array {
+        if param.param.is_input() {
+            quote! { &[<#tokens as ::windows::core::DefaultType>::DefaultType] }
+        } else if param.signature.by_ref {
+            quote! { &mut ::windows::core::Array<#tokens> }
+        } else {
+            quote! { &mut [<#tokens as ::windows::core::DefaultType>::DefaultType] }
+        }
+    } else if param.param.is_input() {
+        if let ElementType::GenericParam(_) = param.signature.kind {
+            quote! { &<#tokens as ::windows::core::DefaultType>::DefaultType }
+        } else if param.signature.kind.is_primitive() {
+            quote! { #tokens }
+        } else if param.signature.kind.is_nullable() {
+            quote! { &::core::option::Option<#tokens> }
+        } else {
+            quote! { &#tokens }
+        }
+    } else if param.signature.kind.is_nullable() {
+        quote! { &mut ::core::option::Option<#tokens> }
+    } else {
+        quote! { &mut #tokens }
+    };
+
+    if include_param_names {
+        let name = gen_param_name(&param.param);
+        quote! { #name: #sig }
+    } else {
+        sig
     }
 }

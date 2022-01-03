@@ -23,7 +23,7 @@ fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     let method = def.invoke_method();
     let signature = method.signature(&def.generics);
-    let fn_constraint = gen_fn_constraint(&signature, gen);
+    let fn_constraint = gen_fn_constraint(def, &method, gen);
     let cfg = gen.type_cfg(def);
     let doc = cfg.gen_doc(gen);
     let features = cfg.gen(gen);
@@ -115,48 +115,9 @@ fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
     tokens
 }
 
-fn gen_fn_constraint(sig: &MethodSignature, gen: &Gen) -> TokenStream {
-    let params = sig.params.iter().map(|p| gen_produce_type(p, gen));
+fn gen_fn_constraint(def: &TypeDef, method: &MethodDef, gen: &Gen) -> TokenStream {
+    let signature = gen_impl_signature(def, method, gen);
 
-    let return_sig = if let Some(return_sig) = &sig.return_sig {
-        let tokens = gen_element_name(&return_sig.kind, gen);
-
-        if return_sig.is_array {
-            quote! { ::windows::core::Array<#tokens> }
-        } else {
-            tokens
-        }
-    } else {
-        quote! { () }
-    };
-
-    quote! { F: FnMut(#(#params),*) -> ::windows::core::Result<#return_sig> + 'static }
+    quote! { F: FnMut #signature + 'static }
 }
 
-fn gen_produce_type(param: &MethodParam, gen: &Gen) -> TokenStream {
-    let tokens = gen_element_name(&param.signature.kind, gen);
-
-    if param.signature.is_array {
-        if param.param.is_input() {
-            quote! { &[<#tokens as ::windows::core::DefaultType>::DefaultType] }
-        } else if param.signature.by_ref {
-            quote! { &mut ::windows::core::Array<#tokens> }
-        } else {
-            quote! { &mut [<#tokens as ::windows::core::DefaultType>::DefaultType] }
-        }
-    } else if param.param.is_input() {
-        if let ElementType::GenericParam(_) = param.signature.kind {
-            quote! { &<#tokens as ::windows::core::DefaultType>::DefaultType }
-        } else if param.signature.kind.is_primitive() {
-            quote! { #tokens }
-        } else if param.signature.kind.is_nullable() {
-            quote! { &::core::option::Option<#tokens> }
-        } else {
-            quote! { &#tokens }
-        }
-    } else if param.signature.kind.is_nullable() {
-        quote! { &mut ::core::option::Option<#tokens> }
-    } else {
-        quote! { &mut #tokens }
-    }
-}
