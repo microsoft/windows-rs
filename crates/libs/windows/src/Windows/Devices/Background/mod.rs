@@ -193,6 +193,12 @@ unsafe impl ::windows::core::Interface for IDeviceServicingDetails {
     type Vtable = IDeviceServicingDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4aabee29_2344_4ac4_8527_4a8ef6905645);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceServicingDetailsImpl {
+    fn DeviceId();
+    fn Arguments();
+    fn ExpectedDuration();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceServicingDetailsVtbl(
@@ -213,6 +219,11 @@ pub struct IDeviceUseDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceUseDetails {
     type Vtable = IDeviceUseDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d565141_557e_4154_b994_e4f7a11fb323);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceUseDetailsImpl {
+    fn DeviceId();
+    fn Arguments();
 }
 #[repr(C)]
 #[doc(hidden)]

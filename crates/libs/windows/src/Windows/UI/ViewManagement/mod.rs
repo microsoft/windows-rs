@@ -1639,6 +1639,13 @@ unsafe impl ::windows::core::Interface for IAccessibilitySettings {
     type Vtable = IAccessibilitySettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe0e8147_c4c0_4562_b962_1327b52ad5b9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAccessibilitySettingsImpl {
+    fn HighContrast();
+    fn HighContrastScheme();
+    fn HighContrastChanged();
+    fn RemoveHighContrastChanged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessibilitySettingsVtbl(
@@ -1662,6 +1669,12 @@ unsafe impl ::windows::core::Interface for IActivationViewSwitcher {
     type Vtable = IActivationViewSwitcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdca71bb6_7350_492b_aac7_c8a13d7224ad);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IActivationViewSwitcherImpl {
+    fn ShowAsStandaloneAsync();
+    fn ShowAsStandaloneWithSizePreferenceAsync();
+    fn IsViewPresentedOnActivationVirtualDesktop();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivationViewSwitcherVtbl(
@@ -1683,6 +1696,21 @@ pub struct IApplicationView(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApplicationView {
     type Vtable = IApplicationViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd222d519_4361_451e_96c4_60f4f9742db0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationViewImpl {
+    fn Orientation();
+    fn AdjacentToLeftDisplayEdge();
+    fn AdjacentToRightDisplayEdge();
+    fn IsFullScreen();
+    fn IsOnLockScreen();
+    fn IsScreenCaptureEnabled();
+    fn SetIsScreenCaptureEnabled();
+    fn SetTitle();
+    fn Title();
+    fn Id();
+    fn Consolidated();
+    fn RemoveConsolidated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1716,6 +1744,16 @@ unsafe impl ::windows::core::Interface for IApplicationView2 {
     type Vtable = IApplicationView2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe876b196_a545_40dc_b594_450cba68cc00);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationView2Impl {
+    fn SuppressSystemOverlays();
+    fn SetSuppressSystemOverlays();
+    fn VisibleBounds();
+    fn VisibleBoundsChanged();
+    fn RemoveVisibleBoundsChanged();
+    fn SetDesiredBoundsMode();
+    fn DesiredBoundsMode();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationView2Vtbl(
@@ -1745,6 +1783,18 @@ unsafe impl ::windows::core::Interface for IApplicationView3 {
     type Vtable = IApplicationView3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x903c9ce5_793a_4fdf_a2b2_af1ac21e3108);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationView3Impl {
+    fn TitleBar();
+    fn FullScreenSystemOverlayMode();
+    fn SetFullScreenSystemOverlayMode();
+    fn IsFullScreenMode();
+    fn TryEnterFullScreenMode();
+    fn ExitFullScreenMode();
+    fn ShowStandardSystemOverlays();
+    fn TryResizeView();
+    fn SetPreferredMinSize();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationView3Vtbl(
@@ -1773,6 +1823,14 @@ unsafe impl ::windows::core::Interface for IApplicationView4 {
     type Vtable = IApplicationView4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15e5cbec_9e0f_46b5_bc3f_9bf653e74b5e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationView4Impl {
+    fn ViewMode();
+    fn IsViewModeSupported();
+    fn TryEnterViewModeAsync();
+    fn TryEnterViewModeWithPreferencesAsync();
+    fn TryConsolidateAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationView4Vtbl(
@@ -1798,6 +1856,11 @@ unsafe impl ::windows::core::Interface for IApplicationView7 {
     type Vtable = IApplicationView7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0369647_5faf_5aa6_9c38_befbb12a071e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationView7Impl {
+    fn PersistedStateId();
+    fn SetPersistedStateId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationView7Vtbl(
@@ -1816,6 +1879,11 @@ pub struct IApplicationView9(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApplicationView9 {
     type Vtable = IApplicationView9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c6516f9_021a_5f01_93e5_9bdad2647574);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationView9Impl {
+    fn WindowingEnvironment();
+    fn GetDisplayRegions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1838,6 +1906,10 @@ unsafe impl ::windows::core::Interface for IApplicationViewConsolidatedEventArgs
     type Vtable = IApplicationViewConsolidatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x514449ec_7ea2_4de7_a6a6_7dfbaaebb6fb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationViewConsolidatedEventArgsImpl {
+    fn IsUserInitiated();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewConsolidatedEventArgsVtbl(
@@ -1855,6 +1927,10 @@ pub struct IApplicationViewConsolidatedEventArgs2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApplicationViewConsolidatedEventArgs2 {
     type Vtable = IApplicationViewConsolidatedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c199ecc_6dc1_40f4_afee_07d9ea296430);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationViewConsolidatedEventArgs2Impl {
+    fn IsAppInitiated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1876,6 +1952,10 @@ unsafe impl ::windows::core::Interface for IApplicationViewFullscreenStatics {
     type Vtable = IApplicationViewFullscreenStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc792ebd_64fe_4b65_a0c0_901ce2b68636);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IApplicationViewFullscreenStaticsImpl {
+    fn TryUnsnapToFullscreen();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -1896,6 +1976,10 @@ unsafe impl ::windows::core::Interface for IApplicationViewInteropStatics {
     type Vtable = IApplicationViewInteropStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc446fb5d_4793_4896_a8e2_be57a8bb0f50);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationViewInteropStaticsImpl {
+    fn GetApplicationViewIdForWindow();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewInteropStaticsVtbl(
@@ -1915,6 +1999,8 @@ unsafe impl ::windows::core::Interface for IApplicationViewScaling {
     type Vtable = IApplicationViewScalingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d0ddc23_23f3_4b2d_84fe_74bf37b48b66);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationViewScalingImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewScalingVtbl(
@@ -1931,6 +2017,11 @@ pub struct IApplicationViewScalingStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApplicationViewScalingStatics {
     type Vtable = IApplicationViewScalingStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb08fecf0_b946_45c8_a5e3_71f5aa78f861);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationViewScalingStaticsImpl {
+    fn DisableLayoutScaling();
+    fn TrySetDisableLayoutScaling();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1952,6 +2043,11 @@ pub struct IApplicationViewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApplicationViewStatics {
     type Vtable = IApplicationViewStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x010a6306_c433_44e5_a9f2_bd84d4030a95);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IApplicationViewStaticsImpl {
+    fn Value();
+    fn TryUnsnap();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -1975,6 +2071,12 @@ unsafe impl ::windows::core::Interface for IApplicationViewStatics2 {
     type Vtable = IApplicationViewStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf338ae5_cf64_423c_85e5_f3e72448fb23);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationViewStatics2Impl {
+    fn GetForCurrentView();
+    fn TerminateAppOnFinalViewClose();
+    fn SetTerminateAppOnFinalViewClose();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewStatics2Vtbl(
@@ -1994,6 +2096,13 @@ pub struct IApplicationViewStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApplicationViewStatics3 {
     type Vtable = IApplicationViewStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa28d7594_8c41_4e13_9719_5164796fe4c7);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationViewStatics3Impl {
+    fn PreferredLaunchWindowingMode();
+    fn SetPreferredLaunchWindowingMode();
+    fn PreferredLaunchViewSize();
+    fn SetPreferredLaunchViewSize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2018,6 +2127,11 @@ unsafe impl ::windows::core::Interface for IApplicationViewStatics4 {
     type Vtable = IApplicationViewStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08fd8d33_2611_5336_a315_d98e6366c9db);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationViewStatics4Impl {
+    fn ClearAllPersistedState();
+    fn ClearPersistedState();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewStatics4Vtbl(
@@ -2036,6 +2150,17 @@ pub struct IApplicationViewSwitcherStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApplicationViewSwitcherStatics {
     type Vtable = IApplicationViewSwitcherStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x975f2f1e_e656_4c5e_a0a1_717c6ffa7d64);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationViewSwitcherStaticsImpl {
+    fn DisableShowingMainViewOnActivation();
+    fn TryShowAsStandaloneAsync();
+    fn TryShowAsStandaloneWithSizePreferenceAsync();
+    fn TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync();
+    fn SwitchAsync();
+    fn SwitchFromViewAsync();
+    fn SwitchFromViewWithOptionsAsync();
+    fn PrepareForCustomAnimatedSwitchAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2069,6 +2194,10 @@ unsafe impl ::windows::core::Interface for IApplicationViewSwitcherStatics2 {
     type Vtable = IApplicationViewSwitcherStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60e995cd_4fc2_48c4_b8e3_395f2b9f0fc1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationViewSwitcherStatics2Impl {
+    fn DisableSystemViewActivationPolicy();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewSwitcherStatics2Vtbl(
@@ -2086,6 +2215,11 @@ pub struct IApplicationViewSwitcherStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApplicationViewSwitcherStatics3 {
     type Vtable = IApplicationViewSwitcherStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92059420_80a7_486d_b21f_c7a4a242a383);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationViewSwitcherStatics3Impl {
+    fn TryShowAsViewModeAsync();
+    fn TryShowAsViewModeWithPreferencesAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2107,6 +2241,33 @@ pub struct IApplicationViewTitleBar(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApplicationViewTitleBar {
     type Vtable = IApplicationViewTitleBarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00924ac0_932b_4a6b_9c4b_dc38c82478ce);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationViewTitleBarImpl {
+    fn SetForegroundColor();
+    fn ForegroundColor();
+    fn SetBackgroundColor();
+    fn BackgroundColor();
+    fn SetButtonForegroundColor();
+    fn ButtonForegroundColor();
+    fn SetButtonBackgroundColor();
+    fn ButtonBackgroundColor();
+    fn SetButtonHoverForegroundColor();
+    fn ButtonHoverForegroundColor();
+    fn SetButtonHoverBackgroundColor();
+    fn ButtonHoverBackgroundColor();
+    fn SetButtonPressedForegroundColor();
+    fn ButtonPressedForegroundColor();
+    fn SetButtonPressedBackgroundColor();
+    fn ButtonPressedBackgroundColor();
+    fn SetInactiveForegroundColor();
+    fn InactiveForegroundColor();
+    fn SetInactiveBackgroundColor();
+    fn InactiveBackgroundColor();
+    fn SetButtonInactiveForegroundColor();
+    fn ButtonInactiveForegroundColor();
+    fn SetButtonInactiveBackgroundColor();
+    fn ButtonInactiveBackgroundColor();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2173,6 +2334,11 @@ unsafe impl ::windows::core::Interface for IApplicationViewTransferContext {
     type Vtable = IApplicationViewTransferContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8574bc63_3c17_408e_9408_8a1a9ea81bfa);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationViewTransferContextImpl {
+    fn ViewId();
+    fn SetViewId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewTransferContextVtbl(
@@ -2192,6 +2358,10 @@ unsafe impl ::windows::core::Interface for IApplicationViewTransferContextStatic
     type Vtable = IApplicationViewTransferContextStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15a89d92_dd79_4b0b_bc47_d5f195f14661);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationViewTransferContextStaticsImpl {
+    fn DataPackageFormatId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewTransferContextStaticsVtbl(
@@ -2210,6 +2380,10 @@ unsafe impl ::windows::core::Interface for IApplicationViewWithContext {
     type Vtable = IApplicationViewWithContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd55d512_9dc1_44fc_8501_666625df60dc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationViewWithContextImpl {
+    fn UIContext();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewWithContextVtbl(
@@ -2227,6 +2401,14 @@ pub struct IInputPane(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInputPane {
     type Vtable = IInputPaneVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x640ada70_06f3_4c87_a678_9829c9127c28);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInputPaneImpl {
+    fn Showing();
+    fn RemoveShowing();
+    fn Hiding();
+    fn RemoveHiding();
+    fn OccludedRect();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2255,6 +2437,11 @@ unsafe impl ::windows::core::Interface for IInputPane2 {
     type Vtable = IInputPane2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a6b3f26_7090_4793_944c_c3f2cde26276);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInputPane2Impl {
+    fn TryShow();
+    fn TryHide();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputPane2Vtbl(
@@ -2273,6 +2460,11 @@ pub struct IInputPaneControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInputPaneControl {
     type Vtable = IInputPaneControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x088bb24f_962f_489d_aa6e_c6be1a0a6e52);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInputPaneControlImpl {
+    fn Visible();
+    fn SetVisible();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2293,6 +2485,10 @@ unsafe impl ::windows::core::Interface for IInputPaneStatics {
     type Vtable = IInputPaneStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95f4af3a_ef47_424a_9741_fd2815eba2bd);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInputPaneStaticsImpl {
+    fn GetForCurrentView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputPaneStaticsVtbl(
@@ -2311,6 +2507,10 @@ unsafe impl ::windows::core::Interface for IInputPaneStatics2 {
     type Vtable = IInputPaneStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b63529b_d9ec_4531_8445_71bab9fb828e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInputPaneStatics2Impl {
+    fn GetForUIContext();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputPaneStatics2Vtbl(
@@ -2328,6 +2528,12 @@ pub struct IInputPaneVisibilityEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInputPaneVisibilityEventArgs {
     type Vtable = IInputPaneVisibilityEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd243e016_d907_4fcc_bb8d_f77baa5028f1);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInputPaneVisibilityEventArgsImpl {
+    fn OccludedRect();
+    fn SetEnsuredFocusedElementInView();
+    fn EnsuredFocusedElementInView();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2349,6 +2555,15 @@ pub struct IProjectionManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProjectionManagerStatics {
     type Vtable = IProjectionManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb65f913d_e2f0_4ffd_ba95_34241647e45c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IProjectionManagerStaticsImpl {
+    fn StartProjectingAsync();
+    fn SwapDisplaysForViewsAsync();
+    fn StopProjectingAsync();
+    fn ProjectionDisplayAvailable();
+    fn ProjectionDisplayAvailableChanged();
+    fn RemoveProjectionDisplayAvailableChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2378,6 +2593,13 @@ unsafe impl ::windows::core::Interface for IProjectionManagerStatics2 {
     type Vtable = IProjectionManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf33d2f43_2749_4cde_b977_c0c41e7415d1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IProjectionManagerStatics2Impl {
+    fn StartProjectingWithDeviceInfoAsync();
+    fn RequestStartProjectingAsync();
+    fn RequestStartProjectingWithPlacementAsync();
+    fn GetDeviceSelector();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProjectionManagerStatics2Vtbl(
@@ -2401,6 +2623,23 @@ pub struct IStatusBar(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStatusBar {
     type Vtable = IStatusBarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ffcc5bf_98d0_4864_b1e8_b3f4020be8b4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStatusBarImpl {
+    fn ShowAsync();
+    fn HideAsync();
+    fn BackgroundOpacity();
+    fn SetBackgroundOpacity();
+    fn ForegroundColor();
+    fn SetForegroundColor();
+    fn BackgroundColor();
+    fn SetBackgroundColor();
+    fn ProgressIndicator();
+    fn OccludedRect();
+    fn Showing();
+    fn RemoveShowing();
+    fn Hiding();
+    fn RemoveHiding();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2444,6 +2683,15 @@ unsafe impl ::windows::core::Interface for IStatusBarProgressIndicator {
     type Vtable = IStatusBarProgressIndicatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76cb2670_a3d7_49cf_8200_4f3eedca27bb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStatusBarProgressIndicatorImpl {
+    fn ShowAsync();
+    fn HideAsync();
+    fn Text();
+    fn SetText();
+    fn ProgressValue();
+    fn SetProgressValue();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStatusBarProgressIndicatorVtbl(
@@ -2471,6 +2719,10 @@ unsafe impl ::windows::core::Interface for IStatusBarStatics {
     type Vtable = IStatusBarStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b463fdf_422f_4561_8806_fb1289cadfb7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStatusBarStaticsImpl {
+    fn GetForCurrentView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStatusBarStaticsVtbl(
@@ -2488,6 +2740,22 @@ pub struct IUISettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUISettings {
     type Vtable = IUISettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85361600_1c63_4627_bcb1_3a89e0bc9c55);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUISettingsImpl {
+    fn HandPreference();
+    fn CursorSize();
+    fn ScrollBarSize();
+    fn ScrollBarArrowSize();
+    fn ScrollBarThumbBoxSize();
+    fn MessageDuration();
+    fn AnimationsEnabled();
+    fn CaretBrowsingEnabled();
+    fn CaretBlinkRate();
+    fn CaretWidth();
+    fn DoubleClickTime();
+    fn MouseHoverTime();
+    fn UIElementColor();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2523,6 +2791,12 @@ unsafe impl ::windows::core::Interface for IUISettings2 {
     type Vtable = IUISettings2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad82401_2721_44f9_bb91_2bb228be442f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUISettings2Impl {
+    fn TextScaleFactor();
+    fn TextScaleFactorChanged();
+    fn RemoveTextScaleFactorChanged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUISettings2Vtbl(
@@ -2544,6 +2818,12 @@ pub struct IUISettings3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUISettings3 {
     type Vtable = IUISettings3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03021be4_5254_4781_8194_5168f7d06d7b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUISettings3Impl {
+    fn GetColorValue();
+    fn ColorValuesChanged();
+    fn RemoveColorValuesChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2567,6 +2847,12 @@ unsafe impl ::windows::core::Interface for IUISettings4 {
     type Vtable = IUISettings4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52bb3002_919b_4d6b_9b78_8dd66ff4b93b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUISettings4Impl {
+    fn AdvancedEffectsEnabled();
+    fn AdvancedEffectsEnabledChanged();
+    fn RemoveAdvancedEffectsEnabledChanged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUISettings4Vtbl(
@@ -2589,6 +2875,12 @@ unsafe impl ::windows::core::Interface for IUISettings5 {
     type Vtable = IUISettings5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5349d588_0cb5_5f05_bd34_706b3231f0bd);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUISettings5Impl {
+    fn AutoHideScrollBars();
+    fn AutoHideScrollBarsChanged();
+    fn RemoveAutoHideScrollBarsChanged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUISettings5Vtbl(
@@ -2610,6 +2902,13 @@ pub struct IUISettings6(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUISettings6 {
     type Vtable = IUISettings6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaef19bd7_fe31_5a04_ada4_469aaec6dfa9);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUISettings6Impl {
+    fn AnimationsEnabledChanged();
+    fn RemoveAnimationsEnabledChanged();
+    fn MessageDurationChanged();
+    fn RemoveMessageDurationChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2636,6 +2935,8 @@ unsafe impl ::windows::core::Interface for IUISettingsAnimationsEnabledChangedEv
     type Vtable = IUISettingsAnimationsEnabledChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c7b4b3d_2ea1_533e_894d_415bc5243c29);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUISettingsAnimationsEnabledChangedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUISettingsAnimationsEnabledChangedEventArgsVtbl(
@@ -2653,6 +2954,8 @@ unsafe impl ::windows::core::Interface for IUISettingsAutoHideScrollBarsChangedE
     type Vtable = IUISettingsAutoHideScrollBarsChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87afd4b2_9146_5f02_8f6b_06d454174c0f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUISettingsAutoHideScrollBarsChangedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUISettingsAutoHideScrollBarsChangedEventArgsVtbl(
@@ -2670,6 +2973,8 @@ unsafe impl ::windows::core::Interface for IUISettingsMessageDurationChangedEven
     type Vtable = IUISettingsMessageDurationChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x338aad52_4a5d_5b59_8002_d930f608fd6e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUISettingsMessageDurationChangedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUISettingsMessageDurationChangedEventArgsVtbl(
@@ -2686,6 +2991,10 @@ pub struct IUIViewSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUIViewSettings {
     type Vtable = IUIViewSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc63657f6_8850_470d_88f8_455e16ea2c26);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUIViewSettingsImpl {
+    fn UserInteractionMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2705,6 +3014,10 @@ unsafe impl ::windows::core::Interface for IUIViewSettingsStatics {
     type Vtable = IUIViewSettingsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x595c97a5_f8f6_41cf_b0fb_aacdb81fd5f6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUIViewSettingsStaticsImpl {
+    fn GetForCurrentView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIViewSettingsStaticsVtbl(
@@ -2722,6 +3035,13 @@ pub struct IViewModePreferences(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IViewModePreferences {
     type Vtable = IViewModePreferencesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x878fcd3a_0b99_42c9_84d0_d3f1d403554b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IViewModePreferencesImpl {
+    fn ViewSizePreference();
+    fn SetViewSizePreference();
+    fn CustomSize();
+    fn SetCustomSize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2745,6 +3065,10 @@ pub struct IViewModePreferencesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IViewModePreferencesStatics {
     type Vtable = IViewModePreferencesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69b60a65_5de5_40d8_8306_3833df7a2274);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IViewModePreferencesStaticsImpl {
+    fn CreateDefault();
 }
 #[repr(C)]
 #[doc(hidden)]

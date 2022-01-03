@@ -190,6 +190,9 @@ unsafe impl ::windows::core::Interface for ISideShowBulkCapabilities {
     type Vtable = ISideShowBulkCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a2b7fbc_3ad5_48bd_bbf1_0e6cfbd10807);
 }
+pub trait ISideShowBulkCapabilitiesImpl: ISideShowCapabilitiesImpl {
+    fn GetCapabilities();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowBulkCapabilitiesVtbl(
@@ -249,6 +252,9 @@ impl ::core::fmt::Debug for ISideShowCapabilities {
 unsafe impl ::windows::core::Interface for ISideShowCapabilities {
     type Vtable = ISideShowCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x535e1379_c09e_4a54_a511_597bab3a72b8);
+}
+pub trait ISideShowCapabilitiesImpl {
+    fn GetCapability();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -313,6 +319,10 @@ impl ::core::fmt::Debug for ISideShowCapabilitiesCollection {
 unsafe impl ::windows::core::Interface for ISideShowCapabilitiesCollection {
     type Vtable = ISideShowCapabilitiesCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50305597_5e0d_4ff7_b3af_33d0d9bd52dd);
+}
+pub trait ISideShowCapabilitiesCollectionImpl {
+    fn GetCount();
+    fn GetAt();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -382,6 +392,11 @@ impl ::core::fmt::Debug for ISideShowContent {
 unsafe impl ::windows::core::Interface for ISideShowContent {
     type Vtable = ISideShowContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc18552ed_74ff_4fec_be07_4cfed29d4887);
+}
+pub trait ISideShowContentImpl {
+    fn GetContent();
+    fn ContentId();
+    fn DifferentiateContent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -460,6 +475,13 @@ unsafe impl ::windows::core::Interface for ISideShowContentManager {
     type Vtable = ISideShowContentManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5d5b66b_eef9_41db_8d7e_e17c33ab10b0);
 }
+pub trait ISideShowContentManagerImpl {
+    fn Add();
+    fn Remove();
+    fn RemoveAll();
+    fn SetEventSink();
+    fn GetDeviceCapabilities();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowContentManagerVtbl(
@@ -533,6 +555,12 @@ impl ::core::fmt::Debug for ISideShowEvents {
 unsafe impl ::windows::core::Interface for ISideShowEvents {
     type Vtable = ISideShowEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61feca4c_deb4_4a7e_8d75_51f1132d615b);
+}
+pub trait ISideShowEventsImpl {
+    fn ContentMissing();
+    fn ApplicationEvent();
+    fn DeviceAdded();
+    fn DeviceRemoved();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -611,6 +639,13 @@ impl ::core::fmt::Debug for ISideShowKeyCollection {
 unsafe impl ::windows::core::Interface for ISideShowKeyCollection {
     type Vtable = ISideShowKeyCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x045473bc_a37b_4957_b144_68105411ed8e);
+}
+pub trait ISideShowKeyCollectionImpl {
+    fn Add();
+    fn Clear();
+    fn GetAt();
+    fn GetCount();
+    fn RemoveAt();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -724,6 +759,18 @@ unsafe impl ::windows::core::Interface for ISideShowNotification {
     type Vtable = ISideShowNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03c93300_8ab2_41c5_9b79_46127a30e148);
 }
+pub trait ISideShowNotificationImpl {
+    fn NotificationId();
+    fn SetNotificationId();
+    fn Title();
+    fn SetTitle();
+    fn Message();
+    fn SetMessage();
+    fn Image();
+    fn SetImage();
+    fn ExpirationTime();
+    fn SetExpirationTime();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowNotificationVtbl(
@@ -806,6 +853,11 @@ unsafe impl ::windows::core::Interface for ISideShowNotificationManager {
     type Vtable = ISideShowNotificationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63cea909_f2b9_4302_b5e1_c68e6d9ab833);
 }
+pub trait ISideShowNotificationManagerImpl {
+    fn Show();
+    fn Revoke();
+    fn RevokeAll();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowNotificationManagerVtbl(
@@ -883,6 +935,13 @@ unsafe impl ::windows::core::Interface for ISideShowPropVariantCollection {
     type Vtable = ISideShowPropVariantCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ea7a549_7bff_4aae_bab0_22d43111de49);
 }
+pub trait ISideShowPropVariantCollectionImpl {
+    fn Add();
+    fn Clear();
+    fn GetAt();
+    fn GetCount();
+    fn RemoveAt();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowPropVariantCollectionVtbl(
@@ -951,6 +1010,10 @@ impl ::core::fmt::Debug for ISideShowSession {
 unsafe impl ::windows::core::Interface for ISideShowSession {
     type Vtable = ISideShowSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe22331ee_9e7d_4922_9fc2_ab7aa41ce491);
+}
+pub trait ISideShowSessionImpl {
+    fn RegisterContent();
+    fn RegisterNotifications();
 }
 #[repr(C)]
 #[doc(hidden)]

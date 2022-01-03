@@ -1326,6 +1326,9 @@ unsafe impl ::windows::core::Interface for IBindCallbackRedirect {
     type Vtable = IBindCallbackRedirectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11c81bc2_121e_4ed5_b9c4_b430bd54f2c0);
 }
+pub trait IBindCallbackRedirectImpl {
+    fn Redirect();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindCallbackRedirectVtbl(
@@ -1385,6 +1388,9 @@ unsafe impl ::windows::core::Interface for IBindHttpSecurity {
     type Vtable = IBindHttpSecurityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9eda967_f50e_4a33_b358_206f6ef3086d);
 }
+pub trait IBindHttpSecurityImpl {
+    fn GetIgnoreCertMask();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindHttpSecurityVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwignorecertmask: *mut u32) -> ::windows::core::HRESULT);
@@ -1438,6 +1444,9 @@ impl ::core::fmt::Debug for IBindProtocol {
 unsafe impl ::windows::core::Interface for IBindProtocol {
     type Vtable = IBindProtocolVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9cd_baf9_11ce_8c82_00aa004ba90b);
+}
+pub trait IBindProtocolImpl {
+    fn CreateBinding();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1502,6 +1511,10 @@ impl ::core::fmt::Debug for ICatalogFileInfo {
 unsafe impl ::windows::core::Interface for ICatalogFileInfo {
     type Vtable = ICatalogFileInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x711c7600_6b48_11d1_b403_00aa00b92af1);
+}
+pub trait ICatalogFileInfoImpl {
+    fn GetCatalogFile();
+    fn GetJavaTrust();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1589,6 +1602,9 @@ unsafe impl ::windows::core::Interface for ICodeInstall {
     type Vtable = ICodeInstallVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9d1_baf9_11ce_8c82_00aa004ba90b);
 }
+pub trait ICodeInstallImpl: IWindowForBindingUIImpl {
+    fn OnCodeInstallProblem();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICodeInstallVtbl(
@@ -1656,6 +1672,11 @@ impl ::core::fmt::Debug for IDataFilter {
 unsafe impl ::windows::core::Interface for IDataFilter {
     type Vtable = IDataFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69d14c80_c18e_11d0_a9ce_006097942311);
+}
+pub trait IDataFilterImpl {
+    fn DoEncode();
+    fn DoDecode();
+    fn SetEncodingLevel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1772,6 +1793,10 @@ unsafe impl ::windows::core::Interface for IEncodingFilterFactory {
     type Vtable = IEncodingFilterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70bdde00_c18e_11d0_a9ce_006097942311);
 }
+pub trait IEncodingFilterFactoryImpl {
+    fn FindBestFilter();
+    fn GetDefaultFilter();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEncodingFilterFactoryVtbl(
@@ -1833,6 +1858,9 @@ impl ::core::fmt::Debug for IGetBindHandle {
 unsafe impl ::windows::core::Interface for IGetBindHandle {
     type Vtable = IGetBindHandleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf0ff408_129d_4b20_91f0_02bd23d88352);
+}
+pub trait IGetBindHandleImpl {
+    fn GetBindHandle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1899,6 +1927,10 @@ impl ::core::fmt::Debug for IHttpNegotiate {
 unsafe impl ::windows::core::Interface for IHttpNegotiate {
     type Vtable = IHttpNegotiateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9d2_baf9_11ce_8c82_00aa004ba90b);
+}
+pub trait IHttpNegotiateImpl {
+    fn BeginningTransaction();
+    fn OnResponse();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1991,6 +2023,9 @@ impl ::core::fmt::Debug for IHttpNegotiate2 {
 unsafe impl ::windows::core::Interface for IHttpNegotiate2 {
     type Vtable = IHttpNegotiate2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f9f9fcb_e0f4_48eb_b7ab_fa2ea9365cb4);
+}
+pub trait IHttpNegotiate2Impl: IHttpNegotiateImpl {
+    fn GetRootSecurityId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2109,6 +2144,9 @@ unsafe impl ::windows::core::Interface for IHttpNegotiate3 {
     type Vtable = IHttpNegotiate3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57b6c80a_34c2_4602_bc26_66a02fc57153);
 }
+pub trait IHttpNegotiate3Impl: IHttpNegotiate2Impl + IHttpNegotiateImpl {
+    fn GetSerializedClientCertContext();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpNegotiate3Vtbl(
@@ -2197,6 +2235,9 @@ unsafe impl ::windows::core::Interface for IHttpSecurity {
     type Vtable = IHttpSecurityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9d7_bafa_11ce_8c82_00aa004ba90b);
 }
+pub trait IHttpSecurityImpl: IWindowForBindingUIImpl {
+    fn OnSecurityProblem();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpSecurityVtbl(
@@ -2251,6 +2292,7 @@ unsafe impl ::windows::core::Interface for IInternet {
     type Vtable = IInternetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9e0_baf9_11ce_8c82_00aa004ba90b);
 }
+pub trait IInternetImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
@@ -2308,6 +2350,10 @@ impl ::core::fmt::Debug for IInternetBindInfo {
 unsafe impl ::windows::core::Interface for IInternetBindInfo {
     type Vtable = IInternetBindInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9e1_baf9_11ce_8c82_00aa004ba90b);
+}
+pub trait IInternetBindInfoImpl {
+    fn GetBindInfo();
+    fn GetBindString();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2400,6 +2446,9 @@ unsafe impl ::windows::core::Interface for IInternetBindInfoEx {
     type Vtable = IInternetBindInfoExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3e015b7_a82c_4dcd_a150_569aeeed36ab);
 }
+pub trait IInternetBindInfoExImpl: IInternetBindInfoImpl {
+    fn GetBindInfoEx();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetBindInfoExVtbl(
@@ -2470,6 +2519,11 @@ unsafe impl ::windows::core::Interface for IInternetHostSecurityManager {
     type Vtable = IInternetHostSecurityManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3af280b6_cb3f_11d0_891e_00c04fb6bfc4);
 }
+pub trait IInternetHostSecurityManagerImpl {
+    fn GetSecurityId();
+    fn ProcessUrlAction();
+    fn QueryCustomPolicy();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetHostSecurityManagerVtbl(
@@ -2533,6 +2587,10 @@ impl ::core::fmt::Debug for IInternetPriority {
 unsafe impl ::windows::core::Interface for IInternetPriority {
     type Vtable = IInternetPriorityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9eb_baf9_11ce_8c82_00aa004ba90b);
+}
+pub trait IInternetPriorityImpl {
+    fn SetPriority();
+    fn GetPriority();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2649,6 +2707,12 @@ impl ::core::fmt::Debug for IInternetProtocol {
 unsafe impl ::windows::core::Interface for IInternetProtocol {
     type Vtable = IInternetProtocolVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9e4_baf9_11ce_8c82_00aa004ba90b);
+}
+pub trait IInternetProtocolImpl: IInternetProtocolRootImpl {
+    fn Read();
+    fn Seek();
+    fn LockRequest();
+    fn UnlockRequest();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2800,6 +2864,9 @@ unsafe impl ::windows::core::Interface for IInternetProtocolEx {
     type Vtable = IInternetProtocolExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7a98e66_1010_492c_a1c8_c809e1f75905);
 }
+pub trait IInternetProtocolExImpl: IInternetProtocolImpl + IInternetProtocolRootImpl {
+    fn StartEx();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetProtocolExVtbl(
@@ -2884,6 +2951,12 @@ impl ::core::fmt::Debug for IInternetProtocolInfo {
 unsafe impl ::windows::core::Interface for IInternetProtocolInfo {
     type Vtable = IInternetProtocolInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9ec_baf9_11ce_8c82_00aa004ba90b);
+}
+pub trait IInternetProtocolInfoImpl {
+    fn ParseUrl();
+    fn CombineUrl();
+    fn CompareUrl();
+    fn QueryInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2970,6 +3043,14 @@ unsafe impl ::windows::core::Interface for IInternetProtocolRoot {
     type Vtable = IInternetProtocolRootVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9e3_baf9_11ce_8c82_00aa004ba90b);
 }
+pub trait IInternetProtocolRootImpl {
+    fn Start();
+    fn Continue();
+    fn Abort();
+    fn Terminate();
+    fn Suspend();
+    fn Resume();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetProtocolRootVtbl(
@@ -3047,6 +3128,12 @@ unsafe impl ::windows::core::Interface for IInternetProtocolSink {
     type Vtable = IInternetProtocolSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9e5_baf9_11ce_8c82_00aa004ba90b);
 }
+pub trait IInternetProtocolSinkImpl {
+    fn Switch();
+    fn ReportProgress();
+    fn ReportData();
+    fn ReportResult();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetProtocolSinkVtbl(
@@ -3116,6 +3203,11 @@ impl ::core::fmt::Debug for IInternetProtocolSinkStackable {
 unsafe impl ::windows::core::Interface for IInternetProtocolSinkStackable {
     type Vtable = IInternetProtocolSinkStackableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9f0_baf9_11ce_8c82_00aa004ba90b);
+}
+pub trait IInternetProtocolSinkStackableImpl {
+    fn SwitchSink();
+    fn CommitSwitch();
+    fn RollbackSwitch();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3209,6 +3301,16 @@ impl ::core::fmt::Debug for IInternetSecurityManager {
 unsafe impl ::windows::core::Interface for IInternetSecurityManager {
     type Vtable = IInternetSecurityManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9ee_baf9_11ce_8c82_00aa004ba90b);
+}
+pub trait IInternetSecurityManagerImpl {
+    fn SetSecuritySite();
+    fn GetSecuritySite();
+    fn MapUrlToZone();
+    fn GetSecurityId();
+    fn ProcessUrlAction();
+    fn QueryCustomPolicy();
+    fn SetZoneMapping();
+    fn GetZoneMappings();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3337,6 +3439,9 @@ impl ::core::fmt::Debug for IInternetSecurityManagerEx {
 unsafe impl ::windows::core::Interface for IInternetSecurityManagerEx {
     type Vtable = IInternetSecurityManagerExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf164edf1_cc7c_4f0d_9a94_34222625c393);
+}
+pub trait IInternetSecurityManagerExImpl: IInternetSecurityManagerImpl {
+    fn ProcessUrlActionEx();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3505,6 +3610,12 @@ unsafe impl ::windows::core::Interface for IInternetSecurityManagerEx2 {
     type Vtable = IInternetSecurityManagerEx2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1e50292_a795_4117_8e09_2b560a72ac60);
 }
+pub trait IInternetSecurityManagerEx2Impl: IInternetSecurityManagerExImpl + IInternetSecurityManagerImpl {
+    fn MapUrlToZoneEx2();
+    fn ProcessUrlActionEx2();
+    fn GetSecurityIdEx2();
+    fn QueryCustomPolicyEx2();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetSecurityManagerEx2Vtbl(
@@ -3587,6 +3698,10 @@ impl ::core::fmt::Debug for IInternetSecurityMgrSite {
 unsafe impl ::windows::core::Interface for IInternetSecurityMgrSite {
     type Vtable = IInternetSecurityMgrSiteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9ed_baf9_11ce_8c82_00aa004ba90b);
+}
+pub trait IInternetSecurityMgrSiteImpl {
+    fn GetWindow();
+    fn EnableModeless();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3677,6 +3792,15 @@ unsafe impl ::windows::core::Interface for IInternetSession {
     type Vtable = IInternetSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9e7_baf9_11ce_8c82_00aa004ba90b);
 }
+pub trait IInternetSessionImpl {
+    fn RegisterNameSpace();
+    fn UnregisterNameSpace();
+    fn RegisterMimeFilter();
+    fn UnregisterMimeFilter();
+    fn CreateBinding();
+    fn SetSessionOption();
+    fn GetSessionOption();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetSessionVtbl(
@@ -3748,6 +3872,10 @@ impl ::core::fmt::Debug for IInternetThreadSwitch {
 unsafe impl ::windows::core::Interface for IInternetThreadSwitch {
     type Vtable = IInternetThreadSwitchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9e8_baf9_11ce_8c82_00aa004ba90b);
+}
+pub trait IInternetThreadSwitchImpl {
+    fn Prepare();
+    fn Continue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3853,6 +3981,20 @@ impl ::core::fmt::Debug for IInternetZoneManager {
 unsafe impl ::windows::core::Interface for IInternetZoneManager {
     type Vtable = IInternetZoneManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9ef_baf9_11ce_8c82_00aa004ba90b);
+}
+pub trait IInternetZoneManagerImpl {
+    fn GetZoneAttributes();
+    fn SetZoneAttributes();
+    fn GetZoneCustomPolicy();
+    fn SetZoneCustomPolicy();
+    fn GetZoneActionPolicy();
+    fn SetZoneActionPolicy();
+    fn PromptAction();
+    fn LogAction();
+    fn CreateZoneEnumerator();
+    fn GetZoneAt();
+    fn DestroyZoneEnumerator();
+    fn CopyTemplatePoliciesToZone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3998,6 +4140,10 @@ impl ::core::fmt::Debug for IInternetZoneManagerEx {
 unsafe impl ::windows::core::Interface for IInternetZoneManagerEx {
     type Vtable = IInternetZoneManagerExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4c23339_8e06_431e_9bf4_7e711c085648);
+}
+pub trait IInternetZoneManagerExImpl: IInternetZoneManagerImpl {
+    fn GetZoneActionPolicyEx();
+    fn SetZoneActionPolicyEx();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4184,6 +4330,12 @@ unsafe impl ::windows::core::Interface for IInternetZoneManagerEx2 {
     type Vtable = IInternetZoneManagerEx2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedc17559_dd5d_4846_8eef_8becba5a4abf);
 }
+pub trait IInternetZoneManagerEx2Impl: IInternetZoneManagerExImpl + IInternetZoneManagerImpl {
+    fn GetZoneAttributesEx();
+    fn GetZoneSecurityState();
+    fn GetIESecurityState();
+    fn FixUnsecureSettings();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetZoneManagerEx2Vtbl(
@@ -4262,6 +4414,9 @@ impl ::core::fmt::Debug for IMonikerProp {
 unsafe impl ::windows::core::Interface for IMonikerProp {
     type Vtable = IMonikerPropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5ca5f7f_1847_4d87_9c5b_918509f7511d);
+}
+pub trait IMonikerPropImpl {
+    fn PutProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4511,6 +4666,14 @@ unsafe impl ::windows::core::Interface for IPersistMoniker {
     type Vtable = IPersistMonikerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9c9_baf9_11ce_8c82_00aa004ba90b);
 }
+pub trait IPersistMonikerImpl {
+    fn GetClassID();
+    fn IsDirty();
+    fn Load();
+    fn Save();
+    fn SaveCompleted();
+    fn GetCurMoniker();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPersistMonikerVtbl(
@@ -4591,6 +4754,12 @@ unsafe impl ::windows::core::Interface for ISoftDistExt {
     type Vtable = ISoftDistExtVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb15b8dc1_c7e1_11d0_8680_00aa00bdcb71);
 }
+pub trait ISoftDistExtImpl {
+    fn ProcessSoftDist();
+    fn GetFirstCodeBase();
+    fn GetNextCodeBase();
+    fn AsyncInstallDistributionUnit();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISoftDistExtVtbl(
@@ -4661,6 +4830,10 @@ unsafe impl ::windows::core::Interface for IUriBuilderFactory {
     type Vtable = IUriBuilderFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe982ce48_0b96_440c_bc37_0c869b27a29e);
 }
+pub trait IUriBuilderFactoryImpl {
+    fn CreateIUriBuilder();
+    fn CreateInitializedIUriBuilder();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUriBuilderFactoryVtbl(
@@ -4720,6 +4893,9 @@ unsafe impl ::windows::core::Interface for IUriContainer {
     type Vtable = IUriContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa158a630_ed6f_45fb_b987_f68676f57752);
 }
+pub trait IUriContainerImpl {
+    fn GetIUri();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUriContainerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiuri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -4772,6 +4948,9 @@ impl ::core::fmt::Debug for IWinInetCacheHints {
 unsafe impl ::windows::core::Interface for IWinInetCacheHints {
     type Vtable = IWinInetCacheHintsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd1ec3b3_8391_4fdb_a9e6_347c3caaa7dd);
+}
+pub trait IWinInetCacheHintsImpl {
+    fn SetCacheExtension();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4857,6 +5036,9 @@ unsafe impl ::windows::core::Interface for IWinInetCacheHints2 {
     type Vtable = IWinInetCacheHints2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7857aeac_d31f_49bf_884e_dd46df36780a);
 }
+pub trait IWinInetCacheHints2Impl: IWinInetCacheHintsImpl {
+    fn SetCacheExtension2();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWinInetCacheHints2Vtbl(
@@ -4920,6 +5102,10 @@ impl ::core::fmt::Debug for IWinInetFileStream {
 unsafe impl ::windows::core::Interface for IWinInetFileStream {
     type Vtable = IWinInetFileStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf134c4b7_b1f8_4e75_b886_74b90943becb);
+}
+pub trait IWinInetFileStreamImpl {
+    fn SetHandleForUnlock();
+    fn SetDeleteFile();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5003,6 +5189,9 @@ unsafe impl ::windows::core::Interface for IWinInetHttpInfo {
     type Vtable = IWinInetHttpInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9d8_bafa_11ce_8c82_00aa004ba90b);
 }
+pub trait IWinInetHttpInfoImpl: IWinInetInfoImpl {
+    fn QueryInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWinInetHttpInfoVtbl(
@@ -5061,6 +5250,9 @@ unsafe impl ::windows::core::Interface for IWinInetHttpTimeouts {
     type Vtable = IWinInetHttpTimeoutsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf286fa56_c1fd_4270_8e67_b3eb790a81e8);
 }
+pub trait IWinInetHttpTimeoutsImpl {
+    fn GetRequestTimeouts();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWinInetHttpTimeoutsVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwconnecttimeout: *mut u32, pdwsendtimeout: *mut u32, pdwreceivetimeout: *mut u32) -> ::windows::core::HRESULT);
@@ -5112,6 +5304,9 @@ impl ::core::fmt::Debug for IWinInetInfo {
 unsafe impl ::windows::core::Interface for IWinInetInfo {
     type Vtable = IWinInetInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9d6_bafa_11ce_8c82_00aa004ba90b);
+}
+pub trait IWinInetInfoImpl {
+    fn QueryOption();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5166,6 +5361,9 @@ impl ::core::fmt::Debug for IWindowForBindingUI {
 unsafe impl ::windows::core::Interface for IWindowForBindingUI {
     type Vtable = IWindowForBindingUIVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9d5_bafa_11ce_8c82_00aa004ba90b);
+}
+pub trait IWindowForBindingUIImpl {
+    fn GetWindow();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5224,6 +5422,9 @@ impl ::core::fmt::Debug for IWrappedProtocol {
 unsafe impl ::windows::core::Interface for IWrappedProtocol {
     type Vtable = IWrappedProtocolVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53c84785_8425_4dc5_971b_e58d9c19f9b6);
+}
+pub trait IWrappedProtocolImpl {
+    fn GetWrapperCode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5285,6 +5486,11 @@ impl ::core::fmt::Debug for IZoneIdentifier {
 unsafe impl ::windows::core::Interface for IZoneIdentifier {
     type Vtable = IZoneIdentifierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd45f185_1b21_48e2_967b_ead743a8914e);
+}
+pub trait IZoneIdentifierImpl {
+    fn GetId();
+    fn SetId();
+    fn Remove();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5401,6 +5607,14 @@ impl ::core::fmt::Debug for IZoneIdentifier2 {
 unsafe impl ::windows::core::Interface for IZoneIdentifier2 {
     type Vtable = IZoneIdentifier2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb5e760c_09ef_45c0_b510_70830ce31e6a);
+}
+pub trait IZoneIdentifier2Impl: IZoneIdentifierImpl {
+    fn GetLastWriterPackageFamilyName();
+    fn SetLastWriterPackageFamilyName();
+    fn RemoveLastWriterPackageFamilyName();
+    fn GetAppZoneId();
+    fn SetAppZoneId();
+    fn RemoveAppZoneId();
 }
 #[repr(C)]
 #[doc(hidden)]

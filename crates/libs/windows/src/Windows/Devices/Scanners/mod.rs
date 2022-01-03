@@ -6,6 +6,18 @@ unsafe impl ::windows::core::Interface for IImageScanner {
     type Vtable = IImageScannerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53a88f78_5298_48a0_8da3_8087519665e0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IImageScannerImpl {
+    fn DeviceId();
+    fn DefaultScanSource();
+    fn IsScanSourceSupported();
+    fn FlatbedConfiguration();
+    fn FeederConfiguration();
+    fn AutoConfiguration();
+    fn IsPreviewSupported();
+    fn ScanPreviewToStreamAsync();
+    fn ScanFilesToFolderAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageScannerVtbl(
@@ -33,6 +45,26 @@ pub struct IImageScannerFeederConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IImageScannerFeederConfiguration {
     type Vtable = IImageScannerFeederConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74bdacee_fa97_4c17_8280_40e39c6dcc67);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IImageScannerFeederConfigurationImpl: IImageScannerFormatConfigurationImpl + IImageScannerSourceConfigurationImpl {
+    fn CanAutoDetectPageSize();
+    fn AutoDetectPageSize();
+    fn SetAutoDetectPageSize();
+    fn PageSize();
+    fn SetPageSize();
+    fn PageOrientation();
+    fn SetPageOrientation();
+    fn PageSizeDimensions();
+    fn IsPageSizeSupported();
+    fn MaxNumberOfPages();
+    fn SetMaxNumberOfPages();
+    fn CanScanDuplex();
+    fn Duplex();
+    fn SetDuplex();
+    fn CanScanAhead();
+    fn ScanAhead();
+    fn SetScanAhead();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -164,6 +196,12 @@ unsafe impl ::windows::core::Interface for IImageScannerFormatConfiguration {
     type Vtable = IImageScannerFormatConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae275d11_dadf_4010_bf10_cca5c83dcbb0);
 }
+pub trait IImageScannerFormatConfigurationImpl {
+    fn DefaultFormat();
+    fn Format();
+    fn SetFormat();
+    fn IsFormatSupported();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageScannerFormatConfigurationVtbl(
@@ -185,6 +223,11 @@ unsafe impl ::windows::core::Interface for IImageScannerPreviewResult {
     type Vtable = IImageScannerPreviewResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08b7fe8e_8891_441d_be9c_176fa109c8bb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IImageScannerPreviewResultImpl {
+    fn Succeeded();
+    fn Format();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageScannerPreviewResultVtbl(
@@ -203,6 +246,10 @@ pub struct IImageScannerScanResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IImageScannerScanResult {
     type Vtable = IImageScannerScanResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc91624cd_9037_4e48_84c1_ac0975076bc5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IImageScannerScanResultImpl {
+    fn ScannedFiles();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -553,6 +600,37 @@ unsafe impl ::windows::core::Interface for IImageScannerSourceConfiguration {
     type Vtable = IImageScannerSourceConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfb50055_0b44_4c82_9e89_205f9c234e59);
 }
+pub trait IImageScannerSourceConfigurationImpl: IImageScannerFormatConfigurationImpl {
+    fn MinScanArea();
+    fn MaxScanArea();
+    fn SelectedScanRegion();
+    fn SetSelectedScanRegion();
+    fn AutoCroppingMode();
+    fn SetAutoCroppingMode();
+    fn IsAutoCroppingModeSupported();
+    fn MinResolution();
+    fn MaxResolution();
+    fn OpticalResolution();
+    fn DesiredResolution();
+    fn SetDesiredResolution();
+    fn ActualResolution();
+    fn DefaultColorMode();
+    fn ColorMode();
+    fn SetColorMode();
+    fn IsColorModeSupported();
+    fn MinBrightness();
+    fn MaxBrightness();
+    fn BrightnessStep();
+    fn DefaultBrightness();
+    fn Brightness();
+    fn SetBrightness();
+    fn MinContrast();
+    fn MaxContrast();
+    fn ContrastStep();
+    fn DefaultContrast();
+    fn Contrast();
+    fn SetContrast();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageScannerSourceConfigurationVtbl(
@@ -602,6 +680,11 @@ pub struct IImageScannerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IImageScannerStatics {
     type Vtable = IImageScannerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc57e70e_d804_4477_9fb5_b911b5473897);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IImageScannerStaticsImpl {
+    fn FromIdAsync();
+    fn GetDeviceSelector();
 }
 #[repr(C)]
 #[doc(hidden)]

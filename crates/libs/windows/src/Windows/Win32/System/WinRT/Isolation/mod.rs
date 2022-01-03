@@ -50,6 +50,9 @@ unsafe impl ::windows::core::Interface for IIsolatedEnvironmentInterop {
     type Vtable = IIsolatedEnvironmentInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85713c2e_8e62_46c5_8de2_c647e1d54636);
 }
+pub trait IIsolatedEnvironmentInteropImpl {
+    fn GetHostHwndInterop();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedEnvironmentInteropVtbl(

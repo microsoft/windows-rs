@@ -6,6 +6,19 @@ unsafe impl ::windows::core::Interface for IProviderSpiConnectionSettings {
     type Vtable = IProviderSpiConnectionSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6034550_a542_4ec0_9601_a4dd68f8697b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IProviderSpiConnectionSettingsImpl {
+    fn ChipSelectLine();
+    fn SetChipSelectLine();
+    fn Mode();
+    fn SetMode();
+    fn DataBitLength();
+    fn SetDataBitLength();
+    fn ClockFrequency();
+    fn SetClockFrequency();
+    fn SharingMode();
+    fn SetSharingMode();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProviderSpiConnectionSettingsVtbl(
@@ -32,6 +45,10 @@ pub struct IProviderSpiConnectionSettingsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProviderSpiConnectionSettingsFactory {
     type Vtable = IProviderSpiConnectionSettingsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66456b5a_0c79_43e3_9f3c_e59780ac18fa);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IProviderSpiConnectionSettingsFactoryImpl {
+    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -119,6 +136,9 @@ unsafe impl ::windows::core::RuntimeType for ISpiControllerProvider {
 unsafe impl ::windows::core::Interface for ISpiControllerProvider {
     type Vtable = ISpiControllerProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1686504_02ce_4226_a385_4f11fb04b41b);
+}
+pub trait ISpiControllerProviderImpl {
+    fn GetDeviceProvider();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -267,6 +287,15 @@ unsafe impl ::windows::core::Interface for ISpiDeviceProvider {
     type Vtable = ISpiDeviceProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d1c3443_304b_405c_b4f7_f5ab1074461e);
 }
+#[cfg(feature = "Foundation")]
+pub trait ISpiDeviceProviderImpl: IClosableImpl {
+    fn DeviceId();
+    fn ConnectionSettings();
+    fn Write();
+    fn Read();
+    fn TransferSequential();
+    fn TransferFullDuplex();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpiDeviceProviderVtbl(
@@ -359,6 +388,9 @@ unsafe impl ::windows::core::RuntimeType for ISpiProvider {
 unsafe impl ::windows::core::Interface for ISpiProvider {
     type Vtable = ISpiProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96b461e2_77d4_48ce_aaa0_75715a8362cf);
+}
+pub trait ISpiProviderImpl {
+    fn GetControllersAsync();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -229,6 +229,14 @@ unsafe impl ::windows::core::Interface for IAudioRoutingManager {
     type Vtable = IAudioRoutingManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79340d20_71cc_4526_9f29_fc8d2486418b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAudioRoutingManagerImpl {
+    fn GetAudioEndpoint();
+    fn SetAudioEndpoint();
+    fn AudioEndpointChanged();
+    fn RemoveAudioEndpointChanged();
+    fn AvailableAudioEndpoints();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioRoutingManagerVtbl(
@@ -252,6 +260,10 @@ pub struct IAudioRoutingManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioRoutingManagerStatics {
     type Vtable = IAudioRoutingManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x977fb2a4_5590_4a6f_adde_6a3d0ad58250);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAudioRoutingManagerStaticsImpl {
+    fn GetDefault();
 }
 #[repr(C)]
 #[doc(hidden)]

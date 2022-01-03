@@ -784,6 +784,16 @@ unsafe impl ::windows::core::Interface for IAppExtension {
     type Vtable = IAppExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8450902c_15ed_4faf_93ea_2237bbf8cbd6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppExtensionImpl {
+    fn Id();
+    fn DisplayName();
+    fn Description();
+    fn Package();
+    fn AppInfo();
+    fn GetExtensionPropertiesAsync();
+    fn GetPublicFolderAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppExtensionVtbl(
@@ -810,6 +820,10 @@ unsafe impl ::windows::core::Interface for IAppExtension2 {
     type Vtable = IAppExtension2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab3b15f0_14f9_4b9f_9419_a349a242ef38);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppExtension2Impl {
+    fn AppUserModelId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppExtension2Vtbl(
@@ -827,6 +841,21 @@ pub struct IAppExtensionCatalog(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppExtensionCatalog {
     type Vtable = IAppExtensionCatalogVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97872032_8426_4ad1_9084_92e88c2da200);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppExtensionCatalogImpl {
+    fn FindAllAsync();
+    fn RequestRemovePackageAsync();
+    fn PackageInstalled();
+    fn RemovePackageInstalled();
+    fn PackageUpdating();
+    fn RemovePackageUpdating();
+    fn PackageUpdated();
+    fn RemovePackageUpdated();
+    fn PackageUninstalling();
+    fn RemovePackageUninstalling();
+    fn PackageStatusChanged();
+    fn RemovePackageStatusChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -869,6 +898,10 @@ unsafe impl ::windows::core::Interface for IAppExtensionCatalogStatics {
     type Vtable = IAppExtensionCatalogStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c36668a_5f18_4f0b_9ce5_cab61d196f11);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppExtensionCatalogStaticsImpl {
+    fn Open();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppExtensionCatalogStaticsVtbl(
@@ -886,6 +919,12 @@ pub struct IAppExtensionPackageInstalledEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppExtensionPackageInstalledEventArgs {
     type Vtable = IAppExtensionPackageInstalledEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39e59234_3351_4a8d_9745_e7d3dd45bc48);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppExtensionPackageInstalledEventArgsImpl {
+    fn AppExtensionName();
+    fn Package();
+    fn Extensions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -908,6 +947,11 @@ unsafe impl ::windows::core::Interface for IAppExtensionPackageStatusChangedEven
     type Vtable = IAppExtensionPackageStatusChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ce17433_1153_44fd_87b1_8ae1050303df);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppExtensionPackageStatusChangedEventArgsImpl {
+    fn AppExtensionName();
+    fn Package();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppExtensionPackageStatusChangedEventArgsVtbl(
@@ -927,6 +971,11 @@ unsafe impl ::windows::core::Interface for IAppExtensionPackageUninstallingEvent
     type Vtable = IAppExtensionPackageUninstallingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60f160c5_171e_40ff_ae98_ab2c20dd4d75);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppExtensionPackageUninstallingEventArgsImpl {
+    fn AppExtensionName();
+    fn Package();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppExtensionPackageUninstallingEventArgsVtbl(
@@ -945,6 +994,12 @@ pub struct IAppExtensionPackageUpdatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppExtensionPackageUpdatedEventArgs {
     type Vtable = IAppExtensionPackageUpdatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a83c43f_797e_44b5_ba24_a4c8b5a543d7);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppExtensionPackageUpdatedEventArgsImpl {
+    fn AppExtensionName();
+    fn Package();
+    fn Extensions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -966,6 +1021,11 @@ pub struct IAppExtensionPackageUpdatingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppExtensionPackageUpdatingEventArgs {
     type Vtable = IAppExtensionPackageUpdatingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ed59329_1a65_4800_a700_b321009e306a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppExtensionPackageUpdatingEventArgsImpl {
+    fn AppExtensionName();
+    fn Package();
 }
 #[repr(C)]
 #[doc(hidden)]

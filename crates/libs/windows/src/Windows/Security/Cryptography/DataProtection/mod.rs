@@ -134,6 +134,13 @@ unsafe impl ::windows::core::Interface for IDataProtectionProvider {
     type Vtable = IDataProtectionProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09639948_ed22_4270_bd1c_6d72c00f8787);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataProtectionProviderImpl {
+    fn ProtectAsync();
+    fn UnprotectAsync();
+    fn ProtectStreamAsync();
+    fn UnprotectStreamAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataProtectionProviderVtbl(
@@ -158,6 +165,10 @@ pub struct IDataProtectionProviderFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDataProtectionProviderFactory {
     type Vtable = IDataProtectionProviderFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadf33dac_4932_4cdf_ac41_7214333514ca);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataProtectionProviderFactoryImpl {
+    fn CreateOverloadExplicit();
 }
 #[repr(C)]
 #[doc(hidden)]

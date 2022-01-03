@@ -521,6 +521,28 @@ unsafe impl ::windows::core::Interface for IMFDeviceTransform {
     type Vtable = IMFDeviceTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd818fbd8_fc46_42f2_87ac_1ea2d1f9bf32);
 }
+pub trait IMFDeviceTransformImpl {
+    fn InitializeTransform();
+    fn GetInputAvailableType();
+    fn GetInputCurrentType();
+    fn GetInputStreamAttributes();
+    fn GetOutputAvailableType();
+    fn GetOutputCurrentType();
+    fn GetOutputStreamAttributes();
+    fn GetStreamCount();
+    fn GetStreamIDs();
+    fn ProcessEvent();
+    fn ProcessInput();
+    fn ProcessMessage();
+    fn ProcessOutput();
+    fn SetInputStreamState();
+    fn GetInputStreamState();
+    fn SetOutputStreamState();
+    fn GetOutputStreamState();
+    fn GetInputStreamPreferredState();
+    fn FlushInputStream();
+    fn FlushOutputStream();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFDeviceTransformVtbl(
@@ -613,6 +635,9 @@ impl ::core::fmt::Debug for IMFDeviceTransformCallback {
 unsafe impl ::windows::core::Interface for IMFDeviceTransformCallback {
     type Vtable = IMFDeviceTransformCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d5cb646_29ec_41fb_8179_8c4c6d750811);
+}
+pub trait IMFDeviceTransformCallbackImpl {
+    fn OnBufferSent();
 }
 #[repr(C)]
 #[doc(hidden)]

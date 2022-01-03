@@ -1136,6 +1136,13 @@ unsafe impl ::windows::core::Interface for IWSMan {
     type Vtable = IWSManVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x190d8637_5cd3_496d_ad24_69636bb5a3b5);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWSManImpl: IDispatchImpl {
+    fn CreateSession();
+    fn CreateConnectionOptions();
+    fn CommandLine();
+    fn Error();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSManVtbl(
@@ -1265,6 +1272,12 @@ impl ::core::fmt::Debug for IWSManConnectionOptions {
 unsafe impl ::windows::core::Interface for IWSManConnectionOptions {
     type Vtable = IWSManConnectionOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf704e861_9e52_464f_b786_da5eb2320fdd);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWSManConnectionOptionsImpl: IDispatchImpl {
+    fn UserName();
+    fn SetUserName();
+    fn SetPassword();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1424,6 +1437,11 @@ impl ::core::fmt::Debug for IWSManConnectionOptionsEx {
 unsafe impl ::windows::core::Interface for IWSManConnectionOptionsEx {
     type Vtable = IWSManConnectionOptionsExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef43edf7_2a48_4d93_9526_8bd6ab6d4a6b);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWSManConnectionOptionsExImpl: IWSManConnectionOptionsImpl + IDispatchImpl {
+    fn CertificateThumbprint();
+    fn SetCertificateThumbprint();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1648,6 +1666,17 @@ unsafe impl ::windows::core::Interface for IWSManConnectionOptionsEx2 {
     type Vtable = IWSManConnectionOptionsEx2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf500c9ec_24ee_48ab_b38d_fc9a164c658e);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWSManConnectionOptionsEx2Impl: IWSManConnectionOptionsExImpl + IWSManConnectionOptionsImpl + IDispatchImpl {
+    fn SetProxy();
+    fn ProxyIEConfig();
+    fn ProxyWinHttpConfig();
+    fn ProxyAutoDetect();
+    fn ProxyNoProxyServer();
+    fn ProxyAuthenticationUseNegotiate();
+    fn ProxyAuthenticationUseBasic();
+    fn ProxyAuthenticationUseDigest();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSManConnectionOptionsEx2Vtbl(
@@ -1789,6 +1818,12 @@ impl ::core::fmt::Debug for IWSManEnumerator {
 unsafe impl ::windows::core::Interface for IWSManEnumerator {
     type Vtable = IWSManEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3457ca9_abb9_4fa5_b850_90e8ca300e7f);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWSManEnumeratorImpl: IDispatchImpl {
+    fn ReadItem();
+    fn AtEndOfStream();
+    fn Error();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2046,6 +2081,29 @@ impl ::core::fmt::Debug for IWSManEx {
 unsafe impl ::windows::core::Interface for IWSManEx {
     type Vtable = IWSManExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d53bdaa_798e_49e6_a1aa_74d01256f411);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWSManExImpl: IWSManImpl + IDispatchImpl {
+    fn CreateResourceLocator();
+    fn SessionFlagUTF8();
+    fn SessionFlagCredUsernamePassword();
+    fn SessionFlagSkipCACheck();
+    fn SessionFlagSkipCNCheck();
+    fn SessionFlagUseDigest();
+    fn SessionFlagUseNegotiate();
+    fn SessionFlagUseBasic();
+    fn SessionFlagUseKerberos();
+    fn SessionFlagNoEncryption();
+    fn SessionFlagEnableSPNServerPort();
+    fn SessionFlagUseNoAuthentication();
+    fn EnumerationFlagNonXmlText();
+    fn EnumerationFlagReturnEPR();
+    fn EnumerationFlagReturnObjectAndEPR();
+    fn GetErrorMessage();
+    fn EnumerationFlagHierarchyDeep();
+    fn EnumerationFlagHierarchyShallow();
+    fn EnumerationFlagHierarchyDeepBasePropsOnly();
+    fn EnumerationFlagReturnObject();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2353,6 +2411,10 @@ impl ::core::fmt::Debug for IWSManEx2 {
 unsafe impl ::windows::core::Interface for IWSManEx2 {
     type Vtable = IWSManEx2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d1b5ae0_42d9_4021_8261_3987619512e9);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWSManEx2Impl: IWSManExImpl + IWSManImpl + IDispatchImpl {
+    fn SessionFlagUseClientCertificate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2717,6 +2779,16 @@ unsafe impl ::windows::core::Interface for IWSManEx3 {
     type Vtable = IWSManEx3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6400e966_011d_4eac_8474_049e0848afad);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWSManEx3Impl: IWSManEx2Impl + IWSManExImpl + IWSManImpl + IDispatchImpl {
+    fn SessionFlagUTF16();
+    fn SessionFlagUseCredSsp();
+    fn EnumerationFlagAssociationInstance();
+    fn EnumerationFlagAssociatedInstance();
+    fn SessionFlagSkipRevocationCheck();
+    fn SessionFlagAllowNegotiateImplicitCredentials();
+    fn SessionFlagUseSsl();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSManEx3Vtbl(
@@ -2866,6 +2938,10 @@ impl ::core::fmt::Debug for IWSManInternal {
 unsafe impl ::windows::core::Interface for IWSManInternal {
     type Vtable = IWSManInternalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04ae2b1d_9954_4d99_94a9_a961e72c3a13);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWSManInternalImpl: IDispatchImpl {
+    fn ConfigSDDL();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3043,6 +3119,22 @@ unsafe impl ::windows::core::Interface for IWSManResourceLocator {
     type Vtable = IWSManResourceLocatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7a1ba28_de41_466a_ad0a_c4059ead7428);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWSManResourceLocatorImpl: IDispatchImpl {
+    fn SetResourceURI();
+    fn ResourceURI();
+    fn AddSelector();
+    fn ClearSelectors();
+    fn FragmentPath();
+    fn SetFragmentPath();
+    fn FragmentDialect();
+    fn SetFragmentDialect();
+    fn AddOption();
+    fn SetMustUnderstandOptions();
+    fn MustUnderstandOptions();
+    fn ClearOptions();
+    fn Error();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSManResourceLocatorVtbl(
@@ -3126,6 +3218,7 @@ unsafe impl ::windows::core::Interface for IWSManResourceLocatorInternal {
     type Vtable = IWSManResourceLocatorInternalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeffaead7_7ec8_4716_b9be_f2e7e9fb4adb);
 }
+pub trait IWSManResourceLocatorInternalImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSManResourceLocatorInternalVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
@@ -3284,6 +3377,21 @@ impl ::core::fmt::Debug for IWSManSession {
 unsafe impl ::windows::core::Interface for IWSManSession {
     type Vtable = IWSManSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc84fc58_1286_40c4_9da0_c8ef6ec241e0);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWSManSessionImpl: IDispatchImpl {
+    fn Get();
+    fn Put();
+    fn Create();
+    fn Delete();
+    fn Invoke();
+    fn Enumerate();
+    fn Identify();
+    fn Error();
+    fn BatchItems();
+    fn SetBatchItems();
+    fn Timeout();
+    fn SetTimeout();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -13042,6 +13042,9 @@ unsafe impl ::windows::core::Interface for ID3D11Asynchronous {
     type Vtable = ID3D11AsynchronousVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b35d0cd_1e15_4258_9c98_1b1333f6dd3b);
 }
+pub trait ID3D11AsynchronousImpl: ID3D11DeviceChildImpl {
+    fn GetDataSize();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11AsynchronousVtbl(
@@ -13150,6 +13153,11 @@ unsafe impl ::windows::core::Interface for ID3D11AuthenticatedChannel {
     type Vtable = ID3D11AuthenticatedChannelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3015a308_dcbd_47aa_a747_192486d14d4a);
 }
+pub trait ID3D11AuthenticatedChannelImpl: ID3D11DeviceChildImpl {
+    fn GetCertificateSize();
+    fn GetCertificate();
+    fn GetChannelHandle();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11AuthenticatedChannelVtbl(
@@ -13250,6 +13258,9 @@ impl ::core::fmt::Debug for ID3D11BlendState {
 unsafe impl ::windows::core::Interface for ID3D11BlendState {
     type Vtable = ID3D11BlendStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75b68faa_347d_4159_8f45_a0640f01cd9a);
+}
+pub trait ID3D11BlendStateImpl: ID3D11DeviceChildImpl {
+    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13374,6 +13385,9 @@ impl ::core::fmt::Debug for ID3D11BlendState1 {
 unsafe impl ::windows::core::Interface for ID3D11BlendState1 {
     type Vtable = ID3D11BlendState1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc86fabe_da55_401d_85e7_e3c9de2877e9);
+}
+pub trait ID3D11BlendState1Impl: ID3D11BlendStateImpl + ID3D11DeviceChildImpl {
+    fn GetDesc1();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13507,6 +13521,9 @@ unsafe impl ::windows::core::Interface for ID3D11Buffer {
     type Vtable = ID3D11BufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48570b85_d1ee_4fcd_a250_eb350722b037);
 }
+pub trait ID3D11BufferImpl: ID3D11ResourceImpl + ID3D11DeviceChildImpl {
+    fn GetDesc();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11BufferVtbl(
@@ -13622,6 +13639,12 @@ unsafe impl ::windows::core::Interface for ID3D11ClassInstance {
     type Vtable = ID3D11ClassInstanceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6cd7faa_b0b7_4a2f_9436_8662a65797cb);
 }
+pub trait ID3D11ClassInstanceImpl: ID3D11DeviceChildImpl {
+    fn GetClassLinkage();
+    fn GetDesc();
+    fn GetInstanceName();
+    fn GetTypeName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11ClassInstanceVtbl(
@@ -13733,6 +13756,10 @@ unsafe impl ::windows::core::Interface for ID3D11ClassLinkage {
     type Vtable = ID3D11ClassLinkageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddf57cba_9543_46e4_a12b_f207a0fe7fed);
 }
+pub trait ID3D11ClassLinkageImpl: ID3D11DeviceChildImpl {
+    fn GetClassInstance();
+    fn CreateClassInstance();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11ClassLinkageVtbl(
@@ -13833,6 +13860,9 @@ unsafe impl ::windows::core::Interface for ID3D11CommandList {
     type Vtable = ID3D11CommandListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa24bc4d1_769e_43f7_8013_98ff566c18e2);
 }
+pub trait ID3D11CommandListImpl: ID3D11DeviceChildImpl {
+    fn GetContextFlags();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11CommandListVtbl(
@@ -13926,6 +13956,7 @@ unsafe impl ::windows::core::Interface for ID3D11ComputeShader {
     type Vtable = ID3D11ComputeShaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f5b196e_c2bd_495e_bd01_1fded38e4969);
 }
+pub trait ID3D11ComputeShaderImpl: ID3D11DeviceChildImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11ComputeShaderVtbl(
@@ -14046,6 +14077,9 @@ unsafe impl ::windows::core::Interface for ID3D11Counter {
     type Vtable = ID3D11CounterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e8c49fb_a371_4770_b440_29086022b741);
 }
+pub trait ID3D11CounterImpl: ID3D11AsynchronousImpl + ID3D11DeviceChildImpl {
+    fn GetDesc();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11CounterVtbl(
@@ -14163,6 +14197,13 @@ unsafe impl ::windows::core::Interface for ID3D11CryptoSession {
     type Vtable = ID3D11CryptoSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b32f9ad_bdcc_40a6_a39d_d5c865845720);
 }
+pub trait ID3D11CryptoSessionImpl: ID3D11DeviceChildImpl {
+    fn GetCryptoType();
+    fn GetDecoderProfile();
+    fn GetCertificateSize();
+    fn GetCertificate();
+    fn GetCryptoSessionHandle();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11CryptoSessionVtbl(
@@ -14263,6 +14304,17 @@ impl ::core::fmt::Debug for ID3D11Debug {
 unsafe impl ::windows::core::Interface for ID3D11Debug {
     type Vtable = ID3D11DebugVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79cf2233_7536_4948_9d36_1e4692dc5760);
+}
+pub trait ID3D11DebugImpl {
+    fn SetFeatureMask();
+    fn GetFeatureMask();
+    fn SetPresentPerRenderOpDelay();
+    fn GetPresentPerRenderOpDelay();
+    fn SetSwapChain();
+    fn GetSwapChain();
+    fn ValidateContext();
+    fn ReportLiveDeviceObjects();
+    fn ValidateContextForDispatch();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14367,6 +14419,9 @@ impl ::core::fmt::Debug for ID3D11DepthStencilState {
 unsafe impl ::windows::core::Interface for ID3D11DepthStencilState {
     type Vtable = ID3D11DepthStencilStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03823efb_8d8f_4e1c_9aa2_f64bb2cbfdf1);
+}
+pub trait ID3D11DepthStencilStateImpl: ID3D11DeviceChildImpl {
+    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14490,6 +14545,9 @@ impl ::core::fmt::Debug for ID3D11DepthStencilView {
 unsafe impl ::windows::core::Interface for ID3D11DepthStencilView {
     type Vtable = ID3D11DepthStencilViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fdac92a_1876_48c3_afad_25b94f84a9b6);
+}
+pub trait ID3D11DepthStencilViewImpl: ID3D11ViewImpl + ID3D11DeviceChildImpl {
+    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14753,6 +14811,48 @@ impl ::core::fmt::Debug for ID3D11Device {
 unsafe impl ::windows::core::Interface for ID3D11Device {
     type Vtable = ID3D11DeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb6f6ddb_ac77_4e88_8253_819df9bbf140);
+}
+pub trait ID3D11DeviceImpl {
+    fn CreateBuffer();
+    fn CreateTexture1D();
+    fn CreateTexture2D();
+    fn CreateTexture3D();
+    fn CreateShaderResourceView();
+    fn CreateUnorderedAccessView();
+    fn CreateRenderTargetView();
+    fn CreateDepthStencilView();
+    fn CreateInputLayout();
+    fn CreateVertexShader();
+    fn CreateGeometryShader();
+    fn CreateGeometryShaderWithStreamOutput();
+    fn CreatePixelShader();
+    fn CreateHullShader();
+    fn CreateDomainShader();
+    fn CreateComputeShader();
+    fn CreateClassLinkage();
+    fn CreateBlendState();
+    fn CreateDepthStencilState();
+    fn CreateRasterizerState();
+    fn CreateSamplerState();
+    fn CreateQuery();
+    fn CreatePredicate();
+    fn CreateCounter();
+    fn CreateDeferredContext();
+    fn OpenSharedResource();
+    fn CheckFormatSupport();
+    fn CheckMultisampleQualityLevels();
+    fn CheckCounterInfo();
+    fn CheckCounter();
+    fn CheckFeatureSupport();
+    fn GetPrivateData();
+    fn SetPrivateData();
+    fn SetPrivateDataInterface();
+    fn GetFeatureLevel();
+    fn GetCreationFlags();
+    fn GetDeviceRemovedReason();
+    fn GetImmediateContext();
+    fn SetExceptionMode();
+    fn GetExceptionMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15124,6 +15224,15 @@ impl ::core::fmt::Debug for ID3D11Device1 {
 unsafe impl ::windows::core::Interface for ID3D11Device1 {
     type Vtable = ID3D11Device1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa04bfb29_08ef_43d6_a49c_a9bdbdcbe686);
+}
+pub trait ID3D11Device1Impl: ID3D11DeviceImpl {
+    fn GetImmediateContext1();
+    fn CreateDeferredContext1();
+    fn CreateBlendState1();
+    fn CreateRasterizerState1();
+    fn CreateDeviceContextState();
+    fn OpenSharedResource1();
+    fn OpenSharedResourceByName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15546,6 +15655,12 @@ impl ::core::fmt::Debug for ID3D11Device2 {
 unsafe impl ::windows::core::Interface for ID3D11Device2 {
     type Vtable = ID3D11Device2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d06dffa_d1e5_4d07_83a8_1bb123f2f841);
+}
+pub trait ID3D11Device2Impl: ID3D11Device1Impl + ID3D11DeviceImpl {
+    fn GetImmediateContext2();
+    fn CreateDeferredContext2();
+    fn GetResourceTiling();
+    fn CheckMultisampleQualityLevels1();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16051,6 +16166,19 @@ impl ::core::fmt::Debug for ID3D11Device3 {
 unsafe impl ::windows::core::Interface for ID3D11Device3 {
     type Vtable = ID3D11Device3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa05c8c37_d2c6_4732_b3a0_9ce0b0dc9ae6);
+}
+pub trait ID3D11Device3Impl: ID3D11Device2Impl + ID3D11Device1Impl + ID3D11DeviceImpl {
+    fn CreateTexture2D1();
+    fn CreateTexture3D1();
+    fn CreateRasterizerState2();
+    fn CreateShaderResourceView1();
+    fn CreateUnorderedAccessView1();
+    fn CreateRenderTargetView1();
+    fn CreateQuery1();
+    fn GetImmediateContext3();
+    fn CreateDeferredContext3();
+    fn WriteToSubresource();
+    fn ReadFromSubresource();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16603,6 +16731,10 @@ impl ::core::fmt::Debug for ID3D11Device4 {
 unsafe impl ::windows::core::Interface for ID3D11Device4 {
     type Vtable = ID3D11Device4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8992ab71_02e6_4b8d_ba48_b056dcda42c4);
+}
+pub trait ID3D11Device4Impl: ID3D11Device3Impl + ID3D11Device2Impl + ID3D11Device1Impl + ID3D11DeviceImpl {
+    fn RegisterDeviceRemovedEvent();
+    fn UnregisterDeviceRemoved();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17188,6 +17320,10 @@ unsafe impl ::windows::core::Interface for ID3D11Device5 {
     type Vtable = ID3D11Device5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ffde202_a0e7_45df_9e01_e837801b5ea0);
 }
+pub trait ID3D11Device5Impl: ID3D11Device4Impl + ID3D11Device3Impl + ID3D11Device2Impl + ID3D11Device1Impl + ID3D11DeviceImpl {
+    fn OpenSharedFence();
+    fn CreateFence();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11Device5Vtbl(
@@ -17352,6 +17488,12 @@ impl ::core::fmt::Debug for ID3D11DeviceChild {
 unsafe impl ::windows::core::Interface for ID3D11DeviceChild {
     type Vtable = ID3D11DeviceChildVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1841e5c8_16b0_489b_bcc8_44cfb0d5deae);
+}
+pub trait ID3D11DeviceChildImpl {
+    fn GetDevice();
+    fn GetPrivateData();
+    fn SetPrivateData();
+    fn SetPrivateDataInterface();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17889,6 +18031,116 @@ impl ::core::fmt::Debug for ID3D11DeviceContext {
 unsafe impl ::windows::core::Interface for ID3D11DeviceContext {
     type Vtable = ID3D11DeviceContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0bfa96c_e089_44fb_8eaf_26f8796190da);
+}
+pub trait ID3D11DeviceContextImpl: ID3D11DeviceChildImpl {
+    fn VSSetConstantBuffers();
+    fn PSSetShaderResources();
+    fn PSSetShader();
+    fn PSSetSamplers();
+    fn VSSetShader();
+    fn DrawIndexed();
+    fn Draw();
+    fn Map();
+    fn Unmap();
+    fn PSSetConstantBuffers();
+    fn IASetInputLayout();
+    fn IASetVertexBuffers();
+    fn IASetIndexBuffer();
+    fn DrawIndexedInstanced();
+    fn DrawInstanced();
+    fn GSSetConstantBuffers();
+    fn GSSetShader();
+    fn IASetPrimitiveTopology();
+    fn VSSetShaderResources();
+    fn VSSetSamplers();
+    fn Begin();
+    fn End();
+    fn GetData();
+    fn SetPredication();
+    fn GSSetShaderResources();
+    fn GSSetSamplers();
+    fn OMSetRenderTargets();
+    fn OMSetRenderTargetsAndUnorderedAccessViews();
+    fn OMSetBlendState();
+    fn OMSetDepthStencilState();
+    fn SOSetTargets();
+    fn DrawAuto();
+    fn DrawIndexedInstancedIndirect();
+    fn DrawInstancedIndirect();
+    fn Dispatch();
+    fn DispatchIndirect();
+    fn RSSetState();
+    fn RSSetViewports();
+    fn RSSetScissorRects();
+    fn CopySubresourceRegion();
+    fn CopyResource();
+    fn UpdateSubresource();
+    fn CopyStructureCount();
+    fn ClearRenderTargetView();
+    fn ClearUnorderedAccessViewUint();
+    fn ClearUnorderedAccessViewFloat();
+    fn ClearDepthStencilView();
+    fn GenerateMips();
+    fn SetResourceMinLOD();
+    fn GetResourceMinLOD();
+    fn ResolveSubresource();
+    fn ExecuteCommandList();
+    fn HSSetShaderResources();
+    fn HSSetShader();
+    fn HSSetSamplers();
+    fn HSSetConstantBuffers();
+    fn DSSetShaderResources();
+    fn DSSetShader();
+    fn DSSetSamplers();
+    fn DSSetConstantBuffers();
+    fn CSSetShaderResources();
+    fn CSSetUnorderedAccessViews();
+    fn CSSetShader();
+    fn CSSetSamplers();
+    fn CSSetConstantBuffers();
+    fn VSGetConstantBuffers();
+    fn PSGetShaderResources();
+    fn PSGetShader();
+    fn PSGetSamplers();
+    fn VSGetShader();
+    fn PSGetConstantBuffers();
+    fn IAGetInputLayout();
+    fn IAGetVertexBuffers();
+    fn IAGetIndexBuffer();
+    fn GSGetConstantBuffers();
+    fn GSGetShader();
+    fn IAGetPrimitiveTopology();
+    fn VSGetShaderResources();
+    fn VSGetSamplers();
+    fn GetPredication();
+    fn GSGetShaderResources();
+    fn GSGetSamplers();
+    fn OMGetRenderTargets();
+    fn OMGetRenderTargetsAndUnorderedAccessViews();
+    fn OMGetBlendState();
+    fn OMGetDepthStencilState();
+    fn SOGetTargets();
+    fn RSGetState();
+    fn RSGetViewports();
+    fn RSGetScissorRects();
+    fn HSGetShaderResources();
+    fn HSGetShader();
+    fn HSGetSamplers();
+    fn HSGetConstantBuffers();
+    fn DSGetShaderResources();
+    fn DSGetShader();
+    fn DSGetSamplers();
+    fn DSGetConstantBuffers();
+    fn CSGetShaderResources();
+    fn CSGetUnorderedAccessViews();
+    fn CSGetShader();
+    fn CSGetSamplers();
+    fn CSGetConstantBuffers();
+    fn ClearState();
+    fn Flush();
+    fn GetType();
+    fn GetContextFlags();
+    fn FinishCommandList();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18643,6 +18895,27 @@ impl ::core::fmt::Debug for ID3D11DeviceContext1 {
 unsafe impl ::windows::core::Interface for ID3D11DeviceContext1 {
     type Vtable = ID3D11DeviceContext1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb2c6faa_b5fb_4082_8e6b_388b8cfa90e1);
+}
+pub trait ID3D11DeviceContext1Impl: ID3D11DeviceContextImpl + ID3D11DeviceChildImpl {
+    fn CopySubresourceRegion1();
+    fn UpdateSubresource1();
+    fn DiscardResource();
+    fn DiscardView();
+    fn VSSetConstantBuffers1();
+    fn HSSetConstantBuffers1();
+    fn DSSetConstantBuffers1();
+    fn GSSetConstantBuffers1();
+    fn PSSetConstantBuffers1();
+    fn CSSetConstantBuffers1();
+    fn VSGetConstantBuffers1();
+    fn HSGetConstantBuffers1();
+    fn DSGetConstantBuffers1();
+    fn GSGetConstantBuffers1();
+    fn PSGetConstantBuffers1();
+    fn CSGetConstantBuffers1();
+    fn SwapDeviceContextState();
+    fn ClearView();
+    fn DiscardView1();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19485,6 +19758,18 @@ impl ::core::fmt::Debug for ID3D11DeviceContext2 {
 unsafe impl ::windows::core::Interface for ID3D11DeviceContext2 {
     type Vtable = ID3D11DeviceContext2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x420d5b32_b90c_4da4_bef0_359f6a24a83a);
+}
+pub trait ID3D11DeviceContext2Impl: ID3D11DeviceContext1Impl + ID3D11DeviceContextImpl + ID3D11DeviceChildImpl {
+    fn UpdateTileMappings();
+    fn CopyTileMappings();
+    fn CopyTiles();
+    fn UpdateTiles();
+    fn ResizeTilePool();
+    fn TiledResourceBarrier();
+    fn IsAnnotationEnabled();
+    fn SetMarkerInt();
+    fn BeginEventInt();
+    fn EndEvent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -20379,6 +20664,11 @@ impl ::core::fmt::Debug for ID3D11DeviceContext3 {
 unsafe impl ::windows::core::Interface for ID3D11DeviceContext3 {
     type Vtable = ID3D11DeviceContext3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4e3c01d_e79e_4637_91b2_510e9f4c9b8f);
+}
+pub trait ID3D11DeviceContext3Impl: ID3D11DeviceContext2Impl + ID3D11DeviceContext1Impl + ID3D11DeviceContextImpl + ID3D11DeviceChildImpl {
+    fn Flush1();
+    fn SetHardwareProtectionState();
+    fn GetHardwareProtectionState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21308,6 +21598,10 @@ unsafe impl ::windows::core::Interface for ID3D11DeviceContext4 {
     type Vtable = ID3D11DeviceContext4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x917600da_f58c_4c33_98d8_3e15b390fa24);
 }
+pub trait ID3D11DeviceContext4Impl: ID3D11DeviceContext3Impl + ID3D11DeviceContext2Impl + ID3D11DeviceContext1Impl + ID3D11DeviceContextImpl + ID3D11DeviceChildImpl {
+    fn Signal();
+    fn Wait();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11DeviceContext4Vtbl(
@@ -21565,6 +21859,7 @@ unsafe impl ::windows::core::Interface for ID3D11DomainShader {
     type Vtable = ID3D11DomainShaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf582c508_0f36_490c_9977_31eece268cfa);
 }
+pub trait ID3D11DomainShaderImpl: ID3D11DeviceChildImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11DomainShaderVtbl(
@@ -21672,6 +21967,11 @@ unsafe impl ::windows::core::Interface for ID3D11Fence {
     type Vtable = ID3D11FenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaffde9d1_1df7_4bb7_8a34_0f46251dab80);
 }
+pub trait ID3D11FenceImpl: ID3D11DeviceChildImpl {
+    fn CreateSharedHandle();
+    fn GetCompletedValue();
+    fn SetEventOnCompletion();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11FenceVtbl(
@@ -21777,6 +22077,16 @@ unsafe impl ::windows::core::Interface for ID3D11FunctionLinkingGraph {
     type Vtable = ID3D11FunctionLinkingGraphVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54133220_1ce8_43d3_8236_9855c5ceecff);
 }
+pub trait ID3D11FunctionLinkingGraphImpl {
+    fn CreateModuleInstance();
+    fn SetInputSignature();
+    fn SetOutputSignature();
+    fn CallFunction();
+    fn PassValue();
+    fn PassValueWithSwizzle();
+    fn GetLastError();
+    fn GenerateHlsl();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11FunctionLinkingGraphVtbl(
@@ -21829,6 +22139,9 @@ impl ::core::fmt::Debug for ID3D11FunctionParameterReflection {
 unsafe impl ::windows::core::Interface for ID3D11FunctionParameterReflection {
     type Vtable = ID3D11FunctionParameterReflectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42757488_334f_47fe_982e_1a65d08cc462);
+}
+pub trait ID3D11FunctionParameterReflectionImpl {
+    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21893,6 +22206,15 @@ impl ::core::fmt::Debug for ID3D11FunctionReflection {
 unsafe impl ::windows::core::Interface for ID3D11FunctionReflection {
     type Vtable = ID3D11FunctionReflectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x207bcecb_d683_4a06_a8a3_9b149b9f73a4);
+}
+pub trait ID3D11FunctionReflectionImpl {
+    fn GetDesc();
+    fn GetConstantBufferByIndex();
+    fn GetConstantBufferByName();
+    fn GetResourceBindingDesc();
+    fn GetVariableByName();
+    fn GetResourceBindingDescByName();
+    fn GetFunctionParameter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21991,6 +22313,7 @@ unsafe impl ::windows::core::Interface for ID3D11GeometryShader {
     type Vtable = ID3D11GeometryShaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38325b96_effb_4022_ba02_2e795b70275c);
 }
+pub trait ID3D11GeometryShaderImpl: ID3D11DeviceChildImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11GeometryShaderVtbl(
@@ -22083,6 +22406,7 @@ unsafe impl ::windows::core::Interface for ID3D11HullShader {
     type Vtable = ID3D11HullShaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e5c6061_628a_4c8e_8264_bbe45cb3d5dd);
 }
+pub trait ID3D11HullShaderImpl: ID3D11DeviceChildImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11HullShaderVtbl(
@@ -22289,6 +22613,43 @@ unsafe impl ::windows::core::Interface for ID3D11InfoQueue {
     type Vtable = ID3D11InfoQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6543dbb6_1b48_42f5_ab82_e97ec74326f6);
 }
+pub trait ID3D11InfoQueueImpl {
+    fn SetMessageCountLimit();
+    fn ClearStoredMessages();
+    fn GetMessage();
+    fn GetNumMessagesAllowedByStorageFilter();
+    fn GetNumMessagesDeniedByStorageFilter();
+    fn GetNumStoredMessages();
+    fn GetNumStoredMessagesAllowedByRetrievalFilter();
+    fn GetNumMessagesDiscardedByMessageCountLimit();
+    fn GetMessageCountLimit();
+    fn AddStorageFilterEntries();
+    fn GetStorageFilter();
+    fn ClearStorageFilter();
+    fn PushEmptyStorageFilter();
+    fn PushCopyOfStorageFilter();
+    fn PushStorageFilter();
+    fn PopStorageFilter();
+    fn GetStorageFilterStackSize();
+    fn AddRetrievalFilterEntries();
+    fn GetRetrievalFilter();
+    fn ClearRetrievalFilter();
+    fn PushEmptyRetrievalFilter();
+    fn PushCopyOfRetrievalFilter();
+    fn PushRetrievalFilter();
+    fn PopRetrievalFilter();
+    fn GetRetrievalFilterStackSize();
+    fn AddMessage();
+    fn AddApplicationMessage();
+    fn SetBreakOnCategory();
+    fn SetBreakOnSeverity();
+    fn SetBreakOnID();
+    fn GetBreakOnCategory();
+    fn GetBreakOnSeverity();
+    fn GetBreakOnID();
+    fn SetMuteDebugOutput();
+    fn GetMuteDebugOutput();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11InfoQueueVtbl(
@@ -22422,6 +22783,7 @@ unsafe impl ::windows::core::Interface for ID3D11InputLayout {
     type Vtable = ID3D11InputLayoutVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4819ddc_4cf0_4025_bd26_5de82a3e07b7);
 }
+pub trait ID3D11InputLayoutImpl: ID3D11DeviceChildImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11InputLayoutVtbl(
@@ -22487,6 +22849,10 @@ impl ::core::fmt::Debug for ID3D11LibraryReflection {
 unsafe impl ::windows::core::Interface for ID3D11LibraryReflection {
     type Vtable = ID3D11LibraryReflectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54384f1b_5b3e_4bb7_ae01_60ba3097cbb6);
+}
+pub trait ID3D11LibraryReflectionImpl {
+    fn GetDesc();
+    fn GetFunctionByIndex();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22556,6 +22922,11 @@ unsafe impl ::windows::core::Interface for ID3D11Linker {
     type Vtable = ID3D11LinkerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59a6cd0e_e10d_4c1f_88c0_63aba1daf30e);
 }
+pub trait ID3D11LinkerImpl {
+    fn Link();
+    fn UseLibrary();
+    fn AddClipPlaneFromCBuffer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11LinkerVtbl(
@@ -22611,6 +22982,7 @@ unsafe impl ::windows::core::Interface for ID3D11LinkingNode {
     type Vtable = ID3D11LinkingNodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd80dd70c_8d2f_4751_94a1_03c79b3556db);
 }
+pub trait ID3D11LinkingNodeImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11LinkingNodeVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
@@ -22664,6 +23036,9 @@ impl ::core::fmt::Debug for ID3D11Module {
 unsafe impl ::windows::core::Interface for ID3D11Module {
     type Vtable = ID3D11ModuleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcac701ee_80fc_4122_8242_10b39c8cec34);
+}
+pub trait ID3D11ModuleImpl {
+    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22764,6 +23139,18 @@ unsafe impl ::windows::core::Interface for ID3D11ModuleInstance {
     type Vtable = ID3D11ModuleInstanceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x469e07f7_045a_48d5_aa12_68a478cdf75d);
 }
+pub trait ID3D11ModuleInstanceImpl {
+    fn BindConstantBuffer();
+    fn BindConstantBufferByName();
+    fn BindResource();
+    fn BindResourceByName();
+    fn BindSampler();
+    fn BindSamplerByName();
+    fn BindUnorderedAccessView();
+    fn BindUnorderedAccessViewByName();
+    fn BindResourceAsUnorderedAccessView();
+    fn BindResourceAsUnorderedAccessViewByName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11ModuleInstanceVtbl(
@@ -22848,6 +23235,12 @@ impl ::core::fmt::Debug for ID3D11Multithread {
 unsafe impl ::windows::core::Interface for ID3D11Multithread {
     type Vtable = ID3D11MultithreadVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4e00_342c_4106_a19f_4f2704f689f0);
+}
+pub trait ID3D11MultithreadImpl {
+    fn Enter();
+    fn Leave();
+    fn SetMultithreadProtected();
+    fn GetMultithreadProtected();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22943,6 +23336,7 @@ unsafe impl ::windows::core::Interface for ID3D11PixelShader {
     type Vtable = ID3D11PixelShaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea82e40d_51dc_4f33_93d4_db7c9125ae8c);
 }
+pub trait ID3D11PixelShaderImpl: ID3D11DeviceChildImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11PixelShaderVtbl(
@@ -23083,6 +23477,7 @@ unsafe impl ::windows::core::Interface for ID3D11Predicate {
     type Vtable = ID3D11PredicateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9eb576dd_9f77_4d86_81aa_8bab5fe490e2);
 }
+pub trait ID3D11PredicateImpl: ID3D11QueryImpl + ID3D11AsynchronousImpl + ID3D11DeviceChildImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11PredicateVtbl(
@@ -23204,6 +23599,9 @@ impl ::core::fmt::Debug for ID3D11Query {
 unsafe impl ::windows::core::Interface for ID3D11Query {
     type Vtable = ID3D11QueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6c00747_87b7_425e_b84d_44d108560afd);
+}
+pub trait ID3D11QueryImpl: ID3D11AsynchronousImpl + ID3D11DeviceChildImpl {
+    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23351,6 +23749,9 @@ unsafe impl ::windows::core::Interface for ID3D11Query1 {
     type Vtable = ID3D11Query1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x631b4766_36dc_461d_8db6_c47e13e60916);
 }
+pub trait ID3D11Query1Impl: ID3D11QueryImpl + ID3D11AsynchronousImpl + ID3D11DeviceChildImpl {
+    fn GetDesc1();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11Query1Vtbl(
@@ -23450,6 +23851,9 @@ impl ::core::fmt::Debug for ID3D11RasterizerState {
 unsafe impl ::windows::core::Interface for ID3D11RasterizerState {
     type Vtable = ID3D11RasterizerStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bb4ab81_ab1a_4d8f_b506_fc04200b6ee7);
+}
+pub trait ID3D11RasterizerStateImpl: ID3D11DeviceChildImpl {
+    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23574,6 +23978,9 @@ impl ::core::fmt::Debug for ID3D11RasterizerState1 {
 unsafe impl ::windows::core::Interface for ID3D11RasterizerState1 {
     type Vtable = ID3D11RasterizerState1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1217d7a6_5039_418c_b042_9cbe256afd6e);
+}
+pub trait ID3D11RasterizerState1Impl: ID3D11RasterizerStateImpl + ID3D11DeviceChildImpl {
+    fn GetDesc1();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23726,6 +24133,9 @@ unsafe impl ::windows::core::Interface for ID3D11RasterizerState2 {
     type Vtable = ID3D11RasterizerState2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fbd02fb_209f_46c4_b059_2ed15586a6ac);
 }
+pub trait ID3D11RasterizerState2Impl: ID3D11RasterizerState1Impl + ID3D11RasterizerStateImpl + ID3D11DeviceChildImpl {
+    fn GetDesc2();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11RasterizerState2Vtbl(
@@ -23792,6 +24202,9 @@ unsafe impl ::windows::core::Interface for ID3D11RefDefaultTrackingOptions {
     type Vtable = ID3D11RefDefaultTrackingOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03916615_c644_418c_9bf4_75db5be63ca0);
 }
+pub trait ID3D11RefDefaultTrackingOptionsImpl {
+    fn SetTrackingOptions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11RefDefaultTrackingOptionsVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourcetypeflags: u32, options: u32) -> ::windows::core::HRESULT);
@@ -23843,6 +24256,9 @@ impl ::core::fmt::Debug for ID3D11RefTrackingOptions {
 unsafe impl ::windows::core::Interface for ID3D11RefTrackingOptions {
     type Vtable = ID3D11RefTrackingOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x193dacdf_0db2_4c05_a55c_ef06cac56fd9);
+}
+pub trait ID3D11RefTrackingOptionsImpl {
+    fn SetTrackingOptions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23956,6 +24372,9 @@ impl ::core::fmt::Debug for ID3D11RenderTargetView {
 unsafe impl ::windows::core::Interface for ID3D11RenderTargetView {
     type Vtable = ID3D11RenderTargetViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfdba067_0b8d_4865_875b_d7b4516cc164);
+}
+pub trait ID3D11RenderTargetViewImpl: ID3D11ViewImpl + ID3D11DeviceChildImpl {
+    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24106,6 +24525,9 @@ unsafe impl ::windows::core::Interface for ID3D11RenderTargetView1 {
     type Vtable = ID3D11RenderTargetView1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffbe2e23_f011_418a_ac56_5ceed7c5b94b);
 }
+pub trait ID3D11RenderTargetView1Impl: ID3D11RenderTargetViewImpl + ID3D11ViewImpl + ID3D11DeviceChildImpl {
+    fn GetDesc1();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11RenderTargetView1Vtbl(
@@ -24215,6 +24637,11 @@ unsafe impl ::windows::core::Interface for ID3D11Resource {
     type Vtable = ID3D11ResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc8e63f3_d12b_4952_b47b_5e45026a862d);
 }
+pub trait ID3D11ResourceImpl: ID3D11DeviceChildImpl {
+    fn GetType();
+    fn SetEvictionPriority();
+    fn GetEvictionPriority();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11ResourceVtbl(
@@ -24313,6 +24740,9 @@ impl ::core::fmt::Debug for ID3D11SamplerState {
 unsafe impl ::windows::core::Interface for ID3D11SamplerState {
     type Vtable = ID3D11SamplerStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda6fea51_564c_4487_9810_f0d0f9b4e3a5);
+}
+pub trait ID3D11SamplerStateImpl: ID3D11DeviceChildImpl {
+    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24465,6 +24895,27 @@ unsafe impl ::windows::core::Interface for ID3D11ShaderReflection {
     type Vtable = ID3D11ShaderReflectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d536ca1_0cca_4956_a837_786963755584);
 }
+pub trait ID3D11ShaderReflectionImpl {
+    fn GetDesc();
+    fn GetConstantBufferByIndex();
+    fn GetConstantBufferByName();
+    fn GetResourceBindingDesc();
+    fn GetInputParameterDesc();
+    fn GetOutputParameterDesc();
+    fn GetPatchConstantParameterDesc();
+    fn GetVariableByName();
+    fn GetResourceBindingDescByName();
+    fn GetMovInstructionCount();
+    fn GetMovcInstructionCount();
+    fn GetConversionInstructionCount();
+    fn GetBitwiseInstructionCount();
+    fn GetGSInputPrimitive();
+    fn IsSampleFrequencyShader();
+    fn GetNumInterfaceSlots();
+    fn GetMinFeatureLevel();
+    fn GetThreadGroupSize();
+    fn GetRequiresFlags();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11ShaderReflectionVtbl(
@@ -24540,6 +24991,11 @@ impl ::core::fmt::Debug for ID3D11ShaderReflectionConstantBuffer {
 unsafe impl ::windows::core::Interface for ID3D11ShaderReflectionConstantBuffer {
     type Vtable = ID3D11ShaderReflectionConstantBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb62d63d_93dd_4318_8ae8_c6f83ad371b8);
+}
+pub trait ID3D11ShaderReflectionConstantBufferImpl {
+    fn GetDesc();
+    fn GetVariableByIndex();
+    fn GetVariableByName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24623,6 +25079,19 @@ unsafe impl ::windows::core::Interface for ID3D11ShaderReflectionType {
     type Vtable = ID3D11ShaderReflectionTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e6ffa6a_9bae_4613_a51e_91652d508c21);
 }
+pub trait ID3D11ShaderReflectionTypeImpl {
+    fn GetDesc();
+    fn GetMemberTypeByIndex();
+    fn GetMemberTypeByName();
+    fn GetMemberTypeName();
+    fn IsEqual();
+    fn GetSubType();
+    fn GetBaseClass();
+    fn GetNumInterfaces();
+    fn GetInterfaceByIndex();
+    fn IsOfType();
+    fn ImplementsInterface();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11ShaderReflectionTypeVtbl(
@@ -24683,6 +25152,12 @@ impl ::core::fmt::Debug for ID3D11ShaderReflectionVariable {
 unsafe impl ::windows::core::Interface for ID3D11ShaderReflectionVariable {
     type Vtable = ID3D11ShaderReflectionVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51f23923_f3e5_4bd1_91cb_606177d8db4c);
+}
+pub trait ID3D11ShaderReflectionVariableImpl {
+    fn GetDesc();
+    fn GetType();
+    fn GetBuffer();
+    fn GetInterfaceSlot();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24802,6 +25277,9 @@ impl ::core::fmt::Debug for ID3D11ShaderResourceView {
 unsafe impl ::windows::core::Interface for ID3D11ShaderResourceView {
     type Vtable = ID3D11ShaderResourceViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0e06fe0_8192_4e1a_b1ca_36d7414710b2);
+}
+pub trait ID3D11ShaderResourceViewImpl: ID3D11ViewImpl + ID3D11DeviceChildImpl {
+    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24952,6 +25430,9 @@ unsafe impl ::windows::core::Interface for ID3D11ShaderResourceView1 {
     type Vtable = ID3D11ShaderResourceView1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91308b87_9040_411d_8c67_c39253ce3802);
 }
+pub trait ID3D11ShaderResourceView1Impl: ID3D11ShaderResourceViewImpl + ID3D11ViewImpl + ID3D11DeviceChildImpl {
+    fn GetDesc1();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11ShaderResourceView1Vtbl(
@@ -25051,6 +25532,16 @@ unsafe impl ::windows::core::Interface for ID3D11ShaderTrace {
     type Vtable = ID3D11ShaderTraceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36b013e6_2811_4845_baa7_d623fe0df104);
 }
+pub trait ID3D11ShaderTraceImpl {
+    fn TraceReady();
+    fn ResetTrace();
+    fn GetTraceStats();
+    fn PSSelectStamp();
+    fn GetInitialRegisterContents();
+    fn GetStep();
+    fn GetWrittenRegister();
+    fn GetReadRegister();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11ShaderTraceVtbl(
@@ -25118,6 +25609,9 @@ unsafe impl ::windows::core::Interface for ID3D11ShaderTraceFactory {
     type Vtable = ID3D11ShaderTraceFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fbad429_66ab_41cc_9617_667ac10e4459);
 }
+pub trait ID3D11ShaderTraceFactoryImpl {
+    fn CreateShaderTrace();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11ShaderTraceFactoryVtbl(
@@ -25180,6 +25674,10 @@ impl ::core::fmt::Debug for ID3D11SwitchToRef {
 unsafe impl ::windows::core::Interface for ID3D11SwitchToRef {
     type Vtable = ID3D11SwitchToRefVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ef337e3_58e7_4f83_a692_db221f5ed47e);
+}
+pub trait ID3D11SwitchToRefImpl {
+    fn SetUseRef();
+    fn GetUseRef();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25309,6 +25807,9 @@ impl ::core::fmt::Debug for ID3D11Texture1D {
 unsafe impl ::windows::core::Interface for ID3D11Texture1D {
     type Vtable = ID3D11Texture1DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8fb5c27_c6b3_4f75_a4c8_439af2ef564c);
+}
+pub trait ID3D11Texture1DImpl: ID3D11ResourceImpl + ID3D11DeviceChildImpl {
+    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25443,6 +25944,9 @@ impl ::core::fmt::Debug for ID3D11Texture2D {
 unsafe impl ::windows::core::Interface for ID3D11Texture2D {
     type Vtable = ID3D11Texture2DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f15aaf2_d208_4e89_9ab4_489535d34f9c);
+}
+pub trait ID3D11Texture2DImpl: ID3D11ResourceImpl + ID3D11DeviceChildImpl {
+    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25603,6 +26107,9 @@ unsafe impl ::windows::core::Interface for ID3D11Texture2D1 {
     type Vtable = ID3D11Texture2D1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51218251_1e33_4617_9ccb_4d3a4367e7bb);
 }
+pub trait ID3D11Texture2D1Impl: ID3D11Texture2DImpl + ID3D11ResourceImpl + ID3D11DeviceChildImpl {
+    fn GetDesc1();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11Texture2D1Vtbl(
@@ -25738,6 +26245,9 @@ impl ::core::fmt::Debug for ID3D11Texture3D {
 unsafe impl ::windows::core::Interface for ID3D11Texture3D {
     type Vtable = ID3D11Texture3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x037e866e_f56d_4357_a8af_9dabbe6e250e);
+}
+pub trait ID3D11Texture3DImpl: ID3D11ResourceImpl + ID3D11DeviceChildImpl {
+    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25898,6 +26408,9 @@ unsafe impl ::windows::core::Interface for ID3D11Texture3D1 {
     type Vtable = ID3D11Texture3D1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c711683_2853_4846_9bb0_f3e60639e46a);
 }
+pub trait ID3D11Texture3D1Impl: ID3D11Texture3DImpl + ID3D11ResourceImpl + ID3D11DeviceChildImpl {
+    fn GetDesc1();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11Texture3D1Vtbl(
@@ -25968,6 +26481,10 @@ impl ::core::fmt::Debug for ID3D11TracingDevice {
 unsafe impl ::windows::core::Interface for ID3D11TracingDevice {
     type Vtable = ID3D11TracingDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1911c771_1587_413e_a7e0_fb26c3de0268);
+}
+pub trait ID3D11TracingDeviceImpl {
+    fn SetShaderTrackingOptionsByType();
+    fn SetShaderTrackingOptions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26087,6 +26604,9 @@ impl ::core::fmt::Debug for ID3D11UnorderedAccessView {
 unsafe impl ::windows::core::Interface for ID3D11UnorderedAccessView {
     type Vtable = ID3D11UnorderedAccessViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28acf509_7f5c_48f6_8611_f316010a6380);
+}
+pub trait ID3D11UnorderedAccessViewImpl: ID3D11ViewImpl + ID3D11DeviceChildImpl {
+    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26237,6 +26757,9 @@ unsafe impl ::windows::core::Interface for ID3D11UnorderedAccessView1 {
     type Vtable = ID3D11UnorderedAccessView1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b3b6153_a886_4544_ab37_6537c8500403);
 }
+pub trait ID3D11UnorderedAccessView1Impl: ID3D11UnorderedAccessViewImpl + ID3D11ViewImpl + ID3D11DeviceChildImpl {
+    fn GetDesc1();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11UnorderedAccessView1Vtbl(
@@ -26334,6 +26857,7 @@ unsafe impl ::windows::core::Interface for ID3D11VertexShader {
     type Vtable = ID3D11VertexShaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b301d64_d678_4289_8897_22f8928b72f3);
 }
+pub trait ID3D11VertexShaderImpl: ID3D11DeviceChildImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11VertexShaderVtbl(
@@ -26689,6 +27213,66 @@ impl ::core::fmt::Debug for ID3D11VideoContext {
 unsafe impl ::windows::core::Interface for ID3D11VideoContext {
     type Vtable = ID3D11VideoContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61f21c45_3c0e_4a74_9cea_67100d9ad5e4);
+}
+pub trait ID3D11VideoContextImpl: ID3D11DeviceChildImpl {
+    fn GetDecoderBuffer();
+    fn ReleaseDecoderBuffer();
+    fn DecoderBeginFrame();
+    fn DecoderEndFrame();
+    fn SubmitDecoderBuffers();
+    fn DecoderExtension();
+    fn VideoProcessorSetOutputTargetRect();
+    fn VideoProcessorSetOutputBackgroundColor();
+    fn VideoProcessorSetOutputColorSpace();
+    fn VideoProcessorSetOutputAlphaFillMode();
+    fn VideoProcessorSetOutputConstriction();
+    fn VideoProcessorSetOutputStereoMode();
+    fn VideoProcessorSetOutputExtension();
+    fn VideoProcessorGetOutputTargetRect();
+    fn VideoProcessorGetOutputBackgroundColor();
+    fn VideoProcessorGetOutputColorSpace();
+    fn VideoProcessorGetOutputAlphaFillMode();
+    fn VideoProcessorGetOutputConstriction();
+    fn VideoProcessorGetOutputStereoMode();
+    fn VideoProcessorGetOutputExtension();
+    fn VideoProcessorSetStreamFrameFormat();
+    fn VideoProcessorSetStreamColorSpace();
+    fn VideoProcessorSetStreamOutputRate();
+    fn VideoProcessorSetStreamSourceRect();
+    fn VideoProcessorSetStreamDestRect();
+    fn VideoProcessorSetStreamAlpha();
+    fn VideoProcessorSetStreamPalette();
+    fn VideoProcessorSetStreamPixelAspectRatio();
+    fn VideoProcessorSetStreamLumaKey();
+    fn VideoProcessorSetStreamStereoFormat();
+    fn VideoProcessorSetStreamAutoProcessingMode();
+    fn VideoProcessorSetStreamFilter();
+    fn VideoProcessorSetStreamExtension();
+    fn VideoProcessorGetStreamFrameFormat();
+    fn VideoProcessorGetStreamColorSpace();
+    fn VideoProcessorGetStreamOutputRate();
+    fn VideoProcessorGetStreamSourceRect();
+    fn VideoProcessorGetStreamDestRect();
+    fn VideoProcessorGetStreamAlpha();
+    fn VideoProcessorGetStreamPalette();
+    fn VideoProcessorGetStreamPixelAspectRatio();
+    fn VideoProcessorGetStreamLumaKey();
+    fn VideoProcessorGetStreamStereoFormat();
+    fn VideoProcessorGetStreamAutoProcessingMode();
+    fn VideoProcessorGetStreamFilter();
+    fn VideoProcessorGetStreamExtension();
+    fn VideoProcessorBlt();
+    fn NegotiateCryptoSessionKeyExchange();
+    fn EncryptionBlt();
+    fn DecryptionBlt();
+    fn StartSessionKeyRefresh();
+    fn FinishSessionKeyRefresh();
+    fn GetEncryptionBltKey();
+    fn NegotiateAuthenticatedChannelKeyExchange();
+    fn QueryAuthenticatedChannel();
+    fn ConfigureAuthenticatedChannel();
+    fn VideoProcessorSetStreamRotation();
+    fn VideoProcessorGetStreamRotation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27224,6 +27808,22 @@ impl ::core::fmt::Debug for ID3D11VideoContext1 {
 unsafe impl ::windows::core::Interface for ID3D11VideoContext1 {
     type Vtable = ID3D11VideoContext1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7f026da_a5f8_4487_a564_15e34357651e);
+}
+pub trait ID3D11VideoContext1Impl: ID3D11VideoContextImpl + ID3D11DeviceChildImpl {
+    fn SubmitDecoderBuffers1();
+    fn GetDataForNewHardwareKey();
+    fn CheckCryptoSessionStatus();
+    fn DecoderEnableDownsampling();
+    fn DecoderUpdateDownsampling();
+    fn VideoProcessorSetOutputColorSpace1();
+    fn VideoProcessorSetOutputShaderUsage();
+    fn VideoProcessorGetOutputColorSpace1();
+    fn VideoProcessorGetOutputShaderUsage();
+    fn VideoProcessorSetStreamColorSpace1();
+    fn VideoProcessorSetStreamMirror();
+    fn VideoProcessorGetStreamColorSpace1();
+    fn VideoProcessorGetStreamMirror();
+    fn VideoProcessorGetBehaviorHints();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27824,6 +28424,12 @@ impl ::core::fmt::Debug for ID3D11VideoContext2 {
 unsafe impl ::windows::core::Interface for ID3D11VideoContext2 {
     type Vtable = ID3D11VideoContext2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4e7374c_6243_4d1b_ae87_52b4f740e261);
+}
+pub trait ID3D11VideoContext2Impl: ID3D11VideoContext1Impl + ID3D11VideoContextImpl + ID3D11DeviceChildImpl {
+    fn VideoProcessorSetOutputHDRMetaData();
+    fn VideoProcessorGetOutputHDRMetaData();
+    fn VideoProcessorSetStreamHDRMetaData();
+    fn VideoProcessorGetStreamHDRMetaData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28461,6 +29067,10 @@ unsafe impl ::windows::core::Interface for ID3D11VideoContext3 {
     type Vtable = ID3D11VideoContext3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9e2faa0_cb39_418f_a0b7_d8aad4de672e);
 }
+pub trait ID3D11VideoContext3Impl: ID3D11VideoContext2Impl + ID3D11VideoContext1Impl + ID3D11VideoContextImpl + ID3D11DeviceChildImpl {
+    fn DecoderBeginFrame1();
+    fn SubmitDecoderBuffers2();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11VideoContext3Vtbl(
@@ -28688,6 +29298,10 @@ unsafe impl ::windows::core::Interface for ID3D11VideoDecoder {
     type Vtable = ID3D11VideoDecoderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c9c5b51_995d_48d1_9b8d_fa5caeded65c);
 }
+pub trait ID3D11VideoDecoderImpl: ID3D11DeviceChildImpl {
+    fn GetCreationParameters();
+    fn GetDriverHandle();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11VideoDecoderVtbl(
@@ -28811,6 +29425,9 @@ impl ::core::fmt::Debug for ID3D11VideoDecoderOutputView {
 unsafe impl ::windows::core::Interface for ID3D11VideoDecoderOutputView {
     type Vtable = ID3D11VideoDecoderOutputViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2931aea_2a85_4f20_860f_fba1fd256e18);
+}
+pub trait ID3D11VideoDecoderOutputViewImpl: ID3D11ViewImpl + ID3D11DeviceChildImpl {
+    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28956,6 +29573,25 @@ impl ::core::fmt::Debug for ID3D11VideoDevice {
 unsafe impl ::windows::core::Interface for ID3D11VideoDevice {
     type Vtable = ID3D11VideoDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10ec4d5b_975a_4689_b9e4_d0aac30fe333);
+}
+pub trait ID3D11VideoDeviceImpl {
+    fn CreateVideoDecoder();
+    fn CreateVideoProcessor();
+    fn CreateAuthenticatedChannel();
+    fn CreateCryptoSession();
+    fn CreateVideoDecoderOutputView();
+    fn CreateVideoProcessorInputView();
+    fn CreateVideoProcessorOutputView();
+    fn CreateVideoProcessorEnumerator();
+    fn GetVideoDecoderProfileCount();
+    fn GetVideoDecoderProfile();
+    fn CheckVideoDecoderFormat();
+    fn GetVideoDecoderConfigCount();
+    fn GetVideoDecoderConfig();
+    fn GetContentProtectionCaps();
+    fn CheckCryptoKeyExchange();
+    fn SetPrivateData();
+    fn SetPrivateDataInterface();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29158,6 +29794,12 @@ impl ::core::fmt::Debug for ID3D11VideoDevice1 {
 unsafe impl ::windows::core::Interface for ID3D11VideoDevice1 {
     type Vtable = ID3D11VideoDevice1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29da1d51_1321_4454_804b_f5fc9f861f0f);
+}
+pub trait ID3D11VideoDevice1Impl: ID3D11VideoDeviceImpl {
+    fn GetCryptoSessionPrivateDataSize();
+    fn GetVideoDecoderCaps();
+    fn CheckVideoDecoderDownsampling();
+    fn RecommendVideoDecoderDownsampleParameters();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29396,6 +30038,10 @@ unsafe impl ::windows::core::Interface for ID3D11VideoDevice2 {
     type Vtable = ID3D11VideoDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59c0cb01_35f0_4a70_8f67_87905c906a53);
 }
+pub trait ID3D11VideoDevice2Impl: ID3D11VideoDevice1Impl + ID3D11VideoDeviceImpl {
+    fn CheckFeatureSupport();
+    fn NegotiateCryptoSessionKeyExchangeMT();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11VideoDevice2Vtbl(
@@ -29524,6 +30170,10 @@ unsafe impl ::windows::core::Interface for ID3D11VideoProcessor {
     type Vtable = ID3D11VideoProcessorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d7b0652_185f_41c6_85ce_0c5be3d4ae6c);
 }
+pub trait ID3D11VideoProcessorImpl: ID3D11DeviceChildImpl {
+    fn GetContentDesc();
+    fn GetRateConversionCaps();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11VideoProcessorVtbl(
@@ -29651,6 +30301,14 @@ impl ::core::fmt::Debug for ID3D11VideoProcessorEnumerator {
 unsafe impl ::windows::core::Interface for ID3D11VideoProcessorEnumerator {
     type Vtable = ID3D11VideoProcessorEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31627037_53ab_4200_9061_05faa9ab45f9);
+}
+pub trait ID3D11VideoProcessorEnumeratorImpl: ID3D11DeviceChildImpl {
+    fn GetVideoProcessorContentDesc();
+    fn CheckVideoProcessorFormat();
+    fn GetVideoProcessorCaps();
+    fn GetVideoProcessorRateConversionCaps();
+    fn GetVideoProcessorCustomRate();
+    fn GetVideoProcessorFilterRange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29812,6 +30470,9 @@ unsafe impl ::windows::core::Interface for ID3D11VideoProcessorEnumerator1 {
     type Vtable = ID3D11VideoProcessorEnumerator1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x465217f2_5568_43cf_b5b9_f61d54531ca1);
 }
+pub trait ID3D11VideoProcessorEnumerator1Impl: ID3D11VideoProcessorEnumeratorImpl + ID3D11DeviceChildImpl {
+    fn CheckVideoProcessorFormatConversion();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11VideoProcessorEnumerator1Vtbl(
@@ -29943,6 +30604,9 @@ unsafe impl ::windows::core::Interface for ID3D11VideoProcessorInputView {
     type Vtable = ID3D11VideoProcessorInputViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11ec5a5f_51dc_4945_ab34_6e8c21300ea5);
 }
+pub trait ID3D11VideoProcessorInputViewImpl: ID3D11ViewImpl + ID3D11DeviceChildImpl {
+    fn GetDesc();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11VideoProcessorInputViewVtbl(
@@ -30065,6 +30729,9 @@ unsafe impl ::windows::core::Interface for ID3D11VideoProcessorOutputView {
     type Vtable = ID3D11VideoProcessorOutputViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa048285e_25a9_4527_bd93_d68b68c44254);
 }
+pub trait ID3D11VideoProcessorOutputViewImpl: ID3D11ViewImpl + ID3D11DeviceChildImpl {
+    fn GetDesc();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11VideoProcessorOutputViewVtbl(
@@ -30163,6 +30830,9 @@ unsafe impl ::windows::core::Interface for ID3D11View {
     type Vtable = ID3D11ViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x839d1216_bb2e_412b_b7f4_a9dbebe08ed1);
 }
+pub trait ID3D11ViewImpl: ID3D11DeviceChildImpl {
+    fn GetResource();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11ViewVtbl(
@@ -30256,6 +30926,7 @@ unsafe impl ::windows::core::Interface for ID3DDeviceContextState {
     type Vtable = ID3DDeviceContextStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c1e0d8a_7c23_48f9_8c59_a92958ceff11);
 }
+pub trait ID3DDeviceContextStateImpl: ID3D11DeviceChildImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3DDeviceContextStateVtbl(
@@ -30330,6 +31001,12 @@ impl ::core::fmt::Debug for ID3DUserDefinedAnnotation {
 unsafe impl ::windows::core::Interface for ID3DUserDefinedAnnotation {
     type Vtable = ID3DUserDefinedAnnotationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2daad8b_03d4_4dbf_95eb_32ab4b63d0ab);
+}
+pub trait ID3DUserDefinedAnnotationImpl {
+    fn BeginEvent();
+    fn EndEvent();
+    fn SetMarker();
+    fn GetStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30418,6 +31095,15 @@ unsafe impl ::windows::core::Interface for ID3DX11FFT {
     type Vtable = ID3DX11FFTVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3f7a938_4c93_4310_a675_b30d6de50553);
 }
+pub trait ID3DX11FFTImpl {
+    fn SetForwardScale();
+    fn GetForwardScale();
+    fn SetInverseScale();
+    fn GetInverseScale();
+    fn AttachBuffersAndPrecompute();
+    fn ForwardTransform();
+    fn InverseTransform();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3DX11FFTVtbl(
@@ -30489,6 +31175,11 @@ unsafe impl ::windows::core::Interface for ID3DX11Scan {
     type Vtable = ID3DX11ScanVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5089b68f_e71d_4d38_be8e_f363b95a9405);
 }
+pub trait ID3DX11ScanImpl {
+    fn SetScanDirection();
+    fn Scan();
+    fn Multiscan();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3DX11ScanVtbl(
@@ -30551,6 +31242,10 @@ impl ::core::fmt::Debug for ID3DX11SegmentedScan {
 unsafe impl ::windows::core::Interface for ID3DX11SegmentedScan {
     type Vtable = ID3DX11SegmentedScanVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa915128c_d954_4c79_bfe1_64db923194d6);
+}
+pub trait ID3DX11SegmentedScanImpl {
+    fn SetScanDirection();
+    fn SegScan();
 }
 #[repr(C)]
 #[doc(hidden)]

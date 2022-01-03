@@ -150,6 +150,9 @@ unsafe impl ::windows::core::Interface for IBindableIterable {
     type Vtable = IBindableIterableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x036d2c08_df29_41af_8aa2_d774be62ba6f);
 }
+pub trait IBindableIterableImpl {
+    fn First();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindableIterableVtbl(
@@ -252,6 +255,11 @@ unsafe impl ::windows::core::RuntimeType for IBindableIterator {
 unsafe impl ::windows::core::Interface for IBindableIterator {
     type Vtable = IBindableIteratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a1d6c07_076d_49f2_8314_f52c9c9a8331);
+}
+pub trait IBindableIteratorImpl {
+    fn Current();
+    fn HasCurrent();
+    fn MoveNext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -463,6 +471,10 @@ unsafe impl ::windows::core::Interface for IBindableObservableVector {
     type Vtable = IBindableObservableVectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe1eb536_7e7f_4f90_ac9a_474984aae512);
 }
+pub trait IBindableObservableVectorImpl: IBindableIterableImpl + IBindableVectorImpl {
+    fn VectorChanged();
+    fn RemoveVectorChanged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindableObservableVectorVtbl(
@@ -637,6 +649,18 @@ unsafe impl ::windows::core::Interface for IBindableVector {
     type Vtable = IBindableVectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x393de7de_6fd0_4c0d_bb71_47244a113e93);
 }
+pub trait IBindableVectorImpl: IBindableIterableImpl {
+    fn GetAt();
+    fn Size();
+    fn GetView();
+    fn IndexOf();
+    fn SetAt();
+    fn InsertAt();
+    fn RemoveAt();
+    fn Append();
+    fn RemoveAtEnd();
+    fn Clear();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindableVectorVtbl(
@@ -779,6 +803,11 @@ unsafe impl ::windows::core::Interface for IBindableVectorView {
     type Vtable = IBindableVectorViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x346dd6e7_976e_4bc3_815d_ece243bc0f33);
 }
+pub trait IBindableVectorViewImpl: IBindableIterableImpl {
+    fn GetAt();
+    fn Size();
+    fn IndexOf();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindableVectorViewVtbl(
@@ -875,6 +904,10 @@ unsafe impl ::windows::core::Interface for INotifyCollectionChanged {
     type Vtable = INotifyCollectionChangedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28b167d5_1a31_465b_9b25_d5c3ae686c40);
 }
+pub trait INotifyCollectionChangedImpl {
+    fn CollectionChanged();
+    fn RemoveCollectionChanged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INotifyCollectionChangedVtbl(
@@ -895,6 +928,14 @@ pub struct INotifyCollectionChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INotifyCollectionChangedEventArgs {
     type Vtable = INotifyCollectionChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cf68d33_e3f2_4964_b85e_945b4f7e2f21);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INotifyCollectionChangedEventArgsImpl {
+    fn Action();
+    fn NewItems();
+    fn OldItems();
+    fn NewStartingIndex();
+    fn OldStartingIndex();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -917,6 +958,10 @@ pub struct INotifyCollectionChangedEventArgsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INotifyCollectionChangedEventArgsFactory {
     type Vtable = INotifyCollectionChangedEventArgsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb30c3e3a_df8d_44a5_9a38_7ac0d08ce63d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INotifyCollectionChangedEventArgsFactoryImpl {
+    fn CreateInstanceWithAllParameters();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -69,6 +69,9 @@ unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusAttachmentFa
     type Vtable = IWindowsDevicesAllJoynBusAttachmentFactoryInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b8f7505_b239_4e7b_88af_f6682575d861);
 }
+pub trait IWindowsDevicesAllJoynBusAttachmentFactoryInteropImpl {
+    fn CreateFromWin32Handle();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsDevicesAllJoynBusAttachmentFactoryInteropVtbl(
@@ -150,6 +153,9 @@ unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusAttachmentIn
     type Vtable = IWindowsDevicesAllJoynBusAttachmentInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd89c65b_b50e_4a19_9d0c_b42b783281cd);
 }
+pub trait IWindowsDevicesAllJoynBusAttachmentInteropImpl {
+    fn Win32Handle();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsDevicesAllJoynBusAttachmentInteropVtbl(
@@ -230,6 +236,9 @@ impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusObjectFactoryInterop {
 unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusObjectFactoryInterop {
     type Vtable = IWindowsDevicesAllJoynBusObjectFactoryInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6174e506_8b95_4e36_95c0_b88fed34938c);
+}
+pub trait IWindowsDevicesAllJoynBusObjectFactoryInteropImpl {
+    fn CreateFromWin32Handle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -319,6 +328,11 @@ impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusObjectInterop {
 unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusObjectInterop {
     type Vtable = IWindowsDevicesAllJoynBusObjectInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd78aa3d5_5054_428f_99f2_ec3a5de3c3bc);
+}
+pub trait IWindowsDevicesAllJoynBusObjectInteropImpl {
+    fn AddPropertyGetHandler();
+    fn AddPropertySetHandler();
+    fn Win32Handle();
 }
 #[repr(C)]
 #[doc(hidden)]

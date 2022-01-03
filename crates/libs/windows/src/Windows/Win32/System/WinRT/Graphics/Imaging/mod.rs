@@ -70,6 +70,9 @@ unsafe impl ::windows::core::Interface for ISoftwareBitmapNative {
     type Vtable = ISoftwareBitmapNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94bc8415_04ea_4b2e_af13_4de95aa898eb);
 }
+pub trait ISoftwareBitmapNativeImpl {
+    fn GetData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISoftwareBitmapNativeVtbl(
@@ -157,6 +160,10 @@ impl ::core::fmt::Debug for ISoftwareBitmapNativeFactory {
 unsafe impl ::windows::core::Interface for ISoftwareBitmapNativeFactory {
     type Vtable = ISoftwareBitmapNativeFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3c181ec_2914_4791_af02_02d224a10b43);
+}
+pub trait ISoftwareBitmapNativeFactoryImpl {
+    fn CreateFromWICBitmap();
+    fn CreateFromMF2DBuffer2();
 }
 #[repr(C)]
 #[doc(hidden)]

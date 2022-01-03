@@ -6,6 +6,13 @@ unsafe impl ::windows::core::Interface for IKnownRemoteSystemCapabilitiesStatics
     type Vtable = IKnownRemoteSystemCapabilitiesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8108e380_7f8a_44e4_92cd_03b6469b94a3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IKnownRemoteSystemCapabilitiesStaticsImpl {
+    fn AppService();
+    fn LaunchUri();
+    fn RemoteSession();
+    fn SpatialEntity();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownRemoteSystemCapabilitiesStaticsVtbl(
@@ -26,6 +33,14 @@ pub struct IRemoteSystem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystem {
     type Vtable = IRemoteSystemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed5838cd_1e10_4a8c_b4a6_4e5fd6f97721);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemImpl {
+    fn DisplayName();
+    fn Id();
+    fn Kind();
+    fn Status();
+    fn IsAvailableByProximity();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -49,6 +64,11 @@ unsafe impl ::windows::core::Interface for IRemoteSystem2 {
     type Vtable = IRemoteSystem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09dfe4ec_fb8b_4a08_a758_6876435d769e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystem2Impl {
+    fn IsAvailableBySpatialProximity();
+    fn GetCapabilitySupportedAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystem2Vtbl(
@@ -69,6 +89,11 @@ unsafe impl ::windows::core::Interface for IRemoteSystem3 {
     type Vtable = IRemoteSystem3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72b4b495_b7c6_40be_831b_73562f12ffa8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystem3Impl {
+    fn ManufacturerDisplayName();
+    fn ModelDisplayName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystem3Vtbl(
@@ -88,6 +113,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystem4 {
     type Vtable = IRemoteSystem4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf164ffe5_b987_4ca5_9926_fa0438be6273);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystem4Impl {
+    fn Platform();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystem4Vtbl(
@@ -105,6 +134,10 @@ pub struct IRemoteSystem5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystem5 {
     type Vtable = IRemoteSystem5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb2ad723_e5e2_4ae2_a7a7_a1097a098e90);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystem5Impl {
+    fn Apps();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -125,6 +158,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystem6 {
     type Vtable = IRemoteSystem6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4cda942_c027_533e_9384_3a19b4f7eef3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystem6Impl {
+    fn User();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystem6Vtbl(
@@ -143,6 +180,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystemAddedEventArgs {
     type Vtable = IRemoteSystemAddedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f39560f_e534_4697_8836_7abea151516e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemAddedEventArgsImpl {
+    fn RemoteSystem();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemAddedEventArgsVtbl(
@@ -160,6 +201,14 @@ pub struct IRemoteSystemApp(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemApp {
     type Vtable = IRemoteSystemAppVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80e5bcbd_d54d_41b1_9b16_6810a871ed4f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemAppImpl {
+    fn Id();
+    fn DisplayName();
+    fn IsAvailableByProximity();
+    fn IsAvailableBySpatialProximity();
+    fn Attributes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -184,6 +233,11 @@ unsafe impl ::windows::core::Interface for IRemoteSystemApp2 {
     type Vtable = IRemoteSystemApp2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6369bf15_0a96_577a_8ff6_c35904dfa8f3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemApp2Impl {
+    fn User();
+    fn ConnectionToken();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemApp2Vtbl(
@@ -202,6 +256,12 @@ pub struct IRemoteSystemAppRegistration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemAppRegistration {
     type Vtable = IRemoteSystemAppRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb47947b5_7035_4a5a_b8df_962d8f8431f4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemAppRegistrationImpl {
+    fn User();
+    fn Attributes();
+    fn SaveAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -225,6 +285,11 @@ unsafe impl ::windows::core::Interface for IRemoteSystemAppRegistrationStatics {
     type Vtable = IRemoteSystemAppRegistrationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01b99840_cfd2_453f_ae25_c2539f086afd);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemAppRegistrationStaticsImpl {
+    fn GetDefault();
+    fn GetForUser();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemAppRegistrationStaticsVtbl(
@@ -244,6 +309,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystemAuthorizationKindFilter 
     type Vtable = IRemoteSystemAuthorizationKindFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b0dde8e_04d0_40f4_a27f_c2acbbd6b734);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemAuthorizationKindFilterImpl {
+    fn RemoteSystemAuthorizationKind();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemAuthorizationKindFilterVtbl(
@@ -261,6 +330,10 @@ pub struct IRemoteSystemAuthorizationKindFilterFactory(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for IRemoteSystemAuthorizationKindFilterFactory {
     type Vtable = IRemoteSystemAuthorizationKindFilterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad65df4d_b66a_45a4_8177_8caed75d9e5a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemAuthorizationKindFilterFactoryImpl {
+    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -280,6 +353,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystemConnectionInfo {
     type Vtable = IRemoteSystemConnectionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23278bc3_0d09_52cb_9c6a_eed2940bee43);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemConnectionInfoImpl {
+    fn IsProximal();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemConnectionInfoVtbl(
@@ -297,6 +374,10 @@ pub struct IRemoteSystemConnectionInfoStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemConnectionInfoStatics {
     type Vtable = IRemoteSystemConnectionInfoStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac831e2d_66c5_56d7_a4ce_705d94925ad6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemConnectionInfoStaticsImpl {
+    fn TryCreateFromAppServiceConnection();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -317,6 +398,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystemConnectionRequest {
     type Vtable = IRemoteSystemConnectionRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84ed4104_8d5e_4d72_8238_7621576c7a67);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemConnectionRequestImpl {
+    fn RemoteSystem();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemConnectionRequestVtbl(
@@ -334,6 +419,10 @@ pub struct IRemoteSystemConnectionRequest2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemConnectionRequest2 {
     type Vtable = IRemoteSystemConnectionRequest2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12df6d6f_bffc_483a_8abe_d34a6c19f92b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemConnectionRequest2Impl {
+    fn RemoteSystemApp();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -353,6 +442,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystemConnectionRequest3 {
     type Vtable = IRemoteSystemConnectionRequest3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde86c3e7_c9cc_5a50_b8d9_ba7b34bb8d0e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemConnectionRequest3Impl {
+    fn ConnectionToken();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemConnectionRequest3Vtbl(
@@ -370,6 +463,10 @@ pub struct IRemoteSystemConnectionRequestFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemConnectionRequestFactory {
     type Vtable = IRemoteSystemConnectionRequestFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa0a0a20_baeb_4575_b530_810bb9786334);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemConnectionRequestFactoryImpl {
+    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -389,6 +486,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystemConnectionRequestStatics
     type Vtable = IRemoteSystemConnectionRequestStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86ca143d_8214_425c_8932_db49032d1306);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemConnectionRequestStaticsImpl {
+    fn CreateForApp();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemConnectionRequestStaticsVtbl(
@@ -406,6 +507,11 @@ pub struct IRemoteSystemConnectionRequestStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemConnectionRequestStatics2 {
     type Vtable = IRemoteSystemConnectionRequestStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x460f1027_64ec_598e_a800_4f2ee58def19);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemConnectionRequestStatics2Impl {
+    fn CreateFromConnectionToken();
+    fn CreateFromConnectionTokenForUser();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -426,6 +532,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystemDiscoveryTypeFilter {
     type Vtable = IRemoteSystemDiscoveryTypeFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42d9041f_ee5a_43da_ac6a_6fee25460741);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemDiscoveryTypeFilterImpl {
+    fn RemoteSystemDiscoveryType();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemDiscoveryTypeFilterVtbl(
@@ -443,6 +553,10 @@ pub struct IRemoteSystemDiscoveryTypeFilterFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemDiscoveryTypeFilterFactory {
     type Vtable = IRemoteSystemDiscoveryTypeFilterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f9eb993_c260_4161_92f2_9c021f23fe5d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemDiscoveryTypeFilterFactoryImpl {
+    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -462,6 +576,8 @@ unsafe impl ::windows::core::Interface for IRemoteSystemEnumerationCompletedEven
     type Vtable = IRemoteSystemEnumerationCompletedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6e83d5f_4030_4354_a060_14f1b22c545d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemEnumerationCompletedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemEnumerationCompletedEventArgsVtbl(
@@ -539,6 +655,7 @@ unsafe impl ::windows::core::Interface for IRemoteSystemFilter {
     type Vtable = IRemoteSystemFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a3ba9e4_99eb_45eb_ba16_0367728ff374);
 }
+pub trait IRemoteSystemFilterImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemFilterVtbl(
@@ -555,6 +672,10 @@ pub struct IRemoteSystemKindFilter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemKindFilter {
     type Vtable = IRemoteSystemKindFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38e1c9ec_22c3_4ef6_901a_bbb1c7aad4ed);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemKindFilterImpl {
+    fn RemoteSystemKinds();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -575,6 +696,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystemKindFilterFactory {
     type Vtable = IRemoteSystemKindFilterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1fb18ee_99ea_40bc_9a39_c670aa804a28);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemKindFilterFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemKindFilterFactoryVtbl(
@@ -593,6 +718,14 @@ pub struct IRemoteSystemKindStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemKindStatics {
     type Vtable = IRemoteSystemKindStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6317633_ab14_41d0_9553_796aadb882db);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemKindStaticsImpl {
+    fn Phone();
+    fn Hub();
+    fn Holographic();
+    fn Desktop();
+    fn Xbox();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -616,6 +749,12 @@ unsafe impl ::windows::core::Interface for IRemoteSystemKindStatics2 {
     type Vtable = IRemoteSystemKindStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9e3a3d0_0466_4749_91e8_65f9d19a96a5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemKindStatics2Impl {
+    fn Iot();
+    fn Tablet();
+    fn Laptop();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemKindStatics2Vtbl(
@@ -636,6 +775,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystemRemovedEventArgs {
     type Vtable = IRemoteSystemRemovedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b3d16bb_7306_49ea_b7df_67d5714cb013);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemRemovedEventArgsImpl {
+    fn RemoteSystemId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemRemovedEventArgsVtbl(
@@ -653,6 +796,16 @@ pub struct IRemoteSystemSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemSession {
     type Vtable = IRemoteSystemSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69476a01_9ada_490f_9549_d31cb14c9e95);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionImpl {
+    fn Id();
+    fn DisplayName();
+    fn ControllerDisplayName();
+    fn Disconnected();
+    fn RemoveDisconnected();
+    fn CreateParticipantWatcher();
+    fn SendInvitationAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -681,6 +834,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystemSessionAddedEventArgs {
     type Vtable = IRemoteSystemSessionAddedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd585d754_bc97_4c39_99b4_beca76e04c3f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionAddedEventArgsImpl {
+    fn SessionInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionAddedEventArgsVtbl(
@@ -698,6 +855,13 @@ pub struct IRemoteSystemSessionController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemSessionController {
     type Vtable = IRemoteSystemSessionControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe48b2dd2_6820_4867_b425_d89c0a3ef7ba);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionControllerImpl {
+    fn JoinRequested();
+    fn RemoveJoinRequested();
+    fn RemoveParticipantAsync();
+    fn CreateSessionAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -724,6 +888,11 @@ unsafe impl ::windows::core::Interface for IRemoteSystemSessionControllerFactory
     type Vtable = IRemoteSystemSessionControllerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfcc2f6b_ac3d_4199_82cd_6670a773ef2e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionControllerFactoryImpl {
+    fn CreateController();
+    fn CreateControllerWithSessionOptions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionControllerFactoryVtbl(
@@ -742,6 +911,11 @@ pub struct IRemoteSystemSessionCreationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemSessionCreationResult {
     type Vtable = IRemoteSystemSessionCreationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa79812c2_37de_448c_8b83_a30aa3c4ead6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionCreationResultImpl {
+    fn Status();
+    fn Session();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -762,6 +936,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystemSessionDisconnectedEvent
     type Vtable = IRemoteSystemSessionDisconnectedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde0bc69b_77c5_461c_8209_7c6c5d3111ab);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionDisconnectedEventArgsImpl {
+    fn Reason();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionDisconnectedEventArgsVtbl(
@@ -779,6 +957,12 @@ pub struct IRemoteSystemSessionInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemSessionInfo {
     type Vtable = IRemoteSystemSessionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff4df648_8b0a_4e9a_9905_69e4b841c588);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionInfoImpl {
+    fn DisplayName();
+    fn ControllerDisplayName();
+    fn JoinAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -801,6 +985,11 @@ unsafe impl ::windows::core::Interface for IRemoteSystemSessionInvitation {
     type Vtable = IRemoteSystemSessionInvitationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e32cc91_51d7_4766_a121_25516c3b8294);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionInvitationImpl {
+    fn Sender();
+    fn SessionInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionInvitationVtbl(
@@ -819,6 +1008,11 @@ pub struct IRemoteSystemSessionInvitationListener(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemSessionInvitationListener {
     type Vtable = IRemoteSystemSessionInvitationListenerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08f4003f_bc71_49e1_874a_31ddff9a27b9);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionInvitationListenerImpl {
+    fn InvitationReceived();
+    fn RemoveInvitationReceived();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -841,6 +1035,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystemSessionInvitationReceive
     type Vtable = IRemoteSystemSessionInvitationReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e964a2d_a10d_4edb_8dea_54d20ac19543);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionInvitationReceivedEventArgsImpl {
+    fn Invitation();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionInvitationReceivedEventArgsVtbl(
@@ -858,6 +1056,11 @@ pub struct IRemoteSystemSessionJoinRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemSessionJoinRequest {
     type Vtable = IRemoteSystemSessionJoinRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20600068_7994_4331_86d1_d89d882585ee);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionJoinRequestImpl {
+    fn Participant();
+    fn Accept();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -877,6 +1080,11 @@ pub struct IRemoteSystemSessionJoinRequestedEventArgs(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IRemoteSystemSessionJoinRequestedEventArgs {
     type Vtable = IRemoteSystemSessionJoinRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbca4fc3_82b9_4816_9c24_e40e61774bd8);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionJoinRequestedEventArgsImpl {
+    fn JoinRequest();
+    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -898,6 +1106,11 @@ unsafe impl ::windows::core::Interface for IRemoteSystemSessionJoinResult {
     type Vtable = IRemoteSystemSessionJoinResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce7b1f04_a03e_41a4_900b_1e79328c1267);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionJoinResultImpl {
+    fn Status();
+    fn Session();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionJoinResultVtbl(
@@ -916,6 +1129,15 @@ pub struct IRemoteSystemSessionMessageChannel(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemSessionMessageChannel {
     type Vtable = IRemoteSystemSessionMessageChannelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9524d12a_73d9_4c10_b751_c26784437127);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionMessageChannelImpl {
+    fn Session();
+    fn BroadcastValueSetAsync();
+    fn SendValueSetAsync();
+    fn SendValueSetToParticipantsAsync();
+    fn ValueSetReceived();
+    fn RemoveValueSetReceived();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -945,6 +1167,11 @@ unsafe impl ::windows::core::Interface for IRemoteSystemSessionMessageChannelFac
     type Vtable = IRemoteSystemSessionMessageChannelFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x295e1c4a_bd16_4298_b7ce_415482b0e11d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionMessageChannelFactoryImpl {
+    fn Create();
+    fn CreateWithReliability();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionMessageChannelFactoryVtbl(
@@ -964,6 +1191,11 @@ unsafe impl ::windows::core::Interface for IRemoteSystemSessionOptions {
     type Vtable = IRemoteSystemSessionOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x740ed755_8418_4f01_9353_e21c9ecc6cfc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionOptionsImpl {
+    fn IsInviteOnly();
+    fn SetIsInviteOnly();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionOptionsVtbl(
@@ -982,6 +1214,11 @@ pub struct IRemoteSystemSessionParticipant(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemSessionParticipant {
     type Vtable = IRemoteSystemSessionParticipantVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e90058c_acf9_4729_8a17_44e7baed5dcc);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionParticipantImpl {
+    fn RemoteSystem();
+    fn GetHostNames();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1003,6 +1240,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystemSessionParticipantAddedE
     type Vtable = IRemoteSystemSessionParticipantAddedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd35a57d8_c9a1_4bb7_b6b0_79bb91adf93d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionParticipantAddedEventArgsImpl {
+    fn Participant();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionParticipantAddedEventArgsVtbl(
@@ -1021,6 +1262,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystemSessionParticipantRemove
     type Vtable = IRemoteSystemSessionParticipantRemovedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x866ef088_de68_4abf_88a1_f90d16274192);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionParticipantRemovedEventArgsImpl {
+    fn Participant();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionParticipantRemovedEventArgsVtbl(
@@ -1038,6 +1283,18 @@ pub struct IRemoteSystemSessionParticipantWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemSessionParticipantWatcher {
     type Vtable = IRemoteSystemSessionParticipantWatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcdd02cc_aa87_4d79_b6cc_4459b3e92075);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionParticipantWatcherImpl {
+    fn Start();
+    fn Stop();
+    fn Status();
+    fn Added();
+    fn RemoveAdded();
+    fn Removed();
+    fn RemoveRemoved();
+    fn EnumerationCompleted();
+    fn RemoveEnumerationCompleted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1071,6 +1328,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystemSessionRemovedEventArgs 
     type Vtable = IRemoteSystemSessionRemovedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf82914e_39a1_4dea_9d63_43798d5bbbd0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionRemovedEventArgsImpl {
+    fn SessionInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionRemovedEventArgsVtbl(
@@ -1088,6 +1349,10 @@ pub struct IRemoteSystemSessionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemSessionStatics {
     type Vtable = IRemoteSystemSessionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8524899f_fd20_44e3_9565_e75a3b14c66e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionStaticsImpl {
+    fn CreateWatcher();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1107,6 +1372,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystemSessionUpdatedEventArgs 
     type Vtable = IRemoteSystemSessionUpdatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16875069_231e_4c91_8ec8_b3a39d9e55a3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionUpdatedEventArgsImpl {
+    fn SessionInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionUpdatedEventArgsVtbl(
@@ -1124,6 +1393,11 @@ pub struct IRemoteSystemSessionValueSetReceivedEventArgs(::windows::core::IUnkno
 unsafe impl ::windows::core::Interface for IRemoteSystemSessionValueSetReceivedEventArgs {
     type Vtable = IRemoteSystemSessionValueSetReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06f31785_2da5_4e58_a78f_9e8d0784ee25);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionValueSetReceivedEventArgsImpl {
+    fn Sender();
+    fn Message();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1144,6 +1418,18 @@ pub struct IRemoteSystemSessionWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemSessionWatcher {
     type Vtable = IRemoteSystemSessionWatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8003e340_0c41_4a62_b6d7_bdbe2b19be2d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemSessionWatcherImpl {
+    fn Start();
+    fn Stop();
+    fn Status();
+    fn Added();
+    fn RemoveAdded();
+    fn Updated();
+    fn RemoveUpdated();
+    fn Removed();
+    fn RemoveRemoved();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1177,6 +1463,13 @@ unsafe impl ::windows::core::Interface for IRemoteSystemStatics {
     type Vtable = IRemoteSystemStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa485b392_ff2b_4b47_be62_743f2f140f30);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemStaticsImpl {
+    fn FindByHostNameAsync();
+    fn CreateWatcher();
+    fn CreateWatcherWithFilters();
+    fn RequestAccessAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemStaticsVtbl(
@@ -1201,6 +1494,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystemStatics2 {
     type Vtable = IRemoteSystemStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c98edca_6f99_4c52_a272_ea4f36471744);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemStatics2Impl {
+    fn IsAuthorizationKindEnabled();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemStatics2Vtbl(
@@ -1218,6 +1515,11 @@ pub struct IRemoteSystemStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemStatics3 {
     type Vtable = IRemoteSystemStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9995f16f_0b3c_5ac5_b325_cc73f437dfcd);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemStatics3Impl {
+    fn CreateWatcherForUser();
+    fn CreateWatcherWithFiltersForUser();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1239,6 +1541,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystemStatusTypeFilter {
     type Vtable = IRemoteSystemStatusTypeFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c39514e_cbb6_4777_8534_2e0c521affa2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemStatusTypeFilterImpl {
+    fn RemoteSystemStatusType();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemStatusTypeFilterVtbl(
@@ -1256,6 +1562,10 @@ pub struct IRemoteSystemStatusTypeFilterFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemStatusTypeFilterFactory {
     type Vtable = IRemoteSystemStatusTypeFilterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33cf78fa_d724_4125_ac7a_8d281e44c949);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemStatusTypeFilterFactoryImpl {
+    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1275,6 +1585,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystemUpdatedEventArgs {
     type Vtable = IRemoteSystemUpdatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7502ff0e_dbcb_4155_b4ca_b30a04f27627);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemUpdatedEventArgsImpl {
+    fn RemoteSystem();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemUpdatedEventArgsVtbl(
@@ -1292,6 +1606,17 @@ pub struct IRemoteSystemWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemWatcher {
     type Vtable = IRemoteSystemWatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d600c7e_2c07_48c5_889c_455d2b099771);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemWatcherImpl {
+    fn Start();
+    fn Stop();
+    fn RemoteSystemAdded();
+    fn RemoveRemoteSystemAdded();
+    fn RemoteSystemUpdated();
+    fn RemoveRemoteSystemUpdated();
+    fn RemoteSystemRemoved();
+    fn RemoveRemoteSystemRemoved();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1324,6 +1649,13 @@ unsafe impl ::windows::core::Interface for IRemoteSystemWatcher2 {
     type Vtable = IRemoteSystemWatcher2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73436700_19ca_48f9_a4cd_780f7ad58c71);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemWatcher2Impl {
+    fn EnumerationCompleted();
+    fn RemoveEnumerationCompleted();
+    fn ErrorOccurred();
+    fn RemoveErrorOccurred();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemWatcher2Vtbl(
@@ -1349,6 +1681,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystemWatcher3 {
     type Vtable = IRemoteSystemWatcher3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf79c0fcf_a913_55d3_8413_418fcf15ba54);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemWatcher3Impl {
+    fn User();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemWatcher3Vtbl(
@@ -1366,6 +1702,10 @@ pub struct IRemoteSystemWatcherErrorOccurredEventArgs(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IRemoteSystemWatcherErrorOccurredEventArgs {
     type Vtable = IRemoteSystemWatcherErrorOccurredEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74c5c6af_5114_4426_9216_20d81f8519ae);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemWatcherErrorOccurredEventArgsImpl {
+    fn Error();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1385,6 +1725,10 @@ unsafe impl ::windows::core::Interface for IRemoteSystemWebAccountFilter {
     type Vtable = IRemoteSystemWebAccountFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fb75873_87c8_5d8f_977e_f69f96d67238);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemWebAccountFilterImpl {
+    fn Account();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemWebAccountFilterVtbl(
@@ -1403,6 +1747,10 @@ pub struct IRemoteSystemWebAccountFilterFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteSystemWebAccountFilterFactory {
     type Vtable = IRemoteSystemWebAccountFilterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x348a2709_5f4d_5127_b4a7_bf99d5252b1b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteSystemWebAccountFilterFactoryImpl {
+    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]

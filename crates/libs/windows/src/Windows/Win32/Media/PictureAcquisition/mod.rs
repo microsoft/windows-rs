@@ -123,6 +123,11 @@ unsafe impl ::windows::core::Interface for IPhotoAcquire {
     type Vtable = IPhotoAcquireVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f23353_e31b_4955_a8ad_ca5ebf31e2ce);
 }
+pub trait IPhotoAcquireImpl {
+    fn CreatePhotoSource();
+    fn Acquire();
+    fn EnumResults();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoAcquireVtbl(
@@ -195,6 +200,11 @@ impl ::core::fmt::Debug for IPhotoAcquireDeviceSelectionDialog {
 unsafe impl ::windows::core::Interface for IPhotoAcquireDeviceSelectionDialog {
     type Vtable = IPhotoAcquireDeviceSelectionDialogVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f28837_55dd_4f37_aaf5_6855a9640467);
+}
+pub trait IPhotoAcquireDeviceSelectionDialogImpl {
+    fn SetTitle();
+    fn SetSubmitButtonText();
+    fn DoModal();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -303,6 +313,17 @@ unsafe impl ::windows::core::Interface for IPhotoAcquireItem {
     type Vtable = IPhotoAcquireItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f21c97_28bf_4c02_b842_5e4e90139a30);
 }
+pub trait IPhotoAcquireItemImpl {
+    fn GetItemName();
+    fn GetThumbnail();
+    fn GetProperty();
+    fn SetProperty();
+    fn GetStream();
+    fn CanDelete();
+    fn Delete();
+    fn GetSubItemCount();
+    fn GetSubItemAt();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoAcquireItemVtbl(
@@ -394,6 +415,13 @@ unsafe impl ::windows::core::Interface for IPhotoAcquireOptionsDialog {
     type Vtable = IPhotoAcquireOptionsDialogVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f2b3ee_bf64_47ee_89f4_4dedd79643f2);
 }
+pub trait IPhotoAcquireOptionsDialogImpl {
+    fn Initialize();
+    fn Create();
+    fn Destroy();
+    fn DoModal();
+    fn SaveData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoAcquireOptionsDialogVtbl(
@@ -471,6 +499,12 @@ impl ::core::fmt::Debug for IPhotoAcquirePlugin {
 unsafe impl ::windows::core::Interface for IPhotoAcquirePlugin {
     type Vtable = IPhotoAcquirePluginVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f2dceb_ecb8_4f77_8e47_e7a987c83dd0);
+}
+pub trait IPhotoAcquirePluginImpl {
+    fn Initialize();
+    fn ProcessItem();
+    fn TransferComplete();
+    fn DisplayConfigureDialog();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -614,6 +648,27 @@ impl ::core::fmt::Debug for IPhotoAcquireProgressCB {
 unsafe impl ::windows::core::Interface for IPhotoAcquireProgressCB {
     type Vtable = IPhotoAcquireProgressCBVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f2ce1e_935e_4248_892c_130f32c45cb4);
+}
+pub trait IPhotoAcquireProgressCBImpl {
+    fn Cancelled();
+    fn StartEnumeration();
+    fn FoundItem();
+    fn EndEnumeration();
+    fn StartTransfer();
+    fn StartItemTransfer();
+    fn DirectoryCreated();
+    fn UpdateTransferPercent();
+    fn EndItemTransfer();
+    fn EndTransfer();
+    fn StartDelete();
+    fn StartItemDelete();
+    fn UpdateDeletePercent();
+    fn EndItemDelete();
+    fn EndDelete();
+    fn EndSession();
+    fn GetDeleteAfterAcquire();
+    fn ErrorAdvise();
+    fn GetUserInput();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -759,6 +814,21 @@ unsafe impl ::windows::core::Interface for IPhotoAcquireSettings {
     type Vtable = IPhotoAcquireSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f2b868_dd67_487c_9553_049240767e91);
 }
+pub trait IPhotoAcquireSettingsImpl {
+    fn InitializeFromRegistry();
+    fn SetFlags();
+    fn SetOutputFilenameTemplate();
+    fn SetSequencePaddingWidth();
+    fn SetSequenceZeroPadding();
+    fn SetGroupTag();
+    fn SetAcquisitionTime();
+    fn GetFlags();
+    fn GetOutputFilenameTemplate();
+    fn GetSequencePaddingWidth();
+    fn GetSequenceZeroPadding();
+    fn GetGroupTag();
+    fn GetAcquisitionTime();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoAcquireSettingsVtbl(
@@ -874,6 +944,16 @@ unsafe impl ::windows::core::Interface for IPhotoAcquireSource {
     type Vtable = IPhotoAcquireSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f2c703_8613_4282_a53b_6ec59c5883ac);
 }
+pub trait IPhotoAcquireSourceImpl {
+    fn GetFriendlyName();
+    fn GetDeviceIcons();
+    fn InitializeItemList();
+    fn GetItemCount();
+    fn GetItemAt();
+    fn GetPhotoAcquireSettings();
+    fn GetDeviceId();
+    fn BindToObject();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoAcquireSourceVtbl(
@@ -942,6 +1022,9 @@ impl ::core::fmt::Debug for IPhotoProgressActionCB {
 unsafe impl ::windows::core::Interface for IPhotoProgressActionCB {
     type Vtable = IPhotoProgressActionCBVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f242d0_b206_4e7d_b4c1_4755bcbb9c9f);
+}
+pub trait IPhotoProgressActionCBImpl {
+    fn DoAction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1087,6 +1170,26 @@ unsafe impl ::windows::core::Interface for IPhotoProgressDialog {
     type Vtable = IPhotoProgressDialogVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f246f9_0750_4f08_9381_2cd8e906a4ae);
 }
+pub trait IPhotoProgressDialogImpl {
+    fn Create();
+    fn GetWindow();
+    fn Destroy();
+    fn SetTitle();
+    fn ShowCheckbox();
+    fn SetCheckboxText();
+    fn SetCheckboxCheck();
+    fn SetCheckboxTooltip();
+    fn IsCheckboxChecked();
+    fn SetCaption();
+    fn SetImage();
+    fn SetPercentComplete();
+    fn SetProgressText();
+    fn SetActionLinkCallback();
+    fn SetActionLinkText();
+    fn ShowActionLink();
+    fn IsCancelled();
+    fn GetUserInput();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoProgressDialogVtbl(
@@ -1227,6 +1330,18 @@ impl ::core::fmt::Debug for IUserInputString {
 unsafe impl ::windows::core::Interface for IUserInputString {
     type Vtable = IUserInputStringVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f243a1_205b_45ba_ae26_abbc53aa7a6f);
+}
+pub trait IUserInputStringImpl {
+    fn GetSubmitButtonText();
+    fn GetPrompt();
+    fn GetStringId();
+    fn GetStringType();
+    fn GetTooltipText();
+    fn GetMaxLength();
+    fn GetDefault();
+    fn GetMruCount();
+    fn GetMruEntryAt();
+    fn GetImage();
 }
 #[repr(C)]
 #[doc(hidden)]

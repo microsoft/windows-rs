@@ -999,6 +999,19 @@ unsafe impl ::windows::core::Interface for ICastingConnection {
     type Vtable = ICastingConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd951653_c2f1_4498_8b78_5fb4cd3640dd);
 }
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait ICastingConnectionImpl: IClosableImpl {
+    fn State();
+    fn Device();
+    fn Source();
+    fn SetSource();
+    fn StateChanged();
+    fn RemoveStateChanged();
+    fn ErrorOccurred();
+    fn RemoveErrorOccurred();
+    fn RequestStartCastingAsync();
+    fn DisconnectAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICastingConnectionVtbl(
@@ -1032,6 +1045,11 @@ unsafe impl ::windows::core::Interface for ICastingConnectionErrorOccurredEventA
     type Vtable = ICastingConnectionErrorOccurredEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7fb3c69_8719_4f00_81fb_961863c79a32);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICastingConnectionErrorOccurredEventArgsImpl {
+    fn ErrorStatus();
+    fn Message();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICastingConnectionErrorOccurredEventArgsVtbl(
@@ -1050,6 +1068,14 @@ pub struct ICastingDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICastingDevice {
     type Vtable = ICastingDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde721c83_4a43_4ad1_a6d2_2492a796c3f2);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICastingDeviceImpl {
+    fn Id();
+    fn FriendlyName();
+    fn Icon();
+    fn GetSupportedCastingPlaybackTypesAsync();
+    fn CreateCastingConnection();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1074,6 +1100,18 @@ pub struct ICastingDevicePicker(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICastingDevicePicker {
     type Vtable = ICastingDevicePickerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcd39924_0591_49be_aacb_4b82ee756a95);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICastingDevicePickerImpl {
+    fn Filter();
+    fn Appearance();
+    fn CastingDeviceSelected();
+    fn RemoveCastingDeviceSelected();
+    fn CastingDevicePickerDismissed();
+    fn RemoveCastingDevicePickerDismissed();
+    fn Show();
+    fn ShowWithPlacement();
+    fn Hide();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1108,6 +1146,16 @@ unsafe impl ::windows::core::Interface for ICastingDevicePickerFilter {
     type Vtable = ICastingDevicePickerFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe8c619c_b563_4354_ae33_9fdaad8c6291);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICastingDevicePickerFilterImpl {
+    fn SupportsAudio();
+    fn SetSupportsAudio();
+    fn SupportsVideo();
+    fn SetSupportsVideo();
+    fn SupportsPictures();
+    fn SetSupportsPictures();
+    fn SupportedCastingSources();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICastingDevicePickerFilterVtbl(
@@ -1133,6 +1181,10 @@ unsafe impl ::windows::core::Interface for ICastingDeviceSelectedEventArgs {
     type Vtable = ICastingDeviceSelectedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc439e86_dd57_4d0d_9400_af45e4fb3663);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICastingDeviceSelectedEventArgsImpl {
+    fn SelectedCastingDevice();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICastingDeviceSelectedEventArgsVtbl(
@@ -1150,6 +1202,13 @@ pub struct ICastingDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICastingDeviceStatics {
     type Vtable = ICastingDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7d958d7_4d13_4237_a365_4c4f6a4cfd2f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICastingDeviceStaticsImpl {
+    fn GetDeviceSelector();
+    fn GetDeviceSelectorFromCastingSourceAsync();
+    fn FromIdAsync();
+    fn DeviceInfoSupportsCastingAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1174,6 +1233,11 @@ pub struct ICastingSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICastingSource {
     type Vtable = ICastingSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf429ea72_3467_47e6_a027_522923e9d727);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICastingSourceImpl {
+    fn PreferredSourceUri();
+    fn SetPreferredSourceUri();
 }
 #[repr(C)]
 #[doc(hidden)]

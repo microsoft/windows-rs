@@ -292,6 +292,23 @@ unsafe impl ::windows::core::Interface for IBackgroundAudioTrack {
     type Vtable = IBackgroundAudioTrackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b91b3bd_9e21_4266_a9c2_67dd011a2357);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBackgroundAudioTrackImpl {
+    fn TrimTimeFromStart();
+    fn SetTrimTimeFromStart();
+    fn TrimTimeFromEnd();
+    fn SetTrimTimeFromEnd();
+    fn OriginalDuration();
+    fn TrimmedDuration();
+    fn UserData();
+    fn SetDelay();
+    fn Delay();
+    fn SetVolume();
+    fn Volume();
+    fn Clone();
+    fn GetAudioEncodingProperties();
+    fn AudioEffectDefinitions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundAudioTrackVtbl(
@@ -334,6 +351,11 @@ unsafe impl ::windows::core::Interface for IBackgroundAudioTrackStatics {
     type Vtable = IBackgroundAudioTrackStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9b1c0d7_d018_42a8_a559_cb4d9e97e664);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBackgroundAudioTrackStaticsImpl {
+    fn CreateFromEmbeddedAudioTrack();
+    fn CreateFromFileAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundAudioTrackStaticsVtbl(
@@ -354,6 +376,10 @@ unsafe impl ::windows::core::Interface for IEmbeddedAudioTrack {
     type Vtable = IEmbeddedAudioTrackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55ee5a7a_2d30_3fba_a190_4f1a6454f88f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmbeddedAudioTrackImpl {
+    fn GetAudioEncodingProperties();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmbeddedAudioTrackVtbl(
@@ -372,6 +398,27 @@ pub struct IMediaClip(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaClip {
     type Vtable = IMediaClipVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f25366_5fba_3ea4_8693_24761811140a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaClipImpl {
+    fn TrimTimeFromStart();
+    fn SetTrimTimeFromStart();
+    fn TrimTimeFromEnd();
+    fn SetTrimTimeFromEnd();
+    fn OriginalDuration();
+    fn TrimmedDuration();
+    fn UserData();
+    fn Clone();
+    fn StartTimeInComposition();
+    fn EndTimeInComposition();
+    fn EmbeddedAudioTracks();
+    fn SelectedEmbeddedAudioTrackIndex();
+    fn SetSelectedEmbeddedAudioTrackIndex();
+    fn SetVolume();
+    fn Volume();
+    fn GetVideoEncodingProperties();
+    fn AudioEffectDefinitions();
+    fn VideoEffectDefinitions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -421,6 +468,12 @@ unsafe impl ::windows::core::Interface for IMediaClipStatics {
     type Vtable = IMediaClipStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa402b68_928f_43c4_bc6e_783a1a359656);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaClipStaticsImpl {
+    fn CreateFromColor();
+    fn CreateFromFileAsync();
+    fn CreateFromImageFileAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaClipStaticsVtbl(
@@ -444,6 +497,10 @@ unsafe impl ::windows::core::Interface for IMediaClipStatics2 {
     type Vtable = IMediaClipStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b1dd7b3_854e_4d9b_877d_4774a556cd12);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaClipStatics2Impl {
+    fn CreateFromSurface();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaClipStatics2Vtbl(
@@ -462,6 +519,24 @@ pub struct IMediaComposition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaComposition {
     type Vtable = IMediaCompositionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e06e605_dc71_41d6_b837_2d2bc14a2947);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaCompositionImpl {
+    fn Duration();
+    fn Clips();
+    fn BackgroundAudioTracks();
+    fn UserData();
+    fn Clone();
+    fn SaveAsync();
+    fn GetThumbnailAsync();
+    fn GetThumbnailsAsync();
+    fn RenderToFileAsync();
+    fn RenderToFileWithTrimmingPreferenceAsync();
+    fn RenderToFileWithProfileAsync();
+    fn CreateDefaultEncodingProfile();
+    fn GenerateMediaStreamSource();
+    fn GenerateMediaStreamSourceWithProfile();
+    fn GeneratePreviewMediaStreamSource();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -509,6 +584,10 @@ unsafe impl ::windows::core::Interface for IMediaComposition2 {
     type Vtable = IMediaComposition2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa59e5372_2366_492c_bec8_e6dfba6d0281);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaComposition2Impl {
+    fn OverlayLayers();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaComposition2Vtbl(
@@ -528,6 +607,10 @@ unsafe impl ::windows::core::Interface for IMediaCompositionStatics {
     type Vtable = IMediaCompositionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87a08f04_e32a_45ce_8f66_a30df0766224);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaCompositionStaticsImpl {
+    fn LoadAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCompositionStaticsVtbl(
@@ -546,6 +629,19 @@ pub struct IMediaOverlay(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaOverlay {
     type Vtable = IMediaOverlayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa902ae5d_7869_4830_8ab1_94dc01c05fa4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaOverlayImpl {
+    fn Position();
+    fn SetPosition();
+    fn SetDelay();
+    fn Delay();
+    fn Opacity();
+    fn SetOpacity();
+    fn Clone();
+    fn Clip();
+    fn AudioEnabled();
+    fn SetAudioEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -578,6 +674,11 @@ unsafe impl ::windows::core::Interface for IMediaOverlayFactory {
     type Vtable = IMediaOverlayFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb584828a_6188_4f8f_a2e0_aa552d598e18);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaOverlayFactoryImpl {
+    fn Create();
+    fn CreateWithPositionAndOpacity();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaOverlayFactoryVtbl(
@@ -597,6 +698,12 @@ pub struct IMediaOverlayLayer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaOverlayLayer {
     type Vtable = IMediaOverlayLayerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6d9ba57_eeda_46c6_bbe5_e398c84168ac);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaOverlayLayerImpl {
+    fn Clone();
+    fn Overlays();
+    fn CustomCompositorDefinition();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -619,6 +726,10 @@ pub struct IMediaOverlayLayerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaOverlayLayerFactory {
     type Vtable = IMediaOverlayLayerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x947cb473_a39e_4362_abbf_9f8b5070a062);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaOverlayLayerFactoryImpl {
+    fn CreateWithCompositorDefinition();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -91,6 +91,10 @@ unsafe impl ::windows::core::Interface for IFindSimilarResults {
     type Vtable = IFindSimilarResultsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a81_9dbc_11da_9e3f_0011114ae311);
 }
+pub trait IFindSimilarResultsImpl {
+    fn GetSize();
+    fn GetNextFileId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFindSimilarResultsVtbl(
@@ -149,6 +153,9 @@ impl ::core::fmt::Debug for IRdcComparator {
 unsafe impl ::windows::core::Interface for IRdcComparator {
     type Vtable = IRdcComparatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a77_9dbc_11da_9e3f_0011114ae311);
+}
+pub trait IRdcComparatorImpl {
+    fn Process();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -218,6 +225,11 @@ impl ::core::fmt::Debug for IRdcFileReader {
 unsafe impl ::windows::core::Interface for IRdcFileReader {
     type Vtable = IRdcFileReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a74_9dbc_11da_9e3f_0011114ae311);
+}
+pub trait IRdcFileReaderImpl {
+    fn GetFileSize();
+    fn Read();
+    fn GetFilePosition();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -323,6 +335,11 @@ unsafe impl ::windows::core::Interface for IRdcFileWriter {
     type Vtable = IRdcFileWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a75_9dbc_11da_9e3f_0011114ae311);
 }
+pub trait IRdcFileWriterImpl: IRdcFileReaderImpl {
+    fn Write();
+    fn Truncate();
+    fn DeleteOnClose();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRdcFileWriterVtbl(
@@ -391,6 +408,10 @@ impl ::core::fmt::Debug for IRdcGenerator {
 unsafe impl ::windows::core::Interface for IRdcGenerator {
     type Vtable = IRdcGeneratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a73_9dbc_11da_9e3f_0011114ae311);
+}
+pub trait IRdcGeneratorImpl {
+    fn GetGeneratorParameters();
+    fn Process();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -465,6 +486,12 @@ unsafe impl ::windows::core::Interface for IRdcGeneratorFilterMaxParameters {
     type Vtable = IRdcGeneratorFilterMaxParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a72_9dbc_11da_9e3f_0011114ae311);
 }
+pub trait IRdcGeneratorFilterMaxParametersImpl {
+    fn GetHorizonSize();
+    fn SetHorizonSize();
+    fn GetHashWindowSize();
+    fn SetHashWindowSize();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRdcGeneratorFilterMaxParametersVtbl(
@@ -538,6 +565,12 @@ impl ::core::fmt::Debug for IRdcGeneratorParameters {
 unsafe impl ::windows::core::Interface for IRdcGeneratorParameters {
     type Vtable = IRdcGeneratorParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a71_9dbc_11da_9e3f_0011114ae311);
+}
+pub trait IRdcGeneratorParametersImpl {
+    fn GetGeneratorParametersType();
+    fn GetParametersVersion();
+    fn GetSerializeSize();
+    fn Serialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -629,6 +662,15 @@ unsafe impl ::windows::core::Interface for IRdcLibrary {
     type Vtable = IRdcLibraryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a78_9dbc_11da_9e3f_0011114ae311);
 }
+pub trait IRdcLibraryImpl {
+    fn ComputeDefaultRecursionDepth();
+    fn CreateGeneratorParameters();
+    fn OpenGeneratorParameters();
+    fn CreateGenerator();
+    fn CreateComparator();
+    fn CreateSignatureReader();
+    fn GetRDCVersion();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRdcLibraryVtbl(
@@ -698,6 +740,10 @@ unsafe impl ::windows::core::Interface for IRdcSignatureReader {
     type Vtable = IRdcSignatureReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a76_9dbc_11da_9e3f_0011114ae311);
 }
+pub trait IRdcSignatureReaderImpl {
+    fn ReadHeader();
+    fn ReadSignatures();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRdcSignatureReaderVtbl(
@@ -761,6 +807,10 @@ impl ::core::fmt::Debug for IRdcSimilarityGenerator {
 unsafe impl ::windows::core::Interface for IRdcSimilarityGenerator {
     type Vtable = IRdcSimilarityGeneratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a80_9dbc_11da_9e3f_0011114ae311);
+}
+pub trait IRdcSimilarityGeneratorImpl {
+    fn EnableSimilarity();
+    fn Results();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -850,6 +900,15 @@ impl ::core::fmt::Debug for ISimilarity {
 unsafe impl ::windows::core::Interface for ISimilarity {
     type Vtable = ISimilarityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a83_9dbc_11da_9e3f_0011114ae311);
+}
+pub trait ISimilarityImpl {
+    fn CreateTable();
+    fn CreateTableIndirect();
+    fn CloseTable();
+    fn Append();
+    fn FindSimilarFileId();
+    fn CopyAndSwap();
+    fn GetRecordCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -949,6 +1008,15 @@ unsafe impl ::windows::core::Interface for ISimilarityFileIdTable {
     type Vtable = ISimilarityFileIdTableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7f_9dbc_11da_9e3f_0011114ae311);
 }
+pub trait ISimilarityFileIdTableImpl {
+    fn CreateTable();
+    fn CreateTableIndirect();
+    fn CloseTable();
+    fn Append();
+    fn Lookup();
+    fn Invalidate();
+    fn GetRecordCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimilarityFileIdTableVtbl(
@@ -1015,6 +1083,9 @@ unsafe impl ::windows::core::Interface for ISimilarityReportProgress {
     type Vtable = ISimilarityReportProgressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7a_9dbc_11da_9e3f_0011114ae311);
 }
+pub trait ISimilarityReportProgressImpl {
+    fn ReportProgress();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimilarityReportProgressVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, percentcompleted: u32) -> ::windows::core::HRESULT);
@@ -1067,6 +1138,9 @@ impl ::core::fmt::Debug for ISimilarityTableDumpState {
 unsafe impl ::windows::core::Interface for ISimilarityTableDumpState {
     type Vtable = ISimilarityTableDumpStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7b_9dbc_11da_9e3f_0011114ae311);
+}
+pub trait ISimilarityTableDumpStateImpl {
+    fn GetNextData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1139,6 +1213,12 @@ impl ::core::fmt::Debug for ISimilarityTraitsMappedView {
 unsafe impl ::windows::core::Interface for ISimilarityTraitsMappedView {
     type Vtable = ISimilarityTraitsMappedViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7c_9dbc_11da_9e3f_0011114ae311);
+}
+pub trait ISimilarityTraitsMappedViewImpl {
+    fn Flush();
+    fn Unmap();
+    fn Get();
+    fn GetView();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1228,6 +1308,15 @@ impl ::core::fmt::Debug for ISimilarityTraitsMapping {
 unsafe impl ::windows::core::Interface for ISimilarityTraitsMapping {
     type Vtable = ISimilarityTraitsMappingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7d_9dbc_11da_9e3f_0011114ae311);
+}
+pub trait ISimilarityTraitsMappingImpl {
+    fn CloseMapping();
+    fn SetFileSize();
+    fn GetFileSize();
+    fn OpenMapping();
+    fn ResizeMapping();
+    fn GetPageSize();
+    fn CreateView();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1322,6 +1411,15 @@ impl ::core::fmt::Debug for ISimilarityTraitsTable {
 unsafe impl ::windows::core::Interface for ISimilarityTraitsTable {
     type Vtable = ISimilarityTraitsTableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7e_9dbc_11da_9e3f_0011114ae311);
+}
+pub trait ISimilarityTraitsTableImpl {
+    fn CreateTable();
+    fn CreateTableIndirect();
+    fn CloseTable();
+    fn Append();
+    fn FindSimilarFileIndex();
+    fn BeginDump();
+    fn GetLastIndex();
 }
 #[repr(C)]
 #[doc(hidden)]

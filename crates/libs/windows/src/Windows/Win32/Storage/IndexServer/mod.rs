@@ -685,6 +685,13 @@ unsafe impl ::windows::core::Interface for IFilter {
     type Vtable = IFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89bcb740_6119_101a_bcb7_00dd010655af);
 }
+pub trait IFilterImpl {
+    fn Init();
+    fn GetChunk();
+    fn GetText();
+    fn GetValue();
+    fn BindRegion();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFilterVtbl(
@@ -755,6 +762,10 @@ impl ::core::fmt::Debug for IPhraseSink {
 unsafe impl ::windows::core::Interface for IPhraseSink {
     type Vtable = IPhraseSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc906ff0_c058_101a_b554_08002b33b0e6);
+}
+pub trait IPhraseSinkImpl {
+    fn PutSmallPhrase();
+    fn PutPhrase();
 }
 #[repr(C)]
 #[doc(hidden)]

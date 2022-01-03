@@ -582,6 +582,10 @@ unsafe impl ::windows::core::Interface for ICachedFileUpdaterStatics {
     type Vtable = ICachedFileUpdaterStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fc90920_7bcf_4888_a81e_102d7034d7ce);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICachedFileUpdaterStaticsImpl {
+    fn SetUpdateInformation();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICachedFileUpdaterStaticsVtbl(
@@ -599,6 +603,17 @@ pub struct ICachedFileUpdaterUI(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICachedFileUpdaterUI {
     type Vtable = ICachedFileUpdaterUIVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e6f41e6_baf2_4a97_b600_9333f5df80fd);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICachedFileUpdaterUIImpl {
+    fn Title();
+    fn SetTitle();
+    fn UpdateTarget();
+    fn FileUpdateRequested();
+    fn RemoveFileUpdateRequested();
+    fn UIRequested();
+    fn RemoveUIRequested();
+    fn UIStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -629,6 +644,11 @@ unsafe impl ::windows::core::Interface for ICachedFileUpdaterUI2 {
     type Vtable = ICachedFileUpdaterUI2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8856a21c_8699_4340_9f49_f7cad7fe8991);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICachedFileUpdaterUI2Impl: ICachedFileUpdaterUIImpl {
+    fn UpdateRequest();
+    fn GetDeferral();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICachedFileUpdaterUI2Vtbl(
@@ -647,6 +667,15 @@ pub struct IFileUpdateRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileUpdateRequest {
     type Vtable = IFileUpdateRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40c82536_c1fe_4d93_a792_1e736bc70837);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IFileUpdateRequestImpl {
+    fn ContentId();
+    fn File();
+    fn Status();
+    fn SetStatus();
+    fn GetDeferral();
+    fn UpdateLocalFile();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -671,6 +700,11 @@ unsafe impl ::windows::core::Interface for IFileUpdateRequest2 {
     type Vtable = IFileUpdateRequest2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82484648_bdbe_447b_a2ee_7afe6a032a94);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFileUpdateRequest2Impl: IFileUpdateRequestImpl {
+    fn UserInputNeededMessage();
+    fn SetUserInputNeededMessage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileUpdateRequest2Vtbl(
@@ -690,6 +724,10 @@ unsafe impl ::windows::core::Interface for IFileUpdateRequestDeferral {
     type Vtable = IFileUpdateRequestDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffcedb2b_8ade_44a5_bb00_164c4e72f13a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFileUpdateRequestDeferralImpl {
+    fn Complete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileUpdateRequestDeferralVtbl(
@@ -708,6 +746,10 @@ unsafe impl ::windows::core::Interface for IFileUpdateRequestedEventArgs {
     type Vtable = IFileUpdateRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b0a9342_3905_438d_aaef_78ae265f8dd2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFileUpdateRequestedEventArgsImpl {
+    fn Request();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileUpdateRequestedEventArgsVtbl(
@@ -725,6 +767,20 @@ pub struct IStorageProviderError(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageProviderError {
     type Vtable = IStorageProviderErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47f2780b_ef7f_5910_bf83_331d89256615);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageProviderErrorImpl {
+    fn Id();
+    fn Title();
+    fn Message();
+    fn FilePath();
+    fn SetFilePath();
+    fn PrimaryAction();
+    fn SetPrimaryAction();
+    fn SecondaryAction();
+    fn SetSecondaryAction();
+    fn InformationalLink();
+    fn SetInformationalLink();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -754,6 +810,11 @@ unsafe impl ::windows::core::Interface for IStorageProviderErrorCommand {
     type Vtable = IStorageProviderErrorCommandVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6b18aed_bb65_5f26_86e4_1d3e34d54477);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageProviderErrorCommandImpl {
+    fn Label();
+    fn ActionUri();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageProviderErrorCommandVtbl(
@@ -774,6 +835,10 @@ unsafe impl ::windows::core::Interface for IStorageProviderErrorCommandFactory {
     type Vtable = IStorageProviderErrorCommandFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecc1f555_3ab4_556f_8bb2_7e5515eed8dc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageProviderErrorCommandFactoryImpl {
+    fn CreateInstance();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageProviderErrorCommandFactoryVtbl(
@@ -793,6 +858,10 @@ unsafe impl ::windows::core::Interface for IStorageProviderErrorFactory {
     type Vtable = IStorageProviderErrorFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97d6f240_61ab_51dc_9921_18bd0dbef79e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageProviderErrorFactoryImpl {
+    fn CreateInstance();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageProviderErrorFactoryVtbl(
@@ -810,6 +879,11 @@ pub struct IStorageProviderFileTypeInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageProviderFileTypeInfo {
     type Vtable = IStorageProviderFileTypeInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1955b9c1_0184_5a88_87df_4544f464365d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageProviderFileTypeInfoImpl {
+    fn FileExtension();
+    fn IconResource();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -830,6 +904,10 @@ unsafe impl ::windows::core::Interface for IStorageProviderFileTypeInfoFactory {
     type Vtable = IStorageProviderFileTypeInfoFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fa12c6f_cce6_5d5d_80b1_389e7cf92dbf);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageProviderFileTypeInfoFactoryImpl {
+    fn CreateInstance();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageProviderFileTypeInfoFactoryVtbl(
@@ -847,6 +925,15 @@ pub struct IStorageProviderGetContentInfoForPathResult(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for IStorageProviderGetContentInfoForPathResult {
     type Vtable = IStorageProviderGetContentInfoForPathResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2564711d_aa89_4d12_82e3_f72a92e33966);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageProviderGetContentInfoForPathResultImpl {
+    fn Status();
+    fn SetStatus();
+    fn ContentUri();
+    fn SetContentUri();
+    fn ContentId();
+    fn SetContentId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -870,6 +957,13 @@ pub struct IStorageProviderGetPathForContentUriResult(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IStorageProviderGetPathForContentUriResult {
     type Vtable = IStorageProviderGetPathForContentUriResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63711a9d_4118_45a6_acb6_22c49d019f40);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageProviderGetPathForContentUriResultImpl {
+    fn Status();
+    fn SetStatus();
+    fn Path();
+    fn SetPath();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -961,6 +1055,9 @@ unsafe impl ::windows::core::Interface for IStorageProviderHandlerFactory {
     type Vtable = IStorageProviderHandlerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6154dc3a_fc1d_5aae_9e23_e8659a22c5f6);
 }
+pub trait IStorageProviderHandlerFactoryImpl {
+    fn GetStatusSource();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageProviderHandlerFactoryVtbl(
@@ -978,6 +1075,10 @@ pub struct IStorageProviderItemPropertiesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageProviderItemPropertiesStatics {
     type Vtable = IStorageProviderItemPropertiesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d2c1c97_2704_4729_8fa9_7e6b8e158c2f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageProviderItemPropertiesStaticsImpl {
+    fn SetAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -997,6 +1098,15 @@ pub struct IStorageProviderItemProperty(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageProviderItemProperty {
     type Vtable = IStorageProviderItemPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x476cb558_730b_4188_b7b5_63b716ed476d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageProviderItemPropertyImpl {
+    fn SetId();
+    fn Id();
+    fn SetValue();
+    fn Value();
+    fn SetIconResource();
+    fn IconResource();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1020,6 +1130,13 @@ pub struct IStorageProviderItemPropertyDefinition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageProviderItemPropertyDefinition {
     type Vtable = IStorageProviderItemPropertyDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5b383bb_ff1f_4298_831e_ff1c08089690);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageProviderItemPropertyDefinitionImpl {
+    fn Id();
+    fn SetId();
+    fn DisplayNameResource();
+    fn SetDisplayNameResource();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1112,6 +1229,9 @@ unsafe impl ::windows::core::Interface for IStorageProviderItemPropertySource {
     type Vtable = IStorageProviderItemPropertySourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f6f9c3e_f632_4a9b_8d99_d2d7a11df56a);
 }
+pub trait IStorageProviderItemPropertySourceImpl {
+    fn GetItemProperties();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageProviderItemPropertySourceVtbl(
@@ -1200,6 +1320,9 @@ unsafe impl ::windows::core::Interface for IStorageProviderPropertyCapabilities 
     type Vtable = IStorageProviderPropertyCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x658d2f0e_63b7_4567_acf9_51abe301dda5);
 }
+pub trait IStorageProviderPropertyCapabilitiesImpl {
+    fn IsPropertySupported();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageProviderPropertyCapabilitiesVtbl(
@@ -1217,6 +1340,12 @@ pub struct IStorageProviderStatus(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageProviderStatus {
     type Vtable = IStorageProviderStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff6e761d_fb8b_56c3_9e7a_05309d191fb4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageProviderStatusImpl {
+    fn Message();
+    fn State();
+    fn ErrorMessages();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1238,6 +1367,11 @@ pub struct IStorageProviderStatusFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageProviderStatusFactory {
     type Vtable = IStorageProviderStatusFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd64828c5_9b7a_5fa4_b126_90bd18936c7f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageProviderStatusFactoryImpl {
+    fn CreateInstance();
+    fn CreateInstance2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1343,6 +1477,11 @@ unsafe impl ::windows::core::Interface for IStorageProviderStatusSource {
     type Vtable = IStorageProviderStatusSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e316bb2_fd43_5335_b3c4_a962ee31d17e);
 }
+pub trait IStorageProviderStatusSourceImpl {
+    fn GetStatus();
+    fn Changed();
+    fn RemoveChanged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageProviderStatusSourceVtbl(
@@ -1364,6 +1503,40 @@ pub struct IStorageProviderSyncRootInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageProviderSyncRootInfo {
     type Vtable = IStorageProviderSyncRootInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c1305c4_99f9_41ac_8904_ab055d654926);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageProviderSyncRootInfoImpl {
+    fn Id();
+    fn SetId();
+    fn Context();
+    fn SetContext();
+    fn Path();
+    fn SetPath();
+    fn DisplayNameResource();
+    fn SetDisplayNameResource();
+    fn IconResource();
+    fn SetIconResource();
+    fn HydrationPolicy();
+    fn SetHydrationPolicy();
+    fn HydrationPolicyModifier();
+    fn SetHydrationPolicyModifier();
+    fn PopulationPolicy();
+    fn SetPopulationPolicy();
+    fn InSyncPolicy();
+    fn SetInSyncPolicy();
+    fn HardlinkPolicy();
+    fn SetHardlinkPolicy();
+    fn ShowSiblingsAsGroup();
+    fn SetShowSiblingsAsGroup();
+    fn Version();
+    fn SetVersion();
+    fn ProtectionMode();
+    fn SetProtectionMode();
+    fn AllowPinning();
+    fn SetAllowPinning();
+    fn StorageProviderItemPropertyDefinitions();
+    fn RecycleBinUri();
+    fn SetRecycleBinUri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1418,6 +1591,11 @@ unsafe impl ::windows::core::Interface for IStorageProviderSyncRootInfo2 {
     type Vtable = IStorageProviderSyncRootInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf51b023_7cf1_5166_bdba_efd95f529e31);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageProviderSyncRootInfo2Impl {
+    fn ProviderId();
+    fn SetProviderId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageProviderSyncRootInfo2Vtbl(
@@ -1437,6 +1615,10 @@ unsafe impl ::windows::core::Interface for IStorageProviderSyncRootInfo3 {
     type Vtable = IStorageProviderSyncRootInfo3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x507a6617_bef6_56fd_855e_75ace2e45cf5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageProviderSyncRootInfo3Impl {
+    fn FallbackFileTypeInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageProviderSyncRootInfo3Vtbl(
@@ -1455,6 +1637,14 @@ pub struct IStorageProviderSyncRootManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageProviderSyncRootManagerStatics {
     type Vtable = IStorageProviderSyncRootManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e99fbbf_8fe3_4b40_abc7_f6fc3d74c98e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageProviderSyncRootManagerStaticsImpl {
+    fn Register();
+    fn Unregister();
+    fn GetSyncRootInformationForFolder();
+    fn GetSyncRootInformationForId();
+    fn GetCurrentSyncRoots();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1478,6 +1668,10 @@ pub struct IStorageProviderSyncRootManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageProviderSyncRootManagerStatics2 {
     type Vtable = IStorageProviderSyncRootManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefb6cfee_1374_544e_9df1_5598d2e9cfdd);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageProviderSyncRootManagerStatics2Impl {
+    fn IsSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1567,6 +1761,10 @@ unsafe impl ::windows::core::RuntimeType for IStorageProviderUriSource {
 unsafe impl ::windows::core::Interface for IStorageProviderUriSource {
     type Vtable = IStorageProviderUriSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb29806d1_8be0_4962_8bb6_0d4c2e14d47a);
+}
+pub trait IStorageProviderUriSourceImpl {
+    fn GetPathForContentUri();
+    fn GetContentInfoForPath();
 }
 #[repr(C)]
 #[doc(hidden)]

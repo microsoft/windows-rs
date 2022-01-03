@@ -7433,6 +7433,30 @@ unsafe impl ::windows::core::Interface for IDiskQuotaControl {
     type Vtable = IDiskQuotaControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b572_ec89_11cf_9c00_00aa00a14f56);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IDiskQuotaControlImpl: IConnectionPointContainerImpl {
+    fn Initialize();
+    fn SetQuotaState();
+    fn GetQuotaState();
+    fn SetQuotaLogFlags();
+    fn GetQuotaLogFlags();
+    fn SetDefaultQuotaThreshold();
+    fn GetDefaultQuotaThreshold();
+    fn GetDefaultQuotaThresholdText();
+    fn SetDefaultQuotaLimit();
+    fn GetDefaultQuotaLimit();
+    fn GetDefaultQuotaLimitText();
+    fn AddUserSid();
+    fn AddUserName();
+    fn DeleteUser();
+    fn FindUserSid();
+    fn FindUserName();
+    fn CreateEnumUsers();
+    fn CreateUserBatch();
+    fn InvalidateSidNameCache();
+    fn GiveUserNameResolutionPriority();
+    fn ShutdownNameResolution();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiskQuotaControlVtbl(
@@ -7521,6 +7545,9 @@ impl ::core::fmt::Debug for IDiskQuotaEvents {
 unsafe impl ::windows::core::Interface for IDiskQuotaEvents {
     type Vtable = IDiskQuotaEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b579_ec89_11cf_9c00_00aa00a14f56);
+}
+pub trait IDiskQuotaEventsImpl {
+    fn OnUserNameChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7636,6 +7663,23 @@ unsafe impl ::windows::core::Interface for IDiskQuotaUser {
     type Vtable = IDiskQuotaUserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b574_ec89_11cf_9c00_00aa00a14f56);
 }
+pub trait IDiskQuotaUserImpl {
+    fn GetID();
+    fn GetName();
+    fn GetSidLength();
+    fn GetSid();
+    fn GetQuotaThreshold();
+    fn GetQuotaThresholdText();
+    fn GetQuotaLimit();
+    fn GetQuotaLimitText();
+    fn GetQuotaUsed();
+    fn GetQuotaUsedText();
+    fn GetQuotaInformation();
+    fn SetQuotaThreshold();
+    fn SetQuotaLimit();
+    fn Invalidate();
+    fn GetAccountStatus();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiskQuotaUserVtbl(
@@ -7725,6 +7769,12 @@ unsafe impl ::windows::core::Interface for IDiskQuotaUserBatch {
     type Vtable = IDiskQuotaUserBatchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b576_ec89_11cf_9c00_00aa00a14f56);
 }
+pub trait IDiskQuotaUserBatchImpl {
+    fn Add();
+    fn Remove();
+    fn RemoveAll();
+    fn FlushToDisk();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiskQuotaUserBatchVtbl(
@@ -7797,6 +7847,12 @@ impl ::core::fmt::Debug for IEnumDiskQuotaUsers {
 unsafe impl ::windows::core::Interface for IEnumDiskQuotaUsers {
     type Vtable = IEnumDiskQuotaUsersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b577_ec89_11cf_9c00_00aa00a14f56);
+}
+pub trait IEnumDiskQuotaUsersImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]

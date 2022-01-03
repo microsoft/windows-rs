@@ -566,6 +566,15 @@ unsafe impl ::windows::core::Interface for IDCompositionAffineTransform2DEffect 
     type Vtable = IDCompositionAffineTransform2DEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b74b9e8_cdd6_492f_bbbc_5ed32157026d);
 }
+pub trait IDCompositionAffineTransform2DEffectImpl: IDCompositionFilterEffectImpl + IDCompositionEffectImpl {
+    fn SetInterpolationMode();
+    fn SetBorderMode();
+    fn SetTransformMatrix();
+    fn SetTransformMatrixElement();
+    fn SetTransformMatrixElement();
+    fn SetSharpness();
+    fn SetSharpness();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionAffineTransform2DEffectVtbl(
@@ -651,6 +660,14 @@ impl ::core::fmt::Debug for IDCompositionAnimation {
 unsafe impl ::windows::core::Interface for IDCompositionAnimation {
     type Vtable = IDCompositionAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbfd91d9_51b2_45e4_b3de_d19ccfb863c5);
+}
+pub trait IDCompositionAnimationImpl {
+    fn Reset();
+    fn SetAbsoluteBeginTime();
+    fn AddCubic();
+    fn AddSinusoidal();
+    fn AddRepeat();
+    fn End();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -796,6 +813,18 @@ unsafe impl ::windows::core::Interface for IDCompositionArithmeticCompositeEffec
     type Vtable = IDCompositionArithmeticCompositeEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b67dfa8_e3dd_4e61_b640_46c2f3d739dc);
 }
+pub trait IDCompositionArithmeticCompositeEffectImpl: IDCompositionFilterEffectImpl + IDCompositionEffectImpl {
+    fn SetCoefficients();
+    fn SetClampOutput();
+    fn SetCoefficient1();
+    fn SetCoefficient1();
+    fn SetCoefficient2();
+    fn SetCoefficient2();
+    fn SetCoefficient3();
+    fn SetCoefficient3();
+    fn SetCoefficient4();
+    fn SetCoefficient4();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionArithmeticCompositeEffectVtbl(
@@ -909,6 +938,9 @@ impl ::core::fmt::Debug for IDCompositionBlendEffect {
 unsafe impl ::windows::core::Interface for IDCompositionBlendEffect {
     type Vtable = IDCompositionBlendEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33ecdc0a_578a_4a11_9c14_0cb90517f9c5);
+}
+pub trait IDCompositionBlendEffectImpl: IDCompositionFilterEffectImpl + IDCompositionEffectImpl {
+    fn SetMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1051,6 +1083,18 @@ unsafe impl ::windows::core::Interface for IDCompositionBrightnessEffect {
     type Vtable = IDCompositionBrightnessEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6027496e_cb3a_49ab_934f_d798da4f7da6);
 }
+pub trait IDCompositionBrightnessEffectImpl: IDCompositionFilterEffectImpl + IDCompositionEffectImpl {
+    fn SetWhitePoint();
+    fn SetBlackPoint();
+    fn SetWhitePointX();
+    fn SetWhitePointX();
+    fn SetWhitePointY();
+    fn SetWhitePointY();
+    fn SetBlackPointX();
+    fn SetBlackPointX();
+    fn SetBlackPointY();
+    fn SetBlackPointY();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionBrightnessEffectVtbl(
@@ -1115,6 +1159,7 @@ unsafe impl ::windows::core::Interface for IDCompositionClip {
     type Vtable = IDCompositionClipVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64ac3703_9d3f_45ec_a109_7cac0e7a13a7);
 }
+pub trait IDCompositionClipImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionClipVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
@@ -1230,6 +1275,13 @@ unsafe impl ::windows::core::Interface for IDCompositionColorMatrixEffect {
     type Vtable = IDCompositionColorMatrixEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1170a22_3ce2_4966_90d4_55408bfc84c4);
 }
+pub trait IDCompositionColorMatrixEffectImpl: IDCompositionFilterEffectImpl + IDCompositionEffectImpl {
+    fn SetMatrix();
+    fn SetMatrixElement();
+    fn SetMatrixElement();
+    fn SetAlphaMode();
+    fn SetClampOutput();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionColorMatrixEffectVtbl(
@@ -1340,6 +1392,9 @@ unsafe impl ::windows::core::Interface for IDCompositionCompositeEffect {
     type Vtable = IDCompositionCompositeEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x576616c0_a231_494d_a38d_00fd5ec4db46);
 }
+pub trait IDCompositionCompositeEffectImpl: IDCompositionFilterEffectImpl + IDCompositionEffectImpl {
+    fn SetMode();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionCompositeEffectVtbl(
@@ -1413,6 +1468,12 @@ impl ::core::fmt::Debug for IDCompositionDelegatedInkTrail {
 unsafe impl ::windows::core::Interface for IDCompositionDelegatedInkTrail {
     type Vtable = IDCompositionDelegatedInkTrailVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2448e9b_547d_4057_8cf5_8144ede1c2da);
+}
+pub trait IDCompositionDelegatedInkTrailImpl {
+    fn AddTrailPoints();
+    fn AddTrailPointsWithPrediction();
+    fn RemoveTrailPoints();
+    fn StartNewTrail();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1614,6 +1675,11 @@ impl ::core::fmt::Debug for IDCompositionDesktopDevice {
 unsafe impl ::windows::core::Interface for IDCompositionDesktopDevice {
     type Vtable = IDCompositionDesktopDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f4633fe_1e08_4cb8_8c75_ce24333f5602);
+}
+pub trait IDCompositionDesktopDeviceImpl: IDCompositionDevice2Impl {
+    fn CreateTargetForHwnd();
+    fn CreateSurfaceFromHandle();
+    fn CreateSurfaceFromHwnd();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1822,6 +1888,32 @@ unsafe impl ::windows::core::Interface for IDCompositionDevice {
     type Vtable = IDCompositionDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc37ea93a_e7aa_450d_b16f_9746cb0407f3);
 }
+pub trait IDCompositionDeviceImpl {
+    fn Commit();
+    fn WaitForCommitCompletion();
+    fn GetFrameStatistics();
+    fn CreateTargetForHwnd();
+    fn CreateVisual();
+    fn CreateSurface();
+    fn CreateVirtualSurface();
+    fn CreateSurfaceFromHandle();
+    fn CreateSurfaceFromHwnd();
+    fn CreateTranslateTransform();
+    fn CreateScaleTransform();
+    fn CreateRotateTransform();
+    fn CreateSkewTransform();
+    fn CreateMatrixTransform();
+    fn CreateTransformGroup();
+    fn CreateTranslateTransform3D();
+    fn CreateScaleTransform3D();
+    fn CreateRotateTransform3D();
+    fn CreateMatrixTransform3D();
+    fn CreateTransform3DGroup();
+    fn CreateEffectGroup();
+    fn CreateRectangleClip();
+    fn CreateAnimation();
+    fn CheckDeviceState();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionDeviceVtbl(
@@ -2010,6 +2102,29 @@ impl ::core::fmt::Debug for IDCompositionDevice2 {
 unsafe impl ::windows::core::Interface for IDCompositionDevice2 {
     type Vtable = IDCompositionDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75f6468d_1b8e_447c_9bc6_75fea80b5b25);
+}
+pub trait IDCompositionDevice2Impl {
+    fn Commit();
+    fn WaitForCommitCompletion();
+    fn GetFrameStatistics();
+    fn CreateVisual();
+    fn CreateSurfaceFactory();
+    fn CreateSurface();
+    fn CreateVirtualSurface();
+    fn CreateTranslateTransform();
+    fn CreateScaleTransform();
+    fn CreateRotateTransform();
+    fn CreateSkewTransform();
+    fn CreateMatrixTransform();
+    fn CreateTransformGroup();
+    fn CreateTranslateTransform3D();
+    fn CreateScaleTransform3D();
+    fn CreateRotateTransform3D();
+    fn CreateMatrixTransform3D();
+    fn CreateTransform3DGroup();
+    fn CreateEffectGroup();
+    fn CreateRectangleClip();
+    fn CreateAnimation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2278,6 +2393,21 @@ unsafe impl ::windows::core::Interface for IDCompositionDevice3 {
     type Vtable = IDCompositionDevice3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0987cb06_f916_48bf_8d35_ce7641781bd9);
 }
+pub trait IDCompositionDevice3Impl: IDCompositionDevice2Impl {
+    fn CreateGaussianBlurEffect();
+    fn CreateBrightnessEffect();
+    fn CreateColorMatrixEffect();
+    fn CreateShadowEffect();
+    fn CreateHueRotationEffect();
+    fn CreateSaturationEffect();
+    fn CreateTurbulenceEffect();
+    fn CreateLinearTransferEffect();
+    fn CreateTableTransferEffect();
+    fn CreateCompositeEffect();
+    fn CreateBlendEffect();
+    fn CreateArithmeticCompositeEffect();
+    fn CreateAffineTransform2DEffect();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionDevice3Vtbl(
@@ -2375,6 +2505,10 @@ unsafe impl ::windows::core::Interface for IDCompositionDeviceDebug {
     type Vtable = IDCompositionDeviceDebugVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1a3c64a_224f_4a81_9773_4f03a89d3c6c);
 }
+pub trait IDCompositionDeviceDebugImpl {
+    fn EnableDebugCounters();
+    fn DisableDebugCounters();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionDeviceDebugVtbl(
@@ -2428,6 +2562,7 @@ unsafe impl ::windows::core::Interface for IDCompositionEffect {
     type Vtable = IDCompositionEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec81b08f_bfcb_4e8d_b193_a915587999e8);
 }
+pub trait IDCompositionEffectImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionEffectVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
@@ -2508,6 +2643,11 @@ unsafe impl ::windows::core::Interface for IDCompositionEffectGroup {
     type Vtable = IDCompositionEffectGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7929a74_e6b2_4bd6_8b95_4040119ca34d);
 }
+pub trait IDCompositionEffectGroupImpl: IDCompositionEffectImpl {
+    fn SetOpacity();
+    fn SetOpacity();
+    fn SetTransform3D();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionEffectGroupVtbl(
@@ -2586,6 +2726,9 @@ impl ::core::fmt::Debug for IDCompositionFilterEffect {
 unsafe impl ::windows::core::Interface for IDCompositionFilterEffect {
     type Vtable = IDCompositionFilterEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30c421d5_8cb2_4e9f_b133_37be270d4ac2);
+}
+pub trait IDCompositionFilterEffectImpl: IDCompositionEffectImpl {
+    fn SetInput();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2691,6 +2834,11 @@ impl ::core::fmt::Debug for IDCompositionGaussianBlurEffect {
 unsafe impl ::windows::core::Interface for IDCompositionGaussianBlurEffect {
     type Vtable = IDCompositionGaussianBlurEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45d4d0b7_1bd4_454e_8894_2bfa68443033);
+}
+pub trait IDCompositionGaussianBlurEffectImpl: IDCompositionFilterEffectImpl + IDCompositionEffectImpl {
+    fn SetStandardDeviation();
+    fn SetStandardDeviation();
+    fn SetBorderMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2801,6 +2949,10 @@ unsafe impl ::windows::core::Interface for IDCompositionHueRotationEffect {
     type Vtable = IDCompositionHueRotationEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6db9f920_0770_4781_b0c6_381912f9d167);
 }
+pub trait IDCompositionHueRotationEffectImpl: IDCompositionFilterEffectImpl + IDCompositionEffectImpl {
+    fn SetAngle();
+    fn SetAngle();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionHueRotationEffectVtbl(
@@ -2865,6 +3017,10 @@ impl ::core::fmt::Debug for IDCompositionInkTrailDevice {
 unsafe impl ::windows::core::Interface for IDCompositionInkTrailDevice {
     type Vtable = IDCompositionInkTrailDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf0c7cec_cdeb_4d4a_b91c_721bf22f4e6c);
+}
+pub trait IDCompositionInkTrailDeviceImpl {
+    fn CreateDelegatedInkTrail();
+    fn CreateDelegatedInkTrailForSwapChain();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3053,6 +3209,29 @@ unsafe impl ::windows::core::Interface for IDCompositionLinearTransferEffect {
     type Vtable = IDCompositionLinearTransferEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4305ee5b_c4a0_4c88_9385_67124e017683);
 }
+pub trait IDCompositionLinearTransferEffectImpl: IDCompositionFilterEffectImpl + IDCompositionEffectImpl {
+    fn SetRedYIntercept();
+    fn SetRedYIntercept();
+    fn SetRedSlope();
+    fn SetRedSlope();
+    fn SetRedDisable();
+    fn SetGreenYIntercept();
+    fn SetGreenYIntercept();
+    fn SetGreenSlope();
+    fn SetGreenSlope();
+    fn SetGreenDisable();
+    fn SetBlueYIntercept();
+    fn SetBlueYIntercept();
+    fn SetBlueSlope();
+    fn SetBlueSlope();
+    fn SetBlueDisable();
+    fn SetAlphaYIntercept();
+    fn SetAlphaYIntercept();
+    fn SetAlphaSlope();
+    fn SetAlphaSlope();
+    fn SetAlphaDisable();
+    fn SetClampOutput();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionLinearTransferEffectVtbl(
@@ -3205,6 +3384,11 @@ unsafe impl ::windows::core::Interface for IDCompositionMatrixTransform {
     type Vtable = IDCompositionMatrixTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16cdff07_c503_419c_83f2_0965c7af1fa6);
 }
+pub trait IDCompositionMatrixTransformImpl: IDCompositionTransformImpl + IDCompositionTransform3DImpl + IDCompositionEffectImpl {
+    fn SetMatrix();
+    fn SetMatrixElement();
+    fn SetMatrixElement();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionMatrixTransformVtbl(
@@ -3313,6 +3497,11 @@ impl ::core::fmt::Debug for IDCompositionMatrixTransform3D {
 unsafe impl ::windows::core::Interface for IDCompositionMatrixTransform3D {
     type Vtable = IDCompositionMatrixTransform3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b3363f0_643b_41b7_b6e0_ccf22d34467c);
+}
+pub trait IDCompositionMatrixTransform3DImpl: IDCompositionTransform3DImpl + IDCompositionEffectImpl {
+    fn SetMatrix();
+    fn SetMatrixElement();
+    fn SetMatrixElement();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3486,6 +3675,32 @@ unsafe impl ::windows::core::Interface for IDCompositionRectangleClip {
     type Vtable = IDCompositionRectangleClipVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9842ad7d_d9cf_4908_aed7_48b51da5e7c2);
 }
+pub trait IDCompositionRectangleClipImpl: IDCompositionClipImpl {
+    fn SetLeft();
+    fn SetLeft();
+    fn SetTop();
+    fn SetTop();
+    fn SetRight();
+    fn SetRight();
+    fn SetBottom();
+    fn SetBottom();
+    fn SetTopLeftRadiusX();
+    fn SetTopLeftRadiusX();
+    fn SetTopLeftRadiusY();
+    fn SetTopLeftRadiusY();
+    fn SetTopRightRadiusX();
+    fn SetTopRightRadiusX();
+    fn SetTopRightRadiusY();
+    fn SetTopRightRadiusY();
+    fn SetBottomLeftRadiusX();
+    fn SetBottomLeftRadiusX();
+    fn SetBottomLeftRadiusY();
+    fn SetBottomLeftRadiusY();
+    fn SetBottomRightRadiusX();
+    fn SetBottomRightRadiusX();
+    fn SetBottomRightRadiusY();
+    fn SetBottomRightRadiusY();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionRectangleClipVtbl(
@@ -3646,6 +3861,14 @@ unsafe impl ::windows::core::Interface for IDCompositionRotateTransform {
     type Vtable = IDCompositionRotateTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x641ed83c_ae96_46c5_90dc_32774cc5c6d5);
 }
+pub trait IDCompositionRotateTransformImpl: IDCompositionTransformImpl + IDCompositionTransform3DImpl + IDCompositionEffectImpl {
+    fn SetAngle();
+    fn SetAngle();
+    fn SetCenterX();
+    fn SetCenterX();
+    fn SetCenterY();
+    fn SetCenterY();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionRotateTransformVtbl(
@@ -3800,6 +4023,22 @@ unsafe impl ::windows::core::Interface for IDCompositionRotateTransform3D {
     type Vtable = IDCompositionRotateTransform3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8f5b23f_d429_4a91_b55a_d2f45fd75b18);
 }
+pub trait IDCompositionRotateTransform3DImpl: IDCompositionTransform3DImpl + IDCompositionEffectImpl {
+    fn SetAngle();
+    fn SetAngle();
+    fn SetAxisX();
+    fn SetAxisX();
+    fn SetAxisY();
+    fn SetAxisY();
+    fn SetAxisZ();
+    fn SetAxisZ();
+    fn SetCenterX();
+    fn SetCenterX();
+    fn SetCenterY();
+    fn SetCenterY();
+    fn SetCenterZ();
+    fn SetCenterZ();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionRotateTransform3DVtbl(
@@ -3917,6 +4156,10 @@ impl ::core::fmt::Debug for IDCompositionSaturationEffect {
 unsafe impl ::windows::core::Interface for IDCompositionSaturationEffect {
     type Vtable = IDCompositionSaturationEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa08debda_3258_4fa4_9f16_9174d3fe93b1);
+}
+pub trait IDCompositionSaturationEffectImpl: IDCompositionFilterEffectImpl + IDCompositionEffectImpl {
+    fn SetSaturation();
+    fn SetSaturation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4065,6 +4308,16 @@ unsafe impl ::windows::core::Interface for IDCompositionScaleTransform {
     type Vtable = IDCompositionScaleTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71fde914_40ef_45ef_bd51_68b037c339f9);
 }
+pub trait IDCompositionScaleTransformImpl: IDCompositionTransformImpl + IDCompositionTransform3DImpl + IDCompositionEffectImpl {
+    fn SetScaleX();
+    fn SetScaleX();
+    fn SetScaleY();
+    fn SetScaleY();
+    fn SetCenterX();
+    fn SetCenterX();
+    fn SetCenterY();
+    fn SetCenterY();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionScaleTransformVtbl(
@@ -4212,6 +4465,20 @@ impl ::core::fmt::Debug for IDCompositionScaleTransform3D {
 unsafe impl ::windows::core::Interface for IDCompositionScaleTransform3D {
     type Vtable = IDCompositionScaleTransform3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a9e9ead_364b_4b15_a7c4_a1997f78b389);
+}
+pub trait IDCompositionScaleTransform3DImpl: IDCompositionTransform3DImpl + IDCompositionEffectImpl {
+    fn SetScaleX();
+    fn SetScaleX();
+    fn SetScaleY();
+    fn SetScaleY();
+    fn SetScaleZ();
+    fn SetScaleZ();
+    fn SetCenterX();
+    fn SetCenterX();
+    fn SetCenterY();
+    fn SetCenterY();
+    fn SetCenterZ();
+    fn SetCenterZ();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4365,6 +4632,19 @@ impl ::core::fmt::Debug for IDCompositionShadowEffect {
 unsafe impl ::windows::core::Interface for IDCompositionShadowEffect {
     type Vtable = IDCompositionShadowEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ad18ac0_cfd2_4c2f_bb62_96e54fdb6879);
+}
+pub trait IDCompositionShadowEffectImpl: IDCompositionFilterEffectImpl + IDCompositionEffectImpl {
+    fn SetStandardDeviation();
+    fn SetStandardDeviation();
+    fn SetColor();
+    fn SetRed();
+    fn SetRed();
+    fn SetGreen();
+    fn SetGreen();
+    fn SetBlue();
+    fn SetBlue();
+    fn SetAlpha();
+    fn SetAlpha();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4523,6 +4803,16 @@ unsafe impl ::windows::core::Interface for IDCompositionSkewTransform {
     type Vtable = IDCompositionSkewTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe57aa735_dcdb_4c72_9c61_0591f58889ee);
 }
+pub trait IDCompositionSkewTransformImpl: IDCompositionTransformImpl + IDCompositionTransform3DImpl + IDCompositionEffectImpl {
+    fn SetAngleX();
+    fn SetAngleX();
+    fn SetAngleY();
+    fn SetAngleY();
+    fn SetCenterX();
+    fn SetCenterX();
+    fn SetCenterY();
+    fn SetCenterY();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionSkewTransformVtbl(
@@ -4605,6 +4895,13 @@ unsafe impl ::windows::core::Interface for IDCompositionSurface {
     type Vtable = IDCompositionSurfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb8a4953_2c99_4f5a_96f5_4819027fa3ac);
 }
+pub trait IDCompositionSurfaceImpl {
+    fn BeginDraw();
+    fn EndDraw();
+    fn SuspendDraw();
+    fn ResumeDraw();
+    fn Scroll();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionSurfaceVtbl(
@@ -4675,6 +4972,10 @@ impl ::core::fmt::Debug for IDCompositionSurfaceFactory {
 unsafe impl ::windows::core::Interface for IDCompositionSurfaceFactory {
     type Vtable = IDCompositionSurfaceFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe334bc12_3937_4e02_85eb_fcf4eb30d2c8);
+}
+pub trait IDCompositionSurfaceFactoryImpl {
+    fn CreateSurface();
+    fn CreateVirtualSurface();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4849,6 +5150,25 @@ unsafe impl ::windows::core::Interface for IDCompositionTableTransferEffect {
     type Vtable = IDCompositionTableTransferEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e82e2_69c5_4eb4_a5f5_a7033f5132cd);
 }
+pub trait IDCompositionTableTransferEffectImpl: IDCompositionFilterEffectImpl + IDCompositionEffectImpl {
+    fn SetRedTable();
+    fn SetGreenTable();
+    fn SetBlueTable();
+    fn SetAlphaTable();
+    fn SetRedDisable();
+    fn SetGreenDisable();
+    fn SetBlueDisable();
+    fn SetAlphaDisable();
+    fn SetClampOutput();
+    fn SetRedTableValue();
+    fn SetRedTableValue();
+    fn SetGreenTableValue();
+    fn SetGreenTableValue();
+    fn SetBlueTableValue();
+    fn SetBlueTableValue();
+    fn SetAlphaTableValue();
+    fn SetAlphaTableValue();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionTableTransferEffectVtbl(
@@ -4927,6 +5247,9 @@ impl ::core::fmt::Debug for IDCompositionTarget {
 unsafe impl ::windows::core::Interface for IDCompositionTarget {
     type Vtable = IDCompositionTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeacdd04c_117e_4e17_88f4_d1b12b0e3d89);
+}
+pub trait IDCompositionTargetImpl {
+    fn SetRoot();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5015,6 +5338,7 @@ unsafe impl ::windows::core::Interface for IDCompositionTransform {
     type Vtable = IDCompositionTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd55faa7_37e0_4c20_95d2_9be45bc33f55);
 }
+pub trait IDCompositionTransformImpl: IDCompositionTransform3DImpl + IDCompositionEffectImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionTransformVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
@@ -5082,6 +5406,7 @@ unsafe impl ::windows::core::Interface for IDCompositionTransform3D {
     type Vtable = IDCompositionTransform3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71185722_246b_41f2_aad1_0443f7f4bfc2);
 }
+pub trait IDCompositionTransform3DImpl: IDCompositionEffectImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionTransform3DVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
@@ -5206,6 +5531,12 @@ unsafe impl ::windows::core::Interface for IDCompositionTranslateTransform {
     type Vtable = IDCompositionTranslateTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06791122_c6f0_417d_8323_269e987f5954);
 }
+pub trait IDCompositionTranslateTransformImpl: IDCompositionTransformImpl + IDCompositionTransform3DImpl + IDCompositionEffectImpl {
+    fn SetOffsetX();
+    fn SetOffsetX();
+    fn SetOffsetY();
+    fn SetOffsetY();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionTranslateTransformVtbl(
@@ -5325,6 +5656,14 @@ impl ::core::fmt::Debug for IDCompositionTranslateTransform3D {
 unsafe impl ::windows::core::Interface for IDCompositionTranslateTransform3D {
     type Vtable = IDCompositionTranslateTransform3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91636d4b_9ba1_4532_aaf7_e3344994d788);
+}
+pub trait IDCompositionTranslateTransform3DImpl: IDCompositionTransform3DImpl + IDCompositionEffectImpl {
+    fn SetOffsetX();
+    fn SetOffsetX();
+    fn SetOffsetY();
+    fn SetOffsetY();
+    fn SetOffsetZ();
+    fn SetOffsetZ();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5461,6 +5800,15 @@ unsafe impl ::windows::core::Interface for IDCompositionTurbulenceEffect {
     type Vtable = IDCompositionTurbulenceEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6a55bda_c09c_49f3_9193_a41922c89715);
 }
+pub trait IDCompositionTurbulenceEffectImpl: IDCompositionFilterEffectImpl + IDCompositionEffectImpl {
+    fn SetOffset();
+    fn SetBaseFrequency();
+    fn SetSize();
+    fn SetNumOctaves();
+    fn SetSeed();
+    fn SetNoise();
+    fn SetStitchable();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionTurbulenceEffectVtbl(
@@ -5576,6 +5924,10 @@ impl ::core::fmt::Debug for IDCompositionVirtualSurface {
 unsafe impl ::windows::core::Interface for IDCompositionVirtualSurface {
     type Vtable = IDCompositionVirtualSurfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae471c51_5f53_4a24_8d3e_d0c39c30b3f0);
+}
+pub trait IDCompositionVirtualSurfaceImpl: IDCompositionSurfaceImpl {
+    fn Resize();
+    fn Trim();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5709,6 +6061,25 @@ impl ::core::fmt::Debug for IDCompositionVisual {
 unsafe impl ::windows::core::Interface for IDCompositionVisual {
     type Vtable = IDCompositionVisualVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d93059d_097b_4651_9a60_f0f25116e2f3);
+}
+pub trait IDCompositionVisualImpl {
+    fn SetOffsetX();
+    fn SetOffsetX();
+    fn SetOffsetY();
+    fn SetOffsetY();
+    fn SetTransform();
+    fn SetTransform();
+    fn SetTransformParent();
+    fn SetEffect();
+    fn SetBitmapInterpolationMode();
+    fn SetBorderMode();
+    fn SetClip();
+    fn SetClip();
+    fn SetContent();
+    fn AddVisual();
+    fn RemoveVisual();
+    fn RemoveAllVisuals();
+    fn SetCompositeMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5880,6 +6251,10 @@ impl ::core::fmt::Debug for IDCompositionVisual2 {
 unsafe impl ::windows::core::Interface for IDCompositionVisual2 {
     type Vtable = IDCompositionVisual2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8de1639_4331_4b26_bc5f_6a321d347a85);
+}
+pub trait IDCompositionVisual2Impl: IDCompositionVisualImpl {
+    fn SetOpacityMode();
+    fn SetBackFaceVisibility();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6145,6 +6520,16 @@ unsafe impl ::windows::core::Interface for IDCompositionVisual3 {
     type Vtable = IDCompositionVisual3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2775f462_b6c1_4015_b0be_b3e7d6a4976d);
 }
+pub trait IDCompositionVisual3Impl: IDCompositionVisualDebugImpl + IDCompositionVisual2Impl + IDCompositionVisualImpl {
+    fn SetDepthMode();
+    fn SetOffsetZ();
+    fn SetOffsetZ();
+    fn SetOpacity();
+    fn SetOpacity();
+    fn SetTransform();
+    fn SetTransform();
+    fn SetVisible();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionVisual3Vtbl(
@@ -6369,6 +6754,12 @@ impl ::core::fmt::Debug for IDCompositionVisualDebug {
 unsafe impl ::windows::core::Interface for IDCompositionVisualDebug {
     type Vtable = IDCompositionVisualDebugVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfed2b808_5eb4_43a0_aea3_35f65280f91b);
+}
+pub trait IDCompositionVisualDebugImpl: IDCompositionVisual2Impl + IDCompositionVisualImpl {
+    fn EnableHeatMap();
+    fn DisableHeatMap();
+    fn EnableRedrawRegions();
+    fn DisableRedrawRegions();
 }
 #[repr(C)]
 #[doc(hidden)]

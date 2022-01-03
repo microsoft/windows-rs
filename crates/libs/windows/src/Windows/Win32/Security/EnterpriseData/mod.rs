@@ -155,6 +155,10 @@ unsafe impl ::windows::core::Interface for IProtectionPolicyManagerInterop {
     type Vtable = IProtectionPolicyManagerInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4652651d_c1fe_4ba1_9f0a_c0f56596f721);
 }
+pub trait IProtectionPolicyManagerInteropImpl {
+    fn RequestAccessForWindowAsync();
+    fn GetForWindow();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtectionPolicyManagerInteropVtbl(
@@ -263,6 +267,13 @@ impl ::core::fmt::Debug for IProtectionPolicyManagerInterop2 {
 unsafe impl ::windows::core::Interface for IProtectionPolicyManagerInterop2 {
     type Vtable = IProtectionPolicyManagerInterop2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x157cfbe4_a78d_4156_b384_61fdac41e686);
+}
+pub trait IProtectionPolicyManagerInterop2Impl {
+    fn RequestAccessForAppWithWindowAsync();
+    fn RequestAccessWithAuditingInfoForWindowAsync();
+    fn RequestAccessWithMessageForWindowAsync();
+    fn RequestAccessForAppWithAuditingInfoForWindowAsync();
+    fn RequestAccessForAppWithMessageForWindowAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -384,6 +395,14 @@ impl ::core::fmt::Debug for IProtectionPolicyManagerInterop3 {
 unsafe impl ::windows::core::Interface for IProtectionPolicyManagerInterop3 {
     type Vtable = IProtectionPolicyManagerInterop3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1c03933_b398_4d93_b0fd_2972adf802c2);
+}
+pub trait IProtectionPolicyManagerInterop3Impl {
+    fn RequestAccessWithBehaviorForWindowAsync();
+    fn RequestAccessForAppWithBehaviorForWindowAsync();
+    fn RequestAccessToFilesForAppForWindowAsync();
+    fn RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync();
+    fn RequestAccessToFilesForProcessForWindowAsync();
+    fn RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync();
 }
 #[repr(C)]
 #[doc(hidden)]

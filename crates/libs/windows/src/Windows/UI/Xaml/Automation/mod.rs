@@ -2461,6 +2461,8 @@ unsafe impl ::windows::core::Interface for IAnnotationPatternIdentifiers {
     type Vtable = IAnnotationPatternIdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd475a0c1_48b2_4e40_a6cf_3dc4b638c0de);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAnnotationPatternIdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnnotationPatternIdentifiersVtbl(
@@ -2477,6 +2479,14 @@ pub struct IAnnotationPatternIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAnnotationPatternIdentifiersStatics {
     type Vtable = IAnnotationPatternIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0e3a35d_d167_46dc_95ab_330af61aebb5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAnnotationPatternIdentifiersStaticsImpl {
+    fn AnnotationTypeIdProperty();
+    fn AnnotationTypeNameProperty();
+    fn AuthorProperty();
+    fn DateTimeProperty();
+    fn TargetProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2500,6 +2510,13 @@ unsafe impl ::windows::core::Interface for IAutomationAnnotation {
     type Vtable = IAutomationAnnotationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb3c30ca_03d8_4618_91bf_e4d84f4af318);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationAnnotationImpl {
+    fn Type();
+    fn SetType();
+    fn Element();
+    fn SetElement();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationAnnotationVtbl(
@@ -2521,6 +2538,11 @@ unsafe impl ::windows::core::Interface for IAutomationAnnotationFactory {
     type Vtable = IAutomationAnnotationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4906fa52_ddc0_4e69_b76b_019d928d822f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationAnnotationFactoryImpl {
+    fn CreateInstance();
+    fn CreateWithElementParameter();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationAnnotationFactoryVtbl(
@@ -2539,6 +2561,11 @@ pub struct IAutomationAnnotationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationAnnotationStatics {
     type Vtable = IAutomationAnnotationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe503eab7_4ee5_48cb_b5b8_bbcd46c9d1da);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationAnnotationStaticsImpl {
+    fn TypeProperty();
+    fn ElementProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2559,6 +2586,8 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiers {
     type Vtable = IAutomationElementIdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe68a63cf_4345_4e2d_8a6a_49cce1fa2dcc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationElementIdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiersVtbl(
@@ -2575,6 +2604,32 @@ pub struct IAutomationElementIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics {
     type Vtable = IAutomationElementIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4549399f_8340_4d67_b9bf_8c2ac6a0773a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationElementIdentifiersStaticsImpl {
+    fn AcceleratorKeyProperty();
+    fn AccessKeyProperty();
+    fn AutomationIdProperty();
+    fn BoundingRectangleProperty();
+    fn ClassNameProperty();
+    fn ClickablePointProperty();
+    fn ControlTypeProperty();
+    fn HasKeyboardFocusProperty();
+    fn HelpTextProperty();
+    fn IsContentElementProperty();
+    fn IsControlElementProperty();
+    fn IsEnabledProperty();
+    fn IsKeyboardFocusableProperty();
+    fn IsOffscreenProperty();
+    fn IsPasswordProperty();
+    fn IsRequiredForFormProperty();
+    fn ItemStatusProperty();
+    fn ItemTypeProperty();
+    fn LabeledByProperty();
+    fn LocalizedControlTypeProperty();
+    fn NameProperty();
+    fn OrientationProperty();
+    fn LiveSettingProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2616,6 +2671,10 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics2
     type Vtable = IAutomationElementIdentifiersStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5cbb1e2_d55f_46a9_9eda_1a4742515dc3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationElementIdentifiersStatics2Impl {
+    fn ControlledPeersProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiersStatics2Vtbl(
@@ -2633,6 +2692,13 @@ pub struct IAutomationElementIdentifiersStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics3 {
     type Vtable = IAutomationElementIdentifiersStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f5cbebd_b3eb_4083_adc7_0c2f39bb3543);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationElementIdentifiersStatics3Impl {
+    fn PositionInSetProperty();
+    fn SizeOfSetProperty();
+    fn LevelProperty();
+    fn AnnotationsProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2655,6 +2721,11 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics4
     type Vtable = IAutomationElementIdentifiersStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5af51f75_5913_4d78_b330_a6f50b73ed9b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationElementIdentifiersStatics4Impl {
+    fn LandmarkTypeProperty();
+    fn LocalizedLandmarkTypeProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiersStatics4Vtbl(
@@ -2673,6 +2744,15 @@ pub struct IAutomationElementIdentifiersStatics5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics5 {
     type Vtable = IAutomationElementIdentifiersStatics5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x986a8206_de59_42f9_a1e7_62b8af9e756d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationElementIdentifiersStatics5Impl {
+    fn IsPeripheralProperty();
+    fn IsDataValidForFormProperty();
+    fn FullDescriptionProperty();
+    fn DescribedByProperty();
+    fn FlowsToProperty();
+    fn FlowsFromProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2697,6 +2777,10 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics6
     type Vtable = IAutomationElementIdentifiersStatics6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde52b00d_8328_4eae_8035_f8db99c8bac4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationElementIdentifiersStatics6Impl {
+    fn CultureProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiersStatics6Vtbl(
@@ -2714,6 +2798,10 @@ pub struct IAutomationElementIdentifiersStatics7(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics7 {
     type Vtable = IAutomationElementIdentifiersStatics7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f1abb2_742c_446a_a8f6_1672b10d2874);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationElementIdentifiersStatics7Impl {
+    fn HeadingLevelProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2733,6 +2821,10 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics8
     type Vtable = IAutomationElementIdentifiersStatics8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8517b060_806c_5dc5_bc41_891bb5a47adf);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationElementIdentifiersStatics8Impl {
+    fn IsDialogProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiersStatics8Vtbl(
@@ -2751,6 +2843,8 @@ unsafe impl ::windows::core::Interface for IAutomationProperties {
     type Vtable = IAutomationPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68d7232c_e622_48e9_af0b_1ffa33cc5cba);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationPropertiesImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesVtbl(
@@ -2767,6 +2861,39 @@ pub struct IAutomationPropertiesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics {
     type Vtable = IAutomationPropertiesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb618fd7b_32d0_4970_9c42_7c039ac7be78);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationPropertiesStaticsImpl {
+    fn AcceleratorKeyProperty();
+    fn GetAcceleratorKey();
+    fn SetAcceleratorKey();
+    fn AccessKeyProperty();
+    fn GetAccessKey();
+    fn SetAccessKey();
+    fn AutomationIdProperty();
+    fn GetAutomationId();
+    fn SetAutomationId();
+    fn HelpTextProperty();
+    fn GetHelpText();
+    fn SetHelpText();
+    fn IsRequiredForFormProperty();
+    fn GetIsRequiredForForm();
+    fn SetIsRequiredForForm();
+    fn ItemStatusProperty();
+    fn GetItemStatus();
+    fn SetItemStatus();
+    fn ItemTypeProperty();
+    fn GetItemType();
+    fn SetItemType();
+    fn LabeledByProperty();
+    fn GetLabeledBy();
+    fn SetLabeledBy();
+    fn NameProperty();
+    fn GetName();
+    fn SetName();
+    fn LiveSettingProperty();
+    fn GetLiveSetting();
+    fn SetLiveSetting();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2817,6 +2944,14 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics2 {
     type Vtable = IAutomationPropertiesStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3976547f_7089_4801_8f1d_aab78090d1a0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationPropertiesStatics2Impl {
+    fn AccessibilityViewProperty();
+    fn GetAccessibilityView();
+    fn SetAccessibilityView();
+    fn ControlledPeersProperty();
+    fn GetControlledPeers();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics2Vtbl(
@@ -2841,6 +2976,20 @@ pub struct IAutomationPropertiesStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics3 {
     type Vtable = IAutomationPropertiesStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b75d735_5cb1_42ad_9b57_5faba8c1867f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationPropertiesStatics3Impl {
+    fn PositionInSetProperty();
+    fn GetPositionInSet();
+    fn SetPositionInSet();
+    fn SizeOfSetProperty();
+    fn GetSizeOfSet();
+    fn SetSizeOfSet();
+    fn LevelProperty();
+    fn GetLevel();
+    fn SetLevel();
+    fn AnnotationsProperty();
+    fn GetAnnotations();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2871,6 +3020,15 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics4 {
     type Vtable = IAutomationPropertiesStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7d62655_311a_4b7c_a131_524e89cd3cf9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationPropertiesStatics4Impl {
+    fn LandmarkTypeProperty();
+    fn GetLandmarkType();
+    fn SetLandmarkType();
+    fn LocalizedLandmarkTypeProperty();
+    fn GetLocalizedLandmarkType();
+    fn SetLocalizedLandmarkType();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics4Vtbl(
@@ -2895,6 +3053,27 @@ pub struct IAutomationPropertiesStatics5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics5 {
     type Vtable = IAutomationPropertiesStatics5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0be35b26_c8f9_41a2_b4db_e6a7a32b0c34);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationPropertiesStatics5Impl {
+    fn IsPeripheralProperty();
+    fn GetIsPeripheral();
+    fn SetIsPeripheral();
+    fn IsDataValidForFormProperty();
+    fn GetIsDataValidForForm();
+    fn SetIsDataValidForForm();
+    fn FullDescriptionProperty();
+    fn GetFullDescription();
+    fn SetFullDescription();
+    fn LocalizedControlTypeProperty();
+    fn GetLocalizedControlType();
+    fn SetLocalizedControlType();
+    fn DescribedByProperty();
+    fn GetDescribedBy();
+    fn FlowsToProperty();
+    fn GetFlowsTo();
+    fn FlowsFromProperty();
+    fn GetFlowsFrom();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2934,6 +3113,12 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics6 {
     type Vtable = IAutomationPropertiesStatics6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc61e030f_eb49_4e5d_b012_4c1c96c3901b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationPropertiesStatics6Impl {
+    fn CultureProperty();
+    fn GetCulture();
+    fn SetCulture();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics6Vtbl(
@@ -2953,6 +3138,12 @@ pub struct IAutomationPropertiesStatics7(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics7 {
     type Vtable = IAutomationPropertiesStatics7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7e98bf3_8f91_4068_a4ad_b7b402d10a2c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationPropertiesStatics7Impl {
+    fn HeadingLevelProperty();
+    fn GetHeadingLevel();
+    fn SetHeadingLevel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2976,6 +3167,12 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics8 {
     type Vtable = IAutomationPropertiesStatics8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x432eca20_171a_560d_8524_3e651d3ad6ca);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationPropertiesStatics8Impl {
+    fn IsDialogProperty();
+    fn GetIsDialog();
+    fn SetIsDialog();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics8Vtbl(
@@ -2995,6 +3192,12 @@ pub struct IAutomationPropertiesStatics9(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics9 {
     type Vtable = IAutomationPropertiesStatics9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f20b1d1_87b2_5562_8077_da593edafd2d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationPropertiesStatics9Impl {
+    fn AutomationControlTypeProperty();
+    fn GetAutomationControlType();
+    fn SetAutomationControlType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3018,6 +3221,8 @@ unsafe impl ::windows::core::Interface for IAutomationProperty {
     type Vtable = IAutomationPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb627195b_3227_4e16_9534_ddece30ddb46);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAutomationPropertyImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPropertyVtbl(
@@ -3035,6 +3240,8 @@ unsafe impl ::windows::core::Interface for IDockPatternIdentifiers {
     type Vtable = IDockPatternIdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccd7f4e6_e4f9_47ff_bde7_378b11f78e09);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDockPatternIdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDockPatternIdentifiersVtbl(
@@ -3051,6 +3258,10 @@ pub struct IDockPatternIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDockPatternIdentifiersStatics {
     type Vtable = IDockPatternIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b87245c_ed80_4fe5_8eb4_708a39c841e5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDockPatternIdentifiersStaticsImpl {
+    fn DockPositionProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3070,6 +3281,8 @@ unsafe impl ::windows::core::Interface for IDragPatternIdentifiers {
     type Vtable = IDragPatternIdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6266e985_4d07_4e80_82eb_8f96690a1a0c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDragPatternIdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragPatternIdentifiersVtbl(
@@ -3086,6 +3299,13 @@ pub struct IDragPatternIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDragPatternIdentifiersStatics {
     type Vtable = IDragPatternIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a05379d_1755_4082_9d90_46f1411d7986);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDragPatternIdentifiersStaticsImpl {
+    fn DropEffectProperty();
+    fn DropEffectsProperty();
+    fn GrabbedItemsProperty();
+    fn IsGrabbedProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3108,6 +3328,8 @@ unsafe impl ::windows::core::Interface for IDropTargetPatternIdentifiers {
     type Vtable = IDropTargetPatternIdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11865133_a6fe_4634_bd18_0ef612b7b208);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDropTargetPatternIdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDropTargetPatternIdentifiersVtbl(
@@ -3124,6 +3346,11 @@ pub struct IDropTargetPatternIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDropTargetPatternIdentifiersStatics {
     type Vtable = IDropTargetPatternIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b693304_89fb_4b0a_9452_ca2c66aaf9f3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDropTargetPatternIdentifiersStaticsImpl {
+    fn DropTargetEffectProperty();
+    fn DropTargetEffectsProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3144,6 +3371,8 @@ unsafe impl ::windows::core::Interface for IExpandCollapsePatternIdentifiers {
     type Vtable = IExpandCollapsePatternIdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb006bac0_751b_4d55_92cb_613ec1bdf5d0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IExpandCollapsePatternIdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExpandCollapsePatternIdentifiersVtbl(
@@ -3160,6 +3389,10 @@ pub struct IExpandCollapsePatternIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IExpandCollapsePatternIdentifiersStatics {
     type Vtable = IExpandCollapsePatternIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7816fd4_6ee0_4f38_8e14_56ef21adacfd);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IExpandCollapsePatternIdentifiersStaticsImpl {
+    fn ExpandCollapseStateProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3179,6 +3412,8 @@ unsafe impl ::windows::core::Interface for IGridItemPatternIdentifiers {
     type Vtable = IGridItemPatternIdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x757744f1_3285_4fb1_803b_2545bd431599);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGridItemPatternIdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridItemPatternIdentifiersVtbl(
@@ -3195,6 +3430,14 @@ pub struct IGridItemPatternIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGridItemPatternIdentifiersStatics {
     type Vtable = IGridItemPatternIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x217d2402_5e46_4d61_8794_b8ee8e774714);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGridItemPatternIdentifiersStaticsImpl {
+    fn ColumnProperty();
+    fn ColumnSpanProperty();
+    fn ContainingGridProperty();
+    fn RowProperty();
+    fn RowSpanProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3218,6 +3461,8 @@ unsafe impl ::windows::core::Interface for IGridPatternIdentifiers {
     type Vtable = IGridPatternIdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc902980f_96c5_450c_9044_7e52c24f9e94);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGridPatternIdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridPatternIdentifiersVtbl(
@@ -3234,6 +3479,11 @@ pub struct IGridPatternIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGridPatternIdentifiersStatics {
     type Vtable = IGridPatternIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bc452f3_a181_4137_8de9_1f9b1a8320ed);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGridPatternIdentifiersStaticsImpl {
+    fn ColumnCountProperty();
+    fn RowCountProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3254,6 +3504,8 @@ unsafe impl ::windows::core::Interface for IMultipleViewPatternIdentifiers {
     type Vtable = IMultipleViewPatternIdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d5cd3b8_1e12_488b_b0ea_5e6cb89816e1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMultipleViewPatternIdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultipleViewPatternIdentifiersVtbl(
@@ -3270,6 +3522,11 @@ pub struct IMultipleViewPatternIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMultipleViewPatternIdentifiersStatics {
     type Vtable = IMultipleViewPatternIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9cfa66f_6b84_4d71_9e48_d764d3bcda8e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMultipleViewPatternIdentifiersStaticsImpl {
+    fn CurrentViewProperty();
+    fn SupportedViewsProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3290,6 +3547,8 @@ unsafe impl ::windows::core::Interface for IRangeValuePatternIdentifiers {
     type Vtable = IRangeValuePatternIdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8760f45_33c9_467d_bc9e_d1515263ace1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRangeValuePatternIdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRangeValuePatternIdentifiersVtbl(
@@ -3306,6 +3565,15 @@ pub struct IRangeValuePatternIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRangeValuePatternIdentifiersStatics {
     type Vtable = IRangeValuePatternIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce23450f_1c27_457f_b815_7a5e46863dbb);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRangeValuePatternIdentifiersStaticsImpl {
+    fn IsReadOnlyProperty();
+    fn LargeChangeProperty();
+    fn MaximumProperty();
+    fn MinimumProperty();
+    fn SmallChangeProperty();
+    fn ValueProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3330,6 +3598,8 @@ unsafe impl ::windows::core::Interface for IScrollPatternIdentifiers {
     type Vtable = IScrollPatternIdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x366b1003_425c_4951_ae83_d521e73bc696);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IScrollPatternIdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollPatternIdentifiersVtbl(
@@ -3346,6 +3616,16 @@ pub struct IScrollPatternIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IScrollPatternIdentifiersStatics {
     type Vtable = IScrollPatternIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bf8e0a1_fb7f_4fa4_83b3_cfaeb103a685);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IScrollPatternIdentifiersStaticsImpl {
+    fn HorizontallyScrollableProperty();
+    fn HorizontalScrollPercentProperty();
+    fn HorizontalViewSizeProperty();
+    fn NoScroll();
+    fn VerticallyScrollableProperty();
+    fn VerticalScrollPercentProperty();
+    fn VerticalViewSizeProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3371,6 +3651,8 @@ unsafe impl ::windows::core::Interface for ISelectionItemPatternIdentifiers {
     type Vtable = ISelectionItemPatternIdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dafa41a_3ef8_4bb5_a02b_3ee1b2274740);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISelectionItemPatternIdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectionItemPatternIdentifiersVtbl(
@@ -3387,6 +3669,11 @@ pub struct ISelectionItemPatternIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISelectionItemPatternIdentifiersStatics {
     type Vtable = ISelectionItemPatternIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa918d163_487e_4e3e_9f86_7b44acbe27ce);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISelectionItemPatternIdentifiersStaticsImpl {
+    fn IsSelectedProperty();
+    fn SelectionContainerProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3407,6 +3694,8 @@ unsafe impl ::windows::core::Interface for ISelectionPatternIdentifiers {
     type Vtable = ISelectionPatternIdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4aa66fb0_e3f7_475f_b78d_f8a83bb730c4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISelectionPatternIdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectionPatternIdentifiersVtbl(
@@ -3423,6 +3712,12 @@ pub struct ISelectionPatternIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISelectionPatternIdentifiersStatics {
     type Vtable = ISelectionPatternIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93035b4c_6b50_40a1_b23f_5c78ddbd479a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISelectionPatternIdentifiersStaticsImpl {
+    fn CanSelectMultipleProperty();
+    fn IsSelectionRequiredProperty();
+    fn SelectionProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3444,6 +3739,8 @@ unsafe impl ::windows::core::Interface for ISpreadsheetItemPatternIdentifiers {
     type Vtable = ISpreadsheetItemPatternIdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84347e19_ca4b_46a2_a794_c87928a3b1ab);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpreadsheetItemPatternIdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpreadsheetItemPatternIdentifiersVtbl(
@@ -3460,6 +3757,10 @@ pub struct ISpreadsheetItemPatternIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpreadsheetItemPatternIdentifiersStatics {
     type Vtable = ISpreadsheetItemPatternIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43658779_5380_4f12_b468_b4f368ad4499);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpreadsheetItemPatternIdentifiersStaticsImpl {
+    fn FormulaProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3479,6 +3780,8 @@ unsafe impl ::windows::core::Interface for IStylesPatternIdentifiers {
     type Vtable = IStylesPatternIdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0e4e201_e89d_436b_8287_4f7903466879);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStylesPatternIdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStylesPatternIdentifiersVtbl(
@@ -3495,6 +3798,16 @@ pub struct IStylesPatternIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStylesPatternIdentifiersStatics {
     type Vtable = IStylesPatternIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x528a457a_bc3c_4d48_94af_1f68703ca296);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStylesPatternIdentifiersStaticsImpl {
+    fn ExtendedPropertiesProperty();
+    fn FillColorProperty();
+    fn FillPatternColorProperty();
+    fn FillPatternStyleProperty();
+    fn ShapeProperty();
+    fn StyleIdProperty();
+    fn StyleNameProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3520,6 +3833,8 @@ unsafe impl ::windows::core::Interface for ITableItemPatternIdentifiers {
     type Vtable = ITableItemPatternIdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc326e5ad_8077_4c64_98e4_e83bcf1b4389);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITableItemPatternIdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITableItemPatternIdentifiersVtbl(
@@ -3536,6 +3851,11 @@ pub struct ITableItemPatternIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITableItemPatternIdentifiersStatics {
     type Vtable = ITableItemPatternIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24c4b923_e9a2_4de9_b2a4_a8b22d0be362);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITableItemPatternIdentifiersStaticsImpl {
+    fn ColumnHeaderItemsProperty();
+    fn RowHeaderItemsProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3556,6 +3876,8 @@ unsafe impl ::windows::core::Interface for ITablePatternIdentifiers {
     type Vtable = ITablePatternIdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38d104fe_0d0c_412a_bf8d_51ede683baf5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITablePatternIdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITablePatternIdentifiersVtbl(
@@ -3572,6 +3894,12 @@ pub struct ITablePatternIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITablePatternIdentifiersStatics {
     type Vtable = ITablePatternIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75073d25_32c9_4903_aecf_dc3504cbd244);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITablePatternIdentifiersStaticsImpl {
+    fn ColumnHeadersProperty();
+    fn RowHeadersProperty();
+    fn RowOrColumnMajorProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3593,6 +3921,8 @@ unsafe impl ::windows::core::Interface for ITogglePatternIdentifiers {
     type Vtable = ITogglePatternIdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e191f6b_34d4_4ae7_83ac_29f88882d985);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITogglePatternIdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITogglePatternIdentifiersVtbl(
@@ -3609,6 +3939,10 @@ pub struct ITogglePatternIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITogglePatternIdentifiersStatics {
     type Vtable = ITogglePatternIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7f75544_14a5_4f2f_92fc_760524de06ea);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITogglePatternIdentifiersStaticsImpl {
+    fn ToggleStateProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3628,6 +3962,8 @@ unsafe impl ::windows::core::Interface for ITransformPattern2Identifiers {
     type Vtable = ITransformPattern2IdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08aaa03d_dea7_402f_8097_9a2783d60e5d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITransformPattern2IdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransformPattern2IdentifiersVtbl(
@@ -3644,6 +3980,13 @@ pub struct ITransformPattern2IdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITransformPattern2IdentifiersStatics {
     type Vtable = ITransformPattern2IdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78963644_11f0_467c_a72b_5dac41c1f6fe);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITransformPattern2IdentifiersStaticsImpl {
+    fn CanZoomProperty();
+    fn ZoomLevelProperty();
+    fn MaxZoomProperty();
+    fn MinZoomProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3666,6 +4009,8 @@ unsafe impl ::windows::core::Interface for ITransformPatternIdentifiers {
     type Vtable = ITransformPatternIdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4115b8c_c3c8_4a37_b994_2709a7811665);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITransformPatternIdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransformPatternIdentifiersVtbl(
@@ -3682,6 +4027,12 @@ pub struct ITransformPatternIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITransformPatternIdentifiersStatics {
     type Vtable = ITransformPatternIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4570edab_d705_40c4_a1dc_e9acfcef85f6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITransformPatternIdentifiersStaticsImpl {
+    fn CanMoveProperty();
+    fn CanResizeProperty();
+    fn CanRotateProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3703,6 +4054,8 @@ unsafe impl ::windows::core::Interface for IValuePatternIdentifiers {
     type Vtable = IValuePatternIdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x425bf64c_5333_4e41_b470_2bad14ecd085);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IValuePatternIdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IValuePatternIdentifiersVtbl(
@@ -3719,6 +4072,11 @@ pub struct IValuePatternIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IValuePatternIdentifiersStatics {
     type Vtable = IValuePatternIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc247e8f7_adcc_440f_b123_33788a40525a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IValuePatternIdentifiersStaticsImpl {
+    fn IsReadOnlyProperty();
+    fn ValueProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3739,6 +4097,8 @@ unsafe impl ::windows::core::Interface for IWindowPatternIdentifiers {
     type Vtable = IWindowPatternIdentifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39f78bb4_7032_41e2_b79e_27b74a8628de);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWindowPatternIdentifiersImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowPatternIdentifiersVtbl(
@@ -3755,6 +4115,15 @@ pub struct IWindowPatternIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWindowPatternIdentifiersStatics {
     type Vtable = IWindowPatternIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07d0ad06_6302_4d29_878b_19da03fc228d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWindowPatternIdentifiersStaticsImpl {
+    fn CanMaximizeProperty();
+    fn CanMinimizeProperty();
+    fn IsModalProperty();
+    fn IsTopmostProperty();
+    fn WindowInteractionStateProperty();
+    fn WindowVisualStateProperty();
 }
 #[repr(C)]
 #[doc(hidden)]

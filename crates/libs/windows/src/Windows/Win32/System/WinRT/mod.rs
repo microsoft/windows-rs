@@ -520,6 +520,11 @@ unsafe impl ::windows::core::Interface for IAccountsSettingsPaneInterop {
     type Vtable = IAccountsSettingsPaneInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3ee12ad_3865_4362_9746_b75a682df0e6);
 }
+pub trait IAccountsSettingsPaneInteropImpl {
+    fn GetForWindow();
+    fn ShowManageAccountsForWindowAsync();
+    fn ShowAddAccountForWindowAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccountsSettingsPaneInteropVtbl(
@@ -606,6 +611,9 @@ unsafe impl ::windows::core::Interface for IActivationFactory {
     type Vtable = IActivationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000035_0000_0000_c000_000000000046);
 }
+pub trait IActivationFactoryImpl {
+    fn ActivateInstance();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivationFactoryVtbl(
@@ -666,6 +674,9 @@ unsafe impl ::windows::core::Interface for IAgileReference {
     type Vtable = IAgileReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc03f6a43_65a4_9818_987e_e0b810d2a6f2);
 }
+pub trait IAgileReferenceImpl {
+    fn Resolve();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAgileReferenceVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobjectreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
@@ -717,6 +728,9 @@ impl ::core::fmt::Debug for IApartmentShutdown {
 unsafe impl ::windows::core::Interface for IApartmentShutdown {
     type Vtable = IApartmentShutdownVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2f05a09_27a2_42b5_bc0e_ac163ef49d9b);
+}
+pub trait IApartmentShutdownImpl {
+    fn OnUninitialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -771,6 +785,9 @@ unsafe impl ::windows::core::Interface for IAppServiceConnectionExtendedExecutio
     type Vtable = IAppServiceConnectionExtendedExecutionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65219584_f9cb_4ae3_81f9_a28a6ca450d9);
 }
+pub trait IAppServiceConnectionExtendedExecutionImpl {
+    fn OpenForExtendedExecutionAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppServiceConnectionExtendedExecutionVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, operation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
@@ -823,6 +840,9 @@ impl ::core::fmt::Debug for IBufferByteAccess {
 unsafe impl ::windows::core::Interface for IBufferByteAccess {
     type Vtable = IBufferByteAccessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905a0fef_bc53_11df_8c49_001e4fc686da);
+}
+pub trait IBufferByteAccessImpl {
+    fn Buffer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -893,6 +913,13 @@ unsafe impl ::windows::core::Interface for ICastingController {
     type Vtable = ICastingControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0a56423_a664_4fbd_8b43_409a45e8d9a1);
 }
+pub trait ICastingControllerImpl {
+    fn Initialize();
+    fn Connect();
+    fn Disconnect();
+    fn Advise();
+    fn UnAdvise();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICastingControllerVtbl(
@@ -959,6 +986,10 @@ unsafe impl ::windows::core::Interface for ICastingEventHandler {
     type Vtable = ICastingEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc79a6cb7_bebd_47a6_a2ad_4d45ad79c7bc);
 }
+pub trait ICastingEventHandlerImpl {
+    fn OnStateChanged();
+    fn OnError();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICastingEventHandlerVtbl(
@@ -1024,6 +1055,10 @@ impl ::core::fmt::Debug for ICastingSourceInfo {
 unsafe impl ::windows::core::Interface for ICastingSourceInfo {
     type Vtable = ICastingSourceInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45101ab7_7c3a_4bce_9500_12c09024b298);
+}
+pub trait ICastingSourceInfoImpl {
+    fn GetController();
+    fn GetProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1114,6 +1149,11 @@ unsafe impl ::windows::core::Interface for ICorrelationVectorInformation {
     type Vtable = ICorrelationVectorInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83c78b3c_d88b_4950_aa6e_22b8d22aabd3);
 }
+pub trait ICorrelationVectorInformationImpl {
+    fn LastCorrelationVectorForThread();
+    fn NextCorrelationVectorForThread();
+    fn SetNextCorrelationVectorForThread();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICorrelationVectorInformationVtbl(
@@ -1176,6 +1216,9 @@ impl ::core::fmt::Debug for ICorrelationVectorSource {
 unsafe impl ::windows::core::Interface for ICorrelationVectorSource {
     type Vtable = ICorrelationVectorSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x152b8a3b_b9b9_4685_b56e_974847bc7545);
+}
+pub trait ICorrelationVectorSourceImpl {
+    fn CorrelationVector();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1250,6 +1293,9 @@ impl ::core::fmt::Debug for IDragDropManagerInterop {
 unsafe impl ::windows::core::Interface for IDragDropManagerInterop {
     type Vtable = IDragDropManagerInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ad8cba7_4c01_4dac_9074_827894292d63);
+}
+pub trait IDragDropManagerInteropImpl {
+    fn GetForWindow();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1334,6 +1380,9 @@ unsafe impl ::windows::core::Interface for IHolographicSpaceInterop {
     type Vtable = IHolographicSpaceInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c4ee536_6a98_4b86_a170_587013d6fd4b);
 }
+pub trait IHolographicSpaceInteropImpl {
+    fn CreateForWindow();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicSpaceInteropVtbl(
@@ -1417,6 +1466,9 @@ unsafe impl ::windows::core::Interface for IInputPaneInterop {
     type Vtable = IInputPaneInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75cf2c57_9195_4931_8332_f0b409e916af);
 }
+pub trait IInputPaneInteropImpl {
+    fn GetForWindow();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputPaneInteropVtbl(
@@ -1478,6 +1530,9 @@ impl ::core::fmt::Debug for ILanguageExceptionErrorInfo {
 unsafe impl ::windows::core::Interface for ILanguageExceptionErrorInfo {
     type Vtable = ILanguageExceptionErrorInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04a2dbf3_df83_116c_0946_0812abf6e07d);
+}
+pub trait ILanguageExceptionErrorInfoImpl {
+    fn GetLanguageException();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1566,6 +1621,11 @@ unsafe impl ::windows::core::Interface for ILanguageExceptionErrorInfo2 {
     type Vtable = ILanguageExceptionErrorInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5746e5c4_5b97_424c_b620_2822915734dd);
 }
+pub trait ILanguageExceptionErrorInfo2Impl: ILanguageExceptionErrorInfoImpl {
+    fn GetPreviousLanguageExceptionErrorInfo();
+    fn CapturePropagationContext();
+    fn GetPropagationContextHead();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILanguageExceptionErrorInfo2Vtbl(
@@ -1626,6 +1686,9 @@ unsafe impl ::windows::core::Interface for ILanguageExceptionStackBackTrace {
     type Vtable = ILanguageExceptionStackBackTraceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbe53fb5_f967_4258_8d34_42f5e25833de);
 }
+pub trait ILanguageExceptionStackBackTraceImpl {
+    fn GetStackBackTrace();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILanguageExceptionStackBackTraceVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxframestocapture: u32, stackbacktrace: *mut usize, framescaptured: *mut u32) -> ::windows::core::HRESULT);
@@ -1679,6 +1742,9 @@ unsafe impl ::windows::core::Interface for ILanguageExceptionTransform {
     type Vtable = ILanguageExceptionTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfeb5a271_a6cd_45ce_880a_696706badc65);
 }
+pub trait ILanguageExceptionTransformImpl {
+    fn GetTransformedRestrictedErrorInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILanguageExceptionTransformVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, restrictederrorinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -1730,6 +1796,9 @@ impl ::core::fmt::Debug for IMemoryBufferByteAccess {
 unsafe impl ::windows::core::Interface for IMemoryBufferByteAccess {
     type Vtable = IMemoryBufferByteAccessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b0d3235_4dba_4d44_865e_8f1d0e4fd04d);
+}
+pub trait IMemoryBufferByteAccessImpl {
+    fn GetBuffer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1802,6 +1871,9 @@ impl ::core::fmt::Debug for IMessageDispatcher {
 unsafe impl ::windows::core::Interface for IMessageDispatcher {
     type Vtable = IMessageDispatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5f84c8f_cfd0_4cd6_b66b_c5d26ff1689d);
+}
+pub trait IMessageDispatcherImpl {
+    fn PumpMessages();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1890,6 +1962,10 @@ unsafe impl ::windows::core::Interface for IPlayToManagerInterop {
     type Vtable = IPlayToManagerInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24394699_1f2c_4eb3_8cd7_0ec1da42a540);
 }
+pub trait IPlayToManagerInteropImpl {
+    fn GetForWindow();
+    fn ShowPlayToUIForWindow();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayToManagerInteropVtbl(
@@ -1962,6 +2038,10 @@ unsafe impl ::windows::core::Interface for IRestrictedErrorInfo {
     type Vtable = IRestrictedErrorInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82ba7092_4c88_427d_a7bc_16dd93feb67e);
 }
+pub trait IRestrictedErrorInfoImpl {
+    fn GetErrorDetails();
+    fn GetReference();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRestrictedErrorInfoVtbl(
@@ -2002,6 +2082,9 @@ impl ::core::fmt::Debug for IRoMetaDataLocator {
 unsafe impl ::windows::core::Interface for IRoMetaDataLocator {
     type Vtable = IRoMetaDataLocatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+}
+pub trait IRoMetaDataLocatorImpl {
+    fn Locate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2077,6 +2160,18 @@ unsafe impl ::windows::core::Interface for IRoSimpleMetaDataBuilder {
     type Vtable = IRoSimpleMetaDataBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait IRoSimpleMetaDataBuilderImpl {
+    fn SetWinRtInterface();
+    fn SetDelegate();
+    fn SetInterfaceGroupSimpleDefault();
+    fn SetInterfaceGroupParameterizedDefault();
+    fn SetRuntimeClassSimpleDefault();
+    fn SetRuntimeClassParameterizedDefault();
+    fn SetStruct();
+    fn SetEnum();
+    fn SetParameterizedInterface();
+    fn SetParameterizedDelegate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRoSimpleMetaDataBuilderVtbl(
@@ -2148,6 +2243,9 @@ unsafe impl ::windows::core::Interface for IShareWindowCommandEventArgsInterop {
     type Vtable = IShareWindowCommandEventArgsInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6571a721_643d_43d4_aca4_6b6f5f30f1ad);
 }
+pub trait IShareWindowCommandEventArgsInteropImpl {
+    fn GetWindow();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShareWindowCommandEventArgsInteropVtbl(
@@ -2207,6 +2305,9 @@ impl ::core::fmt::Debug for IShareWindowCommandSourceInterop {
 unsafe impl ::windows::core::Interface for IShareWindowCommandSourceInterop {
     type Vtable = IShareWindowCommandSourceInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x461a191f_8424_43a6_a0fa_3451a22f56ab);
+}
+pub trait IShareWindowCommandSourceInteropImpl {
+    fn GetForWindow();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2287,6 +2388,9 @@ impl ::core::fmt::Debug for ISpatialInteractionManagerInterop {
 unsafe impl ::windows::core::Interface for ISpatialInteractionManagerInterop {
     type Vtable = ISpatialInteractionManagerInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c4ee536_6a98_4b86_a170_587013d6fd4b);
+}
+pub trait ISpatialInteractionManagerInteropImpl {
+    fn GetForWindow();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2371,6 +2475,9 @@ unsafe impl ::windows::core::Interface for ISystemMediaTransportControlsInterop 
     type Vtable = ISystemMediaTransportControlsInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddb0472d_c911_4a1f_86d9_dc3d71a95f5a);
 }
+pub trait ISystemMediaTransportControlsInteropImpl {
+    fn GetForWindow();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMediaTransportControlsInteropVtbl(
@@ -2453,6 +2560,9 @@ impl ::core::fmt::Debug for IUIViewSettingsInterop {
 unsafe impl ::windows::core::Interface for IUIViewSettingsInterop {
     type Vtable = IUIViewSettingsInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3694dbf9_8f68_44be_8ff5_195c98ede8a6);
+}
+pub trait IUIViewSettingsInteropImpl {
+    fn GetForWindow();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2537,6 +2647,9 @@ unsafe impl ::windows::core::Interface for IUserActivityInterop {
     type Vtable = IUserActivityInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ade314d_0e0a_40d9_824c_9a088a50059f);
 }
+pub trait IUserActivityInteropImpl {
+    fn CreateSessionForWindow();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityInteropVtbl(
@@ -2620,6 +2733,9 @@ unsafe impl ::windows::core::Interface for IUserActivityRequestManagerInterop {
     type Vtable = IUserActivityRequestManagerInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd69f876_9699_4715_9095_e37ea30dfa1b);
 }
+pub trait IUserActivityRequestManagerInteropImpl {
+    fn GetForWindow();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityRequestManagerInteropVtbl(
@@ -2700,6 +2816,9 @@ impl ::core::fmt::Debug for IUserActivitySourceHostInterop {
 unsafe impl ::windows::core::Interface for IUserActivitySourceHostInterop {
     type Vtable = IUserActivitySourceHostInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc15df8bc_8844_487a_b85b_7578e0f61419);
+}
+pub trait IUserActivitySourceHostInteropImpl {
+    fn SetActivitySourceHost();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2783,6 +2902,9 @@ unsafe impl ::windows::core::Interface for IUserConsentVerifierInterop {
     type Vtable = IUserConsentVerifierInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39e050c3_4e74_441a_8dc0_b81104df949c);
 }
+pub trait IUserConsentVerifierInteropImpl {
+    fn RequestVerificationForWindowAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserConsentVerifierInteropVtbl(
@@ -2845,6 +2967,9 @@ unsafe impl ::windows::core::Interface for IWeakReference {
     type Vtable = IWeakReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000037_0000_0000_c000_000000000046);
 }
+pub trait IWeakReferenceImpl {
+    fn Resolve();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWeakReferenceVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, objectreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
@@ -2897,6 +3022,9 @@ impl ::core::fmt::Debug for IWeakReferenceSource {
 unsafe impl ::windows::core::Interface for IWeakReferenceSource {
     type Vtable = IWeakReferenceSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000038_0000_0000_c000_000000000046);
+}
+pub trait IWeakReferenceSourceImpl {
+    fn GetWeakReference();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2977,6 +3105,10 @@ impl ::core::fmt::Debug for IWebAuthenticationCoreManagerInterop {
 unsafe impl ::windows::core::Interface for IWebAuthenticationCoreManagerInterop {
     type Vtable = IWebAuthenticationCoreManagerInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4b8e804_811e_4436_b69c_44cb67b72084);
+}
+pub trait IWebAuthenticationCoreManagerInteropImpl {
+    fn RequestTokenForWindowAsync();
+    fn RequestTokenWithWebAccountForWindowAsync();
 }
 #[repr(C)]
 #[doc(hidden)]

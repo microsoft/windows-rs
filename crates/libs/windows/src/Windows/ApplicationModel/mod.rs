@@ -1124,6 +1124,12 @@ unsafe impl ::windows::core::Interface for IAppDisplayInfo {
     type Vtable = IAppDisplayInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1aeb1103_e4d4_41aa_a4f6_c4a276e79eac);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppDisplayInfoImpl {
+    fn DisplayName();
+    fn Description();
+    fn GetLogo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppDisplayInfoVtbl(
@@ -1144,6 +1150,13 @@ pub struct IAppInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppInfo {
     type Vtable = IAppInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf7f59b3_6a09_4de8_a6c0_5792d56880d1);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppInfoImpl {
+    fn Id();
+    fn AppUserModelId();
+    fn DisplayInfo();
+    fn PackageFamilyName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1166,6 +1179,10 @@ unsafe impl ::windows::core::Interface for IAppInfo2 {
     type Vtable = IAppInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe4b1f5a_2098_431b_bd25_b30878748d47);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppInfo2Impl {
+    fn Package();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppInfo2Vtbl(
@@ -1183,6 +1200,10 @@ pub struct IAppInfo3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppInfo3 {
     type Vtable = IAppInfo3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09a78e46_93a4_46de_9397_0843b57115ea);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppInfo3Impl {
+    fn ExecutionContext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1202,6 +1223,10 @@ unsafe impl ::windows::core::Interface for IAppInfo4 {
     type Vtable = IAppInfo4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f34bdeb_1609_4554_9f33_12e1e803e0d4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppInfo4Impl {
+    fn SupportedFileExtensions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppInfo4Vtbl(
@@ -1219,6 +1244,12 @@ pub struct IAppInfoStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppInfoStatics {
     type Vtable = IAppInfoStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf1f782a_e48b_4f0c_9b0b_79c3f8957dd7);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppInfoStaticsImpl {
+    fn Current();
+    fn GetFromAppUserModelId();
+    fn GetFromAppUserModelIdForUser();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1241,6 +1272,10 @@ unsafe impl ::windows::core::Interface for IAppInstallerInfo {
     type Vtable = IAppInstallerInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29ab2ac0_d4f6_42a3_adcd_d6583c659508);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppInstallerInfoImpl {
+    fn Uri();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppInstallerInfoVtbl(
@@ -1259,6 +1294,24 @@ pub struct IAppInstallerInfo2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppInstallerInfo2 {
     type Vtable = IAppInstallerInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd20f1388_8256_597c_8511_c84ec50d5e2b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppInstallerInfo2Impl {
+    fn OnLaunch();
+    fn HoursBetweenUpdateChecks();
+    fn ShowPrompt();
+    fn UpdateBlocksActivation();
+    fn AutomaticBackgroundTask();
+    fn ForceUpdateFromAnyVersion();
+    fn IsAutoRepairEnabled();
+    fn Version();
+    fn LastChecked();
+    fn PausedUntil();
+    fn UpdateUris();
+    fn RepairUris();
+    fn DependencyPackageUris();
+    fn OptionalPackageUris();
+    fn PolicySource();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1298,6 +1351,12 @@ unsafe impl ::windows::core::Interface for IAppInstance {
     type Vtable = IAppInstanceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x675f2b47_f25f_4532_9fd6_3633e0634d01);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppInstanceImpl {
+    fn Key();
+    fn IsCurrentInstance();
+    fn RedirectActivationTo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppInstanceVtbl(
@@ -1317,6 +1376,14 @@ pub struct IAppInstanceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppInstanceStatics {
     type Vtable = IAppInstanceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d11e77f_9ea6_47af_a6ec_46784c5ba254);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppInstanceStaticsImpl {
+    fn RecommendedInstance();
+    fn GetActivatedEventArgs();
+    fn FindOrRegisterInstanceForKey();
+    fn Unregister();
+    fn GetInstances();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1342,6 +1409,10 @@ unsafe impl ::windows::core::Interface for ICameraApplicationManagerStatics {
     type Vtable = ICameraApplicationManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9599ddce_9bd3_435c_8054_c1add50028fe);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICameraApplicationManagerStaticsImpl {
+    fn ShowInstalledApplicationsUI();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraApplicationManagerStaticsVtbl(
@@ -1360,6 +1431,10 @@ unsafe impl ::windows::core::Interface for IDesignModeStatics {
     type Vtable = IDesignModeStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c3893cc_f81a_4e7a_b857_76a80887e185);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDesignModeStaticsImpl {
+    fn DesignModeEnabled();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDesignModeStaticsVtbl(
@@ -1377,6 +1452,10 @@ pub struct IDesignModeStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDesignModeStatics2 {
     type Vtable = IDesignModeStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80cf8137_b064_4858_bec8_3eba22357535);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDesignModeStatics2Impl {
+    fn DesignMode2Enabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1466,6 +1545,9 @@ unsafe impl ::windows::core::Interface for IEnteredBackgroundEventArgs {
     type Vtable = IEnteredBackgroundEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf722dcc2_9827_403d_aaed_ecca9ac17398);
 }
+pub trait IEnteredBackgroundEventArgsImpl {
+    fn GetDeferral();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnteredBackgroundEventArgsVtbl(
@@ -1485,6 +1567,11 @@ unsafe impl ::windows::core::Interface for IFullTrustProcessLaunchResult {
     type Vtable = IFullTrustProcessLaunchResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8917d888_edfb_515f_8e22_5ebceb69dfd9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFullTrustProcessLaunchResultImpl {
+    fn LaunchResult();
+    fn ExtendedError();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFullTrustProcessLaunchResultVtbl(
@@ -1503,6 +1590,13 @@ pub struct IFullTrustProcessLauncherStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFullTrustProcessLauncherStatics {
     type Vtable = IFullTrustProcessLauncherStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd784837f_1100_3c6b_a455_f6262cc331b6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IFullTrustProcessLauncherStaticsImpl {
+    fn LaunchFullTrustProcessForCurrentAppAsync();
+    fn LaunchFullTrustProcessForCurrentAppWithParametersAsync();
+    fn LaunchFullTrustProcessForAppAsync();
+    fn LaunchFullTrustProcessForAppWithParametersAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1528,6 +1622,11 @@ pub struct IFullTrustProcessLauncherStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFullTrustProcessLauncherStatics2 {
     type Vtable = IFullTrustProcessLauncherStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b8ed72f_b65c_56cf_a1a7_2bf77cbc6ea8);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IFullTrustProcessLauncherStatics2Impl {
+    fn LaunchFullTrustProcessForCurrentAppWithArgumentsAsync();
+    fn LaunchFullTrustProcessForAppWithArgumentsAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1620,6 +1719,9 @@ unsafe impl ::windows::core::Interface for ILeavingBackgroundEventArgs {
     type Vtable = ILeavingBackgroundEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39c6ec9a_ae6e_46f9_a07a_cfc23f88733e);
 }
+pub trait ILeavingBackgroundEventArgsImpl {
+    fn GetDeferral();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILeavingBackgroundEventArgsVtbl(
@@ -1638,6 +1740,12 @@ pub struct ILimitedAccessFeatureRequestResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILimitedAccessFeatureRequestResult {
     type Vtable = ILimitedAccessFeatureRequestResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd45156a6_1e24_5ddd_abb4_6188aba4d5bf);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILimitedAccessFeatureRequestResultImpl {
+    fn FeatureId();
+    fn Status();
+    fn EstimatedRemovalDate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1660,6 +1768,10 @@ unsafe impl ::windows::core::Interface for ILimitedAccessFeaturesStatics {
     type Vtable = ILimitedAccessFeaturesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8be612d4_302b_5fbf_a632_1a99e43e8925);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILimitedAccessFeaturesStaticsImpl {
+    fn TryUnlockFeature();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILimitedAccessFeaturesStaticsVtbl(
@@ -1677,6 +1789,13 @@ pub struct IPackage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackage {
     type Vtable = IPackageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x163c792f_bd75_413c_bf23_b1fe7b95d825);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageImpl {
+    fn Id();
+    fn InstalledLocation();
+    fn IsFramework();
+    fn Dependencies();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1700,6 +1819,16 @@ pub struct IPackage2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackage2 {
     type Vtable = IPackage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6612fb6_7688_4ace_95fb_359538e7aa01);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackage2Impl {
+    fn DisplayName();
+    fn PublisherDisplayName();
+    fn Description();
+    fn Logo();
+    fn IsResourcePackage();
+    fn IsBundle();
+    fn IsDevelopmentMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1726,6 +1855,12 @@ unsafe impl ::windows::core::Interface for IPackage3 {
     type Vtable = IPackage3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f738b61_f86a_4917_93d1_f1ee9d3b35d9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackage3Impl {
+    fn Status();
+    fn InstalledDate();
+    fn GetAppListEntriesAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackage3Vtbl(
@@ -1748,6 +1883,12 @@ unsafe impl ::windows::core::Interface for IPackage4 {
     type Vtable = IPackage4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65aed1ae_b95b_450c_882b_6255187f397e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackage4Impl {
+    fn SignatureKind();
+    fn IsOptional();
+    fn VerifyContentIntegrityAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackage4Vtbl(
@@ -1768,6 +1909,14 @@ pub struct IPackage5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackage5 {
     type Vtable = IPackage5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e842dd4_d9ac_45ed_9a1e_74ce056b2635);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackage5Impl {
+    fn GetContentGroupsAsync();
+    fn GetContentGroupAsync();
+    fn StageContentGroupsAsync();
+    fn StageContentGroupsWithPriorityAsync();
+    fn SetInUseAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1796,6 +1945,11 @@ unsafe impl ::windows::core::Interface for IPackage6 {
     type Vtable = IPackage6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b1ad942_12d7_4754_ae4e_638cbc0e3a2e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackage6Impl {
+    fn GetAppInstallerInfo();
+    fn CheckUpdateAvailabilityAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackage6Vtbl(
@@ -1815,6 +1969,11 @@ pub struct IPackage7(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackage7 {
     type Vtable = IPackage7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86ff8d31_a2e4_45e0_9732_283a6d88fde1);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackage7Impl {
+    fn MutableLocation();
+    fn EffectiveLocation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1836,6 +1995,21 @@ pub struct IPackage8(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackage8 {
     type Vtable = IPackage8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c584f7b_ce2a_4be6_a093_77cfbb2a7ea1);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackage8Impl {
+    fn EffectiveExternalLocation();
+    fn MachineExternalLocation();
+    fn UserExternalLocation();
+    fn InstalledPath();
+    fn MutablePath();
+    fn EffectivePath();
+    fn EffectiveExternalPath();
+    fn MachineExternalPath();
+    fn UserExternalPath();
+    fn GetLogoAsRandomAccessStreamReference();
+    fn GetAppListEntries();
+    fn IsStub();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1870,6 +2044,19 @@ pub struct IPackageCatalog(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageCatalog {
     type Vtable = IPackageCatalogVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x230a3751_9de3_4445_be74_91fb325abefe);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageCatalogImpl {
+    fn PackageStaging();
+    fn RemovePackageStaging();
+    fn PackageInstalling();
+    fn RemovePackageInstalling();
+    fn PackageUpdating();
+    fn RemovePackageUpdating();
+    fn PackageUninstalling();
+    fn RemovePackageUninstalling();
+    fn PackageStatusChanged();
+    fn RemovePackageStatusChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1908,6 +2095,12 @@ unsafe impl ::windows::core::Interface for IPackageCatalog2 {
     type Vtable = IPackageCatalog2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96a60c36_8ff7_4344_b6bf_ee64c2207ed2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageCatalog2Impl {
+    fn PackageContentGroupStaging();
+    fn RemovePackageContentGroupStaging();
+    fn AddOptionalPackageAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageCatalog2Vtbl(
@@ -1931,6 +2124,10 @@ unsafe impl ::windows::core::Interface for IPackageCatalog3 {
     type Vtable = IPackageCatalog3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96dd5c88_8837_43f9_9015_033434ba14f3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageCatalog3Impl {
+    fn RemoveOptionalPackagesAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageCatalog3Vtbl(
@@ -1949,6 +2146,11 @@ pub struct IPackageCatalog4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageCatalog4 {
     type Vtable = IPackageCatalog4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc37c399b_44cc_4b7b_8baf_796c04ead3b9);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageCatalog4Impl {
+    fn AddResourcePackageAsync();
+    fn RemoveResourcePackagesAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1971,6 +2173,11 @@ unsafe impl ::windows::core::Interface for IPackageCatalogAddOptionalPackageResu
     type Vtable = IPackageCatalogAddOptionalPackageResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bf10cd4_b4df_47b3_a963_e2fa832f7dd3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageCatalogAddOptionalPackageResultImpl {
+    fn Package();
+    fn ExtendedError();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageCatalogAddOptionalPackageResultVtbl(
@@ -1989,6 +2196,12 @@ pub struct IPackageCatalogAddResourcePackageResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageCatalogAddResourcePackageResult {
     type Vtable = IPackageCatalogAddResourcePackageResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9636ce0d_3e17_493f_aa08_ccec6fdef699);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageCatalogAddResourcePackageResultImpl {
+    fn Package();
+    fn IsComplete();
+    fn ExtendedError();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2010,6 +2223,11 @@ unsafe impl ::windows::core::Interface for IPackageCatalogRemoveOptionalPackages
     type Vtable = IPackageCatalogRemoveOptionalPackagesResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29d2f97b_d974_4e64_9359_22cadfd79828);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageCatalogRemoveOptionalPackagesResultImpl {
+    fn PackagesRemoved();
+    fn ExtendedError();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageCatalogRemoveOptionalPackagesResultVtbl(
@@ -2029,6 +2247,11 @@ pub struct IPackageCatalogRemoveResourcePackagesResult(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for IPackageCatalogRemoveResourcePackagesResult {
     type Vtable = IPackageCatalogRemoveResourcePackagesResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae719709_1a52_4321_87b3_e5a1a17981a7);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageCatalogRemoveResourcePackagesResultImpl {
+    fn PackagesRemoved();
+    fn ExtendedError();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2050,6 +2273,11 @@ unsafe impl ::windows::core::Interface for IPackageCatalogStatics {
     type Vtable = IPackageCatalogStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa18c9696_e65b_4634_ba21_5e63eb7244a7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageCatalogStaticsImpl {
+    fn OpenForCurrentPackage();
+    fn OpenForCurrentUser();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageCatalogStaticsVtbl(
@@ -2068,6 +2296,13 @@ pub struct IPackageContentGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageContentGroup {
     type Vtable = IPackageContentGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f62695d_120a_4798_b5e1_5800dda8f2e1);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageContentGroupImpl {
+    fn Package();
+    fn Name();
+    fn State();
+    fn IsRequired();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2089,6 +2324,16 @@ pub struct IPackageContentGroupStagingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageContentGroupStagingEventArgs {
     type Vtable = IPackageContentGroupStagingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d7bc27e_6f27_446c_986e_d4733d4d9113);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageContentGroupStagingEventArgsImpl {
+    fn ActivityId();
+    fn Package();
+    fn Progress();
+    fn IsComplete();
+    fn ErrorCode();
+    fn ContentGroupName();
+    fn IsContentGroupRequired();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2114,6 +2359,10 @@ unsafe impl ::windows::core::Interface for IPackageContentGroupStatics {
     type Vtable = IPackageContentGroupStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70ee7619_5f12_4b92_b9ea_6ccada13bc75);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageContentGroupStaticsImpl {
+    fn RequiredGroupName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageContentGroupStaticsVtbl(
@@ -2131,6 +2380,17 @@ pub struct IPackageId(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageId {
     type Vtable = IPackageIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1adb665e_37c7_4790_9980_dd7ae74e8bb2);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageIdImpl {
+    fn Name();
+    fn Version();
+    fn Architecture();
+    fn ResourceId();
+    fn Publisher();
+    fn PublisherId();
+    fn FullName();
+    fn FamilyName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2158,6 +2418,11 @@ unsafe impl ::windows::core::Interface for IPackageIdWithMetadata {
     type Vtable = IPackageIdWithMetadataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40577a7c_0c9e_443d_9074_855f5ce0a08d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageIdWithMetadataImpl {
+    fn ProductId();
+    fn Author();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageIdWithMetadataVtbl(
@@ -2176,6 +2441,14 @@ pub struct IPackageInstallingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageInstallingEventArgs {
     type Vtable = IPackageInstallingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97741eb7_ab7a_401a_8b61_eb0e7faff237);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageInstallingEventArgsImpl {
+    fn ActivityId();
+    fn Package();
+    fn Progress();
+    fn IsComplete();
+    fn ErrorCode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2199,6 +2472,14 @@ unsafe impl ::windows::core::Interface for IPackageStagingEventArgs {
     type Vtable = IPackageStagingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1041682d_54e2_4f51_b828_9ef7046c210f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageStagingEventArgsImpl {
+    fn ActivityId();
+    fn Package();
+    fn Progress();
+    fn IsComplete();
+    fn ErrorCode();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageStagingEventArgsVtbl(
@@ -2221,6 +2502,10 @@ unsafe impl ::windows::core::Interface for IPackageStatics {
     type Vtable = IPackageStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e534bdf_2960_4878_97a4_9624deb72f2d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageStaticsImpl {
+    fn Current();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageStaticsVtbl(
@@ -2238,6 +2523,21 @@ pub struct IPackageStatus(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageStatus {
     type Vtable = IPackageStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fe74f71_a365_4c09_a02d_046d525ea1da);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageStatusImpl {
+    fn VerifyIsOK();
+    fn NotAvailable();
+    fn PackageOffline();
+    fn DataOffline();
+    fn Disabled();
+    fn NeedsRemediation();
+    fn LicenseIssue();
+    fn Modified();
+    fn Tampered();
+    fn DependencyIssue();
+    fn Servicing();
+    fn DeploymentInProgress();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2268,6 +2568,10 @@ unsafe impl ::windows::core::Interface for IPackageStatus2 {
     type Vtable = IPackageStatus2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf428fa93_7c56_4862_acfa_abaedcc0694d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageStatus2Impl {
+    fn IsPartiallyStaged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageStatus2Vtbl(
@@ -2286,6 +2590,10 @@ unsafe impl ::windows::core::Interface for IPackageStatusChangedEventArgs {
     type Vtable = IPackageStatusChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x437d714d_bd80_4a70_bc50_f6e796509575);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageStatusChangedEventArgsImpl {
+    fn Package();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageStatusChangedEventArgsVtbl(
@@ -2303,6 +2611,14 @@ pub struct IPackageUninstallingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageUninstallingEventArgs {
     type Vtable = IPackageUninstallingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4443aa52_ab22_44cd_82bb_4ec9b827367a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageUninstallingEventArgsImpl {
+    fn ActivityId();
+    fn Package();
+    fn Progress();
+    fn IsComplete();
+    fn ErrorCode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2326,6 +2642,11 @@ unsafe impl ::windows::core::Interface for IPackageUpdateAvailabilityResult {
     type Vtable = IPackageUpdateAvailabilityResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x114e5009_199a_48a1_a079_313c45634a71);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageUpdateAvailabilityResultImpl {
+    fn Availability();
+    fn ExtendedError();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageUpdateAvailabilityResultVtbl(
@@ -2344,6 +2665,15 @@ pub struct IPackageUpdatingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageUpdatingEventArgs {
     type Vtable = IPackageUpdatingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd7b4228_fd74_443e_b114_23e677b0e86f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageUpdatingEventArgsImpl {
+    fn ActivityId();
+    fn SourcePackage();
+    fn TargetPackage();
+    fn Progress();
+    fn IsComplete();
+    fn ErrorCode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2368,6 +2698,12 @@ unsafe impl ::windows::core::Interface for IPackageWithMetadata {
     type Vtable = IPackageWithMetadataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95949780_1de9_40f2_b452_0de9f1910012);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPackageWithMetadataImpl {
+    fn InstallDate();
+    fn GetThumbnailToken();
+    fn Launch();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageWithMetadataVtbl(
@@ -2390,6 +2726,13 @@ unsafe impl ::windows::core::Interface for IStartupTask {
     type Vtable = IStartupTaskVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf75c23c8_b5f2_4f6c_88dd_36cb1d599d17);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStartupTaskImpl {
+    fn RequestEnableAsync();
+    fn Disable();
+    fn State();
+    fn TaskId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStartupTaskVtbl(
@@ -2411,6 +2754,11 @@ pub struct IStartupTaskStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStartupTaskStatics {
     type Vtable = IStartupTaskStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee5b60bd_a148_41a7_b26e_e8b88a1e62f8);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStartupTaskStaticsImpl {
+    fn GetForCurrentPackageAsync();
+    fn GetAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2499,6 +2847,9 @@ unsafe impl ::windows::core::Interface for ISuspendingDeferral {
     type Vtable = ISuspendingDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59140509_8bc9_4eb4_b636_dabdc4f46f66);
 }
+pub trait ISuspendingDeferralImpl {
+    fn Complete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISuspendingDeferralVtbl(
@@ -2585,6 +2936,9 @@ unsafe impl ::windows::core::RuntimeType for ISuspendingEventArgs {
 unsafe impl ::windows::core::Interface for ISuspendingEventArgs {
     type Vtable = ISuspendingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96061c05_2dba_4d08_b0bd_2b30a131c6aa);
+}
+pub trait ISuspendingEventArgsImpl {
+    fn SuspendingOperation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2681,6 +3035,10 @@ unsafe impl ::windows::core::RuntimeType for ISuspendingOperation {
 unsafe impl ::windows::core::Interface for ISuspendingOperation {
     type Vtable = ISuspendingOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9da4ca41_20e1_4e9b_9f65_a9f435340c3a);
+}
+pub trait ISuspendingOperationImpl {
+    fn GetDeferral();
+    fn Deadline();
 }
 #[repr(C)]
 #[doc(hidden)]

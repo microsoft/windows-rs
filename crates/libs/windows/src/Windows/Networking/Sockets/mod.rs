@@ -997,6 +997,20 @@ unsafe impl ::windows::core::Interface for IControlChannelTrigger {
     type Vtable = IControlChannelTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d1431a7_ee96_40e8_a199_8703cd969ec3);
 }
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IControlChannelTriggerImpl: IClosableImpl {
+    fn ControlChannelTriggerId();
+    fn ServerKeepAliveIntervalInMinutes();
+    fn SetServerKeepAliveIntervalInMinutes();
+    fn CurrentKeepAliveIntervalInMinutes();
+    fn TransportObject();
+    fn KeepAliveTrigger();
+    fn PushNotificationTrigger();
+    fn UsingTransport();
+    fn WaitForPushEnabled();
+    fn DecreaseNetworkKeepAliveInterval();
+    fn FlushTransport();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IControlChannelTriggerVtbl(
@@ -1026,6 +1040,10 @@ pub struct IControlChannelTrigger2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IControlChannelTrigger2 {
     type Vtable = IControlChannelTrigger2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf00d237_51be_4514_9725_3556e1879580);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IControlChannelTrigger2Impl {
+    fn IsWakeFromLowPowerSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1114,6 +1132,9 @@ unsafe impl ::windows::core::Interface for IControlChannelTriggerEventDetails {
     type Vtable = IControlChannelTriggerEventDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b36e047_89bb_4236_96ac_71d012bb4869);
 }
+pub trait IControlChannelTriggerEventDetailsImpl {
+    fn ControlChannelTrigger();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IControlChannelTriggerEventDetailsVtbl(
@@ -1131,6 +1152,11 @@ pub struct IControlChannelTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IControlChannelTriggerFactory {
     type Vtable = IControlChannelTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda4b7cf0_8d71_446f_88c3_b95184a2d6cd);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IControlChannelTriggerFactoryImpl {
+    fn CreateControlChannelTrigger();
+    fn CreateControlChannelTriggerEx();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1236,6 +1262,11 @@ unsafe impl ::windows::core::Interface for IControlChannelTriggerResetEventDetai
     type Vtable = IControlChannelTriggerResetEventDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6851038e_8ec4_42fe_9bb2_21e91b7bfcb1);
 }
+pub trait IControlChannelTriggerResetEventDetailsImpl {
+    fn ResetReason();
+    fn HardwareSlotReset();
+    fn SoftwareSlotReset();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IControlChannelTriggerResetEventDetailsVtbl(
@@ -1255,6 +1286,21 @@ pub struct IDatagramSocket(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDatagramSocket {
     type Vtable = IDatagramSocketVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fe25bbb_c3bc_4677_8446_ca28a465a3af);
+}
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IDatagramSocketImpl: IClosableImpl {
+    fn Control();
+    fn Information();
+    fn OutputStream();
+    fn ConnectAsync();
+    fn ConnectWithEndpointPairAsync();
+    fn BindServiceNameAsync();
+    fn BindEndpointAsync();
+    fn JoinMulticastGroup();
+    fn GetOutputStreamAsync();
+    fn GetOutputStreamWithEndpointPairAsync();
+    fn MessageReceived();
+    fn RemoveMessageReceived();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1294,6 +1340,10 @@ unsafe impl ::windows::core::Interface for IDatagramSocket2 {
     type Vtable = IDatagramSocket2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd83ba354_9a9d_4185_a20a_1424c9c2a7cd);
 }
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IDatagramSocket2Impl: IClosableImpl {
+    fn BindServiceNameAndAdapterAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDatagramSocket2Vtbl(
@@ -1312,6 +1362,15 @@ pub struct IDatagramSocket3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDatagramSocket3 {
     type Vtable = IDatagramSocket3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37544f09_ab92_4306_9ac1_0c381283d9c6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDatagramSocket3Impl {
+    fn CancelIOAsync();
+    fn EnableTransferOwnership();
+    fn EnableTransferOwnershipWithConnectedStandbyAction();
+    fn TransferOwnership();
+    fn TransferOwnershipWithContext();
+    fn TransferOwnershipWithContextAndKeepAliveTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1338,6 +1397,13 @@ unsafe impl ::windows::core::Interface for IDatagramSocketControl {
     type Vtable = IDatagramSocketControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52ac3f2e_349a_4135_bb58_b79b2647d390);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDatagramSocketControlImpl {
+    fn QualityOfService();
+    fn SetQualityOfService();
+    fn OutboundUnicastHopLimit();
+    fn SetOutboundUnicastHopLimit();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDatagramSocketControlVtbl(
@@ -1358,6 +1424,13 @@ pub struct IDatagramSocketControl2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDatagramSocketControl2 {
     type Vtable = IDatagramSocketControl2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33ead5c2_979c_4415_82a1_3cfaf646c192);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDatagramSocketControl2Impl {
+    fn InboundBufferSizeInBytes();
+    fn SetInboundBufferSizeInBytes();
+    fn DontFragment();
+    fn SetDontFragment();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1380,6 +1453,11 @@ unsafe impl ::windows::core::Interface for IDatagramSocketControl3 {
     type Vtable = IDatagramSocketControl3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4eb8256_1f6d_4598_9b57_d42a001df349);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDatagramSocketControl3Impl {
+    fn MulticastOnly();
+    fn SetMulticastOnly();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDatagramSocketControl3Vtbl(
@@ -1398,6 +1476,13 @@ pub struct IDatagramSocketInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDatagramSocketInformation {
     type Vtable = IDatagramSocketInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f1a569a_55fb_48cd_9706_7a974f7b1585);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDatagramSocketInformationImpl {
+    fn LocalAddress();
+    fn LocalPort();
+    fn RemoteAddress();
+    fn RemotePort();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1419,6 +1504,14 @@ pub struct IDatagramSocketMessageReceivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDatagramSocketMessageReceivedEventArgs {
     type Vtable = IDatagramSocketMessageReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e2ddca2_1712_4ce4_b179_8c652c6d107e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDatagramSocketMessageReceivedEventArgsImpl {
+    fn RemoteAddress();
+    fn RemotePort();
+    fn LocalAddress();
+    fn GetDataReader();
+    fn GetDataStream();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1444,6 +1537,11 @@ unsafe impl ::windows::core::Interface for IDatagramSocketStatics {
     type Vtable = IDatagramSocketStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9c62aee_1494_4a21_bb7e_8589fc751d9d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDatagramSocketStaticsImpl {
+    fn GetEndpointPairsAsync();
+    fn GetEndpointPairsWithSortOptionsAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDatagramSocketStaticsVtbl(
@@ -1464,6 +1562,13 @@ pub struct IMessageWebSocket(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMessageWebSocket {
     type Vtable = IMessageWebSocketVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33727d08_34d5_4746_ad7b_8dde5bc2ef88);
+}
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IMessageWebSocketImpl: IClosableImpl + IWebSocketImpl {
+    fn Control();
+    fn Information();
+    fn MessageReceived();
+    fn RemoveMessageReceived();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1488,6 +1593,11 @@ unsafe impl ::windows::core::Interface for IMessageWebSocket2 {
     type Vtable = IMessageWebSocket2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbed0cee7_f9c8_440a_9ad5_737281d9742e);
 }
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IMessageWebSocket2Impl: IClosableImpl + IMessageWebSocketImpl + IWebSocketImpl {
+    fn ServerCustomValidationRequested();
+    fn RemoveServerCustomValidationRequested();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMessageWebSocket2Vtbl(
@@ -1508,6 +1618,11 @@ pub struct IMessageWebSocket3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMessageWebSocket3 {
     type Vtable = IMessageWebSocket3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59d9defb_71af_4349_8487_911fcf681597);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMessageWebSocket3Impl {
+    fn SendNonfinalFrameAsync();
+    fn SendFinalFrameAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1530,6 +1645,13 @@ unsafe impl ::windows::core::Interface for IMessageWebSocketControl {
     type Vtable = IMessageWebSocketControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8118388a_c629_4f0a_80fb_81fc05538862);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMessageWebSocketControlImpl: IWebSocketControlImpl {
+    fn MaxMessageSize();
+    fn SetMaxMessageSize();
+    fn MessageType();
+    fn SetMessageType();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMessageWebSocketControlVtbl(
@@ -1550,6 +1672,16 @@ pub struct IMessageWebSocketControl2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMessageWebSocketControl2 {
     type Vtable = IMessageWebSocketControl2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe30fd791_080c_400a_a712_27dfa9e744d8);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMessageWebSocketControl2Impl {
+    fn DesiredUnsolicitedPongInterval();
+    fn SetDesiredUnsolicitedPongInterval();
+    fn ActualUnsolicitedPongInterval();
+    fn ReceiveMode();
+    fn SetReceiveMode();
+    fn ClientCertificate();
+    fn SetClientCertificate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1580,6 +1712,12 @@ unsafe impl ::windows::core::Interface for IMessageWebSocketMessageReceivedEvent
     type Vtable = IMessageWebSocketMessageReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x478c22ac_4c4b_42ed_9ed7_1ef9f94fa3d5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMessageWebSocketMessageReceivedEventArgsImpl {
+    fn MessageType();
+    fn GetDataReader();
+    fn GetDataStream();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMessageWebSocketMessageReceivedEventArgsVtbl(
@@ -1602,6 +1740,10 @@ unsafe impl ::windows::core::Interface for IMessageWebSocketMessageReceivedEvent
     type Vtable = IMessageWebSocketMessageReceivedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89ce06fd_dd6f_4a07_87f9_f9eb4d89d83d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMessageWebSocketMessageReceivedEventArgs2Impl: IMessageWebSocketMessageReceivedEventArgsImpl {
+    fn IsMessageComplete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMessageWebSocketMessageReceivedEventArgs2Vtbl(
@@ -1619,6 +1761,17 @@ pub struct IServerMessageWebSocket(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IServerMessageWebSocket {
     type Vtable = IServerMessageWebSocketVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3ac9240_813b_5efd_7e11_ae2305fc77f1);
+}
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IServerMessageWebSocketImpl: IClosableImpl {
+    fn MessageReceived();
+    fn RemoveMessageReceived();
+    fn Control();
+    fn Information();
+    fn OutputStream();
+    fn Closed();
+    fn RemoveClosed();
+    fn CloseWithStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1650,6 +1803,11 @@ unsafe impl ::windows::core::Interface for IServerMessageWebSocketControl {
     type Vtable = IServerMessageWebSocketControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69c2f051_1c1f_587a_4519_2181610192b7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IServerMessageWebSocketControlImpl {
+    fn MessageType();
+    fn SetMessageType();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IServerMessageWebSocketControlVtbl(
@@ -1668,6 +1826,12 @@ pub struct IServerMessageWebSocketInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IServerMessageWebSocketInformation {
     type Vtable = IServerMessageWebSocketInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc32b45f_4448_5505_6cc9_09afa8915f5d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IServerMessageWebSocketInformationImpl {
+    fn BandwidthStatistics();
+    fn Protocol();
+    fn LocalAddress();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1688,6 +1852,15 @@ pub struct IServerStreamWebSocket(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IServerStreamWebSocket {
     type Vtable = IServerStreamWebSocketVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ced5bbf_74f6_55e4_79df_9132680dfee8);
+}
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IServerStreamWebSocketImpl: IClosableImpl {
+    fn Information();
+    fn InputStream();
+    fn OutputStream();
+    fn Closed();
+    fn RemoveClosed();
+    fn CloseWithStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1716,6 +1889,12 @@ unsafe impl ::windows::core::Interface for IServerStreamWebSocketInformation {
     type Vtable = IServerStreamWebSocketInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc32b45f_4448_5505_6cc9_09aba8915f5d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IServerStreamWebSocketInformationImpl {
+    fn BandwidthStatistics();
+    fn Protocol();
+    fn LocalAddress();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IServerStreamWebSocketInformationVtbl(
@@ -1736,6 +1915,10 @@ unsafe impl ::windows::core::Interface for ISocketActivityContext {
     type Vtable = ISocketActivityContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43b04d64_4c85_4396_a637_1d973f6ebd49);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISocketActivityContextImpl {
+    fn Data();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISocketActivityContextVtbl(
@@ -1755,6 +1938,10 @@ unsafe impl ::windows::core::Interface for ISocketActivityContextFactory {
     type Vtable = ISocketActivityContextFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb99fc3c3_088c_4388_83ae_2525138e049a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISocketActivityContextFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISocketActivityContextFactoryVtbl(
@@ -1773,6 +1960,16 @@ pub struct ISocketActivityInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISocketActivityInformation {
     type Vtable = ISocketActivityInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d8a42e4_a87e_4b74_9968_185b2511defe);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISocketActivityInformationImpl {
+    fn TaskId();
+    fn Id();
+    fn SocketKind();
+    fn Context();
+    fn DatagramSocket();
+    fn StreamSocket();
+    fn StreamSocketListener();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1798,6 +1995,10 @@ unsafe impl ::windows::core::Interface for ISocketActivityInformationStatics {
     type Vtable = ISocketActivityInformationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8570b47a_7e7d_4736_8041_1327a6543c56);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISocketActivityInformationStaticsImpl {
+    fn AllSockets();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISocketActivityInformationStaticsVtbl(
@@ -1816,6 +2017,11 @@ pub struct ISocketActivityTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISocketActivityTriggerDetails {
     type Vtable = ISocketActivityTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45f406a7_fc9f_4f81_acad_355fef51e67b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISocketActivityTriggerDetailsImpl {
+    fn Reason();
+    fn SocketInformation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1836,6 +2042,10 @@ unsafe impl ::windows::core::Interface for ISocketErrorStatics {
     type Vtable = ISocketErrorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x828337f4_7d56_4d8e_b7b4_a07dd7c1bca9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISocketErrorStaticsImpl {
+    fn GetStatus();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISocketErrorStaticsVtbl(
@@ -1853,6 +2063,18 @@ pub struct IStreamSocket(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocket {
     type Vtable = IStreamSocketVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69a22cf3_fc7b_4857_af38_f6e7de6a5b49);
+}
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IStreamSocketImpl: IClosableImpl {
+    fn Control();
+    fn Information();
+    fn InputStream();
+    fn OutputStream();
+    fn ConnectWithEndpointPairAsync();
+    fn ConnectAsync();
+    fn ConnectWithEndpointPairAndProtectionLevelAsync();
+    fn ConnectWithProtectionLevelAsync();
+    fn UpgradeToSslAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1887,6 +2109,10 @@ unsafe impl ::windows::core::Interface for IStreamSocket2 {
     type Vtable = IStreamSocket2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29d0e575_f314_4d09_adf0_0fbd967fbd9f);
 }
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IStreamSocket2Impl: IClosableImpl {
+    fn ConnectWithProtectionLevelAndAdapterAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStreamSocket2Vtbl(
@@ -1905,6 +2131,15 @@ pub struct IStreamSocket3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocket3 {
     type Vtable = IStreamSocket3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f430b00_9d28_4854_bac3_2301941ec223);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStreamSocket3Impl {
+    fn CancelIOAsync();
+    fn EnableTransferOwnership();
+    fn EnableTransferOwnershipWithConnectedStandbyAction();
+    fn TransferOwnership();
+    fn TransferOwnershipWithContext();
+    fn TransferOwnershipWithContextAndKeepAliveTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1930,6 +2165,19 @@ pub struct IStreamSocketControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketControl {
     type Vtable = IStreamSocketControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe25adf1_92ab_4af3_9992_0f4c85e36cc4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStreamSocketControlImpl {
+    fn NoDelay();
+    fn SetNoDelay();
+    fn KeepAlive();
+    fn SetKeepAlive();
+    fn OutboundBufferSizeInBytes();
+    fn SetOutboundBufferSizeInBytes();
+    fn QualityOfService();
+    fn SetQualityOfService();
+    fn OutboundUnicastHopLimit();
+    fn SetOutboundUnicastHopLimit();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1958,6 +2206,10 @@ unsafe impl ::windows::core::Interface for IStreamSocketControl2 {
     type Vtable = IStreamSocketControl2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2d09a56_060f_44c1_b8e2_1fbf60bd62c5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStreamSocketControl2Impl {
+    fn IgnorableServerCertificateErrors();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStreamSocketControl2Vtbl(
@@ -1976,6 +2228,13 @@ pub struct IStreamSocketControl3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketControl3 {
     type Vtable = IStreamSocketControl3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc56a444c_4e74_403e_894c_b31cae5c7342);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStreamSocketControl3Impl {
+    fn SerializeConnectionAttempts();
+    fn SetSerializeConnectionAttempts();
+    fn ClientCertificate();
+    fn SetClientCertificate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2000,6 +2259,11 @@ unsafe impl ::windows::core::Interface for IStreamSocketControl4 {
     type Vtable = IStreamSocketControl4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x964e2b3d_ec27_4888_b3ce_c74b418423ad);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStreamSocketControl4Impl {
+    fn MinProtectionLevel();
+    fn SetMinProtectionLevel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStreamSocketControl4Vtbl(
@@ -2018,6 +2282,19 @@ pub struct IStreamSocketInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketInformation {
     type Vtable = IStreamSocketInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b80ae30_5e68_4205_88f0_dc85d2e25ded);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStreamSocketInformationImpl {
+    fn LocalAddress();
+    fn LocalPort();
+    fn RemoteHostName();
+    fn RemoteAddress();
+    fn RemoteServiceName();
+    fn RemotePort();
+    fn RoundTripTimeStatistics();
+    fn BandwidthStatistics();
+    fn ProtectionLevel();
+    fn SessionKey();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2047,6 +2324,13 @@ unsafe impl ::windows::core::Interface for IStreamSocketInformation2 {
     type Vtable = IStreamSocketInformation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12c28452_4bdc_4ee4_976a_cf130e9d92e3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStreamSocketInformation2Impl {
+    fn ServerCertificateErrorSeverity();
+    fn ServerCertificateErrors();
+    fn ServerCertificate();
+    fn ServerIntermediateCertificates();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStreamSocketInformation2Vtbl(
@@ -2070,6 +2354,15 @@ pub struct IStreamSocketListener(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketListener {
     type Vtable = IStreamSocketListenerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff513437_df9f_4df0_bf82_0ec5d7b35aae);
+}
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IStreamSocketListenerImpl: IClosableImpl {
+    fn Control();
+    fn Information();
+    fn BindServiceNameAsync();
+    fn BindEndpointAsync();
+    fn ConnectionReceived();
+    fn RemoveConnectionReceived();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2098,6 +2391,11 @@ unsafe impl ::windows::core::Interface for IStreamSocketListener2 {
     type Vtable = IStreamSocketListener2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x658dc13e_bb3e_4458_b232_ed1088694b98);
 }
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IStreamSocketListener2Impl: IClosableImpl {
+    fn BindServiceNameWithProtectionLevelAsync();
+    fn BindServiceNameWithProtectionLevelAndAdapterAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStreamSocketListener2Vtbl(
@@ -2118,6 +2416,14 @@ pub struct IStreamSocketListener3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketListener3 {
     type Vtable = IStreamSocketListener3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4798201c_bdf8_4919_8542_28d450e74507);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStreamSocketListener3Impl {
+    fn CancelIOAsync();
+    fn EnableTransferOwnership();
+    fn EnableTransferOwnershipWithConnectedStandbyAction();
+    fn TransferOwnership();
+    fn TransferOwnershipWithContext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2142,6 +2448,10 @@ unsafe impl ::windows::core::Interface for IStreamSocketListenerConnectionReceiv
     type Vtable = IStreamSocketListenerConnectionReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c472ea9_373f_447b_85b1_ddd4548803ba);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStreamSocketListenerConnectionReceivedEventArgsImpl {
+    fn Socket();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStreamSocketListenerConnectionReceivedEventArgsVtbl(
@@ -2159,6 +2469,11 @@ pub struct IStreamSocketListenerControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketListenerControl {
     type Vtable = IStreamSocketListenerControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20d8c576_8d8a_4dba_9722_a16c4d984980);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStreamSocketListenerControlImpl {
+    fn QualityOfService();
+    fn SetQualityOfService();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2178,6 +2493,17 @@ pub struct IStreamSocketListenerControl2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketListenerControl2 {
     type Vtable = IStreamSocketListenerControl2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x948bb665_2c3e_404b_b8b0_8eb249a2b0a1);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStreamSocketListenerControl2Impl {
+    fn NoDelay();
+    fn SetNoDelay();
+    fn KeepAlive();
+    fn SetKeepAlive();
+    fn OutboundBufferSizeInBytes();
+    fn SetOutboundBufferSizeInBytes();
+    fn OutboundUnicastHopLimit();
+    fn SetOutboundUnicastHopLimit();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2204,6 +2530,10 @@ unsafe impl ::windows::core::Interface for IStreamSocketListenerInformation {
     type Vtable = IStreamSocketListenerInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe62ba82f_a63a_430b_bf62_29e93e5633b4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStreamSocketListenerInformationImpl {
+    fn LocalPort();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStreamSocketListenerInformationVtbl(
@@ -2221,6 +2551,11 @@ pub struct IStreamSocketStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketStatics {
     type Vtable = IStreamSocketStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa420bc4a_6e2e_4af5_b556_355ae0cd4f29);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStreamSocketStaticsImpl {
+    fn GetEndpointPairsAsync();
+    fn GetEndpointPairsWithSortOptionsAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2243,6 +2578,12 @@ unsafe impl ::windows::core::Interface for IStreamWebSocket {
     type Vtable = IStreamWebSocketVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd4a49d8_b289_45bb_97eb_c7525205a843);
 }
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IStreamWebSocketImpl: IClosableImpl + IWebSocketImpl {
+    fn Control();
+    fn Information();
+    fn InputStream();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStreamWebSocketVtbl(
@@ -2263,6 +2604,11 @@ pub struct IStreamWebSocket2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamWebSocket2 {
     type Vtable = IStreamWebSocket2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa4d08cb_93f5_4678_8236_57cce5417ed5);
+}
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IStreamWebSocket2Impl: IClosableImpl + IStreamWebSocketImpl + IWebSocketImpl {
+    fn ServerCustomValidationRequested();
+    fn RemoveServerCustomValidationRequested();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2285,6 +2631,11 @@ unsafe impl ::windows::core::Interface for IStreamWebSocketControl {
     type Vtable = IStreamWebSocketControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4f478b1_a45a_48db_953a_645b7d964c07);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStreamWebSocketControlImpl: IWebSocketControlImpl {
+    fn NoDelay();
+    fn SetNoDelay();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStreamWebSocketControlVtbl(
@@ -2303,6 +2654,14 @@ pub struct IStreamWebSocketControl2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamWebSocketControl2 {
     type Vtable = IStreamWebSocketControl2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x215d9f7e_fa58_40da_9f11_a48dafe95037);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStreamWebSocketControl2Impl {
+    fn DesiredUnsolicitedPongInterval();
+    fn SetDesiredUnsolicitedPongInterval();
+    fn ActualUnsolicitedPongInterval();
+    fn ClientCertificate();
+    fn SetClientCertificate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2467,6 +2826,15 @@ unsafe impl ::windows::core::Interface for IWebSocket {
     type Vtable = IWebSocketVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf877396f_99b1_4e18_bc08_850c9adf156e);
 }
+#[cfg(feature = "Foundation")]
+pub trait IWebSocketImpl: IClosableImpl {
+    fn OutputStream();
+    fn ConnectAsync();
+    fn SetRequestHeader();
+    fn Closed();
+    fn RemoveClosed();
+    fn CloseWithStatus();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebSocketVtbl(
@@ -2493,6 +2861,11 @@ pub struct IWebSocketClosedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebSocketClosedEventArgs {
     type Vtable = IWebSocketClosedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xceb78d07_d0a8_4703_a091_c8c2c0915bc3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWebSocketClosedEventArgsImpl {
+    fn Code();
+    fn Reason();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2625,6 +2998,15 @@ unsafe impl ::windows::core::RuntimeType for IWebSocketControl {
 unsafe impl ::windows::core::Interface for IWebSocketControl {
     type Vtable = IWebSocketControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ec4bdc3_d9a5_455a_9811_de24d45337e9);
+}
+pub trait IWebSocketControlImpl {
+    fn OutboundBufferSizeInBytes();
+    fn SetOutboundBufferSizeInBytes();
+    fn ServerCredential();
+    fn SetServerCredential();
+    fn ProxyCredential();
+    fn SetProxyCredential();
+    fn SupportedProtocols();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2799,6 +3181,9 @@ unsafe impl ::windows::core::Interface for IWebSocketControl2 {
     type Vtable = IWebSocketControl2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79c3be03_f2ca_461e_af4e_9665bc2d0620);
 }
+pub trait IWebSocketControl2Impl: IWebSocketControlImpl {
+    fn IgnorableServerCertificateErrors();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebSocketControl2Vtbl(
@@ -2817,6 +3202,10 @@ pub struct IWebSocketErrorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebSocketErrorStatics {
     type Vtable = IWebSocketErrorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27cdf35b_1f61_4709_8e02_61283ada4e9d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWebSocketErrorStaticsImpl {
+    fn GetStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2921,6 +3310,11 @@ unsafe impl ::windows::core::RuntimeType for IWebSocketInformation {
 unsafe impl ::windows::core::Interface for IWebSocketInformation {
     type Vtable = IWebSocketInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e01e316_c92a_47a5_b25f_07847639d181);
+}
+pub trait IWebSocketInformationImpl {
+    fn LocalAddress();
+    fn BandwidthStatistics();
+    fn Protocol();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3084,6 +3478,12 @@ unsafe impl ::windows::core::Interface for IWebSocketInformation2 {
     type Vtable = IWebSocketInformation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce1d39ce_a1b7_4d43_8269_8d5b981bd47a);
 }
+pub trait IWebSocketInformation2Impl: IWebSocketInformationImpl {
+    fn ServerCertificate();
+    fn ServerCertificateErrorSeverity();
+    fn ServerCertificateErrors();
+    fn ServerIntermediateCertificates();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebSocketInformation2Vtbl(
@@ -3107,6 +3507,15 @@ pub struct IWebSocketServerCustomValidationRequestedEventArgs(::windows::core::I
 unsafe impl ::windows::core::Interface for IWebSocketServerCustomValidationRequestedEventArgs {
     type Vtable = IWebSocketServerCustomValidationRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffeffe48_022a_4ab7_8b36_e10af4640e6b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWebSocketServerCustomValidationRequestedEventArgsImpl {
+    fn ServerCertificate();
+    fn ServerCertificateErrorSeverity();
+    fn ServerCertificateErrors();
+    fn ServerIntermediateCertificates();
+    fn Reject();
+    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]

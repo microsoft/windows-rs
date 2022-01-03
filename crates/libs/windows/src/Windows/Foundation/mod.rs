@@ -1123,6 +1123,11 @@ unsafe impl ::windows::core::Interface for IAsyncAction {
     type Vtable = IAsyncActionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a648006_843a_4da9_865b_9d26e5dfad7b);
 }
+pub trait IAsyncActionImpl: IAsyncInfoImpl {
+    fn SetCompleted();
+    fn Completed();
+    fn GetResults();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsyncActionVtbl(
@@ -1324,6 +1329,16 @@ unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::
     type Vtable = IAsyncActionWithProgressVtbl<TProgress>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
+pub trait IAsyncActionWithProgressImpl<TProgress>: IAsyncInfoImpl
+where
+    TProgress: ::windows::core::RuntimeType + 'static,
+{
+    fn SetProgress();
+    fn Progress();
+    fn SetCompleted();
+    fn Completed();
+    fn GetResults();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsyncActionWithProgressVtbl<TProgress>(
@@ -1443,6 +1458,13 @@ unsafe impl ::windows::core::RuntimeType for IAsyncInfo {
 unsafe impl ::windows::core::Interface for IAsyncInfo {
     type Vtable = IAsyncInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000036_0000_0000_c000_000000000046);
+}
+pub trait IAsyncInfoImpl {
+    fn Id();
+    fn Status();
+    fn ErrorCode();
+    fn Cancel();
+    fn Close();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1636,6 +1658,14 @@ impl<TResult: ::windows::core::RuntimeType + 'static> ::std::future::Future for 
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for IAsyncOperation<TResult> {
     type Vtable = IAsyncOperationVtbl<TResult>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+}
+pub trait IAsyncOperationImpl<TResult>: IAsyncInfoImpl
+where
+    TResult: ::windows::core::RuntimeType + 'static,
+{
+    fn SetCompleted();
+    fn Completed();
+    fn GetResults();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1845,6 +1875,17 @@ unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::window
     type Vtable = IAsyncOperationWithProgressVtbl<TResult, TProgress>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
+pub trait IAsyncOperationWithProgressImpl<TResult, TProgress>: IAsyncInfoImpl
+where
+    TResult: ::windows::core::RuntimeType + 'static,
+    TProgress: ::windows::core::RuntimeType + 'static,
+{
+    fn SetProgress();
+    fn Progress();
+    fn SetCompleted();
+    fn Completed();
+    fn GetResults();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsyncOperationWithProgressVtbl<TResult, TProgress>(
@@ -1938,6 +1979,9 @@ unsafe impl ::windows::core::Interface for IClosable {
     type Vtable = IClosableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30d5a829_7fa4_4026_83bb_d75bae4ea99e);
 }
+pub trait IClosableImpl {
+    fn Close();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClosableVtbl(
@@ -1956,6 +2000,10 @@ unsafe impl ::windows::core::Interface for IDeferral {
     type Vtable = IDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6269732_3b7f_46a7_b40b_4fdca2a2c693);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeferralImpl: IClosableImpl {
+    fn Complete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeferralVtbl(
@@ -1973,6 +2021,10 @@ pub struct IDeferralFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeferralFactory {
     type Vtable = IDeferralFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65a1ecc5_3fb5_4832_8ca9_f061b281d13a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeferralFactoryImpl {
+    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2061,6 +2113,9 @@ unsafe impl ::windows::core::Interface for IGetActivationFactory {
     type Vtable = IGetActivationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4edb8ee2_96dd_49a7_94f7_4607ddab8e3c);
 }
+pub trait IGetActivationFactoryImpl {
+    fn GetActivationFactory();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetActivationFactoryVtbl(
@@ -2078,6 +2133,12 @@ pub struct IGuidHelperStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidHelperStatics {
     type Vtable = IGuidHelperStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59c7966b_ae52_5283_ad7f_a1b9e9678add);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGuidHelperStaticsImpl {
+    fn CreateNewGuid();
+    fn Empty();
+    fn Equals();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2195,6 +2256,9 @@ unsafe impl ::windows::core::Interface for IMemoryBuffer {
     type Vtable = IMemoryBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc4dd2a_245b_11e4_af98_689423260cf8);
 }
+pub trait IMemoryBufferImpl: IClosableImpl {
+    fn CreateReference();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMemoryBufferVtbl(
@@ -2212,6 +2276,10 @@ pub struct IMemoryBufferFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMemoryBufferFactory {
     type Vtable = IMemoryBufferFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc4dd2b_245b_11e4_af98_689423260cf8);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMemoryBufferFactoryImpl {
+    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2339,6 +2407,11 @@ unsafe impl ::windows::core::RuntimeType for IMemoryBufferReference {
 unsafe impl ::windows::core::Interface for IMemoryBufferReference {
     type Vtable = IMemoryBufferReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc4dd29_245b_11e4_af98_689423260cf8);
+}
+pub trait IMemoryBufferReferenceImpl: IClosableImpl {
+    fn Capacity();
+    fn Closed();
+    fn RemoveClosed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2676,6 +2749,47 @@ unsafe impl ::windows::core::Interface for IPropertyValue {
     type Vtable = IPropertyValueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bd682dd_7554_40e9_9a9b_82654ede7e62);
 }
+pub trait IPropertyValueImpl {
+    fn Type();
+    fn IsNumericScalar();
+    fn GetUInt8();
+    fn GetInt16();
+    fn GetUInt16();
+    fn GetInt32();
+    fn GetUInt32();
+    fn GetInt64();
+    fn GetUInt64();
+    fn GetSingle();
+    fn GetDouble();
+    fn GetChar16();
+    fn GetBoolean();
+    fn GetString();
+    fn GetGuid();
+    fn GetDateTime();
+    fn GetTimeSpan();
+    fn GetPoint();
+    fn GetSize();
+    fn GetRect();
+    fn GetUInt8Array();
+    fn GetInt16Array();
+    fn GetUInt16Array();
+    fn GetInt32Array();
+    fn GetUInt32Array();
+    fn GetInt64Array();
+    fn GetUInt64Array();
+    fn GetSingleArray();
+    fn GetDoubleArray();
+    fn GetChar16Array();
+    fn GetBooleanArray();
+    fn GetStringArray();
+    fn GetInspectableArray();
+    fn GetGuidArray();
+    fn GetDateTimeArray();
+    fn GetTimeSpanArray();
+    fn GetPointArray();
+    fn GetSizeArray();
+    fn GetRectArray();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyValueVtbl(
@@ -2731,6 +2845,48 @@ pub struct IPropertyValueStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPropertyValueStatics {
     type Vtable = IPropertyValueStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x629bdbc8_d932_4ff4_96b9_8d96c5c1e858);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPropertyValueStaticsImpl {
+    fn CreateEmpty();
+    fn CreateUInt8();
+    fn CreateInt16();
+    fn CreateUInt16();
+    fn CreateInt32();
+    fn CreateUInt32();
+    fn CreateInt64();
+    fn CreateUInt64();
+    fn CreateSingle();
+    fn CreateDouble();
+    fn CreateChar16();
+    fn CreateBoolean();
+    fn CreateString();
+    fn CreateInspectable();
+    fn CreateGuid();
+    fn CreateDateTime();
+    fn CreateTimeSpan();
+    fn CreatePoint();
+    fn CreateSize();
+    fn CreateRect();
+    fn CreateUInt8Array();
+    fn CreateInt16Array();
+    fn CreateUInt16Array();
+    fn CreateInt32Array();
+    fn CreateUInt32Array();
+    fn CreateInt64Array();
+    fn CreateUInt64Array();
+    fn CreateSingleArray();
+    fn CreateDoubleArray();
+    fn CreateChar16Array();
+    fn CreateBooleanArray();
+    fn CreateStringArray();
+    fn CreateInspectableArray();
+    fn CreateGuidArray();
+    fn CreateDateTimeArray();
+    fn CreateTimeSpanArray();
+    fn CreatePointArray();
+    fn CreateSizeArray();
+    fn CreateRectArray();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3136,6 +3292,12 @@ unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::Interfac
     type Vtable = IReferenceVtbl<T>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
+pub trait IReferenceImpl<T>: IPropertyValueImpl
+where
+    T: ::windows::core::RuntimeType + 'static,
+{
+    fn Value();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReferenceVtbl<T>(
@@ -3505,6 +3667,12 @@ unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::Interfac
     type Vtable = IReferenceArrayVtbl<T>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
+pub trait IReferenceArrayImpl<T>: IPropertyValueImpl
+where
+    T: ::windows::core::RuntimeType + 'static,
+{
+    fn Value();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReferenceArrayVtbl<T>(
@@ -3595,6 +3763,9 @@ unsafe impl ::windows::core::Interface for IStringable {
     type Vtable = IStringableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96369f54_8eb6_48f0_abce_c1b211e627c3);
 }
+pub trait IStringableImpl {
+    fn ToString();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStringableVtbl(
@@ -3612,6 +3783,11 @@ pub struct IUriEscapeStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUriEscapeStatics {
     type Vtable = IUriEscapeStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1d432ba_c824_4452_a7fd_512bc3bbe9a1);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUriEscapeStaticsImpl {
+    fn UnescapeComponent();
+    fn EscapeComponent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3631,6 +3807,26 @@ pub struct IUriRuntimeClass(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUriRuntimeClass {
     type Vtable = IUriRuntimeClassVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e365e57_48b2_4160_956f_c7385120bbfc);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUriRuntimeClassImpl {
+    fn AbsoluteUri();
+    fn DisplayUri();
+    fn Domain();
+    fn Extension();
+    fn Fragment();
+    fn Host();
+    fn Password();
+    fn Path();
+    fn Query();
+    fn QueryParsed();
+    fn RawUri();
+    fn SchemeName();
+    fn UserName();
+    fn Port();
+    fn Suspicious();
+    fn Equals();
+    fn CombineUri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3666,6 +3862,11 @@ unsafe impl ::windows::core::Interface for IUriRuntimeClassFactory {
     type Vtable = IUriRuntimeClassFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44a9796f_723e_4fdf_a218_033e75b0c084);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUriRuntimeClassFactoryImpl {
+    fn CreateUri();
+    fn CreateWithRelativeUri();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUriRuntimeClassFactoryVtbl(
@@ -3684,6 +3885,11 @@ pub struct IUriRuntimeClassWithAbsoluteCanonicalUri(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUriRuntimeClassWithAbsoluteCanonicalUri {
     type Vtable = IUriRuntimeClassWithAbsoluteCanonicalUriVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x758d9661_221c_480f_a339_50656673f46f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUriRuntimeClassWithAbsoluteCanonicalUriImpl {
+    fn AbsoluteCanonicalUri();
+    fn DisplayIri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3781,6 +3987,10 @@ unsafe impl ::windows::core::Interface for IWwwFormUrlDecoderEntry {
     type Vtable = IWwwFormUrlDecoderEntryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x125e7431_f678_4e8e_b670_20a9b06c512d);
 }
+pub trait IWwwFormUrlDecoderEntryImpl {
+    fn Name();
+    fn Value();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWwwFormUrlDecoderEntryVtbl(
@@ -3800,6 +4010,10 @@ unsafe impl ::windows::core::Interface for IWwwFormUrlDecoderRuntimeClass {
     type Vtable = IWwwFormUrlDecoderRuntimeClassVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd45a0451_f225_4542_9296_0e1df5d254df);
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
+pub trait IWwwFormUrlDecoderRuntimeClassImpl: IIterableImpl<IWwwFormUrlDecoderEntry> + IVectorViewImpl<IWwwFormUrlDecoderEntry> {
+    fn GetFirstValueByName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWwwFormUrlDecoderRuntimeClassVtbl(
@@ -3817,6 +4031,10 @@ pub struct IWwwFormUrlDecoderRuntimeClassFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWwwFormUrlDecoderRuntimeClassFactory {
     type Vtable = IWwwFormUrlDecoderRuntimeClassFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b8c6b3d_24ae_41b5_a1bf_f0c3d544845b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWwwFormUrlDecoderRuntimeClassFactoryImpl {
+    fn CreateWwwFormUrlDecoder();
 }
 #[repr(C)]
 #[doc(hidden)]

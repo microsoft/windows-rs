@@ -967,6 +967,9 @@ unsafe impl ::windows::core::Interface for IAccIdentity {
     type Vtable = IAccIdentityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7852b78d_1cfd_41c1_a615_9c0c85960b5f);
 }
+pub trait IAccIdentityImpl {
+    fn GetIdentityString();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccIdentityVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwidchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows::core::HRESULT);
@@ -1019,6 +1022,9 @@ impl ::core::fmt::Debug for IAccPropServer {
 unsafe impl ::windows::core::Interface for IAccPropServer {
     type Vtable = IAccPropServerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76c0dbbb_15e0_4e7b_b61b_20eeea2001e0);
+}
+pub trait IAccPropServerImpl {
+    fn GetPropValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1146,6 +1152,23 @@ impl ::core::fmt::Debug for IAccPropServices {
 unsafe impl ::windows::core::Interface for IAccPropServices {
     type Vtable = IAccPropServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e26e776_04f0_495d_80e4_3330352e3169);
+}
+pub trait IAccPropServicesImpl {
+    fn SetPropValue();
+    fn SetPropServer();
+    fn ClearProps();
+    fn SetHwndProp();
+    fn SetHwndPropStr();
+    fn SetHwndPropServer();
+    fn ClearHwndProps();
+    fn ComposeHwndIdentityString();
+    fn DecomposeHwndIdentityString();
+    fn SetHmenuProp();
+    fn SetHmenuPropStr();
+    fn SetHmenuPropServer();
+    fn ClearHmenuProps();
+    fn ComposeHmenuIdentityString();
+    fn DecomposeHmenuIdentityString();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1392,6 +1415,30 @@ unsafe impl ::windows::core::Interface for IAccessible {
     type Vtable = IAccessibleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x618736e0_3c3d_11cf_810c_00aa00389b71);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IAccessibleImpl: IDispatchImpl {
+    fn accParent();
+    fn accChildCount();
+    fn accChild();
+    fn accName();
+    fn accValue();
+    fn accDescription();
+    fn accRole();
+    fn accState();
+    fn accHelp();
+    fn accHelpTopic();
+    fn accKeyboardShortcut();
+    fn accFocus();
+    fn accSelection();
+    fn accDefaultAction();
+    fn accSelect();
+    fn accLocation();
+    fn accNavigate();
+    fn accHitTest();
+    fn accDoDefaultAction();
+    fn SetaccName();
+    fn SetaccValue();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessibleVtbl(
@@ -1513,6 +1560,12 @@ unsafe impl ::windows::core::Interface for IAccessibleEx {
     type Vtable = IAccessibleExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8b80ada_2c44_48d0_89be_5ff23c9cd875);
 }
+pub trait IAccessibleExImpl {
+    fn GetObjectForChild();
+    fn GetIAccessiblePair();
+    fn GetRuntimeId();
+    fn ConvertReturnedElement();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessibleExVtbl(
@@ -1575,6 +1628,9 @@ unsafe impl ::windows::core::Interface for IAccessibleHandler {
     type Vtable = IAccessibleHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03022430_abc4_11d0_bde2_00aa001a1953);
 }
+pub trait IAccessibleHandlerImpl {
+    fn AccessibleObjectFromID();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessibleHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: i32, lobjectid: i32, piaccessible: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -1633,6 +1689,10 @@ impl ::core::fmt::Debug for IAccessibleHostingElementProviders {
 unsafe impl ::windows::core::Interface for IAccessibleHostingElementProviders {
     type Vtable = IAccessibleHostingElementProvidersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33ac331b_943e_4020_b295_db37784974a3);
+}
+pub trait IAccessibleHostingElementProvidersImpl {
+    fn GetEmbeddedFragmentRoots();
+    fn GetObjectIdForProvider();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1708,6 +1768,12 @@ impl ::core::fmt::Debug for IAccessibleWindowlessSite {
 unsafe impl ::windows::core::Interface for IAccessibleWindowlessSite {
     type Vtable = IAccessibleWindowlessSiteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf3abd9c_76da_4389_9eb6_1427d25abab7);
+}
+pub trait IAccessibleWindowlessSiteImpl {
+    fn AcquireObjectIdRange();
+    fn ReleaseObjectIdRange();
+    fn QueryObjectIdRanges();
+    fn GetParentAccessible();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1794,6 +1860,13 @@ unsafe impl ::windows::core::Interface for IAnnotationProvider {
     type Vtable = IAnnotationProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf95c7e80_bd63_4601_9782_445ebff011fc);
 }
+pub trait IAnnotationProviderImpl {
+    fn AnnotationTypeId();
+    fn AnnotationTypeName();
+    fn Author();
+    fn DateTime();
+    fn Target();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnnotationProviderVtbl(
@@ -1859,6 +1932,9 @@ unsafe impl ::windows::core::Interface for ICustomNavigationProvider {
     type Vtable = ICustomNavigationProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2062a28a_8c07_4b94_8e12_7037c622aeb8);
 }
+pub trait ICustomNavigationProviderImpl {
+    fn Navigate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomNavigationProviderVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, direction: NavigateDirection, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -1915,6 +1991,10 @@ impl ::core::fmt::Debug for IDockProvider {
 unsafe impl ::windows::core::Interface for IDockProvider {
     type Vtable = IDockProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x159bc72c_4ad3_485e_9637_d7052edf0146);
+}
+pub trait IDockProviderImpl {
+    fn SetDockPosition();
+    fn DockPosition();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1994,6 +2074,12 @@ unsafe impl ::windows::core::Interface for IDragProvider {
     type Vtable = IDragProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6aa7bbbb_7ff9_497d_904f_d20b897929d8);
 }
+pub trait IDragProviderImpl {
+    fn IsGrabbed();
+    fn DropEffect();
+    fn DropEffects();
+    fn GetGrabbedItems();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragProviderVtbl(
@@ -2066,6 +2152,10 @@ unsafe impl ::windows::core::Interface for IDropTargetProvider {
     type Vtable = IDropTargetProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbae82bfd_358a_481c_85a0_d8b4d90a5d61);
 }
+pub trait IDropTargetProviderImpl {
+    fn DropTargetEffect();
+    fn DropTargetEffects();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDropTargetProviderVtbl(
@@ -2134,6 +2224,11 @@ impl ::core::fmt::Debug for IExpandCollapseProvider {
 unsafe impl ::windows::core::Interface for IExpandCollapseProvider {
     type Vtable = IExpandCollapseProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd847d3a5_cab0_4a98_8c32_ecb45c59ad24);
+}
+pub trait IExpandCollapseProviderImpl {
+    fn Expand();
+    fn Collapse();
+    fn ExpandCollapseState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2215,6 +2310,13 @@ unsafe impl ::windows::core::Interface for IGridItemProvider {
     type Vtable = IGridItemProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd02541f1_fb81_4d64_ae32_f520f8a6dbd1);
 }
+pub trait IGridItemProviderImpl {
+    fn Row();
+    fn Column();
+    fn RowSpan();
+    fn ColumnSpan();
+    fn ContainingGrid();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridItemProviderVtbl(
@@ -2287,6 +2389,11 @@ unsafe impl ::windows::core::Interface for IGridProvider {
     type Vtable = IGridProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb17d6187_0907_464b_a168_0ef17a1572b1);
 }
+pub trait IGridProviderImpl {
+    fn GetItem();
+    fn RowCount();
+    fn ColumnCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridProviderVtbl(
@@ -2348,6 +2455,9 @@ unsafe impl ::windows::core::Interface for IInvokeProvider {
     type Vtable = IInvokeProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54fcb24b_e18e_47a2_b4d3_eccbe77599a2);
 }
+pub trait IInvokeProviderImpl {
+    fn Invoke();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInvokeProviderVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
@@ -2401,6 +2511,9 @@ impl ::core::fmt::Debug for IItemContainerProvider {
 unsafe impl ::windows::core::Interface for IItemContainerProvider {
     type Vtable = IItemContainerProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe747770b_39ce_4382_ab30_d8fb3f336f24);
+}
+pub trait IItemContainerProviderImpl {
+    fn FindItemByProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2531,6 +2644,22 @@ unsafe impl ::windows::core::Interface for ILegacyIAccessibleProvider {
     type Vtable = ILegacyIAccessibleProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe44c3566_915d_4070_99c6_047bff5a08f5);
 }
+pub trait ILegacyIAccessibleProviderImpl {
+    fn Select();
+    fn DoDefaultAction();
+    fn SetValue();
+    fn GetIAccessible();
+    fn ChildId();
+    fn Name();
+    fn Value();
+    fn Description();
+    fn Role();
+    fn State();
+    fn Help();
+    fn KeyboardShortcut();
+    fn GetSelection();
+    fn DefaultAction();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILegacyIAccessibleProviderVtbl(
@@ -2626,6 +2755,12 @@ unsafe impl ::windows::core::Interface for IMultipleViewProvider {
     type Vtable = IMultipleViewProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6278cab1_b556_4a1a_b4e0_418acc523201);
 }
+pub trait IMultipleViewProviderImpl {
+    fn GetViewName();
+    fn SetCurrentView();
+    fn CurrentView();
+    fn GetSupportedViews();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultipleViewProviderVtbl(
@@ -2689,6 +2824,9 @@ unsafe impl ::windows::core::Interface for IObjectModelProvider {
     type Vtable = IObjectModelProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ad86ebd_f5ef_483d_bb18_b1042a475d64);
 }
+pub trait IObjectModelProviderImpl {
+    fn GetUnderlyingObjectModel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectModelProviderVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
@@ -2741,6 +2879,9 @@ impl ::core::fmt::Debug for IProxyProviderWinEventHandler {
 unsafe impl ::windows::core::Interface for IProxyProviderWinEventHandler {
     type Vtable = IProxyProviderWinEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89592ad4_f4e0_43d5_a3b6_bad7e111b435);
+}
+pub trait IProxyProviderWinEventHandlerImpl {
+    fn RespondToWinEvent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2809,6 +2950,11 @@ impl ::core::fmt::Debug for IProxyProviderWinEventSink {
 unsafe impl ::windows::core::Interface for IProxyProviderWinEventSink {
     type Vtable = IProxyProviderWinEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fd82b78_a43e_46ac_9803_0a6969c7c183);
+}
+pub trait IProxyProviderWinEventSinkImpl {
+    fn AddAutomationPropertyChangedEvent();
+    fn AddAutomationEvent();
+    fn AddStructureChangedEvent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2902,6 +3048,15 @@ unsafe impl ::windows::core::Interface for IRangeValueProvider {
     type Vtable = IRangeValueProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36dc7aef_33e6_4691_afe1_2be7274b3d33);
 }
+pub trait IRangeValueProviderImpl {
+    fn SetValue();
+    fn Value();
+    fn IsReadOnly();
+    fn Maximum();
+    fn Minimum();
+    fn LargeChange();
+    fn SmallChange();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRangeValueProviderVtbl(
@@ -2971,6 +3126,10 @@ impl ::core::fmt::Debug for IRawElementProviderAdviseEvents {
 unsafe impl ::windows::core::Interface for IRawElementProviderAdviseEvents {
     type Vtable = IRawElementProviderAdviseEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa407b27b_0f6d_4427_9292_473c7bf93258);
+}
+pub trait IRawElementProviderAdviseEventsImpl {
+    fn AdviseEventAdded();
+    fn AdviseEventRemoved();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3059,6 +3218,14 @@ unsafe impl ::windows::core::Interface for IRawElementProviderFragment {
     type Vtable = IRawElementProviderFragmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7063da8_8359_439c_9297_bbc5299a7d87);
 }
+pub trait IRawElementProviderFragmentImpl {
+    fn Navigate();
+    fn GetRuntimeId();
+    fn BoundingRectangle();
+    fn GetEmbeddedFragmentRoots();
+    fn SetFocus();
+    fn FragmentRoot();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawElementProviderFragmentVtbl(
@@ -3129,6 +3296,10 @@ unsafe impl ::windows::core::Interface for IRawElementProviderFragmentRoot {
     type Vtable = IRawElementProviderFragmentRootVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x620ce2a5_ab8f_40a9_86cb_de3c75599b58);
 }
+pub trait IRawElementProviderFragmentRootImpl {
+    fn ElementProviderFromPoint();
+    fn GetFocus();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawElementProviderFragmentRootVtbl(
@@ -3189,6 +3360,9 @@ unsafe impl ::windows::core::Interface for IRawElementProviderHostingAccessibles
     type Vtable = IRawElementProviderHostingAccessiblesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24be0b07_d37d_487a_98cf_a13ed465e9b3);
 }
+pub trait IRawElementProviderHostingAccessiblesImpl {
+    fn GetEmbeddedAccessibles();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawElementProviderHostingAccessiblesVtbl(
@@ -3248,6 +3422,9 @@ impl ::core::fmt::Debug for IRawElementProviderHwndOverride {
 unsafe impl ::windows::core::Interface for IRawElementProviderHwndOverride {
     type Vtable = IRawElementProviderHwndOverrideVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d5df27c_8947_4425_b8d9_79787bb460b8);
+}
+pub trait IRawElementProviderHwndOverrideImpl {
+    fn GetOverrideProviderForHwnd();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3323,6 +3500,12 @@ impl ::core::fmt::Debug for IRawElementProviderSimple {
 unsafe impl ::windows::core::Interface for IRawElementProviderSimple {
     type Vtable = IRawElementProviderSimpleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6dd68d1_86fd_4332_8666_9abedea2d24c);
+}
+pub trait IRawElementProviderSimpleImpl {
+    fn ProviderOptions();
+    fn GetPatternProvider();
+    fn GetPropertyValue();
+    fn HostRawElementProvider();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3425,6 +3608,9 @@ impl ::core::fmt::Debug for IRawElementProviderSimple2 {
 unsafe impl ::windows::core::Interface for IRawElementProviderSimple2 {
     type Vtable = IRawElementProviderSimple2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0a839a9_8da1_4a82_806a_8e0d44e79f56);
+}
+pub trait IRawElementProviderSimple2Impl: IRawElementProviderSimpleImpl {
+    fn ShowContextMenu();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3555,6 +3741,9 @@ unsafe impl ::windows::core::Interface for IRawElementProviderSimple3 {
     type Vtable = IRawElementProviderSimple3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcf5d820_d7ec_4613_bdf6_42a84ce7daaf);
 }
+pub trait IRawElementProviderSimple3Impl: IRawElementProviderSimple2Impl + IRawElementProviderSimpleImpl {
+    fn GetMetadataValue();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawElementProviderSimple3Vtbl(
@@ -3626,6 +3815,10 @@ unsafe impl ::windows::core::Interface for IRawElementProviderWindowlessSite {
     type Vtable = IRawElementProviderWindowlessSiteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a2a93cc_bfad_42ac_9b2e_0991fb0d3ea0);
 }
+pub trait IRawElementProviderWindowlessSiteImpl {
+    fn GetAdjacentFragment();
+    fn GetRuntimeIdPrefix();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawElementProviderWindowlessSiteVtbl(
@@ -3689,6 +3882,10 @@ unsafe impl ::windows::core::Interface for IRichEditUiaInformation {
     type Vtable = IRichEditUiaInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait IRichEditUiaInformationImpl {
+    fn GetBoundaryRectangle();
+    fn IsVisible();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRichEditUiaInformationVtbl(
@@ -3748,6 +3945,9 @@ unsafe impl ::windows::core::Interface for IRicheditWindowlessAccessibility {
     type Vtable = IRicheditWindowlessAccessibilityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait IRicheditWindowlessAccessibilityImpl {
+    fn CreateProvider();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRicheditWindowlessAccessibilityVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psite: ::windows::core::RawPtr, ppprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -3799,6 +3999,9 @@ impl ::core::fmt::Debug for IScrollItemProvider {
 unsafe impl ::windows::core::Interface for IScrollItemProvider {
     type Vtable = IScrollItemProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2360c714_4bf1_4b26_ba65_9b21316127eb);
+}
+pub trait IScrollItemProviderImpl {
+    fn ScrollIntoView();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3888,6 +4091,16 @@ unsafe impl ::windows::core::Interface for IScrollProvider {
     type Vtable = IScrollProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb38b8077_1fc3_42a5_8cae_d40c2215055a);
 }
+pub trait IScrollProviderImpl {
+    fn Scroll();
+    fn SetScrollPercent();
+    fn HorizontalScrollPercent();
+    fn VerticalScrollPercent();
+    fn HorizontalViewSize();
+    fn VerticalViewSize();
+    fn HorizontallyScrollable();
+    fn VerticallyScrollable();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollProviderVtbl(
@@ -3973,6 +4186,13 @@ unsafe impl ::windows::core::Interface for ISelectionItemProvider {
     type Vtable = ISelectionItemProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2acad808_b2d4_452d_a407_91ff1ad167b2);
 }
+pub trait ISelectionItemProviderImpl {
+    fn Select();
+    fn AddToSelection();
+    fn RemoveFromSelection();
+    fn IsSelected();
+    fn SelectionContainer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectionItemProviderVtbl(
@@ -4048,6 +4268,11 @@ impl ::core::fmt::Debug for ISelectionProvider {
 unsafe impl ::windows::core::Interface for ISelectionProvider {
     type Vtable = ISelectionProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb8b03af_3bdf_48d4_bd36_1a65793be168);
+}
+pub trait ISelectionProviderImpl {
+    fn GetSelection();
+    fn CanSelectMultiple();
+    fn IsSelectionRequired();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4165,6 +4390,12 @@ unsafe impl ::windows::core::Interface for ISelectionProvider2 {
     type Vtable = ISelectionProvider2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14f68475_ee1c_44f6_a869_d239381f0fe7);
 }
+pub trait ISelectionProvider2Impl: ISelectionProviderImpl {
+    fn FirstSelectedItem();
+    fn LastSelectedItem();
+    fn CurrentSelectedItem();
+    fn ItemCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectionProvider2Vtbl(
@@ -4245,6 +4476,11 @@ unsafe impl ::windows::core::Interface for ISpreadsheetItemProvider {
     type Vtable = ISpreadsheetItemProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeaed4660_7b3d_4879_a2e6_365ce603f3d0);
 }
+pub trait ISpreadsheetItemProviderImpl {
+    fn Formula();
+    fn GetAnnotationObjects();
+    fn GetAnnotationTypes();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpreadsheetItemProviderVtbl(
@@ -4308,6 +4544,9 @@ impl ::core::fmt::Debug for ISpreadsheetProvider {
 unsafe impl ::windows::core::Interface for ISpreadsheetProvider {
     type Vtable = ISpreadsheetProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f6b5d35_5525_4f80_b758_85473832ffc7);
+}
+pub trait ISpreadsheetProviderImpl {
+    fn GetItemByName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4402,6 +4641,15 @@ unsafe impl ::windows::core::Interface for IStylesProvider {
     type Vtable = IStylesProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19b6b649_f5d7_4a6d_bdcb_129252be588a);
 }
+pub trait IStylesProviderImpl {
+    fn StyleId();
+    fn StyleName();
+    fn FillColor();
+    fn FillPatternStyle();
+    fn Shape();
+    fn FillPatternColor();
+    fn ExtendedProperties();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStylesProviderVtbl(
@@ -4473,6 +4721,10 @@ unsafe impl ::windows::core::Interface for ISynchronizedInputProvider {
     type Vtable = ISynchronizedInputProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29db1a06_02ce_4cf7_9b42_565d4fab20ee);
 }
+pub trait ISynchronizedInputProviderImpl {
+    fn StartListening();
+    fn Cancel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISynchronizedInputProviderVtbl(
@@ -4538,6 +4790,10 @@ impl ::core::fmt::Debug for ITableItemProvider {
 unsafe impl ::windows::core::Interface for ITableItemProvider {
     type Vtable = ITableItemProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9734fa6_771f_4d78_9c90_2517999349cd);
+}
+pub trait ITableItemProviderImpl {
+    fn GetRowHeaderItems();
+    fn GetColumnHeaderItems();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4612,6 +4868,11 @@ unsafe impl ::windows::core::Interface for ITableProvider {
     type Vtable = ITableProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c860395_97b3_490a_b52a_858cc22af166);
 }
+pub trait ITableProviderImpl {
+    fn GetRowHeaders();
+    fn GetColumnHeaders();
+    fn RowOrColumnMajor();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITableProviderVtbl(
@@ -4678,6 +4939,10 @@ impl ::core::fmt::Debug for ITextChildProvider {
 unsafe impl ::windows::core::Interface for ITextChildProvider {
     type Vtable = ITextChildProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c2de2b9_c88f_4f88_a111_f1d336b7d1a9);
+}
+pub trait ITextChildProviderImpl {
+    fn TextContainer();
+    fn TextRange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4795,6 +5060,10 @@ unsafe impl ::windows::core::Interface for ITextEditProvider {
     type Vtable = ITextEditProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea3605b4_3a05_400e_b5f9_4e91b40f6176);
 }
+pub trait ITextEditProviderImpl: ITextProviderImpl {
+    fn GetActiveComposition();
+    fn GetConversionTarget();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextEditProviderVtbl(
@@ -4888,6 +5157,14 @@ impl ::core::fmt::Debug for ITextProvider {
 unsafe impl ::windows::core::Interface for ITextProvider {
     type Vtable = ITextProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3589c92c_63f3_4367_99bb_ada653b77cf2);
+}
+pub trait ITextProviderImpl {
+    fn GetSelection();
+    fn GetVisibleRanges();
+    fn RangeFromChild();
+    fn RangeFromPoint();
+    fn DocumentRange();
+    fn SupportedTextSelection();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5010,6 +5287,10 @@ impl ::core::fmt::Debug for ITextProvider2 {
 unsafe impl ::windows::core::Interface for ITextProvider2 {
     type Vtable = ITextProvider2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0dc5e6ed_3e16_4bf1_8f9a_a979878bc195);
+}
+pub trait ITextProvider2Impl: ITextProviderImpl {
+    fn RangeFromAnnotation();
+    fn GetCaretRange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5165,6 +5446,26 @@ impl ::core::fmt::Debug for ITextRangeProvider {
 unsafe impl ::windows::core::Interface for ITextRangeProvider {
     type Vtable = ITextRangeProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5347ad7b_c355_46f8_aff5_909033582f63);
+}
+pub trait ITextRangeProviderImpl {
+    fn Clone();
+    fn Compare();
+    fn CompareEndpoints();
+    fn ExpandToEnclosingUnit();
+    fn FindAttribute();
+    fn FindText();
+    fn GetAttributeValue();
+    fn GetBoundingRectangles();
+    fn GetEnclosingElement();
+    fn GetText();
+    fn Move();
+    fn MoveEndpointByUnit();
+    fn MoveEndpointByRange();
+    fn Select();
+    fn AddToSelection();
+    fn RemoveFromSelection();
+    fn ScrollIntoView();
+    fn GetChildren();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5360,6 +5661,9 @@ unsafe impl ::windows::core::Interface for ITextRangeProvider2 {
     type Vtable = ITextRangeProvider2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bbce42c_1921_4f18_89ca_dba1910a0386);
 }
+pub trait ITextRangeProvider2Impl: ITextRangeProviderImpl {
+    fn ShowContextMenu();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextRangeProvider2Vtbl(
@@ -5448,6 +5752,10 @@ unsafe impl ::windows::core::Interface for IToggleProvider {
     type Vtable = IToggleProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56d00bd0_c4f4_433c_a836_1a52a57e0892);
 }
+pub trait IToggleProviderImpl {
+    fn Toggle();
+    fn ToggleState();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToggleProviderVtbl(
@@ -5531,6 +5839,14 @@ impl ::core::fmt::Debug for ITransformProvider {
 unsafe impl ::windows::core::Interface for ITransformProvider {
     type Vtable = ITransformProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6829ddc4_4f91_4ffa_b86f_bd3e2987cb4c);
+}
+pub trait ITransformProviderImpl {
+    fn Move();
+    fn Resize();
+    fn Rotate();
+    fn CanMove();
+    fn CanResize();
+    fn CanRotate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5671,6 +5987,14 @@ impl ::core::fmt::Debug for ITransformProvider2 {
 unsafe impl ::windows::core::Interface for ITransformProvider2 {
     type Vtable = ITransformProvider2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4758742f_7ac2_460c_bc48_09fc09308a93);
+}
+pub trait ITransformProvider2Impl: ITransformProviderImpl {
+    fn Zoom();
+    fn CanZoom();
+    fn ZoomLevel();
+    fn ZoomMinimum();
+    fn ZoomMaximum();
+    fn ZoomByUnit();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6021,6 +6345,63 @@ impl ::core::fmt::Debug for IUIAutomation {
 unsafe impl ::windows::core::Interface for IUIAutomation {
     type Vtable = IUIAutomationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30cbe57d_d9d0_452a_ab13_7ac5ac4825ee);
+}
+pub trait IUIAutomationImpl {
+    fn CompareElements();
+    fn CompareRuntimeIds();
+    fn GetRootElement();
+    fn ElementFromHandle();
+    fn ElementFromPoint();
+    fn GetFocusedElement();
+    fn GetRootElementBuildCache();
+    fn ElementFromHandleBuildCache();
+    fn ElementFromPointBuildCache();
+    fn GetFocusedElementBuildCache();
+    fn CreateTreeWalker();
+    fn ControlViewWalker();
+    fn ContentViewWalker();
+    fn RawViewWalker();
+    fn RawViewCondition();
+    fn ControlViewCondition();
+    fn ContentViewCondition();
+    fn CreateCacheRequest();
+    fn CreateTrueCondition();
+    fn CreateFalseCondition();
+    fn CreatePropertyCondition();
+    fn CreatePropertyConditionEx();
+    fn CreateAndCondition();
+    fn CreateAndConditionFromArray();
+    fn CreateAndConditionFromNativeArray();
+    fn CreateOrCondition();
+    fn CreateOrConditionFromArray();
+    fn CreateOrConditionFromNativeArray();
+    fn CreateNotCondition();
+    fn AddAutomationEventHandler();
+    fn RemoveAutomationEventHandler();
+    fn AddPropertyChangedEventHandlerNativeArray();
+    fn AddPropertyChangedEventHandler();
+    fn RemovePropertyChangedEventHandler();
+    fn AddStructureChangedEventHandler();
+    fn RemoveStructureChangedEventHandler();
+    fn AddFocusChangedEventHandler();
+    fn RemoveFocusChangedEventHandler();
+    fn RemoveAllEventHandlers();
+    fn IntNativeArrayToSafeArray();
+    fn IntSafeArrayToNativeArray();
+    fn RectToVariant();
+    fn VariantToRect();
+    fn SafeArrayToRectNativeArray();
+    fn CreateProxyFactoryEntry();
+    fn ProxyFactoryMapping();
+    fn GetPropertyProgrammaticName();
+    fn GetPatternProgrammaticName();
+    fn PollForPotentialSupportedPatterns();
+    fn PollForPotentialSupportedProperties();
+    fn CheckNotSupported();
+    fn ReservedNotSupportedValue();
+    fn ReservedMixedAttributeValue();
+    fn ElementFromIAccessible();
+    fn ElementFromIAccessibleBuildCache();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6480,6 +6861,14 @@ impl ::core::fmt::Debug for IUIAutomation2 {
 unsafe impl ::windows::core::Interface for IUIAutomation2 {
     type Vtable = IUIAutomation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34723aff_0c9d_49d0_9896_7ab52df8cd8a);
+}
+pub trait IUIAutomation2Impl: IUIAutomationImpl {
+    fn AutoSetFocus();
+    fn SetAutoSetFocus();
+    fn ConnectionTimeout();
+    fn SetConnectionTimeout();
+    fn TransactionTimeout();
+    fn SetTransactionTimeout();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6975,6 +7364,10 @@ impl ::core::fmt::Debug for IUIAutomation3 {
 unsafe impl ::windows::core::Interface for IUIAutomation3 {
     type Vtable = IUIAutomation3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73d768da_9b51_4b89_936e_c209290973e7);
+}
+pub trait IUIAutomation3Impl: IUIAutomation2Impl + IUIAutomationImpl {
+    fn AddTextEditTextChangedEventHandler();
+    fn RemoveTextEditTextChangedEventHandler();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7500,6 +7893,10 @@ impl ::core::fmt::Debug for IUIAutomation4 {
 unsafe impl ::windows::core::Interface for IUIAutomation4 {
     type Vtable = IUIAutomation4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1189c02a_05f8_4319_8e21_e817e3db2860);
+}
+pub trait IUIAutomation4Impl: IUIAutomation3Impl + IUIAutomation2Impl + IUIAutomationImpl {
+    fn AddChangesEventHandler();
+    fn RemoveChangesEventHandler();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8055,6 +8452,10 @@ impl ::core::fmt::Debug for IUIAutomation5 {
 unsafe impl ::windows::core::Interface for IUIAutomation5 {
     type Vtable = IUIAutomation5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25f700c8_d816_4057_a9dc_3cbdee77e256);
+}
+pub trait IUIAutomation5Impl: IUIAutomation4Impl + IUIAutomation3Impl + IUIAutomation2Impl + IUIAutomationImpl {
+    fn AddNotificationEventHandler();
+    fn RemoveNotificationEventHandler();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8672,6 +9073,17 @@ unsafe impl ::windows::core::Interface for IUIAutomation6 {
     type Vtable = IUIAutomation6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaae072da_29e3_413d_87a7_192dbf81ed10);
 }
+pub trait IUIAutomation6Impl: IUIAutomation5Impl + IUIAutomation4Impl + IUIAutomation3Impl + IUIAutomation2Impl + IUIAutomationImpl {
+    fn CreateEventHandlerGroup();
+    fn AddEventHandlerGroup();
+    fn RemoveEventHandlerGroup();
+    fn ConnectionRecoveryBehavior();
+    fn SetConnectionRecoveryBehavior();
+    fn CoalesceEvents();
+    fn SetCoalesceEvents();
+    fn AddActiveTextPositionChangedEventHandler();
+    fn RemoveActiveTextPositionChangedEventHandler();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomation6Vtbl(
@@ -8827,6 +9239,9 @@ unsafe impl ::windows::core::Interface for IUIAutomationActiveTextPositionChange
     type Vtable = IUIAutomationActiveTextPositionChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf97933b0_8dae_4496_8997_5ba015fe0d82);
 }
+pub trait IUIAutomationActiveTextPositionChangedEventHandlerImpl {
+    fn HandleActiveTextPositionChangedEvent();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationActiveTextPositionChangedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, range: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -8909,6 +9324,11 @@ impl ::core::fmt::Debug for IUIAutomationAndCondition {
 unsafe impl ::windows::core::Interface for IUIAutomationAndCondition {
     type Vtable = IUIAutomationAndConditionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7d0af36_b912_45fe_9855_091ddc174aec);
+}
+pub trait IUIAutomationAndConditionImpl: IUIAutomationConditionImpl {
+    fn ChildCount();
+    fn GetChildrenAsNativeArray();
+    fn GetChildren();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9022,6 +9442,18 @@ unsafe impl ::windows::core::Interface for IUIAutomationAnnotationPattern {
     type Vtable = IUIAutomationAnnotationPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a175b21_339e_41b1_8e8b_623f6b681098);
 }
+pub trait IUIAutomationAnnotationPatternImpl {
+    fn CurrentAnnotationTypeId();
+    fn CurrentAnnotationTypeName();
+    fn CurrentAuthor();
+    fn CurrentDateTime();
+    fn CurrentTarget();
+    fn CachedAnnotationTypeId();
+    fn CachedAnnotationTypeName();
+    fn CachedAuthor();
+    fn CachedDateTime();
+    fn CachedTarget();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationAnnotationPatternVtbl(
@@ -9115,6 +9547,9 @@ impl ::core::fmt::Debug for IUIAutomationBoolCondition {
 unsafe impl ::windows::core::Interface for IUIAutomationBoolCondition {
     type Vtable = IUIAutomationBoolConditionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b4e1f2e_75eb_4d0b_8952_5a69988e2307);
+}
+pub trait IUIAutomationBoolConditionImpl: IUIAutomationConditionImpl {
+    fn BooleanValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9210,6 +9645,17 @@ unsafe impl ::windows::core::Interface for IUIAutomationCacheRequest {
     type Vtable = IUIAutomationCacheRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb32a92b5_bc25_4078_9c08_d7ee95c48e03);
 }
+pub trait IUIAutomationCacheRequestImpl {
+    fn AddProperty();
+    fn AddPattern();
+    fn Clone();
+    fn TreeScope();
+    fn SetTreeScope();
+    fn TreeFilter();
+    fn SetTreeFilter();
+    fn AutomationElementMode();
+    fn SetAutomationElementMode();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationCacheRequestVtbl(
@@ -9276,6 +9722,9 @@ unsafe impl ::windows::core::Interface for IUIAutomationChangesEventHandler {
     type Vtable = IUIAutomationChangesEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58edca55_2c3e_4980_b1b9_56c17f27a2a0);
 }
+pub trait IUIAutomationChangesEventHandlerImpl {
+    fn HandleChangesEvent();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationChangesEventHandlerVtbl(
@@ -9329,6 +9778,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationCondition {
     type Vtable = IUIAutomationConditionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x352ffba8_0973_437c_a61f_f64cafd81df9);
 }
+pub trait IUIAutomationConditionImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationConditionVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
@@ -9381,6 +9831,9 @@ impl ::core::fmt::Debug for IUIAutomationCustomNavigationPattern {
 unsafe impl ::windows::core::Interface for IUIAutomationCustomNavigationPattern {
     type Vtable = IUIAutomationCustomNavigationPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01ea217a_1766_47ed_a6cc_acf492854b1f);
+}
+pub trait IUIAutomationCustomNavigationPatternImpl {
+    fn Navigate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9443,6 +9896,11 @@ impl ::core::fmt::Debug for IUIAutomationDockPattern {
 unsafe impl ::windows::core::Interface for IUIAutomationDockPattern {
     type Vtable = IUIAutomationDockPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfde5ef97_1464_48f6_90bf_43d0948e86ec);
+}
+pub trait IUIAutomationDockPatternImpl {
+    fn SetDockPosition();
+    fn CurrentDockPosition();
+    fn CachedDockPosition();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9545,6 +10003,16 @@ unsafe impl ::windows::core::Interface for IUIAutomationDragPattern {
     type Vtable = IUIAutomationDragPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dc7b570_1f54_4bad_bcda_d36a722fb7bd);
 }
+pub trait IUIAutomationDragPatternImpl {
+    fn CurrentIsGrabbed();
+    fn CachedIsGrabbed();
+    fn CurrentDropEffect();
+    fn CachedDropEffect();
+    fn CurrentDropEffects();
+    fn CachedDropEffects();
+    fn GetCurrentGrabbedItems();
+    fn GetCachedGrabbedItems();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationDragPatternVtbl(
@@ -9634,6 +10102,12 @@ impl ::core::fmt::Debug for IUIAutomationDropTargetPattern {
 unsafe impl ::windows::core::Interface for IUIAutomationDropTargetPattern {
     type Vtable = IUIAutomationDropTargetPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69a095f7_eee4_430e_a46b_fb73b1ae39a5);
+}
+pub trait IUIAutomationDropTargetPatternImpl {
+    fn CurrentDropTargetEffect();
+    fn CachedDropTargetEffect();
+    fn CurrentDropTargetEffects();
+    fn CachedDropTargetEffects();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10156,6 +10630,90 @@ impl ::core::fmt::Debug for IUIAutomationElement {
 unsafe impl ::windows::core::Interface for IUIAutomationElement {
     type Vtable = IUIAutomationElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd22108aa_8ac5_49a5_837b_37bbb3d7591e);
+}
+pub trait IUIAutomationElementImpl {
+    fn SetFocus();
+    fn GetRuntimeId();
+    fn FindFirst();
+    fn FindAll();
+    fn FindFirstBuildCache();
+    fn FindAllBuildCache();
+    fn BuildUpdatedCache();
+    fn GetCurrentPropertyValue();
+    fn GetCurrentPropertyValueEx();
+    fn GetCachedPropertyValue();
+    fn GetCachedPropertyValueEx();
+    fn GetCurrentPatternAs();
+    fn GetCachedPatternAs();
+    fn GetCurrentPattern();
+    fn GetCachedPattern();
+    fn GetCachedParent();
+    fn GetCachedChildren();
+    fn CurrentProcessId();
+    fn CurrentControlType();
+    fn CurrentLocalizedControlType();
+    fn CurrentName();
+    fn CurrentAcceleratorKey();
+    fn CurrentAccessKey();
+    fn CurrentHasKeyboardFocus();
+    fn CurrentIsKeyboardFocusable();
+    fn CurrentIsEnabled();
+    fn CurrentAutomationId();
+    fn CurrentClassName();
+    fn CurrentHelpText();
+    fn CurrentCulture();
+    fn CurrentIsControlElement();
+    fn CurrentIsContentElement();
+    fn CurrentIsPassword();
+    fn CurrentNativeWindowHandle();
+    fn CurrentItemType();
+    fn CurrentIsOffscreen();
+    fn CurrentOrientation();
+    fn CurrentFrameworkId();
+    fn CurrentIsRequiredForForm();
+    fn CurrentItemStatus();
+    fn CurrentBoundingRectangle();
+    fn CurrentLabeledBy();
+    fn CurrentAriaRole();
+    fn CurrentAriaProperties();
+    fn CurrentIsDataValidForForm();
+    fn CurrentControllerFor();
+    fn CurrentDescribedBy();
+    fn CurrentFlowsTo();
+    fn CurrentProviderDescription();
+    fn CachedProcessId();
+    fn CachedControlType();
+    fn CachedLocalizedControlType();
+    fn CachedName();
+    fn CachedAcceleratorKey();
+    fn CachedAccessKey();
+    fn CachedHasKeyboardFocus();
+    fn CachedIsKeyboardFocusable();
+    fn CachedIsEnabled();
+    fn CachedAutomationId();
+    fn CachedClassName();
+    fn CachedHelpText();
+    fn CachedCulture();
+    fn CachedIsControlElement();
+    fn CachedIsContentElement();
+    fn CachedIsPassword();
+    fn CachedNativeWindowHandle();
+    fn CachedItemType();
+    fn CachedIsOffscreen();
+    fn CachedOrientation();
+    fn CachedFrameworkId();
+    fn CachedIsRequiredForForm();
+    fn CachedItemStatus();
+    fn CachedBoundingRectangle();
+    fn CachedLabeledBy();
+    fn CachedAriaRole();
+    fn CachedAriaProperties();
+    fn CachedIsDataValidForForm();
+    fn CachedControllerFor();
+    fn CachedDescribedBy();
+    fn CachedFlowsTo();
+    fn CachedProviderDescription();
+    fn GetClickablePoint();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10858,6 +11416,14 @@ impl ::core::fmt::Debug for IUIAutomationElement2 {
 unsafe impl ::windows::core::Interface for IUIAutomationElement2 {
     type Vtable = IUIAutomationElement2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6749c683_f70d_4487_a698_5f79d55290d6);
+}
+pub trait IUIAutomationElement2Impl: IUIAutomationElementImpl {
+    fn CurrentOptimizeForVisualContent();
+    fn CachedOptimizeForVisualContent();
+    fn CurrentLiveSetting();
+    fn CachedLiveSetting();
+    fn CurrentFlowsFrom();
+    fn CachedFlowsFrom();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11604,6 +12170,11 @@ impl ::core::fmt::Debug for IUIAutomationElement3 {
 unsafe impl ::windows::core::Interface for IUIAutomationElement3 {
     type Vtable = IUIAutomationElement3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8471df34_aee0_4a01_a7de_7db9af12c296);
+}
+pub trait IUIAutomationElement3Impl: IUIAutomationElement2Impl + IUIAutomationElementImpl {
+    fn ShowContextMenu();
+    fn CurrentIsPeripheral();
+    fn CachedIsPeripheral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12427,6 +12998,18 @@ impl ::core::fmt::Debug for IUIAutomationElement4 {
 unsafe impl ::windows::core::Interface for IUIAutomationElement4 {
     type Vtable = IUIAutomationElement4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b6e233c_52fb_4063_a4c9_77c075c2a06b);
+}
+pub trait IUIAutomationElement4Impl: IUIAutomationElement3Impl + IUIAutomationElement2Impl + IUIAutomationElementImpl {
+    fn CurrentPositionInSet();
+    fn CurrentSizeOfSet();
+    fn CurrentLevel();
+    fn CurrentAnnotationTypes();
+    fn CurrentAnnotationObjects();
+    fn CachedPositionInSet();
+    fn CachedSizeOfSet();
+    fn CachedLevel();
+    fn CachedAnnotationTypes();
+    fn CachedAnnotationObjects();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13304,6 +13887,12 @@ impl ::core::fmt::Debug for IUIAutomationElement5 {
 unsafe impl ::windows::core::Interface for IUIAutomationElement5 {
     type Vtable = IUIAutomationElement5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98141c1d_0d0e_4175_bbe2_6bff455842a7);
+}
+pub trait IUIAutomationElement5Impl: IUIAutomationElement4Impl + IUIAutomationElement3Impl + IUIAutomationElement2Impl + IUIAutomationElementImpl {
+    fn CurrentLandmarkType();
+    fn CurrentLocalizedLandmarkType();
+    fn CachedLandmarkType();
+    fn CachedLocalizedLandmarkType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14219,6 +14808,10 @@ impl ::core::fmt::Debug for IUIAutomationElement6 {
 unsafe impl ::windows::core::Interface for IUIAutomationElement6 {
     type Vtable = IUIAutomationElement6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4780d450_8bca_4977_afa5_a4a517f555e3);
+}
+pub trait IUIAutomationElement6Impl: IUIAutomationElement5Impl + IUIAutomationElement4Impl + IUIAutomationElement3Impl + IUIAutomationElement2Impl + IUIAutomationElementImpl {
+    fn CurrentFullDescription();
+    fn CachedFullDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15184,6 +15777,13 @@ impl ::core::fmt::Debug for IUIAutomationElement7 {
 unsafe impl ::windows::core::Interface for IUIAutomationElement7 {
     type Vtable = IUIAutomationElement7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204e8572_cfc3_4c11_b0c8_7da7420750b7);
+}
+pub trait IUIAutomationElement7Impl: IUIAutomationElement6Impl + IUIAutomationElement5Impl + IUIAutomationElement4Impl + IUIAutomationElement3Impl + IUIAutomationElement2Impl + IUIAutomationElementImpl {
+    fn FindFirstWithOptions();
+    fn FindAllWithOptions();
+    fn FindFirstWithOptionsBuildCache();
+    fn FindAllWithOptionsBuildCache();
+    fn GetCurrentMetadataValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16185,6 +16785,10 @@ impl ::core::fmt::Debug for IUIAutomationElement8 {
 unsafe impl ::windows::core::Interface for IUIAutomationElement8 {
     type Vtable = IUIAutomationElement8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c60217d_5411_4cde_bcc0_1ceda223830c);
+}
+pub trait IUIAutomationElement8Impl: IUIAutomationElement7Impl + IUIAutomationElement6Impl + IUIAutomationElement5Impl + IUIAutomationElement4Impl + IUIAutomationElement3Impl + IUIAutomationElement2Impl + IUIAutomationElementImpl {
+    fn CurrentHeadingLevel();
+    fn CachedHeadingLevel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17221,6 +17825,10 @@ unsafe impl ::windows::core::Interface for IUIAutomationElement9 {
     type Vtable = IUIAutomationElement9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39325fac_039d_440e_a3a3_5eb81a5cecc3);
 }
+pub trait IUIAutomationElement9Impl: IUIAutomationElement8Impl + IUIAutomationElement7Impl + IUIAutomationElement6Impl + IUIAutomationElement5Impl + IUIAutomationElement4Impl + IUIAutomationElement3Impl + IUIAutomationElement2Impl + IUIAutomationElementImpl {
+    fn CurrentIsDialog();
+    fn CachedIsDialog();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationElement9Vtbl(
@@ -17466,6 +18074,10 @@ unsafe impl ::windows::core::Interface for IUIAutomationElementArray {
     type Vtable = IUIAutomationElementArrayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14314595_b4bc_4055_95f2_58f2e42c9855);
 }
+pub trait IUIAutomationElementArrayImpl {
+    fn Length();
+    fn GetElement();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationElementArrayVtbl(
@@ -17523,6 +18135,9 @@ impl ::core::fmt::Debug for IUIAutomationEventHandler {
 unsafe impl ::windows::core::Interface for IUIAutomationEventHandler {
     type Vtable = IUIAutomationEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x146c3c17_f12e_4e22_8c27_f894b9b79c69);
+}
+pub trait IUIAutomationEventHandlerImpl {
+    fn HandleAutomationEvent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17599,6 +18214,15 @@ impl ::core::fmt::Debug for IUIAutomationEventHandlerGroup {
 unsafe impl ::windows::core::Interface for IUIAutomationEventHandlerGroup {
     type Vtable = IUIAutomationEventHandlerGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9ee12f2_c13b_4408_997c_639914377f4e);
+}
+pub trait IUIAutomationEventHandlerGroupImpl {
+    fn AddActiveTextPositionChangedEventHandler();
+    fn AddAutomationEventHandler();
+    fn AddChangesEventHandler();
+    fn AddNotificationEventHandler();
+    fn AddPropertyChangedEventHandler();
+    fn AddStructureChangedEventHandler();
+    fn AddTextEditTextChangedEventHandler();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17677,6 +18301,12 @@ unsafe impl ::windows::core::Interface for IUIAutomationExpandCollapsePattern {
     type Vtable = IUIAutomationExpandCollapsePatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x619be086_1f4e_4ee4_bafa_210128738730);
 }
+pub trait IUIAutomationExpandCollapsePatternImpl {
+    fn Expand();
+    fn Collapse();
+    fn CurrentExpandCollapseState();
+    fn CachedExpandCollapseState();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationExpandCollapsePatternVtbl(
@@ -17736,6 +18366,9 @@ impl ::core::fmt::Debug for IUIAutomationFocusChangedEventHandler {
 unsafe impl ::windows::core::Interface for IUIAutomationFocusChangedEventHandler {
     type Vtable = IUIAutomationFocusChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc270f6b5_5c69_4290_9745_7a7f97169468);
+}
+pub trait IUIAutomationFocusChangedEventHandlerImpl {
+    fn HandleFocusChangedEvent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17835,6 +18468,18 @@ unsafe impl ::windows::core::Interface for IUIAutomationGridItemPattern {
     type Vtable = IUIAutomationGridItemPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78f8ef57_66c3_4e09_bd7c_e79b2004894d);
 }
+pub trait IUIAutomationGridItemPatternImpl {
+    fn CurrentContainingGrid();
+    fn CurrentRow();
+    fn CurrentColumn();
+    fn CurrentRowSpan();
+    fn CurrentColumnSpan();
+    fn CachedContainingGrid();
+    fn CachedRow();
+    fn CachedColumn();
+    fn CachedRowSpan();
+    fn CachedColumnSpan();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationGridItemPatternVtbl(
@@ -17922,6 +18567,13 @@ unsafe impl ::windows::core::Interface for IUIAutomationGridPattern {
     type Vtable = IUIAutomationGridPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x414c3cdc_856b_4f5b_8538_3131c6302550);
 }
+pub trait IUIAutomationGridPatternImpl {
+    fn GetItem();
+    fn CurrentRowCount();
+    fn CurrentColumnCount();
+    fn CachedRowCount();
+    fn CachedColumnCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationGridPatternVtbl(
@@ -17983,6 +18635,9 @@ unsafe impl ::windows::core::Interface for IUIAutomationInvokePattern {
     type Vtable = IUIAutomationInvokePatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb377fbe_8ea6_46d5_9c73_6499642d3059);
 }
+pub trait IUIAutomationInvokePatternImpl {
+    fn Invoke();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationInvokePatternVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
@@ -18036,6 +18691,9 @@ impl ::core::fmt::Debug for IUIAutomationItemContainerPattern {
 unsafe impl ::windows::core::Interface for IUIAutomationItemContainerPattern {
     type Vtable = IUIAutomationItemContainerPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc690fdb2_27a8_423c_812d_429773c9084e);
+}
+pub trait IUIAutomationItemContainerPatternImpl {
+    fn FindItemByProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18221,6 +18879,32 @@ unsafe impl ::windows::core::Interface for IUIAutomationLegacyIAccessiblePattern
     type Vtable = IUIAutomationLegacyIAccessiblePatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x828055ad_355b_4435_86d5_3b51c14a9b1b);
 }
+pub trait IUIAutomationLegacyIAccessiblePatternImpl {
+    fn Select();
+    fn DoDefaultAction();
+    fn SetValue();
+    fn CurrentChildId();
+    fn CurrentName();
+    fn CurrentValue();
+    fn CurrentDescription();
+    fn CurrentRole();
+    fn CurrentState();
+    fn CurrentHelp();
+    fn CurrentKeyboardShortcut();
+    fn GetCurrentSelection();
+    fn CurrentDefaultAction();
+    fn CachedChildId();
+    fn CachedName();
+    fn CachedValue();
+    fn CachedDescription();
+    fn CachedRole();
+    fn CachedState();
+    fn CachedHelp();
+    fn CachedKeyboardShortcut();
+    fn GetCachedSelection();
+    fn CachedDefaultAction();
+    fn GetIAccessible();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationLegacyIAccessiblePatternVtbl(
@@ -18342,6 +19026,14 @@ unsafe impl ::windows::core::Interface for IUIAutomationMultipleViewPattern {
     type Vtable = IUIAutomationMultipleViewPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d253c91_1dc5_4bb5_b18f_ade16fa495e8);
 }
+pub trait IUIAutomationMultipleViewPatternImpl {
+    fn GetViewName();
+    fn SetCurrentView();
+    fn CurrentCurrentView();
+    fn GetCurrentSupportedViews();
+    fn CachedCurrentView();
+    fn GetCachedSupportedViews();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationMultipleViewPatternVtbl(
@@ -18428,6 +19120,9 @@ unsafe impl ::windows::core::Interface for IUIAutomationNotCondition {
     type Vtable = IUIAutomationNotConditionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf528b657_847b_498c_8896_d52b565407a1);
 }
+pub trait IUIAutomationNotConditionImpl: IUIAutomationConditionImpl {
+    fn GetChild();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationNotConditionVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, condition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -18480,6 +19175,9 @@ impl ::core::fmt::Debug for IUIAutomationNotificationEventHandler {
 unsafe impl ::windows::core::Interface for IUIAutomationNotificationEventHandler {
     type Vtable = IUIAutomationNotificationEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7cb2637_e6c2_4d0c_85de_4948c02175c7);
+}
+pub trait IUIAutomationNotificationEventHandlerImpl {
+    fn HandleNotificationEvent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18539,6 +19237,9 @@ impl ::core::fmt::Debug for IUIAutomationObjectModelPattern {
 unsafe impl ::windows::core::Interface for IUIAutomationObjectModelPattern {
     type Vtable = IUIAutomationObjectModelPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71c284b3_c14d_4d14_981e_19751b0d756d);
+}
+pub trait IUIAutomationObjectModelPatternImpl {
+    fn GetUnderlyingObjectModel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18623,6 +19324,11 @@ unsafe impl ::windows::core::Interface for IUIAutomationOrCondition {
     type Vtable = IUIAutomationOrConditionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8753f032_3db1_47b5_a1fc_6e34a266c712);
 }
+pub trait IUIAutomationOrConditionImpl: IUIAutomationConditionImpl {
+    fn ChildCount();
+    fn GetChildrenAsNativeArray();
+    fn GetChildren();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationOrConditionVtbl(
@@ -18688,6 +19394,10 @@ unsafe impl ::windows::core::Interface for IUIAutomationPatternHandler {
     type Vtable = IUIAutomationPatternHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd97022f3_a947_465e_8b2a_ac4315fa54e8);
 }
+pub trait IUIAutomationPatternHandlerImpl {
+    fn CreateClientWrapper();
+    fn Dispatch();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationPatternHandlerVtbl(
@@ -18751,6 +19461,10 @@ unsafe impl ::windows::core::Interface for IUIAutomationPatternInstance {
     type Vtable = IUIAutomationPatternInstanceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc03a7fe4_9431_409f_bed8_ae7c2299bc8d);
 }
+pub trait IUIAutomationPatternInstanceImpl {
+    fn GetProperty();
+    fn CallMethod();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationPatternInstanceVtbl(
@@ -18810,6 +19524,9 @@ impl ::core::fmt::Debug for IUIAutomationPropertyChangedEventHandler {
 unsafe impl ::windows::core::Interface for IUIAutomationPropertyChangedEventHandler {
     type Vtable = IUIAutomationPropertyChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40cd37d4_c756_4b0c_8c6f_bddfeeb13b50);
+}
+pub trait IUIAutomationPropertyChangedEventHandlerImpl {
+    fn HandlePropertyChangedEvent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18901,6 +19618,11 @@ unsafe impl ::windows::core::Interface for IUIAutomationPropertyCondition {
     type Vtable = IUIAutomationPropertyConditionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99ebf2cb_5578_4267_9ad4_afd6ea77e94b);
 }
+pub trait IUIAutomationPropertyConditionImpl: IUIAutomationConditionImpl {
+    fn PropertyId();
+    fn PropertyValue();
+    fn PropertyConditionFlags();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationPropertyConditionVtbl(
@@ -18968,6 +19690,10 @@ impl ::core::fmt::Debug for IUIAutomationProxyFactory {
 unsafe impl ::windows::core::Interface for IUIAutomationProxyFactory {
     type Vtable = IUIAutomationProxyFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85b94ecd_849d_42b6_b94d_d6db23fdf5a4);
+}
+pub trait IUIAutomationProxyFactoryImpl {
+    fn CreateProvider();
+    fn ProxyFactoryId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19096,6 +19822,21 @@ unsafe impl ::windows::core::Interface for IUIAutomationProxyFactoryEntry {
     type Vtable = IUIAutomationProxyFactoryEntryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd50e472e_b64b_490c_bca1_d30696f9f289);
 }
+pub trait IUIAutomationProxyFactoryEntryImpl {
+    fn ProxyFactory();
+    fn ClassName();
+    fn ImageName();
+    fn AllowSubstringMatch();
+    fn CanCheckBaseClass();
+    fn NeedsAdviseEvents();
+    fn SetClassName();
+    fn SetImageName();
+    fn SetAllowSubstringMatch();
+    fn SetCanCheckBaseClass();
+    fn SetNeedsAdviseEvents();
+    fn SetWinEventsForAutomationEvent();
+    fn GetWinEventsForAutomationEvent();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationProxyFactoryEntryVtbl(
@@ -19214,6 +19955,17 @@ impl ::core::fmt::Debug for IUIAutomationProxyFactoryMapping {
 unsafe impl ::windows::core::Interface for IUIAutomationProxyFactoryMapping {
     type Vtable = IUIAutomationProxyFactoryMappingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09e31e18_872d_4873_93d1_1e541ec133fd);
+}
+pub trait IUIAutomationProxyFactoryMappingImpl {
+    fn Count();
+    fn GetTable();
+    fn GetEntry();
+    fn SetTable();
+    fn InsertEntries();
+    fn InsertEntry();
+    fn RemoveEntry();
+    fn ClearTable();
+    fn RestoreDefaultTable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19345,6 +20097,21 @@ unsafe impl ::windows::core::Interface for IUIAutomationRangeValuePattern {
     type Vtable = IUIAutomationRangeValuePatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59213f4f_7346_49e5_b120_80555987a148);
 }
+pub trait IUIAutomationRangeValuePatternImpl {
+    fn SetValue();
+    fn CurrentValue();
+    fn CurrentIsReadOnly();
+    fn CurrentMaximum();
+    fn CurrentMinimum();
+    fn CurrentLargeChange();
+    fn CurrentSmallChange();
+    fn CachedValue();
+    fn CachedIsReadOnly();
+    fn CachedMaximum();
+    fn CachedMinimum();
+    fn CachedLargeChange();
+    fn CachedSmallChange();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationRangeValuePatternVtbl(
@@ -19429,6 +20196,11 @@ unsafe impl ::windows::core::Interface for IUIAutomationRegistrar {
     type Vtable = IUIAutomationRegistrarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8609c4ec_4a1a_4d88_a357_5a66e060e1cf);
 }
+pub trait IUIAutomationRegistrarImpl {
+    fn RegisterProperty();
+    fn RegisterEvent();
+    fn RegisterPattern();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationRegistrarVtbl(
@@ -19490,6 +20262,9 @@ impl ::core::fmt::Debug for IUIAutomationScrollItemPattern {
 unsafe impl ::windows::core::Interface for IUIAutomationScrollItemPattern {
     type Vtable = IUIAutomationScrollItemPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb488300f_d015_4f19_9c29_bb595e3645ef);
+}
+pub trait IUIAutomationScrollItemPatternImpl {
+    fn ScrollIntoView();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19611,6 +20386,22 @@ unsafe impl ::windows::core::Interface for IUIAutomationScrollPattern {
     type Vtable = IUIAutomationScrollPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88f4d42a_e881_459d_a77c_73bbbb7e02dc);
 }
+pub trait IUIAutomationScrollPatternImpl {
+    fn Scroll();
+    fn SetScrollPercent();
+    fn CurrentHorizontalScrollPercent();
+    fn CurrentVerticalScrollPercent();
+    fn CurrentHorizontalViewSize();
+    fn CurrentVerticalViewSize();
+    fn CurrentHorizontallyScrollable();
+    fn CurrentVerticallyScrollable();
+    fn CachedHorizontalScrollPercent();
+    fn CachedVerticalScrollPercent();
+    fn CachedHorizontalViewSize();
+    fn CachedVerticalViewSize();
+    fn CachedHorizontallyScrollable();
+    fn CachedVerticallyScrollable();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationScrollPatternVtbl(
@@ -19715,6 +20506,15 @@ unsafe impl ::windows::core::Interface for IUIAutomationSelectionItemPattern {
     type Vtable = IUIAutomationSelectionItemPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8efa66a_0fda_421a_9194_38021f3578ea);
 }
+pub trait IUIAutomationSelectionItemPatternImpl {
+    fn Select();
+    fn AddToSelection();
+    fn RemoveFromSelection();
+    fn CurrentIsSelected();
+    fn CurrentSelectionContainer();
+    fn CachedIsSelected();
+    fn CachedSelectionContainer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationSelectionItemPatternVtbl(
@@ -19809,6 +20609,14 @@ impl ::core::fmt::Debug for IUIAutomationSelectionPattern {
 unsafe impl ::windows::core::Interface for IUIAutomationSelectionPattern {
     type Vtable = IUIAutomationSelectionPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ed5202e_b2ac_47a6_b638_4b0bf140d78e);
+}
+pub trait IUIAutomationSelectionPatternImpl {
+    fn GetCurrentSelection();
+    fn CurrentCanSelectMultiple();
+    fn CurrentIsSelectionRequired();
+    fn GetCachedSelection();
+    fn CachedCanSelectMultiple();
+    fn CachedIsSelectionRequired();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19966,6 +20774,16 @@ unsafe impl ::windows::core::Interface for IUIAutomationSelectionPattern2 {
     type Vtable = IUIAutomationSelectionPattern2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0532bfae_c011_4e32_a343_6d642d798555);
 }
+pub trait IUIAutomationSelectionPattern2Impl: IUIAutomationSelectionPatternImpl {
+    fn CurrentFirstSelectedItem();
+    fn CurrentLastSelectedItem();
+    fn CurrentCurrentSelectedItem();
+    fn CurrentItemCount();
+    fn CachedFirstSelectedItem();
+    fn CachedLastSelectedItem();
+    fn CachedCurrentSelectedItem();
+    fn CachedItemCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationSelectionPattern2Vtbl(
@@ -20070,6 +20888,14 @@ unsafe impl ::windows::core::Interface for IUIAutomationSpreadsheetItemPattern {
     type Vtable = IUIAutomationSpreadsheetItemPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d4fb86c_8d34_40e1_8e83_62c15204e335);
 }
+pub trait IUIAutomationSpreadsheetItemPatternImpl {
+    fn CurrentFormula();
+    fn GetCurrentAnnotationObjects();
+    fn GetCurrentAnnotationTypes();
+    fn CachedFormula();
+    fn GetCachedAnnotationObjects();
+    fn GetCachedAnnotationTypes();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationSpreadsheetItemPatternVtbl(
@@ -20138,6 +20964,9 @@ unsafe impl ::windows::core::Interface for IUIAutomationSpreadsheetPattern {
     type Vtable = IUIAutomationSpreadsheetPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7517a7c8_faae_4de9_9f08_29b91e8595c1);
 }
+pub trait IUIAutomationSpreadsheetPatternImpl {
+    fn GetItemByName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationSpreadsheetPatternVtbl(
@@ -20196,6 +21025,9 @@ impl ::core::fmt::Debug for IUIAutomationStructureChangedEventHandler {
 unsafe impl ::windows::core::Interface for IUIAutomationStructureChangedEventHandler {
     type Vtable = IUIAutomationStructureChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe81d1b4e_11c5_42f8_9754_e7036c79f054);
+}
+pub trait IUIAutomationStructureChangedEventHandlerImpl {
+    fn HandleStructureChangedEvent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -20339,6 +21171,24 @@ unsafe impl ::windows::core::Interface for IUIAutomationStylesPattern {
     type Vtable = IUIAutomationStylesPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85b5f0a2_bd79_484a_ad2b_388c9838d5fb);
 }
+pub trait IUIAutomationStylesPatternImpl {
+    fn CurrentStyleId();
+    fn CurrentStyleName();
+    fn CurrentFillColor();
+    fn CurrentFillPatternStyle();
+    fn CurrentShape();
+    fn CurrentFillPatternColor();
+    fn CurrentExtendedProperties();
+    fn GetCurrentExtendedPropertiesAsArray();
+    fn CachedStyleId();
+    fn CachedStyleName();
+    fn CachedFillColor();
+    fn CachedFillPatternStyle();
+    fn CachedShape();
+    fn CachedFillPatternColor();
+    fn CachedExtendedProperties();
+    fn GetCachedExtendedPropertiesAsArray();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationStylesPatternVtbl(
@@ -20425,6 +21275,10 @@ unsafe impl ::windows::core::Interface for IUIAutomationSynchronizedInputPattern
     type Vtable = IUIAutomationSynchronizedInputPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2233be0b_afb7_448b_9fda_3b378aa5eae1);
 }
+pub trait IUIAutomationSynchronizedInputPatternImpl {
+    fn StartListening();
+    fn Cancel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationSynchronizedInputPatternVtbl(
@@ -20498,6 +21352,12 @@ impl ::core::fmt::Debug for IUIAutomationTableItemPattern {
 unsafe impl ::windows::core::Interface for IUIAutomationTableItemPattern {
     type Vtable = IUIAutomationTableItemPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b964eb3_ef2e_4464_9c79_61d61737a27e);
+}
+pub trait IUIAutomationTableItemPatternImpl {
+    fn GetCurrentRowHeaderItems();
+    fn GetCurrentColumnHeaderItems();
+    fn GetCachedRowHeaderItems();
+    fn GetCachedColumnHeaderItems();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -20585,6 +21445,14 @@ unsafe impl ::windows::core::Interface for IUIAutomationTablePattern {
     type Vtable = IUIAutomationTablePatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x620e691c_ea96_4710_a850_754b24ce2417);
 }
+pub trait IUIAutomationTablePatternImpl {
+    fn GetCurrentRowHeaders();
+    fn GetCurrentColumnHeaders();
+    fn CurrentRowOrColumnMajor();
+    fn GetCachedRowHeaders();
+    fn GetCachedColumnHeaders();
+    fn CachedRowOrColumnMajor();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTablePatternVtbl(
@@ -20652,6 +21520,10 @@ impl ::core::fmt::Debug for IUIAutomationTextChildPattern {
 unsafe impl ::windows::core::Interface for IUIAutomationTextChildPattern {
     type Vtable = IUIAutomationTextChildPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6552b038_ae05_40c8_abfd_aa08352aab86);
+}
+pub trait IUIAutomationTextChildPatternImpl {
+    fn TextContainer();
+    fn TextRange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -20768,6 +21640,10 @@ unsafe impl ::windows::core::Interface for IUIAutomationTextEditPattern {
     type Vtable = IUIAutomationTextEditPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17e21576_996c_4870_99d9_bff323380c06);
 }
+pub trait IUIAutomationTextEditPatternImpl: IUIAutomationTextPatternImpl {
+    fn GetActiveComposition();
+    fn GetConversionTarget();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTextEditPatternVtbl(
@@ -20833,6 +21709,9 @@ impl ::core::fmt::Debug for IUIAutomationTextEditTextChangedEventHandler {
 unsafe impl ::windows::core::Interface for IUIAutomationTextEditTextChangedEventHandler {
     type Vtable = IUIAutomationTextEditTextChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92faa680_e704_4156_931a_e32d5bb38f3f);
+}
+pub trait IUIAutomationTextEditTextChangedEventHandlerImpl {
+    fn HandleTextEditTextChangedEvent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -20918,6 +21797,14 @@ impl ::core::fmt::Debug for IUIAutomationTextPattern {
 unsafe impl ::windows::core::Interface for IUIAutomationTextPattern {
     type Vtable = IUIAutomationTextPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32eba289_3583_42c9_9c59_3b6d9a1e9b6a);
+}
+pub trait IUIAutomationTextPatternImpl {
+    fn RangeFromPoint();
+    fn RangeFromChild();
+    fn GetSelection();
+    fn GetVisibleRanges();
+    fn DocumentRange();
+    fn SupportedTextSelection();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21038,6 +21925,10 @@ impl ::core::fmt::Debug for IUIAutomationTextPattern2 {
 unsafe impl ::windows::core::Interface for IUIAutomationTextPattern2 {
     type Vtable = IUIAutomationTextPattern2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x506a921a_fcc9_409f_b23b_37eb74106872);
+}
+pub trait IUIAutomationTextPattern2Impl: IUIAutomationTextPatternImpl {
+    fn RangeFromAnnotation();
+    fn GetCaretRange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21191,6 +22082,26 @@ impl ::core::fmt::Debug for IUIAutomationTextRange {
 unsafe impl ::windows::core::Interface for IUIAutomationTextRange {
     type Vtable = IUIAutomationTextRangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa543cc6a_f4ae_494b_8239_c814481187a8);
+}
+pub trait IUIAutomationTextRangeImpl {
+    fn Clone();
+    fn Compare();
+    fn CompareEndpoints();
+    fn ExpandToEnclosingUnit();
+    fn FindAttribute();
+    fn FindText();
+    fn GetAttributeValue();
+    fn GetBoundingRectangles();
+    fn GetEnclosingElement();
+    fn GetText();
+    fn Move();
+    fn MoveEndpointByUnit();
+    fn MoveEndpointByRange();
+    fn Select();
+    fn AddToSelection();
+    fn RemoveFromSelection();
+    fn ScrollIntoView();
+    fn GetChildren();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21383,6 +22294,9 @@ impl ::core::fmt::Debug for IUIAutomationTextRange2 {
 unsafe impl ::windows::core::Interface for IUIAutomationTextRange2 {
     type Vtable = IUIAutomationTextRange2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb9b40e0_5e04_46bd_9be0_4b601b9afad4);
+}
+pub trait IUIAutomationTextRange2Impl: IUIAutomationTextRangeImpl {
+    fn ShowContextMenu();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21613,6 +22527,11 @@ unsafe impl ::windows::core::Interface for IUIAutomationTextRange3 {
     type Vtable = IUIAutomationTextRange3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a315d69_5512_4c2e_85f0_53fce6dd4bc2);
 }
+pub trait IUIAutomationTextRange3Impl: IUIAutomationTextRange2Impl + IUIAutomationTextRangeImpl {
+    fn GetEnclosingElementBuildCache();
+    fn GetChildrenBuildCache();
+    fn GetAttributeValues();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTextRange3Vtbl(
@@ -21705,6 +22624,10 @@ unsafe impl ::windows::core::Interface for IUIAutomationTextRangeArray {
     type Vtable = IUIAutomationTextRangeArrayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce4ae76a_e717_4c98_81ea_47371d028eb6);
 }
+pub trait IUIAutomationTextRangeArrayImpl {
+    fn Length();
+    fn GetElement();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTextRangeArrayVtbl(
@@ -21772,6 +22695,11 @@ impl ::core::fmt::Debug for IUIAutomationTogglePattern {
 unsafe impl ::windows::core::Interface for IUIAutomationTogglePattern {
     type Vtable = IUIAutomationTogglePatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94cf8058_9b8d_4ab9_8bfd_4cd0a33c8c70);
+}
+pub trait IUIAutomationTogglePatternImpl {
+    fn Toggle();
+    fn CurrentToggleState();
+    fn CachedToggleState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21875,6 +22803,17 @@ impl ::core::fmt::Debug for IUIAutomationTransformPattern {
 unsafe impl ::windows::core::Interface for IUIAutomationTransformPattern {
     type Vtable = IUIAutomationTransformPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9b55844_a55d_4ef0_926d_569c16ff89bb);
+}
+pub trait IUIAutomationTransformPatternImpl {
+    fn Move();
+    fn Resize();
+    fn Rotate();
+    fn CurrentCanMove();
+    fn CurrentCanResize();
+    fn CurrentCanRotate();
+    fn CachedCanMove();
+    fn CachedCanResize();
+    fn CachedCanRotate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22061,6 +23000,18 @@ unsafe impl ::windows::core::Interface for IUIAutomationTransformPattern2 {
     type Vtable = IUIAutomationTransformPattern2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d74d017_6ecb_4381_b38b_3c17a48ff1c2);
 }
+pub trait IUIAutomationTransformPattern2Impl: IUIAutomationTransformPatternImpl {
+    fn Zoom();
+    fn ZoomByUnit();
+    fn CurrentCanZoom();
+    fn CachedCanZoom();
+    fn CurrentZoomLevel();
+    fn CachedZoomLevel();
+    fn CurrentZoomMinimum();
+    fn CachedZoomMinimum();
+    fn CurrentZoomMaximum();
+    fn CachedZoomMaximum();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTransformPattern2Vtbl(
@@ -22205,6 +23156,21 @@ unsafe impl ::windows::core::Interface for IUIAutomationTreeWalker {
     type Vtable = IUIAutomationTreeWalkerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4042c624_389c_4afc_a630_9df854a541fc);
 }
+pub trait IUIAutomationTreeWalkerImpl {
+    fn GetParentElement();
+    fn GetFirstChildElement();
+    fn GetLastChildElement();
+    fn GetNextSiblingElement();
+    fn GetPreviousSiblingElement();
+    fn NormalizeElement();
+    fn GetParentElementBuildCache();
+    fn GetFirstChildElementBuildCache();
+    fn GetLastChildElementBuildCache();
+    fn GetNextSiblingElementBuildCache();
+    fn GetPreviousSiblingElementBuildCache();
+    fn NormalizeElementBuildCache();
+    fn Condition();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTreeWalkerVtbl(
@@ -22299,6 +23265,13 @@ unsafe impl ::windows::core::Interface for IUIAutomationValuePattern {
     type Vtable = IUIAutomationValuePatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa94cd8b1_0844_4cd6_9d2d_640537ab39e9);
 }
+pub trait IUIAutomationValuePatternImpl {
+    fn SetValue();
+    fn CurrentValue();
+    fn CurrentIsReadOnly();
+    fn CachedValue();
+    fn CachedIsReadOnly();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationValuePatternVtbl(
@@ -22364,6 +23337,9 @@ impl ::core::fmt::Debug for IUIAutomationVirtualizedItemPattern {
 unsafe impl ::windows::core::Interface for IUIAutomationVirtualizedItemPattern {
     type Vtable = IUIAutomationVirtualizedItemPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ba3d7a6_04cf_4f11_8793_a8d1cde9969f);
+}
+pub trait IUIAutomationVirtualizedItemPatternImpl {
+    fn Realize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22495,6 +23471,23 @@ unsafe impl ::windows::core::Interface for IUIAutomationWindowPattern {
     type Vtable = IUIAutomationWindowPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0faef453_9208_43ef_bbb2_3b485177864f);
 }
+pub trait IUIAutomationWindowPatternImpl {
+    fn Close();
+    fn WaitForInputIdle();
+    fn SetWindowVisualState();
+    fn CurrentCanMaximize();
+    fn CurrentCanMinimize();
+    fn CurrentIsModal();
+    fn CurrentIsTopmost();
+    fn CurrentWindowVisualState();
+    fn CurrentWindowInteractionState();
+    fn CachedCanMaximize();
+    fn CachedCanMinimize();
+    fn CachedIsModal();
+    fn CachedIsTopmost();
+    fn CachedWindowVisualState();
+    fn CachedWindowInteractionState();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationWindowPatternVtbl(
@@ -22588,6 +23581,11 @@ unsafe impl ::windows::core::Interface for IValueProvider {
     type Vtable = IValueProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7935180_6fb3_4201_b174_7df73adbf64a);
 }
+pub trait IValueProviderImpl {
+    fn SetValue();
+    fn Value();
+    fn IsReadOnly();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IValueProviderVtbl(
@@ -22649,6 +23647,9 @@ impl ::core::fmt::Debug for IVirtualizedItemProvider {
 unsafe impl ::windows::core::Interface for IVirtualizedItemProvider {
     type Vtable = IVirtualizedItemProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb98b665_2d35_4fac_ad35_f3c60d0c0b8b);
+}
+pub trait IVirtualizedItemProviderImpl {
+    fn Realize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22745,6 +23746,17 @@ impl ::core::fmt::Debug for IWindowProvider {
 unsafe impl ::windows::core::Interface for IWindowProvider {
     type Vtable = IWindowProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x987df77b_db06_4d77_8f8a_86a9c3bb90b9);
+}
+pub trait IWindowProviderImpl {
+    fn SetVisualState();
+    fn Close();
+    fn WaitForInputIdle();
+    fn CanMaximize();
+    fn CanMinimize();
+    fn IsModal();
+    fn WindowVisualState();
+    fn WindowInteractionState();
+    fn IsTopmost();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -646,6 +646,13 @@ unsafe impl ::windows::core::Interface for ICoreDragDropManager {
     type Vtable = ICoreDragDropManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d56d344_8464_4faf_aa49_37ea6e2d7bd1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICoreDragDropManagerImpl {
+    fn TargetRequested();
+    fn RemoveTargetRequested();
+    fn AreConcurrentOperationsEnabled();
+    fn SetAreConcurrentOperationsEnabled();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDragDropManagerVtbl(
@@ -669,6 +676,10 @@ unsafe impl ::windows::core::Interface for ICoreDragDropManagerStatics {
     type Vtable = ICoreDragDropManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9542fdca_da12_4c1c_8d06_041db29733c3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICoreDragDropManagerStaticsImpl {
+    fn GetForCurrentView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDragDropManagerStaticsVtbl(
@@ -686,6 +697,12 @@ pub struct ICoreDragInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreDragInfo {
     type Vtable = ICoreDragInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48353a8b_cb50_464e_9575_cd4e3a7ab028);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICoreDragInfoImpl {
+    fn Data();
+    fn Modifiers();
+    fn Position();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -708,6 +725,10 @@ unsafe impl ::windows::core::Interface for ICoreDragInfo2 {
     type Vtable = ICoreDragInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc54691e5_e6fb_4d74_b4b1_8a3c17f25e9e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICoreDragInfo2Impl: ICoreDragInfoImpl {
+    fn AllowedOperations();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDragInfo2Vtbl(
@@ -725,6 +746,16 @@ pub struct ICoreDragOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreDragOperation {
     type Vtable = ICoreDragOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc06de4f_6db0_4e62_ab1b_a74a02dc6d85);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICoreDragOperationImpl {
+    fn Data();
+    fn SetPointerId();
+    fn SetDragUIContentFromSoftwareBitmap();
+    fn SetDragUIContentFromSoftwareBitmapWithAnchorPoint();
+    fn DragUIContentMode();
+    fn SetDragUIContentMode();
+    fn StartAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -753,6 +784,11 @@ unsafe impl ::windows::core::Interface for ICoreDragOperation2 {
     type Vtable = ICoreDragOperation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x824b1e2c_d99a_4fc3_8507_6c182f33b46a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICoreDragOperation2Impl: ICoreDragOperationImpl {
+    fn AllowedOperations();
+    fn SetAllowedOperations();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDragOperation2Vtbl(
@@ -771,6 +807,20 @@ pub struct ICoreDragUIOverride(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreDragUIOverride {
     type Vtable = ICoreDragUIOverrideVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89a85064_3389_4f4f_8897_7e8a3ffb3c93);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICoreDragUIOverrideImpl {
+    fn SetContentFromSoftwareBitmap();
+    fn SetContentFromSoftwareBitmapWithAnchorPoint();
+    fn IsContentVisible();
+    fn SetIsContentVisible();
+    fn Caption();
+    fn SetCaption();
+    fn IsCaptionVisible();
+    fn SetIsCaptionVisible();
+    fn IsGlyphVisible();
+    fn SetIsGlyphVisible();
+    fn Clear();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -899,6 +949,12 @@ unsafe impl ::windows::core::Interface for ICoreDropOperationTarget {
     type Vtable = ICoreDropOperationTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9126196_4c5b_417d_bb37_76381def8db4);
 }
+pub trait ICoreDropOperationTargetImpl {
+    fn EnterAsync();
+    fn OverAsync();
+    fn LeaveAsync();
+    fn DropAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDropOperationTargetVtbl(
@@ -923,6 +979,10 @@ pub struct ICoreDropOperationTargetRequestedEventArgs(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for ICoreDropOperationTargetRequestedEventArgs {
     type Vtable = ICoreDropOperationTargetRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2aca929a_5e28_4ea6_829e_29134e665d6d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICoreDropOperationTargetRequestedEventArgsImpl {
+    fn SetTarget();
 }
 #[repr(C)]
 #[doc(hidden)]

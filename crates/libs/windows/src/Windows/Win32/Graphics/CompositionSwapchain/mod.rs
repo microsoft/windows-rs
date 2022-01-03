@@ -152,6 +152,11 @@ unsafe impl ::windows::core::Interface for ICompositionFramePresentStatistics {
     type Vtable = ICompositionFramePresentStatisticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab41d127_c101_4c0a_911d_f9f2e9d08e64);
 }
+pub trait ICompositionFramePresentStatisticsImpl: IPresentStatisticsImpl {
+    fn GetContentTag();
+    fn GetCompositionFrameId();
+    fn GetDisplayInstanceArray();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionFramePresentStatisticsVtbl(
@@ -265,6 +270,13 @@ unsafe impl ::windows::core::Interface for IIndependentFlipFramePresentStatistic
     type Vtable = IIndependentFlipFramePresentStatisticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c93be27_ad94_4da0_8fd4_2413132d124e);
 }
+pub trait IIndependentFlipFramePresentStatisticsImpl: IPresentStatisticsImpl {
+    fn GetOutputAdapterLUID();
+    fn GetOutputVidPnSourceId();
+    fn GetContentTag();
+    fn GetDisplayedTime();
+    fn GetPresentDuration();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIndependentFlipFramePresentStatisticsVtbl(
@@ -332,6 +344,10 @@ impl ::core::fmt::Debug for IPresentStatistics {
 unsafe impl ::windows::core::Interface for IPresentStatistics {
     type Vtable = IPresentStatisticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb44b8bda_7282_495d_9dd7_ceadd8b4bb86);
+}
+pub trait IPresentStatisticsImpl {
+    fn GetPresentId();
+    fn GetKind();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -417,6 +433,10 @@ unsafe impl ::windows::core::Interface for IPresentStatusPresentStatistics {
     type Vtable = IPresentStatusPresentStatisticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9ed2a41_79cb_435e_964e_c8553055420c);
 }
+pub trait IPresentStatusPresentStatisticsImpl: IPresentStatisticsImpl {
+    fn GetCompositionFrameId();
+    fn GetPresentStatus();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentStatusPresentStatisticsVtbl(
@@ -484,6 +504,10 @@ unsafe impl ::windows::core::Interface for IPresentationBuffer {
     type Vtable = IPresentationBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e217d3a_5abb_4138_9a13_a775593c89ca);
 }
+pub trait IPresentationBufferImpl {
+    fn GetAvailableEvent();
+    fn IsAvailable();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentationBufferVtbl(
@@ -542,6 +566,9 @@ impl ::core::fmt::Debug for IPresentationContent {
 unsafe impl ::windows::core::Interface for IPresentationContent {
     type Vtable = IPresentationContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5668bb79_3d8e_415c_b215_f38020f2d252);
+}
+pub trait IPresentationContentImpl {
+    fn SetTag();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -603,6 +630,11 @@ impl ::core::fmt::Debug for IPresentationFactory {
 unsafe impl ::windows::core::Interface for IPresentationFactory {
     type Vtable = IPresentationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fb37b58_1d74_4f64_a49c_1f97a80a2ec0);
+}
+pub trait IPresentationFactoryImpl {
+    fn IsPresentationSupported();
+    fn IsPresentationSupportedWithIndependentFlip();
+    fn CreatePresentationManager();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -718,6 +750,21 @@ impl ::core::fmt::Debug for IPresentationManager {
 unsafe impl ::windows::core::Interface for IPresentationManager {
     type Vtable = IPresentationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb562f82_6292_470a_88b1_843661e7f20c);
+}
+pub trait IPresentationManagerImpl {
+    fn AddBufferFromResource();
+    fn CreatePresentationSurface();
+    fn GetNextPresentId();
+    fn SetTargetTime();
+    fn SetPreferredPresentDuration();
+    fn ForceVSyncInterrupt();
+    fn Present();
+    fn GetPresentRetiringFence();
+    fn CancelPresentsFrom();
+    fn GetLostEvent();
+    fn GetPresentStatisticsAvailableEvent();
+    fn EnablePresentStatisticsKind();
+    fn GetNextPresentStatistics();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -845,6 +892,16 @@ impl ::core::fmt::Debug for IPresentationSurface {
 unsafe impl ::windows::core::Interface for IPresentationSurface {
     type Vtable = IPresentationSurfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x956710fb_ea40_4eba_a3eb_4375a0eb4edc);
+}
+pub trait IPresentationSurfaceImpl: IPresentationContentImpl {
+    fn SetBuffer();
+    fn SetColorSpace();
+    fn SetAlphaMode();
+    fn SetSourceRect();
+    fn SetTransform();
+    fn RestrictToOutput();
+    fn SetDisableReadback();
+    fn SetLetterboxingMargins();
 }
 #[repr(C)]
 #[doc(hidden)]

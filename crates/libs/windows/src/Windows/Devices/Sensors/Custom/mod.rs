@@ -353,6 +353,16 @@ unsafe impl ::windows::core::Interface for ICustomSensor {
     type Vtable = ICustomSensorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa136f9ad_4034_4b4d_99dd_531aac649c09);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICustomSensorImpl {
+    fn GetCurrentReading();
+    fn MinimumReportInterval();
+    fn SetReportInterval();
+    fn ReportInterval();
+    fn DeviceId();
+    fn ReadingChanged();
+    fn RemoveReadingChanged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomSensorVtbl(
@@ -379,6 +389,12 @@ unsafe impl ::windows::core::Interface for ICustomSensor2 {
     type Vtable = ICustomSensor2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20db3111_ec58_4d9f_bfbd_e77825088510);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICustomSensor2Impl {
+    fn SetReportLatency();
+    fn ReportLatency();
+    fn MaxBatchSize();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomSensor2Vtbl(
@@ -398,6 +414,11 @@ pub struct ICustomSensorReading(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICustomSensorReading {
     type Vtable = ICustomSensorReadingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64004f4d_446a_4366_a87a_5f963268ec53);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICustomSensorReadingImpl {
+    fn Timestamp();
+    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -420,6 +441,10 @@ unsafe impl ::windows::core::Interface for ICustomSensorReading2 {
     type Vtable = ICustomSensorReading2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x223c98ea_bf73_4992_9a48_d3c897594ccb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICustomSensorReading2Impl {
+    fn PerformanceCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomSensorReading2Vtbl(
@@ -439,6 +464,10 @@ unsafe impl ::windows::core::Interface for ICustomSensorReadingChangedEventArgs 
     type Vtable = ICustomSensorReadingChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b202023_cffd_4cc1_8ff0_e21823d76fcc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICustomSensorReadingChangedEventArgsImpl {
+    fn Reading();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomSensorReadingChangedEventArgsVtbl(
@@ -456,6 +485,11 @@ pub struct ICustomSensorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICustomSensorStatics {
     type Vtable = ICustomSensorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x992052cf_f422_4c7d_836b_e7dc74a7124b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICustomSensorStaticsImpl {
+    fn GetDeviceSelector();
+    fn FromIdAsync();
 }
 #[repr(C)]
 #[doc(hidden)]

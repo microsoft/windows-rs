@@ -947,6 +947,10 @@ unsafe impl ::windows::core::Interface for IActivatedDeferral {
     type Vtable = IActivatedDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3bd1978_a431_49d8_a76a_395a4e03dcf3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IActivatedDeferralImpl {
+    fn Complete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivatedDeferralVtbl(
@@ -1034,6 +1038,9 @@ unsafe impl ::windows::core::Interface for IActivatedEventArgsDeferral {
     type Vtable = IActivatedEventArgsDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca6d5f74_63c2_44a6_b97b_d9a03c20bc9b);
 }
+pub trait IActivatedEventArgsDeferralImpl {
+    fn ActivatedOperation();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivatedEventArgsDeferralVtbl(
@@ -1052,6 +1059,10 @@ unsafe impl ::windows::core::Interface for IActivatedOperation {
     type Vtable = IActivatedOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6a0b4bc_c6ca_42fd_9818_71904e45fed7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IActivatedOperationImpl {
+    fn GetDeferral();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivatedOperationVtbl(
@@ -1069,6 +1080,27 @@ pub struct IHtmlPrintDocumentSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHtmlPrintDocumentSource {
     type Vtable = IHtmlPrintDocumentSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcea6469a_0e05_467a_abc9_36ec1d4cdcb6);
+}
+#[cfg(all(feature = "Graphics_Printing", feature = "implement_exclusive"))]
+pub trait IHtmlPrintDocumentSourceImpl: IPrintDocumentSourceImpl {
+    fn Content();
+    fn SetContent();
+    fn LeftMargin();
+    fn SetLeftMargin();
+    fn TopMargin();
+    fn SetTopMargin();
+    fn RightMargin();
+    fn SetRightMargin();
+    fn BottomMargin();
+    fn SetBottomMargin();
+    fn EnableHeaderFooter();
+    fn SetEnableHeaderFooter();
+    fn ShrinkToFit();
+    fn SetShrinkToFit();
+    fn PercentScale();
+    fn SetPercentScale();
+    fn PageRange();
+    fn TrySetPageRange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1105,6 +1137,13 @@ unsafe impl ::windows::core::Interface for INewWebUIViewCreatedEventArgs {
     type Vtable = INewWebUIViewCreatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8e1b216_be2b_4c9e_85e7_083143ec4be7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INewWebUIViewCreatedEventArgsImpl {
+    fn WebUIView();
+    fn ActivatedEventArgs();
+    fn HasPendingNavigate();
+    fn GetDeferral();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INewWebUIViewCreatedEventArgsVtbl(
@@ -1127,6 +1166,17 @@ pub struct IWebUIActivationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebUIActivationStatics {
     type Vtable = IWebUIActivationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x351b86bd_43b3_482b_85db_35d87b517ad9);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWebUIActivationStaticsImpl {
+    fn Activated();
+    fn RemoveActivated();
+    fn Suspending();
+    fn RemoveSuspending();
+    fn Resuming();
+    fn RemoveResuming();
+    fn Navigated();
+    fn RemoveNavigated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1161,6 +1211,14 @@ unsafe impl ::windows::core::Interface for IWebUIActivationStatics2 {
     type Vtable = IWebUIActivationStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8e88696_4d78_4aa4_8f06_2a9eadc6c40a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWebUIActivationStatics2Impl {
+    fn LeavingBackground();
+    fn RemoveLeavingBackground();
+    fn EnteredBackground();
+    fn RemoveEnteredBackground();
+    fn EnablePrelaunch();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUIActivationStatics2Vtbl(
@@ -1187,6 +1245,11 @@ unsafe impl ::windows::core::Interface for IWebUIActivationStatics3 {
     type Vtable = IWebUIActivationStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91abb686_1af5_4445_b49f_9459f40fc8de);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWebUIActivationStatics3Impl {
+    fn RequestRestartAsync();
+    fn RequestRestartForUserAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUIActivationStatics3Vtbl(
@@ -1207,6 +1270,13 @@ pub struct IWebUIActivationStatics4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebUIActivationStatics4 {
     type Vtable = IWebUIActivationStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e391429_183f_478d_8a25_67f80d03935b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWebUIActivationStatics4Impl {
+    fn NewWebUIViewCreated();
+    fn RemoveNewWebUIViewCreated();
+    fn BackgroundActivated();
+    fn RemoveBackgroundActivated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1307,6 +1377,10 @@ unsafe impl ::windows::core::Interface for IWebUIBackgroundTaskInstance {
     type Vtable = IWebUIBackgroundTaskInstanceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23f12c25_e2f7_4741_bc9c_394595de24dc);
 }
+pub trait IWebUIBackgroundTaskInstanceImpl {
+    fn Succeeded();
+    fn SetSucceeded();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUIBackgroundTaskInstanceVtbl(
@@ -1326,6 +1400,10 @@ unsafe impl ::windows::core::Interface for IWebUIBackgroundTaskInstanceStatics {
     type Vtable = IWebUIBackgroundTaskInstanceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c7a5291_19ae_4ca3_b94b_fe4ec744a740);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWebUIBackgroundTaskInstanceStaticsImpl {
+    fn Current();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUIBackgroundTaskInstanceStaticsVtbl(
@@ -1343,6 +1421,10 @@ pub struct IWebUINavigatedDeferral(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebUINavigatedDeferral {
     type Vtable = IWebUINavigatedDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd804204d_831f_46e2_b432_3afce211f962);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWebUINavigatedDeferralImpl {
+    fn Complete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1431,6 +1513,9 @@ unsafe impl ::windows::core::Interface for IWebUINavigatedEventArgs {
     type Vtable = IWebUINavigatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa75841b8_2499_4030_a69d_15d2d9cfe524);
 }
+pub trait IWebUINavigatedEventArgsImpl {
+    fn NavigatedOperation();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUINavigatedEventArgsVtbl(
@@ -1449,6 +1534,10 @@ unsafe impl ::windows::core::Interface for IWebUINavigatedOperation {
     type Vtable = IWebUINavigatedOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a965f08_8182_4a89_ab67_8492e8750d4b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWebUINavigatedOperationImpl {
+    fn GetDeferral();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUINavigatedOperationVtbl(
@@ -1466,6 +1555,16 @@ pub struct IWebUIView(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebUIView {
     type Vtable = IWebUIViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6783f64f_52da_4fd7_be69_8ef6284b423c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWebUIViewImpl {
+    fn ApplicationViewId();
+    fn Closed();
+    fn RemoveClosed();
+    fn Activated();
+    fn RemoveActivated();
+    fn IgnoreApplicationContentUriRulesNavigationRestrictions();
+    fn SetIgnoreApplicationContentUriRulesNavigationRestrictions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1494,6 +1593,11 @@ pub struct IWebUIViewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebUIViewStatics {
     type Vtable = IWebUIViewStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb591e668_8e59_44f9_8803_1b24c9149d30);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWebUIViewStaticsImpl {
+    fn CreateAsync();
+    fn CreateWithUriAsync();
 }
 #[repr(C)]
 #[doc(hidden)]

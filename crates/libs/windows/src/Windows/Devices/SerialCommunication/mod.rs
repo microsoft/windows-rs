@@ -87,6 +87,10 @@ unsafe impl ::windows::core::Interface for IErrorReceivedEventArgs {
     type Vtable = IErrorReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcc6bf59_1283_4d8a_bfdf_566b33ddb28f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IErrorReceivedEventArgsImpl {
+    fn Error();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IErrorReceivedEventArgsVtbl(
@@ -105,6 +109,10 @@ unsafe impl ::windows::core::Interface for IPinChangedEventArgs {
     type Vtable = IPinChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2bf1db0_fc9c_4607_93d0_fa5e8343ee22);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPinChangedEventArgsImpl {
+    fn PinChange();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPinChangedEventArgsVtbl(
@@ -122,6 +130,42 @@ pub struct ISerialDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISerialDevice {
     type Vtable = ISerialDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe187ccc6_2210_414f_b65a_f5553a03372a);
+}
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait ISerialDeviceImpl: IClosableImpl {
+    fn BaudRate();
+    fn SetBaudRate();
+    fn BreakSignalState();
+    fn SetBreakSignalState();
+    fn BytesReceived();
+    fn CarrierDetectState();
+    fn ClearToSendState();
+    fn DataBits();
+    fn SetDataBits();
+    fn DataSetReadyState();
+    fn Handshake();
+    fn SetHandshake();
+    fn IsDataTerminalReadyEnabled();
+    fn SetIsDataTerminalReadyEnabled();
+    fn IsRequestToSendEnabled();
+    fn SetIsRequestToSendEnabled();
+    fn Parity();
+    fn SetParity();
+    fn PortName();
+    fn ReadTimeout();
+    fn SetReadTimeout();
+    fn StopBits();
+    fn SetStopBits();
+    fn UsbVendorId();
+    fn UsbProductId();
+    fn WriteTimeout();
+    fn SetWriteTimeout();
+    fn InputStream();
+    fn OutputStream();
+    fn ErrorReceived();
+    fn RemoveErrorReceived();
+    fn PinChanged();
+    fn RemovePinChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -182,6 +226,13 @@ pub struct ISerialDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISerialDeviceStatics {
     type Vtable = ISerialDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x058c4a70_0836_4993_ae1a_b61ae3be056b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISerialDeviceStaticsImpl {
+    fn GetDeviceSelector();
+    fn GetDeviceSelectorFromPortName();
+    fn GetDeviceSelectorFromUsbVidPid();
+    fn FromIdAsync();
 }
 #[repr(C)]
 #[doc(hidden)]

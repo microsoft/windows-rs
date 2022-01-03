@@ -59,6 +59,11 @@ unsafe impl ::windows::core::Interface for IWICImageEncoder {
     type Vtable = IWICImageEncoderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04c75bf8_3ce1_473b_acc5_3cc4f5e94999);
 }
+pub trait IWICImageEncoderImpl {
+    fn WriteFrame();
+    fn WriteFrameThumbnail();
+    fn WriteThumbnail();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICImageEncoderVtbl(
@@ -272,6 +277,9 @@ impl ::core::fmt::Debug for IWICImagingFactory2 {
 unsafe impl ::windows::core::Interface for IWICImagingFactory2 {
     type Vtable = IWICImagingFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b816b45_1996_4476_b132_de9e247c8af0);
+}
+pub trait IWICImagingFactory2Impl: IWICImagingFactoryImpl {
+    fn CreateImageEncoder();
 }
 #[repr(C)]
 #[doc(hidden)]

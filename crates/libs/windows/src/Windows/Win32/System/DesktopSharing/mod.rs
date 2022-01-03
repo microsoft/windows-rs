@@ -420,6 +420,15 @@ unsafe impl ::windows::core::Interface for IRDPSRAPIApplication {
     type Vtable = IRDPSRAPIApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41e7a09d_eb7a_436e_935d_780ca2628324);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRDPSRAPIApplicationImpl: IDispatchImpl {
+    fn Windows();
+    fn Id();
+    fn Shared();
+    fn SetShared();
+    fn Name();
+    fn Flags();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIApplicationVtbl(
@@ -552,6 +561,13 @@ unsafe impl ::windows::core::Interface for IRDPSRAPIApplicationFilter {
     type Vtable = IRDPSRAPIApplicationFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd20f10ca_6637_4f06_b1d5_277ea7e5160d);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRDPSRAPIApplicationFilterImpl: IDispatchImpl {
+    fn Applications();
+    fn Windows();
+    fn Enabled();
+    fn SetEnabled();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIApplicationFilterVtbl(
@@ -671,6 +687,11 @@ impl ::core::fmt::Debug for IRDPSRAPIApplicationList {
 unsafe impl ::windows::core::Interface for IRDPSRAPIApplicationList {
     type Vtable = IRDPSRAPIApplicationListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4b4aeb3_22dc_4837_b3b6_42ea2517849a);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRDPSRAPIApplicationListImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -819,6 +840,17 @@ unsafe impl ::windows::core::Interface for IRDPSRAPIAttendee {
     type Vtable = IRDPSRAPIAttendeeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec0671b3_1b78_4b80_a464_9132247543e3);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRDPSRAPIAttendeeImpl: IDispatchImpl {
+    fn Id();
+    fn RemoteName();
+    fn ControlLevel();
+    fn SetControlLevel();
+    fn Invitation();
+    fn TerminateConnection();
+    fn Flags();
+    fn ConnectivityInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIAttendeeVtbl(
@@ -949,6 +981,12 @@ unsafe impl ::windows::core::Interface for IRDPSRAPIAttendeeDisconnectInfo {
     type Vtable = IRDPSRAPIAttendeeDisconnectInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc187689f_447c_44a1_9c14_fffbb3b7ec17);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRDPSRAPIAttendeeDisconnectInfoImpl: IDispatchImpl {
+    fn Attendee();
+    fn Reason();
+    fn Code();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIAttendeeDisconnectInfoVtbl(
@@ -1068,6 +1106,11 @@ unsafe impl ::windows::core::Interface for IRDPSRAPIAttendeeManager {
     type Vtable = IRDPSRAPIAttendeeManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba3a37e8_33da_4749_8da0_07fa34da7944);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRDPSRAPIAttendeeManagerImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIAttendeeManagerVtbl(
@@ -1151,6 +1194,13 @@ unsafe impl ::windows::core::Interface for IRDPSRAPIAudioStream {
     type Vtable = IRDPSRAPIAudioStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3e30ef9_89c6_4541_ba3b_19336ac6d31c);
 }
+pub trait IRDPSRAPIAudioStreamImpl {
+    fn Initialize();
+    fn Start();
+    fn Stop();
+    fn GetBuffer();
+    fn FreeBuffer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIAudioStreamVtbl(
@@ -1213,6 +1263,9 @@ impl ::core::fmt::Debug for IRDPSRAPIClipboardUseEvents {
 unsafe impl ::windows::core::Interface for IRDPSRAPIClipboardUseEvents {
     type Vtable = IRDPSRAPIClipboardUseEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd559f59a_7a27_4138_8763_247ce5f659a8);
+}
+pub trait IRDPSRAPIClipboardUseEventsImpl {
+    fn OnPasteFromClipboard();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1278,6 +1331,10 @@ impl ::core::fmt::Debug for IRDPSRAPIDebug {
 unsafe impl ::windows::core::Interface for IRDPSRAPIDebug {
     type Vtable = IRDPSRAPIDebugVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa1e42b5_496d_4ca4_a690_348dcb2ec4ad);
+}
+pub trait IRDPSRAPIDebugImpl {
+    fn SetCLXCmdLine();
+    fn CLXCmdLine();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1401,6 +1458,13 @@ impl ::core::fmt::Debug for IRDPSRAPIFrameBuffer {
 unsafe impl ::windows::core::Interface for IRDPSRAPIFrameBuffer {
     type Vtable = IRDPSRAPIFrameBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d67e7d2_b27b_448e_81b3_c6110ed8b4be);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRDPSRAPIFrameBufferImpl: IDispatchImpl {
+    fn Width();
+    fn Height();
+    fn Bpp();
+    fn GetFrameBufferBits();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1549,6 +1613,16 @@ unsafe impl ::windows::core::Interface for IRDPSRAPIInvitation {
     type Vtable = IRDPSRAPIInvitationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fac1d43_fc51_45bb_b1b4_2b53aa562fa3);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRDPSRAPIInvitationImpl: IDispatchImpl {
+    fn ConnectionString();
+    fn GroupName();
+    fn Password();
+    fn AttendeeLimit();
+    fn SetAttendeeLimit();
+    fn Revoked();
+    fn SetRevoked();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIInvitationVtbl(
@@ -1687,6 +1761,13 @@ unsafe impl ::windows::core::Interface for IRDPSRAPIInvitationManager {
     type Vtable = IRDPSRAPIInvitationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4722b049_92c3_4c2d_8a65_f7348f644dcf);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRDPSRAPIInvitationManagerImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+    fn CreateInvitation();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIInvitationManagerVtbl(
@@ -1757,6 +1838,9 @@ unsafe impl ::windows::core::Interface for IRDPSRAPIPerfCounterLogger {
     type Vtable = IRDPSRAPIPerfCounterLoggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x071c2533_0fa4_4e8f_ae83_9c10b4305ab5);
 }
+pub trait IRDPSRAPIPerfCounterLoggerImpl {
+    fn LogValue();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIPerfCounterLoggerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lvalue: i64) -> ::windows::core::HRESULT);
@@ -1810,6 +1894,9 @@ impl ::core::fmt::Debug for IRDPSRAPIPerfCounterLoggingManager {
 unsafe impl ::windows::core::Interface for IRDPSRAPIPerfCounterLoggingManager {
     type Vtable = IRDPSRAPIPerfCounterLoggingManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a512c86_ac6e_4a8e_b1a4_fcef363f6e64);
+}
+pub trait IRDPSRAPIPerfCounterLoggingManagerImpl {
+    fn CreateLogger();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1921,6 +2008,11 @@ impl ::core::fmt::Debug for IRDPSRAPISessionProperties {
 unsafe impl ::windows::core::Interface for IRDPSRAPISessionProperties {
     type Vtable = IRDPSRAPISessionPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x339b24f2_9bc0_4f16_9aac_f165433d13d4);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRDPSRAPISessionPropertiesImpl: IDispatchImpl {
+    fn Property();
+    fn SetProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2094,6 +2186,23 @@ impl ::core::fmt::Debug for IRDPSRAPISharingSession {
 unsafe impl ::windows::core::Interface for IRDPSRAPISharingSession {
     type Vtable = IRDPSRAPISharingSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeeb20886_e470_4cf6_842b_2739c0ec5cfb);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRDPSRAPISharingSessionImpl: IDispatchImpl {
+    fn Open();
+    fn Close();
+    fn SetColorDepth();
+    fn ColorDepth();
+    fn Properties();
+    fn Attendees();
+    fn Invitations();
+    fn ApplicationFilter();
+    fn VirtualChannelManager();
+    fn Pause();
+    fn Resume();
+    fn ConnectToClient();
+    fn SetDesktopSharedRect();
+    fn GetDesktopSharedRect();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2313,6 +2422,12 @@ unsafe impl ::windows::core::Interface for IRDPSRAPISharingSession2 {
     type Vtable = IRDPSRAPISharingSession2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfee4ee57_e3e8_4205_8fb0_8fd1d0675c21);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRDPSRAPISharingSession2Impl: IRDPSRAPISharingSessionImpl + IDispatchImpl {
+    fn ConnectUsingTransportStream();
+    fn FrameBuffer();
+    fn SendControlLevelChangeResponse();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPISharingSession2Vtbl(
@@ -2465,6 +2580,14 @@ unsafe impl ::windows::core::Interface for IRDPSRAPITcpConnectionInfo {
     type Vtable = IRDPSRAPITcpConnectionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf74049a4_3d06_4028_8193_0a8c29bc2452);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRDPSRAPITcpConnectionInfoImpl: IDispatchImpl {
+    fn Protocol();
+    fn LocalPort();
+    fn LocalIP();
+    fn PeerPort();
+    fn PeerIP();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPITcpConnectionInfoVtbl(
@@ -2556,6 +2679,14 @@ impl ::core::fmt::Debug for IRDPSRAPITransportStream {
 unsafe impl ::windows::core::Interface for IRDPSRAPITransportStream {
     type Vtable = IRDPSRAPITransportStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36cfa065_43bb_4ef7_aed7_9b88a5053036);
+}
+pub trait IRDPSRAPITransportStreamImpl {
+    fn AllocBuffer();
+    fn FreeBuffer();
+    fn WriteBuffer();
+    fn ReadBuffer();
+    fn Open();
+    fn Close();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2661,6 +2792,18 @@ unsafe impl ::windows::core::Interface for IRDPSRAPITransportStreamBuffer {
     type Vtable = IRDPSRAPITransportStreamBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81c80290_5085_44b0_b460_f865c39cb4a9);
 }
+pub trait IRDPSRAPITransportStreamBufferImpl {
+    fn Storage();
+    fn StorageSize();
+    fn PayloadSize();
+    fn SetPayloadSize();
+    fn PayloadOffset();
+    fn SetPayloadOffset();
+    fn Flags();
+    fn SetFlags();
+    fn Context();
+    fn SetContext();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPITransportStreamBufferVtbl(
@@ -2734,6 +2877,11 @@ impl ::core::fmt::Debug for IRDPSRAPITransportStreamEvents {
 unsafe impl ::windows::core::Interface for IRDPSRAPITransportStreamEvents {
     type Vtable = IRDPSRAPITransportStreamEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea81c254_f5af_4e40_982e_3e63bb595276);
+}
+pub trait IRDPSRAPITransportStreamEventsImpl {
+    fn OnWriteCompleted();
+    fn OnReadCompleted();
+    fn OnStreamClosed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2904,6 +3052,23 @@ unsafe impl ::windows::core::Interface for IRDPSRAPIViewer {
     type Vtable = IRDPSRAPIViewerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6bfcd38_8ce9_404d_8ae8_f31d00c65cb5);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRDPSRAPIViewerImpl: IDispatchImpl {
+    fn Connect();
+    fn Disconnect();
+    fn Attendees();
+    fn Invitations();
+    fn ApplicationFilter();
+    fn VirtualChannelManager();
+    fn SetSmartSizing();
+    fn SmartSizing();
+    fn RequestControl();
+    fn SetDisconnectedText();
+    fn DisconnectedText();
+    fn RequestColorDepthChange();
+    fn Properties();
+    fn StartReverseConnectListener();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIViewerVtbl(
@@ -3053,6 +3218,14 @@ unsafe impl ::windows::core::Interface for IRDPSRAPIVirtualChannel {
     type Vtable = IRDPSRAPIVirtualChannelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05e12f95_28b3_4c9a_8780_d0248574a1e0);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRDPSRAPIVirtualChannelImpl: IDispatchImpl {
+    fn SendData();
+    fn SetAccess();
+    fn Name();
+    fn Flags();
+    fn Priority();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIVirtualChannelVtbl(
@@ -3182,6 +3355,12 @@ impl ::core::fmt::Debug for IRDPSRAPIVirtualChannelManager {
 unsafe impl ::windows::core::Interface for IRDPSRAPIVirtualChannelManager {
     type Vtable = IRDPSRAPIVirtualChannelManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d11c661_5d0d_4ee4_89df_2166ae1fdfed);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRDPSRAPIVirtualChannelManagerImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn CreateVirtualChannel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3328,6 +3507,16 @@ unsafe impl ::windows::core::Interface for IRDPSRAPIWindow {
     type Vtable = IRDPSRAPIWindowVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbeafe0f9_c77b_4933_ba9f_a24cddcc27cf);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRDPSRAPIWindowImpl: IDispatchImpl {
+    fn Id();
+    fn Application();
+    fn Shared();
+    fn SetShared();
+    fn Name();
+    fn Show();
+    fn Flags();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIWindowVtbl(
@@ -3452,6 +3641,11 @@ unsafe impl ::windows::core::Interface for IRDPSRAPIWindowList {
     type Vtable = IRDPSRAPIWindowListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a05ce44_715a_4116_a189_a118f30a07bd);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRDPSRAPIWindowListImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIWindowListVtbl(
@@ -3545,6 +3739,16 @@ impl ::core::fmt::Debug for IRDPViewerInputSink {
 unsafe impl ::windows::core::Interface for IRDPViewerInputSink {
     type Vtable = IRDPViewerInputSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb590853_a6c5_4a7b_8dd4_76b69eea12d5);
+}
+pub trait IRDPViewerInputSinkImpl {
+    fn SendMouseButtonEvent();
+    fn SendMouseMoveEvent();
+    fn SendMouseWheelEvent();
+    fn SendKeyboardEvent();
+    fn SendSyncEvent();
+    fn BeginTouchFrame();
+    fn AddTouchInput();
+    fn EndTouchFrame();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3711,6 +3915,8 @@ unsafe impl ::windows::core::Interface for _IRDPSessionEvents {
     type Vtable = _IRDPSessionEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98a97042_6698_40e9_8efd_b3200990004b);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait _IRDPSessionEventsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _IRDPSessionEventsVtbl(

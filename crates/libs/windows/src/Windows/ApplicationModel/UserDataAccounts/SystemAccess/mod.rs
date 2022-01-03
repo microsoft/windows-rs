@@ -848,6 +848,41 @@ unsafe impl ::windows::core::Interface for IDeviceAccountConfiguration {
     type Vtable = IDeviceAccountConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad0123a3_fbdc_4d1b_be43_5a27ea4a1b63);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceAccountConfigurationImpl {
+    fn AccountName();
+    fn SetAccountName();
+    fn DeviceAccountTypeId();
+    fn SetDeviceAccountTypeId();
+    fn ServerType();
+    fn SetServerType();
+    fn EmailAddress();
+    fn SetEmailAddress();
+    fn Domain();
+    fn SetDomain();
+    fn EmailSyncEnabled();
+    fn SetEmailSyncEnabled();
+    fn ContactsSyncEnabled();
+    fn SetContactsSyncEnabled();
+    fn CalendarSyncEnabled();
+    fn SetCalendarSyncEnabled();
+    fn IncomingServerAddress();
+    fn SetIncomingServerAddress();
+    fn IncomingServerPort();
+    fn SetIncomingServerPort();
+    fn IncomingServerRequiresSsl();
+    fn SetIncomingServerRequiresSsl();
+    fn IncomingServerUsername();
+    fn SetIncomingServerUsername();
+    fn OutgoingServerAddress();
+    fn SetOutgoingServerAddress();
+    fn OutgoingServerPort();
+    fn SetOutgoingServerPort();
+    fn OutgoingServerRequiresSsl();
+    fn SetOutgoingServerRequiresSsl();
+    fn OutgoingServerUsername();
+    fn SetOutgoingServerUsername();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceAccountConfigurationVtbl(
@@ -896,6 +931,65 @@ pub struct IDeviceAccountConfiguration2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceAccountConfiguration2 {
     type Vtable = IDeviceAccountConfiguration2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2b2e5a6_728d_4a4a_8945_2bf8580136de);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceAccountConfiguration2Impl {
+    fn IncomingServerCredential();
+    fn SetIncomingServerCredential();
+    fn OutgoingServerCredential();
+    fn SetOutgoingServerCredential();
+    fn OAuthRefreshToken();
+    fn SetOAuthRefreshToken();
+    fn IsExternallyManaged();
+    fn SetIsExternallyManaged();
+    fn AccountIconId();
+    fn SetAccountIconId();
+    fn AuthenticationType();
+    fn SetAuthenticationType();
+    fn IsSsoAuthenticationSupported();
+    fn SsoAccountId();
+    fn SetSsoAccountId();
+    fn AlwaysDownloadFullMessage();
+    fn SetAlwaysDownloadFullMessage();
+    fn DoesPolicyAllowMailSync();
+    fn SyncScheduleKind();
+    fn SetSyncScheduleKind();
+    fn MailAgeFilter();
+    fn SetMailAgeFilter();
+    fn IsClientAuthenticationCertificateRequired();
+    fn SetIsClientAuthenticationCertificateRequired();
+    fn AutoSelectAuthenticationCertificate();
+    fn SetAutoSelectAuthenticationCertificate();
+    fn AuthenticationCertificateId();
+    fn SetAuthenticationCertificateId();
+    fn CardDavSyncScheduleKind();
+    fn SetCardDavSyncScheduleKind();
+    fn CalDavSyncScheduleKind();
+    fn SetCalDavSyncScheduleKind();
+    fn CardDavServerUrl();
+    fn SetCardDavServerUrl();
+    fn CardDavRequiresSsl();
+    fn SetCardDavRequiresSsl();
+    fn CalDavServerUrl();
+    fn SetCalDavServerUrl();
+    fn CalDavRequiresSsl();
+    fn SetCalDavRequiresSsl();
+    fn WasModifiedByUser();
+    fn SetWasModifiedByUser();
+    fn WasIncomingServerCertificateHashConfirmed();
+    fn SetWasIncomingServerCertificateHashConfirmed();
+    fn IncomingServerCertificateHash();
+    fn SetIncomingServerCertificateHash();
+    fn IsOutgoingServerAuthenticationRequired();
+    fn SetIsOutgoingServerAuthenticationRequired();
+    fn IsOutgoingServerAuthenticationEnabled();
+    fn SetIsOutgoingServerAuthenticationEnabled();
+    fn WasOutgoingServerCertificateHashConfirmed();
+    fn SetWasOutgoingServerCertificateHashConfirmed();
+    fn OutgoingServerCertificateHash();
+    fn SetOutgoingServerCertificateHash();
+    fn IsSyncScheduleManagedBySystem();
+    fn SetIsSyncScheduleManagedBySystem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -978,6 +1072,10 @@ unsafe impl ::windows::core::Interface for IUserDataAccountSystemAccessManagerSt
     type Vtable = IUserDataAccountSystemAccessManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d6b11b9_cbe5_45f5_822b_c267b81dbdb6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataAccountSystemAccessManagerStaticsImpl {
+    fn AddAndShowDeviceAccountsAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataAccountSystemAccessManagerStaticsVtbl(
@@ -996,6 +1094,13 @@ pub struct IUserDataAccountSystemAccessManagerStatics2(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for IUserDataAccountSystemAccessManagerStatics2 {
     type Vtable = IUserDataAccountSystemAccessManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x943f854d_4b4e_439f_83d3_979b27c05ac7);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataAccountSystemAccessManagerStatics2Impl {
+    fn SuppressLocalAccountWithAccountAsync();
+    fn CreateDeviceAccountAsync();
+    fn DeleteDeviceAccountAsync();
+    fn GetDeviceAccountConfigurationAsync();
 }
 #[repr(C)]
 #[doc(hidden)]

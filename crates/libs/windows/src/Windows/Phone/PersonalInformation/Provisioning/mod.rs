@@ -47,6 +47,11 @@ unsafe impl ::windows::core::Interface for IContactPartnerProvisioningManagerSta
     type Vtable = IContactPartnerProvisioningManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0d79a21_01af_4fd3_98cd_b3d656de15f4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IContactPartnerProvisioningManagerStaticsImpl {
+    fn AssociateNetworkAccountAsync();
+    fn ImportVcardToSystemAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactPartnerProvisioningManagerStaticsVtbl(
@@ -68,6 +73,10 @@ unsafe impl ::windows::core::Interface for IContactPartnerProvisioningManagerSta
     type Vtable = IContactPartnerProvisioningManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc26155f7_55ed_475d_9334_c5d484c30f1a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IContactPartnerProvisioningManagerStatics2Impl {
+    fn AssociateSocialNetworkAccountAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactPartnerProvisioningManagerStatics2Vtbl(
@@ -86,6 +95,11 @@ pub struct IMessagePartnerProvisioningManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMessagePartnerProvisioningManagerStatics {
     type Vtable = IMessagePartnerProvisioningManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a1b0850_73c5_457c_bc59_ed7d615c05a4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMessagePartnerProvisioningManagerStaticsImpl {
+    fn ImportSmsToSystemAsync();
+    fn ImportMmsToSystemAsync();
 }
 #[repr(C)]
 #[doc(hidden)]

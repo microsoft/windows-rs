@@ -3322,6 +3322,13 @@ unsafe impl ::windows::core::Interface for IAVIEditStream {
     type Vtable = IAVIEditStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020024_0000_0000_c000_000000000046);
 }
+pub trait IAVIEditStreamImpl {
+    fn Cut();
+    fn Copy();
+    fn Paste();
+    fn Clone();
+    fn SetInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAVIEditStreamVtbl(
@@ -3408,6 +3415,15 @@ impl ::core::fmt::Debug for IAVIFile {
 unsafe impl ::windows::core::Interface for IAVIFile {
     type Vtable = IAVIFileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020020_0000_0000_c000_000000000046);
+}
+pub trait IAVIFileImpl {
+    fn Info();
+    fn GetStream();
+    fn CreateStream();
+    fn WriteData();
+    fn ReadData();
+    fn EndRecord();
+    fn DeleteStream();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3553,6 +3569,10 @@ unsafe impl ::windows::core::Interface for IAVIPersistFile {
     type Vtable = IAVIPersistFileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020025_0000_0000_c000_000000000046);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IAVIPersistFileImpl: IPersistFileImpl + IPersistImpl {
+    fn Reserved1();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAVIPersistFileVtbl(
@@ -3665,6 +3685,19 @@ unsafe impl ::windows::core::Interface for IAVIStream {
     type Vtable = IAVIStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020021_0000_0000_c000_000000000046);
 }
+pub trait IAVIStreamImpl {
+    fn Create();
+    fn Info();
+    fn FindSample();
+    fn ReadFormat();
+    fn SetFormat();
+    fn Read();
+    fn Write();
+    fn Delete();
+    fn ReadData();
+    fn WriteData();
+    fn SetInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAVIStreamVtbl(
@@ -3738,6 +3771,10 @@ impl ::core::fmt::Debug for IAVIStreaming {
 unsafe impl ::windows::core::Interface for IAVIStreaming {
     type Vtable = IAVIStreamingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020022_0000_0000_c000_000000000046);
+}
+pub trait IAVIStreamingImpl {
+    fn Begin();
+    fn End();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5042,6 +5079,12 @@ impl ::core::fmt::Debug for IGetFrame {
 unsafe impl ::windows::core::Interface for IGetFrame {
     type Vtable = IGetFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020023_0000_0000_c000_000000000046);
+}
+pub trait IGetFrameImpl {
+    fn GetFrame();
+    fn Begin();
+    fn End();
+    fn SetFormat();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -40,6 +40,16 @@ unsafe impl ::windows::core::Interface for IOnlineIdAuthenticator {
     type Vtable = IOnlineIdAuthenticatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa003f58a_29ab_4817_b884_d7516dad18b9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IOnlineIdAuthenticatorImpl {
+    fn AuthenticateUserAsync();
+    fn AuthenticateUserAsyncAdvanced();
+    fn SignOutUserAsync();
+    fn SetApplicationId();
+    fn ApplicationId();
+    fn CanSignOut();
+    fn AuthenticatedSafeCustomerId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOnlineIdAuthenticatorVtbl(
@@ -67,6 +77,12 @@ unsafe impl ::windows::core::Interface for IOnlineIdServiceTicket {
     type Vtable = IOnlineIdServiceTicketVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc95c547f_d781_4a94_acb8_c59874238c26);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IOnlineIdServiceTicketImpl {
+    fn Value();
+    fn Request();
+    fn ErrorCode();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOnlineIdServiceTicketVtbl(
@@ -87,6 +103,11 @@ unsafe impl ::windows::core::Interface for IOnlineIdServiceTicketRequest {
     type Vtable = IOnlineIdServiceTicketRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x297445d3_fb63_4135_8909_4e354c061466);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IOnlineIdServiceTicketRequestImpl {
+    fn Service();
+    fn Policy();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOnlineIdServiceTicketRequestVtbl(
@@ -106,6 +127,11 @@ unsafe impl ::windows::core::Interface for IOnlineIdServiceTicketRequestFactory 
     type Vtable = IOnlineIdServiceTicketRequestFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbebb0a08_9e73_4077_9614_08614c0bc245);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IOnlineIdServiceTicketRequestFactoryImpl {
+    fn CreateOnlineIdServiceTicketRequest();
+    fn CreateOnlineIdServiceTicketRequestAdvanced();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOnlineIdServiceTicketRequestFactoryVtbl(
@@ -124,6 +150,13 @@ pub struct IOnlineIdSystemAuthenticatorForUser(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOnlineIdSystemAuthenticatorForUser {
     type Vtable = IOnlineIdSystemAuthenticatorForUserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5798befb_1de4_4186_a2e6_b563f86aaf44);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IOnlineIdSystemAuthenticatorForUserImpl {
+    fn GetTicketAsync();
+    fn SetApplicationId();
+    fn ApplicationId();
+    fn User();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -148,6 +181,11 @@ unsafe impl ::windows::core::Interface for IOnlineIdSystemAuthenticatorStatics {
     type Vtable = IOnlineIdSystemAuthenticatorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85047792_f634_41e3_96a4_5164e902c740);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IOnlineIdSystemAuthenticatorStaticsImpl {
+    fn Default();
+    fn GetForUser();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOnlineIdSystemAuthenticatorStaticsVtbl(
@@ -168,6 +206,11 @@ unsafe impl ::windows::core::Interface for IOnlineIdSystemIdentity {
     type Vtable = IOnlineIdSystemIdentityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x743cd20d_b6ca_434d_8124_53ea12685307);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IOnlineIdSystemIdentityImpl {
+    fn Ticket();
+    fn Id();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOnlineIdSystemIdentityVtbl(
@@ -186,6 +229,12 @@ pub struct IOnlineIdSystemTicketResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOnlineIdSystemTicketResult {
     type Vtable = IOnlineIdSystemTicketResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb0a5ff8_b098_4acd_9d13_9e640652b5b6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IOnlineIdSystemTicketResultImpl {
+    fn Identity();
+    fn Status();
+    fn ExtendedError();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -206,6 +255,17 @@ pub struct IUserIdentity(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserIdentity {
     type Vtable = IUserIdentityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2146d9cd_0742_4be3_8a1c_7c7ae679aa88);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserIdentityImpl {
+    fn Tickets();
+    fn Id();
+    fn SafeCustomerId();
+    fn SignInName();
+    fn FirstName();
+    fn LastName();
+    fn IsBetaAccount();
+    fn IsConfirmedPC();
 }
 #[repr(C)]
 #[doc(hidden)]

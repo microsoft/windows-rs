@@ -70,6 +70,9 @@ unsafe impl ::windows::core::Interface for ICoreFrameworkInputViewInterop {
     type Vtable = ICoreFrameworkInputViewInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e3da342_b11c_484b_9c1c_be0d61c2f6c5);
 }
+pub trait ICoreFrameworkInputViewInteropImpl {
+    fn GetForWindow();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreFrameworkInputViewInteropVtbl(

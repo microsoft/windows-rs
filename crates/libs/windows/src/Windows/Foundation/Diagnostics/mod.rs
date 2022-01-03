@@ -539,6 +539,16 @@ unsafe impl ::windows::core::Interface for IAsyncCausalityTracerStatics {
     type Vtable = IAsyncCausalityTracerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50850b26_267e_451b_a890_ab6a370245ee);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAsyncCausalityTracerStaticsImpl {
+    fn TraceOperationCreation();
+    fn TraceOperationCompletion();
+    fn TraceOperationRelation();
+    fn TraceSynchronousWorkStart();
+    fn TraceSynchronousWorkCompletion();
+    fn TracingStatusChanged();
+    fn RemoveTracingStatusChanged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsyncCausalityTracerStaticsVtbl(
@@ -563,6 +573,12 @@ unsafe impl ::windows::core::Interface for IErrorDetails {
     type Vtable = IErrorDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x378cbb01_2cc9_428f_8c55_2c990d463e8f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IErrorDetailsImpl {
+    fn Description();
+    fn LongDescription();
+    fn HelpUri();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IErrorDetailsVtbl(
@@ -582,6 +598,10 @@ pub struct IErrorDetailsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IErrorDetailsStatics {
     type Vtable = IErrorDetailsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7703750_0b1d_46c8_aa0e_4b8178e4fce9);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IErrorDetailsStaticsImpl {
+    fn CreateFromHResultAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -674,6 +694,10 @@ unsafe impl ::windows::core::RuntimeType for IErrorReportingSettings {
 unsafe impl ::windows::core::Interface for IErrorReportingSettings {
     type Vtable = IErrorReportingSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16369792_b03e_4ba1_8bb8_d28f4ab4d2c0);
+}
+pub trait IErrorReportingSettingsImpl {
+    fn SetErrorOptions();
+    fn GetErrorOptions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -827,6 +851,15 @@ unsafe impl ::windows::core::Interface for IFileLoggingSession {
     type Vtable = IFileLoggingSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24c74216_fed2_404c_895f_1f9699cb02f7);
 }
+pub trait IFileLoggingSessionImpl: IClosableImpl {
+    fn Name();
+    fn AddLoggingChannel();
+    fn AddLoggingChannelWithLevel();
+    fn RemoveLoggingChannel();
+    fn CloseAndSaveToFileAsync();
+    fn LogFileGenerated();
+    fn RemoveLogFileGenerated();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileLoggingSessionVtbl(
@@ -852,6 +885,10 @@ unsafe impl ::windows::core::Interface for IFileLoggingSessionFactory {
     type Vtable = IFileLoggingSessionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeea08dce_8447_4daa_9133_12eb46f697d4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFileLoggingSessionFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileLoggingSessionFactoryVtbl(
@@ -869,6 +906,10 @@ pub struct ILogFileGeneratedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILogFileGeneratedEventArgs {
     type Vtable = ILogFileGeneratedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x269e976f_0d38_4c1a_b53f_b395d881df84);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILogFileGeneratedEventArgsImpl {
+    fn File();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -889,6 +930,11 @@ unsafe impl ::windows::core::Interface for ILoggingActivity {
     type Vtable = ILoggingActivityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc032941_b766_4cb5_9848_97ac6ba6d60c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILoggingActivityImpl: IClosableImpl {
+    fn Name();
+    fn Id();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoggingActivityVtbl(
@@ -907,6 +953,13 @@ pub struct ILoggingActivity2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoggingActivity2 {
     type Vtable = ILoggingActivity2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26c29808_6322_456a_af82_80c8642f178b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILoggingActivity2Impl: IClosableImpl + ILoggingActivityImpl + ILoggingTargetImpl {
+    fn Channel();
+    fn StopActivity();
+    fn StopActivityWithFields();
+    fn StopActivityWithFieldsAndOptions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -928,6 +981,11 @@ pub struct ILoggingActivityFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoggingActivityFactory {
     type Vtable = ILoggingActivityFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b33b483_e10a_4c58_97d5_10fb451074fb);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILoggingActivityFactoryImpl {
+    fn CreateLoggingActivity();
+    fn CreateLoggingActivityWithLevel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1093,6 +1151,17 @@ unsafe impl ::windows::core::Interface for ILoggingChannel {
     type Vtable = ILoggingChannelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9a50343_11d7_4f01_b5ca_cf495278c0a8);
 }
+pub trait ILoggingChannelImpl: IClosableImpl {
+    fn Name();
+    fn Enabled();
+    fn Level();
+    fn LogMessage();
+    fn LogMessageWithLevel();
+    fn LogValuePair();
+    fn LogValuePairWithLevel();
+    fn LoggingEnabled();
+    fn RemoveLoggingEnabled();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoggingChannelVtbl(
@@ -1119,6 +1188,10 @@ unsafe impl ::windows::core::Interface for ILoggingChannel2 {
     type Vtable = ILoggingChannel2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f4c3cf3_0bac_45a5_9e33_baf3f3a246a5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILoggingChannel2Impl: IClosableImpl + ILoggingChannelImpl + ILoggingTargetImpl {
+    fn Id();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoggingChannel2Vtbl(
@@ -1136,6 +1209,10 @@ pub struct ILoggingChannelFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoggingChannelFactory {
     type Vtable = ILoggingChannelFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4edc5b9c_af80_4a9b_b0dc_398f9ae5207b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILoggingChannelFactoryImpl {
+    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1156,6 +1233,11 @@ unsafe impl ::windows::core::Interface for ILoggingChannelFactory2 {
     type Vtable = ILoggingChannelFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c6ef5dd_3b27_4dc9_99f0_299c6e4603a1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILoggingChannelFactory2Impl {
+    fn CreateWithOptions();
+    fn CreateWithOptionsAndId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoggingChannelFactory2Vtbl(
@@ -1174,6 +1256,11 @@ pub struct ILoggingChannelOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoggingChannelOptions {
     type Vtable = ILoggingChannelOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3e847ff_0ebb_4a53_8c54_dec24926cb2c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILoggingChannelOptionsImpl {
+    fn Group();
+    fn SetGroup();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1194,6 +1281,10 @@ unsafe impl ::windows::core::Interface for ILoggingChannelOptionsFactory {
     type Vtable = ILoggingChannelOptionsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa93151da_7faf_4191_8755_5e86dc65d896);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILoggingChannelOptionsFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoggingChannelOptionsFactoryVtbl(
@@ -1211,6 +1302,124 @@ pub struct ILoggingFields(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoggingFields {
     type Vtable = ILoggingFieldsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7f6b7af_762d_4579_83bd_52c23bc333bc);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILoggingFieldsImpl {
+    fn Clear();
+    fn BeginStruct();
+    fn BeginStructWithTags();
+    fn EndStruct();
+    fn AddEmpty();
+    fn AddEmptyWithFormat();
+    fn AddEmptyWithFormatAndTags();
+    fn AddUInt8();
+    fn AddUInt8WithFormat();
+    fn AddUInt8WithFormatAndTags();
+    fn AddUInt8Array();
+    fn AddUInt8ArrayWithFormat();
+    fn AddUInt8ArrayWithFormatAndTags();
+    fn AddInt16();
+    fn AddInt16WithFormat();
+    fn AddInt16WithFormatAndTags();
+    fn AddInt16Array();
+    fn AddInt16ArrayWithFormat();
+    fn AddInt16ArrayWithFormatAndTags();
+    fn AddUInt16();
+    fn AddUInt16WithFormat();
+    fn AddUInt16WithFormatAndTags();
+    fn AddUInt16Array();
+    fn AddUInt16ArrayWithFormat();
+    fn AddUInt16ArrayWithFormatAndTags();
+    fn AddInt32();
+    fn AddInt32WithFormat();
+    fn AddInt32WithFormatAndTags();
+    fn AddInt32Array();
+    fn AddInt32ArrayWithFormat();
+    fn AddInt32ArrayWithFormatAndTags();
+    fn AddUInt32();
+    fn AddUInt32WithFormat();
+    fn AddUInt32WithFormatAndTags();
+    fn AddUInt32Array();
+    fn AddUInt32ArrayWithFormat();
+    fn AddUInt32ArrayWithFormatAndTags();
+    fn AddInt64();
+    fn AddInt64WithFormat();
+    fn AddInt64WithFormatAndTags();
+    fn AddInt64Array();
+    fn AddInt64ArrayWithFormat();
+    fn AddInt64ArrayWithFormatAndTags();
+    fn AddUInt64();
+    fn AddUInt64WithFormat();
+    fn AddUInt64WithFormatAndTags();
+    fn AddUInt64Array();
+    fn AddUInt64ArrayWithFormat();
+    fn AddUInt64ArrayWithFormatAndTags();
+    fn AddSingle();
+    fn AddSingleWithFormat();
+    fn AddSingleWithFormatAndTags();
+    fn AddSingleArray();
+    fn AddSingleArrayWithFormat();
+    fn AddSingleArrayWithFormatAndTags();
+    fn AddDouble();
+    fn AddDoubleWithFormat();
+    fn AddDoubleWithFormatAndTags();
+    fn AddDoubleArray();
+    fn AddDoubleArrayWithFormat();
+    fn AddDoubleArrayWithFormatAndTags();
+    fn AddChar16();
+    fn AddChar16WithFormat();
+    fn AddChar16WithFormatAndTags();
+    fn AddChar16Array();
+    fn AddChar16ArrayWithFormat();
+    fn AddChar16ArrayWithFormatAndTags();
+    fn AddBoolean();
+    fn AddBooleanWithFormat();
+    fn AddBooleanWithFormatAndTags();
+    fn AddBooleanArray();
+    fn AddBooleanArrayWithFormat();
+    fn AddBooleanArrayWithFormatAndTags();
+    fn AddString();
+    fn AddStringWithFormat();
+    fn AddStringWithFormatAndTags();
+    fn AddStringArray();
+    fn AddStringArrayWithFormat();
+    fn AddStringArrayWithFormatAndTags();
+    fn AddGuid();
+    fn AddGuidWithFormat();
+    fn AddGuidWithFormatAndTags();
+    fn AddGuidArray();
+    fn AddGuidArrayWithFormat();
+    fn AddGuidArrayWithFormatAndTags();
+    fn AddDateTime();
+    fn AddDateTimeWithFormat();
+    fn AddDateTimeWithFormatAndTags();
+    fn AddDateTimeArray();
+    fn AddDateTimeArrayWithFormat();
+    fn AddDateTimeArrayWithFormatAndTags();
+    fn AddTimeSpan();
+    fn AddTimeSpanWithFormat();
+    fn AddTimeSpanWithFormatAndTags();
+    fn AddTimeSpanArray();
+    fn AddTimeSpanArrayWithFormat();
+    fn AddTimeSpanArrayWithFormatAndTags();
+    fn AddPoint();
+    fn AddPointWithFormat();
+    fn AddPointWithFormatAndTags();
+    fn AddPointArray();
+    fn AddPointArrayWithFormat();
+    fn AddPointArrayWithFormatAndTags();
+    fn AddSize();
+    fn AddSizeWithFormat();
+    fn AddSizeWithFormatAndTags();
+    fn AddSizeArray();
+    fn AddSizeArrayWithFormat();
+    fn AddSizeArrayWithFormatAndTags();
+    fn AddRect();
+    fn AddRectWithFormat();
+    fn AddRectWithFormatAndTags();
+    fn AddRectArray();
+    fn AddRectArrayWithFormat();
+    fn AddRectArrayWithFormatAndTags();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1344,6 +1553,21 @@ unsafe impl ::windows::core::Interface for ILoggingOptions {
     type Vtable = ILoggingOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90bc7850_0192_4f5d_ac26_006adaca12d8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILoggingOptionsImpl {
+    fn Keywords();
+    fn SetKeywords();
+    fn Tags();
+    fn SetTags();
+    fn Task();
+    fn SetTask();
+    fn Opcode();
+    fn SetOpcode();
+    fn ActivityId();
+    fn SetActivityId();
+    fn RelatedActivityId();
+    fn SetRelatedActivityId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoggingOptionsVtbl(
@@ -1372,6 +1596,10 @@ pub struct ILoggingOptionsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoggingOptionsFactory {
     type Vtable = ILoggingOptionsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd713c6cb_98ab_464b_9f22_a3268478368a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILoggingOptionsFactoryImpl {
+    fn CreateWithKeywords();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1511,6 +1739,13 @@ unsafe impl ::windows::core::Interface for ILoggingSession {
     type Vtable = ILoggingSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6221f306_9380_4ad7_baf5_41ea9310d768);
 }
+pub trait ILoggingSessionImpl: IClosableImpl {
+    fn Name();
+    fn SaveToFileAsync();
+    fn AddLoggingChannel();
+    fn AddLoggingChannelWithLevel();
+    fn RemoveLoggingChannel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoggingSessionVtbl(
@@ -1533,6 +1768,10 @@ pub struct ILoggingSessionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoggingSessionFactory {
     type Vtable = ILoggingSessionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e937ee5_58fd_45e0_8c2f_a132eff95c1e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILoggingSessionFactoryImpl {
+    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1689,6 +1928,19 @@ unsafe impl ::windows::core::Interface for ILoggingTarget {
     type Vtable = ILoggingTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65f16c35_e388_4e26_b17a_f51cd3a83916);
 }
+pub trait ILoggingTargetImpl {
+    fn IsEnabled();
+    fn IsEnabledWithLevel();
+    fn IsEnabledWithLevelAndKeywords();
+    fn LogEvent();
+    fn LogEventWithFields();
+    fn LogEventWithFieldsAndLevel();
+    fn LogEventWithFieldsAndOptions();
+    fn StartActivity();
+    fn StartActivityWithFields();
+    fn StartActivityWithFieldsAndLevel();
+    fn StartActivityWithFieldsAndOptions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoggingTargetVtbl(
@@ -1716,6 +1968,11 @@ pub struct ITracingStatusChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITracingStatusChangedEventArgs {
     type Vtable = ITracingStatusChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x410b7711_ff3b_477f_9c9a_d2efda302dc3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITracingStatusChangedEventArgsImpl {
+    fn Enabled();
+    fn TraceLevel();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -6,6 +6,17 @@ unsafe impl ::windows::core::Interface for ISystemUpdateItem {
     type Vtable = ISystemUpdateItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x779740eb_5624_519e_a8e2_09e9173b3fb7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemUpdateItemImpl {
+    fn State();
+    fn Title();
+    fn Description();
+    fn Id();
+    fn Revision();
+    fn DownloadProgress();
+    fn InstallProgress();
+    fn ExtendedError();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemUpdateItemVtbl(
@@ -31,6 +42,12 @@ unsafe impl ::windows::core::Interface for ISystemUpdateLastErrorInfo {
     type Vtable = ISystemUpdateLastErrorInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ee887f7_8a44_5b6e_bd07_7aece4116ea9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemUpdateLastErrorInfoImpl {
+    fn State();
+    fn ExtendedError();
+    fn IsInteractive();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemUpdateLastErrorInfoVtbl(
@@ -50,6 +67,33 @@ pub struct ISystemUpdateManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemUpdateManagerStatics {
     type Vtable = ISystemUpdateManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2d3fcef_2971_51be_b41a_8bd703bb701a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemUpdateManagerStaticsImpl {
+    fn IsSupported();
+    fn State();
+    fn StateChanged();
+    fn RemoveStateChanged();
+    fn DownloadProgress();
+    fn InstallProgress();
+    fn UserActiveHoursStart();
+    fn UserActiveHoursEnd();
+    fn UserActiveHoursMax();
+    fn TrySetUserActiveHours();
+    fn LastUpdateCheckTime();
+    fn LastUpdateInstallTime();
+    fn LastErrorInfo();
+    fn GetAutomaticRebootBlockIds();
+    fn BlockAutomaticRebootAsync();
+    fn UnblockAutomaticRebootAsync();
+    fn ExtendedError();
+    fn GetUpdateItems();
+    fn AttentionRequiredReason();
+    fn SetFlightRing();
+    fn GetFlightRing();
+    fn StartInstall();
+    fn RebootToCompleteInstall();
+    fn StartCancelUpdates();
 }
 #[repr(C)]
 #[doc(hidden)]

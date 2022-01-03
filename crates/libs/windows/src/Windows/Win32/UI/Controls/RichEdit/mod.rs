@@ -1920,6 +1920,24 @@ unsafe impl ::windows::core::Interface for IRichEditOle {
     type Vtable = IRichEditOleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020d00_0000_0000_c000_000000000046);
 }
+pub trait IRichEditOleImpl {
+    fn GetClientSite();
+    fn GetObjectCount();
+    fn GetLinkCount();
+    fn GetObject();
+    fn InsertObject();
+    fn ConvertObject();
+    fn ActivateAs();
+    fn SetHostNames();
+    fn SetLinkAvailable();
+    fn SetDvaspect();
+    fn HandsOffStorage();
+    fn SaveCompleted();
+    fn InPlaceDeactivate();
+    fn ContextSensitiveHelp();
+    fn GetClipboardData();
+    fn ImportDataObject();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRichEditOleVtbl(
@@ -2049,6 +2067,18 @@ unsafe impl ::windows::core::Interface for IRichEditOleCallback {
     type Vtable = IRichEditOleCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020d03_0000_0000_c000_000000000046);
 }
+pub trait IRichEditOleCallbackImpl {
+    fn GetNewStorage();
+    fn GetInPlaceContext();
+    fn ShowContainerUI();
+    fn QueryInsertObject();
+    fn DeleteObject();
+    fn QueryAcceptData();
+    fn ContextSensitiveHelp();
+    fn GetClipboardData();
+    fn GetDragDropEffect();
+    fn GetContextMenu();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRichEditOleCallbackVtbl(
@@ -2125,6 +2155,9 @@ impl ::core::fmt::Debug for IRicheditUiaOverrides {
 unsafe impl ::windows::core::Interface for IRicheditUiaOverrides {
     type Vtable = IRicheditUiaOverridesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+}
+pub trait IRicheditUiaOverridesImpl {
+    fn GetPropertyOverrideValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2226,6 +2259,8 @@ unsafe impl ::windows::core::Interface for ITextDisplays {
     type Vtable = ITextDisplaysVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5f2_7206_11d8_a2c7_00a0d1d6c6b3);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ITextDisplaysImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextDisplaysVtbl(
@@ -2422,6 +2457,28 @@ impl ::core::fmt::Debug for ITextDocument {
 unsafe impl ::windows::core::Interface for ITextDocument {
     type Vtable = ITextDocumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cc497c0_a1df_11ce_8098_00aa0047be5d);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ITextDocumentImpl: IDispatchImpl {
+    fn GetName();
+    fn GetSelection();
+    fn GetStoryCount();
+    fn GetStoryRanges();
+    fn GetSaved();
+    fn SetSaved();
+    fn GetDefaultTabStop();
+    fn SetDefaultTabStop();
+    fn New();
+    fn Open();
+    fn Save();
+    fn Freeze();
+    fn Unfreeze();
+    fn BeginEditCollection();
+    fn EndEditCollection();
+    fn Undo();
+    fn Redo();
+    fn Range();
+    fn RangeFromPoint();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2864,6 +2921,53 @@ unsafe impl ::windows::core::Interface for ITextDocument2 {
     type Vtable = ITextDocument2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5e0_7206_11d8_a2c7_00a0d1d6c6b3);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ITextDocument2Impl: ITextDocumentImpl + IDispatchImpl {
+    fn GetCaretType();
+    fn SetCaretType();
+    fn GetDisplays();
+    fn GetDocumentFont();
+    fn SetDocumentFont();
+    fn GetDocumentPara();
+    fn SetDocumentPara();
+    fn GetEastAsianFlags();
+    fn GetGenerator();
+    fn SetIMEInProgress();
+    fn GetNotificationMode();
+    fn SetNotificationMode();
+    fn GetSelection2();
+    fn GetStoryRanges2();
+    fn GetTypographyOptions();
+    fn GetVersion();
+    fn GetWindow();
+    fn AttachMsgFilter();
+    fn CheckTextLimit();
+    fn GetCallManager();
+    fn GetClientRect();
+    fn GetEffectColor();
+    fn GetImmContext();
+    fn GetPreferredFont();
+    fn GetProperty();
+    fn GetStrings();
+    fn Notify();
+    fn Range2();
+    fn RangeFromPoint2();
+    fn ReleaseCallManager();
+    fn ReleaseImmContext();
+    fn SetEffectColor();
+    fn SetProperty();
+    fn SetTypographyOptions();
+    fn SysBeep();
+    fn Update();
+    fn UpdateWindow();
+    fn GetMathProperties();
+    fn SetMathProperties();
+    fn GetActiveStory();
+    fn SetActiveStory();
+    fn GetMainStory();
+    fn GetNewStory();
+    fn GetStory();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextDocument2Vtbl(
@@ -3255,6 +3359,33 @@ impl ::core::fmt::Debug for ITextDocument2Old {
 unsafe impl ::windows::core::Interface for ITextDocument2Old {
     type Vtable = ITextDocument2OldVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01c25500_4268_11d1_883a_3c8b00c10000);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ITextDocument2OldImpl: ITextDocumentImpl + IDispatchImpl {
+    fn AttachMsgFilter();
+    fn SetEffectColor();
+    fn GetEffectColor();
+    fn GetCaretType();
+    fn SetCaretType();
+    fn GetImmContext();
+    fn ReleaseImmContext();
+    fn GetPreferredFont();
+    fn GetNotificationMode();
+    fn SetNotificationMode();
+    fn GetClientRect();
+    fn GetSelection2();
+    fn GetWindow();
+    fn GetFEFlags();
+    fn UpdateWindow();
+    fn CheckTextLimit();
+    fn IMEInProgress();
+    fn SysBeep();
+    fn Update();
+    fn Notify();
+    fn GetDocumentFont();
+    fn GetDocumentPara();
+    fn GetCallManager();
+    fn ReleaseCallManager();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3658,6 +3789,64 @@ impl ::core::fmt::Debug for ITextFont {
 unsafe impl ::windows::core::Interface for ITextFont {
     type Vtable = ITextFontVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cc497c3_a1df_11ce_8098_00aa0047be5d);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ITextFontImpl: IDispatchImpl {
+    fn GetDuplicate();
+    fn SetDuplicate();
+    fn CanChange();
+    fn IsEqual();
+    fn Reset();
+    fn GetStyle();
+    fn SetStyle();
+    fn GetAllCaps();
+    fn SetAllCaps();
+    fn GetAnimation();
+    fn SetAnimation();
+    fn GetBackColor();
+    fn SetBackColor();
+    fn GetBold();
+    fn SetBold();
+    fn GetEmboss();
+    fn SetEmboss();
+    fn GetForeColor();
+    fn SetForeColor();
+    fn GetHidden();
+    fn SetHidden();
+    fn GetEngrave();
+    fn SetEngrave();
+    fn GetItalic();
+    fn SetItalic();
+    fn GetKerning();
+    fn SetKerning();
+    fn GetLanguageID();
+    fn SetLanguageID();
+    fn GetName();
+    fn SetName();
+    fn GetOutline();
+    fn SetOutline();
+    fn GetPosition();
+    fn SetPosition();
+    fn GetProtected();
+    fn SetProtected();
+    fn GetShadow();
+    fn SetShadow();
+    fn GetSize();
+    fn SetSize();
+    fn GetSmallCaps();
+    fn SetSmallCaps();
+    fn GetSpacing();
+    fn SetSpacing();
+    fn GetStrikeThrough();
+    fn SetStrikeThrough();
+    fn GetSubscript();
+    fn SetSubscript();
+    fn GetSuperscript();
+    fn SetSuperscript();
+    fn GetUnderline();
+    fn SetUnderline();
+    fn GetWeight();
+    fn SetWeight();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4298,6 +4487,55 @@ unsafe impl ::windows::core::Interface for ITextFont2 {
     type Vtable = ITextFont2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5e3_7206_11d8_a2c7_00a0d1d6c6b3);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ITextFont2Impl: ITextFontImpl + IDispatchImpl {
+    fn GetCount();
+    fn GetAutoLigatures();
+    fn SetAutoLigatures();
+    fn GetAutospaceAlpha();
+    fn SetAutospaceAlpha();
+    fn GetAutospaceNumeric();
+    fn SetAutospaceNumeric();
+    fn GetAutospaceParens();
+    fn SetAutospaceParens();
+    fn GetCharRep();
+    fn SetCharRep();
+    fn GetCompressionMode();
+    fn SetCompressionMode();
+    fn GetCookie();
+    fn SetCookie();
+    fn GetDoubleStrike();
+    fn SetDoubleStrike();
+    fn GetDuplicate2();
+    fn SetDuplicate2();
+    fn GetLinkType();
+    fn GetMathZone();
+    fn SetMathZone();
+    fn GetModWidthPairs();
+    fn SetModWidthPairs();
+    fn GetModWidthSpace();
+    fn SetModWidthSpace();
+    fn GetOldNumbers();
+    fn SetOldNumbers();
+    fn GetOverlapping();
+    fn SetOverlapping();
+    fn GetPositionSubSuper();
+    fn SetPositionSubSuper();
+    fn GetScaling();
+    fn SetScaling();
+    fn GetSpaceExtension();
+    fn SetSpaceExtension();
+    fn GetUnderlinePositionMode();
+    fn SetUnderlinePositionMode();
+    fn GetEffects();
+    fn GetEffects2();
+    fn GetProperty();
+    fn GetPropertyInfo();
+    fn IsEqual2();
+    fn SetEffects();
+    fn SetEffects2();
+    fn SetProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextFont2Vtbl(
@@ -4639,6 +4877,47 @@ impl ::core::fmt::Debug for ITextHost {
 unsafe impl ::windows::core::Interface for ITextHost {
     type Vtable = ITextHostVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+}
+pub trait ITextHostImpl {
+    fn TxGetDC();
+    fn TxReleaseDC();
+    fn TxShowScrollBar();
+    fn TxEnableScrollBar();
+    fn TxSetScrollRange();
+    fn TxSetScrollPos();
+    fn TxInvalidateRect();
+    fn TxViewChange();
+    fn TxCreateCaret();
+    fn TxShowCaret();
+    fn TxSetCaretPos();
+    fn TxSetTimer();
+    fn TxKillTimer();
+    fn TxScrollWindowEx();
+    fn TxSetCapture();
+    fn TxSetFocus();
+    fn TxSetCursor();
+    fn TxScreenToClient();
+    fn TxClientToScreen();
+    fn TxActivate();
+    fn TxDeactivate();
+    fn TxGetClientRect();
+    fn TxGetViewInset();
+    fn TxGetCharFormat();
+    fn TxGetParaFormat();
+    fn TxGetSysColor();
+    fn TxGetBackStyle();
+    fn TxGetMaxLength();
+    fn TxGetScrollBars();
+    fn TxGetPasswordChar();
+    fn TxGetAcceleratorPos();
+    fn TxGetExtent();
+    fn OnTxCharFormatChange();
+    fn OnTxParaFormatChange();
+    fn TxGetPropertyBits();
+    fn TxNotify();
+    fn TxImmGetContext();
+    fn TxImmReleaseContext();
+    fn TxGetSelectionBarWidth();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5004,6 +5283,20 @@ impl ::core::fmt::Debug for ITextHost2 {
 unsafe impl ::windows::core::Interface for ITextHost2 {
     type Vtable = ITextHost2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+}
+pub trait ITextHost2Impl: ITextHostImpl {
+    fn TxIsDoubleClickPending();
+    fn TxGetWindow();
+    fn TxSetForegroundWindow();
+    fn TxGetPalette();
+    fn TxGetEastAsianFlags();
+    fn TxSetCursor2();
+    fn TxFreeTextServicesNotification();
+    fn TxGetEditStyle();
+    fn TxGetWindowStyles();
+    fn TxShowDropCaret();
+    fn TxDestroyCaret();
+    fn TxGetHorzExtent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5396,6 +5689,57 @@ impl ::core::fmt::Debug for ITextPara {
 unsafe impl ::windows::core::Interface for ITextPara {
     type Vtable = ITextParaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cc497c4_a1df_11ce_8098_00aa0047be5d);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ITextParaImpl: IDispatchImpl {
+    fn GetDuplicate();
+    fn SetDuplicate();
+    fn CanChange();
+    fn IsEqual();
+    fn Reset();
+    fn GetStyle();
+    fn SetStyle();
+    fn GetAlignment();
+    fn SetAlignment();
+    fn GetHyphenation();
+    fn SetHyphenation();
+    fn GetFirstLineIndent();
+    fn GetKeepTogether();
+    fn SetKeepTogether();
+    fn GetKeepWithNext();
+    fn SetKeepWithNext();
+    fn GetLeftIndent();
+    fn GetLineSpacing();
+    fn GetLineSpacingRule();
+    fn GetListAlignment();
+    fn SetListAlignment();
+    fn GetListLevelIndex();
+    fn SetListLevelIndex();
+    fn GetListStart();
+    fn SetListStart();
+    fn GetListTab();
+    fn SetListTab();
+    fn GetListType();
+    fn SetListType();
+    fn GetNoLineNumber();
+    fn SetNoLineNumber();
+    fn GetPageBreakBefore();
+    fn SetPageBreakBefore();
+    fn GetRightIndent();
+    fn SetRightIndent();
+    fn SetIndents();
+    fn SetLineSpacing();
+    fn GetSpaceAfter();
+    fn SetSpaceAfter();
+    fn GetSpaceBefore();
+    fn SetSpaceBefore();
+    fn GetWidowControl();
+    fn SetWidowControl();
+    fn GetTabCount();
+    fn AddTab();
+    fn ClearAllTabs();
+    fn DeleteTab();
+    fn GetTab();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5859,6 +6203,25 @@ unsafe impl ::windows::core::Interface for ITextPara2 {
     type Vtable = ITextPara2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5e4_7206_11d8_a2c7_00a0d1d6c6b3);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ITextPara2Impl: ITextParaImpl + IDispatchImpl {
+    fn GetBorders();
+    fn GetDuplicate2();
+    fn SetDuplicate2();
+    fn GetFontAlignment();
+    fn SetFontAlignment();
+    fn GetHangingPunctuation();
+    fn SetHangingPunctuation();
+    fn GetSnapToGrid();
+    fn SetSnapToGrid();
+    fn GetTrimPunctuationAtStart();
+    fn SetTrimPunctuationAtStart();
+    fn GetEffects();
+    fn GetProperty();
+    fn IsEqual2();
+    fn SetEffects();
+    fn SetProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextPara2Vtbl(
@@ -6282,6 +6645,60 @@ impl ::core::fmt::Debug for ITextRange {
 unsafe impl ::windows::core::Interface for ITextRange {
     type Vtable = ITextRangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cc497c2_a1df_11ce_8098_00aa0047be5d);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ITextRangeImpl: IDispatchImpl {
+    fn GetText();
+    fn SetText();
+    fn GetChar();
+    fn SetChar();
+    fn GetDuplicate();
+    fn GetFormattedText();
+    fn SetFormattedText();
+    fn GetStart();
+    fn SetStart();
+    fn GetEnd();
+    fn SetEnd();
+    fn GetFont();
+    fn SetFont();
+    fn GetPara();
+    fn SetPara();
+    fn GetStoryLength();
+    fn GetStoryType();
+    fn Collapse();
+    fn Expand();
+    fn GetIndex();
+    fn SetIndex();
+    fn SetRange();
+    fn InRange();
+    fn InStory();
+    fn IsEqual();
+    fn Select();
+    fn StartOf();
+    fn EndOf();
+    fn Move();
+    fn MoveStart();
+    fn MoveEnd();
+    fn MoveWhile();
+    fn MoveStartWhile();
+    fn MoveEndWhile();
+    fn MoveUntil();
+    fn MoveStartUntil();
+    fn MoveEndUntil();
+    fn FindText();
+    fn FindTextStart();
+    fn FindTextEnd();
+    fn Delete();
+    fn Cut();
+    fn Copy();
+    fn Paste();
+    fn CanPaste();
+    fn CanEdit();
+    fn ChangeCase();
+    fn GetPoint();
+    fn SetPoint();
+    fn ScrollIntoView();
+    fn GetEmbeddedObject();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6981,6 +7398,49 @@ unsafe impl ::windows::core::Interface for ITextRange2 {
     type Vtable = ITextRange2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5e2_7206_11d8_a2c7_00a0d1d6c6b3);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ITextRange2Impl: ITextSelectionImpl + ITextRangeImpl + IDispatchImpl {
+    fn GetCch();
+    fn GetCells();
+    fn GetColumn();
+    fn GetCount();
+    fn GetDuplicate2();
+    fn GetFont2();
+    fn SetFont2();
+    fn GetFormattedText2();
+    fn SetFormattedText2();
+    fn GetGravity();
+    fn SetGravity();
+    fn GetPara2();
+    fn SetPara2();
+    fn GetRow();
+    fn GetStartPara();
+    fn GetTable();
+    fn GetURL();
+    fn SetURL();
+    fn AddSubrange();
+    fn BuildUpMath();
+    fn DeleteSubrange();
+    fn Find();
+    fn GetChar2();
+    fn GetDropCap();
+    fn GetInlineObject();
+    fn GetProperty();
+    fn GetRect();
+    fn GetSubrange();
+    fn GetText2();
+    fn HexToUnicode();
+    fn InsertTable();
+    fn Linearize();
+    fn SetActiveSubrange();
+    fn SetDropCap();
+    fn SetProperty();
+    fn SetText2();
+    fn UnicodeToHex();
+    fn SetInlineObject();
+    fn GetMathFunctionType();
+    fn InsertImage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextRange2Vtbl(
@@ -7414,6 +7874,55 @@ impl ::core::fmt::Debug for ITextRow {
 unsafe impl ::windows::core::Interface for ITextRow {
     type Vtable = ITextRowVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5ef_7206_11d8_a2c7_00a0d1d6c6b3);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ITextRowImpl: IDispatchImpl {
+    fn GetAlignment();
+    fn SetAlignment();
+    fn GetCellCount();
+    fn SetCellCount();
+    fn GetCellCountCache();
+    fn SetCellCountCache();
+    fn GetCellIndex();
+    fn SetCellIndex();
+    fn GetCellMargin();
+    fn SetCellMargin();
+    fn GetHeight();
+    fn SetHeight();
+    fn GetIndent();
+    fn SetIndent();
+    fn GetKeepTogether();
+    fn SetKeepTogether();
+    fn GetKeepWithNext();
+    fn SetKeepWithNext();
+    fn GetNestLevel();
+    fn GetRTL();
+    fn SetRTL();
+    fn GetCellAlignment();
+    fn SetCellAlignment();
+    fn GetCellColorBack();
+    fn SetCellColorBack();
+    fn GetCellColorFore();
+    fn SetCellColorFore();
+    fn GetCellMergeFlags();
+    fn SetCellMergeFlags();
+    fn GetCellShading();
+    fn SetCellShading();
+    fn GetCellVerticalText();
+    fn SetCellVerticalText();
+    fn GetCellWidth();
+    fn SetCellWidth();
+    fn GetCellBorderColors();
+    fn GetCellBorderWidths();
+    fn SetCellBorderColors();
+    fn SetCellBorderWidths();
+    fn Apply();
+    fn CanChange();
+    fn GetProperty();
+    fn Insert();
+    fn IsEqual();
+    fn Reset();
+    fn SetProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7889,6 +8398,19 @@ impl ::core::fmt::Debug for ITextSelection {
 unsafe impl ::windows::core::Interface for ITextSelection {
     type Vtable = ITextSelectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cc497c1_a1df_11ce_8098_00aa0047be5d);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ITextSelectionImpl: ITextRangeImpl + IDispatchImpl {
+    fn GetFlags();
+    fn SetFlags();
+    fn GetType();
+    fn MoveLeft();
+    fn MoveRight();
+    fn MoveUp();
+    fn MoveDown();
+    fn HomeKey();
+    fn EndKey();
+    fn TypeText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8619,6 +9141,8 @@ unsafe impl ::windows::core::Interface for ITextSelection2 {
     type Vtable = ITextSelection2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5e1_7206_11d8_a2c7_00a0d1d6c6b3);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ITextSelection2Impl: ITextRange2Impl + ITextSelectionImpl + ITextRangeImpl + IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextSelection2Vtbl(
@@ -8886,6 +9410,26 @@ unsafe impl ::windows::core::Interface for ITextServices {
     type Vtable = ITextServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait ITextServicesImpl {
+    fn TxSendMessage();
+    fn TxDraw();
+    fn TxGetHScroll();
+    fn TxGetVScroll();
+    fn OnTxSetCursor();
+    fn TxQueryHitPoint();
+    fn OnTxInPlaceActivate();
+    fn OnTxInPlaceDeactivate();
+    fn OnTxUIActivate();
+    fn OnTxUIDeactivate();
+    fn TxGetText();
+    fn TxSetText();
+    fn TxGetCurTargetX();
+    fn TxGetBaseLinePos();
+    fn TxGetNaturalSize();
+    fn TxGetDropTarget();
+    fn OnTxPropertyBitsChange();
+    fn TxGetCachedSize();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextServicesVtbl(
@@ -9081,6 +9625,10 @@ unsafe impl ::windows::core::Interface for ITextServices2 {
     type Vtable = ITextServices2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait ITextServices2Impl: ITextServicesImpl {
+    fn TxGetNaturalSize2();
+    fn TxDrawD2D();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextServices2Vtbl(
@@ -9223,6 +9771,20 @@ unsafe impl ::windows::core::Interface for ITextStory {
     type Vtable = ITextStoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5f3_7206_11d8_a2c7_00a0d1d6c6b3);
 }
+pub trait ITextStoryImpl {
+    fn GetActive();
+    fn SetActive();
+    fn GetDisplay();
+    fn GetIndex();
+    fn GetType();
+    fn SetType();
+    fn GetProperty();
+    fn GetRange();
+    fn GetText();
+    fn SetFormattedText();
+    fn SetProperty();
+    fn SetText();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextStoryVtbl(
@@ -9349,6 +9911,12 @@ impl ::core::fmt::Debug for ITextStoryRanges {
 unsafe impl ::windows::core::Interface for ITextStoryRanges {
     type Vtable = ITextStoryRangesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cc497c5_a1df_11ce_8098_00aa0047be5d);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ITextStoryRangesImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn GetCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9498,6 +10066,10 @@ impl ::core::fmt::Debug for ITextStoryRanges2 {
 unsafe impl ::windows::core::Interface for ITextStoryRanges2 {
     type Vtable = ITextStoryRanges2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5e5_7206_11d8_a2c7_00a0d1d6c6b3);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ITextStoryRanges2Impl: ITextStoryRangesImpl + IDispatchImpl {
+    fn Item2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9683,6 +10255,26 @@ impl ::core::fmt::Debug for ITextStrings {
 unsafe impl ::windows::core::Interface for ITextStrings {
     type Vtable = ITextStringsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5e7_7206_11d8_a2c7_00a0d1d6c6b3);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ITextStringsImpl: IDispatchImpl {
+    fn Item();
+    fn GetCount();
+    fn Add();
+    fn Append();
+    fn Cat2();
+    fn CatTop2();
+    fn DeleteRange();
+    fn EncodeFunction();
+    fn GetCch();
+    fn InsertNullStr();
+    fn MoveBoundary();
+    fn PrefixTop();
+    fn Remove();
+    fn SetFormattedText();
+    fn SetOpCp();
+    fn SuffixTop();
+    fn Swap();
 }
 #[repr(C)]
 #[doc(hidden)]

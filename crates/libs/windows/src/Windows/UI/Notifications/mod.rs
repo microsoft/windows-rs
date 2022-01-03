@@ -666,6 +666,10 @@ unsafe impl ::windows::core::Interface for IAdaptiveNotificationContent {
     type Vtable = IAdaptiveNotificationContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb0dbe66_7448_448d_9db8_d78acd2abba9);
 }
+pub trait IAdaptiveNotificationContentImpl {
+    fn Kind();
+    fn Hints();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveNotificationContentVtbl(
@@ -685,6 +689,13 @@ pub struct IAdaptiveNotificationText(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdaptiveNotificationText {
     type Vtable = IAdaptiveNotificationTextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46d4a3be_609a_4326_a40b_bfde872034a3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveNotificationTextImpl {
+    fn Text();
+    fn SetText();
+    fn Language();
+    fn SetLanguage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -706,6 +717,12 @@ pub struct IBadgeNotification(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBadgeNotification {
     type Vtable = IBadgeNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x075cb4ca_d08a_4e2f_9233_7e289c1f7722);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBadgeNotificationImpl {
+    fn Content();
+    fn SetExpirationTime();
+    fn ExpirationTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -730,6 +747,10 @@ unsafe impl ::windows::core::Interface for IBadgeNotificationFactory {
     type Vtable = IBadgeNotificationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedf255ce_0618_4d59_948a_5a61040c52f9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBadgeNotificationFactoryImpl {
+    fn CreateBadgeNotification();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBadgeNotificationFactoryVtbl(
@@ -748,6 +769,13 @@ pub struct IBadgeUpdateManagerForUser(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBadgeUpdateManagerForUser {
     type Vtable = IBadgeUpdateManagerForUserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x996b21bc_0386_44e5_ba8d_0c1077a62e92);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBadgeUpdateManagerForUserImpl {
+    fn CreateBadgeUpdaterForApplication();
+    fn CreateBadgeUpdaterForApplicationWithId();
+    fn CreateBadgeUpdaterForSecondaryTile();
+    fn User();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -771,6 +799,13 @@ unsafe impl ::windows::core::Interface for IBadgeUpdateManagerStatics {
     type Vtable = IBadgeUpdateManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33400faa_6dd5_4105_aebc_9b50fca492da);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBadgeUpdateManagerStaticsImpl {
+    fn CreateBadgeUpdaterForApplication();
+    fn CreateBadgeUpdaterForApplicationWithId();
+    fn CreateBadgeUpdaterForSecondaryTile();
+    fn GetTemplateContent();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBadgeUpdateManagerStaticsVtbl(
@@ -793,6 +828,10 @@ unsafe impl ::windows::core::Interface for IBadgeUpdateManagerStatics2 {
     type Vtable = IBadgeUpdateManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x979a35ce_f940_48bf_94e8_ca244d400b41);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBadgeUpdateManagerStatics2Impl {
+    fn GetForUser();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBadgeUpdateManagerStatics2Vtbl(
@@ -811,6 +850,14 @@ pub struct IBadgeUpdater(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBadgeUpdater {
     type Vtable = IBadgeUpdaterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5fa1fd4_7562_4f6c_bfa3_1b6ed2e57f2f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBadgeUpdaterImpl {
+    fn Update();
+    fn Clear();
+    fn StartPeriodicUpdate();
+    fn StartPeriodicUpdateAtTime();
+    fn StopPeriodicUpdate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -836,6 +883,15 @@ unsafe impl ::windows::core::Interface for IKnownAdaptiveNotificationHintsStatic
     type Vtable = IKnownAdaptiveNotificationHintsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06206598_d496_497d_8692_4f7d7c2770df);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IKnownAdaptiveNotificationHintsStaticsImpl {
+    fn Style();
+    fn Wrap();
+    fn MaxLines();
+    fn MinLines();
+    fn TextStacking();
+    fn Align();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownAdaptiveNotificationHintsStaticsVtbl(
@@ -858,6 +914,28 @@ pub struct IKnownAdaptiveNotificationTextStylesStatics(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for IKnownAdaptiveNotificationTextStylesStatics {
     type Vtable = IKnownAdaptiveNotificationTextStylesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x202192d7_8996_45aa_8ba1_d461d72c2a1b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IKnownAdaptiveNotificationTextStylesStaticsImpl {
+    fn Caption();
+    fn Body();
+    fn Base();
+    fn Subtitle();
+    fn Title();
+    fn Subheader();
+    fn Header();
+    fn TitleNumeral();
+    fn SubheaderNumeral();
+    fn HeaderNumeral();
+    fn CaptionSubtle();
+    fn BodySubtle();
+    fn BaseSubtle();
+    fn SubtitleSubtle();
+    fn TitleSubtle();
+    fn SubheaderSubtle();
+    fn SubheaderNumeralSubtle();
+    fn HeaderSubtle();
+    fn HeaderNumeralSubtle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -895,6 +973,10 @@ unsafe impl ::windows::core::Interface for IKnownNotificationBindingsStatics {
     type Vtable = IKnownNotificationBindingsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79427bae_a8b7_4d58_89ea_76a7b7bccded);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IKnownNotificationBindingsStaticsImpl {
+    fn ToastGeneric();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownNotificationBindingsStaticsVtbl(
@@ -912,6 +994,13 @@ pub struct INotification(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INotification {
     type Vtable = INotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x108037fe_eb76_4f82_97bc_da07530a2e20);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INotificationImpl {
+    fn ExpirationTime();
+    fn SetExpirationTime();
+    fn Visual();
+    fn SetVisual();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -935,6 +1024,15 @@ pub struct INotificationBinding(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INotificationBinding {
     type Vtable = INotificationBindingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf29e4b85_0370_4ad3_b4ea_da9e35e7eabf);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INotificationBindingImpl {
+    fn Template();
+    fn SetTemplate();
+    fn Language();
+    fn SetLanguage();
+    fn Hints();
+    fn GetTextElements();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -961,6 +1059,12 @@ unsafe impl ::windows::core::Interface for INotificationData {
     type Vtable = INotificationDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ffd2312_9d6a_4aaf_b6ac_ff17f0c1f280);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INotificationDataImpl {
+    fn Values();
+    fn SequenceNumber();
+    fn SetSequenceNumber();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INotificationDataVtbl(
@@ -981,6 +1085,11 @@ pub struct INotificationDataFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INotificationDataFactory {
     type Vtable = INotificationDataFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23c1e33a_1c10_46fb_8040_dec384621cf8);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INotificationDataFactoryImpl {
+    fn CreateNotificationDataWithValuesAndSequenceNumber();
+    fn CreateNotificationDataWithValues();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1003,6 +1112,13 @@ unsafe impl ::windows::core::Interface for INotificationVisual {
     type Vtable = INotificationVisualVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68835b8e_aa56_4e11_86d3_5f9a6957bc5b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INotificationVisualImpl {
+    fn Language();
+    fn SetLanguage();
+    fn Bindings();
+    fn GetBinding();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INotificationVisualVtbl(
@@ -1024,6 +1140,17 @@ pub struct IScheduledTileNotification(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IScheduledTileNotification {
     type Vtable = IScheduledTileNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0abca6d5_99dc_4c78_a11c_c9e7f86d7ef7);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IScheduledTileNotificationImpl {
+    fn Content();
+    fn DeliveryTime();
+    fn SetExpirationTime();
+    fn ExpirationTime();
+    fn SetTag();
+    fn Tag();
+    fn SetId();
+    fn Id();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1054,6 +1181,10 @@ unsafe impl ::windows::core::Interface for IScheduledTileNotificationFactory {
     type Vtable = IScheduledTileNotificationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3383138a_98c0_4c3b_bbd6_4a633c7cfc29);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IScheduledTileNotificationFactoryImpl {
+    fn CreateScheduledTileNotification();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScheduledTileNotificationFactoryVtbl(
@@ -1072,6 +1203,15 @@ pub struct IScheduledToastNotification(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IScheduledToastNotification {
     type Vtable = IScheduledToastNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79f577f8_0de7_48cd_9740_9b370490c838);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IScheduledToastNotificationImpl {
+    fn Content();
+    fn DeliveryTime();
+    fn SnoozeInterval();
+    fn MaximumSnoozeCount();
+    fn SetId();
+    fn Id();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1099,6 +1239,15 @@ unsafe impl ::windows::core::Interface for IScheduledToastNotification2 {
     type Vtable = IScheduledToastNotification2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa66ea09c_31b4_43b0_b5dd_7a40e85363b1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IScheduledToastNotification2Impl {
+    fn SetTag();
+    fn Tag();
+    fn SetGroup();
+    fn Group();
+    fn SetSuppressPopup();
+    fn SuppressPopup();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScheduledToastNotification2Vtbl(
@@ -1122,6 +1271,13 @@ unsafe impl ::windows::core::Interface for IScheduledToastNotification3 {
     type Vtable = IScheduledToastNotification3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98429e8b_bd32_4a3b_9d15_22aea49462a1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IScheduledToastNotification3Impl {
+    fn NotificationMirroring();
+    fn SetNotificationMirroring();
+    fn RemoteId();
+    fn SetRemoteId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScheduledToastNotification3Vtbl(
@@ -1142,6 +1298,11 @@ pub struct IScheduledToastNotification4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IScheduledToastNotification4 {
     type Vtable = IScheduledToastNotification4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d4761fd_bdef_4e4a_96be_0101369b58d2);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IScheduledToastNotification4Impl {
+    fn ExpirationTime();
+    fn SetExpirationTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1164,6 +1325,11 @@ unsafe impl ::windows::core::Interface for IScheduledToastNotificationFactory {
     type Vtable = IScheduledToastNotificationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7bed191_0bb9_4189_8394_31761b476fd7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IScheduledToastNotificationFactoryImpl {
+    fn CreateScheduledToastNotification();
+    fn CreateScheduledToastNotificationRecurring();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScheduledToastNotificationFactoryVtbl(
@@ -1184,6 +1350,13 @@ pub struct IScheduledToastNotificationShowingEventArgs(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for IScheduledToastNotificationShowingEventArgs {
     type Vtable = IScheduledToastNotificationShowingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6173f6b4_412a_5e2c_a6ed_a0209aef9a09);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IScheduledToastNotificationShowingEventArgsImpl {
+    fn Cancel();
+    fn SetCancel();
+    fn ScheduledToastNotification();
+    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1207,6 +1380,10 @@ unsafe impl ::windows::core::Interface for IShownTileNotification {
     type Vtable = IShownTileNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x342d8988_5af2_481a_a6a3_f2fdc78de88e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IShownTileNotificationImpl {
+    fn Arguments();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShownTileNotificationVtbl(
@@ -1224,6 +1401,12 @@ pub struct ITileFlyoutNotification(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITileFlyoutNotification {
     type Vtable = ITileFlyoutNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a53b261_c70c_42be_b2f3_f42aa97d34e5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITileFlyoutNotificationImpl {
+    fn Content();
+    fn SetExpirationTime();
+    fn ExpirationTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1248,6 +1431,10 @@ unsafe impl ::windows::core::Interface for ITileFlyoutNotificationFactory {
     type Vtable = ITileFlyoutNotificationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef556ff5_5226_4f2b_b278_88a35dfe569f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITileFlyoutNotificationFactoryImpl {
+    fn CreateTileFlyoutNotification();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITileFlyoutNotificationFactoryVtbl(
@@ -1266,6 +1453,13 @@ pub struct ITileFlyoutUpdateManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITileFlyoutUpdateManagerStatics {
     type Vtable = ITileFlyoutUpdateManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04363b0b_1ac0_4b99_88e7_ada83e953d48);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITileFlyoutUpdateManagerStaticsImpl {
+    fn CreateTileFlyoutUpdaterForApplication();
+    fn CreateTileFlyoutUpdaterForApplicationWithId();
+    fn CreateTileFlyoutUpdaterForSecondaryTile();
+    fn GetTemplateContent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1288,6 +1482,15 @@ pub struct ITileFlyoutUpdater(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITileFlyoutUpdater {
     type Vtable = ITileFlyoutUpdaterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d40c76a_c465_4052_a740_5c2654c1a089);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITileFlyoutUpdaterImpl {
+    fn Update();
+    fn Clear();
+    fn StartPeriodicUpdate();
+    fn StartPeriodicUpdateAtTime();
+    fn StopPeriodicUpdate();
+    fn Setting();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1314,6 +1517,14 @@ unsafe impl ::windows::core::Interface for ITileNotification {
     type Vtable = ITileNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebaec8fa_50ec_4c18_b4d0_3af02e5540ab);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITileNotificationImpl {
+    fn Content();
+    fn SetExpirationTime();
+    fn ExpirationTime();
+    fn SetTag();
+    fn Tag();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITileNotificationVtbl(
@@ -1339,6 +1550,10 @@ unsafe impl ::windows::core::Interface for ITileNotificationFactory {
     type Vtable = ITileNotificationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6abdd6e_4928_46c8_bdbf_81a047dea0d4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITileNotificationFactoryImpl {
+    fn CreateTileNotification();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITileNotificationFactoryVtbl(
@@ -1357,6 +1572,13 @@ pub struct ITileUpdateManagerForUser(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITileUpdateManagerForUser {
     type Vtable = ITileUpdateManagerForUserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55141348_2ee2_4e2d_9cc1_216a20decc9f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITileUpdateManagerForUserImpl {
+    fn CreateTileUpdaterForApplication();
+    fn CreateTileUpdaterForApplicationWithId();
+    fn CreateTileUpdaterForSecondaryTile();
+    fn User();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1380,6 +1602,13 @@ unsafe impl ::windows::core::Interface for ITileUpdateManagerStatics {
     type Vtable = ITileUpdateManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda159e5d_3ea9_4986_8d84_b09d5e12276d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITileUpdateManagerStaticsImpl {
+    fn CreateTileUpdaterForApplication();
+    fn CreateTileUpdaterForApplicationWithId();
+    fn CreateTileUpdaterForSecondaryTile();
+    fn GetTemplateContent();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITileUpdateManagerStaticsVtbl(
@@ -1402,6 +1631,10 @@ unsafe impl ::windows::core::Interface for ITileUpdateManagerStatics2 {
     type Vtable = ITileUpdateManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x731c1ddc_8e14_4b7c_a34b_9d22de76c84d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITileUpdateManagerStatics2Impl {
+    fn GetForUser();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITileUpdateManagerStatics2Vtbl(
@@ -1420,6 +1653,21 @@ pub struct ITileUpdater(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITileUpdater {
     type Vtable = ITileUpdaterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0942a48b_1d91_44ec_9243_c1e821c29a20);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITileUpdaterImpl {
+    fn Update();
+    fn Clear();
+    fn EnableNotificationQueue();
+    fn Setting();
+    fn AddToSchedule();
+    fn RemoveFromSchedule();
+    fn GetScheduledTileNotifications();
+    fn StartPeriodicUpdate();
+    fn StartPeriodicUpdateAtTime();
+    fn StopPeriodicUpdate();
+    fn StartPeriodicUpdateBatch();
+    fn StartPeriodicUpdateBatchAtTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1455,6 +1703,12 @@ unsafe impl ::windows::core::Interface for ITileUpdater2 {
     type Vtable = ITileUpdater2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2266e12_15ee_43ed_83f5_65b352bb1a84);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITileUpdater2Impl {
+    fn EnableNotificationQueueForSquare150x150();
+    fn EnableNotificationQueueForWide310x150();
+    fn EnableNotificationQueueForSquare310x310();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITileUpdater2Vtbl(
@@ -1475,6 +1729,10 @@ unsafe impl ::windows::core::Interface for IToastActivatedEventArgs {
     type Vtable = IToastActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3bf92f3_c197_436f_8265_0625824f8dac);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastActivatedEventArgsImpl {
+    fn Arguments();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastActivatedEventArgsVtbl(
@@ -1492,6 +1750,10 @@ pub struct IToastActivatedEventArgs2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToastActivatedEventArgs2 {
     type Vtable = IToastActivatedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab7da512_cc61_568e_81be_304ac31038fa);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastActivatedEventArgs2Impl {
+    fn UserInput();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1511,6 +1773,16 @@ pub struct IToastCollection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToastCollection {
     type Vtable = IToastCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a8bc3b0_e0be_4858_bc2a_89dfe0b32863);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastCollectionImpl {
+    fn Id();
+    fn DisplayName();
+    fn SetDisplayName();
+    fn LaunchArgs();
+    fn SetLaunchArgs();
+    fn Icon();
+    fn SetIcon();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1538,6 +1810,10 @@ unsafe impl ::windows::core::Interface for IToastCollectionFactory {
     type Vtable = IToastCollectionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x164dd3d7_73c4_44f7_b4ff_fb6d4bf1f4c6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastCollectionFactoryImpl {
+    fn CreateInstance();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastCollectionFactoryVtbl(
@@ -1556,6 +1832,16 @@ pub struct IToastCollectionManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToastCollectionManager {
     type Vtable = IToastCollectionManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a1821fe_179d_49bc_b79d_a527920d3665);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastCollectionManagerImpl {
+    fn SaveToastCollectionAsync();
+    fn FindAllToastCollectionsAsync();
+    fn GetToastCollectionAsync();
+    fn RemoveToastCollectionAsync();
+    fn RemoveAllToastCollectionsAsync();
+    fn User();
+    fn AppId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1587,6 +1873,10 @@ unsafe impl ::windows::core::Interface for IToastDismissedEventArgs {
     type Vtable = IToastDismissedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f89d935_d9cb_4538_a0f0_ffe7659938f8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastDismissedEventArgsImpl {
+    fn Reason();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastDismissedEventArgsVtbl(
@@ -1605,6 +1895,10 @@ unsafe impl ::windows::core::Interface for IToastFailedEventArgs {
     type Vtable = IToastFailedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35176862_cfd4_44f8_ad64_f500fd896c3b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastFailedEventArgsImpl {
+    fn ErrorCode();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastFailedEventArgsVtbl(
@@ -1622,6 +1916,18 @@ pub struct IToastNotification(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToastNotification {
     type Vtable = IToastNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x997e2675_059e_4e60_8b06_1760917c8b80);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastNotificationImpl {
+    fn Content();
+    fn SetExpirationTime();
+    fn ExpirationTime();
+    fn Dismissed();
+    fn RemoveDismissed();
+    fn Activated();
+    fn RemoveActivated();
+    fn Failed();
+    fn RemoveFailed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1658,6 +1964,15 @@ unsafe impl ::windows::core::Interface for IToastNotification2 {
     type Vtable = IToastNotification2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9dfb9fd1_143a_490e_90bf_b9fba7132de7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastNotification2Impl {
+    fn SetTag();
+    fn Tag();
+    fn SetGroup();
+    fn Group();
+    fn SetSuppressPopup();
+    fn SuppressPopup();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastNotification2Vtbl(
@@ -1681,6 +1996,13 @@ unsafe impl ::windows::core::Interface for IToastNotification3 {
     type Vtable = IToastNotification3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31e8aed8_8141_4f99_bc0a_c4ed21297d77);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastNotification3Impl {
+    fn NotificationMirroring();
+    fn SetNotificationMirroring();
+    fn RemoteId();
+    fn SetRemoteId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastNotification3Vtbl(
@@ -1701,6 +2023,13 @@ pub struct IToastNotification4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToastNotification4 {
     type Vtable = IToastNotification4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15154935_28ea_4727_88e9_c58680e2d118);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastNotification4Impl {
+    fn Data();
+    fn SetData();
+    fn Priority();
+    fn SetPriority();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1723,6 +2052,11 @@ unsafe impl ::windows::core::Interface for IToastNotification6 {
     type Vtable = IToastNotification6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43ebfe53_89ae_5c1e_a279_3aecfe9b6f54);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastNotification6Impl {
+    fn ExpiresOnReboot();
+    fn SetExpiresOnReboot();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastNotification6Vtbl(
@@ -1741,6 +2075,11 @@ pub struct IToastNotificationActionTriggerDetail(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToastNotificationActionTriggerDetail {
     type Vtable = IToastNotificationActionTriggerDetailVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9445135a_38f3_42f6_96aa_7955b0f03da2);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastNotificationActionTriggerDetailImpl {
+    fn Argument();
+    fn UserInput();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1762,6 +2101,10 @@ unsafe impl ::windows::core::Interface for IToastNotificationFactory {
     type Vtable = IToastNotificationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04124b20_82c6_4229_b109_fd9ed4662b53);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastNotificationFactoryImpl {
+    fn CreateToastNotification();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastNotificationFactoryVtbl(
@@ -1780,6 +2123,16 @@ pub struct IToastNotificationHistory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToastNotificationHistory {
     type Vtable = IToastNotificationHistoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5caddc63_01d3_4c97_986f_0533483fee14);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastNotificationHistoryImpl {
+    fn RemoveGroup();
+    fn RemoveGroupWithId();
+    fn RemoveGroupedTagWithId();
+    fn RemoveGroupedTag();
+    fn Remove();
+    fn Clear();
+    fn ClearWithId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1805,6 +2158,11 @@ unsafe impl ::windows::core::Interface for IToastNotificationHistory2 {
     type Vtable = IToastNotificationHistory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bc3d253_2f31_4092_9129_8ad5abf067da);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastNotificationHistory2Impl {
+    fn GetHistory();
+    fn GetHistoryWithId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastNotificationHistory2Vtbl(
@@ -1826,6 +2184,10 @@ unsafe impl ::windows::core::Interface for IToastNotificationHistoryChangedTrigg
     type Vtable = IToastNotificationHistoryChangedTriggerDetailVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb037ffa_0068_412c_9c83_267c37f65670);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastNotificationHistoryChangedTriggerDetailImpl {
+    fn ChangeType();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastNotificationHistoryChangedTriggerDetailVtbl(
@@ -1844,6 +2206,10 @@ unsafe impl ::windows::core::Interface for IToastNotificationHistoryChangedTrigg
     type Vtable = IToastNotificationHistoryChangedTriggerDetail2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b36e982_c871_49fb_babb_25bdbc4cc45b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastNotificationHistoryChangedTriggerDetail2Impl {
+    fn CollectionId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastNotificationHistoryChangedTriggerDetail2Vtbl(
@@ -1861,6 +2227,13 @@ pub struct IToastNotificationManagerForUser(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToastNotificationManagerForUser {
     type Vtable = IToastNotificationManagerForUserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79ab57f6_43fe_487b_8a7f_99567200ae94);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastNotificationManagerForUserImpl {
+    fn CreateToastNotifier();
+    fn CreateToastNotifierWithId();
+    fn History();
+    fn User();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1883,6 +2256,13 @@ pub struct IToastNotificationManagerForUser2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToastNotificationManagerForUser2 {
     type Vtable = IToastNotificationManagerForUser2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x679c64b7_81ab_42c2_8819_c958767753f4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastNotificationManagerForUser2Impl {
+    fn GetToastNotifierForToastCollectionIdAsync();
+    fn GetHistoryForToastCollectionIdAsync();
+    fn GetToastCollectionManager();
+    fn GetToastCollectionManagerWithAppId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1907,6 +2287,12 @@ unsafe impl ::windows::core::Interface for IToastNotificationManagerStatics {
     type Vtable = IToastNotificationManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ac103f_d235_4598_bbef_98fe4d1a3ad4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastNotificationManagerStaticsImpl {
+    fn CreateToastNotifier();
+    fn CreateToastNotifierWithId();
+    fn GetTemplateContent();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastNotificationManagerStaticsVtbl(
@@ -1928,6 +2314,10 @@ unsafe impl ::windows::core::Interface for IToastNotificationManagerStatics2 {
     type Vtable = IToastNotificationManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ab93c52_0e48_4750_ba9d_1a4113981847);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastNotificationManagerStatics2Impl {
+    fn History();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastNotificationManagerStatics2Vtbl(
@@ -1945,6 +2335,11 @@ pub struct IToastNotificationManagerStatics4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToastNotificationManagerStatics4 {
     type Vtable = IToastNotificationManagerStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f993fd3_e516_45fb_8130_398e93fa52c3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastNotificationManagerStatics4Impl {
+    fn GetForUser();
+    fn ConfigureNotificationMirroring();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1966,6 +2361,10 @@ unsafe impl ::windows::core::Interface for IToastNotificationManagerStatics5 {
     type Vtable = IToastNotificationManagerStatics5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6f5f569_d40d_407c_8989_88cab42cfd14);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastNotificationManagerStatics5Impl {
+    fn GetDefault();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastNotificationManagerStatics5Vtbl(
@@ -1983,6 +2382,15 @@ pub struct IToastNotifier(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToastNotifier {
     type Vtable = IToastNotifierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75927b93_03f3_41ec_91d3_6e5bac1b38e7);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastNotifierImpl {
+    fn Show();
+    fn Hide();
+    fn Setting();
+    fn AddToSchedule();
+    fn RemoveFromSchedule();
+    fn GetScheduledToastNotifications();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2008,6 +2416,11 @@ unsafe impl ::windows::core::Interface for IToastNotifier2 {
     type Vtable = IToastNotifier2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x354389c6_7c01_4bd5_9c20_604340cd2b74);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastNotifier2Impl {
+    fn UpdateWithTagAndGroup();
+    fn UpdateWithTag();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastNotifier2Vtbl(
@@ -2026,6 +2439,11 @@ pub struct IToastNotifier3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToastNotifier3 {
     type Vtable = IToastNotifier3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae75a04a_3b0c_51ad_b7e8_b08ab6052549);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IToastNotifier3Impl {
+    fn ScheduledToastNotificationShowing();
+    fn RemoveScheduledToastNotificationShowing();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2047,6 +2465,13 @@ pub struct IUserNotification(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserNotification {
     type Vtable = IUserNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadf7e52f_4e53_42d5_9c33_eb5ea515b23e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserNotificationImpl {
+    fn Notification();
+    fn AppInfo();
+    fn Id();
+    fn CreationTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2070,6 +2495,11 @@ pub struct IUserNotificationChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserNotificationChangedEventArgs {
     type Vtable = IUserNotificationChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6bd6839_79cf_4b25_82c0_0ce1eef81f8c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserNotificationChangedEventArgsImpl {
+    fn ChangeKind();
+    fn UserNotificationId();
 }
 #[repr(C)]
 #[doc(hidden)]

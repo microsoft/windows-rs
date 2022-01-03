@@ -50,6 +50,9 @@ unsafe impl ::windows::core::Interface for IWaaSAssessor {
     type Vtable = IWaaSAssessorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2347bbef_1a3b_45a4_902d_3e09c269b45e);
 }
+pub trait IWaaSAssessorImpl {
+    fn GetOSUpdateAssessment();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWaaSAssessorVtbl(

@@ -139,6 +139,12 @@ unsafe impl ::windows::core::Interface for IAlternateWordForm {
     type Vtable = IAlternateWordFormVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47396c1e_51b9_4207_9146_248e636a1d1d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAlternateWordFormImpl {
+    fn SourceTextSegment();
+    fn AlternateText();
+    fn NormalizationFormat();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAlternateWordFormVtbl(
@@ -159,6 +165,11 @@ unsafe impl ::windows::core::Interface for ISelectableWordSegment {
     type Vtable = ISelectableWordSegmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x916a4cb7_8aa7_4c78_b374_5dedb752e60b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISelectableWordSegmentImpl {
+    fn Text();
+    fn SourceTextSegment();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectableWordSegmentVtbl(
@@ -177,6 +188,13 @@ pub struct ISelectableWordsSegmenter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISelectableWordsSegmenter {
     type Vtable = ISelectableWordsSegmenterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6dc31e7_4b13_45c5_8897_7d71269e085d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISelectableWordsSegmenterImpl {
+    fn ResolvedLanguage();
+    fn GetTokenAt();
+    fn GetTokens();
+    fn Tokenize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -201,6 +219,10 @@ unsafe impl ::windows::core::Interface for ISelectableWordsSegmenterFactory {
     type Vtable = ISelectableWordsSegmenterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c7a7648_6057_4339_bc70_f210010a4150);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISelectableWordsSegmenterFactoryImpl {
+    fn CreateWithLanguage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectableWordsSegmenterFactoryVtbl(
@@ -218,6 +240,11 @@ pub struct ISemanticTextQuery(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISemanticTextQuery {
     type Vtable = ISemanticTextQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a1cab51_1fb2_4909_80b8_35731a2b3e7f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISemanticTextQueryImpl {
+    fn Find();
+    fn FindInProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -240,6 +267,11 @@ unsafe impl ::windows::core::Interface for ISemanticTextQueryFactory {
     type Vtable = ISemanticTextQueryFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x238c0503_f995_4587_8777_a2b7d80acfef);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISemanticTextQueryFactoryImpl {
+    fn Create();
+    fn CreateWithLanguage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISemanticTextQueryFactoryVtbl(
@@ -258,6 +290,13 @@ pub struct ITextConversionGenerator(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITextConversionGenerator {
     type Vtable = ITextConversionGeneratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03606a5e_2aa9_4ab6_af8b_a562b63a8992);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITextConversionGeneratorImpl {
+    fn ResolvedLanguage();
+    fn LanguageAvailableButNotInstalled();
+    fn GetCandidatesAsync();
+    fn GetCandidatesWithMaxCountAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -282,6 +321,10 @@ unsafe impl ::windows::core::Interface for ITextConversionGeneratorFactory {
     type Vtable = ITextConversionGeneratorFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcaa3781_3083_49ab_be15_56dfbbb74d6f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITextConversionGeneratorFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextConversionGeneratorFactoryVtbl(
@@ -299,6 +342,11 @@ pub struct ITextPhoneme(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITextPhoneme {
     type Vtable = ITextPhonemeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9362a40a_9b7a_4569_94cf_d84f2f38cf9b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITextPhonemeImpl {
+    fn DisplayText();
+    fn ReadingText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -318,6 +366,13 @@ pub struct ITextPredictionGenerator(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITextPredictionGenerator {
     type Vtable = ITextPredictionGeneratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5eacab07_abf1_4cb6_9d9e_326f2b468756);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITextPredictionGeneratorImpl {
+    fn ResolvedLanguage();
+    fn LanguageAvailableButNotInstalled();
+    fn GetCandidatesAsync();
+    fn GetCandidatesWithMaxCountAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -341,6 +396,13 @@ pub struct ITextPredictionGenerator2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITextPredictionGenerator2 {
     type Vtable = ITextPredictionGenerator2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb84723b8_2c77_486a_900a_a3453eedc15d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITextPredictionGenerator2Impl {
+    fn GetCandidatesWithParametersAsync();
+    fn GetNextWordCandidatesAsync();
+    fn InputScope();
+    fn SetInputScope();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -367,6 +429,10 @@ unsafe impl ::windows::core::Interface for ITextPredictionGeneratorFactory {
     type Vtable = ITextPredictionGeneratorFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7257b416_8ba2_4751_9d30_9d85435653a2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITextPredictionGeneratorFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextPredictionGeneratorFactoryVtbl(
@@ -384,6 +450,12 @@ pub struct ITextReverseConversionGenerator(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITextReverseConversionGenerator {
     type Vtable = ITextReverseConversionGeneratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51e7f514_9c51_4d86_ae1b_b498fbad8313);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITextReverseConversionGeneratorImpl {
+    fn ResolvedLanguage();
+    fn LanguageAvailableButNotInstalled();
+    fn ConvertBackAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -406,6 +478,10 @@ unsafe impl ::windows::core::Interface for ITextReverseConversionGenerator2 {
     type Vtable = ITextReverseConversionGenerator2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1aafd2ec_85d6_46fd_828a_3a4830fa6e18);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITextReverseConversionGenerator2Impl {
+    fn GetPhonemesAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextReverseConversionGenerator2Vtbl(
@@ -425,6 +501,10 @@ unsafe impl ::windows::core::Interface for ITextReverseConversionGeneratorFactor
     type Vtable = ITextReverseConversionGeneratorFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63bed326_1fda_41f6_89d5_23ddea3c729a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITextReverseConversionGeneratorFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextReverseConversionGeneratorFactoryVtbl(
@@ -442,6 +522,26 @@ pub struct IUnicodeCharactersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUnicodeCharactersStatics {
     type Vtable = IUnicodeCharactersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97909e87_9291_4f91_b6c8_b6e359d7a7fb);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUnicodeCharactersStaticsImpl {
+    fn GetCodepointFromSurrogatePair();
+    fn GetSurrogatePairFromCodepoint();
+    fn IsHighSurrogate();
+    fn IsLowSurrogate();
+    fn IsSupplementary();
+    fn IsNoncharacter();
+    fn IsWhitespace();
+    fn IsAlphabetic();
+    fn IsCased();
+    fn IsUppercase();
+    fn IsLowercase();
+    fn IsIdStart();
+    fn IsIdContinue();
+    fn IsGraphemeBase();
+    fn IsGraphemeExtend();
+    fn GetNumericType();
+    fn GetGeneralCategory();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -477,6 +577,12 @@ unsafe impl ::windows::core::Interface for IWordSegment {
     type Vtable = IWordSegmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2d4ba6d_987c_4cc0_b6bd_d49a11b38f9a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWordSegmentImpl {
+    fn Text();
+    fn SourceTextSegment();
+    fn AlternateForms();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWordSegmentVtbl(
@@ -497,6 +603,13 @@ pub struct IWordsSegmenter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWordsSegmenter {
     type Vtable = IWordsSegmenterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86b4d4d1_b2fe_4e34_a81d_66640300454f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWordsSegmenterImpl {
+    fn ResolvedLanguage();
+    fn GetTokenAt();
+    fn GetTokens();
+    fn Tokenize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -520,6 +633,10 @@ pub struct IWordsSegmenterFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWordsSegmenterFactory {
     type Vtable = IWordsSegmenterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6977274_fc35_455c_8bfb_6d7f4653ca97);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWordsSegmenterFactoryImpl {
+    fn CreateWithLanguage();
 }
 #[repr(C)]
 #[doc(hidden)]

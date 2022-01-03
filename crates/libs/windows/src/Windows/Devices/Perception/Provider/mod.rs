@@ -8,6 +8,12 @@ unsafe impl ::windows::core::Interface for IKnownPerceptionFrameKindStatics {
     type Vtable = IKnownPerceptionFrameKindStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ae651d6_9669_4106_9fae_4835c1b96104);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IKnownPerceptionFrameKindStaticsImpl {
+    fn Color();
+    fn Depth();
+    fn Infrared();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -34,6 +40,10 @@ unsafe impl ::windows::core::Interface for IPerceptionControlGroup {
     type Vtable = IPerceptionControlGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x172c4882_2fd9_4c4e_ba34_fdf20a73dde5);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionControlGroupImpl {
+    fn FrameProviderIds();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -56,6 +66,10 @@ unsafe impl ::windows::core::Interface for IPerceptionControlGroupFactory {
     type Vtable = IPerceptionControlGroupFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f1af2e0_baf1_453b_bed4_cd9d4619154c);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionControlGroupFactoryImpl {
+    fn Create();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -77,6 +91,12 @@ pub struct IPerceptionCorrelation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionCorrelation {
     type Vtable = IPerceptionCorrelationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4131a82_dff5_4047_8a19_3b4d805f7176);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionCorrelationImpl {
+    fn TargetId();
+    fn Position();
+    fn Orientation();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -104,6 +124,10 @@ unsafe impl ::windows::core::Interface for IPerceptionCorrelationFactory {
     type Vtable = IPerceptionCorrelationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4a6c425_2884_4a8f_8134_2835d7286cbf);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionCorrelationFactoryImpl {
+    fn Create();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -125,6 +149,10 @@ pub struct IPerceptionCorrelationGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionCorrelationGroup {
     type Vtable = IPerceptionCorrelationGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x752a0906_36a7_47bb_9b79_56cc6b746770);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionCorrelationGroupImpl {
+    fn RelativeLocations();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -148,6 +176,10 @@ unsafe impl ::windows::core::Interface for IPerceptionCorrelationGroupFactory {
     type Vtable = IPerceptionCorrelationGroupFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7dfe2088_63df_48ed_83b1_4ab829132995);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionCorrelationGroupFactoryImpl {
+    fn Create();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -169,6 +201,10 @@ pub struct IPerceptionFaceAuthenticationGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionFaceAuthenticationGroup {
     type Vtable = IPerceptionFaceAuthenticationGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8019814_4a91_41b0_83a6_881a1775353e);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionFaceAuthenticationGroupImpl {
+    fn FrameProviderIds();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -192,6 +228,10 @@ unsafe impl ::windows::core::Interface for IPerceptionFaceAuthenticationGroupFac
     type Vtable = IPerceptionFaceAuthenticationGroupFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe68a05d4_b60c_40f4_bcb9_f24d46467320);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionFaceAuthenticationGroupFactoryImpl {
+    fn Create();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -213,6 +253,13 @@ pub struct IPerceptionFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionFrame {
     type Vtable = IPerceptionFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cfe7825_54bb_4d9d_bec5_8ef66151d2ac);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionFrameImpl {
+    fn RelativeTime();
+    fn SetRelativeTime();
+    fn Properties();
+    fn FrameData();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -394,6 +441,15 @@ unsafe impl ::windows::core::Interface for IPerceptionFrameProvider {
     type Vtable = IPerceptionFrameProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x794f7ab9_b37d_3b33_a10d_30626419ce65);
 }
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+pub trait IPerceptionFrameProviderImpl: IClosableImpl {
+    fn FrameProviderInfo();
+    fn Available();
+    fn Properties();
+    fn Start();
+    fn Stop();
+    fn SetProperty();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -425,6 +481,19 @@ pub struct IPerceptionFrameProviderInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionFrameProviderInfo {
     type Vtable = IPerceptionFrameProviderInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcca959e8_797e_4e83_9b87_036a74142fc4);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionFrameProviderInfoImpl {
+    fn Id();
+    fn SetId();
+    fn DisplayName();
+    fn SetDisplayName();
+    fn DeviceKind();
+    fn SetDeviceKind();
+    fn FrameKind();
+    fn SetFrameKind();
+    fn Hidden();
+    fn SetHidden();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -582,6 +651,10 @@ unsafe impl ::windows::core::Interface for IPerceptionFrameProviderManager {
     type Vtable = IPerceptionFrameProviderManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa959ce07_ead3_33df_8ec1_b924abe019c4);
 }
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+pub trait IPerceptionFrameProviderManagerImpl: IClosableImpl {
+    fn GetFrameProvider();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -603,6 +676,19 @@ pub struct IPerceptionFrameProviderManagerServiceStatics(::windows::core::IUnkno
 unsafe impl ::windows::core::Interface for IPerceptionFrameProviderManagerServiceStatics {
     type Vtable = IPerceptionFrameProviderManagerServiceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae8386e6_cad9_4359_8f96_8eae51810526);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionFrameProviderManagerServiceStaticsImpl {
+    fn RegisterFrameProviderInfo();
+    fn UnregisterFrameProviderInfo();
+    fn RegisterFaceAuthenticationGroup();
+    fn UnregisterFaceAuthenticationGroup();
+    fn RegisterControlGroup();
+    fn UnregisterControlGroup();
+    fn RegisterCorrelationGroup();
+    fn UnregisterCorrelationGroup();
+    fn UpdateAvailabilityForProvider();
+    fn PublishFrameForProvider();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -644,6 +730,14 @@ unsafe impl ::windows::core::Interface for IPerceptionPropertyChangeRequest {
     type Vtable = IPerceptionPropertyChangeRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c5aeb51_350b_4df8_9414_59e09815510b);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionPropertyChangeRequestImpl {
+    fn Name();
+    fn Value();
+    fn Status();
+    fn SetStatus();
+    fn GetDeferral();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -674,6 +768,11 @@ unsafe impl ::windows::core::Interface for IPerceptionVideoFrameAllocator {
     type Vtable = IPerceptionVideoFrameAllocatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c38a7da_fdd8_4ed4_a039_2a6f9b235038);
 }
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionVideoFrameAllocatorImpl: IClosableImpl {
+    fn AllocateFrame();
+    fn CopyFromVideoFrame();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -697,6 +796,10 @@ pub struct IPerceptionVideoFrameAllocatorFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionVideoFrameAllocatorFactory {
     type Vtable = IPerceptionVideoFrameAllocatorFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a58b0e1_e91a_481e_b876_a89e2bbc6b33);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionVideoFrameAllocatorFactoryImpl {
+    fn Create();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]

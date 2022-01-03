@@ -2457,6 +2457,21 @@ unsafe impl ::windows::core::Interface for IESim {
     type Vtable = IESimVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f6e6e26_f123_437d_8ced_dc1d2bc0c3a9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IESimImpl {
+    fn AvailableMemoryInBytes();
+    fn Eid();
+    fn FirmwareVersion();
+    fn MobileBroadbandModemDeviceId();
+    fn Policy();
+    fn State();
+    fn GetProfiles();
+    fn DeleteProfileAsync();
+    fn DownloadProfileMetadataAsync();
+    fn ResetAsync();
+    fn ProfileChanged();
+    fn RemoveProfileChanged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IESimVtbl(
@@ -2493,6 +2508,13 @@ unsafe impl ::windows::core::Interface for IESim2 {
     type Vtable = IESim2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd4fd0a0_c68f_56eb_b99b_8f34b8100299);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IESim2Impl {
+    fn Discover();
+    fn DiscoverWithServerAddressAndMatchingId();
+    fn DiscoverAsync();
+    fn DiscoverWithServerAddressAndMatchingIdAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IESim2Vtbl(
@@ -2516,6 +2538,10 @@ unsafe impl ::windows::core::Interface for IESimAddedEventArgs {
     type Vtable = IESimAddedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38bd0a58_4d5a_4d08_8da7_e73eff369ddd);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IESimAddedEventArgsImpl {
+    fn ESim();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IESimAddedEventArgsVtbl(
@@ -2533,6 +2559,11 @@ pub struct IESimDiscoverEvent(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IESimDiscoverEvent {
     type Vtable = IESimDiscoverEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe59ac3e3_39bc_5f6f_9321_0d4a182d261b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IESimDiscoverEventImpl {
+    fn MatchingId();
+    fn RspServerAddress();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2552,6 +2583,13 @@ pub struct IESimDiscoverResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IESimDiscoverResult {
     type Vtable = IESimDiscoverResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56b4bb5e_ab2f_5ac6_b359_dd5a8e237926);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IESimDiscoverResultImpl {
+    fn Events();
+    fn Kind();
+    fn ProfileMetadata();
+    fn Result();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2575,6 +2613,11 @@ unsafe impl ::windows::core::Interface for IESimDownloadProfileMetadataResult {
     type Vtable = IESimDownloadProfileMetadataResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4234d9e_5ad6_426d_8d00_4434f449afec);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IESimDownloadProfileMetadataResultImpl {
+    fn Result();
+    fn ProfileMetadata();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IESimDownloadProfileMetadataResultVtbl(
@@ -2593,6 +2636,13 @@ pub struct IESimManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IESimManagerStatics {
     type Vtable = IESimManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bfa2c0c_df88_4631_bf04_c12e281b3962);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IESimManagerStaticsImpl {
+    fn ServiceInfo();
+    fn TryCreateESimWatcher();
+    fn ServiceInfoChanged();
+    fn RemoveServiceInfoChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2617,6 +2667,10 @@ unsafe impl ::windows::core::Interface for IESimOperationResult {
     type Vtable = IESimOperationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa67b63b1_309b_4e77_9e7e_cd93f1ddc7b9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IESimOperationResultImpl {
+    fn Status();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IESimOperationResultVtbl(
@@ -2635,6 +2689,10 @@ unsafe impl ::windows::core::Interface for IESimPolicy {
     type Vtable = IESimPolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41e1b99d_cf7e_4315_882b_6f1e74b0d38f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IESimPolicyImpl {
+    fn ShouldEnableManagingUi();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IESimPolicyVtbl(
@@ -2652,6 +2710,20 @@ pub struct IESimProfile(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IESimProfile {
     type Vtable = IESimProfileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee1e7880_06a9_4027_b4f8_ddb23d7810e0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IESimProfileImpl {
+    fn Class();
+    fn Nickname();
+    fn Policy();
+    fn Id();
+    fn ProviderIcon();
+    fn ProviderId();
+    fn ProviderName();
+    fn State();
+    fn DisableAsync();
+    fn EnableAsync();
+    fn SetNicknameAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2684,6 +2756,22 @@ pub struct IESimProfileMetadata(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IESimProfileMetadata {
     type Vtable = IESimProfileMetadataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed25831f_90db_498d_a7b4_ebce807d3c23);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IESimProfileMetadataImpl {
+    fn IsConfirmationCodeRequired();
+    fn Policy();
+    fn Id();
+    fn ProviderIcon();
+    fn ProviderId();
+    fn ProviderName();
+    fn State();
+    fn DenyInstallAsync();
+    fn ConfirmInstallAsync();
+    fn ConfirmInstallWithConfirmationCodeAsync();
+    fn PostponeInstallAsync();
+    fn StateChanged();
+    fn RemoveStateChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2722,6 +2810,12 @@ unsafe impl ::windows::core::Interface for IESimProfilePolicy {
     type Vtable = IESimProfilePolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6dd0f1d_9c5c_46c5_a289_a948999bf062);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IESimProfilePolicyImpl {
+    fn CanDelete();
+    fn CanDisable();
+    fn IsManagedByEnterprise();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IESimProfilePolicyVtbl(
@@ -2742,6 +2836,10 @@ unsafe impl ::windows::core::Interface for IESimRemovedEventArgs {
     type Vtable = IESimRemovedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdec5277b_2fd9_4ed9_8376_d9b5e41278a3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IESimRemovedEventArgsImpl {
+    fn ESim();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IESimRemovedEventArgsVtbl(
@@ -2759,6 +2857,11 @@ pub struct IESimServiceInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IESimServiceInfo {
     type Vtable = IESimServiceInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf16aabcf_7f59_4a51_8494_bd89d5ff50ee);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IESimServiceInfoImpl {
+    fn AuthenticationPreference();
+    fn IsESimUiEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2779,6 +2882,10 @@ unsafe impl ::windows::core::Interface for IESimUpdatedEventArgs {
     type Vtable = IESimUpdatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c125cec_508d_4b88_83cb_68bef8168d12);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IESimUpdatedEventArgsImpl {
+    fn ESim();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IESimUpdatedEventArgsVtbl(
@@ -2796,6 +2903,22 @@ pub struct IESimWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IESimWatcher {
     type Vtable = IESimWatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1f84ceb_a28d_4fbf_9771_6e31b81ccf22);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IESimWatcherImpl {
+    fn Status();
+    fn Start();
+    fn Stop();
+    fn Added();
+    fn RemoveAdded();
+    fn EnumerationCompleted();
+    fn RemoveEnumerationCompleted();
+    fn Removed();
+    fn RemoveRemoved();
+    fn Stopped();
+    fn RemoveStopped();
+    fn Updated();
+    fn RemoveUpdated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2837,6 +2960,10 @@ unsafe impl ::windows::core::Interface for IFdnAccessManagerStatics {
     type Vtable = IFdnAccessManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2aa4395_f1e6_4319_aa3e_477ca64b2bdf);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFdnAccessManagerStaticsImpl {
+    fn RequestUnlockAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFdnAccessManagerStaticsVtbl(
@@ -2855,6 +2982,18 @@ pub struct IHotspotAuthenticationContext(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHotspotAuthenticationContext {
     type Vtable = IHotspotAuthenticationContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe756c791_1003_4de5_83c7_de61d88831d0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IHotspotAuthenticationContextImpl {
+    fn WirelessNetworkId();
+    fn NetworkAdapter();
+    fn RedirectMessageUrl();
+    fn RedirectMessageXml();
+    fn AuthenticationUrl();
+    fn IssueCredentials();
+    fn AbortAuthentication();
+    fn SkipAuthentication();
+    fn TriggerAttentionRequired();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2886,6 +3025,10 @@ unsafe impl ::windows::core::Interface for IHotspotAuthenticationContext2 {
     type Vtable = IHotspotAuthenticationContext2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe756c791_1004_4de5_83c7_de61d88831d0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IHotspotAuthenticationContext2Impl {
+    fn IssueCredentialsAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHotspotAuthenticationContext2Vtbl(
@@ -2905,6 +3048,10 @@ unsafe impl ::windows::core::Interface for IHotspotAuthenticationContextStatics 
     type Vtable = IHotspotAuthenticationContextStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe756c791_1002_4de5_83c7_de61d88831d0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IHotspotAuthenticationContextStaticsImpl {
+    fn TryGetAuthenticationContext();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHotspotAuthenticationContextStaticsVtbl(
@@ -2923,6 +3070,10 @@ unsafe impl ::windows::core::Interface for IHotspotAuthenticationEventDetails {
     type Vtable = IHotspotAuthenticationEventDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe756c791_1001_4de5_83c7_de61d88831d0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IHotspotAuthenticationEventDetailsImpl {
+    fn EventToken();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHotspotAuthenticationEventDetailsVtbl(
@@ -2940,6 +3091,13 @@ pub struct IHotspotCredentialsAuthenticationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHotspotCredentialsAuthenticationResult {
     type Vtable = IHotspotCredentialsAuthenticationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe756c791_1005_4de5_83c7_de61d88831d0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IHotspotCredentialsAuthenticationResultImpl {
+    fn HasNetworkErrorOccurred();
+    fn ResponseCode();
+    fn LogoffUrl();
+    fn AuthenticationReplyXml();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2964,6 +3122,12 @@ unsafe impl ::windows::core::Interface for IKnownCSimFilePathsStatics {
     type Vtable = IKnownCSimFilePathsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb458aeed_49f1_4c22_b073_96d511bf9c35);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IKnownCSimFilePathsStaticsImpl {
+    fn EFSpn();
+    fn Gid1();
+    fn Gid2();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownCSimFilePathsStaticsVtbl(
@@ -2987,6 +3151,12 @@ unsafe impl ::windows::core::Interface for IKnownRuimFilePathsStatics {
     type Vtable = IKnownRuimFilePathsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3883c8b9_ff24_4571_a867_09f960426e14);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IKnownRuimFilePathsStaticsImpl {
+    fn EFSpn();
+    fn Gid1();
+    fn Gid2();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownRuimFilePathsStaticsVtbl(
@@ -3009,6 +3179,13 @@ pub struct IKnownSimFilePathsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKnownSimFilePathsStatics {
     type Vtable = IKnownSimFilePathsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80cd1a63_37a5_43d3_80a3_ccd23e8fecee);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IKnownSimFilePathsStaticsImpl {
+    fn EFOns();
+    fn EFSpn();
+    fn Gid1();
+    fn Gid2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3034,6 +3211,14 @@ pub struct IKnownUSimFilePathsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKnownUSimFilePathsStatics {
     type Vtable = IKnownUSimFilePathsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c34e581_1f1b_43f4_9530_8b092d32d71f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IKnownUSimFilePathsStaticsImpl {
+    fn EFSpn();
+    fn EFOpl();
+    fn EFPnn();
+    fn Gid1();
+    fn Gid2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3062,6 +3247,14 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandAccount {
     type Vtable = IMobileBroadbandAccountVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36c24ccd_cee2_43e0_a603_ee86a36d6570);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandAccountImpl {
+    fn NetworkAccountId();
+    fn ServiceProviderGuid();
+    fn ServiceProviderName();
+    fn CurrentNetwork();
+    fn CurrentDeviceInformation();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandAccountVtbl(
@@ -3084,6 +3277,10 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandAccount2 {
     type Vtable = IMobileBroadbandAccount2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38f52f1c_1136_4257_959f_b658a352b6d4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandAccount2Impl {
+    fn GetConnectionProfiles();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandAccount2Vtbl(
@@ -3102,6 +3299,10 @@ pub struct IMobileBroadbandAccount3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandAccount3 {
     type Vtable = IMobileBroadbandAccount3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x092a1e21_9379_4b9b_ad31_d5fee2f748c6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandAccount3Impl {
+    fn AccountExperienceUrl();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3122,6 +3323,10 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandAccountEventArgs {
     type Vtable = IMobileBroadbandAccountEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3853c880_77de_4c04_bead_a123b08c9f59);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandAccountEventArgsImpl {
+    fn NetworkAccountId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandAccountEventArgsVtbl(
@@ -3139,6 +3344,11 @@ pub struct IMobileBroadbandAccountStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandAccountStatics {
     type Vtable = IMobileBroadbandAccountStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa7f4d24_afc1_4fc8_ae9a_a9175310faad);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandAccountStaticsImpl {
+    fn AvailableNetworkAccountIds();
+    fn CreateFromNetworkAccountId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3160,6 +3370,12 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandAccountUpdatedEventAr
     type Vtable = IMobileBroadbandAccountUpdatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bc31d88_a6bd_49e1_80ab_6b91354a57d4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandAccountUpdatedEventArgsImpl {
+    fn NetworkAccountId();
+    fn HasDeviceInformationChanged();
+    fn HasNetworkChanged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandAccountUpdatedEventArgsVtbl(
@@ -3179,6 +3395,22 @@ pub struct IMobileBroadbandAccountWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandAccountWatcher {
     type Vtable = IMobileBroadbandAccountWatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf3335e_23b5_449f_928d_5e0d3e04471d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandAccountWatcherImpl {
+    fn AccountAdded();
+    fn RemoveAccountAdded();
+    fn AccountUpdated();
+    fn RemoveAccountUpdated();
+    fn AccountRemoved();
+    fn RemoveAccountRemoved();
+    fn EnumerationCompleted();
+    fn RemoveEnumerationCompleted();
+    fn Stopped();
+    fn RemoveStopped();
+    fn Status();
+    fn Start();
+    fn Stop();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3220,6 +3452,11 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandAntennaSar {
     type Vtable = IMobileBroadbandAntennaSarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9af4b7e_cbf9_4109_90be_5c06bfd513b6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandAntennaSarImpl {
+    fn AntennaIndex();
+    fn SarBackoffIndex();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandAntennaSarVtbl(
@@ -3239,6 +3476,10 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandAntennaSarFactory {
     type Vtable = IMobileBroadbandAntennaSarFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa91e1716_c04d_4a21_8698_1459dc672c6e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandAntennaSarFactoryImpl {
+    fn CreateWithIndex();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandAntennaSarFactoryVtbl(
@@ -3256,6 +3497,17 @@ pub struct IMobileBroadbandCellCdma(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandCellCdma {
     type Vtable = IMobileBroadbandCellCdmaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0601b3b4_411a_4f2e_8287_76f5650c60cd);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandCellCdmaImpl {
+    fn BaseStationId();
+    fn BaseStationPNCode();
+    fn BaseStationLatitude();
+    fn BaseStationLongitude();
+    fn BaseStationLastBroadcastGpsTime();
+    fn NetworkId();
+    fn PilotSignalStrengthInDB();
+    fn SystemId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3290,6 +3542,16 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandCellGsm {
     type Vtable = IMobileBroadbandCellGsmVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc917f06_7ee0_47b8_9e1f_c3b48df9df5b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandCellGsmImpl {
+    fn BaseStationId();
+    fn CellId();
+    fn ChannelNumber();
+    fn LocationAreaCode();
+    fn ProviderId();
+    fn ReceivedSignalStrengthInDBm();
+    fn TimingAdvanceInBitPeriods();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandCellGsmVtbl(
@@ -3319,6 +3581,17 @@ pub struct IMobileBroadbandCellLte(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandCellLte {
     type Vtable = IMobileBroadbandCellLteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9197c87b_2b78_456d_8b53_aaa25d0af741);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandCellLteImpl {
+    fn CellId();
+    fn ChannelNumber();
+    fn PhysicalCellId();
+    fn ProviderId();
+    fn ReferenceSignalReceivedPowerInDBm();
+    fn ReferenceSignalReceivedQualityInDBm();
+    fn TimingAdvanceInBitPeriods();
+    fn TrackingAreaCode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3351,6 +3624,18 @@ pub struct IMobileBroadbandCellNR(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandCellNR {
     type Vtable = IMobileBroadbandCellNRVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa13f0deb_66fc_4b4b_83a9_a487a3a5a0a6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandCellNRImpl {
+    fn CellId();
+    fn ChannelNumber();
+    fn PhysicalCellId();
+    fn ProviderId();
+    fn ReferenceSignalReceivedPowerInDBm();
+    fn ReferenceSignalReceivedQualityInDBm();
+    fn TimingAdvanceInNanoseconds();
+    fn TrackingAreaCode();
+    fn SignalToNoiseRatioInDB();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3386,6 +3671,17 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandCellTdscdma {
     type Vtable = IMobileBroadbandCellTdscdmaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0eda1655_db0e_4182_8cda_cc419a7bde08);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandCellTdscdmaImpl {
+    fn CellId();
+    fn CellParameterId();
+    fn ChannelNumber();
+    fn LocationAreaCode();
+    fn PathLossInDB();
+    fn ProviderId();
+    fn ReceivedSignalCodePowerInDBm();
+    fn TimingAdvanceInBitPeriods();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandCellTdscdmaVtbl(
@@ -3418,6 +3714,17 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandCellUmts {
     type Vtable = IMobileBroadbandCellUmtsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77b4b5ae_49c8_4f15_b285_4c26a7f67215);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandCellUmtsImpl {
+    fn CellId();
+    fn ChannelNumber();
+    fn LocationAreaCode();
+    fn PathLossInDB();
+    fn PrimaryScramblingCode();
+    fn ProviderId();
+    fn ReceivedSignalCodePowerInDBm();
+    fn SignalToNoiseRatioInDB();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandCellUmtsVtbl(
@@ -3449,6 +3756,19 @@ pub struct IMobileBroadbandCellsInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandCellsInfo {
     type Vtable = IMobileBroadbandCellsInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89a9562a_e472_4da5_929c_de61711dd261);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandCellsInfoImpl {
+    fn NeighboringCellsCdma();
+    fn NeighboringCellsGsm();
+    fn NeighboringCellsLte();
+    fn NeighboringCellsTdscdma();
+    fn NeighboringCellsUmts();
+    fn ServingCellsCdma();
+    fn ServingCellsGsm();
+    fn ServingCellsLte();
+    fn ServingCellsTdscdma();
+    fn ServingCellsUmts();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3487,6 +3807,11 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandCellsInfo2 {
     type Vtable = IMobileBroadbandCellsInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66205912_b89f_4e12_bbb6_d5cf09a820ca);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandCellsInfo2Impl {
+    fn NeighboringCellsNR();
+    fn ServingCellsNR();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandCellsInfo2Vtbl(
@@ -3508,6 +3833,10 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandCurrentSlotIndexChang
     type Vtable = IMobileBroadbandCurrentSlotIndexChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf718b184_c370_5fd4_a670_1846cb9bce47);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandCurrentSlotIndexChangedEventArgsImpl {
+    fn CurrentSlotIndex();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandCurrentSlotIndexChangedEventArgsVtbl(
@@ -3525,6 +3854,23 @@ pub struct IMobileBroadbandDeviceInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceInformation {
     type Vtable = IMobileBroadbandDeviceInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6d08168_e381_4c6e_9be8_fe156969a446);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandDeviceInformationImpl {
+    fn NetworkDeviceStatus();
+    fn Manufacturer();
+    fn Model();
+    fn FirmwareInformation();
+    fn CellularClass();
+    fn DataClasses();
+    fn CustomDataClass();
+    fn MobileEquipmentId();
+    fn TelephoneNumbers();
+    fn SubscriberId();
+    fn SimIccId();
+    fn DeviceType();
+    fn DeviceId();
+    fn CurrentRadioState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3559,6 +3905,12 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceInformation2 {
     type Vtable = IMobileBroadbandDeviceInformation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e467af1_f932_4737_a722_03ba72370cb8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandDeviceInformation2Impl {
+    fn PinManager();
+    fn Revision();
+    fn SerialNumber();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandDeviceInformation2Vtbl(
@@ -3578,6 +3930,12 @@ pub struct IMobileBroadbandDeviceInformation3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceInformation3 {
     type Vtable = IMobileBroadbandDeviceInformation3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe08bb4bd_5d30_4b5a_92cc_d54df881d49e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandDeviceInformation3Impl {
+    fn SimSpn();
+    fn SimPnn();
+    fn SimGid1();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3599,6 +3957,10 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceInformation4 {
     type Vtable = IMobileBroadbandDeviceInformation4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x263f3152_7b9d_582c_b17c_f80a60b50031);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandDeviceInformation4Impl {
+    fn SlotManager();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandDeviceInformation4Vtbl(
@@ -3616,6 +3978,13 @@ pub struct IMobileBroadbandDeviceService(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceService {
     type Vtable = IMobileBroadbandDeviceServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22be1a52_bd80_40ac_8e1f_2e07836a3dbd);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandDeviceServiceImpl {
+    fn DeviceServiceId();
+    fn SupportedCommands();
+    fn OpenDataSession();
+    fn OpenCommandSession();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3639,6 +4008,11 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceServiceCommandR
     type Vtable = IMobileBroadbandDeviceServiceCommandResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0f46abb_94d6_44b9_a538_f0810b645389);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandDeviceServiceCommandResultImpl {
+    fn StatusCode();
+    fn ResponseData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandDeviceServiceCommandResultVtbl(
@@ -3658,6 +4032,12 @@ pub struct IMobileBroadbandDeviceServiceCommandSession(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceServiceCommandSession {
     type Vtable = IMobileBroadbandDeviceServiceCommandSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc098a45_913b_4914_b6c3_ae6304593e75);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandDeviceServiceCommandSessionImpl {
+    fn SendQueryCommandAsync();
+    fn SendSetCommandAsync();
+    fn CloseSession();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3681,6 +4061,10 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceServiceDataRece
     type Vtable = IMobileBroadbandDeviceServiceDataReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6aa13de_1380_40e3_8618_73cbca48138c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandDeviceServiceDataReceivedEventArgsImpl {
+    fn ReceivedData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandDeviceServiceDataReceivedEventArgsVtbl(
@@ -3699,6 +4083,13 @@ pub struct IMobileBroadbandDeviceServiceDataSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceServiceDataSession {
     type Vtable = IMobileBroadbandDeviceServiceDataSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdad62333_8bcf_4289_8a37_045c2169486a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandDeviceServiceDataSessionImpl {
+    fn WriteDataAsync();
+    fn CloseSession();
+    fn DataReceived();
+    fn RemoveDataReceived();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3724,6 +4115,12 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceServiceInformat
     type Vtable = IMobileBroadbandDeviceServiceInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53d69b5b_c4ed_45f0_803a_d9417a6d9846);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandDeviceServiceInformationImpl {
+    fn DeviceServiceId();
+    fn IsDataReadSupported();
+    fn IsDataWriteSupported();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandDeviceServiceInformationVtbl(
@@ -3743,6 +4140,12 @@ pub struct IMobileBroadbandDeviceServiceTriggerDetails(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceServiceTriggerDetails {
     type Vtable = IMobileBroadbandDeviceServiceTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a055b70_b9ae_4458_9241_a6a5fbf18a0c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandDeviceServiceTriggerDetailsImpl {
+    fn DeviceId();
+    fn DeviceServiceId();
+    fn ReceivedData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3764,6 +4167,19 @@ pub struct IMobileBroadbandModem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandModem {
     type Vtable = IMobileBroadbandModemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0356912_e9f9_4f67_a03d_43189a316bf1);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandModemImpl {
+    fn CurrentAccount();
+    fn DeviceInformation();
+    fn MaxDeviceServiceCommandSizeInBytes();
+    fn MaxDeviceServiceDataSizeInBytes();
+    fn DeviceServices();
+    fn GetDeviceService();
+    fn IsResetSupported();
+    fn ResetAsync();
+    fn GetCurrentConfigurationAsync();
+    fn CurrentNetwork();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3795,6 +4211,11 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandModem2 {
     type Vtable = IMobileBroadbandModem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12862b28_b9eb_4ee2_bbe3_711f53eea373);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandModem2Impl {
+    fn GetIsPassthroughEnabledAsync();
+    fn SetIsPassthroughEnabledAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandModem2Vtbl(
@@ -3815,6 +4236,13 @@ pub struct IMobileBroadbandModem3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandModem3 {
     type Vtable = IMobileBroadbandModem3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9fec6ea_2f34_4582_9102_c314d2a87eec);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandModem3Impl {
+    fn TryGetPcoAsync();
+    fn IsInEmergencyCallMode();
+    fn IsInEmergencyCallModeChanged();
+    fn RemoveIsInEmergencyCallModeChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3840,6 +4268,12 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandModemConfiguration {
     type Vtable = IMobileBroadbandModemConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfce035a3_d6cd_4320_b982_be9d3ec7890f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandModemConfigurationImpl {
+    fn Uicc();
+    fn HomeProviderId();
+    fn HomeProviderName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandModemConfigurationVtbl(
@@ -3860,6 +4294,10 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandModemConfiguration2 {
     type Vtable = IMobileBroadbandModemConfiguration2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x320ff5c5_e460_42ae_aa51_69621e7a4477);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandModemConfiguration2Impl {
+    fn SarManager();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandModemConfiguration2Vtbl(
@@ -3877,6 +4315,13 @@ pub struct IMobileBroadbandModemIsolation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandModemIsolation {
     type Vtable = IMobileBroadbandModemIsolationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5618fec_e661_4330_9bb4_3480212ec354);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandModemIsolationImpl {
+    fn AddAllowedHost();
+    fn AddAllowedHostRange();
+    fn ApplyConfigurationAsync();
+    fn ClearConfigurationAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3901,6 +4346,10 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandModemIsolationFactory
     type Vtable = IMobileBroadbandModemIsolationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21d7ec58_c2b1_4c2f_a030_72820a24ecd9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandModemIsolationFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandModemIsolationFactoryVtbl(
@@ -3918,6 +4367,12 @@ pub struct IMobileBroadbandModemStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandModemStatics {
     type Vtable = IMobileBroadbandModemStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf99ed637_d6f1_4a78_8cbc_6421a65063c8);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandModemStaticsImpl {
+    fn GetDeviceSelector();
+    fn FromId();
+    fn GetDefault();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3938,6 +4393,19 @@ pub struct IMobileBroadbandNetwork(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandNetwork {
     type Vtable = IMobileBroadbandNetworkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb63928c_0309_4cb6_a8c1_6a5a3c8e1ff6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandNetworkImpl {
+    fn NetworkAdapter();
+    fn NetworkRegistrationState();
+    fn RegistrationNetworkError();
+    fn PacketAttachNetworkError();
+    fn ActivationNetworkError();
+    fn AccessPointName();
+    fn RegisteredDataClass();
+    fn RegisteredProviderId();
+    fn RegisteredProviderName();
+    fn ShowConnectionUI();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3967,6 +4435,11 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandNetwork2 {
     type Vtable = IMobileBroadbandNetwork2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a55db22_62f7_4bdd_ba1d_477441960ba0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandNetwork2Impl {
+    fn GetVoiceCallSupportAsync();
+    fn RegistrationUiccApps();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandNetwork2Vtbl(
@@ -3988,6 +4461,10 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandNetwork3 {
     type Vtable = IMobileBroadbandNetwork3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33670a8a_c7ef_444c_ab6c_df7ef7a390fe);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandNetwork3Impl {
+    fn GetCellsInfoAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandNetwork3Vtbl(
@@ -4006,6 +4483,11 @@ pub struct IMobileBroadbandNetworkRegistrationStateChange(::windows::core::IUnkn
 unsafe impl ::windows::core::Interface for IMobileBroadbandNetworkRegistrationStateChange {
     type Vtable = IMobileBroadbandNetworkRegistrationStateChangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbeaf94e1_960f_49b4_a08d_7d85e968c7ec);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandNetworkRegistrationStateChangeImpl {
+    fn DeviceId();
+    fn Network();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4026,6 +4508,10 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandNetworkRegistrationSt
     type Vtable = IMobileBroadbandNetworkRegistrationStateChangeTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89135cff_28b8_46aa_b137_1c4b0f21edfe);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandNetworkRegistrationStateChangeTriggerDetailsImpl {
+    fn NetworkRegistrationStateChanges();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandNetworkRegistrationStateChangeTriggerDetailsVtbl(
@@ -4044,6 +4530,12 @@ pub struct IMobileBroadbandPco(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandPco {
     type Vtable = IMobileBroadbandPcoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4e4fcbe_e3a3_43c5_a87b_6c86d229d7fa);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandPcoImpl {
+    fn Data();
+    fn IsComplete();
+    fn DeviceId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4066,6 +4558,10 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandPcoDataChangeTriggerD
     type Vtable = IMobileBroadbandPcoDataChangeTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x263f5114_64e0_4493_909b_2d14a01962b1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandPcoDataChangeTriggerDetailsImpl {
+    fn UpdatedData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandPcoDataChangeTriggerDetailsVtbl(
@@ -4083,6 +4579,21 @@ pub struct IMobileBroadbandPin(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandPin {
     type Vtable = IMobileBroadbandPinVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe661d709_e779_45bf_8281_75323df9e321);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandPinImpl {
+    fn Type();
+    fn LockState();
+    fn Format();
+    fn Enabled();
+    fn MaxLength();
+    fn MinLength();
+    fn AttemptsRemaining();
+    fn EnableAsync();
+    fn DisableAsync();
+    fn EnterAsync();
+    fn ChangeAsync();
+    fn UnblockAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4118,6 +4629,12 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandPinLockStateChange {
     type Vtable = IMobileBroadbandPinLockStateChangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe16673e_1f04_4f95_8b90_e7f559dde7e5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandPinLockStateChangeImpl {
+    fn DeviceId();
+    fn PinType();
+    fn PinLockState();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandPinLockStateChangeVtbl(
@@ -4138,6 +4655,10 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandPinLockStateChangeTri
     type Vtable = IMobileBroadbandPinLockStateChangeTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd338c091_3e91_4d38_9036_aee83a6e79ad);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandPinLockStateChangeTriggerDetailsImpl {
+    fn PinLockStateChanges();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandPinLockStateChangeTriggerDetailsVtbl(
@@ -4156,6 +4677,11 @@ pub struct IMobileBroadbandPinManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandPinManager {
     type Vtable = IMobileBroadbandPinManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83567edd_6e1f_4b9b_a413_2b1f50cc36df);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandPinManagerImpl {
+    fn SupportedPins();
+    fn GetPin();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4177,6 +4703,11 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandPinOperationResult {
     type Vtable = IMobileBroadbandPinOperationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11dddc32_31e7_49f5_b663_123d3bef0362);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandPinOperationResultImpl {
+    fn IsSuccessful();
+    fn AttemptsRemaining();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandPinOperationResultVtbl(
@@ -4195,6 +4726,11 @@ pub struct IMobileBroadbandRadioStateChange(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandRadioStateChange {
     type Vtable = IMobileBroadbandRadioStateChangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb054a561_9833_4aed_9717_4348b21a24b3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandRadioStateChangeImpl {
+    fn DeviceId();
+    fn RadioState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4215,6 +4751,10 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandRadioStateChangeTrigg
     type Vtable = IMobileBroadbandRadioStateChangeTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71301ace_093c_42c6_b0db_ad1f75a65445);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandRadioStateChangeTriggerDetailsImpl {
+    fn RadioStateChanges();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandRadioStateChangeTriggerDetailsVtbl(
@@ -4233,6 +4773,24 @@ pub struct IMobileBroadbandSarManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandSarManager {
     type Vtable = IMobileBroadbandSarManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5b26833_967e_40c9_a485_19c0dd209e22);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandSarManagerImpl {
+    fn IsBackoffEnabled();
+    fn IsWiFiHardwareIntegrated();
+    fn IsSarControlledByHardware();
+    fn Antennas();
+    fn HysteresisTimerPeriod();
+    fn TransmissionStateChanged();
+    fn RemoveTransmissionStateChanged();
+    fn EnableBackoffAsync();
+    fn DisableBackoffAsync();
+    fn SetConfigurationAsync();
+    fn RevertSarToHardwareControlAsync();
+    fn SetTransmissionStateChangedHysteresisAsync();
+    fn GetIsTransmittingAsync();
+    fn StartTransmissionStateMonitoring();
+    fn StopTransmissionStateMonitoring();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4276,6 +4834,11 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandSlotInfo {
     type Vtable = IMobileBroadbandSlotInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd350b32_882e_542a_b17d_0bb1b49bae9e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandSlotInfoImpl {
+    fn Index();
+    fn State();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandSlotInfoVtbl(
@@ -4295,6 +4858,10 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandSlotInfoChangedEventA
     type Vtable = IMobileBroadbandSlotInfoChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3158839f_950c_54ce_a48d_ba4529b48f0f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandSlotInfoChangedEventArgsImpl {
+    fn SlotInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandSlotInfoChangedEventArgsVtbl(
@@ -4312,6 +4879,17 @@ pub struct IMobileBroadbandSlotManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandSlotManager {
     type Vtable = IMobileBroadbandSlotManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba07cd6_2019_5f81_a294_cc364a11d0b2);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandSlotManagerImpl {
+    fn SlotInfos();
+    fn CurrentSlotIndex();
+    fn SetCurrentSlot();
+    fn SetCurrentSlotAsync();
+    fn SlotInfoChanged();
+    fn RemoveSlotInfoChanged();
+    fn CurrentSlotIndexChanged();
+    fn RemoveCurrentSlotIndexChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4344,6 +4922,10 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandTransmissionStateChan
     type Vtable = IMobileBroadbandTransmissionStateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x612e3875_040a_4f99_a4f9_61d7c32da129);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandTransmissionStateChangedEventArgsImpl {
+    fn IsTransmitting();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandTransmissionStateChangedEventArgsVtbl(
@@ -4361,6 +4943,11 @@ pub struct IMobileBroadbandUicc(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandUicc {
     type Vtable = IMobileBroadbandUiccVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe634f691_525a_4ce2_8fce_aa4162579154);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandUiccImpl {
+    fn SimIccId();
+    fn GetUiccAppsAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4381,6 +4968,13 @@ pub struct IMobileBroadbandUiccApp(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMobileBroadbandUiccApp {
     type Vtable = IMobileBroadbandUiccAppVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d170556_98a1_43dd_b2ec_50c90cf248df);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandUiccAppImpl {
+    fn Id();
+    fn Kind();
+    fn GetRecordDetailsAsync();
+    fn ReadRecordAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4406,6 +5000,11 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandUiccAppReadRecordResu
     type Vtable = IMobileBroadbandUiccAppReadRecordResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64c95285_358e_47c5_8249_695f383b2bdb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandUiccAppReadRecordResultImpl {
+    fn Status();
+    fn Data();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandUiccAppReadRecordResultVtbl(
@@ -4425,6 +5024,15 @@ pub struct IMobileBroadbandUiccAppRecordDetailsResult(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IMobileBroadbandUiccAppRecordDetailsResult {
     type Vtable = IMobileBroadbandUiccAppRecordDetailsResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd919682f_be14_4934_981d_2f57b9ed83e6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandUiccAppRecordDetailsResultImpl {
+    fn Status();
+    fn Kind();
+    fn RecordCount();
+    fn RecordSize();
+    fn ReadAccessCondition();
+    fn WriteAccessCondition();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4449,6 +5057,11 @@ unsafe impl ::windows::core::Interface for IMobileBroadbandUiccAppsResult {
     type Vtable = IMobileBroadbandUiccAppsResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x744930eb_8157_4a41_8494_6bf54c9b1d2b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMobileBroadbandUiccAppsResultImpl {
+    fn Status();
+    fn UiccApps();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMobileBroadbandUiccAppsResultVtbl(
@@ -4469,6 +5082,10 @@ unsafe impl ::windows::core::Interface for INetworkOperatorDataUsageTriggerDetai
     type Vtable = INetworkOperatorDataUsageTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50e3126d_a465_4eeb_9317_28a167630cea);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INetworkOperatorDataUsageTriggerDetailsImpl {
+    fn NotificationKind();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkOperatorDataUsageTriggerDetailsVtbl(
@@ -4486,6 +5103,15 @@ pub struct INetworkOperatorNotificationEventDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INetworkOperatorNotificationEventDetails {
     type Vtable = INetworkOperatorNotificationEventDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc68a9d1_82e1_4488_9f2c_1276c2468fac);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INetworkOperatorNotificationEventDetailsImpl {
+    fn NotificationType();
+    fn NetworkAccountId();
+    fn EncodingType();
+    fn Message();
+    fn RuleId();
+    fn SmsMessage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4511,6 +5137,13 @@ unsafe impl ::windows::core::Interface for INetworkOperatorTetheringAccessPointC
     type Vtable = INetworkOperatorTetheringAccessPointConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bcc0284_412e_403d_acc6_b757e34774a4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INetworkOperatorTetheringAccessPointConfigurationImpl {
+    fn Ssid();
+    fn SetSsid();
+    fn Passphrase();
+    fn SetPassphrase();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkOperatorTetheringAccessPointConfigurationVtbl(
@@ -4531,6 +5164,13 @@ pub struct INetworkOperatorTetheringAccessPointConfiguration2(::windows::core::I
 unsafe impl ::windows::core::Interface for INetworkOperatorTetheringAccessPointConfiguration2 {
     type Vtable = INetworkOperatorTetheringAccessPointConfiguration2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1809142_7238_59a0_928b_74ab46fd64b6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INetworkOperatorTetheringAccessPointConfiguration2Impl {
+    fn IsBandSupported();
+    fn IsBandSupportedAsync();
+    fn Band();
+    fn SetBand();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4554,6 +5194,11 @@ unsafe impl ::windows::core::Interface for INetworkOperatorTetheringClient {
     type Vtable = INetworkOperatorTetheringClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x709d254c_595f_4847_bb30_646935542918);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INetworkOperatorTetheringClientImpl {
+    fn MacAddress();
+    fn HostNames();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkOperatorTetheringClientVtbl(
@@ -4574,6 +5219,10 @@ unsafe impl ::windows::core::Interface for INetworkOperatorTetheringClientManage
     type Vtable = INetworkOperatorTetheringClientManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91b14016_8dca_4225_bbed_eef8b8d718d7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INetworkOperatorTetheringClientManagerImpl {
+    fn GetTetheringClients();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkOperatorTetheringClientManagerVtbl(
@@ -4593,6 +5242,10 @@ unsafe impl ::windows::core::Interface for INetworkOperatorTetheringEntitlementC
     type Vtable = INetworkOperatorTetheringEntitlementCheckVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0108916d_9e9a_4af6_8da3_60493b19c204);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INetworkOperatorTetheringEntitlementCheckImpl {
+    fn AuthorizeTethering();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkOperatorTetheringEntitlementCheckVtbl(
@@ -4610,6 +5263,16 @@ pub struct INetworkOperatorTetheringManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INetworkOperatorTetheringManager {
     type Vtable = INetworkOperatorTetheringManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd45a8da0_0e86_4d98_8ba4_dd70d4b764d3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INetworkOperatorTetheringManagerImpl {
+    fn MaxClientCount();
+    fn ClientCount();
+    fn TetheringOperationalState();
+    fn GetCurrentAccessPointConfiguration();
+    fn ConfigureAccessPointAsync();
+    fn StartTetheringAsync();
+    fn StopTetheringAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4638,6 +5301,11 @@ unsafe impl ::windows::core::Interface for INetworkOperatorTetheringManagerStati
     type Vtable = INetworkOperatorTetheringManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ebcbacc_f8c3_405c_9964_70a1eeabe194);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INetworkOperatorTetheringManagerStaticsImpl {
+    fn GetTetheringCapability();
+    fn CreateFromNetworkAccountId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkOperatorTetheringManagerStaticsVtbl(
@@ -4656,6 +5324,11 @@ pub struct INetworkOperatorTetheringManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INetworkOperatorTetheringManagerStatics2 {
     type Vtable = INetworkOperatorTetheringManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b235412_35f0_49e7_9b08_16d278fbaa42);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INetworkOperatorTetheringManagerStatics2Impl {
+    fn GetTetheringCapabilityFromConnectionProfile();
+    fn CreateFromConnectionProfile();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4678,6 +5351,10 @@ unsafe impl ::windows::core::Interface for INetworkOperatorTetheringManagerStati
     type Vtable = INetworkOperatorTetheringManagerStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fdaadb6_4af9_4f21_9b58_d53e9f24231e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INetworkOperatorTetheringManagerStatics3Impl {
+    fn CreateFromConnectionProfileWithTargetAdapter();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkOperatorTetheringManagerStatics3Vtbl(
@@ -4696,6 +5373,14 @@ pub struct INetworkOperatorTetheringManagerStatics4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INetworkOperatorTetheringManagerStatics4 {
     type Vtable = INetworkOperatorTetheringManagerStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3b9f9d0_ebff_46a4_a847_d663d8b0977e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INetworkOperatorTetheringManagerStatics4Impl {
+    fn IsNoConnectionsTimeoutEnabled();
+    fn EnableNoConnectionsTimeout();
+    fn EnableNoConnectionsTimeoutAsync();
+    fn DisableNoConnectionsTimeout();
+    fn DisableNoConnectionsTimeoutAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4721,6 +5406,11 @@ unsafe impl ::windows::core::Interface for INetworkOperatorTetheringOperationRes
     type Vtable = INetworkOperatorTetheringOperationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebd203a1_01ba_476d_b4b3_bf3d12c8f80c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INetworkOperatorTetheringOperationResultImpl {
+    fn Status();
+    fn AdditionalErrorMessage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkOperatorTetheringOperationResultVtbl(
@@ -4740,6 +5430,11 @@ unsafe impl ::windows::core::Interface for IProvisionFromXmlDocumentResults {
     type Vtable = IProvisionFromXmlDocumentResultsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x217700e0_8203_11df_adb9_f4ce462d9137);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IProvisionFromXmlDocumentResultsImpl {
+    fn AllElementsProvisioned();
+    fn ProvisionResultsXml();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvisionFromXmlDocumentResultsVtbl(
@@ -4758,6 +5453,11 @@ pub struct IProvisionedProfile(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProvisionedProfile {
     type Vtable = IProvisionedProfileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x217700e0_8202_11df_adb9_f4ce462d9137);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IProvisionedProfileImpl {
+    fn UpdateCost();
+    fn UpdateUsage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4780,6 +5480,11 @@ unsafe impl ::windows::core::Interface for IProvisioningAgent {
     type Vtable = IProvisioningAgentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x217700e0_8201_11df_adb9_f4ce462d9137);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IProvisioningAgentImpl {
+    fn ProvisionFromXmlDocumentAsync();
+    fn GetProvisionedProfile();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvisioningAgentVtbl(
@@ -4800,6 +5505,10 @@ unsafe impl ::windows::core::Interface for IProvisioningAgentStaticMethods {
     type Vtable = IProvisioningAgentStaticMethodsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x217700e0_8101_11df_adb9_f4ce462d9137);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IProvisioningAgentStaticMethodsImpl {
+    fn CreateFromNetworkAccountId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvisioningAgentStaticMethodsVtbl(
@@ -4817,6 +5526,12 @@ pub struct ITetheringEntitlementCheckTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITetheringEntitlementCheckTriggerDetails {
     type Vtable = ITetheringEntitlementCheckTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03c65e9d_5926_41f3_a94e_b50926fc421b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITetheringEntitlementCheckTriggerDetailsImpl {
+    fn NetworkAccountId();
+    fn AllowTethering();
+    fn DenyTethering();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4837,6 +5552,15 @@ pub struct IUssdMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUssdMessage {
     type Vtable = IUssdMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f9acf82_2004_4d5d_bf81_2aba1b4be4a8);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUssdMessageImpl {
+    fn DataCodingScheme();
+    fn SetDataCodingScheme();
+    fn GetPayload();
+    fn SetPayload();
+    fn PayloadAsText();
+    fn SetPayloadAsText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4861,6 +5585,10 @@ unsafe impl ::windows::core::Interface for IUssdMessageFactory {
     type Vtable = IUssdMessageFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f9acf82_1003_4d5d_bf81_2aba1b4be4a8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUssdMessageFactoryImpl {
+    fn CreateMessage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUssdMessageFactoryVtbl(
@@ -4878,6 +5606,11 @@ pub struct IUssdReply(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUssdReply {
     type Vtable = IUssdReplyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f9acf82_2005_4d5d_bf81_2aba1b4be4a8);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUssdReplyImpl {
+    fn ResultCode();
+    fn Message();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4898,6 +5631,11 @@ unsafe impl ::windows::core::Interface for IUssdSession {
     type Vtable = IUssdSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f9acf82_2002_4d5d_bf81_2aba1b4be4a8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUssdSessionImpl {
+    fn SendMessageAndGetReplyAsync();
+    fn Close();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUssdSessionVtbl(
@@ -4917,6 +5655,11 @@ pub struct IUssdSessionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUssdSessionStatics {
     type Vtable = IUssdSessionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f9acf82_1001_4d5d_bf81_2aba1b4be4a8);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUssdSessionStaticsImpl {
+    fn CreateFromNetworkAccountId();
+    fn CreateFromNetworkInterfaceId();
 }
 #[repr(C)]
 #[doc(hidden)]

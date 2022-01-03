@@ -8,6 +8,10 @@ unsafe impl ::windows::core::Interface for IKeyboardCapabilities {
     type Vtable = IKeyboardCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a3f9b56_6798_4bbc_833e_0f34b17c65ff);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IKeyboardCapabilitiesImpl {
+    fn KeyboardPresent();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyboardCapabilitiesVtbl(
@@ -25,6 +29,14 @@ pub struct IMouseCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMouseCapabilities {
     type Vtable = IMouseCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbca5e023_7dd9_4b6b_9a92_55d43cb38f73);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMouseCapabilitiesImpl {
+    fn MousePresent();
+    fn VerticalWheelPresent();
+    fn HorizontalWheelPresent();
+    fn SwapButtons();
+    fn NumberOfButtons();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -48,6 +60,11 @@ unsafe impl ::windows::core::Interface for IMouseDevice {
     type Vtable = IMouseDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88edf458_f2c8_49f4_be1f_c256b388bc11);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMouseDeviceImpl {
+    fn MouseMoved();
+    fn RemoveMouseMoved();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMouseDeviceVtbl(
@@ -69,6 +86,10 @@ unsafe impl ::windows::core::Interface for IMouseDeviceStatics {
     type Vtable = IMouseDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x484a9045_6d70_49db_8e68_46ffbd17d38d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMouseDeviceStaticsImpl {
+    fn GetForCurrentView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMouseDeviceStaticsVtbl(
@@ -87,6 +108,10 @@ unsafe impl ::windows::core::Interface for IMouseEventArgs {
     type Vtable = IMouseEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf625aa5d_2354_4cc7_9230_96941c969fde);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMouseEventArgsImpl {
+    fn MouseDelta();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMouseEventArgsVtbl(
@@ -104,6 +129,18 @@ pub struct IPenButtonListener(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPenButtonListener {
     type Vtable = IPenButtonListenerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8245c376_1ee3_53f7_b1f7_8334a16f2815);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPenButtonListenerImpl {
+    fn IsSupported();
+    fn IsSupportedChanged();
+    fn RemoveIsSupportedChanged();
+    fn TailButtonClicked();
+    fn RemoveTailButtonClicked();
+    fn TailButtonDoubleClicked();
+    fn RemoveTailButtonDoubleClicked();
+    fn TailButtonLongPressed();
+    fn RemoveTailButtonLongPressed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -139,6 +176,10 @@ unsafe impl ::windows::core::Interface for IPenButtonListenerStatics {
     type Vtable = IPenButtonListenerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19a8a584_862f_5f69_bfea_05f6584f133f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPenButtonListenerStaticsImpl {
+    fn GetDefault();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenButtonListenerStaticsVtbl(
@@ -157,6 +198,10 @@ unsafe impl ::windows::core::Interface for IPenDevice {
     type Vtable = IPenDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31856eba_a738_5a8c_b8f6_f97ef68d18ef);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPenDeviceImpl {
+    fn PenId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenDeviceVtbl(
@@ -174,6 +219,10 @@ pub struct IPenDevice2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPenDevice2 {
     type Vtable = IPenDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0207d327_7fb8_5566_8c34_f8342037b7f9);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPenDevice2Impl {
+    fn SimpleHapticsController();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -194,6 +243,10 @@ unsafe impl ::windows::core::Interface for IPenDeviceStatics {
     type Vtable = IPenDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9dfbbe01_0966_5180_bcb4_b85060e39479);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPenDeviceStaticsImpl {
+    fn GetFromPointerId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenDeviceStaticsVtbl(
@@ -211,6 +264,16 @@ pub struct IPenDockListener(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPenDockListener {
     type Vtable = IPenDockListenerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x759f4d90_1dc0_55cb_ad18_b9101456f592);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPenDockListenerImpl {
+    fn IsSupported();
+    fn IsSupportedChanged();
+    fn RemoveIsSupportedChanged();
+    fn Docked();
+    fn RemoveDocked();
+    fn Undocked();
+    fn RemoveUndocked();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -242,6 +305,10 @@ unsafe impl ::windows::core::Interface for IPenDockListenerStatics {
     type Vtable = IPenDockListenerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcab75e9a_0016_5c72_969e_a97e11992a93);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPenDockListenerStaticsImpl {
+    fn GetDefault();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenDockListenerStaticsVtbl(
@@ -260,6 +327,8 @@ unsafe impl ::windows::core::Interface for IPenDockedEventArgs {
     type Vtable = IPenDockedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd4277c6_ca63_5d4e_9ed3_a28a54521c8c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPenDockedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenDockedEventArgsVtbl(
@@ -277,6 +346,8 @@ unsafe impl ::windows::core::Interface for IPenTailButtonClickedEventArgs {
     type Vtable = IPenTailButtonClickedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d2fb7b6_6ad3_5d3e_ab29_05ea2410e390);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPenTailButtonClickedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenTailButtonClickedEventArgsVtbl(
@@ -294,6 +365,8 @@ unsafe impl ::windows::core::Interface for IPenTailButtonDoubleClickedEventArgs 
     type Vtable = IPenTailButtonDoubleClickedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x846321a2_618a_5478_b04c_b358231da4a7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPenTailButtonDoubleClickedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenTailButtonDoubleClickedEventArgsVtbl(
@@ -311,6 +384,8 @@ unsafe impl ::windows::core::Interface for IPenTailButtonLongPressedEventArgs {
     type Vtable = IPenTailButtonLongPressedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf37c606e_c60a_5f42_b818_a53112406c13);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPenTailButtonLongPressedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenTailButtonLongPressedEventArgsVtbl(
@@ -328,6 +403,8 @@ unsafe impl ::windows::core::Interface for IPenUndockedEventArgs {
     type Vtable = IPenUndockedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccd09150_261b_59e6_a5d4_c1964cd03feb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPenUndockedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenUndockedEventArgsVtbl(
@@ -344,6 +421,15 @@ pub struct IPointerDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointerDevice {
     type Vtable = IPointerDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93c9bafc_ebcb_467e_82c6_276feae36b5a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPointerDeviceImpl {
+    fn PointerDeviceType();
+    fn IsIntegrated();
+    fn MaxContacts();
+    fn PhysicalDeviceRect();
+    fn ScreenRect();
+    fn SupportedUsages();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -371,6 +457,10 @@ unsafe impl ::windows::core::Interface for IPointerDevice2 {
     type Vtable = IPointerDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8a6d2a0_c484_489f_ae3e_30d2ee1ffd3e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPointerDevice2Impl {
+    fn MaxPointersWithZDistance();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerDevice2Vtbl(
@@ -388,6 +478,11 @@ pub struct IPointerDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointerDeviceStatics {
     type Vtable = IPointerDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8b89aa1_d1c6_416e_bd8d_5790914dc563);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPointerDeviceStaticsImpl {
+    fn GetPointerDevice();
+    fn GetPointerDevices();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -408,6 +503,11 @@ pub struct ITouchCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITouchCapabilities {
     type Vtable = ITouchCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20dd55f9_13f1_46c8_9285_2c05fa3eda6f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITouchCapabilitiesImpl {
+    fn TouchPresent();
+    fn Contacts();
 }
 #[repr(C)]
 #[doc(hidden)]

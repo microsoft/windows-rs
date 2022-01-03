@@ -6,6 +6,8 @@ unsafe impl ::windows::core::Interface for IRequestingFocusOnKeyboardInputEventA
     type Vtable = IRequestingFocusOnKeyboardInputEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1195f27_b1a7_41a2_879d_6a68687e5985);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRequestingFocusOnKeyboardInputEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRequestingFocusOnKeyboardInputEventArgsVtbl(
@@ -22,6 +24,15 @@ pub struct ISearchSuggestion(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISearchSuggestion {
     type Vtable = ISearchSuggestionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b5554b0_1527_437b_95c5_8d18d2b8af55);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISearchSuggestionImpl {
+    fn Kind();
+    fn Text();
+    fn Tag();
+    fn DetailText();
+    fn Image();
+    fn ImageAlternateText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -46,6 +57,25 @@ pub struct ISearchSuggestionManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISearchSuggestionManager {
     type Vtable = ISearchSuggestionManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f0c50a1_cb9d_497b_b500_3c04ac959ad2);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISearchSuggestionManagerImpl {
+    fn SearchHistoryEnabled();
+    fn SetSearchHistoryEnabled();
+    fn SearchHistoryContext();
+    fn SetSearchHistoryContext();
+    fn SetLocalContentSuggestionSettings();
+    fn SetQuery();
+    fn SetQueryWithLanguage();
+    fn SetQueryWithSearchQueryLinguisticDetails();
+    fn Suggestions();
+    fn AddToHistory();
+    fn AddToHistoryWithLanguage();
+    fn ClearHistory();
+    fn SuggestionsRequested();
+    fn RemoveSuggestionsRequested();
+    fn RequestingFocusOnKeyboardInput();
+    fn RemoveRequestingFocusOnKeyboardInput();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -84,6 +114,13 @@ pub struct ISearchSuggestionsRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISearchSuggestionsRequestedEventArgs {
     type Vtable = ISearchSuggestionsRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fd519e5_9e7e_4ab4_8be3_c76b1bd4344a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISearchSuggestionsRequestedEventArgsImpl {
+    fn QueryText();
+    fn Language();
+    fn LinguisticDetails();
+    fn Request();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -6,6 +6,12 @@ unsafe impl ::windows::core::Interface for ILockApplicationHost {
     type Vtable = ILockApplicationHostVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38ee31ad_d94f_4e7c_81fa_4f4436506281);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILockApplicationHostImpl {
+    fn RequestUnlock();
+    fn Unlocking();
+    fn RemoveUnlocking();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILockApplicationHostVtbl(
@@ -28,6 +34,10 @@ unsafe impl ::windows::core::Interface for ILockApplicationHostStatics {
     type Vtable = ILockApplicationHostStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf48fab8e_23d7_4e63_96a1_666ff52d3b2c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILockApplicationHostStaticsImpl {
+    fn GetForCurrentView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILockApplicationHostStaticsVtbl(
@@ -45,6 +55,14 @@ pub struct ILockScreenBadge(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILockScreenBadge {
     type Vtable = ILockScreenBadgeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe95105d9_2bff_4db0_9b4f_3824778b9c9a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILockScreenBadgeImpl {
+    fn Logo();
+    fn Glyph();
+    fn Number();
+    fn AutomationName();
+    fn LaunchApp();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -70,6 +88,21 @@ pub struct ILockScreenInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILockScreenInfo {
     type Vtable = ILockScreenInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf59aa65c_9711_4dc9_a630_95b6cb8cdad0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILockScreenInfoImpl {
+    fn LockScreenImageChanged();
+    fn RemoveLockScreenImageChanged();
+    fn LockScreenImage();
+    fn BadgesChanged();
+    fn RemoveBadgesChanged();
+    fn Badges();
+    fn DetailTextChanged();
+    fn RemoveDetailTextChanged();
+    fn DetailText();
+    fn AlarmIconChanged();
+    fn RemoveAlarmIconChanged();
+    fn AlarmIcon();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -112,6 +145,10 @@ unsafe impl ::windows::core::Interface for ILockScreenUnlockingDeferral {
     type Vtable = ILockScreenUnlockingDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e7d1ad6_5203_43e7_9bd6_7c3947d1e3fe);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILockScreenUnlockingDeferralImpl {
+    fn Complete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILockScreenUnlockingDeferralVtbl(
@@ -129,6 +166,11 @@ pub struct ILockScreenUnlockingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILockScreenUnlockingEventArgs {
     type Vtable = ILockScreenUnlockingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44e6c007_75fb_4abb_9f8b_824748900c71);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILockScreenUnlockingEventArgsImpl {
+    fn GetDeferral();
+    fn Deadline();
 }
 #[repr(C)]
 #[doc(hidden)]

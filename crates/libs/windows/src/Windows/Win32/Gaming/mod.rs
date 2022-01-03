@@ -242,6 +242,12 @@ unsafe impl ::windows::core::Interface for IGameExplorer {
     type Vtable = IGameExplorerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7b2fb72_d728_49b3_a5f2_18ebf5f1349e);
 }
+pub trait IGameExplorerImpl {
+    fn AddGame();
+    fn RemoveGame();
+    fn UpdateGame();
+    fn VerifyAccess();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameExplorerVtbl(
@@ -315,6 +321,11 @@ impl ::core::fmt::Debug for IGameExplorer2 {
 unsafe impl ::windows::core::Interface for IGameExplorer2 {
     type Vtable = IGameExplorer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86874aa7_a1ed_450d_a7eb_b89e20b2fff3);
+}
+pub trait IGameExplorer2Impl {
+    fn InstallGame();
+    fn UninstallGame();
+    fn CheckAccess();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -434,6 +445,20 @@ unsafe impl ::windows::core::Interface for IGameStatistics {
     type Vtable = IGameStatisticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3887c9ca_04a0_42ae_bc4c_5fa6c7721145);
 }
+pub trait IGameStatisticsImpl {
+    fn GetMaxCategoryLength();
+    fn GetMaxNameLength();
+    fn GetMaxValueLength();
+    fn GetMaxCategories();
+    fn GetMaxStatsPerCategory();
+    fn SetCategoryTitle();
+    fn GetCategoryTitle();
+    fn GetStatistic();
+    fn SetStatistic();
+    fn Save();
+    fn SetLastPlayedCategory();
+    fn GetLastPlayedCategory();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameStatisticsVtbl(
@@ -512,6 +537,10 @@ impl ::core::fmt::Debug for IGameStatisticsMgr {
 unsafe impl ::windows::core::Interface for IGameStatisticsMgr {
     type Vtable = IGameStatisticsMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaff3ea11_e70e_407d_95dd_35e612c41ce2);
+}
+pub trait IGameStatisticsMgrImpl {
+    fn GetGameStatistics();
+    fn RemoveGameStatistics();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -613,6 +642,14 @@ impl ::core::fmt::Debug for IXblIdpAuthManager {
 unsafe impl ::windows::core::Interface for IXblIdpAuthManager {
     type Vtable = IXblIdpAuthManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb5ddb08_8bbf_449b_ac21_b02ddeb3b136);
+}
+pub trait IXblIdpAuthManagerImpl {
+    fn SetGamerAccount();
+    fn GetGamerAccount();
+    fn SetAppViewInitialized();
+    fn GetEnvironment();
+    fn GetSandbox();
+    fn GetTokenAndSignatureWithTokenResult();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -796,6 +833,28 @@ unsafe impl ::windows::core::Interface for IXblIdpAuthTokenResult {
     type Vtable = IXblIdpAuthTokenResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46ce0225_f267_4d68_b299_b2762552dec1);
 }
+pub trait IXblIdpAuthTokenResultImpl {
+    fn GetStatus();
+    fn GetErrorCode();
+    fn GetToken();
+    fn GetSignature();
+    fn GetSandbox();
+    fn GetEnvironment();
+    fn GetMsaAccountId();
+    fn GetXuid();
+    fn GetGamertag();
+    fn GetAgeGroup();
+    fn GetPrivileges();
+    fn GetMsaTarget();
+    fn GetMsaPolicy();
+    fn GetMsaAppId();
+    fn GetRedirect();
+    fn GetMessage();
+    fn GetHelpId();
+    fn GetEnforcementBans();
+    fn GetRestrictions();
+    fn GetTitleRestrictions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXblIdpAuthTokenResultVtbl(
@@ -903,6 +962,11 @@ impl ::core::fmt::Debug for IXblIdpAuthTokenResult2 {
 unsafe impl ::windows::core::Interface for IXblIdpAuthTokenResult2 {
     type Vtable = IXblIdpAuthTokenResult2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75d760b0_60b9_412d_994f_26b2cd5f7812);
+}
+pub trait IXblIdpAuthTokenResult2Impl {
+    fn GetModernGamertag();
+    fn GetModernGamertagSuffix();
+    fn GetUniqueModernGamertag();
 }
 #[repr(C)]
 #[doc(hidden)]

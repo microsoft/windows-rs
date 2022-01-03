@@ -858,6 +858,14 @@ unsafe impl ::windows::core::Interface for IEnumSpObjectTokens {
     type Vtable = IEnumSpObjectTokensVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06b64f9e_7fda_11d2_b4f2_00c04f797396);
 }
+pub trait IEnumSpObjectTokensImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+    fn Item();
+    fn GetCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumSpObjectTokensVtbl(
@@ -1095,6 +1103,20 @@ unsafe impl ::windows::core::Interface for ISpAudio {
     type Vtable = ISpAudioVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc05c768f_fae8_4ec2_8e07_338321c12452);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpAudioImpl: ISpStreamFormatImpl + IStreamImpl + ISequentialStreamImpl {
+    fn SetState();
+    fn SetFormat();
+    fn GetStatus();
+    fn SetBufferInfo();
+    fn GetBufferInfo();
+    fn GetDefaultFormat();
+    fn EventHandle();
+    fn GetVolumeLevel();
+    fn SetVolumeLevel();
+    fn GetBufferNotifySize();
+    fn SetBufferNotifySize();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpAudioVtbl(
@@ -1238,6 +1260,9 @@ unsafe impl ::windows::core::Interface for ISpContainerLexicon {
     type Vtable = ISpContainerLexiconVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8565572f_c094_41cc_b56e_10bd9c3ff044);
 }
+pub trait ISpContainerLexiconImpl: ISpLexiconImpl {
+    fn AddLexicon();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpContainerLexiconVtbl(
@@ -1367,6 +1392,20 @@ unsafe impl ::windows::core::Interface for ISpDataKey {
     type Vtable = ISpDataKeyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14056581_e16c_11d2_bb90_00c04f8ee6c0);
 }
+pub trait ISpDataKeyImpl {
+    fn SetData();
+    fn GetData();
+    fn SetStringValue();
+    fn GetStringValue();
+    fn SetDWORD();
+    fn GetDWORD();
+    fn OpenKey();
+    fn CreateKey();
+    fn DeleteKey();
+    fn DeleteValue();
+    fn EnumKeys();
+    fn EnumValues();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpDataKeyVtbl(
@@ -1452,6 +1491,10 @@ unsafe impl ::windows::core::Interface for ISpDisplayAlternates {
     type Vtable = ISpDisplayAlternatesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8d7c7e2_0dde_44b7_afe3_b0c991fbeb5e);
 }
+pub trait ISpDisplayAlternatesImpl {
+    fn GetDisplayAlternates();
+    fn SetFullStopTrailSpace();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpDisplayAlternatesVtbl(
@@ -1517,6 +1560,10 @@ unsafe impl ::windows::core::Interface for ISpEnginePronunciation {
     type Vtable = ISpEnginePronunciationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc360ce4b_76d1_4214_ad68_52657d5083da);
 }
+pub trait ISpEnginePronunciationImpl {
+    fn Normalize();
+    fn GetPronunciations();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpEnginePronunciationVtbl(
@@ -1581,6 +1628,10 @@ impl ::core::fmt::Debug for ISpEventSink {
 unsafe impl ::windows::core::Interface for ISpEventSink {
     type Vtable = ISpEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe7a9cc9_5f9e_11d2_960f_00c04f8ee628);
+}
+pub trait ISpEventSinkImpl {
+    fn AddEvents();
+    fn GetEventInterest();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1701,6 +1752,11 @@ impl ::core::fmt::Debug for ISpEventSource {
 unsafe impl ::windows::core::Interface for ISpEventSource {
     type Vtable = ISpEventSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe7a9cce_5f9e_11d2_960f_00c04f8ee628);
+}
+pub trait ISpEventSourceImpl: ISpNotifySourceImpl {
+    fn SetInterest();
+    fn GetEvents();
+    fn GetInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1859,6 +1915,9 @@ unsafe impl ::windows::core::Interface for ISpEventSource2 {
     type Vtable = ISpEventSource2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2373a435_6a4b_429e_a6ac_d4231a61975b);
 }
+pub trait ISpEventSource2Impl: ISpEventSourceImpl + ISpNotifySourceImpl {
+    fn GetEventsEx();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpEventSource2Vtbl(
@@ -1964,6 +2023,16 @@ unsafe impl ::windows::core::Interface for ISpGrammarBuilder {
     type Vtable = ISpGrammarBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8137828f_591a_4a42_be58_49ea7ebaac68);
 }
+pub trait ISpGrammarBuilderImpl {
+    fn ResetGrammar();
+    fn GetRule();
+    fn ClearRule();
+    fn CreateNewState();
+    fn AddWordTransition();
+    fn AddRuleTransition();
+    fn AddResource();
+    fn Commit();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpGrammarBuilderVtbl(
@@ -2036,6 +2105,10 @@ impl ::core::fmt::Debug for ISpGrammarBuilder2 {
 unsafe impl ::windows::core::Interface for ISpGrammarBuilder2 {
     type Vtable = ISpGrammarBuilder2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ab10026_20cc_4b20_8c22_a49c9ba78f60);
+}
+pub trait ISpGrammarBuilder2Impl {
+    fn AddTextSubset();
+    fn SetPhoneticAlphabet();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2120,6 +2193,14 @@ impl ::core::fmt::Debug for ISpLexicon {
 unsafe impl ::windows::core::Interface for ISpLexicon {
     type Vtable = ISpLexiconVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda41a7c2_5383_4db2_916b_6c1719e3db58);
+}
+pub trait ISpLexiconImpl {
+    fn GetPronunciations();
+    fn AddPronunciation();
+    fn RemovePronunciation();
+    fn GetGeneration();
+    fn GetGenerationChange();
+    fn GetWords();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2403,6 +2484,14 @@ unsafe impl ::windows::core::Interface for ISpMMSysAudio {
     type Vtable = ISpMMSysAudioVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15806f6e_1d70_4b48_98e6_3b1a007509ab);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpMMSysAudioImpl: ISpAudioImpl + ISpStreamFormatImpl + IStreamImpl + ISequentialStreamImpl {
+    fn GetDeviceId();
+    fn SetDeviceId();
+    fn GetMMHandle();
+    fn GetLineId();
+    fn SetLineId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpMMSysAudioVtbl(
@@ -2483,6 +2572,9 @@ unsafe impl ::windows::core::Interface for ISpNotifyCallback {
     type Vtable = ISpNotifyCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait ISpNotifyCallbackImpl {
+    fn NotifyCallback();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpNotifyCallbackVtbl(#[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT, #[cfg(not(feature = "Win32_Foundation"))] usize);
@@ -2534,6 +2626,9 @@ impl ::core::fmt::Debug for ISpNotifySink {
 unsafe impl ::windows::core::Interface for ISpNotifySink {
     type Vtable = ISpNotifySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x259684dc_37c3_11d2_9603_00c04f8ee628);
+}
+pub trait ISpNotifySinkImpl {
+    fn Notify();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2614,6 +2709,15 @@ impl ::core::fmt::Debug for ISpNotifySource {
 unsafe impl ::windows::core::Interface for ISpNotifySource {
     type Vtable = ISpNotifySourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5eff4aef_8487_11d2_961c_00c04f8ee628);
+}
+pub trait ISpNotifySourceImpl {
+    fn SetNotifySink();
+    fn SetNotifyWindowMessage();
+    fn SetNotifyCallbackFunction();
+    fn SetNotifyCallbackInterface();
+    fn SetNotifyWin32Event();
+    fn WaitForNotifyEvent();
+    fn GetNotifyEventHandle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2730,6 +2834,14 @@ impl ::core::fmt::Debug for ISpNotifyTranslator {
 unsafe impl ::windows::core::Interface for ISpNotifyTranslator {
     type Vtable = ISpNotifyTranslatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaca16614_5d3d_11d2_960e_00c04f8ee628);
+}
+pub trait ISpNotifyTranslatorImpl: ISpNotifySinkImpl {
+    fn InitWindowMessage();
+    fn InitCallback();
+    fn InitSpNotifyCallback();
+    fn InitWin32Event();
+    fn Wait();
+    fn GetEventHandle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2929,6 +3041,18 @@ impl ::core::fmt::Debug for ISpObjectToken {
 unsafe impl ::windows::core::Interface for ISpObjectToken {
     type Vtable = ISpObjectTokenVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14056589_e16c_11d2_bb90_00c04f8ee6c0);
+}
+pub trait ISpObjectTokenImpl: ISpDataKeyImpl {
+    fn SetId();
+    fn GetId();
+    fn GetCategory();
+    fn CreateInstance();
+    fn GetStorageFileName();
+    fn RemoveStorageFileName();
+    fn Remove();
+    fn IsUISupported();
+    fn DisplayUI();
+    fn MatchesAttributes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3140,6 +3264,14 @@ impl ::core::fmt::Debug for ISpObjectTokenCategory {
 unsafe impl ::windows::core::Interface for ISpObjectTokenCategory {
     type Vtable = ISpObjectTokenCategoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d3d3845_39af_4850_bbf9_40b49780011d);
+}
+pub trait ISpObjectTokenCategoryImpl: ISpDataKeyImpl {
+    fn SetId();
+    fn GetId();
+    fn GetDataKey();
+    fn EnumTokens();
+    fn SetDefaultTokenId();
+    fn GetDefaultTokenId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3388,6 +3520,9 @@ unsafe impl ::windows::core::Interface for ISpObjectTokenInit {
     type Vtable = ISpObjectTokenInitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8aab0cf_346f_49d8_9499_c8b03f161d51);
 }
+pub trait ISpObjectTokenInitImpl: ISpObjectTokenImpl + ISpDataKeyImpl {
+    fn InitFromDataKey();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpObjectTokenInitVtbl(
@@ -3492,6 +3627,10 @@ unsafe impl ::windows::core::Interface for ISpObjectWithToken {
     type Vtable = ISpObjectWithTokenVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b559f40_e952_11d2_bb91_00c04f8ee6c0);
 }
+pub trait ISpObjectWithTokenImpl {
+    fn SetObjectToken();
+    fn GetObjectToken();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpObjectWithTokenVtbl(
@@ -3586,6 +3725,10 @@ unsafe impl ::windows::core::Interface for ISpPhoneConverter {
     type Vtable = ISpPhoneConverterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8445c581_0cac_4a38_abfe_9b2ce2826455);
 }
+pub trait ISpPhoneConverterImpl: ISpObjectWithTokenImpl {
+    fn PhoneToId();
+    fn IdToPhone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpPhoneConverterVtbl(
@@ -3667,6 +3810,13 @@ unsafe impl ::windows::core::Interface for ISpPhoneticAlphabetConverter {
     type Vtable = ISpPhoneticAlphabetConverterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x133adcd4_19b4_4020_9fdc_842e78253b17);
 }
+pub trait ISpPhoneticAlphabetConverterImpl {
+    fn GetLangId();
+    fn SetLangId();
+    fn SAPI2UPS();
+    fn UPS2SAPI();
+    fn GetMaxConvertLength();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpPhoneticAlphabetConverterVtbl(
@@ -3735,6 +3885,10 @@ impl ::core::fmt::Debug for ISpPhoneticAlphabetSelection {
 unsafe impl ::windows::core::Interface for ISpPhoneticAlphabetSelection {
     type Vtable = ISpPhoneticAlphabetSelectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2745efd_42ce_48ca_81f1_a96e02538a90);
+}
+pub trait ISpPhoneticAlphabetSelectionImpl {
+    fn IsAlphabetUPS();
+    fn SetAlphabetToUPS();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3811,6 +3965,12 @@ impl ::core::fmt::Debug for ISpPhrase {
 unsafe impl ::windows::core::Interface for ISpPhrase {
     type Vtable = ISpPhraseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a5c0354_b621_4b5a_8791_d306ed379e53);
+}
+pub trait ISpPhraseImpl {
+    fn GetPhrase();
+    fn GetSerializedPhrase();
+    fn GetText();
+    fn Discard();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3925,6 +4085,11 @@ unsafe impl ::windows::core::Interface for ISpPhrase2 {
     type Vtable = ISpPhrase2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf264da52_e457_4696_b856_a737b717af79);
 }
+pub trait ISpPhrase2Impl: ISpPhraseImpl {
+    fn GetXMLResult();
+    fn GetXMLErrorInfo();
+    fn GetAudio();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpPhrase2Vtbl(
@@ -4036,6 +4201,10 @@ unsafe impl ::windows::core::Interface for ISpPhraseAlt {
     type Vtable = ISpPhraseAltVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fcebc98_4e49_4067_9c6c_d86a0e092e3d);
 }
+pub trait ISpPhraseAltImpl: ISpPhraseImpl {
+    fn GetAltInfo();
+    fn Commit();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpPhraseAltVtbl(
@@ -4116,6 +4285,12 @@ impl ::core::fmt::Debug for ISpProperties {
 unsafe impl ::windows::core::Interface for ISpProperties {
     type Vtable = ISpPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b4fb971_b115_4de1_ad97_e482e3bf6ee4);
+}
+pub trait ISpPropertiesImpl {
+    fn SetPropertyNum();
+    fn GetPropertyNum();
+    fn SetPropertyString();
+    fn GetPropertyString();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4343,6 +4518,26 @@ unsafe impl ::windows::core::Interface for ISpRecoContext {
     type Vtable = ISpRecoContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf740a62f_7c15_489e_8234_940a33d9272d);
 }
+pub trait ISpRecoContextImpl: ISpEventSourceImpl + ISpNotifySourceImpl {
+    fn GetRecognizer();
+    fn CreateGrammar();
+    fn GetStatus();
+    fn GetMaxAlternates();
+    fn SetMaxAlternates();
+    fn SetAudioOptions();
+    fn GetAudioOptions();
+    fn DeserializeResult();
+    fn Bookmark();
+    fn SetAdaptationData();
+    fn Pause();
+    fn Resume();
+    fn SetVoice();
+    fn GetVoice();
+    fn SetVoicePurgeEvent();
+    fn GetVoicePurgeEvent();
+    fn SetContextState();
+    fn GetContextState();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpRecoContextVtbl(
@@ -4445,6 +4640,11 @@ impl ::core::fmt::Debug for ISpRecoContext2 {
 unsafe impl ::windows::core::Interface for ISpRecoContext2 {
     type Vtable = ISpRecoContext2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbead311c_52ff_437f_9464_6b21054ca73d);
+}
+pub trait ISpRecoContext2Impl {
+    fn SetGrammarOptions();
+    fn GetGrammarOptions();
+    fn SetAdaptationData2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4641,6 +4841,26 @@ unsafe impl ::windows::core::Interface for ISpRecoGrammar {
     type Vtable = ISpRecoGrammarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2177db29_7f45_47d0_8554_067e91c80502);
 }
+pub trait ISpRecoGrammarImpl: ISpGrammarBuilderImpl {
+    fn GetGrammarId();
+    fn GetRecoContext();
+    fn LoadCmdFromFile();
+    fn LoadCmdFromObject();
+    fn LoadCmdFromResource();
+    fn LoadCmdFromMemory();
+    fn LoadCmdFromProprietaryGrammar();
+    fn SetRuleState();
+    fn SetRuleIdState();
+    fn LoadDictation();
+    fn UnloadDictation();
+    fn SetDictationState();
+    fn SetWordSequenceData();
+    fn SetTextSelection();
+    fn IsPronounceable();
+    fn SetGrammarState();
+    fn SaveCmd();
+    fn GetGrammarState();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpRecoGrammarVtbl(
@@ -4769,6 +4989,16 @@ impl ::core::fmt::Debug for ISpRecoGrammar2 {
 unsafe impl ::windows::core::Interface for ISpRecoGrammar2 {
     type Vtable = ISpRecoGrammar2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b37bc9e_9ed6_44a3_93d3_18f022b79ec3);
+}
+pub trait ISpRecoGrammar2Impl {
+    fn GetRules();
+    fn LoadCmdFromFile2();
+    fn LoadCmdFromMemory2();
+    fn SetRulePriority();
+    fn SetRuleWeight();
+    fn SetDictationWeight();
+    fn SetGrammarLoader();
+    fn SetSMLSecurityManager();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4907,6 +5137,15 @@ impl ::core::fmt::Debug for ISpRecoResult {
 unsafe impl ::windows::core::Interface for ISpRecoResult {
     type Vtable = ISpRecoResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20b053be_e235_43cd_9a2a_8d17a48b7842);
+}
+pub trait ISpRecoResultImpl: ISpPhraseImpl {
+    fn GetResultTimes();
+    fn GetAlternates();
+    fn GetAudio();
+    fn SpeakAudio();
+    fn Serialize();
+    fn ScaleAudio();
+    fn GetRecoContext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5081,6 +5320,11 @@ impl ::core::fmt::Debug for ISpRecoResult2 {
 unsafe impl ::windows::core::Interface for ISpRecoResult2 {
     type Vtable = ISpRecoResult2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27cac6c4_88f2_41f2_8817_0c95e59f1e6e);
+}
+pub trait ISpRecoResult2Impl: ISpRecoResultImpl + ISpPhraseImpl {
+    fn CommitAlternate();
+    fn CommitText();
+    fn SetTextFeedback();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5268,6 +5512,24 @@ unsafe impl ::windows::core::Interface for ISpRecognizer {
     type Vtable = ISpRecognizerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2b5f241_daa0_4507_9e16_5a1eaa2b7a5c);
 }
+pub trait ISpRecognizerImpl: ISpPropertiesImpl {
+    fn SetRecognizer();
+    fn GetRecognizer();
+    fn SetInput();
+    fn GetInputObjectToken();
+    fn GetInputStream();
+    fn CreateRecoContext();
+    fn GetRecoProfile();
+    fn SetRecoProfile();
+    fn IsSharedInstance();
+    fn GetRecoState();
+    fn SetRecoState();
+    fn GetStatus();
+    fn GetFormat();
+    fn IsUISupported();
+    fn DisplayUI();
+    fn EmulateRecognition();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpRecognizerVtbl(
@@ -5360,6 +5622,11 @@ impl ::core::fmt::Debug for ISpRecognizer2 {
 unsafe impl ::windows::core::Interface for ISpRecognizer2 {
     type Vtable = ISpRecognizer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fc6d974_c81e_4098_93c5_0147f61ed4d3);
+}
+pub trait ISpRecognizer2Impl {
+    fn EmulateRecognitionEx();
+    fn SetTrainingState();
+    fn ResetAcousticModelAdaptation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5507,6 +5774,9 @@ unsafe impl ::windows::core::Interface for ISpRegDataKey {
     type Vtable = ISpRegDataKeyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92a66e2b_c830_4149_83df_6fc2ba1e7a5b);
 }
+pub trait ISpRegDataKeyImpl: ISpDataKeyImpl {
+    fn SetKey();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpRegDataKeyVtbl(
@@ -5623,6 +5893,11 @@ unsafe impl ::windows::core::Interface for ISpResourceManager {
     type Vtable = ISpResourceManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93384e18_5014_43d5_adbb_a78e055926bd);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpResourceManagerImpl: IServiceProviderImpl {
+    fn SetObject();
+    fn GetObject();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpResourceManagerVtbl(
@@ -5687,6 +5962,10 @@ impl ::core::fmt::Debug for ISpSerializeState {
 unsafe impl ::windows::core::Interface for ISpSerializeState {
     type Vtable = ISpSerializeStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21b501a0_0ec7_46c9_92c3_a2bc784c54b9);
+}
+pub trait ISpSerializeStateImpl {
+    fn GetSerializedState();
+    fn SetSerializedState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5781,6 +6060,16 @@ impl ::core::fmt::Debug for ISpShortcut {
 unsafe impl ::windows::core::Interface for ISpShortcut {
     type Vtable = ISpShortcutVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3df681e2_ea56_11d9_8bde_f66bad1e3f3a);
+}
+pub trait ISpShortcutImpl {
+    fn AddShortcut();
+    fn RemoveShortcut();
+    fn GetShortcuts();
+    fn GetGeneration();
+    fn GetWordsFromGenerationChange();
+    fn GetWords();
+    fn GetShortcutsForGeneration();
+    fn GetGenerationChange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6001,6 +6290,13 @@ unsafe impl ::windows::core::Interface for ISpStream {
     type Vtable = ISpStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12e3cca9_7518_44c5_a5e7_ba5a79cb929e);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpStreamImpl: ISpStreamFormatImpl + IStreamImpl + ISequentialStreamImpl {
+    fn SetBaseStream();
+    fn GetBaseStream();
+    fn BindToFile();
+    fn Close();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpStreamVtbl(
@@ -6195,6 +6491,10 @@ impl ::core::fmt::Debug for ISpStreamFormat {
 unsafe impl ::windows::core::Interface for ISpStreamFormat {
     type Vtable = ISpStreamFormatVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbed530be_2606_4f4d_a1c0_54c5cda5566f);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpStreamFormatImpl: IStreamImpl + ISequentialStreamImpl {
+    fn GetFormat();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6433,6 +6733,15 @@ unsafe impl ::windows::core::Interface for ISpStreamFormatConverter {
     type Vtable = ISpStreamFormatConverterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x678a932c_ea71_4446_9b41_78fda6280a29);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpStreamFormatConverterImpl: ISpStreamFormatImpl + IStreamImpl + ISequentialStreamImpl {
+    fn SetBaseStream();
+    fn GetBaseStream();
+    fn SetFormat();
+    fn ResetSeekPosition();
+    fn ScaleConvertedToBaseOffset();
+    fn ScaleBaseToConvertedOffset();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpStreamFormatConverterVtbl(
@@ -6527,6 +6836,10 @@ impl ::core::fmt::Debug for ISpTranscript {
 unsafe impl ::windows::core::Interface for ISpTranscript {
     type Vtable = ISpTranscriptVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10f63bce_201a_11d3_ac70_00c04f8ee6c0);
+}
+pub trait ISpTranscriptImpl {
+    fn GetTranscript();
+    fn AppendTranscript();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6782,6 +7095,33 @@ unsafe impl ::windows::core::Interface for ISpVoice {
     type Vtable = ISpVoiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c44df74_72b9_4992_a1ec_ef996e0422d4);
 }
+pub trait ISpVoiceImpl: ISpEventSourceImpl + ISpNotifySourceImpl {
+    fn SetOutput();
+    fn GetOutputObjectToken();
+    fn GetOutputStream();
+    fn Pause();
+    fn Resume();
+    fn SetVoice();
+    fn GetVoice();
+    fn Speak();
+    fn SpeakStream();
+    fn GetStatus();
+    fn Skip();
+    fn SetPriority();
+    fn GetPriority();
+    fn SetAlertBoundary();
+    fn GetAlertBoundary();
+    fn SetRate();
+    fn GetRate();
+    fn SetVolume();
+    fn GetVolume();
+    fn WaitUntilDone();
+    fn SetSyncSpeakTimeout();
+    fn GetSyncSpeakTimeout();
+    fn SpeakCompleteEvent();
+    fn IsUISupported();
+    fn DisplayUI();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpVoiceVtbl(
@@ -6983,6 +7323,10 @@ impl ::core::fmt::Debug for ISpXMLRecoResult {
 unsafe impl ::windows::core::Interface for ISpXMLRecoResult {
     type Vtable = ISpXMLRecoResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae39362b_45a8_4074_9b9e_ccf49aa2d0b6);
+}
+pub trait ISpXMLRecoResultImpl: ISpRecoResultImpl + ISpPhraseImpl {
+    fn GetXMLResult();
+    fn GetXMLErrorInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7189,6 +7533,18 @@ unsafe impl ::windows::core::Interface for ISpeechAudio {
     type Vtable = ISpeechAudioVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcff8e175_019e_11d3_a08e_00c04f8ef9b5);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechAudioImpl: ISpeechBaseStreamImpl + IDispatchImpl {
+    fn Status();
+    fn BufferInfo();
+    fn DefaultFormat();
+    fn Volume();
+    fn SetVolume();
+    fn BufferNotifySize();
+    fn SetBufferNotifySize();
+    fn EventHandle();
+    fn SetState();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechAudioVtbl(
@@ -7339,6 +7695,15 @@ unsafe impl ::windows::core::Interface for ISpeechAudioBufferInfo {
     type Vtable = ISpeechAudioBufferInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11b103d8_1142_4edf_a093_82fb3915f8cc);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechAudioBufferInfoImpl: IDispatchImpl {
+    fn MinNotification();
+    fn SetMinNotification();
+    fn BufferSize();
+    fn SetBufferSize();
+    fn EventBias();
+    fn SetEventBias();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechAudioBufferInfoVtbl(
@@ -7479,6 +7844,15 @@ impl ::core::fmt::Debug for ISpeechAudioFormat {
 unsafe impl ::windows::core::Interface for ISpeechAudioFormat {
     type Vtable = ISpeechAudioFormatVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6e9c590_3e18_40e3_8299_061f98bde7c7);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechAudioFormatImpl: IDispatchImpl {
+    fn Type();
+    fn SetType();
+    fn Guid();
+    fn SetGuid();
+    fn GetWaveFormatEx();
+    fn SetWaveFormatEx();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7621,6 +7995,14 @@ unsafe impl ::windows::core::Interface for ISpeechAudioStatus {
     type Vtable = ISpeechAudioStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc62d9c91_7458_47f6_862d_1ef86fb0b278);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechAudioStatusImpl: IDispatchImpl {
+    fn FreeBufferSpace();
+    fn NonBlockingIO();
+    fn State();
+    fn CurrentSeekPosition();
+    fn CurrentDevicePosition();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechAudioStatusVtbl(
@@ -7759,6 +8141,14 @@ impl ::core::fmt::Debug for ISpeechBaseStream {
 unsafe impl ::windows::core::Interface for ISpeechBaseStream {
     type Vtable = ISpeechBaseStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6450336f_7d49_4ced_8097_49d6dee37294);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechBaseStreamImpl: IDispatchImpl {
+    fn Format();
+    fn putref_Format();
+    fn Read();
+    fn Write();
+    fn Seek();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7928,6 +8318,11 @@ impl ::core::fmt::Debug for ISpeechCustomStream {
 unsafe impl ::windows::core::Interface for ISpeechCustomStream {
     type Vtable = ISpeechCustomStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a9e9f4f_104f_4db8_a115_efd7fd0c97ae);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechCustomStreamImpl: ISpeechBaseStreamImpl + IDispatchImpl {
+    fn BaseStream();
+    fn putref_BaseStream();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8111,6 +8506,21 @@ impl ::core::fmt::Debug for ISpeechDataKey {
 unsafe impl ::windows::core::Interface for ISpeechDataKey {
     type Vtable = ISpeechDataKeyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce17c09b_4efa_44d5_a4c9_59d9585ab0cd);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechDataKeyImpl: IDispatchImpl {
+    fn SetBinaryValue();
+    fn GetBinaryValue();
+    fn SetStringValue();
+    fn GetStringValue();
+    fn SetLongValue();
+    fn GetLongValue();
+    fn OpenKey();
+    fn CreateKey();
+    fn DeleteKey();
+    fn DeleteValue();
+    fn EnumKeys();
+    fn EnumValues();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8297,6 +8707,11 @@ unsafe impl ::windows::core::Interface for ISpeechFileStream {
     type Vtable = ISpeechFileStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf67f125_ab39_4e93_b4a2_cc2e66e182a7);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechFileStreamImpl: ISpeechBaseStreamImpl + IDispatchImpl {
+    fn Open();
+    fn Close();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechFileStreamVtbl(
@@ -8449,6 +8864,16 @@ unsafe impl ::windows::core::Interface for ISpeechGrammarRule {
     type Vtable = ISpeechGrammarRuleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafe719cf_5dd1_44f2_999c_7a399f1cfccc);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechGrammarRuleImpl: IDispatchImpl {
+    fn Attributes();
+    fn InitialState();
+    fn Name();
+    fn Id();
+    fn Clear();
+    fn AddResource();
+    fn AddState();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechGrammarRuleVtbl(
@@ -8588,6 +9013,14 @@ impl ::core::fmt::Debug for ISpeechGrammarRuleState {
 unsafe impl ::windows::core::Interface for ISpeechGrammarRuleState {
     type Vtable = ISpeechGrammarRuleStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4286f2c_ee67_45ae_b928_28d695362eda);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechGrammarRuleStateImpl: IDispatchImpl {
+    fn Rule();
+    fn Transitions();
+    fn AddWordTransition();
+    fn AddRuleTransition();
+    fn AddSpecialTransition();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8747,6 +9180,17 @@ unsafe impl ::windows::core::Interface for ISpeechGrammarRuleStateTransition {
     type Vtable = ISpeechGrammarRuleStateTransitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcafd1db1_41d1_4a06_9863_e2e81da17a9a);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechGrammarRuleStateTransitionImpl: IDispatchImpl {
+    fn Type();
+    fn Text();
+    fn Rule();
+    fn Weight();
+    fn PropertyName();
+    fn PropertyId();
+    fn PropertyValue();
+    fn NextState();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechGrammarRuleStateTransitionVtbl(
@@ -8879,6 +9323,12 @@ impl ::core::fmt::Debug for ISpeechGrammarRuleStateTransitions {
 unsafe impl ::windows::core::Interface for ISpeechGrammarRuleStateTransitions {
     type Vtable = ISpeechGrammarRuleStateTransitionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeabce657_75bc_44a2_aa7f_c56476742963);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechGrammarRuleStateTransitionsImpl: IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9029,6 +9479,17 @@ impl ::core::fmt::Debug for ISpeechGrammarRules {
 unsafe impl ::windows::core::Interface for ISpeechGrammarRules {
     type Vtable = ISpeechGrammarRulesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ffa3b44_fc2d_40d1_8afc_32911c7f1ad1);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechGrammarRulesImpl: IDispatchImpl {
+    fn Count();
+    fn FindRule();
+    fn Item();
+    fn _NewEnum();
+    fn Dynamic();
+    fn Add();
+    fn Commit();
+    fn CommitAndSave();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9186,6 +9647,17 @@ unsafe impl ::windows::core::Interface for ISpeechLexicon {
     type Vtable = ISpeechLexiconVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3da7627a_c7ae_4b23_8708_638c50362c25);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechLexiconImpl: IDispatchImpl {
+    fn GenerationId();
+    fn GetWords();
+    fn AddPronunciation();
+    fn AddPronunciationByPhoneIds();
+    fn RemovePronunciation();
+    fn RemovePronunciationByPhoneIds();
+    fn GetPronunciations();
+    fn GetGenerationChange();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechLexiconVtbl(
@@ -9332,6 +9804,14 @@ unsafe impl ::windows::core::Interface for ISpeechLexiconPronunciation {
     type Vtable = ISpeechLexiconPronunciationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95252c5d_9e43_4f4a_9899_48ee73352f9f);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechLexiconPronunciationImpl: IDispatchImpl {
+    fn Type();
+    fn LangId();
+    fn PartOfSpeech();
+    fn PhoneIds();
+    fn Symbolic();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechLexiconPronunciationVtbl(
@@ -9459,6 +9939,12 @@ impl ::core::fmt::Debug for ISpeechLexiconPronunciations {
 unsafe impl ::windows::core::Interface for ISpeechLexiconPronunciations {
     type Vtable = ISpeechLexiconPronunciationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72829128_5682_4704_a0d4_3e2bb6f2ead3);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechLexiconPronunciationsImpl: IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9590,6 +10076,13 @@ unsafe impl ::windows::core::Interface for ISpeechLexiconWord {
     type Vtable = ISpeechLexiconWordVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e5b933c_c9be_48ed_8842_1ee51bb1d4ff);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechLexiconWordImpl: IDispatchImpl {
+    fn LangId();
+    fn Type();
+    fn Word();
+    fn Pronunciations();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechLexiconWordVtbl(
@@ -9715,6 +10208,12 @@ impl ::core::fmt::Debug for ISpeechLexiconWords {
 unsafe impl ::windows::core::Interface for ISpeechLexiconWords {
     type Vtable = ISpeechLexiconWordsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d199862_415e_47d5_ac4f_faa608b424e6);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechLexiconWordsImpl: IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9956,6 +10455,14 @@ unsafe impl ::windows::core::Interface for ISpeechMMSysAudio {
     type Vtable = ISpeechMMSysAudioVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c76af6d_1fd7_4831_81d1_3b71d5a13c44);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechMMSysAudioImpl: ISpeechAudioImpl + ISpeechBaseStreamImpl + IDispatchImpl {
+    fn DeviceId();
+    fn SetDeviceId();
+    fn LineId();
+    fn SetLineId();
+    fn MMHandle();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechMMSysAudioVtbl(
@@ -10140,6 +10647,11 @@ impl ::core::fmt::Debug for ISpeechMemoryStream {
 unsafe impl ::windows::core::Interface for ISpeechMemoryStream {
     type Vtable = ISpeechMemoryStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeeb14b68_808b_4abe_a5ea_b51da7588008);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechMemoryStreamImpl: ISpeechBaseStreamImpl + IDispatchImpl {
+    fn SetData();
+    fn GetData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10330,6 +10842,22 @@ unsafe impl ::windows::core::Interface for ISpeechObjectToken {
     type Vtable = ISpeechObjectTokenVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc74a3adc_b727_4500_a84a_b526721c8b8c);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechObjectTokenImpl: IDispatchImpl {
+    fn Id();
+    fn DataKey();
+    fn Category();
+    fn GetDescription();
+    fn SetId();
+    fn GetAttribute();
+    fn CreateInstance();
+    fn Remove();
+    fn GetStorageFileName();
+    fn RemoveStorageFileName();
+    fn IsUISupported();
+    fn DisplayUI();
+    fn MatchesAttributes();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechObjectTokenVtbl(
@@ -10492,6 +11020,15 @@ unsafe impl ::windows::core::Interface for ISpeechObjectTokenCategory {
     type Vtable = ISpeechObjectTokenCategoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca7eac50_2d01_4145_86d4_5ae7d70f4469);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechObjectTokenCategoryImpl: IDispatchImpl {
+    fn Id();
+    fn SetDefault();
+    fn Default();
+    fn SetId();
+    fn GetDataKey();
+    fn EnumerateTokens();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechObjectTokenCategoryVtbl(
@@ -10624,6 +11161,12 @@ unsafe impl ::windows::core::Interface for ISpeechObjectTokens {
     type Vtable = ISpeechObjectTokensVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9285b776_2e7b_4bc0_b53e_580eb6fa967f);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechObjectTokensImpl: IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechObjectTokensVtbl(
@@ -10753,6 +11296,13 @@ impl ::core::fmt::Debug for ISpeechPhoneConverter {
 unsafe impl ::windows::core::Interface for ISpeechPhoneConverter {
     type Vtable = ISpeechPhoneConverterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3e4f353_433f_43d6_89a1_6a62a7054c3d);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechPhoneConverterImpl: IDispatchImpl {
+    fn LanguageId();
+    fn SetLanguageId();
+    fn PhoneToId();
+    fn IdToPhone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10890,6 +11440,14 @@ unsafe impl ::windows::core::Interface for ISpeechPhraseAlternate {
     type Vtable = ISpeechPhraseAlternateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27864a2a_2b9f_4cb8_92d3_0d2722fd1e73);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechPhraseAlternateImpl: IDispatchImpl {
+    fn RecoResult();
+    fn StartElementInResult();
+    fn NumberOfElementsInResult();
+    fn PhraseInfo();
+    fn Commit();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechPhraseAlternateVtbl(
@@ -11015,6 +11573,12 @@ impl ::core::fmt::Debug for ISpeechPhraseAlternates {
 unsafe impl ::windows::core::Interface for ISpeechPhraseAlternates {
     type Vtable = ISpeechPhraseAlternatesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb238b6d5_f276_4c3d_a6c1_2974801c3cc2);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechPhraseAlternatesImpl: IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11193,6 +11757,22 @@ unsafe impl ::windows::core::Interface for ISpeechPhraseElement {
     type Vtable = ISpeechPhraseElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6176f96_e373_4801_b223_3b62c068c0b4);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechPhraseElementImpl: IDispatchImpl {
+    fn AudioTimeOffset();
+    fn AudioSizeTime();
+    fn AudioStreamOffset();
+    fn AudioSizeBytes();
+    fn RetainedStreamOffset();
+    fn RetainedSizeBytes();
+    fn DisplayText();
+    fn LexicalForm();
+    fn Pronunciation();
+    fn DisplayAttributes();
+    fn RequiredConfidence();
+    fn ActualConfidence();
+    fn EngineConfidence();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechPhraseElementVtbl(
@@ -11329,6 +11909,12 @@ impl ::core::fmt::Debug for ISpeechPhraseElements {
 unsafe impl ::windows::core::Interface for ISpeechPhraseElements {
     type Vtable = ISpeechPhraseElementsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0626b328_3478_467d_a0b3_d0853b93dda3);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechPhraseElementsImpl: IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11526,6 +12112,25 @@ unsafe impl ::windows::core::Interface for ISpeechPhraseInfo {
     type Vtable = ISpeechPhraseInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x961559cf_4e67_4662_8bf0_d93f1fcd61b3);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechPhraseInfoImpl: IDispatchImpl {
+    fn LanguageId();
+    fn GrammarId();
+    fn StartTime();
+    fn AudioStreamPosition();
+    fn AudioSizeBytes();
+    fn RetainedSizeBytes();
+    fn AudioSizeTime();
+    fn Rule();
+    fn Properties();
+    fn Elements();
+    fn Replacements();
+    fn EngineId();
+    fn EnginePrivateData();
+    fn SaveToMemory();
+    fn GetText();
+    fn GetDisplayAttributes();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechPhraseInfoVtbl(
@@ -11661,6 +12266,10 @@ unsafe impl ::windows::core::Interface for ISpeechPhraseInfoBuilder {
     type Vtable = ISpeechPhraseInfoBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b151836_df3a_4e0a_846c_d2adc9334333);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechPhraseInfoBuilderImpl: IDispatchImpl {
+    fn RestorePhraseFromMemory();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechPhraseInfoBuilderVtbl(
@@ -11783,6 +12392,12 @@ impl ::core::fmt::Debug for ISpeechPhraseProperties {
 unsafe impl ::windows::core::Interface for ISpeechPhraseProperties {
     type Vtable = ISpeechPhrasePropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08166b47_102e_4b23_a599_bdb98dbfd1f4);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechPhrasePropertiesImpl: IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11940,6 +12555,18 @@ unsafe impl ::windows::core::Interface for ISpeechPhraseProperty {
     type Vtable = ISpeechPhrasePropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce563d48_961e_4732_a2e1_378a42b430be);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechPhrasePropertyImpl: IDispatchImpl {
+    fn Name();
+    fn Id();
+    fn Value();
+    fn FirstElement();
+    fn NumberOfElements();
+    fn EngineConfidence();
+    fn Confidence();
+    fn Parent();
+    fn Children();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechPhrasePropertyVtbl(
@@ -12078,6 +12705,13 @@ unsafe impl ::windows::core::Interface for ISpeechPhraseReplacement {
     type Vtable = ISpeechPhraseReplacementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2890a410_53a7_4fb5_94ec_06d4998e3d02);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechPhraseReplacementImpl: IDispatchImpl {
+    fn DisplayAttributes();
+    fn Text();
+    fn FirstElement();
+    fn NumberOfElements();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechPhraseReplacementVtbl(
@@ -12203,6 +12837,12 @@ impl ::core::fmt::Debug for ISpeechPhraseReplacements {
 unsafe impl ::windows::core::Interface for ISpeechPhraseReplacements {
     type Vtable = ISpeechPhraseReplacementsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38bc662f_2257_4525_959e_2069d2596c05);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechPhraseReplacementsImpl: IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12354,6 +12994,17 @@ unsafe impl ::windows::core::Interface for ISpeechPhraseRule {
     type Vtable = ISpeechPhraseRuleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7bfe112_a4a0_48d9_b602_c313843f6964);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechPhraseRuleImpl: IDispatchImpl {
+    fn Name();
+    fn Id();
+    fn FirstElement();
+    fn NumberOfElements();
+    fn Parent();
+    fn Children();
+    fn Confidence();
+    fn EngineConfidence();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechPhraseRuleVtbl(
@@ -12483,6 +13134,12 @@ impl ::core::fmt::Debug for ISpeechPhraseRules {
 unsafe impl ::windows::core::Interface for ISpeechPhraseRules {
     type Vtable = ISpeechPhraseRulesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9047d593_01dd_4b72_81a3_e4a0ca69f407);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechPhraseRulesImpl: IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12711,6 +13368,34 @@ unsafe impl ::windows::core::Interface for ISpeechRecoContext {
     type Vtable = ISpeechRecoContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x580aa49d_7e1e_4809_b8e2_57da806104b8);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechRecoContextImpl: IDispatchImpl {
+    fn Recognizer();
+    fn AudioInputInterferenceStatus();
+    fn RequestedUIType();
+    fn putref_Voice();
+    fn Voice();
+    fn SetAllowVoiceFormatMatchingOnNextSet();
+    fn AllowVoiceFormatMatchingOnNextSet();
+    fn SetVoicePurgeEvent();
+    fn VoicePurgeEvent();
+    fn SetEventInterests();
+    fn EventInterests();
+    fn SetCmdMaxAlternates();
+    fn CmdMaxAlternates();
+    fn SetState();
+    fn State();
+    fn SetRetainedAudio();
+    fn RetainedAudio();
+    fn putref_RetainedAudioFormat();
+    fn RetainedAudioFormat();
+    fn Pause();
+    fn Resume();
+    fn CreateGrammar();
+    fn CreateResultFromMemory();
+    fn Bookmark();
+    fn SetAdaptationData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecoContextVtbl(
@@ -12938,6 +13623,28 @@ unsafe impl ::windows::core::Interface for ISpeechRecoGrammar {
     type Vtable = ISpeechRecoGrammarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6d6f79f_2158_4e50_b5bc_9a9ccd852a09);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechRecoGrammarImpl: IDispatchImpl {
+    fn Id();
+    fn RecoContext();
+    fn SetState();
+    fn State();
+    fn Rules();
+    fn Reset();
+    fn CmdLoadFromFile();
+    fn CmdLoadFromObject();
+    fn CmdLoadFromResource();
+    fn CmdLoadFromMemory();
+    fn CmdLoadFromProprietaryGrammar();
+    fn CmdSetRuleState();
+    fn CmdSetRuleIdState();
+    fn DictationLoad();
+    fn DictationUnload();
+    fn DictationSetState();
+    fn SetWordSequenceData();
+    fn SetTextSelection();
+    fn IsPronounceable();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecoGrammarVtbl(
@@ -13121,6 +13828,19 @@ impl ::core::fmt::Debug for ISpeechRecoResult {
 unsafe impl ::windows::core::Interface for ISpeechRecoResult {
     type Vtable = ISpeechRecoResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed2879cf_ced9_4ee6_a534_de0191d5468d);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechRecoResultImpl: IDispatchImpl {
+    fn RecoContext();
+    fn Times();
+    fn putref_AudioFormat();
+    fn AudioFormat();
+    fn PhraseInfo();
+    fn Alternates();
+    fn Audio();
+    fn SpeakAudio();
+    fn SaveToMemory();
+    fn DiscardResultInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13313,6 +14033,10 @@ unsafe impl ::windows::core::Interface for ISpeechRecoResult2 {
     type Vtable = ISpeechRecoResult2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e0a246d_d3c8_45de_8657_04290c458c3c);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechRecoResult2Impl: ISpeechRecoResultImpl + IDispatchImpl {
+    fn SetTextFeedback();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecoResult2Vtbl(
@@ -13497,6 +14221,22 @@ unsafe impl ::windows::core::Interface for ISpeechRecoResultDispatch {
     type Vtable = ISpeechRecoResultDispatchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d60eb64_aced_40a6_bbf3_4e557f71dee2);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechRecoResultDispatchImpl: IDispatchImpl {
+    fn RecoContext();
+    fn Times();
+    fn putref_AudioFormat();
+    fn AudioFormat();
+    fn PhraseInfo();
+    fn Alternates();
+    fn Audio();
+    fn SpeakAudio();
+    fn SaveToMemory();
+    fn DiscardResultInfo();
+    fn GetXMLResult();
+    fn GetXMLErrorInfo();
+    fn SetTextFeedback();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecoResultDispatchVtbl(
@@ -13642,6 +14382,13 @@ impl ::core::fmt::Debug for ISpeechRecoResultTimes {
 unsafe impl ::windows::core::Interface for ISpeechRecoResultTimes {
     type Vtable = ISpeechRecoResultTimesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62b3b8fb_f6e7_41be_bdcb_056b1c29efc0);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechRecoResultTimesImpl: IDispatchImpl {
+    fn StreamTime();
+    fn Length();
+    fn TickCount();
+    fn OffsetFromStart();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13886,6 +14633,35 @@ unsafe impl ::windows::core::Interface for ISpeechRecognizer {
     type Vtable = ISpeechRecognizerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d5f1c0c_bd75_4b08_9478_3b11fea2586c);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechRecognizerImpl: IDispatchImpl {
+    fn putref_Recognizer();
+    fn Recognizer();
+    fn SetAllowAudioInputFormatChangesOnNextSet();
+    fn AllowAudioInputFormatChangesOnNextSet();
+    fn putref_AudioInput();
+    fn AudioInput();
+    fn putref_AudioInputStream();
+    fn AudioInputStream();
+    fn IsShared();
+    fn SetState();
+    fn State();
+    fn Status();
+    fn putref_Profile();
+    fn Profile();
+    fn EmulateRecognition();
+    fn CreateRecoContext();
+    fn GetFormat();
+    fn SetPropertyNumber();
+    fn GetPropertyNumber();
+    fn SetPropertyString();
+    fn GetPropertyString();
+    fn IsUISupported();
+    fn DisplayUI();
+    fn GetRecognizers();
+    fn GetAudioInputs();
+    fn GetProfiles();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognizerVtbl(
@@ -14061,6 +14837,15 @@ unsafe impl ::windows::core::Interface for ISpeechRecognizerStatus {
     type Vtable = ISpeechRecognizerStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbff9e781_53ec_484e_bb8a_0e1b5551e35c);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechRecognizerStatusImpl: IDispatchImpl {
+    fn AudioStatus();
+    fn CurrentStreamPosition();
+    fn CurrentStreamNumber();
+    fn NumberOfActiveRules();
+    fn ClsidEngine();
+    fn SupportedLanguages();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognizerStatusVtbl(
@@ -14190,6 +14975,12 @@ impl ::core::fmt::Debug for ISpeechResourceLoader {
 unsafe impl ::windows::core::Interface for ISpeechResourceLoader {
     type Vtable = ISpeechResourceLoaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9ac5783_fcd0_4b21_b119_b4f8da8fd2c3);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechResourceLoaderImpl: IDispatchImpl {
+    fn LoadResource();
+    fn GetLocalCopy();
+    fn ReleaseLocalCopy();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14338,6 +15129,17 @@ impl ::core::fmt::Debug for ISpeechTextSelectionInformation {
 unsafe impl ::windows::core::Interface for ISpeechTextSelectionInformation {
     type Vtable = ISpeechTextSelectionInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b9c7e7a_6eee_4ded_9092_11657279adbe);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechTextSelectionInformationImpl: IDispatchImpl {
+    fn SetActiveOffset();
+    fn ActiveOffset();
+    fn SetActiveLength();
+    fn ActiveLength();
+    fn SetSelectionOffset();
+    fn SelectionOffset();
+    fn SetSelectionLength();
+    fn SelectionLength();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14606,6 +15408,41 @@ unsafe impl ::windows::core::Interface for ISpeechVoice {
     type Vtable = ISpeechVoiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x269316d8_57bd_11d2_9eee_00c04f797396);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechVoiceImpl: IDispatchImpl {
+    fn Status();
+    fn Voice();
+    fn putref_Voice();
+    fn AudioOutput();
+    fn putref_AudioOutput();
+    fn AudioOutputStream();
+    fn putref_AudioOutputStream();
+    fn Rate();
+    fn SetRate();
+    fn Volume();
+    fn SetVolume();
+    fn SetAllowAudioOutputFormatChangesOnNextSet();
+    fn AllowAudioOutputFormatChangesOnNextSet();
+    fn EventInterests();
+    fn SetEventInterests();
+    fn SetPriority();
+    fn Priority();
+    fn SetAlertBoundary();
+    fn AlertBoundary();
+    fn SetSynchronousSpeakTimeout();
+    fn SynchronousSpeakTimeout();
+    fn Speak();
+    fn SpeakStream();
+    fn Pause();
+    fn Resume();
+    fn Skip();
+    fn GetVoices();
+    fn GetAudioOutputs();
+    fn WaitUntilDone();
+    fn SpeakCompleteEvent();
+    fn IsUISupported();
+    fn DisplayUI();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechVoiceVtbl(
@@ -14811,6 +15648,21 @@ unsafe impl ::windows::core::Interface for ISpeechVoiceStatus {
     type Vtable = ISpeechVoiceStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8be47b07_57f6_11d2_9eee_00c04f797396);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechVoiceStatusImpl: IDispatchImpl {
+    fn CurrentStreamNumber();
+    fn LastStreamNumberQueued();
+    fn LastHResult();
+    fn RunningState();
+    fn InputWordPosition();
+    fn InputWordLength();
+    fn InputSentencePosition();
+    fn InputSentenceLength();
+    fn LastBookmark();
+    fn LastBookmarkId();
+    fn PhonemeId();
+    fn VisemeId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechVoiceStatusVtbl(
@@ -14994,6 +15846,23 @@ impl ::core::fmt::Debug for ISpeechWaveFormatEx {
 unsafe impl ::windows::core::Interface for ISpeechWaveFormatEx {
     type Vtable = ISpeechWaveFormatExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a1ef0d5_1581_4741_88e4_209a49f11a10);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechWaveFormatExImpl: IDispatchImpl {
+    fn FormatTag();
+    fn SetFormatTag();
+    fn Channels();
+    fn SetChannels();
+    fn SamplesPerSec();
+    fn SetSamplesPerSec();
+    fn AvgBytesPerSec();
+    fn SetAvgBytesPerSec();
+    fn BlockAlign();
+    fn SetBlockAlign();
+    fn BitsPerSample();
+    fn SetBitsPerSample();
+    fn ExtraData();
+    fn SetExtraData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15196,6 +16065,11 @@ impl ::core::fmt::Debug for ISpeechXMLRecoResult {
 unsafe impl ::windows::core::Interface for ISpeechXMLRecoResult {
     type Vtable = ISpeechXMLRecoResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaaec54af_8f85_4924_944d_b79d39d72e19);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISpeechXMLRecoResultImpl: ISpeechRecoResultImpl + IDispatchImpl {
+    fn GetXMLResult();
+    fn GetXMLErrorInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18311,6 +19185,8 @@ unsafe impl ::windows::core::Interface for _ISpeechRecoContextEvents {
     type Vtable = _ISpeechRecoContextEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b8fcb42_0e9d_4f00_a048_7b04d6179d3d);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait _ISpeechRecoContextEventsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _ISpeechRecoContextEventsVtbl(
@@ -18417,6 +19293,8 @@ unsafe impl ::windows::core::Interface for _ISpeechVoiceEvents {
     type Vtable = _ISpeechVoiceEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa372acd1_3bef_4bbd_8ffb_cb3e2b416af8);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait _ISpeechVoiceEventsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _ISpeechVoiceEventsVtbl(

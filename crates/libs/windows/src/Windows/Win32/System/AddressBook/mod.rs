@@ -1625,6 +1625,12 @@ unsafe impl ::windows::core::Interface for IABContainer {
     type Vtable = IABContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait IABContainerImpl: IMAPIContainerImpl + IMAPIPropImpl {
+    fn CreateEntry();
+    fn CopyEntries();
+    fn DeleteEntries();
+    fn ResolveNames();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IABContainerVtbl(
@@ -1851,6 +1857,26 @@ unsafe impl ::windows::core::Interface for IAddrBook {
     type Vtable = IAddrBookVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait IAddrBookImpl: IMAPIPropImpl {
+    fn OpenEntry();
+    fn CompareEntryIDs();
+    fn Advise();
+    fn Unadvise();
+    fn CreateOneOff();
+    fn NewEntry();
+    fn ResolveName();
+    fn Address();
+    fn Details();
+    fn RecipOptions();
+    fn QueryDefaultRecipOpt();
+    fn GetPAB();
+    fn SetPAB();
+    fn GetDefaultDir();
+    fn SetDefaultDir();
+    fn GetSearchPath();
+    fn SetSearchPath();
+    fn PrepareRecips();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAddrBookVtbl(
@@ -2011,6 +2037,7 @@ unsafe impl ::windows::core::Interface for IAttach {
     type Vtable = IAttachVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait IAttachImpl: IMAPIPropImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAttachVtbl(
@@ -2209,6 +2236,12 @@ unsafe impl ::windows::core::Interface for IDistList {
     type Vtable = IDistListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait IDistListImpl: IMAPIContainerImpl + IMAPIPropImpl {
+    fn CreateEntry();
+    fn CopyEntries();
+    fn DeleteEntries();
+    fn ResolveNames();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDistListVtbl(
@@ -2292,6 +2325,9 @@ impl ::core::fmt::Debug for IMAPIAdviseSink {
 unsafe impl ::windows::core::Interface for IMAPIAdviseSink {
     type Vtable = IMAPIAdviseSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+}
+pub trait IMAPIAdviseSinkImpl {
+    fn OnNotify();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2439,6 +2475,13 @@ unsafe impl ::windows::core::Interface for IMAPIContainer {
     type Vtable = IMAPIContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait IMAPIContainerImpl: IMAPIPropImpl {
+    fn GetContentsTable();
+    fn GetHierarchyTable();
+    fn OpenEntry();
+    fn SetSearchCriteria();
+    fn GetSearchCriteria();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMAPIContainerVtbl(
@@ -2525,6 +2568,11 @@ impl ::core::fmt::Debug for IMAPIControl {
 unsafe impl ::windows::core::Interface for IMAPIControl {
     type Vtable = IMAPIControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+}
+pub trait IMAPIControlImpl {
+    fn GetLastError();
+    fn Activate();
+    fn GetState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2740,6 +2788,19 @@ unsafe impl ::windows::core::Interface for IMAPIFolder {
     type Vtable = IMAPIFolderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait IMAPIFolderImpl: IMAPIContainerImpl + IMAPIPropImpl {
+    fn CreateMessage();
+    fn CopyMessages();
+    fn DeleteMessages();
+    fn CreateFolder();
+    fn CopyFolder();
+    fn DeleteFolder();
+    fn SetReadFlags();
+    fn GetMessageStatus();
+    fn SetMessageStatus();
+    fn SaveContentsSort();
+    fn EmptyFolder();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMAPIFolderVtbl(
@@ -2845,6 +2906,13 @@ unsafe impl ::windows::core::Interface for IMAPIProgress {
     type Vtable = IMAPIProgressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait IMAPIProgressImpl {
+    fn Progress();
+    fn GetFlags();
+    fn GetMax();
+    fn GetMin();
+    fn SetLimits();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMAPIProgressVtbl(
@@ -2949,6 +3017,19 @@ impl ::core::fmt::Debug for IMAPIProp {
 unsafe impl ::windows::core::Interface for IMAPIProp {
     type Vtable = IMAPIPropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+}
+pub trait IMAPIPropImpl {
+    fn GetLastError();
+    fn SaveChanges();
+    fn GetProps();
+    fn GetPropList();
+    fn OpenProperty();
+    fn SetProps();
+    fn DeleteProps();
+    fn CopyTo();
+    fn CopyProps();
+    fn GetNamesFromIDs();
+    fn GetIDsFromNames();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3100,6 +3181,12 @@ impl ::core::fmt::Debug for IMAPIStatus {
 unsafe impl ::windows::core::Interface for IMAPIStatus {
     type Vtable = IMAPIStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+}
+pub trait IMAPIStatusImpl: IMAPIPropImpl {
+    fn ValidateState();
+    fn SettingsDialog();
+    fn ChangePassword();
+    fn FlushQueues();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3267,6 +3354,31 @@ impl ::core::fmt::Debug for IMAPITable {
 unsafe impl ::windows::core::Interface for IMAPITable {
     type Vtable = IMAPITableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+}
+pub trait IMAPITableImpl {
+    fn GetLastError();
+    fn Advise();
+    fn Unadvise();
+    fn GetStatus();
+    fn SetColumns();
+    fn QueryColumns();
+    fn GetRowCount();
+    fn SeekRow();
+    fn SeekRowApprox();
+    fn QueryPosition();
+    fn FindRow();
+    fn Restrict();
+    fn CreateBookmark();
+    fn FreeBookmark();
+    fn SortTable();
+    fn QuerySortOrder();
+    fn QueryRows();
+    fn Abort();
+    fn ExpandRow();
+    fn CollapseRow();
+    fn WaitForCompletion();
+    fn GetCollapseState();
+    fn SetCollapseState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3539,6 +3651,7 @@ unsafe impl ::windows::core::Interface for IMailUser {
     type Vtable = IMailUserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait IMailUserImpl: IMAPIPropImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMailUserVtbl(
@@ -3709,6 +3822,16 @@ impl ::core::fmt::Debug for IMessage {
 unsafe impl ::windows::core::Interface for IMessage {
     type Vtable = IMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+}
+pub trait IMessageImpl: IMAPIPropImpl {
+    fn GetAttachmentTable();
+    fn OpenAttach();
+    fn CreateAttach();
+    fn DeleteAttach();
+    fn GetRecipientTable();
+    fn ModifyRecipients();
+    fn SubmitMessage();
+    fn SetReadFlag();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3911,6 +4034,21 @@ unsafe impl ::windows::core::Interface for IMsgStore {
     type Vtable = IMsgStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait IMsgStoreImpl: IMAPIPropImpl {
+    fn Advise();
+    fn Unadvise();
+    fn CompareEntryIDs();
+    fn OpenEntry();
+    fn SetReceiveFolder();
+    fn GetReceiveFolder();
+    fn GetReceiveFolderTable();
+    fn StoreLogoff();
+    fn AbortSubmit();
+    fn GetOutgoingQueue();
+    fn SetLockState();
+    fn FinishedMsg();
+    fn NotifyNewMail();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMsgStoreVtbl(
@@ -4060,6 +4198,7 @@ unsafe impl ::windows::core::Interface for IProfSect {
     type Vtable = IProfSectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait IProfSectImpl: IMAPIPropImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProfSectVtbl(
@@ -4211,6 +4350,12 @@ unsafe impl ::windows::core::Interface for IPropData {
     type Vtable = IPropDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait IPropDataImpl: IMAPIPropImpl {
+    fn HrSetObjAccess();
+    fn HrSetPropAccess();
+    fn HrGetPropAccess();
+    fn HrAddObjProps();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropDataVtbl(
@@ -4306,6 +4451,13 @@ impl ::core::fmt::Debug for IProviderAdmin {
 unsafe impl ::windows::core::Interface for IProviderAdmin {
     type Vtable = IProviderAdminVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+}
+pub trait IProviderAdminImpl {
+    fn GetLastError();
+    fn GetProviderTable();
+    fn CreateProvider();
+    fn DeleteProvider();
+    fn OpenProfileSection();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4409,6 +4561,17 @@ unsafe impl ::windows::core::Interface for ITableData {
     type Vtable = ITableDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait ITableDataImpl {
+    fn HrGetView();
+    fn HrModifyRow();
+    fn HrDeleteRow();
+    fn HrQueryRow();
+    fn HrEnumRow();
+    fn HrNotify();
+    fn HrInsertRow();
+    fn HrModifyRows();
+    fn HrDeleteRows();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITableDataVtbl(
@@ -4482,6 +4645,9 @@ impl ::core::fmt::Debug for IWABExtInit {
 unsafe impl ::windows::core::Interface for IWABExtInit {
     type Vtable = IWABExtInitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea22ebf0_87a4_11d1_9acf_00a0c91f9c8b);
+}
+pub trait IWABExtInitImpl {
+    fn Initialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4591,6 +4757,24 @@ impl ::core::fmt::Debug for IWABOBJECT_ {
 unsafe impl ::windows::core::Interface for IWABOBJECT_ {
     type Vtable = IWABOBJECT_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+}
+pub trait IWABOBJECT_Impl {
+    fn QueryInterface();
+    fn AddRef();
+    fn Release();
+    fn GetLastError();
+    fn AllocateBuffer();
+    fn AllocateMore();
+    fn FreeBuffer();
+    fn Backup();
+    fn Import();
+    fn Find();
+    fn VCardDisplay();
+    fn LDAPUrl();
+    fn VCardCreate();
+    fn VCardRetrieve();
+    fn GetMe();
+    fn SetMe();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4769,6 +4953,21 @@ impl ::core::fmt::Debug for IWABObject {
 unsafe impl ::windows::core::Interface for IWABObject {
     type Vtable = IWABObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+}
+pub trait IWABObjectImpl {
+    fn GetLastError();
+    fn AllocateBuffer();
+    fn AllocateMore();
+    fn FreeBuffer();
+    fn Backup();
+    fn Import();
+    fn Find();
+    fn VCardDisplay();
+    fn LDAPUrl();
+    fn VCardCreate();
+    fn VCardRetrieve();
+    fn GetMe();
+    fn SetMe();
 }
 #[repr(C)]
 #[doc(hidden)]

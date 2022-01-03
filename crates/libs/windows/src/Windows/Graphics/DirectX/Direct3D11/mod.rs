@@ -284,6 +284,10 @@ unsafe impl ::windows::core::Interface for IDirect3DDevice {
     type Vtable = IDirect3DDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa37624ab_8d5f_4650_9d3e_9eae3d9bc670);
 }
+#[cfg(feature = "Foundation")]
+pub trait IDirect3DDeviceImpl: IClosableImpl {
+    fn Trim();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DDeviceVtbl(
@@ -402,6 +406,10 @@ unsafe impl ::windows::core::RuntimeType for IDirect3DSurface {
 unsafe impl ::windows::core::Interface for IDirect3DSurface {
     type Vtable = IDirect3DSurfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bf4a146_13c1_4694_bee3_7abf15eaf586);
+}
+#[cfg(feature = "Foundation")]
+pub trait IDirect3DSurfaceImpl: IClosableImpl {
+    fn Description();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -6,6 +6,15 @@ unsafe impl ::windows::core::Interface for ISyndicationAttribute {
     type Vtable = ISyndicationAttributeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71e8f969_526e_4001_9a91_e84f83161ab1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISyndicationAttributeImpl {
+    fn Name();
+    fn SetName();
+    fn Namespace();
+    fn SetNamespace();
+    fn Value();
+    fn SetValue();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyndicationAttributeVtbl(
@@ -29,6 +38,10 @@ unsafe impl ::windows::core::Interface for ISyndicationAttributeFactory {
     type Vtable = ISyndicationAttributeFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x624f1599_ed3e_420f_be86_640414886e4b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISyndicationAttributeFactoryImpl {
+    fn CreateSyndicationAttribute();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyndicationAttributeFactoryVtbl(
@@ -46,6 +59,15 @@ pub struct ISyndicationCategory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationCategory {
     type Vtable = ISyndicationCategoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8715626f_0cba_4a7f_89ff_ecb5281423b6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISyndicationCategoryImpl: ISyndicationNodeImpl {
+    fn Label();
+    fn SetLabel();
+    fn Scheme();
+    fn SetScheme();
+    fn Term();
+    fn SetTerm();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -69,6 +91,11 @@ pub struct ISyndicationCategoryFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationCategoryFactory {
     type Vtable = ISyndicationCategoryFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab42802f_49e0_4525_8ab2_ab45c02528ff);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISyndicationCategoryFactoryImpl {
+    fn CreateSyndicationCategory();
+    fn CreateSyndicationCategoryEx();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -233,6 +260,20 @@ unsafe impl ::windows::core::Interface for ISyndicationClient {
     type Vtable = ISyndicationClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e18a9b7_7249_4b45_b229_7df895a5a1f5);
 }
+pub trait ISyndicationClientImpl {
+    fn ServerCredential();
+    fn SetServerCredential();
+    fn ProxyCredential();
+    fn SetProxyCredential();
+    fn MaxResponseBufferSize();
+    fn SetMaxResponseBufferSize();
+    fn Timeout();
+    fn SetTimeout();
+    fn BypassCacheOnRetrieve();
+    fn SetBypassCacheOnRetrieve();
+    fn SetRequestHeader();
+    fn RetrieveFeedAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyndicationClientVtbl(
@@ -267,6 +308,10 @@ unsafe impl ::windows::core::Interface for ISyndicationClientFactory {
     type Vtable = ISyndicationClientFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ec4b32c_a79b_4114_b29a_05dffbafb9a4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISyndicationClientFactoryImpl {
+    fn CreateSyndicationClient();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyndicationClientFactoryVtbl(
@@ -285,6 +330,11 @@ pub struct ISyndicationContent(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationContent {
     type Vtable = ISyndicationContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4641fefe_0e55_40d0_b8d0_6a2ccba9fc7c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISyndicationContentImpl: ISyndicationNodeImpl + ISyndicationTextImpl {
+    fn SourceUri();
+    fn SetSourceUri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -307,6 +357,11 @@ unsafe impl ::windows::core::Interface for ISyndicationContentFactory {
     type Vtable = ISyndicationContentFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d2fbb93_9520_4173_9388_7e2df324a8a0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISyndicationContentFactoryImpl {
+    fn CreateSyndicationContent();
+    fn CreateSyndicationContentWithSourceUri();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyndicationContentFactoryVtbl(
@@ -327,6 +382,10 @@ unsafe impl ::windows::core::Interface for ISyndicationErrorStatics {
     type Vtable = ISyndicationErrorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fbb2361_45c7_4833_8aa0_be5f3b58a7f4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISyndicationErrorStaticsImpl {
+    fn GetStatus();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyndicationErrorStaticsVtbl(
@@ -344,6 +403,37 @@ pub struct ISyndicationFeed(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationFeed {
     type Vtable = ISyndicationFeedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ffe3cd2_5b66_4d62_8403_1bc10d910d6b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISyndicationFeedImpl: ISyndicationNodeImpl {
+    fn Authors();
+    fn Categories();
+    fn Contributors();
+    fn Generator();
+    fn SetGenerator();
+    fn IconUri();
+    fn SetIconUri();
+    fn Id();
+    fn SetId();
+    fn Items();
+    fn LastUpdatedTime();
+    fn SetLastUpdatedTime();
+    fn Links();
+    fn ImageUri();
+    fn SetImageUri();
+    fn Rights();
+    fn SetRights();
+    fn Subtitle();
+    fn SetSubtitle();
+    fn Title();
+    fn SetTitle();
+    fn FirstUri();
+    fn LastUri();
+    fn NextUri();
+    fn PreviousUri();
+    fn SourceFormat();
+    fn Load();
+    fn LoadFromXml();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -406,6 +496,10 @@ unsafe impl ::windows::core::Interface for ISyndicationFeedFactory {
     type Vtable = ISyndicationFeedFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23472232_8be9_48b7_8934_6205131d9357);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISyndicationFeedFactoryImpl {
+    fn CreateSyndicationFeed();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyndicationFeedFactoryVtbl(
@@ -424,6 +518,15 @@ pub struct ISyndicationGenerator(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationGenerator {
     type Vtable = ISyndicationGeneratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9768b379_fb2b_4f6d_b41c_088a5868825c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISyndicationGeneratorImpl {
+    fn Text();
+    fn SetText();
+    fn Uri();
+    fn SetUri();
+    fn Version();
+    fn SetVersion();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -450,6 +553,10 @@ unsafe impl ::windows::core::Interface for ISyndicationGeneratorFactory {
     type Vtable = ISyndicationGeneratorFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa34083e3_1e26_4dbc_ba9d_1ab84beff97b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISyndicationGeneratorFactoryImpl {
+    fn CreateSyndicationGenerator();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyndicationGeneratorFactoryVtbl(
@@ -467,6 +574,37 @@ pub struct ISyndicationItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationItem {
     type Vtable = ISyndicationItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x548db883_c384_45c1_8ae8_a378c4ec486c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISyndicationItemImpl: ISyndicationNodeImpl {
+    fn Authors();
+    fn Categories();
+    fn Contributors();
+    fn Content();
+    fn SetContent();
+    fn Id();
+    fn SetId();
+    fn LastUpdatedTime();
+    fn SetLastUpdatedTime();
+    fn Links();
+    fn PublishedDate();
+    fn SetPublishedDate();
+    fn Rights();
+    fn SetRights();
+    fn Source();
+    fn SetSource();
+    fn Summary();
+    fn SetSummary();
+    fn Title();
+    fn SetTitle();
+    fn CommentsUri();
+    fn SetCommentsUri();
+    fn EditUri();
+    fn EditMediaUri();
+    fn ETag();
+    fn ItemUri();
+    fn Load();
+    fn LoadFromXml();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -527,6 +665,10 @@ unsafe impl ::windows::core::Interface for ISyndicationItemFactory {
     type Vtable = ISyndicationItemFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x251d434f_7db8_487a_85e4_10d191e66ebb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISyndicationItemFactoryImpl {
+    fn CreateSyndicationItem();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyndicationItemFactoryVtbl(
@@ -545,6 +687,21 @@ pub struct ISyndicationLink(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationLink {
     type Vtable = ISyndicationLinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27553abd_a10e_41b5_86bd_9759086eb0c5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISyndicationLinkImpl: ISyndicationNodeImpl {
+    fn Length();
+    fn SetLength();
+    fn MediaType();
+    fn SetMediaType();
+    fn Relationship();
+    fn SetRelationship();
+    fn Title();
+    fn SetTitle();
+    fn Uri();
+    fn SetUri();
+    fn ResourceLanguage();
+    fn SetResourceLanguage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -576,6 +733,11 @@ pub struct ISyndicationLinkFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationLinkFactory {
     type Vtable = ISyndicationLinkFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ed863d4_5535_48ac_98d4_c190995080b3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISyndicationLinkFactoryImpl {
+    fn CreateSyndicationLink();
+    fn CreateSyndicationLinkEx();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -753,6 +915,21 @@ unsafe impl ::windows::core::Interface for ISyndicationNode {
     type Vtable = ISyndicationNodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x753cef78_51f8_45c0_a9f5_f1719dec3fb2);
 }
+pub trait ISyndicationNodeImpl {
+    fn NodeName();
+    fn SetNodeName();
+    fn NodeNamespace();
+    fn SetNodeNamespace();
+    fn NodeValue();
+    fn SetNodeValue();
+    fn Language();
+    fn SetLanguage();
+    fn BaseUri();
+    fn SetBaseUri();
+    fn AttributeExtensions();
+    fn ElementExtensions();
+    fn GetXmlDocument();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyndicationNodeVtbl(
@@ -788,6 +965,10 @@ unsafe impl ::windows::core::Interface for ISyndicationNodeFactory {
     type Vtable = ISyndicationNodeFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12902188_4acb_49a8_b777_a5eb92e18a79);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISyndicationNodeFactoryImpl {
+    fn CreateSyndicationNode();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyndicationNodeFactoryVtbl(
@@ -805,6 +986,15 @@ pub struct ISyndicationPerson(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationPerson {
     type Vtable = ISyndicationPersonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa1ee5da_a7c6_4517_a096_0143faf29327);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISyndicationPersonImpl: ISyndicationNodeImpl {
+    fn Email();
+    fn SetEmail();
+    fn Name();
+    fn SetName();
+    fn Uri();
+    fn SetUri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -830,6 +1020,11 @@ pub struct ISyndicationPersonFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationPersonFactory {
     type Vtable = ISyndicationPersonFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcf4886d_229d_4b58_a49b_f3d2f0f5c99f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISyndicationPersonFactoryImpl {
+    fn CreateSyndicationPerson();
+    fn CreateSyndicationPersonEx();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1069,6 +1264,14 @@ unsafe impl ::windows::core::Interface for ISyndicationText {
     type Vtable = ISyndicationTextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9cc5e80_313a_4091_a2a6_243e0ee923f9);
 }
+pub trait ISyndicationTextImpl: ISyndicationNodeImpl {
+    fn Text();
+    fn SetText();
+    fn Type();
+    fn SetType();
+    fn Xml();
+    fn SetXml();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyndicationTextVtbl(
@@ -1093,6 +1296,11 @@ pub struct ISyndicationTextFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationTextFactory {
     type Vtable = ISyndicationTextFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee7342f7_11c6_4b25_ab62_e596bd162946);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISyndicationTextFactoryImpl {
+    fn CreateSyndicationText();
+    fn CreateSyndicationTextEx();
 }
 #[repr(C)]
 #[doc(hidden)]

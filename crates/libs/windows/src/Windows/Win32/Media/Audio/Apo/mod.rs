@@ -923,6 +923,7 @@ unsafe impl ::windows::core::Interface for IApoAcousticEchoCancellation {
     type Vtable = IApoAcousticEchoCancellationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25385759_3236_4101_a943_25693dfb5d2d);
 }
+pub trait IApoAcousticEchoCancellationImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApoAcousticEchoCancellationVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
@@ -984,6 +985,11 @@ unsafe impl ::windows::core::Interface for IApoAuxiliaryInputConfiguration {
     type Vtable = IApoAuxiliaryInputConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ceb0aab_fa19_48ed_a857_87771ae1b768);
 }
+pub trait IApoAuxiliaryInputConfigurationImpl {
+    fn AddAuxiliaryInput();
+    fn RemoveAuxiliaryInput();
+    fn IsInputFormatSupported();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApoAuxiliaryInputConfigurationVtbl(
@@ -1043,6 +1049,9 @@ unsafe impl ::windows::core::Interface for IApoAuxiliaryInputRT {
     type Vtable = IApoAuxiliaryInputRTVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf851809c_c177_49a0_b1b2_b66f017943ab);
 }
+pub trait IApoAuxiliaryInputRTImpl {
+    fn AcceptInput();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApoAuxiliaryInputRTVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputid: u32, pinputconnection: *const APO_CONNECTION_PROPERTY));
@@ -1094,6 +1103,9 @@ impl ::core::fmt::Debug for IAudioDeviceModulesClient {
 unsafe impl ::windows::core::Interface for IAudioDeviceModulesClient {
     type Vtable = IAudioDeviceModulesClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98f37dac_d0b6_49f5_896a_aa4d169a4c48);
+}
+pub trait IAudioDeviceModulesClientImpl {
+    fn SetAudioDeviceModulesManager();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1162,6 +1174,12 @@ impl ::core::fmt::Debug for IAudioMediaType {
 unsafe impl ::windows::core::Interface for IAudioMediaType {
     type Vtable = IAudioMediaTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e997f73_b71f_4798_873b_ed7dfcf15b4d);
+}
+pub trait IAudioMediaTypeImpl {
+    fn IsCompressedFormat();
+    fn IsEqual();
+    fn GetAudioFormat();
+    fn GetUncompressedAudioFormat();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1253,6 +1271,15 @@ unsafe impl ::windows::core::Interface for IAudioProcessingObject {
     type Vtable = IAudioProcessingObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd7f2b29_24d0_4b5c_b177_592c39f9ca10);
 }
+pub trait IAudioProcessingObjectImpl {
+    fn Reset();
+    fn GetLatency();
+    fn GetRegistrationProperties();
+    fn Initialize();
+    fn IsInputFormatSupported();
+    fn IsOutputFormatSupported();
+    fn GetInputChannelCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioProcessingObjectVtbl(
@@ -1320,6 +1347,10 @@ unsafe impl ::windows::core::Interface for IAudioProcessingObjectConfiguration {
     type Vtable = IAudioProcessingObjectConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e5ed805_aba6_49c3_8f9a_2b8c889c4fa8);
 }
+pub trait IAudioProcessingObjectConfigurationImpl {
+    fn LockForProcess();
+    fn UnlockForProcess();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioProcessingObjectConfigurationVtbl(
@@ -1378,6 +1409,9 @@ impl ::core::fmt::Debug for IAudioProcessingObjectLoggingService {
 unsafe impl ::windows::core::Interface for IAudioProcessingObjectLoggingService {
     type Vtable = IAudioProcessingObjectLoggingServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x698f0107_1745_4708_95a5_d84478a62a65);
+}
+pub trait IAudioProcessingObjectLoggingServiceImpl {
+    fn ApoLog();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1441,6 +1475,10 @@ impl ::core::fmt::Debug for IAudioProcessingObjectNotifications {
 unsafe impl ::windows::core::Interface for IAudioProcessingObjectNotifications {
     type Vtable = IAudioProcessingObjectNotificationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56b0c76f_02fd_4b21_a52e_9f8219fc86e4);
+}
+pub trait IAudioProcessingObjectNotificationsImpl {
+    fn GetApoNotificationRegistrationInfo();
+    fn HandleNotification();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1509,6 +1547,11 @@ unsafe impl ::windows::core::Interface for IAudioProcessingObjectRT {
     type Vtable = IAudioProcessingObjectRTVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e1d6a6d_ddbc_4e95_a4c7_ad64ba37846c);
 }
+pub trait IAudioProcessingObjectRTImpl {
+    fn APOProcess();
+    fn CalcInputFrames();
+    fn CalcOutputFrames();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioProcessingObjectRTVtbl(
@@ -1569,6 +1612,9 @@ unsafe impl ::windows::core::Interface for IAudioProcessingObjectRTQueueService 
     type Vtable = IAudioProcessingObjectRTQueueServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacd65e2f_955b_4b57_b9bf_ac297bb752c9);
 }
+pub trait IAudioProcessingObjectRTQueueServiceImpl {
+    fn GetRealTimeWorkQueue();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioProcessingObjectRTQueueServiceVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, workqueueid: *mut u32) -> ::windows::core::HRESULT);
@@ -1627,6 +1673,10 @@ unsafe impl ::windows::core::Interface for IAudioProcessingObjectVBR {
     type Vtable = IAudioProcessingObjectVBRVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ba1db8f_78ad_49cd_9591_f79d80a17c81);
 }
+pub trait IAudioProcessingObjectVBRImpl {
+    fn CalcMaxInputFrames();
+    fn CalcMaxOutputFrames();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioProcessingObjectVBRVtbl(
@@ -1680,6 +1730,7 @@ unsafe impl ::windows::core::Interface for IAudioSystemEffects {
     type Vtable = IAudioSystemEffectsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fa00f27_add6_499a_8a9d_6b98521fa75b);
 }
+pub trait IAudioSystemEffectsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSystemEffectsVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
@@ -1752,6 +1803,9 @@ impl ::core::fmt::Debug for IAudioSystemEffects2 {
 unsafe impl ::windows::core::Interface for IAudioSystemEffects2 {
     type Vtable = IAudioSystemEffects2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbafe99d2_7436_44ce_9e0e_4d89afbfff56);
+}
+pub trait IAudioSystemEffects2Impl: IAudioSystemEffectsImpl {
+    fn GetEffectsList();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1861,6 +1915,10 @@ unsafe impl ::windows::core::Interface for IAudioSystemEffects3 {
     type Vtable = IAudioSystemEffects3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc58b31cd_fc6a_4255_bc1f_ad29bb0a4a17);
 }
+pub trait IAudioSystemEffects3Impl: IAudioSystemEffects2Impl + IAudioSystemEffectsImpl {
+    fn GetControllableSystemEffectsList();
+    fn SetAudioSystemEffectState();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSystemEffects3Vtbl(
@@ -1933,6 +1991,11 @@ impl ::core::fmt::Debug for IAudioSystemEffectsCustomFormats {
 unsafe impl ::windows::core::Interface for IAudioSystemEffectsCustomFormats {
     type Vtable = IAudioSystemEffectsCustomFormatsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1176e34_bb7f_4f05_bebd_1b18a534e097);
+}
+pub trait IAudioSystemEffectsCustomFormatsImpl {
+    fn GetFormatCount();
+    fn GetFormat();
+    fn GetFormatRepresentation();
 }
 #[repr(C)]
 #[doc(hidden)]

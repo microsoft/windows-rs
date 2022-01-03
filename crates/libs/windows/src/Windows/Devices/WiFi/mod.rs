@@ -6,6 +6,18 @@ unsafe impl ::windows::core::Interface for IWiFiAdapter {
     type Vtable = IWiFiAdapterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6c4e423_3d75_43a4_b9de_11e26b72d9b0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWiFiAdapterImpl {
+    fn NetworkAdapter();
+    fn ScanAsync();
+    fn NetworkReport();
+    fn AvailableNetworksChanged();
+    fn RemoveAvailableNetworksChanged();
+    fn ConnectAsync();
+    fn ConnectWithPasswordCredentialAsync();
+    fn ConnectWithPasswordCredentialAndSsidAsync();
+    fn Disconnect();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiFiAdapterVtbl(
@@ -39,6 +51,11 @@ unsafe impl ::windows::core::Interface for IWiFiAdapter2 {
     type Vtable = IWiFiAdapter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bc4501d_81e4_453d_9430_1fcafbadd6b6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWiFiAdapter2Impl {
+    fn GetWpsConfigurationAsync();
+    fn ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiFiAdapter2Vtbl(
@@ -59,6 +76,13 @@ pub struct IWiFiAdapterStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiAdapterStatics {
     type Vtable = IWiFiAdapterStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda25fddd_d24c_43e3_aabd_c4659f730f99);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWiFiAdapterStaticsImpl {
+    fn FindAllAdaptersAsync();
+    fn GetDeviceSelector();
+    fn FromIdAsync();
+    fn RequestAccessAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -83,6 +107,20 @@ pub struct IWiFiAvailableNetwork(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiAvailableNetwork {
     type Vtable = IWiFiAvailableNetworkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26e96246_183e_4704_9826_71b4a2f0f668);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWiFiAvailableNetworkImpl {
+    fn Uptime();
+    fn Ssid();
+    fn Bssid();
+    fn ChannelCenterFrequencyInKilohertz();
+    fn NetworkRssiInDecibelMilliwatts();
+    fn SignalBars();
+    fn NetworkKind();
+    fn PhyKind();
+    fn SecuritySettings();
+    fn BeaconInterval();
+    fn IsWiFiDirect();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -115,6 +153,10 @@ unsafe impl ::windows::core::Interface for IWiFiConnectionResult {
     type Vtable = IWiFiConnectionResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x143bdfd9_c37d_40be_a5c8_857bce85a931);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWiFiConnectionResultImpl {
+    fn ConnectionStatus();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiFiConnectionResultVtbl(
@@ -132,6 +174,11 @@ pub struct IWiFiNetworkReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiNetworkReport {
     type Vtable = IWiFiNetworkReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9524ded2_5911_445e_8194_be4f1a704895);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWiFiNetworkReportImpl {
+    fn Timestamp();
+    fn AvailableNetworks();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -153,6 +200,11 @@ pub struct IWiFiWpsConfigurationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiWpsConfigurationResult {
     type Vtable = IWiFiWpsConfigurationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67b49871_17ee_42d1_b14f_5a11f1226fb5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWiFiWpsConfigurationResultImpl {
+    fn Status();
+    fn SupportedWpsKinds();
 }
 #[repr(C)]
 #[doc(hidden)]

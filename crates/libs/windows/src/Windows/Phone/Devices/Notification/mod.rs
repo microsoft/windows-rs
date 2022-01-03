@@ -6,6 +6,11 @@ unsafe impl ::windows::core::Interface for IVibrationDevice {
     type Vtable = IVibrationDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b4a6595_cfcd_4e08_92fb_c1906d04498c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IVibrationDeviceImpl {
+    fn Vibrate();
+    fn Cancel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVibrationDeviceVtbl(
@@ -25,6 +30,10 @@ pub struct IVibrationDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVibrationDeviceStatics {
     type Vtable = IVibrationDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x332fd2f1_1c69_4c91_949e_4bb67a85bdc7);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IVibrationDeviceStaticsImpl {
+    fn GetDefault();
 }
 #[repr(C)]
 #[doc(hidden)]

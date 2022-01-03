@@ -310,6 +310,20 @@ unsafe impl ::windows::core::Interface for IAtomPubClient {
     type Vtable = IAtomPubClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35392c38_cded_4d4c_9637_05f15c1c9406);
 }
+#[cfg(all(feature = "Web_Syndication", feature = "implement_exclusive"))]
+pub trait IAtomPubClientImpl: ISyndicationClientImpl {
+    fn RetrieveServiceDocumentAsync();
+    fn RetrieveMediaResourceAsync();
+    fn RetrieveResourceAsync();
+    fn CreateResourceAsync();
+    fn CreateMediaResourceAsync();
+    fn UpdateMediaResourceAsync();
+    fn UpdateResourceAsync();
+    fn UpdateResourceItemAsync();
+    fn DeleteResourceAsync();
+    fn DeleteResourceItemAsync();
+    fn CancelAsyncOperations();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAtomPubClientVtbl(
@@ -348,6 +362,10 @@ unsafe impl ::windows::core::Interface for IAtomPubClientFactory {
     type Vtable = IAtomPubClientFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49d55012_57cb_4bde_ab9f_2610b172777b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAtomPubClientFactoryImpl {
+    fn CreateAtomPubClientWithCredentials();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAtomPubClientFactoryVtbl(
@@ -366,6 +384,13 @@ pub struct IResourceCollection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceCollection {
     type Vtable = IResourceCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f5fd609_bc88_41d4_88fa_3de6704d428e);
+}
+#[cfg(all(feature = "Web_Syndication", feature = "implement_exclusive"))]
+pub trait IResourceCollectionImpl: ISyndicationNodeImpl {
+    fn Title();
+    fn Uri();
+    fn Categories();
+    fn Accepts();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -392,6 +417,10 @@ unsafe impl ::windows::core::Interface for IServiceDocument {
     type Vtable = IServiceDocumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b7ec771_2ab3_4dbe_8bcc_778f92b75e51);
 }
+#[cfg(all(feature = "Web_Syndication", feature = "implement_exclusive"))]
+pub trait IServiceDocumentImpl: ISyndicationNodeImpl {
+    fn Workspaces();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IServiceDocumentVtbl(
@@ -410,6 +439,11 @@ pub struct IWorkspace(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWorkspace {
     type Vtable = IWorkspaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb41da63b_a4b8_4036_89c5_83c31266ba49);
+}
+#[cfg(all(feature = "Web_Syndication", feature = "implement_exclusive"))]
+pub trait IWorkspaceImpl: ISyndicationNodeImpl {
+    fn Title();
+    fn Collections();
 }
 #[repr(C)]
 #[doc(hidden)]

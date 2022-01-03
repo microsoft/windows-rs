@@ -33,6 +33,11 @@ unsafe impl ::windows::core::Interface for ICoreUserActivityManagerStatics {
     type Vtable = ICoreUserActivityManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca3adb02_a4be_4d4d_bfa8_6795f4264efb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICoreUserActivityManagerStaticsImpl {
+    fn CreateUserActivitySessionInBackground();
+    fn DeleteUserActivitySessionsInTimeRangeAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreUserActivityManagerStaticsVtbl(

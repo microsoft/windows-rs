@@ -159,6 +159,9 @@ unsafe impl ::windows::core::Interface for IIsolatedAppLauncher {
     type Vtable = IIsolatedAppLauncherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf686878f_7b42_4cc4_96fb_f4f3b6e3d24d);
 }
+pub trait IIsolatedAppLauncherImpl {
+    fn Launch();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedAppLauncherVtbl(

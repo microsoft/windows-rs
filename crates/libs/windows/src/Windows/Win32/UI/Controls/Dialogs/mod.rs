@@ -1319,6 +1319,11 @@ unsafe impl ::windows::core::Interface for IPrintDialogCallback {
     type Vtable = IPrintDialogCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5852a2c3_6530_11d1_b6a3_0000f8757bf9);
 }
+pub trait IPrintDialogCallbackImpl {
+    fn InitDone();
+    fn SelectionChange();
+    fn HandleMessage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintDialogCallbackVtbl(
@@ -1389,6 +1394,11 @@ impl ::core::fmt::Debug for IPrintDialogServices {
 unsafe impl ::windows::core::Interface for IPrintDialogServices {
     type Vtable = IPrintDialogServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x509aaeda_5639_11d1_b6a1_0000f8757bf9);
+}
+pub trait IPrintDialogServicesImpl {
+    fn GetCurrentDevMode();
+    fn GetCurrentPrinterName();
+    fn GetCurrentPortName();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -1519,6 +1519,8 @@ unsafe impl ::windows::core::Interface for IAttachableInputObject {
     type Vtable = IAttachableInputObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b822734_a3c1_542a_b2f4_0e32b773fb07);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAttachableInputObjectImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAttachableInputObjectVtbl(
@@ -1536,6 +1538,8 @@ unsafe impl ::windows::core::Interface for IAttachableInputObjectFactory {
     type Vtable = IAttachableInputObjectFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4c54c4e_42bc_58fa_a640_ea1516f4c06b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAttachableInputObjectFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAttachableInputObjectFactoryVtbl(
@@ -1552,6 +1556,12 @@ pub struct ICrossSlidingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICrossSlidingEventArgs {
     type Vtable = ICrossSlidingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9374738_6f88_41d9_8720_78e08e398349);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICrossSlidingEventArgsImpl {
+    fn PointerDeviceType();
+    fn Position();
+    fn CrossSlidingState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1575,6 +1585,10 @@ unsafe impl ::windows::core::Interface for ICrossSlidingEventArgs2 {
     type Vtable = ICrossSlidingEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeefb7d48_c070_59f3_8dab_bcaf621d8687);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICrossSlidingEventArgs2Impl {
+    fn ContactCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICrossSlidingEventArgs2Vtbl(
@@ -1592,6 +1606,12 @@ pub struct IDraggingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDraggingEventArgs {
     type Vtable = IDraggingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c905384_083c_4bd3_b559_179cddeb33ec);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDraggingEventArgsImpl {
+    fn PointerDeviceType();
+    fn Position();
+    fn DraggingState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1615,6 +1635,10 @@ unsafe impl ::windows::core::Interface for IDraggingEventArgs2 {
     type Vtable = IDraggingEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71efdbf9_382a_55ca_b4b9_008123c1bf1a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDraggingEventArgs2Impl {
+    fn ContactCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDraggingEventArgs2Vtbl(
@@ -1632,6 +1656,15 @@ pub struct IEdgeGesture(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEdgeGesture {
     type Vtable = IEdgeGestureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x580d5292_2ab1_49aa_a7f0_33bd3f8df9f1);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEdgeGestureImpl {
+    fn Starting();
+    fn RemoveStarting();
+    fn Completed();
+    fn RemoveCompleted();
+    fn Canceled();
+    fn RemoveCanceled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1662,6 +1695,10 @@ unsafe impl ::windows::core::Interface for IEdgeGestureEventArgs {
     type Vtable = IEdgeGestureEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44fa4a24_2d09_42e1_8b5e_368208796a4c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEdgeGestureEventArgsImpl {
+    fn Kind();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEdgeGestureEventArgsVtbl(
@@ -1680,6 +1717,10 @@ unsafe impl ::windows::core::Interface for IEdgeGestureStatics {
     type Vtable = IEdgeGestureStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc6a8519_18ee_4043_9839_4fc584d60a14);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEdgeGestureStaticsImpl {
+    fn GetForCurrentView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEdgeGestureStaticsVtbl(
@@ -1697,6 +1738,67 @@ pub struct IGestureRecognizer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGestureRecognizer {
     type Vtable = IGestureRecognizerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb47a37bf_3d6b_4f88_83e8_6dcb4012ffb0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGestureRecognizerImpl {
+    fn GestureSettings();
+    fn SetGestureSettings();
+    fn IsInertial();
+    fn IsActive();
+    fn ShowGestureFeedback();
+    fn SetShowGestureFeedback();
+    fn PivotCenter();
+    fn SetPivotCenter();
+    fn PivotRadius();
+    fn SetPivotRadius();
+    fn InertiaTranslationDeceleration();
+    fn SetInertiaTranslationDeceleration();
+    fn InertiaRotationDeceleration();
+    fn SetInertiaRotationDeceleration();
+    fn InertiaExpansionDeceleration();
+    fn SetInertiaExpansionDeceleration();
+    fn InertiaTranslationDisplacement();
+    fn SetInertiaTranslationDisplacement();
+    fn InertiaRotationAngle();
+    fn SetInertiaRotationAngle();
+    fn InertiaExpansion();
+    fn SetInertiaExpansion();
+    fn ManipulationExact();
+    fn SetManipulationExact();
+    fn CrossSlideThresholds();
+    fn SetCrossSlideThresholds();
+    fn CrossSlideHorizontally();
+    fn SetCrossSlideHorizontally();
+    fn CrossSlideExact();
+    fn SetCrossSlideExact();
+    fn AutoProcessInertia();
+    fn SetAutoProcessInertia();
+    fn MouseWheelParameters();
+    fn CanBeDoubleTap();
+    fn ProcessDownEvent();
+    fn ProcessMoveEvents();
+    fn ProcessUpEvent();
+    fn ProcessMouseWheelEvent();
+    fn ProcessInertia();
+    fn CompleteGesture();
+    fn Tapped();
+    fn RemoveTapped();
+    fn RightTapped();
+    fn RemoveRightTapped();
+    fn Holding();
+    fn RemoveHolding();
+    fn Dragging();
+    fn RemoveDragging();
+    fn ManipulationStarted();
+    fn RemoveManipulationStarted();
+    fn ManipulationUpdated();
+    fn RemoveManipulationUpdated();
+    fn ManipulationInertiaStarting();
+    fn RemoveManipulationInertiaStarting();
+    fn ManipulationCompleted();
+    fn RemoveManipulationCompleted();
+    fn CrossSliding();
+    fn RemoveCrossSliding();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1794,6 +1896,25 @@ unsafe impl ::windows::core::Interface for IGestureRecognizer2 {
     type Vtable = IGestureRecognizer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd646097f_6ef7_5746_8ba8_8ff2206e6f3b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGestureRecognizer2Impl {
+    fn TapMinContactCount();
+    fn SetTapMinContactCount();
+    fn TapMaxContactCount();
+    fn SetTapMaxContactCount();
+    fn HoldMinContactCount();
+    fn SetHoldMinContactCount();
+    fn HoldMaxContactCount();
+    fn SetHoldMaxContactCount();
+    fn HoldRadius();
+    fn SetHoldRadius();
+    fn HoldStartDelay();
+    fn SetHoldStartDelay();
+    fn TranslationMinContactCount();
+    fn SetTranslationMinContactCount();
+    fn TranslationMaxContactCount();
+    fn SetTranslationMaxContactCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGestureRecognizer2Vtbl(
@@ -1829,6 +1950,12 @@ unsafe impl ::windows::core::Interface for IHoldingEventArgs {
     type Vtable = IHoldingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bf755c5_e799_41b4_bb40_242f40959b71);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IHoldingEventArgsImpl {
+    fn PointerDeviceType();
+    fn Position();
+    fn HoldingState();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHoldingEventArgsVtbl(
@@ -1851,6 +1978,11 @@ unsafe impl ::windows::core::Interface for IHoldingEventArgs2 {
     type Vtable = IHoldingEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x141da9ea_4c79_5674_afea_493fdeb91f19);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IHoldingEventArgs2Impl {
+    fn ContactCount();
+    fn CurrentContactCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHoldingEventArgs2Vtbl(
@@ -1869,6 +2001,12 @@ pub struct IInputActivationListener(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInputActivationListener {
     type Vtable = IInputActivationListenerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d6d4ed2_28c7_5ae3_aa74_c918a9f243ca);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInputActivationListenerImpl {
+    fn State();
+    fn InputActivationChanged();
+    fn RemoveInputActivationChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1892,6 +2030,10 @@ unsafe impl ::windows::core::Interface for IInputActivationListenerActivationCha
     type Vtable = IInputActivationListenerActivationChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7699b465_1dcf_5791_b4b9_6cafbeed2056);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInputActivationListenerActivationChangedEventArgsImpl {
+    fn State();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputActivationListenerActivationChangedEventArgsVtbl(
@@ -1909,6 +2051,15 @@ pub struct IKeyboardDeliveryInterceptor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyboardDeliveryInterceptor {
     type Vtable = IKeyboardDeliveryInterceptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4baf068_8f49_446c_8db5_8c0ffe85cc9e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IKeyboardDeliveryInterceptorImpl {
+    fn IsInterceptionEnabledWhenInForeground();
+    fn SetIsInterceptionEnabledWhenInForeground();
+    fn KeyDown();
+    fn RemoveKeyDown();
+    fn KeyUp();
+    fn RemoveKeyUp();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1937,6 +2088,10 @@ unsafe impl ::windows::core::Interface for IKeyboardDeliveryInterceptorStatics {
     type Vtable = IKeyboardDeliveryInterceptorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9f63ba2_ceba_4755_8a7e_14c0ffecd239);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IKeyboardDeliveryInterceptorStaticsImpl {
+    fn GetForCurrentView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyboardDeliveryInterceptorStaticsVtbl(
@@ -1954,6 +2109,13 @@ pub struct IManipulationCompletedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IManipulationCompletedEventArgs {
     type Vtable = IManipulationCompletedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb34ab22b_d19b_46ff_9f38_dec7754bb9e7);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IManipulationCompletedEventArgsImpl {
+    fn PointerDeviceType();
+    fn Position();
+    fn Cumulative();
+    fn Velocities();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1980,6 +2142,11 @@ unsafe impl ::windows::core::Interface for IManipulationCompletedEventArgs2 {
     type Vtable = IManipulationCompletedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0c0dce7_30a9_5b96_886f_6560a85e4757);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IManipulationCompletedEventArgs2Impl {
+    fn ContactCount();
+    fn CurrentContactCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManipulationCompletedEventArgs2Vtbl(
@@ -1998,6 +2165,14 @@ pub struct IManipulationInertiaStartingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IManipulationInertiaStartingEventArgs {
     type Vtable = IManipulationInertiaStartingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd37a898_26bf_467a_9ce5_ccf3fb11371e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IManipulationInertiaStartingEventArgsImpl {
+    fn PointerDeviceType();
+    fn Position();
+    fn Delta();
+    fn Cumulative();
+    fn Velocities();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2026,6 +2201,10 @@ unsafe impl ::windows::core::Interface for IManipulationInertiaStartingEventArgs
     type Vtable = IManipulationInertiaStartingEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc25409b8_f9fa_5a45_bd97_dcbbb2201860);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IManipulationInertiaStartingEventArgs2Impl {
+    fn ContactCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManipulationInertiaStartingEventArgs2Vtbl(
@@ -2043,6 +2222,12 @@ pub struct IManipulationStartedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IManipulationStartedEventArgs {
     type Vtable = IManipulationStartedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddec873e_cfce_4932_8c1d_3c3d011a34c0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IManipulationStartedEventArgsImpl {
+    fn PointerDeviceType();
+    fn Position();
+    fn Cumulative();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2067,6 +2252,10 @@ unsafe impl ::windows::core::Interface for IManipulationStartedEventArgs2 {
     type Vtable = IManipulationStartedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2da3db4e_e583_5055_afaa_16fd986531a6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IManipulationStartedEventArgs2Impl {
+    fn ContactCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManipulationStartedEventArgs2Vtbl(
@@ -2084,6 +2273,14 @@ pub struct IManipulationUpdatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IManipulationUpdatedEventArgs {
     type Vtable = IManipulationUpdatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb354ce5_abb8_4f9f_b3ce_8181aa61ad82);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IManipulationUpdatedEventArgsImpl {
+    fn PointerDeviceType();
+    fn Position();
+    fn Delta();
+    fn Cumulative();
+    fn Velocities();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2112,6 +2309,11 @@ unsafe impl ::windows::core::Interface for IManipulationUpdatedEventArgs2 {
     type Vtable = IManipulationUpdatedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3dfb96a_3306_5903_a1c5_ff9757a8689e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IManipulationUpdatedEventArgs2Impl {
+    fn ContactCount();
+    fn CurrentContactCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManipulationUpdatedEventArgs2Vtbl(
@@ -2130,6 +2332,17 @@ pub struct IMouseWheelParameters(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMouseWheelParameters {
     type Vtable = IMouseWheelParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xead0ca44_9ded_4037_8149_5e4cc2564468);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMouseWheelParametersImpl {
+    fn CharTranslation();
+    fn SetCharTranslation();
+    fn DeltaScale();
+    fn SetDeltaScale();
+    fn DeltaRotationAngle();
+    fn SetDeltaRotationAngle();
+    fn PageTranslation();
+    fn SetPageTranslation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2160,6 +2373,17 @@ unsafe impl ::windows::core::Interface for IPointerPoint {
     type Vtable = IPointerPointVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe995317d_7296_42d9_8233_c5be73b74a4a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPointerPointImpl {
+    fn PointerDevice();
+    fn Position();
+    fn RawPosition();
+    fn PointerId();
+    fn FrameId();
+    fn Timestamp();
+    fn IsInContact();
+    fn Properties();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerPointVtbl(
@@ -2187,6 +2411,33 @@ pub struct IPointerPointProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointerPointProperties {
     type Vtable = IPointerPointPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc79d8a4b_c163_4ee7_803f_67ce79f9972d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPointerPointPropertiesImpl {
+    fn Pressure();
+    fn IsInverted();
+    fn IsEraser();
+    fn Orientation();
+    fn XTilt();
+    fn YTilt();
+    fn Twist();
+    fn ContactRect();
+    fn ContactRectRaw();
+    fn TouchConfidence();
+    fn IsLeftButtonPressed();
+    fn IsRightButtonPressed();
+    fn IsMiddleButtonPressed();
+    fn MouseWheelDelta();
+    fn IsHorizontalMouseWheel();
+    fn IsPrimary();
+    fn IsInRange();
+    fn IsCanceled();
+    fn IsBarrelButtonPressed();
+    fn IsXButton1Pressed();
+    fn IsXButton2Pressed();
+    fn PointerUpdateKind();
+    fn HasUsage();
+    fn GetUsageValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2231,6 +2482,10 @@ unsafe impl ::windows::core::Interface for IPointerPointProperties2 {
     type Vtable = IPointerPointProperties2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22c3433a_c83b_41c0_a296_5e232d64d6af);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPointerPointProperties2Impl {
+    fn ZDistance();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerPointProperties2Vtbl(
@@ -2249,6 +2504,13 @@ pub struct IPointerPointStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointerPointStatics {
     type Vtable = IPointerPointStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa506638d_2a1a_413e_bc75_9f38381cc069);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPointerPointStaticsImpl {
+    fn GetCurrentPoint();
+    fn GetIntermediatePoints();
+    fn GetCurrentPointTransformed();
+    fn GetIntermediatePointsTransformed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2360,6 +2622,11 @@ unsafe impl ::windows::core::Interface for IPointerPointTransform {
     type Vtable = IPointerPointTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d5fe14f_b87c_4028_bc9c_59e9947fb056);
 }
+pub trait IPointerPointTransformImpl {
+    fn Inverse();
+    fn TryTransform();
+    fn TransformBounds();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerPointTransformVtbl(
@@ -2382,6 +2649,13 @@ unsafe impl ::windows::core::Interface for IPointerVisualizationSettings {
     type Vtable = IPointerVisualizationSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d1e6461_84f7_499d_bd91_2a36e2b7aaa2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPointerVisualizationSettingsImpl {
+    fn SetIsContactFeedbackEnabled();
+    fn IsContactFeedbackEnabled();
+    fn SetIsBarrelButtonFeedbackEnabled();
+    fn IsBarrelButtonFeedbackEnabled();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerVisualizationSettingsVtbl(
@@ -2403,6 +2677,10 @@ unsafe impl ::windows::core::Interface for IPointerVisualizationSettingsStatics 
     type Vtable = IPointerVisualizationSettingsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68870edb_165b_4214_b4f3_584eca8c8a69);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPointerVisualizationSettingsStaticsImpl {
+    fn GetForCurrentView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerVisualizationSettingsStaticsVtbl(
@@ -2420,6 +2698,28 @@ pub struct IRadialController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRadialController {
     type Vtable = IRadialControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3055d1c8_df51_43d4_b23b_0e1037467a09);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerImpl {
+    fn Menu();
+    fn RotationResolutionInDegrees();
+    fn SetRotationResolutionInDegrees();
+    fn UseAutomaticHapticFeedback();
+    fn SetUseAutomaticHapticFeedback();
+    fn ScreenContactStarted();
+    fn RemoveScreenContactStarted();
+    fn ScreenContactEnded();
+    fn RemoveScreenContactEnded();
+    fn ScreenContactContinued();
+    fn RemoveScreenContactContinued();
+    fn ControlLost();
+    fn RemoveControlLost();
+    fn RotationChanged();
+    fn RemoveRotationChanged();
+    fn ButtonClicked();
+    fn RemoveButtonClicked();
+    fn ControlAcquired();
+    fn RemoveControlAcquired();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2471,6 +2771,15 @@ unsafe impl ::windows::core::Interface for IRadialController2 {
     type Vtable = IRadialController2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577eff_4cee_11e6_b535_001bdc06ab3b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialController2Impl {
+    fn ButtonPressed();
+    fn RemoveButtonPressed();
+    fn ButtonHolding();
+    fn RemoveButtonHolding();
+    fn ButtonReleased();
+    fn RemoveButtonReleased();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialController2Vtbl(
@@ -2500,6 +2809,10 @@ unsafe impl ::windows::core::Interface for IRadialControllerButtonClickedEventAr
     type Vtable = IRadialControllerButtonClickedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa438_e651_11e5_bf62_2c27d7404e85);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerButtonClickedEventArgsImpl {
+    fn Contact();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerButtonClickedEventArgsVtbl(
@@ -2517,6 +2830,10 @@ pub struct IRadialControllerButtonClickedEventArgs2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRadialControllerButtonClickedEventArgs2 {
     type Vtable = IRadialControllerButtonClickedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef3_3cee_11e6_b535_001bdc06ab3b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerButtonClickedEventArgs2Impl {
+    fn SimpleHapticsController();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2536,6 +2853,11 @@ pub struct IRadialControllerButtonHoldingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRadialControllerButtonHoldingEventArgs {
     type Vtable = IRadialControllerButtonHoldingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577eee_3cee_11e6_b535_001bdc06ab3b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerButtonHoldingEventArgsImpl {
+    fn Contact();
+    fn SimpleHapticsController();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2557,6 +2879,11 @@ unsafe impl ::windows::core::Interface for IRadialControllerButtonPressedEventAr
     type Vtable = IRadialControllerButtonPressedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577eed_4cee_11e6_b535_001bdc06ab3b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerButtonPressedEventArgsImpl {
+    fn Contact();
+    fn SimpleHapticsController();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerButtonPressedEventArgsVtbl(
@@ -2577,6 +2904,11 @@ unsafe impl ::windows::core::Interface for IRadialControllerButtonReleasedEventA
     type Vtable = IRadialControllerButtonReleasedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577eef_3cee_11e6_b535_001bdc06ab3b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerButtonReleasedEventArgsImpl {
+    fn Contact();
+    fn SimpleHapticsController();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerButtonReleasedEventArgsVtbl(
@@ -2596,6 +2928,12 @@ pub struct IRadialControllerConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRadialControllerConfiguration {
     type Vtable = IRadialControllerConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6b79ecb_6a52_4430_910c_56370a9d6b42);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerConfigurationImpl {
+    fn SetDefaultMenuItems();
+    fn ResetToDefaultMenuItems();
+    fn TrySelectDefaultMenuItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2618,6 +2956,13 @@ unsafe impl ::windows::core::Interface for IRadialControllerConfiguration2 {
     type Vtable = IRadialControllerConfiguration2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef7_3cee_11e6_b535_001bdc06ab3b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerConfiguration2Impl {
+    fn SetActiveControllerWhenMenuIsSuppressed();
+    fn ActiveControllerWhenMenuIsSuppressed();
+    fn SetIsMenuSuppressed();
+    fn IsMenuSuppressed();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerConfiguration2Vtbl(
@@ -2639,6 +2984,10 @@ unsafe impl ::windows::core::Interface for IRadialControllerConfigurationStatics
     type Vtable = IRadialControllerConfigurationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79b6b0e5_069a_4486_a99d_8db772b9642f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerConfigurationStaticsImpl {
+    fn GetForCurrentView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerConfigurationStaticsVtbl(
@@ -2656,6 +3005,13 @@ pub struct IRadialControllerConfigurationStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRadialControllerConfigurationStatics2 {
     type Vtable = IRadialControllerConfigurationStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53e08b17_e205_48d3_9caf_80ff47c4d7c7);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerConfigurationStatics2Impl {
+    fn SetAppController();
+    fn AppController();
+    fn SetIsAppControllerEnabled();
+    fn IsAppControllerEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2678,6 +3034,10 @@ unsafe impl ::windows::core::Interface for IRadialControllerControlAcquiredEvent
     type Vtable = IRadialControllerControlAcquiredEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa439_e651_11e5_bf62_2c27d7404e85);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerControlAcquiredEventArgsImpl {
+    fn Contact();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerControlAcquiredEventArgsVtbl(
@@ -2695,6 +3055,11 @@ pub struct IRadialControllerControlAcquiredEventArgs2(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IRadialControllerControlAcquiredEventArgs2 {
     type Vtable = IRadialControllerControlAcquiredEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef4_3cee_11e6_b535_001bdc06ab3b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerControlAcquiredEventArgs2Impl {
+    fn IsButtonPressed();
+    fn SimpleHapticsController();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2715,6 +3080,15 @@ pub struct IRadialControllerMenu(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRadialControllerMenu {
     type Vtable = IRadialControllerMenuVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8506b35d_f640_4412_aba0_bad077e5ea8a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerMenuImpl {
+    fn Items();
+    fn IsEnabled();
+    fn SetIsEnabled();
+    fn GetSelectedMenuItem();
+    fn SelectMenuItem();
+    fn TrySelectPreviouslySelectedMenuItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2740,6 +3114,14 @@ unsafe impl ::windows::core::Interface for IRadialControllerMenuItem {
     type Vtable = IRadialControllerMenuItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc80fc98d_ad0b_4c9c_8f2f_136a2373a6ba);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerMenuItemImpl {
+    fn DisplayText();
+    fn Tag();
+    fn SetTag();
+    fn Invoked();
+    fn RemoveInvoked();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerMenuItemVtbl(
@@ -2764,6 +3146,11 @@ unsafe impl ::windows::core::Interface for IRadialControllerMenuItemStatics {
     type Vtable = IRadialControllerMenuItemStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x249e0887_d842_4524_9df8_e0d647edc887);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerMenuItemStaticsImpl {
+    fn CreateFromIcon();
+    fn CreateFromKnownIcon();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerMenuItemStaticsVtbl(
@@ -2783,6 +3170,11 @@ pub struct IRadialControllerMenuItemStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRadialControllerMenuItemStatics2 {
     type Vtable = IRadialControllerMenuItemStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cbb70be_7e3e_48bd_be04_2c7fcaa9c1ff);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerMenuItemStatics2Impl {
+    fn CreateFromFontGlyph();
+    fn CreateFromFontGlyphWithUri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2804,6 +3196,11 @@ unsafe impl ::windows::core::Interface for IRadialControllerRotationChangedEvent
     type Vtable = IRadialControllerRotationChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa435_e651_11e5_bf62_2c27d7404e85);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerRotationChangedEventArgsImpl {
+    fn RotationDeltaInDegrees();
+    fn Contact();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerRotationChangedEventArgsVtbl(
@@ -2822,6 +3219,11 @@ pub struct IRadialControllerRotationChangedEventArgs2(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IRadialControllerRotationChangedEventArgs2 {
     type Vtable = IRadialControllerRotationChangedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577eec_4cee_11e6_b535_001bdc06ab3b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerRotationChangedEventArgs2Impl {
+    fn IsButtonPressed();
+    fn SimpleHapticsController();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2842,6 +3244,11 @@ pub struct IRadialControllerScreenContact(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRadialControllerScreenContact {
     type Vtable = IRadialControllerScreenContactVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa434_e651_11e5_bf62_2c27d7404e85);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerScreenContactImpl {
+    fn Bounds();
+    fn Position();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2864,6 +3271,10 @@ unsafe impl ::windows::core::Interface for IRadialControllerScreenContactContinu
     type Vtable = IRadialControllerScreenContactContinuedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa437_e651_11e5_bf62_2c27d7404e85);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerScreenContactContinuedEventArgsImpl {
+    fn Contact();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerScreenContactContinuedEventArgsVtbl(
@@ -2881,6 +3292,11 @@ pub struct IRadialControllerScreenContactContinuedEventArgs2(::windows::core::IU
 unsafe impl ::windows::core::Interface for IRadialControllerScreenContactContinuedEventArgs2 {
     type Vtable = IRadialControllerScreenContactContinuedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef1_3cee_11e6_b535_001bdc06ab3b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerScreenContactContinuedEventArgs2Impl {
+    fn IsButtonPressed();
+    fn SimpleHapticsController();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2902,6 +3318,11 @@ unsafe impl ::windows::core::Interface for IRadialControllerScreenContactEndedEv
     type Vtable = IRadialControllerScreenContactEndedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef2_3cee_11e6_b535_001bdc06ab3b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerScreenContactEndedEventArgsImpl {
+    fn IsButtonPressed();
+    fn SimpleHapticsController();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerScreenContactEndedEventArgsVtbl(
@@ -2922,6 +3343,10 @@ unsafe impl ::windows::core::Interface for IRadialControllerScreenContactStarted
     type Vtable = IRadialControllerScreenContactStartedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa436_e651_11e5_bf62_2c27d7404e85);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerScreenContactStartedEventArgsImpl {
+    fn Contact();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerScreenContactStartedEventArgsVtbl(
@@ -2939,6 +3364,11 @@ pub struct IRadialControllerScreenContactStartedEventArgs2(::windows::core::IUnk
 unsafe impl ::windows::core::Interface for IRadialControllerScreenContactStartedEventArgs2 {
     type Vtable = IRadialControllerScreenContactStartedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef0_3cee_11e6_b535_001bdc06ab3b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerScreenContactStartedEventArgs2Impl {
+    fn IsButtonPressed();
+    fn SimpleHapticsController();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2960,6 +3390,11 @@ unsafe impl ::windows::core::Interface for IRadialControllerStatics {
     type Vtable = IRadialControllerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaded0b7_b84c_4894_87aa_8f25aa5f288b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadialControllerStaticsImpl {
+    fn IsSupported();
+    fn CreateForCurrentView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerStaticsVtbl(
@@ -2978,6 +3413,11 @@ pub struct IRightTappedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRightTappedEventArgs {
     type Vtable = IRightTappedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cbf40bd_af7a_4a36_9476_b1dce141709a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRightTappedEventArgsImpl {
+    fn PointerDeviceType();
+    fn Position();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3000,6 +3440,10 @@ unsafe impl ::windows::core::Interface for IRightTappedEventArgs2 {
     type Vtable = IRightTappedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61c7b7bb_9f57_5857_a33c_c58c3dfa959e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRightTappedEventArgs2Impl {
+    fn ContactCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRightTappedEventArgs2Vtbl(
@@ -3017,6 +3461,17 @@ pub struct ISystemButtonEventController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemButtonEventController {
     type Vtable = ISystemButtonEventControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59b893a9_73bc_52b5_ba41_82511b2cb46c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemButtonEventControllerImpl {
+    fn SystemFunctionButtonPressed();
+    fn RemoveSystemFunctionButtonPressed();
+    fn SystemFunctionButtonReleased();
+    fn RemoveSystemFunctionButtonReleased();
+    fn SystemFunctionLockChanged();
+    fn RemoveSystemFunctionLockChanged();
+    fn SystemFunctionLockIndicatorChanged();
+    fn RemoveSystemFunctionLockIndicatorChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3051,6 +3506,10 @@ unsafe impl ::windows::core::Interface for ISystemButtonEventControllerStatics {
     type Vtable = ISystemButtonEventControllerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x632fb07b_20bd_5e15_af4a_00dbf2064ffa);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemButtonEventControllerStaticsImpl {
+    fn CreateForDispatcherQueue();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemButtonEventControllerStaticsVtbl(
@@ -3069,6 +3528,12 @@ pub struct ISystemFunctionButtonEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemFunctionButtonEventArgs {
     type Vtable = ISystemFunctionButtonEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4833896f_80d1_5dd6_92a7_62a508ffef5a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemFunctionButtonEventArgsImpl {
+    fn Timestamp();
+    fn Handled();
+    fn SetHandled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3089,6 +3554,13 @@ pub struct ISystemFunctionLockChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemFunctionLockChangedEventArgs {
     type Vtable = ISystemFunctionLockChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd040608_fcf9_585c_beab_f1d2eaf364ab);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemFunctionLockChangedEventArgsImpl {
+    fn Timestamp();
+    fn IsLocked();
+    fn Handled();
+    fn SetHandled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3111,6 +3583,13 @@ unsafe impl ::windows::core::Interface for ISystemFunctionLockIndicatorChangedEv
     type Vtable = ISystemFunctionLockIndicatorChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb212b94e_7a6f_58ae_b304_bae61d0371b9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemFunctionLockIndicatorChangedEventArgsImpl {
+    fn Timestamp();
+    fn IsIndicatorOn();
+    fn Handled();
+    fn SetHandled();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemFunctionLockIndicatorChangedEventArgsVtbl(
@@ -3131,6 +3610,12 @@ pub struct ITappedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITappedEventArgs {
     type Vtable = ITappedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfa126e4_253a_4c3c_953b_395c37aed309);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITappedEventArgsImpl {
+    fn PointerDeviceType();
+    fn Position();
+    fn TapCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3153,6 +3638,10 @@ pub struct ITappedEventArgs2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITappedEventArgs2 {
     type Vtable = ITappedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x294388f2_177e_51d5_be56_ee0866fa968c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITappedEventArgs2Impl {
+    fn ContactCount();
 }
 #[repr(C)]
 #[doc(hidden)]

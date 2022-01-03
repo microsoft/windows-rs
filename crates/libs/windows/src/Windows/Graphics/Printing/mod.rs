@@ -74,6 +74,7 @@ unsafe impl ::windows::core::Interface for IPrintDocumentSource {
     type Vtable = IPrintDocumentSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdedc0c30_f1eb_47df_aae6_ed5427511f01);
 }
+pub trait IPrintDocumentSourceImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintDocumentSourceVtbl(
@@ -90,6 +91,11 @@ pub struct IPrintManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintManager {
     type Vtable = IPrintManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff2a9694_8c99_44fd_ae4a_19d9aa9a0f0a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintManagerImpl {
+    fn PrintTaskRequested();
+    fn RemovePrintTaskRequested();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -112,6 +118,11 @@ unsafe impl ::windows::core::Interface for IPrintManagerStatic {
     type Vtable = IPrintManagerStaticVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58185dcd_e634_4654_84f0_e0152a8217ac);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintManagerStaticImpl {
+    fn GetForCurrentView();
+    fn ShowPrintUIAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintManagerStaticVtbl(
@@ -132,6 +143,10 @@ unsafe impl ::windows::core::Interface for IPrintManagerStatic2 {
     type Vtable = IPrintManagerStatic2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35a99955_e6ab_4139_9abd_b86a729b3598);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintManagerStatic2Impl {
+    fn IsSupported();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintManagerStatic2Vtbl(
@@ -149,6 +164,19 @@ pub struct IPrintPageInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintPageInfo {
     type Vtable = IPrintPageInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd4be9c9_a6a1_4ada_930e_da872a4f23d3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintPageInfoImpl {
+    fn SetMediaSize();
+    fn MediaSize();
+    fn SetPageSize();
+    fn PageSize();
+    fn SetDpiX();
+    fn DpiX();
+    fn SetDpiY();
+    fn DpiY();
+    fn SetOrientation();
+    fn Orientation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -179,6 +207,11 @@ unsafe impl ::windows::core::Interface for IPrintPageRange {
     type Vtable = IPrintPageRangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8a06c54_6e7c_51c5_57fd_0660c2d71513);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintPageRangeImpl {
+    fn FirstPageNumber();
+    fn LastPageNumber();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintPageRangeVtbl(
@@ -198,6 +231,11 @@ unsafe impl ::windows::core::Interface for IPrintPageRangeFactory {
     type Vtable = IPrintPageRangeFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x408fd45f_e047_5f85_7129_fb085a4fad14);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintPageRangeFactoryImpl {
+    fn Create();
+    fn CreateWithSinglePage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintPageRangeFactoryVtbl(
@@ -216,6 +254,15 @@ pub struct IPrintPageRangeOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintPageRangeOptions {
     type Vtable = IPrintPageRangeOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce6db728_1357_46b2_a923_79f995f448fc);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintPageRangeOptionsImpl {
+    fn SetAllowAllPages();
+    fn AllowAllPages();
+    fn SetAllowCurrentPage();
+    fn AllowCurrentPage();
+    fn SetAllowCustomSetOfPages();
+    fn AllowCustomSetOfPages();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -239,6 +286,20 @@ pub struct IPrintTask(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTask {
     type Vtable = IPrintTaskVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61d80247_6cf6_4fad_84e2_a5e82e2d4ceb);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintTaskImpl {
+    fn Properties();
+    fn Source();
+    fn Options();
+    fn Previewing();
+    fn RemovePreviewing();
+    fn Submitting();
+    fn RemoveSubmitting();
+    fn Progressing();
+    fn RemoveProgressing();
+    fn Completed();
+    fn RemoveCompleted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -277,6 +338,11 @@ unsafe impl ::windows::core::Interface for IPrintTask2 {
     type Vtable = IPrintTask2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36234877_3e53_4d9d_8f5e_316ac8dedae1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintTask2Impl {
+    fn SetIsPreviewEnabled();
+    fn IsPreviewEnabled();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTask2Vtbl(
@@ -296,6 +362,10 @@ unsafe impl ::windows::core::Interface for IPrintTaskCompletedEventArgs {
     type Vtable = IPrintTaskCompletedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bcd34af_24e9_4c10_8d07_14c346ba3fce);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintTaskCompletedEventArgsImpl {
+    fn Completion();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskCompletedEventArgsVtbl(
@@ -313,6 +383,12 @@ pub struct IPrintTaskOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskOptions {
     type Vtable = IPrintTaskOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a0a66bb_d289_41bb_96dd_57e28338ae3f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintTaskOptionsImpl {
+    fn SetBordering();
+    fn Bordering();
+    fn GetPagePrintTicket();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -334,6 +410,11 @@ pub struct IPrintTaskOptions2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskOptions2 {
     type Vtable = IPrintTaskOptions2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb9b1606_9a36_4b59_8617_b217849262e1);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintTaskOptions2Impl {
+    fn PageRangeOptions();
+    fn CustomPageRanges();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -424,6 +505,9 @@ unsafe impl ::windows::core::RuntimeType for IPrintTaskOptionsCore {
 unsafe impl ::windows::core::Interface for IPrintTaskOptionsCore {
     type Vtable = IPrintTaskOptionsCoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bdbb474_4ed1_41eb_be3c_72d18ed67337);
+}
+pub trait IPrintTaskOptionsCoreImpl {
+    fn GetPageDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -664,6 +748,32 @@ unsafe impl ::windows::core::Interface for IPrintTaskOptionsCoreProperties {
     type Vtable = IPrintTaskOptionsCorePropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1b71832_9e93_4e55_814b_3326a59efce1);
 }
+pub trait IPrintTaskOptionsCorePropertiesImpl {
+    fn SetMediaSize();
+    fn MediaSize();
+    fn SetMediaType();
+    fn MediaType();
+    fn SetOrientation();
+    fn Orientation();
+    fn SetPrintQuality();
+    fn PrintQuality();
+    fn SetColorMode();
+    fn ColorMode();
+    fn SetDuplex();
+    fn Duplex();
+    fn SetCollation();
+    fn Collation();
+    fn SetStaple();
+    fn Staple();
+    fn SetHolePunch();
+    fn HolePunch();
+    fn SetBinding();
+    fn Binding();
+    fn MinCopies();
+    fn MaxCopies();
+    fn SetNumberOfCopies();
+    fn NumberOfCopies();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskOptionsCorePropertiesVtbl(
@@ -775,6 +885,9 @@ unsafe impl ::windows::core::Interface for IPrintTaskOptionsCoreUIConfiguration 
     type Vtable = IPrintTaskOptionsCoreUIConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62e69e23_9a1e_4336_b74f_3cc7f4cff709);
 }
+pub trait IPrintTaskOptionsCoreUIConfigurationImpl {
+    fn DisplayedOptions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskOptionsCoreUIConfigurationVtbl(
@@ -794,6 +907,10 @@ unsafe impl ::windows::core::Interface for IPrintTaskProgressingEventArgs {
     type Vtable = IPrintTaskProgressingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x810cd3cb_b410_4282_a073_5ac378234174);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintTaskProgressingEventArgsImpl {
+    fn DocumentPageCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskProgressingEventArgsVtbl(
@@ -811,6 +928,12 @@ pub struct IPrintTaskRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskRequest {
     type Vtable = IPrintTaskRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ff61e2e_2722_4240_a67c_f364849a17f3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintTaskRequestImpl {
+    fn Deadline();
+    fn CreatePrintTask();
+    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -833,6 +956,10 @@ unsafe impl ::windows::core::Interface for IPrintTaskRequestedDeferral {
     type Vtable = IPrintTaskRequestedDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfefb3f0_ce3e_42c7_9496_64800c622c44);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintTaskRequestedDeferralImpl {
+    fn Complete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskRequestedDeferralVtbl(
@@ -851,6 +978,10 @@ unsafe impl ::windows::core::Interface for IPrintTaskRequestedEventArgs {
     type Vtable = IPrintTaskRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0aff924_a31b_454c_a7b6_5d0cc522fc16);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintTaskRequestedEventArgsImpl {
+    fn Request();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskRequestedEventArgsVtbl(
@@ -868,6 +999,12 @@ pub struct IPrintTaskSourceRequestedArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskSourceRequestedArgs {
     type Vtable = IPrintTaskSourceRequestedArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9f067be_f456_41f0_9c98_5ce73e851410);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintTaskSourceRequestedArgsImpl {
+    fn Deadline();
+    fn SetSource();
+    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -890,6 +1027,10 @@ unsafe impl ::windows::core::Interface for IPrintTaskSourceRequestedDeferral {
     type Vtable = IPrintTaskSourceRequestedDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a1560d1_6992_4d9d_8555_4ca4563fb166);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintTaskSourceRequestedDeferralImpl {
+    fn Complete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskSourceRequestedDeferralVtbl(
@@ -907,6 +1048,13 @@ pub struct IPrintTaskTargetDeviceSupport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskTargetDeviceSupport {
     type Vtable = IPrintTaskTargetDeviceSupportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x295d70c0_c2cb_4b7d_b0ea_93095091a220);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintTaskTargetDeviceSupportImpl {
+    fn SetIsPrinterTargetEnabled();
+    fn IsPrinterTargetEnabled();
+    fn SetIs3DManufacturingTargetEnabled();
+    fn Is3DManufacturingTargetEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -928,6 +1076,22 @@ pub struct IStandardPrintTaskOptionsStatic(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStandardPrintTaskOptionsStatic {
     type Vtable = IStandardPrintTaskOptionsStaticVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4483d26_0dd0_4cd4_baff_930fc7d6a574);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStandardPrintTaskOptionsStaticImpl {
+    fn MediaSize();
+    fn MediaType();
+    fn Orientation();
+    fn PrintQuality();
+    fn ColorMode();
+    fn Duplex();
+    fn Collation();
+    fn Staple();
+    fn HolePunch();
+    fn Binding();
+    fn Copies();
+    fn NUp();
+    fn InputBin();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -959,6 +1123,10 @@ unsafe impl ::windows::core::Interface for IStandardPrintTaskOptionsStatic2 {
     type Vtable = IStandardPrintTaskOptionsStatic2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3be38bf4_7a44_4269_9a52_81261e289ee9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStandardPrintTaskOptionsStatic2Impl {
+    fn Bordering();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStandardPrintTaskOptionsStatic2Vtbl(
@@ -976,6 +1144,10 @@ pub struct IStandardPrintTaskOptionsStatic3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStandardPrintTaskOptionsStatic3 {
     type Vtable = IStandardPrintTaskOptionsStatic3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbf68e86_3858_41b3_a799_55dd9888d475);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStandardPrintTaskOptionsStatic3Impl {
+    fn CustomPageRanges();
 }
 #[repr(C)]
 #[doc(hidden)]

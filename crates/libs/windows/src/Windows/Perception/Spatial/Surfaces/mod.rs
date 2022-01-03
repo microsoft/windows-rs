@@ -6,6 +6,14 @@ unsafe impl ::windows::core::Interface for ISpatialSurfaceInfo {
     type Vtable = ISpatialSurfaceInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8e9ebe7_39b7_3962_bb03_57f56e1fb0a1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialSurfaceInfoImpl {
+    fn Id();
+    fn UpdateTime();
+    fn TryGetBounds();
+    fn TryComputeLatestMeshAsync();
+    fn TryComputeLatestMeshWithOptionsAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceInfoVtbl(
@@ -32,6 +40,15 @@ unsafe impl ::windows::core::Interface for ISpatialSurfaceMesh {
     type Vtable = ISpatialSurfaceMeshVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x108f57d9_df0d_3950_a0fd_f972c77c27b4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialSurfaceMeshImpl {
+    fn SurfaceInfo();
+    fn CoordinateSystem();
+    fn TriangleIndices();
+    fn VertexPositions();
+    fn VertexPositionScale();
+    fn VertexNormals();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceMeshVtbl(
@@ -56,6 +73,13 @@ unsafe impl ::windows::core::Interface for ISpatialSurfaceMeshBuffer {
     type Vtable = ISpatialSurfaceMeshBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93cf59e0_871f_33f8_98b2_03d101458f6f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialSurfaceMeshBufferImpl {
+    fn Format();
+    fn Stride();
+    fn ElementCount();
+    fn Data();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceMeshBufferVtbl(
@@ -78,6 +102,17 @@ pub struct ISpatialSurfaceMeshOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialSurfaceMeshOptions {
     type Vtable = ISpatialSurfaceMeshOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2759f89_3572_3d2d_a10d_5fee9394aa37);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialSurfaceMeshOptionsImpl {
+    fn VertexPositionFormat();
+    fn SetVertexPositionFormat();
+    fn TriangleIndexFormat();
+    fn SetTriangleIndexFormat();
+    fn VertexNormalFormat();
+    fn SetVertexNormalFormat();
+    fn IncludeVertexNormals();
+    fn SetIncludeVertexNormals();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -110,6 +145,12 @@ unsafe impl ::windows::core::Interface for ISpatialSurfaceMeshOptionsStatics {
     type Vtable = ISpatialSurfaceMeshOptionsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b340abf_9781_4505_8935_013575caae5e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialSurfaceMeshOptionsStaticsImpl {
+    fn SupportedVertexPositionFormats();
+    fn SupportedTriangleIndexFormats();
+    fn SupportedVertexNormalFormats();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceMeshOptionsStaticsVtbl(
@@ -132,6 +173,14 @@ pub struct ISpatialSurfaceObserver(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialSurfaceObserver {
     type Vtable = ISpatialSurfaceObserverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10b69819_ddca_3483_ac3a_748fe8c86df5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialSurfaceObserverImpl {
+    fn GetObservedSurfaces();
+    fn SetBoundingVolume();
+    fn SetBoundingVolumes();
+    fn ObservedSurfacesChanged();
+    fn RemoveObservedSurfacesChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -159,6 +208,10 @@ unsafe impl ::windows::core::Interface for ISpatialSurfaceObserverStatics {
     type Vtable = ISpatialSurfaceObserverStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x165951ed_2108_4168_9175_87e027bc9285);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialSurfaceObserverStaticsImpl {
+    fn RequestAccessAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceObserverStaticsVtbl(
@@ -177,6 +230,10 @@ pub struct ISpatialSurfaceObserverStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialSurfaceObserverStatics2 {
     type Vtable = ISpatialSurfaceObserverStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f534261_c55d_4e6b_a895_a19de69a42e3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialSurfaceObserverStatics2Impl: ISpatialSurfaceObserverStaticsImpl {
+    fn IsSupported();
 }
 #[repr(C)]
 #[doc(hidden)]

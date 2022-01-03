@@ -107,6 +107,8 @@ unsafe impl ::windows::core::Interface for ICustomXamlResourceLoader {
     type Vtable = ICustomXamlResourceLoaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x511a84ab_4a88_419f_852e_54083b90b078);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICustomXamlResourceLoaderImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomXamlResourceLoaderVtbl(
@@ -123,6 +125,10 @@ pub struct ICustomXamlResourceLoaderFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICustomXamlResourceLoaderFactory {
     type Vtable = ICustomXamlResourceLoaderFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bfd7e49_7886_44f3_8ed3_6fec0463ed69);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICustomXamlResourceLoaderFactoryImpl {
+    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -142,6 +148,10 @@ unsafe impl ::windows::core::Interface for ICustomXamlResourceLoaderOverrides {
     type Vtable = ICustomXamlResourceLoaderOverridesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf851e991_af02_46e8_9af8_427b7ebfe9f8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICustomXamlResourceLoaderOverridesImpl {
+    fn GetResource();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomXamlResourceLoaderOverridesVtbl(
@@ -159,6 +169,11 @@ pub struct ICustomXamlResourceLoaderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICustomXamlResourceLoaderStatics {
     type Vtable = ICustomXamlResourceLoaderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x224ff617_e4dc_4c27_ad32_db93d5d0e5da);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICustomXamlResourceLoaderStaticsImpl {
+    fn Current();
+    fn SetCurrent();
 }
 #[repr(C)]
 #[doc(hidden)]

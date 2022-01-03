@@ -1996,6 +1996,13 @@ unsafe impl ::windows::core::Interface for IAssemblyCache {
     type Vtable = IAssemblyCacheVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe707dcde_d1cd_11d2_bab9_00c04f8eceae);
 }
+pub trait IAssemblyCacheImpl {
+    fn UninstallAssembly();
+    fn QueryAssemblyInfo();
+    fn CreateAssemblyCacheItem();
+    fn Reserved();
+    fn InstallAssembly();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAssemblyCacheVtbl(
@@ -2069,6 +2076,11 @@ impl ::core::fmt::Debug for IAssemblyCacheItem {
 unsafe impl ::windows::core::Interface for IAssemblyCacheItem {
     type Vtable = IAssemblyCacheItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e3aaeb4_d1cd_11d2_bab9_00c04f8eceae);
+}
+pub trait IAssemblyCacheItemImpl {
+    fn CreateStream();
+    fn Commit();
+    fn AbortItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2166,6 +2178,17 @@ unsafe impl ::windows::core::Interface for IAssemblyName {
     type Vtable = IAssemblyNameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd193bc0_b4bc_11d2_9833_00c04fc31d2e);
 }
+pub trait IAssemblyNameImpl {
+    fn SetProperty();
+    fn GetProperty();
+    fn Finalize();
+    fn GetDisplayName();
+    fn Reserved();
+    fn GetName();
+    fn GetVersion();
+    fn IsEqual();
+    fn Clone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAssemblyNameVtbl(
@@ -2247,6 +2270,12 @@ unsafe impl ::windows::core::Interface for IEnumMsmDependency {
     type Vtable = IEnumMsmDependencyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda82c_2c26_11d2_ad65_00a0c9af11a6);
 }
+pub trait IEnumMsmDependencyImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumMsmDependencyVtbl(
@@ -2319,6 +2348,12 @@ impl ::core::fmt::Debug for IEnumMsmError {
 unsafe impl ::windows::core::Interface for IEnumMsmError {
     type Vtable = IEnumMsmErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda829_2c26_11d2_ad65_00a0c9af11a6);
+}
+pub trait IEnumMsmErrorImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2393,6 +2428,12 @@ impl ::core::fmt::Debug for IEnumMsmString {
 unsafe impl ::windows::core::Interface for IEnumMsmString {
     type Vtable = IEnumMsmStringVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda826_2c26_11d2_ad65_00a0c9af11a6);
+}
+pub trait IEnumMsmStringImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2510,6 +2551,12 @@ impl ::core::fmt::Debug for IMsmDependencies {
 unsafe impl ::windows::core::Interface for IMsmDependencies {
     type Vtable = IMsmDependenciesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda82d_2c26_11d2_ad65_00a0c9af11a6);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMsmDependenciesImpl: IDispatchImpl {
+    fn Item();
+    fn Count();
+    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2633,6 +2680,12 @@ impl ::core::fmt::Debug for IMsmDependency {
 unsafe impl ::windows::core::Interface for IMsmDependency {
     type Vtable = IMsmDependencyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda82b_2c26_11d2_ad65_00a0c9af11a6);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMsmDependencyImpl: IDispatchImpl {
+    fn Module();
+    fn Language();
+    fn Version();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2778,6 +2831,16 @@ unsafe impl ::windows::core::Interface for IMsmError {
     type Vtable = IMsmErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda828_2c26_11d2_ad65_00a0c9af11a6);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMsmErrorImpl: IDispatchImpl {
+    fn Type();
+    fn Path();
+    fn Language();
+    fn DatabaseTable();
+    fn DatabaseKeys();
+    fn ModuleTable();
+    fn ModuleKeys();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMsmErrorVtbl(
@@ -2908,6 +2971,12 @@ unsafe impl ::windows::core::Interface for IMsmErrors {
     type Vtable = IMsmErrorsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda82a_2c26_11d2_ad65_00a0c9af11a6);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMsmErrorsImpl: IDispatchImpl {
+    fn Item();
+    fn Count();
+    fn _NewEnum();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMsmErrorsVtbl(
@@ -3021,6 +3090,10 @@ impl ::core::fmt::Debug for IMsmGetFiles {
 unsafe impl ::windows::core::Interface for IMsmGetFiles {
     type Vtable = IMsmGetFilesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7041ae26_2d78_11d2_888a_00a0c981b015);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMsmGetFilesImpl: IDispatchImpl {
+    fn ModuleFiles();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3191,6 +3264,22 @@ unsafe impl ::windows::core::Interface for IMsmMerge {
     type Vtable = IMsmMergeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda82e_2c26_11d2_ad65_00a0c9af11a6);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMsmMergeImpl: IDispatchImpl {
+    fn OpenDatabase();
+    fn OpenModule();
+    fn CloseDatabase();
+    fn CloseModule();
+    fn OpenLog();
+    fn CloseLog();
+    fn Log();
+    fn Errors();
+    fn Dependencies();
+    fn Merge();
+    fn Connect();
+    fn ExtractCAB();
+    fn ExtractFiles();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMsmMergeVtbl(
@@ -3331,6 +3420,12 @@ impl ::core::fmt::Debug for IMsmStrings {
 unsafe impl ::windows::core::Interface for IMsmStrings {
     type Vtable = IMsmStringsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda827_2c26_11d2_ad65_00a0c9af11a6);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMsmStringsImpl: IDispatchImpl {
+    fn Item();
+    fn Count();
+    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3929,6 +4024,63 @@ unsafe impl ::windows::core::Interface for IPMApplicationInfo {
     type Vtable = IPMApplicationInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50afb58a_438c_4088_9789_f8c4899829c7);
 }
+pub trait IPMApplicationInfoImpl {
+    fn ProductID();
+    fn InstanceID();
+    fn OfferID();
+    fn DefaultTask();
+    fn AppTitle();
+    fn IconPath();
+    fn NotificationState();
+    fn AppInstallType();
+    fn State();
+    fn IsRevoked();
+    fn UpdateAvailable();
+    fn InstallDate();
+    fn IsUninstallable();
+    fn IsThemable();
+    fn IsTrial();
+    fn InstallPath();
+    fn DataRoot();
+    fn Genre();
+    fn Publisher();
+    fn Author();
+    fn Description();
+    fn Version();
+    fn InvocationInfo();
+    fn AppPlatMajorVersion();
+    fn AppPlatMinorVersion();
+    fn PublisherID();
+    fn IsMultiCore();
+    fn SID();
+    fn AppPlatMajorVersionLightUp();
+    fn AppPlatMinorVersionLightUp();
+    fn set_UpdateAvailable();
+    fn set_NotificationState();
+    fn set_IconPath();
+    fn set_UninstallableState();
+    fn IsPinableOnKidZone();
+    fn IsOriginallyPreInstalled();
+    fn IsInstallOnSD();
+    fn IsOptoutOnSD();
+    fn IsOptoutBackupRestore();
+    fn set_EnterpriseDisabled();
+    fn set_EnterpriseUninstallable();
+    fn EnterpriseDisabled();
+    fn EnterpriseUninstallable();
+    fn IsVisibleOnAppList();
+    fn IsInboxApp();
+    fn StorageID();
+    fn StartAppBlob();
+    fn IsMovable();
+    fn DeploymentAppEnumerationHubFilter();
+    fn ModifiedDate();
+    fn IsOriginallyRestored();
+    fn ShouldDeferMdilBind();
+    fn IsFullyPreInstall();
+    fn set_IsMdilMaintenanceNeeded();
+    fn set_Title();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPMApplicationInfoVtbl(
@@ -4083,6 +4235,9 @@ unsafe impl ::windows::core::Interface for IPMApplicationInfoEnumerator {
     type Vtable = IPMApplicationInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ec42a96_4d46_4dc6_a3d9_a7acaac0f5fa);
 }
+pub trait IPMApplicationInfoEnumeratorImpl {
+    fn Next();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPMApplicationInfoEnumeratorVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppappinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -4205,6 +4360,22 @@ unsafe impl ::windows::core::Interface for IPMBackgroundServiceAgentInfo {
     type Vtable = IPMBackgroundServiceAgentInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a8b46da_928c_4879_998c_09dc96f3d490);
 }
+pub trait IPMBackgroundServiceAgentInfoImpl {
+    fn ProductID();
+    fn TaskID();
+    fn BSAID();
+    fn BGSpecifier();
+    fn BGName();
+    fn BGSource();
+    fn BGType();
+    fn IsPeriodic();
+    fn IsScheduled();
+    fn IsScheduleAllowed();
+    fn Description();
+    fn IsLaunchOnBoot();
+    fn set_IsScheduled();
+    fn set_IsScheduleAllowed();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPMBackgroundServiceAgentInfoVtbl(
@@ -4288,6 +4459,9 @@ unsafe impl ::windows::core::Interface for IPMBackgroundServiceAgentInfoEnumerat
     type Vtable = IPMBackgroundServiceAgentInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18eb2072_ab56_43b3_872c_beafb7a6b391);
 }
+pub trait IPMBackgroundServiceAgentInfoEnumeratorImpl {
+    fn Next();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPMBackgroundServiceAgentInfoEnumeratorVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbsainfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -4367,6 +4541,14 @@ unsafe impl ::windows::core::Interface for IPMBackgroundWorkerInfo {
     type Vtable = IPMBackgroundWorkerInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7dd4531b_d3bf_4b6b_94f3_69c098b1497d);
 }
+pub trait IPMBackgroundWorkerInfoImpl {
+    fn ProductID();
+    fn TaskID();
+    fn BGName();
+    fn MaxStartupLatency();
+    fn ExpectedRuntime();
+    fn IsBootWorker();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPMBackgroundWorkerInfoVtbl(
@@ -4432,6 +4614,9 @@ impl ::core::fmt::Debug for IPMBackgroundWorkerInfoEnumerator {
 unsafe impl ::windows::core::Interface for IPMBackgroundWorkerInfoEnumerator {
     type Vtable = IPMBackgroundWorkerInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87f479f8_90d8_4ec7_92b9_72787e2f636b);
+}
+pub trait IPMBackgroundWorkerInfoEnumeratorImpl {
+    fn Next();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4637,6 +4822,43 @@ unsafe impl ::windows::core::Interface for IPMDeploymentManager {
     type Vtable = IPMDeploymentManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35f785fa_1979_4a8b_bc8f_fd70eb0d1544);
 }
+pub trait IPMDeploymentManagerImpl {
+    fn ReportDownloadBegin();
+    fn ReportDownloadProgress();
+    fn ReportDownloadComplete();
+    fn BeginInstall();
+    fn BeginUpdate();
+    fn BeginDeployPackage();
+    fn BeginUpdateDeployedPackageLegacy();
+    fn BeginUninstall();
+    fn BeginEnterpriseAppInstall();
+    fn BeginEnterpriseAppUpdate();
+    fn BeginUpdateLicense();
+    fn GetLicenseChallenge();
+    fn GetLicenseChallengeByProductID();
+    fn GetLicenseChallengeByProductID2();
+    fn RevokeLicense();
+    fn RebindMdilBinaries();
+    fn RebindAllMdilBinaries();
+    fn RegenerateXbf();
+    fn GenerateXbfForCurrentLocale();
+    fn BeginProvision();
+    fn BeginDeprovision();
+    fn ReindexSQLCEDatabases();
+    fn SetApplicationsNeedMaintenance();
+    fn UpdateChamberProfile();
+    fn EnterprisePolicyIsApplicationAllowed();
+    fn BeginUpdateDeployedPackage();
+    fn ReportRestoreCancelled();
+    fn ResolveResourceString();
+    fn UpdateCapabilitiesForModernApps();
+    fn ReportDownloadStatusUpdate();
+    fn BeginUninstallWithOptions();
+    fn BindDeferredMdilBinaries();
+    fn GenerateXamlLightupXbfForCurrentLocale();
+    fn AddLicenseForAppx();
+    fn FixJunctionsForAppsOnSDCard();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPMDeploymentManagerVtbl(
@@ -4833,6 +5055,26 @@ unsafe impl ::windows::core::Interface for IPMEnumerationManager {
     type Vtable = IPMEnumerationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x698d57c2_292d_4cf3_b73c_d95a6922ed9a);
 }
+pub trait IPMEnumerationManagerImpl {
+    fn AllApplications();
+    fn AllTiles();
+    fn AllTasks();
+    fn AllExtensions();
+    fn AllBackgroundServiceAgents();
+    fn AllBackgroundWorkers();
+    fn ApplicationInfo();
+    fn TileInfo();
+    fn TaskInfo();
+    fn TaskInfoEx();
+    fn BackgroundServiceAgentInfo();
+    fn AllLiveTileJobs();
+    fn LiveTileJob();
+    fn ApplicationInfoExternal();
+    fn FileHandlerGenericLogo();
+    fn ApplicationInfoFromAccessClaims();
+    fn StartTileEnumeratorBlob();
+    fn StartAppEnumeratorBlob();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPMEnumerationManagerVtbl(
@@ -4923,6 +5165,9 @@ unsafe impl ::windows::core::Interface for IPMExtensionCachedFileUpdaterInfo {
     type Vtable = IPMExtensionCachedFileUpdaterInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2d77509_4e58_4ba9_af7e_b642e370e1b0);
 }
+pub trait IPMExtensionCachedFileUpdaterInfoImpl {
+    fn SupportsUpdates();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPMExtensionCachedFileUpdaterInfoVtbl(
@@ -4981,6 +5226,9 @@ impl ::core::fmt::Debug for IPMExtensionContractInfo {
 unsafe impl ::windows::core::Interface for IPMExtensionContractInfo {
     type Vtable = IPMExtensionContractInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5666373_7ba1_467c_b819_b175db1c295b);
+}
+pub trait IPMExtensionContractInfoImpl {
+    fn InvocationInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5071,6 +5319,15 @@ unsafe impl ::windows::core::Interface for IPMExtensionFileExtensionInfo {
     type Vtable = IPMExtensionFileExtensionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b87cb6c_0b88_4989_a4ec_033714f710d4);
 }
+pub trait IPMExtensionFileExtensionInfoImpl {
+    fn Name();
+    fn DisplayName();
+    fn Logo();
+    fn ContentType();
+    fn FileType();
+    fn InvocationInfo();
+    fn AllFileTypes();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPMExtensionFileExtensionInfoVtbl(
@@ -5148,6 +5405,10 @@ unsafe impl ::windows::core::Interface for IPMExtensionFileOpenPickerInfo {
     type Vtable = IPMExtensionFileOpenPickerInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dc91d25_9606_420c_9a78_e034a3418345);
 }
+pub trait IPMExtensionFileOpenPickerInfoImpl {
+    fn AllFileTypes();
+    fn SupportsAllFileTypes();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPMExtensionFileOpenPickerInfoVtbl(
@@ -5214,6 +5475,10 @@ impl ::core::fmt::Debug for IPMExtensionFileSavePickerInfo {
 unsafe impl ::windows::core::Interface for IPMExtensionFileSavePickerInfo {
     type Vtable = IPMExtensionFileSavePickerInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38005cba_f81a_493e_a0f8_922c8680da43);
+}
+pub trait IPMExtensionFileSavePickerInfoImpl {
+    fn AllFileTypes();
+    fn SupportsAllFileTypes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5301,6 +5566,14 @@ unsafe impl ::windows::core::Interface for IPMExtensionInfo {
     type Vtable = IPMExtensionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49acde79_9788_4d0a_8aa0_1746afdb9e9d);
 }
+pub trait IPMExtensionInfoImpl {
+    fn SupplierPID();
+    fn SupplierTaskID();
+    fn Title();
+    fn IconPath();
+    fn ExtraFile();
+    fn InvocationInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPMExtensionInfoVtbl(
@@ -5369,6 +5642,9 @@ unsafe impl ::windows::core::Interface for IPMExtensionInfoEnumerator {
     type Vtable = IPMExtensionInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x403b9e82_1171_4573_8e6f_6f33f39b83dd);
 }
+pub trait IPMExtensionInfoEnumeratorImpl {
+    fn Next();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPMExtensionInfoEnumeratorVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppextensioninfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -5426,6 +5702,10 @@ impl ::core::fmt::Debug for IPMExtensionProtocolInfo {
 unsafe impl ::windows::core::Interface for IPMExtensionProtocolInfo {
     type Vtable = IPMExtensionProtocolInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e3fa036_51eb_4453_baff_b8d8e4b46c8e);
+}
+pub trait IPMExtensionProtocolInfoImpl {
+    fn Protocol();
+    fn InvocationInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5498,6 +5778,11 @@ impl ::core::fmt::Debug for IPMExtensionShareTargetInfo {
 unsafe impl ::windows::core::Interface for IPMExtensionShareTargetInfo {
     type Vtable = IPMExtensionShareTargetInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5471f48b_c65c_4656_8c70_242e31195fea);
+}
+pub trait IPMExtensionShareTargetInfoImpl {
+    fn AllFileTypes();
+    fn AllDataFormats();
+    fn SupportsAllFileTypes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5670,6 +5955,32 @@ unsafe impl ::windows::core::Interface for IPMLiveTileJobInfo {
     type Vtable = IPMLiveTileJobInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6009a81f_4710_4697_b5f6_2208f6057b8e);
 }
+pub trait IPMLiveTileJobInfoImpl {
+    fn ProductID();
+    fn TileID();
+    fn NextSchedule();
+    fn set_NextSchedule();
+    fn StartSchedule();
+    fn set_StartSchedule();
+    fn IntervalDuration();
+    fn set_IntervalDuration();
+    fn RunForever();
+    fn set_RunForever();
+    fn MaxRunCount();
+    fn set_MaxRunCount();
+    fn RunCount();
+    fn set_RunCount();
+    fn RecurrenceType();
+    fn set_RecurrenceType();
+    fn TileXML();
+    fn set_TileXML();
+    fn UrlXML();
+    fn set_UrlXML();
+    fn AttemptCount();
+    fn set_AttemptCount();
+    fn DownloadState();
+    fn set_DownloadState();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPMLiveTileJobInfoVtbl(
@@ -5757,6 +6068,9 @@ impl ::core::fmt::Debug for IPMLiveTileJobInfoEnumerator {
 unsafe impl ::windows::core::Interface for IPMLiveTileJobInfoEnumerator {
     type Vtable = IPMLiveTileJobInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc042582_9415_4f36_9f99_06f104c07c03);
+}
+pub trait IPMLiveTileJobInfoEnumeratorImpl {
+    fn Next();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5914,6 +6228,29 @@ unsafe impl ::windows::core::Interface for IPMTaskInfo {
     type Vtable = IPMTaskInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf1d8c33_1bf5_4ee0_b549_6b9dd3834942);
 }
+pub trait IPMTaskInfoImpl {
+    fn ProductID();
+    fn TaskID();
+    fn NavigationPage();
+    fn TaskTransition();
+    fn RuntimeType();
+    fn ActivationPolicy();
+    fn TaskType();
+    fn InvocationInfo();
+    fn ImagePath();
+    fn ImageParams();
+    fn InstallRootFolder();
+    fn DataRootFolder();
+    fn IsSingleInstanceHost();
+    fn IsInteropEnabled();
+    fn ApplicationState();
+    fn InstallType();
+    fn Version();
+    fn BitsPerPixel();
+    fn SuppressesDehydration();
+    fn BackgroundExecutionAbilities();
+    fn IsOptedForExtendedMem();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPMTaskInfoVtbl(
@@ -6003,6 +6340,9 @@ impl ::core::fmt::Debug for IPMTaskInfoEnumerator {
 unsafe impl ::windows::core::Interface for IPMTaskInfoEnumerator {
     type Vtable = IPMTaskInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0630b0f8_0bbc_4821_be74_c7995166ed2a);
+}
+pub trait IPMTaskInfoEnumeratorImpl {
+    fn Next();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6176,6 +6516,32 @@ unsafe impl ::windows::core::Interface for IPMTileInfo {
     type Vtable = IPMTileInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1604833_2b08_4001_82cd_183ad734f752);
 }
+pub trait IPMTileInfoImpl {
+    fn ProductID();
+    fn TileID();
+    fn TemplateType();
+    fn HubPinnedState();
+    fn HubPosition();
+    fn IsNotified();
+    fn IsDefault();
+    fn TaskID();
+    fn TileType();
+    fn IsThemable();
+    fn PropertyById();
+    fn InvocationInfo();
+    fn PropertyEnum();
+    fn HubTileSize();
+    fn set_HubPosition();
+    fn set_NotifiedState();
+    fn set_HubPinnedState();
+    fn set_HubTileSize();
+    fn set_InvocationInfo();
+    fn StartTileBlob();
+    fn IsRestoring();
+    fn IsAutoRestoreDisabled();
+    fn set_IsRestoring();
+    fn set_IsAutoRestoreDisabled();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPMTileInfoVtbl(
@@ -6272,6 +6638,9 @@ unsafe impl ::windows::core::Interface for IPMTileInfoEnumerator {
     type Vtable = IPMTileInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xded83065_e462_4b2c_acb5_e39cea61c874);
 }
+pub trait IPMTileInfoEnumeratorImpl {
+    fn Next();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPMTileInfoEnumeratorVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptileinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -6324,6 +6693,9 @@ impl ::core::fmt::Debug for IPMTilePropertyEnumerator {
 unsafe impl ::windows::core::Interface for IPMTilePropertyEnumerator {
     type Vtable = IPMTilePropertyEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc4cd629_9047_4250_aac8_930e47812421);
+}
+pub trait IPMTilePropertyEnumeratorImpl {
+    fn Next();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6387,6 +6759,11 @@ impl ::core::fmt::Debug for IPMTilePropertyInfo {
 unsafe impl ::windows::core::Interface for IPMTilePropertyInfo {
     type Vtable = IPMTilePropertyInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c2b8017_1efa_42a7_86c0_6d4b640bf528);
+}
+pub trait IPMTilePropertyInfoImpl {
+    fn PropertyID();
+    fn PropertyValue();
+    fn set_Property();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6477,6 +6854,15 @@ impl ::core::fmt::Debug for IValidate {
 unsafe impl ::windows::core::Interface for IValidate {
     type Vtable = IValidateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe482e5c6_e31e_4143_a2e6_dbc3d8e4b8d3);
+}
+pub trait IValidateImpl {
+    fn OpenDatabase();
+    fn OpenCUB();
+    fn CloseDatabase();
+    fn CloseCUB();
+    fn SetDisplay();
+    fn SetStatus();
+    fn Validate();
 }
 #[repr(C)]
 #[doc(hidden)]

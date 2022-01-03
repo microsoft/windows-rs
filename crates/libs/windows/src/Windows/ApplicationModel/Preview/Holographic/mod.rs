@@ -157,6 +157,11 @@ unsafe impl ::windows::core::Interface for IHolographicApplicationPreviewStatics
     type Vtable = IHolographicApplicationPreviewStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe038691_2a3a_45a9_a208_7bed691919f3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IHolographicApplicationPreviewStaticsImpl {
+    fn IsCurrentViewPresentedOnHolographicDisplay();
+    fn IsHolographicActivation();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicApplicationPreviewStaticsVtbl(
@@ -178,6 +183,12 @@ pub struct IHolographicKeyboardPlacementOverridePreview(::windows::core::IUnknow
 unsafe impl ::windows::core::Interface for IHolographicKeyboardPlacementOverridePreview {
     type Vtable = IHolographicKeyboardPlacementOverridePreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8a8ce3a_dfde_5a14_8d5f_182c526dd9c4);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IHolographicKeyboardPlacementOverridePreviewImpl {
+    fn SetPlacementOverride();
+    fn SetPlacementOverrideWithMaxSize();
+    fn ResetPlacementOverride();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -204,6 +215,10 @@ pub struct IHolographicKeyboardPlacementOverridePreviewStatics(::windows::core::
 unsafe impl ::windows::core::Interface for IHolographicKeyboardPlacementOverridePreviewStatics {
     type Vtable = IHolographicKeyboardPlacementOverridePreviewStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x202e6039_1ff6_5a06_aac4_a5e24fa3ec4b);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IHolographicKeyboardPlacementOverridePreviewStaticsImpl {
+    fn GetForCurrentView();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]

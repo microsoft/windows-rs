@@ -4218,6 +4218,9 @@ unsafe impl ::windows::core::Interface for ID2D1AnalysisTransform {
     type Vtable = ID2D1AnalysisTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0359dc30_95e6_4568_9055_27720d130e93);
 }
+pub trait ID2D1AnalysisTransformImpl {
+    fn ProcessAnalysisResults();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1AnalysisTransformVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, analysisdata: *const u8, analysisdatacount: u32) -> ::windows::core::HRESULT);
@@ -4349,6 +4352,15 @@ impl ::core::fmt::Debug for ID2D1Bitmap {
 unsafe impl ::windows::core::Interface for ID2D1Bitmap {
     type Vtable = ID2D1BitmapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2296057_ea42_4099_983b_539fb6505426);
+}
+pub trait ID2D1BitmapImpl: ID2D1ImageImpl + ID2D1ResourceImpl {
+    fn GetSize();
+    fn GetPixelSize();
+    fn GetPixelFormat();
+    fn GetDpi();
+    fn CopyFromBitmap();
+    fn CopyFromRenderTarget();
+    fn CopyFromMemory();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4543,6 +4555,13 @@ unsafe impl ::windows::core::Interface for ID2D1Bitmap1 {
     type Vtable = ID2D1Bitmap1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa898a84c_3873_4588_b08b_ebbf978df041);
 }
+pub trait ID2D1Bitmap1Impl: ID2D1BitmapImpl + ID2D1ImageImpl + ID2D1ResourceImpl {
+    fn GetColorContext();
+    fn GetOptions();
+    fn GetSurface();
+    fn Map();
+    fn Unmap();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1Bitmap1Vtbl(
@@ -4708,6 +4727,16 @@ impl ::core::fmt::Debug for ID2D1BitmapBrush {
 unsafe impl ::windows::core::Interface for ID2D1BitmapBrush {
     type Vtable = ID2D1BitmapBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906aa_12e2_11dc_9fed_001143a055f9);
+}
+pub trait ID2D1BitmapBrushImpl: ID2D1BrushImpl + ID2D1ResourceImpl {
+    fn SetExtendModeX();
+    fn SetExtendModeY();
+    fn SetInterpolationMode();
+    fn SetBitmap();
+    fn GetExtendModeX();
+    fn GetExtendModeY();
+    fn GetInterpolationMode();
+    fn GetBitmap();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4897,6 +4926,10 @@ impl ::core::fmt::Debug for ID2D1BitmapBrush1 {
 unsafe impl ::windows::core::Interface for ID2D1BitmapBrush1 {
     type Vtable = ID2D1BitmapBrush1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41343a53_e41a_49a2_91cd_21793bbb62e5);
+}
+pub trait ID2D1BitmapBrush1Impl: ID2D1BitmapBrushImpl + ID2D1BrushImpl + ID2D1ResourceImpl {
+    fn SetInterpolationMode1();
+    fn GetInterpolationMode1();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5277,6 +5310,9 @@ unsafe impl ::windows::core::Interface for ID2D1BitmapRenderTarget {
     type Vtable = ID2D1BitmapRenderTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd90695_12e2_11dc_9fed_001143a055f9);
 }
+pub trait ID2D1BitmapRenderTargetImpl: ID2D1RenderTargetImpl + ID2D1ResourceImpl {
+    fn GetBitmap();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1BitmapRenderTargetVtbl(
@@ -5478,6 +5514,10 @@ unsafe impl ::windows::core::Interface for ID2D1BlendTransform {
     type Vtable = ID2D1BlendTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63ac0b32_ba44_450f_8806_7f4ca1ff2f1b);
 }
+pub trait ID2D1BlendTransformImpl: ID2D1ConcreteTransformImpl + ID2D1TransformNodeImpl {
+    fn SetDescription();
+    fn GetDescription();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1BlendTransformVtbl(
@@ -5605,6 +5645,12 @@ unsafe impl ::windows::core::Interface for ID2D1BorderTransform {
     type Vtable = ID2D1BorderTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4998735c_3a19_473c_9781_656847e3a347);
 }
+pub trait ID2D1BorderTransformImpl: ID2D1ConcreteTransformImpl + ID2D1TransformNodeImpl {
+    fn SetExtendModeX();
+    fn SetExtendModeY();
+    fn GetExtendModeX();
+    fn GetExtendModeY();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1BorderTransformVtbl(
@@ -5698,6 +5744,10 @@ impl ::core::fmt::Debug for ID2D1BoundsAdjustmentTransform {
 unsafe impl ::windows::core::Interface for ID2D1BoundsAdjustmentTransform {
     type Vtable = ID2D1BoundsAdjustmentTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90f732e2_5092_4606_a819_8651970baccd);
+}
+pub trait ID2D1BoundsAdjustmentTransformImpl: ID2D1TransformNodeImpl {
+    fn SetOutputBounds();
+    fn GetOutputBounds();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5798,6 +5848,12 @@ unsafe impl ::windows::core::Interface for ID2D1Brush {
     type Vtable = ID2D1BrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906a8_12e2_11dc_9fed_001143a055f9);
 }
+pub trait ID2D1BrushImpl: ID2D1ResourceImpl {
+    fn SetOpacity();
+    fn SetTransform();
+    fn GetOpacity();
+    fn GetTransform();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1BrushVtbl(
@@ -5892,6 +5948,11 @@ impl ::core::fmt::Debug for ID2D1ColorContext {
 unsafe impl ::windows::core::Interface for ID2D1ColorContext {
     type Vtable = ID2D1ColorContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c4820bb_5771_4518_a581_2fe4dd0ec657);
+}
+pub trait ID2D1ColorContextImpl: ID2D1ResourceImpl {
+    fn GetColorSpace();
+    fn GetProfileSize();
+    fn GetProfile();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6020,6 +6081,11 @@ unsafe impl ::windows::core::Interface for ID2D1ColorContext1 {
     type Vtable = ID2D1ColorContext1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ab42875_c57f_4be9_bd85_9cd78d6f55ee);
 }
+pub trait ID2D1ColorContext1Impl: ID2D1ColorContextImpl + ID2D1ResourceImpl {
+    fn GetColorContextType();
+    fn GetDXGIColorSpace();
+    fn GetSimpleColorProfile();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1ColorContext1Vtbl(
@@ -6132,6 +6198,10 @@ impl ::core::fmt::Debug for ID2D1CommandList {
 unsafe impl ::windows::core::Interface for ID2D1CommandList {
     type Vtable = ID2D1CommandListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4f34a19_2383_4d76_94f6_ec343657c3dc);
+}
+pub trait ID2D1CommandListImpl: ID2D1ImageImpl + ID2D1ResourceImpl {
+    fn Stream();
+    fn Close();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6300,6 +6370,33 @@ impl ::core::fmt::Debug for ID2D1CommandSink {
 unsafe impl ::windows::core::Interface for ID2D1CommandSink {
     type Vtable = ID2D1CommandSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54d7898a_a061_40a7_bec7_e465bcba2c4f);
+}
+pub trait ID2D1CommandSinkImpl {
+    fn BeginDraw();
+    fn EndDraw();
+    fn SetAntialiasMode();
+    fn SetTags();
+    fn SetTextAntialiasMode();
+    fn SetTextRenderingParams();
+    fn SetTransform();
+    fn SetPrimitiveBlend();
+    fn SetUnitMode();
+    fn Clear();
+    fn DrawGlyphRun();
+    fn DrawLine();
+    fn DrawGeometry();
+    fn DrawRectangle();
+    fn DrawBitmap();
+    fn DrawImage();
+    fn DrawGdiMetafile();
+    fn FillMesh();
+    fn FillOpacityMask();
+    fn FillGeometry();
+    fn FillRectangle();
+    fn PushAxisAlignedClip();
+    fn PushLayer();
+    fn PopAxisAlignedClip();
+    fn PopLayer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6527,6 +6624,9 @@ impl ::core::fmt::Debug for ID2D1CommandSink1 {
 unsafe impl ::windows::core::Interface for ID2D1CommandSink1 {
     type Vtable = ID2D1CommandSink1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9eb767fd_4269_4467_b8c2_eb30cb305743);
+}
+pub trait ID2D1CommandSink1Impl: ID2D1CommandSinkImpl {
+    fn SetPrimitiveBlend1();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6788,6 +6888,11 @@ impl ::core::fmt::Debug for ID2D1CommandSink2 {
 unsafe impl ::windows::core::Interface for ID2D1CommandSink2 {
     type Vtable = ID2D1CommandSink2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bab440e_417e_47df_a2e2_bc0be6a00916);
+}
+pub trait ID2D1CommandSink2Impl: ID2D1CommandSink1Impl + ID2D1CommandSinkImpl {
+    fn DrawInk();
+    fn DrawGradientMesh();
+    fn DrawGdiMetafile();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7077,6 +7182,9 @@ impl ::core::fmt::Debug for ID2D1CommandSink3 {
 unsafe impl ::windows::core::Interface for ID2D1CommandSink3 {
     type Vtable = ID2D1CommandSink3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18079135_4cf3_4868_bc8e_06067e6d242d);
+}
+pub trait ID2D1CommandSink3Impl: ID2D1CommandSink2Impl + ID2D1CommandSink1Impl + ID2D1CommandSinkImpl {
+    fn DrawSpriteBatch();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7391,6 +7499,9 @@ impl ::core::fmt::Debug for ID2D1CommandSink4 {
 unsafe impl ::windows::core::Interface for ID2D1CommandSink4 {
     type Vtable = ID2D1CommandSink4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc78a6519_40d6_4218_b2de_beeeb744bb3e);
+}
+pub trait ID2D1CommandSink4Impl: ID2D1CommandSink3Impl + ID2D1CommandSink2Impl + ID2D1CommandSink1Impl + ID2D1CommandSinkImpl {
+    fn SetPrimitiveBlend2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7732,6 +7843,9 @@ unsafe impl ::windows::core::Interface for ID2D1CommandSink5 {
     type Vtable = ID2D1CommandSink5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7047dd26_b1e7_44a7_959a_8349e2144fa8);
 }
+pub trait ID2D1CommandSink5Impl: ID2D1CommandSink4Impl + ID2D1CommandSink3Impl + ID2D1CommandSink2Impl + ID2D1CommandSink1Impl + ID2D1CommandSinkImpl {
+    fn BlendImage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1CommandSink5Vtbl(
@@ -7880,6 +7994,11 @@ unsafe impl ::windows::core::Interface for ID2D1ComputeInfo {
     type Vtable = ID2D1ComputeInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5598b14b_9fd7_48b7_9bdb_8f0964eb38bc);
 }
+pub trait ID2D1ComputeInfoImpl: ID2D1RenderInfoImpl {
+    fn SetComputeShaderConstantBuffer();
+    fn SetComputeShader();
+    fn SetResourceTexture();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1ComputeInfoVtbl(
@@ -8009,6 +8128,10 @@ unsafe impl ::windows::core::Interface for ID2D1ComputeTransform {
     type Vtable = ID2D1ComputeTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d85573c_01e3_4f7d_bfd9_0d60608bf3c3);
 }
+pub trait ID2D1ComputeTransformImpl: ID2D1TransformImpl + ID2D1TransformNodeImpl {
+    fn SetComputeInfo();
+    fn CalculateThreadgroups();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1ComputeTransformVtbl(
@@ -8103,6 +8226,10 @@ impl ::core::fmt::Debug for ID2D1ConcreteTransform {
 unsafe impl ::windows::core::Interface for ID2D1ConcreteTransform {
     type Vtable = ID2D1ConcreteTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a799d8a_69f7_4e4c_9fed_437ccc6684cc);
+}
+pub trait ID2D1ConcreteTransformImpl: ID2D1TransformNodeImpl {
+    fn SetOutputBuffer();
+    fn SetCached();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8470,6 +8597,9 @@ unsafe impl ::windows::core::Interface for ID2D1DCRenderTarget {
     type Vtable = ID2D1DCRenderTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c51bc64_de61_46fd_9899_63a5d8f03950);
 }
+pub trait ID2D1DCRenderTargetImpl: ID2D1RenderTargetImpl + ID2D1ResourceImpl {
+    fn BindDC();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1DCRenderTargetVtbl(
@@ -8658,6 +8788,13 @@ unsafe impl ::windows::core::Interface for ID2D1Device {
     type Vtable = ID2D1DeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47dd575d_ac05_4cdd_8049_9b02cd16f44c);
 }
+pub trait ID2D1DeviceImpl: ID2D1ResourceImpl {
+    fn CreateDeviceContext();
+    fn CreatePrintControl();
+    fn SetMaximumTextureMemory();
+    fn GetMaximumTextureMemory();
+    fn ClearResources();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1DeviceVtbl(
@@ -8796,6 +8933,11 @@ impl ::core::fmt::Debug for ID2D1Device1 {
 unsafe impl ::windows::core::Interface for ID2D1Device1 {
     type Vtable = ID2D1Device1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd21768e1_23a4_4823_a14b_7c3eba85d658);
+}
+pub trait ID2D1Device1Impl: ID2D1DeviceImpl + ID2D1ResourceImpl {
+    fn GetRenderingPriority();
+    fn SetRenderingPriority();
+    fn CreateDeviceContext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8973,6 +9115,11 @@ impl ::core::fmt::Debug for ID2D1Device2 {
 unsafe impl ::windows::core::Interface for ID2D1Device2 {
     type Vtable = ID2D1Device2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa44472e1_8dfb_4e60_8492_6e2861c9ca8b);
+}
+pub trait ID2D1Device2Impl: ID2D1Device1Impl + ID2D1DeviceImpl + ID2D1ResourceImpl {
+    fn CreateDeviceContext();
+    fn FlushDeviceContexts();
+    fn GetDxgiDevice();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9179,6 +9326,9 @@ impl ::core::fmt::Debug for ID2D1Device3 {
 unsafe impl ::windows::core::Interface for ID2D1Device3 {
     type Vtable = ID2D1Device3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x852f2087_802c_4037_ab60_ff2e7ee6fc01);
+}
+pub trait ID2D1Device3Impl: ID2D1Device2Impl + ID2D1Device1Impl + ID2D1DeviceImpl + ID2D1ResourceImpl {
+    fn CreateDeviceContext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9419,6 +9569,11 @@ impl ::core::fmt::Debug for ID2D1Device4 {
 unsafe impl ::windows::core::Interface for ID2D1Device4 {
     type Vtable = ID2D1Device4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7bdb159_5683_4a46_bc9c_72dc720b858b);
+}
+pub trait ID2D1Device4Impl: ID2D1Device3Impl + ID2D1Device2Impl + ID2D1Device1Impl + ID2D1DeviceImpl + ID2D1ResourceImpl {
+    fn CreateDeviceContext();
+    fn SetMaximumColorGlyphCacheMemory();
+    fn GetMaximumColorGlyphCacheMemory();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9687,6 +9842,9 @@ impl ::core::fmt::Debug for ID2D1Device5 {
 unsafe impl ::windows::core::Interface for ID2D1Device5 {
     type Vtable = ID2D1Device5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd55ba0a4_6405_4694_aef5_08ee1a4358b4);
+}
+pub trait ID2D1Device5Impl: ID2D1Device4Impl + ID2D1Device3Impl + ID2D1Device2Impl + ID2D1Device1Impl + ID2D1DeviceImpl + ID2D1ResourceImpl {
+    fn CreateDeviceContext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9981,6 +10139,9 @@ impl ::core::fmt::Debug for ID2D1Device6 {
 unsafe impl ::windows::core::Interface for ID2D1Device6 {
     type Vtable = ID2D1Device6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bfef914_2d75_4bad_be87_e18ddb077b6d);
+}
+pub trait ID2D1Device6Impl: ID2D1Device5Impl + ID2D1Device4Impl + ID2D1Device3Impl + ID2D1Device2Impl + ID2D1Device1Impl + ID2D1DeviceImpl + ID2D1ResourceImpl {
+    fn CreateDeviceContext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10537,6 +10698,43 @@ impl ::core::fmt::Debug for ID2D1DeviceContext {
 unsafe impl ::windows::core::Interface for ID2D1DeviceContext {
     type Vtable = ID2D1DeviceContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8f7fe7a_191c_466d_ad95_975678bda998);
+}
+pub trait ID2D1DeviceContextImpl: ID2D1RenderTargetImpl + ID2D1ResourceImpl {
+    fn CreateBitmap();
+    fn CreateBitmapFromWicBitmap();
+    fn CreateColorContext();
+    fn CreateColorContextFromFilename();
+    fn CreateColorContextFromWicColorContext();
+    fn CreateBitmapFromDxgiSurface();
+    fn CreateEffect();
+    fn CreateGradientStopCollection();
+    fn CreateImageBrush();
+    fn CreateBitmapBrush();
+    fn CreateCommandList();
+    fn IsDxgiFormatSupported();
+    fn IsBufferPrecisionSupported();
+    fn GetImageLocalBounds();
+    fn GetImageWorldBounds();
+    fn GetGlyphRunWorldBounds();
+    fn GetDevice();
+    fn SetTarget();
+    fn GetTarget();
+    fn SetRenderingControls();
+    fn GetRenderingControls();
+    fn SetPrimitiveBlend();
+    fn GetPrimitiveBlend();
+    fn SetUnitMode();
+    fn GetUnitMode();
+    fn DrawGlyphRun();
+    fn DrawImage();
+    fn DrawGdiMetafile();
+    fn DrawBitmap();
+    fn PushLayer();
+    fn InvalidateEffectInputRectangle();
+    fn GetEffectInvalidRectangleCount();
+    fn GetEffectInvalidRectangles();
+    fn GetEffectRequiredInputRectangles();
+    fn FillOpacityMask();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11253,6 +11451,11 @@ impl ::core::fmt::Debug for ID2D1DeviceContext1 {
 unsafe impl ::windows::core::Interface for ID2D1DeviceContext1 {
     type Vtable = ID2D1DeviceContext1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd37f57e4_6908_459f_a199_e72f24f79987);
+}
+pub trait ID2D1DeviceContext1Impl: ID2D1DeviceContextImpl + ID2D1RenderTargetImpl + ID2D1ResourceImpl {
+    fn CreateFilledGeometryRealization();
+    fn CreateStrokedGeometryRealization();
+    fn DrawGeometryRealization();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12050,6 +12253,19 @@ impl ::core::fmt::Debug for ID2D1DeviceContext2 {
 unsafe impl ::windows::core::Interface for ID2D1DeviceContext2 {
     type Vtable = ID2D1DeviceContext2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x394ea6a3_0c34_4321_950b_6ca20f0be6c7);
+}
+pub trait ID2D1DeviceContext2Impl: ID2D1DeviceContext1Impl + ID2D1DeviceContextImpl + ID2D1RenderTargetImpl + ID2D1ResourceImpl {
+    fn CreateInk();
+    fn CreateInkStyle();
+    fn CreateGradientMesh();
+    fn CreateImageSourceFromWic();
+    fn CreateLookupTable3D();
+    fn CreateImageSourceFromDxgi();
+    fn GetGradientMeshWorldBounds();
+    fn DrawInk();
+    fn DrawGradientMesh();
+    fn DrawGdiMetafile();
+    fn CreateTransformedImageSource();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12893,6 +13109,10 @@ impl ::core::fmt::Debug for ID2D1DeviceContext3 {
 unsafe impl ::windows::core::Interface for ID2D1DeviceContext3 {
     type Vtable = ID2D1DeviceContext3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x235a7496_8351_414c_bcd4_6672ab2d8e00);
+}
+pub trait ID2D1DeviceContext3Impl: ID2D1DeviceContext2Impl + ID2D1DeviceContext1Impl + ID2D1DeviceContextImpl + ID2D1RenderTargetImpl + ID2D1ResourceImpl {
+    fn CreateSpriteBatch();
+    fn DrawSpriteBatch();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13793,6 +14013,15 @@ impl ::core::fmt::Debug for ID2D1DeviceContext4 {
 unsafe impl ::windows::core::Interface for ID2D1DeviceContext4 {
     type Vtable = ID2D1DeviceContext4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c427831_3d90_4476_b647_c4fae349e4db);
+}
+pub trait ID2D1DeviceContext4Impl: ID2D1DeviceContext3Impl + ID2D1DeviceContext2Impl + ID2D1DeviceContext1Impl + ID2D1DeviceContextImpl + ID2D1RenderTargetImpl + ID2D1ResourceImpl {
+    fn CreateSvgGlyphStyle();
+    fn DrawText();
+    fn DrawTextLayout();
+    fn DrawColorBitmapGlyphRun();
+    fn DrawSvgGlyphRun();
+    fn GetColorBitmapGlyphImage();
+    fn GetSvgGlyphImage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14748,6 +14977,12 @@ impl ::core::fmt::Debug for ID2D1DeviceContext5 {
 unsafe impl ::windows::core::Interface for ID2D1DeviceContext5 {
     type Vtable = ID2D1DeviceContext5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7836d248_68cc_4df6_b9e8_de991bf62eb7);
+}
+pub trait ID2D1DeviceContext5Impl: ID2D1DeviceContext4Impl + ID2D1DeviceContext3Impl + ID2D1DeviceContext2Impl + ID2D1DeviceContext1Impl + ID2D1DeviceContextImpl + ID2D1RenderTargetImpl + ID2D1ResourceImpl {
+    fn CreateSvgDocument();
+    fn DrawSvgDocument();
+    fn CreateColorContextFromDxgiColorSpace();
+    fn CreateColorContextFromSimpleColorProfile();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15736,6 +15971,9 @@ unsafe impl ::windows::core::Interface for ID2D1DeviceContext6 {
     type Vtable = ID2D1DeviceContext6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x985f7e37_4ed0_4a19_98a3_15b0edfde306);
 }
+pub trait ID2D1DeviceContext6Impl: ID2D1DeviceContext5Impl + ID2D1DeviceContext4Impl + ID2D1DeviceContext3Impl + ID2D1DeviceContext2Impl + ID2D1DeviceContext1Impl + ID2D1DeviceContextImpl + ID2D1RenderTargetImpl + ID2D1ResourceImpl {
+    fn BlendImage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1DeviceContext6Vtbl(
@@ -16035,6 +16273,13 @@ unsafe impl ::windows::core::Interface for ID2D1DrawInfo {
     type Vtable = ID2D1DrawInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x693ce632_7f2f_45de_93fe_18d88b37aa21);
 }
+pub trait ID2D1DrawInfoImpl: ID2D1RenderInfoImpl {
+    fn SetPixelShaderConstantBuffer();
+    fn SetResourceTexture();
+    fn SetVertexShaderConstantBuffer();
+    fn SetPixelShader();
+    fn SetVertexProcessing();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1DrawInfoVtbl(
@@ -16161,6 +16406,9 @@ unsafe impl ::windows::core::Interface for ID2D1DrawTransform {
     type Vtable = ID2D1DrawTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36bfdcb6_9739_435d_a30d_a653beff6a6f);
 }
+pub trait ID2D1DrawTransformImpl: ID2D1TransformImpl + ID2D1TransformNodeImpl {
+    fn SetDrawInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1DrawTransformVtbl(
@@ -16264,6 +16512,12 @@ impl ::core::fmt::Debug for ID2D1DrawingStateBlock {
 unsafe impl ::windows::core::Interface for ID2D1DrawingStateBlock {
     type Vtable = ID2D1DrawingStateBlockVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28506e39_ebf6_46a1_bb47_fd85565ab957);
+}
+pub trait ID2D1DrawingStateBlockImpl: ID2D1ResourceImpl {
+    fn GetDescription();
+    fn SetDescription();
+    fn SetTextRenderingParams();
+    fn GetTextRenderingParams();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16399,6 +16653,10 @@ impl ::core::fmt::Debug for ID2D1DrawingStateBlock1 {
 unsafe impl ::windows::core::Interface for ID2D1DrawingStateBlock1 {
     type Vtable = ID2D1DrawingStateBlock1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x689f1f85_c72e_4e33_8f19_85754efd5ace);
+}
+pub trait ID2D1DrawingStateBlock1Impl: ID2D1DrawingStateBlockImpl + ID2D1ResourceImpl {
+    fn GetDescription();
+    fn SetDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16554,6 +16812,13 @@ impl ::core::fmt::Debug for ID2D1Effect {
 unsafe impl ::windows::core::Interface for ID2D1Effect {
     type Vtable = ID2D1EffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28211a43_7d89_476f_8181_2d6159b220ad);
+}
+pub trait ID2D1EffectImpl: ID2D1PropertiesImpl {
+    fn SetInput();
+    fn SetInputCount();
+    fn GetInput();
+    fn GetInputCount();
+    fn GetOutput();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16733,6 +16998,29 @@ impl ::core::fmt::Debug for ID2D1EffectContext {
 unsafe impl ::windows::core::Interface for ID2D1EffectContext {
     type Vtable = ID2D1EffectContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d9f916b_27dc_4ad7_b4f1_64945340f563);
+}
+pub trait ID2D1EffectContextImpl {
+    fn GetDpi();
+    fn CreateEffect();
+    fn GetMaximumSupportedFeatureLevel();
+    fn CreateTransformNodeFromEffect();
+    fn CreateBlendTransform();
+    fn CreateBorderTransform();
+    fn CreateOffsetTransform();
+    fn CreateBoundsAdjustmentTransform();
+    fn LoadPixelShader();
+    fn LoadVertexShader();
+    fn LoadComputeShader();
+    fn IsShaderLoaded();
+    fn CreateResourceTexture();
+    fn FindResourceTexture();
+    fn CreateVertexBuffer();
+    fn FindVertexBuffer();
+    fn CreateColorContext();
+    fn CreateColorContextFromFilename();
+    fn CreateColorContextFromWicColorContext();
+    fn CheckFeatureSupport();
+    fn IsBufferPrecisionSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16945,6 +17233,9 @@ impl ::core::fmt::Debug for ID2D1EffectContext1 {
 unsafe impl ::windows::core::Interface for ID2D1EffectContext1 {
     type Vtable = ID2D1EffectContext1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84ab595a_fc81_4546_bacd_e8ef4d8abe7a);
+}
+pub trait ID2D1EffectContext1Impl: ID2D1EffectContextImpl {
+    fn CreateLookupTable3D();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17191,6 +17482,10 @@ unsafe impl ::windows::core::Interface for ID2D1EffectContext2 {
     type Vtable = ID2D1EffectContext2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x577ad2a0_9fc7_4dda_8b18_dab810140052);
 }
+pub trait ID2D1EffectContext2Impl: ID2D1EffectContext1Impl + ID2D1EffectContextImpl {
+    fn CreateColorContextFromDxgiColorSpace();
+    fn CreateColorContextFromSimpleColorProfile();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1EffectContext2Vtbl(
@@ -17288,6 +17583,11 @@ impl ::core::fmt::Debug for ID2D1EffectImpl {
 unsafe impl ::windows::core::Interface for ID2D1EffectImpl {
     type Vtable = ID2D1EffectImplVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa248fd3f_3e6c_4e63_9f03_7f68ecc91db9);
+}
+pub trait ID2D1EffectImplImpl {
+    fn Initialize();
+    fn PrepareForRender();
+    fn SetGraph();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17465,6 +17765,9 @@ unsafe impl ::windows::core::Interface for ID2D1EllipseGeometry {
     type Vtable = ID2D1EllipseGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906a4_12e2_11dc_9fed_001143a055f9);
 }
+pub trait ID2D1EllipseGeometryImpl: ID2D1GeometryImpl + ID2D1ResourceImpl {
+    fn GetEllipse();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1EllipseGeometryVtbl(
@@ -17623,6 +17926,22 @@ impl ::core::fmt::Debug for ID2D1Factory {
 unsafe impl ::windows::core::Interface for ID2D1Factory {
     type Vtable = ID2D1FactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06152247_6f50_465a_9245_118bfd3b6007);
+}
+pub trait ID2D1FactoryImpl {
+    fn ReloadSystemMetrics();
+    fn GetDesktopDpi();
+    fn CreateRectangleGeometry();
+    fn CreateRoundedRectangleGeometry();
+    fn CreateEllipseGeometry();
+    fn CreateGeometryGroup();
+    fn CreateTransformedGeometry();
+    fn CreatePathGeometry();
+    fn CreateStrokeStyle();
+    fn CreateDrawingStateBlock();
+    fn CreateWicBitmapRenderTarget();
+    fn CreateHwndRenderTarget();
+    fn CreateDxgiSurfaceRenderTarget();
+    fn CreateDCRenderTarget();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17848,6 +18167,18 @@ impl ::core::fmt::Debug for ID2D1Factory1 {
 unsafe impl ::windows::core::Interface for ID2D1Factory1 {
     type Vtable = ID2D1Factory1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb12d362_daee_4b9a_aa1d_14ba401cfa1f);
+}
+pub trait ID2D1Factory1Impl: ID2D1FactoryImpl {
+    fn CreateDevice();
+    fn CreateStrokeStyle();
+    fn CreatePathGeometry();
+    fn CreateDrawingStateBlock();
+    fn CreateGdiMetafile();
+    fn RegisterEffectFromStream();
+    fn RegisterEffectFromString();
+    fn UnregisterEffect();
+    fn GetRegisteredEffects();
+    fn GetEffectProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18114,6 +18445,9 @@ impl ::core::fmt::Debug for ID2D1Factory2 {
 unsafe impl ::windows::core::Interface for ID2D1Factory2 {
     type Vtable = ID2D1Factory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94f81a73_9212_4376_9c58_b16a3a0d3992);
+}
+pub trait ID2D1Factory2Impl: ID2D1Factory1Impl + ID2D1FactoryImpl {
+    fn CreateDevice();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18408,6 +18742,9 @@ impl ::core::fmt::Debug for ID2D1Factory3 {
 unsafe impl ::windows::core::Interface for ID2D1Factory3 {
     type Vtable = ID2D1Factory3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0869759f_4f00_413f_b03e_2bda45404d0f);
+}
+pub trait ID2D1Factory3Impl: ID2D1Factory2Impl + ID2D1Factory1Impl + ID2D1FactoryImpl {
+    fn CreateDevice();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18730,6 +19067,9 @@ impl ::core::fmt::Debug for ID2D1Factory4 {
 unsafe impl ::windows::core::Interface for ID2D1Factory4 {
     type Vtable = ID2D1Factory4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd4ec2d2_0662_4bee_ba8e_6f29f032e096);
+}
+pub trait ID2D1Factory4Impl: ID2D1Factory3Impl + ID2D1Factory2Impl + ID2D1Factory1Impl + ID2D1FactoryImpl {
+    fn CreateDevice();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19080,6 +19420,9 @@ impl ::core::fmt::Debug for ID2D1Factory5 {
 unsafe impl ::windows::core::Interface for ID2D1Factory5 {
     type Vtable = ID2D1Factory5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4349994_838e_4b0f_8cab_44997d9eeacc);
+}
+pub trait ID2D1Factory5Impl: ID2D1Factory4Impl + ID2D1Factory3Impl + ID2D1Factory2Impl + ID2D1Factory1Impl + ID2D1FactoryImpl {
+    fn CreateDevice();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19458,6 +19801,9 @@ impl ::core::fmt::Debug for ID2D1Factory6 {
 unsafe impl ::windows::core::Interface for ID2D1Factory6 {
     type Vtable = ID2D1Factory6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9976f46_f642_44c1_97ca_da32ea2a2635);
+}
+pub trait ID2D1Factory6Impl: ID2D1Factory5Impl + ID2D1Factory4Impl + ID2D1Factory3Impl + ID2D1Factory2Impl + ID2D1Factory1Impl + ID2D1FactoryImpl {
+    fn CreateDevice();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19865,6 +20211,9 @@ unsafe impl ::windows::core::Interface for ID2D1Factory7 {
     type Vtable = ID2D1Factory7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdc2bdd3_b96c_4de6_bdf7_99d4745454de);
 }
+pub trait ID2D1Factory7Impl: ID2D1Factory6Impl + ID2D1Factory5Impl + ID2D1Factory4Impl + ID2D1Factory3Impl + ID2D1Factory2Impl + ID2D1Factory1Impl + ID2D1FactoryImpl {
+    fn CreateDevice();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1Factory7Vtbl(
@@ -19979,6 +20328,10 @@ unsafe impl ::windows::core::Interface for ID2D1GdiInteropRenderTarget {
     type Vtable = ID2D1GdiInteropRenderTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0db51c3_6f77_4bae_b3d5_e47509b35838);
 }
+pub trait ID2D1GdiInteropRenderTargetImpl {
+    fn GetDC();
+    fn ReleaseDC();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1GdiInteropRenderTargetVtbl(
@@ -20068,6 +20421,10 @@ impl ::core::fmt::Debug for ID2D1GdiMetafile {
 unsafe impl ::windows::core::Interface for ID2D1GdiMetafile {
     type Vtable = ID2D1GdiMetafileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f543dc3_cfc1_4211_864f_cfd91c6f3395);
+}
+pub trait ID2D1GdiMetafileImpl: ID2D1ResourceImpl {
+    fn Stream();
+    fn GetBounds();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -20189,6 +20546,10 @@ unsafe impl ::windows::core::Interface for ID2D1GdiMetafile1 {
     type Vtable = ID2D1GdiMetafile1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e69f9e8_dd3f_4bf9_95ba_c04f49d788df);
 }
+pub trait ID2D1GdiMetafile1Impl: ID2D1GdiMetafileImpl + ID2D1ResourceImpl {
+    fn GetDpi();
+    fn GetSourceBounds();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1GdiMetafile1Vtbl(
@@ -20251,6 +20612,9 @@ impl ::core::fmt::Debug for ID2D1GdiMetafileSink {
 unsafe impl ::windows::core::Interface for ID2D1GdiMetafileSink {
     type Vtable = ID2D1GdiMetafileSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82237326_8111_4f7c_bcf4_b5c1175564fe);
+}
+pub trait ID2D1GdiMetafileSinkImpl {
+    fn ProcessRecord();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -20327,6 +20691,9 @@ impl ::core::fmt::Debug for ID2D1GdiMetafileSink1 {
 unsafe impl ::windows::core::Interface for ID2D1GdiMetafileSink1 {
     type Vtable = ID2D1GdiMetafileSink1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd0ecb6b_91e6_411e_8655_395e760f91b4);
+}
+pub trait ID2D1GdiMetafileSink1Impl: ID2D1GdiMetafileSinkImpl {
+    fn ProcessRecord();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -20477,6 +20844,21 @@ impl ::core::fmt::Debug for ID2D1Geometry {
 unsafe impl ::windows::core::Interface for ID2D1Geometry {
     type Vtable = ID2D1GeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906a1_12e2_11dc_9fed_001143a055f9);
+}
+pub trait ID2D1GeometryImpl: ID2D1ResourceImpl {
+    fn GetBounds();
+    fn GetWidenedBounds();
+    fn StrokeContainsPoint();
+    fn FillContainsPoint();
+    fn CompareWithGeometry();
+    fn Simplify();
+    fn Tessellate();
+    fn CombineWithGeometry();
+    fn Outline();
+    fn ComputeArea();
+    fn ComputeLength();
+    fn ComputePointAtLength();
+    fn Widen();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -20686,6 +21068,11 @@ unsafe impl ::windows::core::Interface for ID2D1GeometryGroup {
     type Vtable = ID2D1GeometryGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906a6_12e2_11dc_9fed_001143a055f9);
 }
+pub trait ID2D1GeometryGroupImpl: ID2D1GeometryImpl + ID2D1ResourceImpl {
+    fn GetFillMode();
+    fn GetSourceGeometryCount();
+    fn GetSourceGeometries();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1GeometryGroupVtbl(
@@ -20793,6 +21180,7 @@ unsafe impl ::windows::core::Interface for ID2D1GeometryRealization {
     type Vtable = ID2D1GeometryRealizationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa16907d7_bc02_4801_99e8_8cf7f485f774);
 }
+pub trait ID2D1GeometryRealizationImpl: ID2D1ResourceImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1GeometryRealizationVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factory: *mut ::windows::core::RawPtr));
@@ -20925,6 +21313,14 @@ unsafe impl ::windows::core::Interface for ID2D1GeometrySink {
     type Vtable = ID2D1GeometrySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd9069f_12e2_11dc_9fed_001143a055f9);
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+pub trait ID2D1GeometrySinkImpl: ID2D1SimplifiedGeometrySinkImpl {
+    fn AddLine();
+    fn AddBezier();
+    fn AddQuadraticBezier();
+    fn AddQuadraticBeziers();
+    fn AddArc();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1GeometrySinkVtbl(
@@ -21034,6 +21430,10 @@ unsafe impl ::windows::core::Interface for ID2D1GradientMesh {
     type Vtable = ID2D1GradientMeshVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf292e401_c050_4cde_83d7_04962d3b23c2);
 }
+pub trait ID2D1GradientMeshImpl: ID2D1ResourceImpl {
+    fn GetPatchCount();
+    fn GetPatches();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1GradientMeshVtbl(
@@ -21130,6 +21530,12 @@ impl ::core::fmt::Debug for ID2D1GradientStopCollection {
 unsafe impl ::windows::core::Interface for ID2D1GradientStopCollection {
     type Vtable = ID2D1GradientStopCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906a7_12e2_11dc_9fed_001143a055f9);
+}
+pub trait ID2D1GradientStopCollectionImpl: ID2D1ResourceImpl {
+    fn GetGradientStopCount();
+    fn GetGradientStops();
+    fn GetColorInterpolationGamma();
+    fn GetExtendMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21270,6 +21676,13 @@ impl ::core::fmt::Debug for ID2D1GradientStopCollection1 {
 unsafe impl ::windows::core::Interface for ID2D1GradientStopCollection1 {
     type Vtable = ID2D1GradientStopCollection1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae1572f4_5dd0_4777_998b_9279472ae63b);
+}
+pub trait ID2D1GradientStopCollection1Impl: ID2D1GradientStopCollectionImpl + ID2D1ResourceImpl {
+    fn GetGradientStops1();
+    fn GetPreInterpolationSpace();
+    fn GetPostInterpolationSpace();
+    fn GetBufferPrecision();
+    fn GetColorInterpolationMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21654,6 +22067,11 @@ unsafe impl ::windows::core::Interface for ID2D1HwndRenderTarget {
     type Vtable = ID2D1HwndRenderTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd90698_12e2_11dc_9fed_001143a055f9);
 }
+pub trait ID2D1HwndRenderTargetImpl: ID2D1RenderTargetImpl + ID2D1ResourceImpl {
+    fn CheckWindowState();
+    fn Resize();
+    fn GetHwnd();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1HwndRenderTargetVtbl(
@@ -21822,6 +22240,7 @@ unsafe impl ::windows::core::Interface for ID2D1Image {
     type Vtable = ID2D1ImageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65019f75_8da2_497c_b32c_dfa34e48ede6);
 }
+pub trait ID2D1ImageImpl: ID2D1ResourceImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1ImageVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factory: *mut ::windows::core::RawPtr));
@@ -21974,6 +22393,18 @@ unsafe impl ::windows::core::Interface for ID2D1ImageBrush {
     type Vtable = ID2D1ImageBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe9e984d_3f95_407c_b5db_cb94d4e8f87c);
 }
+pub trait ID2D1ImageBrushImpl: ID2D1BrushImpl + ID2D1ResourceImpl {
+    fn SetImage();
+    fn SetExtendModeX();
+    fn SetExtendModeY();
+    fn SetInterpolationMode();
+    fn SetSourceRectangle();
+    fn GetImage();
+    fn GetExtendModeX();
+    fn GetExtendModeY();
+    fn GetInterpolationMode();
+    fn GetSourceRectangle();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1ImageBrushVtbl(
@@ -22098,6 +22529,10 @@ impl ::core::fmt::Debug for ID2D1ImageSource {
 unsafe impl ::windows::core::Interface for ID2D1ImageSource {
     type Vtable = ID2D1ImageSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9b664e5_74a1_4378_9ac2_eefc37a3f4d8);
+}
+pub trait ID2D1ImageSourceImpl: ID2D1ImageImpl + ID2D1ResourceImpl {
+    fn OfferResources();
+    fn TryReclaimResources();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22244,6 +22679,11 @@ unsafe impl ::windows::core::Interface for ID2D1ImageSourceFromWic {
     type Vtable = ID2D1ImageSourceFromWicVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77395441_1c8f_4555_8683_f50dab0fe792);
 }
+pub trait ID2D1ImageSourceFromWicImpl: ID2D1ImageSourceImpl + ID2D1ImageImpl + ID2D1ResourceImpl {
+    fn EnsureCached();
+    fn TrimCache();
+    fn GetSource();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1ImageSourceFromWicVtbl(
@@ -22375,6 +22815,18 @@ unsafe impl ::windows::core::Interface for ID2D1Ink {
     type Vtable = ID2D1InkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb499923b_7029_478f_a8b3_432c7c5f5312);
 }
+pub trait ID2D1InkImpl: ID2D1ResourceImpl {
+    fn SetStartPoint();
+    fn GetStartPoint();
+    fn AddSegments();
+    fn RemoveSegmentsAtEnd();
+    fn SetSegments();
+    fn SetSegmentAtEnd();
+    fn GetSegmentCount();
+    fn GetSegments();
+    fn StreamAsGeometry();
+    fn GetBounds();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1InkVtbl(
@@ -22482,6 +22934,12 @@ unsafe impl ::windows::core::Interface for ID2D1InkStyle {
     type Vtable = ID2D1InkStyleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbae8b344_23fc_4071_8cb5_d05d6f073848);
 }
+pub trait ID2D1InkStyleImpl: ID2D1ResourceImpl {
+    fn SetNibTransform();
+    fn GetNibTransform();
+    fn SetNibShape();
+    fn GetNibShape();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1InkStyleVtbl(
@@ -22571,6 +23029,9 @@ impl ::core::fmt::Debug for ID2D1Layer {
 unsafe impl ::windows::core::Interface for ID2D1Layer {
     type Vtable = ID2D1LayerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd9069b_12e2_11dc_9fed_001143a055f9);
+}
+pub trait ID2D1LayerImpl: ID2D1ResourceImpl {
+    fn GetSize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22717,6 +23178,13 @@ unsafe impl ::windows::core::Interface for ID2D1LinearGradientBrush {
     type Vtable = ID2D1LinearGradientBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906ab_12e2_11dc_9fed_001143a055f9);
 }
+pub trait ID2D1LinearGradientBrushImpl: ID2D1BrushImpl + ID2D1ResourceImpl {
+    fn SetStartPoint();
+    fn SetEndPoint();
+    fn GetStartPoint();
+    fn GetEndPoint();
+    fn GetGradientStopCollection();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1LinearGradientBrushVtbl(
@@ -22809,6 +23277,7 @@ unsafe impl ::windows::core::Interface for ID2D1LookupTable3D {
     type Vtable = ID2D1LookupTable3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53dd9855_a3b0_4d5b_82e1_26e25c5e5797);
 }
+pub trait ID2D1LookupTable3DImpl: ID2D1ResourceImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1LookupTable3DVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factory: *mut ::windows::core::RawPtr));
@@ -22886,6 +23355,9 @@ unsafe impl ::windows::core::Interface for ID2D1Mesh {
     type Vtable = ID2D1MeshVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906c2_12e2_11dc_9fed_001143a055f9);
 }
+pub trait ID2D1MeshImpl: ID2D1ResourceImpl {
+    fn Open();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1MeshVtbl(
@@ -22952,6 +23424,11 @@ impl ::core::fmt::Debug for ID2D1Multithread {
 unsafe impl ::windows::core::Interface for ID2D1Multithread {
     type Vtable = ID2D1MultithreadVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31e6e7bc_e0ff_4d46_8c64_a0a8c41c15d3);
+}
+pub trait ID2D1MultithreadImpl {
+    fn GetMultithreadProtected();
+    fn Enter();
+    fn Leave();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23044,6 +23521,10 @@ impl ::core::fmt::Debug for ID2D1OffsetTransform {
 unsafe impl ::windows::core::Interface for ID2D1OffsetTransform {
     type Vtable = ID2D1OffsetTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fe6adea_7643_4f53_bd14_a0ce63f24042);
+}
+pub trait ID2D1OffsetTransformImpl: ID2D1TransformNodeImpl {
+    fn SetOffset();
+    fn GetOffset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23236,6 +23717,12 @@ impl ::core::fmt::Debug for ID2D1PathGeometry {
 unsafe impl ::windows::core::Interface for ID2D1PathGeometry {
     type Vtable = ID2D1PathGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906a5_12e2_11dc_9fed_001143a055f9);
+}
+pub trait ID2D1PathGeometryImpl: ID2D1GeometryImpl + ID2D1ResourceImpl {
+    fn Open();
+    fn Stream();
+    fn GetSegmentCount();
+    fn GetFigureCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23481,6 +23968,9 @@ unsafe impl ::windows::core::Interface for ID2D1PathGeometry1 {
     type Vtable = ID2D1PathGeometry1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62baa2d2_ab54_41b7_b872_787e0106a421);
 }
+pub trait ID2D1PathGeometry1Impl: ID2D1PathGeometryImpl + ID2D1GeometryImpl + ID2D1ResourceImpl {
+    fn ComputePointAndSegmentAtLength();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1PathGeometry1Vtbl(
@@ -23574,6 +24064,10 @@ impl ::core::fmt::Debug for ID2D1PrintControl {
 unsafe impl ::windows::core::Interface for ID2D1PrintControl {
     type Vtable = ID2D1PrintControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c1d867d_c290_41c8_ae7e_34a98702e9a5);
+}
+pub trait ID2D1PrintControlImpl {
+    fn AddPage();
+    fn Close();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23678,6 +24172,19 @@ impl ::core::fmt::Debug for ID2D1Properties {
 unsafe impl ::windows::core::Interface for ID2D1Properties {
     type Vtable = ID2D1PropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x483473d7_cd46_4f9d_9d3a_3112aa80159d);
+}
+pub trait ID2D1PropertiesImpl {
+    fn GetPropertyCount();
+    fn GetPropertyName();
+    fn GetPropertyNameLength();
+    fn GetType();
+    fn GetPropertyIndex();
+    fn SetValueByName();
+    fn SetValue();
+    fn GetValueByName();
+    fn GetValue();
+    fn GetValueSize();
+    fn GetSubProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23851,6 +24358,17 @@ impl ::core::fmt::Debug for ID2D1RadialGradientBrush {
 unsafe impl ::windows::core::Interface for ID2D1RadialGradientBrush {
     type Vtable = ID2D1RadialGradientBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906ac_12e2_11dc_9fed_001143a055f9);
+}
+pub trait ID2D1RadialGradientBrushImpl: ID2D1BrushImpl + ID2D1ResourceImpl {
+    fn SetCenter();
+    fn SetGradientOriginOffset();
+    fn SetRadiusX();
+    fn SetRadiusY();
+    fn GetCenter();
+    fn GetGradientOriginOffset();
+    fn GetRadiusX();
+    fn GetRadiusY();
+    fn GetGradientStopCollection();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24045,6 +24563,9 @@ unsafe impl ::windows::core::Interface for ID2D1RectangleGeometry {
     type Vtable = ID2D1RectangleGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906a2_12e2_11dc_9fed_001143a055f9);
 }
+pub trait ID2D1RectangleGeometryImpl: ID2D1GeometryImpl + ID2D1ResourceImpl {
+    fn GetRect();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1RectangleGeometryVtbl(
@@ -24142,6 +24663,12 @@ impl ::core::fmt::Debug for ID2D1RenderInfo {
 unsafe impl ::windows::core::Interface for ID2D1RenderInfo {
     type Vtable = ID2D1RenderInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x519ae1bd_d19a_420d_b849_364f594776b7);
+}
+pub trait ID2D1RenderInfoImpl {
+    fn SetInputDescription();
+    fn SetOutputBuffer();
+    fn SetCached();
+    fn SetInstructionCountHint();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24485,6 +25012,61 @@ unsafe impl ::windows::core::Interface for ID2D1RenderTarget {
     type Vtable = ID2D1RenderTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd90694_12e2_11dc_9fed_001143a055f9);
 }
+pub trait ID2D1RenderTargetImpl: ID2D1ResourceImpl {
+    fn CreateBitmap();
+    fn CreateBitmapFromWicBitmap();
+    fn CreateSharedBitmap();
+    fn CreateBitmapBrush();
+    fn CreateSolidColorBrush();
+    fn CreateGradientStopCollection();
+    fn CreateLinearGradientBrush();
+    fn CreateRadialGradientBrush();
+    fn CreateCompatibleRenderTarget();
+    fn CreateLayer();
+    fn CreateMesh();
+    fn DrawLine();
+    fn DrawRectangle();
+    fn FillRectangle();
+    fn DrawRoundedRectangle();
+    fn FillRoundedRectangle();
+    fn DrawEllipse();
+    fn FillEllipse();
+    fn DrawGeometry();
+    fn FillGeometry();
+    fn FillMesh();
+    fn FillOpacityMask();
+    fn DrawBitmap();
+    fn DrawText();
+    fn DrawTextLayout();
+    fn DrawGlyphRun();
+    fn SetTransform();
+    fn GetTransform();
+    fn SetAntialiasMode();
+    fn GetAntialiasMode();
+    fn SetTextAntialiasMode();
+    fn GetTextAntialiasMode();
+    fn SetTextRenderingParams();
+    fn GetTextRenderingParams();
+    fn SetTags();
+    fn GetTags();
+    fn PushLayer();
+    fn PopLayer();
+    fn Flush();
+    fn SaveDrawingState();
+    fn RestoreDrawingState();
+    fn PushAxisAlignedClip();
+    fn PopAxisAlignedClip();
+    fn Clear();
+    fn BeginDraw();
+    fn EndDraw();
+    fn GetPixelFormat();
+    fn SetDpi();
+    fn GetDpi();
+    fn GetSize();
+    fn GetPixelSize();
+    fn GetMaximumBitmapSize();
+    fn IsSupported();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1RenderTargetVtbl(
@@ -24628,6 +25210,9 @@ unsafe impl ::windows::core::Interface for ID2D1Resource {
     type Vtable = ID2D1ResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd90691_12e2_11dc_9fed_001143a055f9);
 }
+pub trait ID2D1ResourceImpl {
+    fn GetFactory();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1ResourceVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factory: *mut ::windows::core::RawPtr));
@@ -24679,6 +25264,9 @@ impl ::core::fmt::Debug for ID2D1ResourceTexture {
 unsafe impl ::windows::core::Interface for ID2D1ResourceTexture {
     type Vtable = ID2D1ResourceTextureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x688d15c3_02b0_438d_b13a_d1b44c32c39a);
+}
+pub trait ID2D1ResourceTextureImpl {
+    fn Update();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24854,6 +25442,9 @@ unsafe impl ::windows::core::Interface for ID2D1RoundedRectangleGeometry {
     type Vtable = ID2D1RoundedRectangleGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906a3_12e2_11dc_9fed_001143a055f9);
 }
+pub trait ID2D1RoundedRectangleGeometryImpl: ID2D1GeometryImpl + ID2D1ResourceImpl {
+    fn GetRoundedRect();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1RoundedRectangleGeometryVtbl(
@@ -25009,6 +25600,10 @@ unsafe impl ::windows::core::Interface for ID2D1SolidColorBrush {
     type Vtable = ID2D1SolidColorBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906a9_12e2_11dc_9fed_001143a055f9);
 }
+pub trait ID2D1SolidColorBrushImpl: ID2D1BrushImpl + ID2D1ResourceImpl {
+    fn SetColor();
+    fn GetColor();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1SolidColorBrushVtbl(
@@ -25141,6 +25736,10 @@ unsafe impl ::windows::core::Interface for ID2D1SourceTransform {
     type Vtable = ID2D1SourceTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb1800dd_0c34_4cf9_be90_31cc0a5653e1);
 }
+pub trait ID2D1SourceTransformImpl: ID2D1TransformImpl + ID2D1TransformNodeImpl {
+    fn SetRenderInfo();
+    fn Draw();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1SourceTransformVtbl(
@@ -25249,6 +25848,13 @@ impl ::core::fmt::Debug for ID2D1SpriteBatch {
 unsafe impl ::windows::core::Interface for ID2D1SpriteBatch {
     type Vtable = ID2D1SpriteBatchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4dc583bf_3a10_438a_8722_e9765224f1f1);
+}
+pub trait ID2D1SpriteBatchImpl: ID2D1ResourceImpl {
+    fn AddSprites();
+    fn SetSprites();
+    fn GetSprites();
+    fn GetSpriteCount();
+    fn Clear();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25370,6 +25976,17 @@ impl ::core::fmt::Debug for ID2D1StrokeStyle {
 unsafe impl ::windows::core::Interface for ID2D1StrokeStyle {
     type Vtable = ID2D1StrokeStyleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd9069d_12e2_11dc_9fed_001143a055f9);
+}
+pub trait ID2D1StrokeStyleImpl: ID2D1ResourceImpl {
+    fn GetStartCap();
+    fn GetEndCap();
+    fn GetDashCap();
+    fn GetMiterLimit();
+    fn GetLineJoin();
+    fn GetDashOffset();
+    fn GetDashStyle();
+    fn GetDashesCount();
+    fn GetDashes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25517,6 +26134,9 @@ unsafe impl ::windows::core::Interface for ID2D1StrokeStyle1 {
     type Vtable = ID2D1StrokeStyle1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10a72a66_e91c_43f4_993f_ddf4b82b0b4a);
 }
+pub trait ID2D1StrokeStyle1Impl: ID2D1StrokeStyleImpl + ID2D1ResourceImpl {
+    fn GetStrokeTransformType();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1StrokeStyle1Vtbl(
@@ -25612,6 +26232,10 @@ impl ::core::fmt::Debug for ID2D1SvgAttribute {
 unsafe impl ::windows::core::Interface for ID2D1SvgAttribute {
     type Vtable = ID2D1SvgAttributeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9cdb0dd_f8c9_4e70_b7c2_301c80292c5e);
+}
+pub trait ID2D1SvgAttributeImpl: ID2D1ResourceImpl {
+    fn GetElement();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25750,6 +26374,19 @@ impl ::core::fmt::Debug for ID2D1SvgDocument {
 unsafe impl ::windows::core::Interface for ID2D1SvgDocument {
     type Vtable = ID2D1SvgDocumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86b88e4d_afa4_4d7b_88e4_68a51c4a0aec);
+}
+pub trait ID2D1SvgDocumentImpl: ID2D1ResourceImpl {
+    fn SetViewportSize();
+    fn GetViewportSize();
+    fn SetRoot();
+    fn GetRoot();
+    fn FindElementById();
+    fn Serialize();
+    fn Deserialize();
+    fn CreatePaint();
+    fn CreateStrokeDashArray();
+    fn CreatePointCollection();
+    fn CreatePathData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25987,6 +26624,38 @@ unsafe impl ::windows::core::Interface for ID2D1SvgElement {
     type Vtable = ID2D1SvgElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac7b67a6_183e_49c1_a823_0ebe40b0db29);
 }
+pub trait ID2D1SvgElementImpl: ID2D1ResourceImpl {
+    fn GetDocument();
+    fn GetTagName();
+    fn GetTagNameLength();
+    fn IsTextContent();
+    fn GetParent();
+    fn HasChildren();
+    fn GetFirstChild();
+    fn GetLastChild();
+    fn GetPreviousChild();
+    fn GetNextChild();
+    fn InsertChildBefore();
+    fn AppendChild();
+    fn ReplaceChild();
+    fn RemoveChild();
+    fn CreateChild();
+    fn IsAttributeSpecified();
+    fn GetSpecifiedAttributeCount();
+    fn GetSpecifiedAttributeName();
+    fn GetSpecifiedAttributeNameLength();
+    fn RemoveAttribute();
+    fn SetTextValue();
+    fn GetTextValue();
+    fn GetTextValueLength();
+    fn SetAttributeValue();
+    fn SetAttributeValue();
+    fn SetAttributeValue();
+    fn GetAttributeValue();
+    fn GetAttributeValue();
+    fn GetAttributeValue();
+    fn GetAttributeValueLength();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1SvgElementVtbl(
@@ -26131,6 +26800,13 @@ unsafe impl ::windows::core::Interface for ID2D1SvgGlyphStyle {
     type Vtable = ID2D1SvgGlyphStyleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf671749_d241_4db8_8e41_dcc2e5c1a438);
 }
+pub trait ID2D1SvgGlyphStyleImpl: ID2D1ResourceImpl {
+    fn SetFill();
+    fn GetFill();
+    fn SetStroke();
+    fn GetStrokeDashesCount();
+    fn GetStroke();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1SvgGlyphStyleVtbl(
@@ -26273,6 +26949,15 @@ impl ::core::fmt::Debug for ID2D1SvgPaint {
 unsafe impl ::windows::core::Interface for ID2D1SvgPaint {
     type Vtable = ID2D1SvgPaintVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd59bab0a_68a2_455b_a5dc_9eb2854e2490);
+}
+pub trait ID2D1SvgPaintImpl: ID2D1SvgAttributeImpl + ID2D1ResourceImpl {
+    fn SetPaintType();
+    fn GetPaintType();
+    fn SetColor();
+    fn GetColor();
+    fn SetId();
+    fn GetId();
+    fn GetIdLength();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26431,6 +27116,17 @@ unsafe impl ::windows::core::Interface for ID2D1SvgPathData {
     type Vtable = ID2D1SvgPathDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc095e4f4_bb98_43d6_9745_4d1b84ec9888);
 }
+pub trait ID2D1SvgPathDataImpl: ID2D1SvgAttributeImpl + ID2D1ResourceImpl {
+    fn RemoveSegmentDataAtEnd();
+    fn UpdateSegmentData();
+    fn GetSegmentData();
+    fn GetSegmentDataCount();
+    fn RemoveCommandsAtEnd();
+    fn UpdateCommands();
+    fn GetCommands();
+    fn GetCommandsCount();
+    fn CreatePathGeometry();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1SvgPathDataVtbl(
@@ -26566,6 +27262,12 @@ impl ::core::fmt::Debug for ID2D1SvgPointCollection {
 unsafe impl ::windows::core::Interface for ID2D1SvgPointCollection {
     type Vtable = ID2D1SvgPointCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9dbe4c0d_3572_4dd9_9825_5530813bb712);
+}
+pub trait ID2D1SvgPointCollectionImpl: ID2D1SvgAttributeImpl + ID2D1ResourceImpl {
+    fn RemovePointsAtEnd();
+    fn UpdatePoints();
+    fn GetPoints();
+    fn GetPointsCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26705,6 +27407,14 @@ unsafe impl ::windows::core::Interface for ID2D1SvgStrokeDashArray {
     type Vtable = ID2D1SvgStrokeDashArrayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1c0ca52_92a3_4f00_b4ce_f35691efd9d9);
 }
+pub trait ID2D1SvgStrokeDashArrayImpl: ID2D1SvgAttributeImpl + ID2D1ResourceImpl {
+    fn RemoveDashesAtEnd();
+    fn UpdateDashes();
+    fn UpdateDashes();
+    fn GetDashes();
+    fn GetDashes();
+    fn GetDashesCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1SvgStrokeDashArrayVtbl(
@@ -26774,6 +27484,10 @@ impl ::core::fmt::Debug for ID2D1TessellationSink {
 unsafe impl ::windows::core::Interface for ID2D1TessellationSink {
     type Vtable = ID2D1TessellationSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906c1_12e2_11dc_9fed_001143a055f9);
+}
+pub trait ID2D1TessellationSinkImpl {
+    fn AddTriangles();
+    fn Close();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26870,6 +27584,11 @@ unsafe impl ::windows::core::Interface for ID2D1Transform {
     type Vtable = ID2D1TransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef1a287d_342a_4f76_8fdb_da0d6ea9f92b);
 }
+pub trait ID2D1TransformImpl: ID2D1TransformNodeImpl {
+    fn MapOutputRectToInputRects();
+    fn MapInputRectsToOutputRect();
+    fn MapInvalidRect();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1TransformVtbl(
@@ -26965,6 +27684,17 @@ unsafe impl ::windows::core::Interface for ID2D1TransformGraph {
     type Vtable = ID2D1TransformGraphVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13d29038_c3e6_4034_9081_13b53a417992);
 }
+pub trait ID2D1TransformGraphImpl {
+    fn GetInputCount();
+    fn SetSingleTransformNode();
+    fn AddNode();
+    fn RemoveNode();
+    fn SetOutputNode();
+    fn ConnectNode();
+    fn ConnectToEffectInput();
+    fn Clear();
+    fn SetPassthroughGraph();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1TransformGraphVtbl(
@@ -27029,6 +27759,9 @@ impl ::core::fmt::Debug for ID2D1TransformNode {
 unsafe impl ::windows::core::Interface for ID2D1TransformNode {
     type Vtable = ID2D1TransformNodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2efe1e7_729f_4102_949f_505fa21bf666);
+}
+pub trait ID2D1TransformNodeImpl {
+    fn GetInputCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27203,6 +27936,10 @@ unsafe impl ::windows::core::Interface for ID2D1TransformedGeometry {
     type Vtable = ID2D1TransformedGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906bb_12e2_11dc_9fed_001143a055f9);
 }
+pub trait ID2D1TransformedGeometryImpl: ID2D1GeometryImpl + ID2D1ResourceImpl {
+    fn GetSourceGeometry();
+    fn GetTransform();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1TransformedGeometryVtbl(
@@ -27337,6 +28074,10 @@ unsafe impl ::windows::core::Interface for ID2D1TransformedImageSource {
     type Vtable = ID2D1TransformedImageSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f1f79e5_2796_416c_8f55_700f911445e5);
 }
+pub trait ID2D1TransformedImageSourceImpl: ID2D1ImageImpl + ID2D1ResourceImpl {
+    fn GetSource();
+    fn GetProperties();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1TransformedImageSourceVtbl(
@@ -27399,6 +28140,10 @@ impl ::core::fmt::Debug for ID2D1VertexBuffer {
 unsafe impl ::windows::core::Interface for ID2D1VertexBuffer {
     type Vtable = ID2D1VertexBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b8b1336_00a5_4668_92b7_ced5d8bf9b7b);
+}
+pub trait ID2D1VertexBufferImpl {
+    fn Map();
+    fn Unmap();
 }
 #[repr(C)]
 #[doc(hidden)]

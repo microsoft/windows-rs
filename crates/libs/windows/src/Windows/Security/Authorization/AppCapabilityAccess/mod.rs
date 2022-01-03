@@ -272,6 +272,15 @@ unsafe impl ::windows::core::Interface for IAppCapability {
     type Vtable = IAppCapabilityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c49d915_8a2a_4295_9437_2df7c396aff4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppCapabilityImpl {
+    fn CapabilityName();
+    fn User();
+    fn RequestAccessAsync();
+    fn CheckAccess();
+    fn AccessChanged();
+    fn RemoveAccessChanged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCapabilityVtbl(
@@ -299,6 +308,8 @@ unsafe impl ::windows::core::Interface for IAppCapabilityAccessChangedEventArgs 
     type Vtable = IAppCapabilityAccessChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a578d15_bdd7_457e_8cca_6f53bd2e5944);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppCapabilityAccessChangedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCapabilityAccessChangedEventArgsVtbl(
@@ -315,6 +326,13 @@ pub struct IAppCapabilityStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCapabilityStatics {
     type Vtable = IAppCapabilityStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c353e2a_46ee_44e5_af3d_6ad3fc49bd22);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppCapabilityStaticsImpl {
+    fn RequestAccessForCapabilitiesAsync();
+    fn RequestAccessForCapabilitiesForUserAsync();
+    fn Create();
+    fn CreateWithProcessIdForUser();
 }
 #[repr(C)]
 #[doc(hidden)]

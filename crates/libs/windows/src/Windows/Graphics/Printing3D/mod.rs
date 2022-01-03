@@ -6,6 +6,11 @@ unsafe impl ::windows::core::Interface for IPrint3DManager {
     type Vtable = IPrint3DManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d2fcb0a_7366_4971_8bd5_17c4e3e8c6c0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrint3DManagerImpl {
+    fn TaskRequested();
+    fn RemoveTaskRequested();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DManagerVtbl(
@@ -27,6 +32,11 @@ unsafe impl ::windows::core::Interface for IPrint3DManagerStatics {
     type Vtable = IPrint3DManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ef1cafe_a9ad_4c08_a917_1d1f863eabcb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrint3DManagerStaticsImpl {
+    fn GetForCurrentView();
+    fn ShowPrintUIAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DManagerStaticsVtbl(
@@ -46,6 +56,16 @@ pub struct IPrint3DTask(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrint3DTask {
     type Vtable = IPrint3DTaskVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ce3d080_2118_4c28_80de_f426d70191ae);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrint3DTaskImpl {
+    fn Source();
+    fn Submitting();
+    fn RemoveSubmitting();
+    fn Completed();
+    fn RemoveCompleted();
+    fn SourceChanged();
+    fn RemoveSourceChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -77,6 +97,11 @@ unsafe impl ::windows::core::Interface for IPrint3DTaskCompletedEventArgs {
     type Vtable = IPrint3DTaskCompletedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc1914af_2614_4f1d_accc_d6fc4fda5455);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrint3DTaskCompletedEventArgsImpl {
+    fn Completion();
+    fn ExtendedStatus();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DTaskCompletedEventArgsVtbl(
@@ -96,6 +121,10 @@ unsafe impl ::windows::core::Interface for IPrint3DTaskRequest {
     type Vtable = IPrint3DTaskRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2595c46f_2245_4c5a_8731_0d604dc6bc3c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrint3DTaskRequestImpl {
+    fn CreateTask();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DTaskRequestVtbl(
@@ -113,6 +142,10 @@ pub struct IPrint3DTaskRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrint3DTaskRequestedEventArgs {
     type Vtable = IPrint3DTaskRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x150cb77f_18c5_40d7_9f40_fab3096e05a9);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrint3DTaskRequestedEventArgsImpl {
+    fn Request();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -132,6 +165,10 @@ unsafe impl ::windows::core::Interface for IPrint3DTaskSourceChangedEventArgs {
     type Vtable = IPrint3DTaskSourceChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bcd34af_24e9_4c10_8d07_14c346ba3fcf);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrint3DTaskSourceChangedEventArgsImpl {
+    fn Source();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DTaskSourceChangedEventArgsVtbl(
@@ -150,6 +187,10 @@ unsafe impl ::windows::core::Interface for IPrint3DTaskSourceRequestedArgs {
     type Vtable = IPrint3DTaskSourceRequestedArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc77c9aba_24af_424d_a3bf_92250c355602);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrint3DTaskSourceRequestedArgsImpl {
+    fn SetSource();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DTaskSourceRequestedArgsVtbl(
@@ -167,6 +208,19 @@ pub struct IPrinting3D3MFPackage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrinting3D3MFPackage {
     type Vtable = IPrinting3D3MFPackageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf64dd5c8_2ab7_45a9_a1b7_267e948d5b18);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3D3MFPackageImpl {
+    fn SaveAsync();
+    fn PrintTicket();
+    fn SetPrintTicket();
+    fn ModelPart();
+    fn SetModelPart();
+    fn Thumbnail();
+    fn SetThumbnail();
+    fn Textures();
+    fn LoadModelFromPackageAsync();
+    fn SaveModelToPackageAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -203,6 +257,11 @@ unsafe impl ::windows::core::Interface for IPrinting3D3MFPackage2 {
     type Vtable = IPrinting3D3MFPackage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x965c7ac4_93cb_4430_92b8_789cd454f883);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3D3MFPackage2Impl {
+    fn Compression();
+    fn SetCompression();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3D3MFPackage2Vtbl(
@@ -222,6 +281,10 @@ unsafe impl ::windows::core::Interface for IPrinting3D3MFPackageStatics {
     type Vtable = IPrinting3D3MFPackageStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7058d9af_7a9a_4787_b817_f6f459214823);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3D3MFPackageStaticsImpl {
+    fn LoadAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3D3MFPackageStaticsVtbl(
@@ -240,6 +303,13 @@ pub struct IPrinting3DBaseMaterial(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrinting3DBaseMaterial {
     type Vtable = IPrinting3DBaseMaterialVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0f0e743_c50c_4bcb_9d04_fc16adcea2c9);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DBaseMaterialImpl {
+    fn Name();
+    fn SetName();
+    fn Color();
+    fn SetColor();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -262,6 +332,11 @@ unsafe impl ::windows::core::Interface for IPrinting3DBaseMaterialGroup {
     type Vtable = IPrinting3DBaseMaterialGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94f070b8_2515_4a8d_a1f0_d0fc13d06021);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DBaseMaterialGroupImpl {
+    fn Bases();
+    fn MaterialGroupId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DBaseMaterialGroupVtbl(
@@ -282,6 +357,10 @@ unsafe impl ::windows::core::Interface for IPrinting3DBaseMaterialGroupFactory {
     type Vtable = IPrinting3DBaseMaterialGroupFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c1546dc_8697_4193_976b_84bb4116e5bf);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DBaseMaterialGroupFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DBaseMaterialGroupFactoryVtbl(
@@ -299,6 +378,11 @@ pub struct IPrinting3DBaseMaterialStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrinting3DBaseMaterialStatics {
     type Vtable = IPrinting3DBaseMaterialStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x815a47bc_374a_476d_be92_3ecfd1cb9776);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DBaseMaterialStaticsImpl {
+    fn Abs();
+    fn Pla();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -319,6 +403,11 @@ unsafe impl ::windows::core::Interface for IPrinting3DColorMaterial {
     type Vtable = IPrinting3DColorMaterialVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1899928_7ce7_4285_a35d_f145c9510c7b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DColorMaterialImpl {
+    fn Value();
+    fn SetValue();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DColorMaterialVtbl(
@@ -337,6 +426,11 @@ pub struct IPrinting3DColorMaterial2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrinting3DColorMaterial2 {
     type Vtable = IPrinting3DColorMaterial2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfab0e852_0aef_44e9_9ddd_36eeea5acd44);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DColorMaterial2Impl {
+    fn Color();
+    fn SetColor();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -359,6 +453,11 @@ unsafe impl ::windows::core::Interface for IPrinting3DColorMaterialGroup {
     type Vtable = IPrinting3DColorMaterialGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x001a6bd0_aadf_4226_afe9_f369a0b45004);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DColorMaterialGroupImpl {
+    fn Colors();
+    fn MaterialGroupId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DColorMaterialGroupVtbl(
@@ -379,6 +478,10 @@ unsafe impl ::windows::core::Interface for IPrinting3DColorMaterialGroupFactory 
     type Vtable = IPrinting3DColorMaterialGroupFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71d38d6d_b1ea_4a5b_bc54_19c65f3df044);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DColorMaterialGroupFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DColorMaterialGroupFactoryVtbl(
@@ -396,6 +499,20 @@ pub struct IPrinting3DComponent(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrinting3DComponent {
     type Vtable = IPrinting3DComponentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e287845_bf7f_4cdb_a27f_30a01437fede);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DComponentImpl {
+    fn Mesh();
+    fn SetMesh();
+    fn Components();
+    fn Thumbnail();
+    fn SetThumbnail();
+    fn Type();
+    fn SetType();
+    fn Name();
+    fn SetName();
+    fn PartNumber();
+    fn SetPartNumber();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -426,6 +543,13 @@ unsafe impl ::windows::core::Interface for IPrinting3DComponentWithMatrix {
     type Vtable = IPrinting3DComponentWithMatrixVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3279f335_0ef0_456b_9a21_49bebe8b51c2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DComponentWithMatrixImpl {
+    fn Component();
+    fn SetComponent();
+    fn Matrix();
+    fn SetMatrix();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DComponentWithMatrixVtbl(
@@ -449,6 +573,10 @@ unsafe impl ::windows::core::Interface for IPrinting3DCompositeMaterial {
     type Vtable = IPrinting3DCompositeMaterialVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x462238dd_562e_4f6c_882d_f4d841fd63c7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DCompositeMaterialImpl {
+    fn Values();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DCompositeMaterialVtbl(
@@ -467,6 +595,12 @@ pub struct IPrinting3DCompositeMaterialGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrinting3DCompositeMaterialGroup {
     type Vtable = IPrinting3DCompositeMaterialGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d946a5b_40f1_496d_a5fb_340a5a678e30);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DCompositeMaterialGroupImpl {
+    fn Composites();
+    fn MaterialGroupId();
+    fn MaterialIndices();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -490,6 +624,11 @@ unsafe impl ::windows::core::Interface for IPrinting3DCompositeMaterialGroup2 {
     type Vtable = IPrinting3DCompositeMaterialGroup2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06e86d62_7d3b_41e1_944c_bafde4555483);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DCompositeMaterialGroup2Impl {
+    fn BaseMaterialGroup();
+    fn SetBaseMaterialGroup();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DCompositeMaterialGroup2Vtbl(
@@ -509,6 +648,10 @@ unsafe impl ::windows::core::Interface for IPrinting3DCompositeMaterialGroupFact
     type Vtable = IPrinting3DCompositeMaterialGroupFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd08ecd13_92ff_43aa_a627_8d43c22c817e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DCompositeMaterialGroupFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DCompositeMaterialGroupFactoryVtbl(
@@ -526,6 +669,15 @@ pub struct IPrinting3DFaceReductionOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrinting3DFaceReductionOptions {
     type Vtable = IPrinting3DFaceReductionOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbfed397_2d74_46f7_be85_99a67bbb6629);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DFaceReductionOptionsImpl {
+    fn MaxReductionArea();
+    fn SetMaxReductionArea();
+    fn TargetTriangleCount();
+    fn SetTargetTriangleCount();
+    fn MaxEdgeLength();
+    fn SetMaxEdgeLength();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -549,6 +701,14 @@ pub struct IPrinting3DMaterial(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrinting3DMaterial {
     type Vtable = IPrinting3DMaterialVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x378db256_ed62_4952_b85b_03567d7c465e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DMaterialImpl {
+    fn BaseGroups();
+    fn ColorGroups();
+    fn Texture2CoordGroups();
+    fn CompositeGroups();
+    fn MultiplePropertyGroups();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -576,6 +736,32 @@ pub struct IPrinting3DMesh(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrinting3DMesh {
     type Vtable = IPrinting3DMeshVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x192e90dc_0228_2e01_bc20_c5290cbf32c4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DMeshImpl {
+    fn VertexCount();
+    fn SetVertexCount();
+    fn IndexCount();
+    fn SetIndexCount();
+    fn VertexPositionsDescription();
+    fn SetVertexPositionsDescription();
+    fn VertexNormalsDescription();
+    fn SetVertexNormalsDescription();
+    fn TriangleIndicesDescription();
+    fn SetTriangleIndicesDescription();
+    fn TriangleMaterialIndicesDescription();
+    fn SetTriangleMaterialIndicesDescription();
+    fn GetVertexPositions();
+    fn CreateVertexPositions();
+    fn GetVertexNormals();
+    fn CreateVertexNormals();
+    fn GetTriangleIndices();
+    fn CreateTriangleIndices();
+    fn GetTriangleMaterialIndices();
+    fn CreateTriangleMaterialIndices();
+    fn BufferDescriptionSet();
+    fn BufferSet();
+    fn VerifyAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -624,6 +810,12 @@ unsafe impl ::windows::core::Interface for IPrinting3DMeshVerificationResult {
     type Vtable = IPrinting3DMeshVerificationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x195671ba_e93a_4e8a_a46f_dea8e852197e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DMeshVerificationResultImpl {
+    fn IsValid();
+    fn NonmanifoldTriangles();
+    fn ReversedNormalTriangles();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DMeshVerificationResultVtbl(
@@ -645,6 +837,24 @@ pub struct IPrinting3DModel(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrinting3DModel {
     type Vtable = IPrinting3DModelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d012ef0_52fb_919a_77b0_4b1a3b80324f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DModelImpl {
+    fn Unit();
+    fn SetUnit();
+    fn Textures();
+    fn Meshes();
+    fn Components();
+    fn Material();
+    fn SetMaterial();
+    fn Build();
+    fn SetBuild();
+    fn Version();
+    fn SetVersion();
+    fn RequiredExtensions();
+    fn Metadata();
+    fn RepairAsync();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -684,6 +894,15 @@ unsafe impl ::windows::core::Interface for IPrinting3DModel2 {
     type Vtable = IPrinting3DModel2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc92069c7_c841_47f3_a84e_a149fd08b657);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DModel2Impl {
+    fn TryPartialRepairAsync();
+    fn TryPartialRepairWithTimeAsync();
+    fn TryReduceFacesAsync();
+    fn TryReduceFacesWithOptionsAsync();
+    fn TryReduceFacesWithOptionsAndTimeAsync();
+    fn RepairWithProgressAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DModel2Vtbl(
@@ -713,6 +932,15 @@ unsafe impl ::windows::core::Interface for IPrinting3DModelTexture {
     type Vtable = IPrinting3DModelTextureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5dafcf01_b59d_483c_97bb_a4d546d1c75c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DModelTextureImpl {
+    fn TextureResource();
+    fn SetTextureResource();
+    fn TileStyleU();
+    fn SetTileStyleU();
+    fn TileStyleV();
+    fn SetTileStyleV();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DModelTextureVtbl(
@@ -736,6 +964,10 @@ unsafe impl ::windows::core::Interface for IPrinting3DMultiplePropertyMaterial {
     type Vtable = IPrinting3DMultiplePropertyMaterialVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25a6254b_c6e9_484d_a214_a25e5776ba62);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DMultiplePropertyMaterialImpl {
+    fn MaterialIndices();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DMultiplePropertyMaterialVtbl(
@@ -754,6 +986,12 @@ pub struct IPrinting3DMultiplePropertyMaterialGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrinting3DMultiplePropertyMaterialGroup {
     type Vtable = IPrinting3DMultiplePropertyMaterialGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0950519_aeb9_4515_a39b_a088fbbb277c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DMultiplePropertyMaterialGroupImpl {
+    fn MultipleProperties();
+    fn MaterialGroupIndices();
+    fn MaterialGroupId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -777,6 +1015,10 @@ unsafe impl ::windows::core::Interface for IPrinting3DMultiplePropertyMaterialGr
     type Vtable = IPrinting3DMultiplePropertyMaterialGroupFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x323e196e_d4c6_451e_a814_4d78a210fe53);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DMultiplePropertyMaterialGroupFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DMultiplePropertyMaterialGroupFactoryVtbl(
@@ -794,6 +1036,15 @@ pub struct IPrinting3DTexture2CoordMaterial(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrinting3DTexture2CoordMaterial {
     type Vtable = IPrinting3DTexture2CoordMaterialVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d844bfb_07e9_4986_9833_8dd3d48c6859);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DTexture2CoordMaterialImpl {
+    fn Texture();
+    fn SetTexture();
+    fn U();
+    fn SetU();
+    fn V();
+    fn SetV();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -818,6 +1069,11 @@ unsafe impl ::windows::core::Interface for IPrinting3DTexture2CoordMaterialGroup
     type Vtable = IPrinting3DTexture2CoordMaterialGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x627d7ca7_6d90_4fb9_9fc4_9feff3dfa892);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DTexture2CoordMaterialGroupImpl {
+    fn Texture2Coords();
+    fn MaterialGroupId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DTexture2CoordMaterialGroupVtbl(
@@ -838,6 +1094,11 @@ unsafe impl ::windows::core::Interface for IPrinting3DTexture2CoordMaterialGroup
     type Vtable = IPrinting3DTexture2CoordMaterialGroup2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69fbdbba_b12e_429b_8386_df5284f6e80f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DTexture2CoordMaterialGroup2Impl {
+    fn Texture();
+    fn SetTexture();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DTexture2CoordMaterialGroup2Vtbl(
@@ -857,6 +1118,10 @@ unsafe impl ::windows::core::Interface for IPrinting3DTexture2CoordMaterialGroup
     type Vtable = IPrinting3DTexture2CoordMaterialGroupFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbb049b0_468a_4c6f_b2a2_8eb8ba8dea48);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DTexture2CoordMaterialGroupFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DTexture2CoordMaterialGroupFactoryVtbl(
@@ -874,6 +1139,13 @@ pub struct IPrinting3DTextureResource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrinting3DTextureResource {
     type Vtable = IPrinting3DTextureResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa70df32d_6ab1_44ae_bc45_a27382c0d38c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrinting3DTextureResourceImpl {
+    fn TextureData();
+    fn SetTextureData();
+    fn Name();
+    fn SetName();
 }
 #[repr(C)]
 #[doc(hidden)]

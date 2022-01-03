@@ -53,6 +53,10 @@ unsafe impl ::windows::core::Interface for IWsbApplicationAsync {
     type Vtable = IWsbApplicationAsyncVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0843f6f7_895c_44a6_b0c2_05a5022aa3a1);
 }
+pub trait IWsbApplicationAsyncImpl {
+    fn QueryStatus();
+    fn Abort();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWsbApplicationAsyncVtbl(
@@ -112,6 +116,9 @@ impl ::core::fmt::Debug for IWsbApplicationBackupSupport {
 unsafe impl ::windows::core::Interface for IWsbApplicationBackupSupport {
     type Vtable = IWsbApplicationBackupSupportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1eff3510_4a27_46ad_b9e0_08332f0f4f6d);
+}
+pub trait IWsbApplicationBackupSupportImpl {
+    fn CheckConsistency();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -186,6 +193,12 @@ impl ::core::fmt::Debug for IWsbApplicationRestoreSupport {
 unsafe impl ::windows::core::Interface for IWsbApplicationRestoreSupport {
     type Vtable = IWsbApplicationRestoreSupportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d3bdb38_4ee8_4718_85f9_c7dbc4ab77aa);
+}
+pub trait IWsbApplicationRestoreSupportImpl {
+    fn PreRestore();
+    fn PostRestore();
+    fn OrderComponents();
+    fn IsRollForwardSupported();
 }
 #[repr(C)]
 #[doc(hidden)]

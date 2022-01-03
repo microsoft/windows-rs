@@ -3276,6 +3276,13 @@ unsafe impl ::windows::core::Interface for IFaxAccount {
     type Vtable = IFaxAccountVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68535b33_5dc4_4086_be26_b76f9b711006);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxAccountImpl: IDispatchImpl {
+    fn AccountName();
+    fn Folders();
+    fn ListenToAccountEvents();
+    fn RegisteredEvents();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxAccountVtbl(
@@ -3406,6 +3413,13 @@ impl ::core::fmt::Debug for IFaxAccountFolders {
 unsafe impl ::windows::core::Interface for IFaxAccountFolders {
     type Vtable = IFaxAccountFoldersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6463f89d_23d8_46a9_8f86_c47b77ca7926);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxAccountFoldersImpl: IDispatchImpl {
+    fn OutgoingQueue();
+    fn IncomingQueue();
+    fn IncomingArchive();
+    fn OutgoingArchive();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3542,6 +3556,14 @@ unsafe impl ::windows::core::Interface for IFaxAccountIncomingArchive {
     type Vtable = IFaxAccountIncomingArchiveVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8a5b6ef_e0d6_4aee_955c_91625bec9db4);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxAccountIncomingArchiveImpl: IDispatchImpl {
+    fn SizeLow();
+    fn SizeHigh();
+    fn Refresh();
+    fn GetMessages();
+    fn GetMessage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxAccountIncomingArchiveVtbl(
@@ -3665,6 +3687,11 @@ unsafe impl ::windows::core::Interface for IFaxAccountIncomingQueue {
     type Vtable = IFaxAccountIncomingQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd142d92_0186_4a95_a090_cbc3eadba6b4);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxAccountIncomingQueueImpl: IDispatchImpl {
+    fn GetJobs();
+    fn GetJob();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxAccountIncomingQueueVtbl(
@@ -3774,6 +3801,8 @@ unsafe impl ::windows::core::Interface for IFaxAccountNotify {
     type Vtable = IFaxAccountNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b5e5bd1_b8a9_47a0_a323_ef4a293ba06a);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxAccountNotifyImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxAccountNotifyVtbl(
@@ -3905,6 +3934,14 @@ unsafe impl ::windows::core::Interface for IFaxAccountOutgoingArchive {
     type Vtable = IFaxAccountOutgoingArchiveVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5463076d_ec14_491f_926e_b3ceda5e5662);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxAccountOutgoingArchiveImpl: IDispatchImpl {
+    fn SizeLow();
+    fn SizeHigh();
+    fn Refresh();
+    fn GetMessages();
+    fn GetMessage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxAccountOutgoingArchiveVtbl(
@@ -4027,6 +4064,11 @@ impl ::core::fmt::Debug for IFaxAccountOutgoingQueue {
 unsafe impl ::windows::core::Interface for IFaxAccountOutgoingQueue {
     type Vtable = IFaxAccountOutgoingQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f1424e9_f22d_4553_b7a5_0d24bd0d7e46);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxAccountOutgoingQueueImpl: IDispatchImpl {
+    fn GetJobs();
+    fn GetJob();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4159,6 +4201,13 @@ unsafe impl ::windows::core::Interface for IFaxAccountSet {
     type Vtable = IFaxAccountSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7428fbae_841e_47b8_86f4_2288946dca1b);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxAccountSetImpl: IDispatchImpl {
+    fn GetAccounts();
+    fn GetAccount();
+    fn AddAccount();
+    fn RemoveAccount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxAccountSetVtbl(
@@ -4287,6 +4336,12 @@ impl ::core::fmt::Debug for IFaxAccounts {
 unsafe impl ::windows::core::Interface for IFaxAccounts {
     type Vtable = IFaxAccountsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93ea8162_8be7_42d1_ae7b_ec74e2d989da);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxAccountsImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4421,6 +4476,14 @@ impl ::core::fmt::Debug for IFaxActivity {
 unsafe impl ::windows::core::Interface for IFaxActivity {
     type Vtable = IFaxActivityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b106f97_3df5_40f2_bc3c_44cb8115ebdf);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxActivityImpl: IDispatchImpl {
+    fn IncomingMessages();
+    fn RoutingMessages();
+    fn OutgoingMessages();
+    fn QueuedMessages();
+    fn Refresh();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4569,6 +4632,17 @@ impl ::core::fmt::Debug for IFaxActivityLogging {
 unsafe impl ::windows::core::Interface for IFaxActivityLogging {
     type Vtable = IFaxActivityLoggingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e29078b_5a69_497b_9592_49b7e7faddb5);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxActivityLoggingImpl: IDispatchImpl {
+    fn LogIncoming();
+    fn SetLogIncoming();
+    fn LogOutgoing();
+    fn SetLogOutgoing();
+    fn DatabasePath();
+    fn SetDatabasePath();
+    fn Refresh();
+    fn Save();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4877,6 +4951,51 @@ unsafe impl ::windows::core::Interface for IFaxConfiguration {
     type Vtable = IFaxConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10f4d0f7_0994_4543_ab6e_506949128c40);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxConfigurationImpl: IDispatchImpl {
+    fn UseArchive();
+    fn SetUseArchive();
+    fn ArchiveLocation();
+    fn SetArchiveLocation();
+    fn SizeQuotaWarning();
+    fn SetSizeQuotaWarning();
+    fn HighQuotaWaterMark();
+    fn SetHighQuotaWaterMark();
+    fn LowQuotaWaterMark();
+    fn SetLowQuotaWaterMark();
+    fn ArchiveAgeLimit();
+    fn SetArchiveAgeLimit();
+    fn ArchiveSizeLow();
+    fn ArchiveSizeHigh();
+    fn OutgoingQueueBlocked();
+    fn SetOutgoingQueueBlocked();
+    fn OutgoingQueuePaused();
+    fn SetOutgoingQueuePaused();
+    fn AllowPersonalCoverPages();
+    fn SetAllowPersonalCoverPages();
+    fn UseDeviceTSID();
+    fn SetUseDeviceTSID();
+    fn Retries();
+    fn SetRetries();
+    fn RetryDelay();
+    fn SetRetryDelay();
+    fn DiscountRateStart();
+    fn SetDiscountRateStart();
+    fn DiscountRateEnd();
+    fn SetDiscountRateEnd();
+    fn OutgoingQueueAgeLimit();
+    fn SetOutgoingQueueAgeLimit();
+    fn Branding();
+    fn SetBranding();
+    fn IncomingQueueBlocked();
+    fn SetIncomingQueueBlocked();
+    fn AutoCreateAccountOnConnect();
+    fn SetAutoCreateAccountOnConnect();
+    fn IncomingFaxesArePublic();
+    fn SetIncomingFaxesArePublic();
+    fn Refresh();
+    fn Save();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxConfigurationVtbl(
@@ -5158,6 +5277,35 @@ unsafe impl ::windows::core::Interface for IFaxDevice {
     type Vtable = IFaxDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49306c59_b52e_4867_9df4_ca5841c956d0);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxDeviceImpl: IDispatchImpl {
+    fn Id();
+    fn DeviceName();
+    fn ProviderUniqueName();
+    fn PoweredOff();
+    fn ReceivingNow();
+    fn SendingNow();
+    fn UsedRoutingMethods();
+    fn Description();
+    fn SetDescription();
+    fn SendEnabled();
+    fn SetSendEnabled();
+    fn ReceiveMode();
+    fn SetReceiveMode();
+    fn RingsBeforeAnswer();
+    fn SetRingsBeforeAnswer();
+    fn CSID();
+    fn SetCSID();
+    fn TSID();
+    fn SetTSID();
+    fn Refresh();
+    fn Save();
+    fn GetExtensionProperty();
+    fn SetExtensionProperty();
+    fn UseRoutingMethod();
+    fn RingingNow();
+    fn AnswerCall();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxDeviceVtbl(
@@ -5328,6 +5476,15 @@ impl ::core::fmt::Debug for IFaxDeviceIds {
 unsafe impl ::windows::core::Interface for IFaxDeviceIds {
     type Vtable = IFaxDeviceIdsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f0f813f_4ce9_443e_8ca1_738cfaeee149);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxDeviceIdsImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+    fn Add();
+    fn Remove();
+    fn SetOrder();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5506,6 +5663,21 @@ unsafe impl ::windows::core::Interface for IFaxDeviceProvider {
     type Vtable = IFaxDeviceProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x290eac63_83ec_449c_8417_f148df8c682a);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxDeviceProviderImpl: IDispatchImpl {
+    fn FriendlyName();
+    fn ImageName();
+    fn UniqueName();
+    fn TapiProviderName();
+    fn MajorVersion();
+    fn MinorVersion();
+    fn MajorBuild();
+    fn MinorBuild();
+    fn Debug();
+    fn Status();
+    fn InitErrorCode();
+    fn DeviceIds();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxDeviceProviderVtbl(
@@ -5645,6 +5817,12 @@ unsafe impl ::windows::core::Interface for IFaxDeviceProviders {
     type Vtable = IFaxDeviceProvidersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fb76f62_4c7e_43a5_b6fd_502893f7e13e);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxDeviceProvidersImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxDeviceProvidersVtbl(
@@ -5775,6 +5953,13 @@ impl ::core::fmt::Debug for IFaxDevices {
 unsafe impl ::windows::core::Interface for IFaxDevices {
     type Vtable = IFaxDevicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e46783e_f34f_482e_a360_0416becbbd96);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxDevicesImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+    fn ItemById();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6057,6 +6242,43 @@ impl ::core::fmt::Debug for IFaxDocument {
 unsafe impl ::windows::core::Interface for IFaxDocument {
     type Vtable = IFaxDocumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb207a246_09e3_4a4e_a7dc_fea31d29458f);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxDocumentImpl: IDispatchImpl {
+    fn Body();
+    fn SetBody();
+    fn Sender();
+    fn Recipients();
+    fn CoverPage();
+    fn SetCoverPage();
+    fn Subject();
+    fn SetSubject();
+    fn Note();
+    fn SetNote();
+    fn ScheduleTime();
+    fn SetScheduleTime();
+    fn ReceiptAddress();
+    fn SetReceiptAddress();
+    fn DocumentName();
+    fn SetDocumentName();
+    fn CallHandle();
+    fn SetCallHandle();
+    fn CoverPageType();
+    fn SetCoverPageType();
+    fn ScheduleType();
+    fn SetScheduleType();
+    fn ReceiptType();
+    fn SetReceiptType();
+    fn GroupBroadcastReceipts();
+    fn SetGroupBroadcastReceipts();
+    fn Priority();
+    fn SetPriority();
+    fn TapiConnection();
+    fn putref_TapiConnection();
+    fn Submit();
+    fn ConnectedSubmit();
+    fn AttachFaxToReceipt();
+    fn SetAttachFaxToReceipt();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6432,6 +6654,14 @@ unsafe impl ::windows::core::Interface for IFaxDocument2 {
     type Vtable = IFaxDocument2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1347661_f9ef_4d6d_b4a5_c0a068b65cff);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxDocument2Impl: IFaxDocumentImpl + IDispatchImpl {
+    fn SubmissionId();
+    fn Bodies();
+    fn SetBodies();
+    fn Submit2();
+    fn ConnectedSubmit2();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxDocument2Vtbl(
@@ -6642,6 +6872,19 @@ unsafe impl ::windows::core::Interface for IFaxEventLogging {
     type Vtable = IFaxEventLoggingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0880d965_20e8_42e4_8e17_944f192caad4);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxEventLoggingImpl: IDispatchImpl {
+    fn InitEventsLevel();
+    fn SetInitEventsLevel();
+    fn InboundEventsLevel();
+    fn SetInboundEventsLevel();
+    fn OutboundEventsLevel();
+    fn SetOutboundEventsLevel();
+    fn GeneralEventsLevel();
+    fn SetGeneralEventsLevel();
+    fn Refresh();
+    fn Save();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxEventLoggingVtbl(
@@ -6778,6 +7021,13 @@ unsafe impl ::windows::core::Interface for IFaxFolders {
     type Vtable = IFaxFoldersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdce3b2a8_a7ab_42bc_9d0a_3149457261a0);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxFoldersImpl: IDispatchImpl {
+    fn OutgoingQueue();
+    fn IncomingQueue();
+    fn IncomingArchive();
+    fn OutgoingArchive();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxFoldersVtbl(
@@ -6897,6 +7147,11 @@ impl ::core::fmt::Debug for IFaxInboundRouting {
 unsafe impl ::windows::core::Interface for IFaxInboundRouting {
     type Vtable = IFaxInboundRoutingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8148c20f_9d52_45b1_bf96_38fc12713527);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxInboundRoutingImpl: IDispatchImpl {
+    fn GetExtensions();
+    fn GetMethods();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7065,6 +7320,20 @@ unsafe impl ::windows::core::Interface for IFaxInboundRoutingExtension {
     type Vtable = IFaxInboundRoutingExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x885b5e08_c26c_4ef9_af83_51580a750be1);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxInboundRoutingExtensionImpl: IDispatchImpl {
+    fn FriendlyName();
+    fn ImageName();
+    fn UniqueName();
+    fn MajorVersion();
+    fn MinorVersion();
+    fn MajorBuild();
+    fn MinorBuild();
+    fn Debug();
+    fn Status();
+    fn InitErrorCode();
+    fn Methods();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxInboundRoutingExtensionVtbl(
@@ -7201,6 +7470,12 @@ impl ::core::fmt::Debug for IFaxInboundRoutingExtensions {
 unsafe impl ::windows::core::Interface for IFaxInboundRoutingExtensions {
     type Vtable = IFaxInboundRoutingExtensionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f6c9673_7b26_42de_8eb0_915dcd2a4f4c);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxInboundRoutingExtensionsImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7359,6 +7634,18 @@ unsafe impl ::windows::core::Interface for IFaxInboundRoutingMethod {
     type Vtable = IFaxInboundRoutingMethodVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45700061_ad9d_4776_a8c4_64065492cf4b);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxInboundRoutingMethodImpl: IDispatchImpl {
+    fn Name();
+    fn GUID();
+    fn FunctionName();
+    fn ExtensionFriendlyName();
+    fn ExtensionImageName();
+    fn Priority();
+    fn SetPriority();
+    fn Refresh();
+    fn Save();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxInboundRoutingMethodVtbl(
@@ -7494,6 +7781,12 @@ impl ::core::fmt::Debug for IFaxInboundRoutingMethods {
 unsafe impl ::windows::core::Interface for IFaxInboundRoutingMethods {
     type Vtable = IFaxInboundRoutingMethodsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x783fca10_8908_4473_9d69_f67fbea0c6b9);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxInboundRoutingMethodsImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7689,6 +7982,27 @@ impl ::core::fmt::Debug for IFaxIncomingArchive {
 unsafe impl ::windows::core::Interface for IFaxIncomingArchive {
     type Vtable = IFaxIncomingArchiveVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76062cc7_f714_4fbd_aa06_ed6e4a4b70f3);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxIncomingArchiveImpl: IDispatchImpl {
+    fn UseArchive();
+    fn SetUseArchive();
+    fn ArchiveFolder();
+    fn SetArchiveFolder();
+    fn SizeQuotaWarning();
+    fn SetSizeQuotaWarning();
+    fn HighQuotaWaterMark();
+    fn SetHighQuotaWaterMark();
+    fn LowQuotaWaterMark();
+    fn SetLowQuotaWaterMark();
+    fn AgeLimit();
+    fn SetAgeLimit();
+    fn SizeLow();
+    fn SizeHigh();
+    fn Refresh();
+    fn Save();
+    fn GetMessages();
+    fn GetMessage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7916,6 +8230,28 @@ unsafe impl ::windows::core::Interface for IFaxIncomingJob {
     type Vtable = IFaxIncomingJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x207529e6_654a_4916_9f88_4d232ee8a107);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxIncomingJobImpl: IDispatchImpl {
+    fn Size();
+    fn Id();
+    fn CurrentPage();
+    fn DeviceId();
+    fn Status();
+    fn ExtendedStatusCode();
+    fn ExtendedStatus();
+    fn AvailableOperations();
+    fn Retries();
+    fn TransmissionStart();
+    fn TransmissionEnd();
+    fn CSID();
+    fn TSID();
+    fn CallerId();
+    fn RoutingInformation();
+    fn JobType();
+    fn Cancel();
+    fn Refresh();
+    fn CopyTiff();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxIncomingJobVtbl(
@@ -8063,6 +8399,12 @@ impl ::core::fmt::Debug for IFaxIncomingJobs {
 unsafe impl ::windows::core::Interface for IFaxIncomingJobs {
     type Vtable = IFaxIncomingJobsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x011f04e9_4fd6_4c23_9513_b6b66bb26be9);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxIncomingJobsImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8243,6 +8585,22 @@ impl ::core::fmt::Debug for IFaxIncomingMessage {
 unsafe impl ::windows::core::Interface for IFaxIncomingMessage {
     type Vtable = IFaxIncomingMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cab88fa_2ef9_4851_b2f3_1d148fed8447);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxIncomingMessageImpl: IDispatchImpl {
+    fn Id();
+    fn Pages();
+    fn Size();
+    fn DeviceName();
+    fn Retries();
+    fn TransmissionStart();
+    fn TransmissionEnd();
+    fn CSID();
+    fn TSID();
+    fn CallerId();
+    fn RoutingInformation();
+    fn CopyTiff();
+    fn Delete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8539,6 +8897,25 @@ unsafe impl ::windows::core::Interface for IFaxIncomingMessage2 {
     type Vtable = IFaxIncomingMessage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9208503_e2bc_48f3_9ec0_e6236f9b509a);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxIncomingMessage2Impl: IFaxIncomingMessageImpl + IDispatchImpl {
+    fn Subject();
+    fn SetSubject();
+    fn SenderName();
+    fn SetSenderName();
+    fn SenderFaxNumber();
+    fn SetSenderFaxNumber();
+    fn HasCoverPage();
+    fn SetHasCoverPage();
+    fn Recipients();
+    fn SetRecipients();
+    fn WasReAssigned();
+    fn Read();
+    fn SetRead();
+    fn ReAssign();
+    fn Save();
+    fn Refresh();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxIncomingMessage2Vtbl(
@@ -8716,6 +9093,15 @@ unsafe impl ::windows::core::Interface for IFaxIncomingMessageIterator {
     type Vtable = IFaxIncomingMessageIteratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd73ecc4_6f06_4f52_82a8_f7ba06ae3108);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxIncomingMessageIteratorImpl: IDispatchImpl {
+    fn Message();
+    fn PrefetchSize();
+    fn SetPrefetchSize();
+    fn AtEOF();
+    fn MoveFirst();
+    fn MoveNext();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxIncomingMessageIteratorVtbl(
@@ -8855,6 +9241,15 @@ impl ::core::fmt::Debug for IFaxIncomingQueue {
 unsafe impl ::windows::core::Interface for IFaxIncomingQueue {
     type Vtable = IFaxIncomingQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x902e64ef_8fd8_4b75_9725_6014df161545);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxIncomingQueueImpl: IDispatchImpl {
+    fn Blocked();
+    fn SetBlocked();
+    fn Refresh();
+    fn Save();
+    fn GetJobs();
+    fn GetJob();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9059,6 +9454,26 @@ unsafe impl ::windows::core::Interface for IFaxJobStatus {
     type Vtable = IFaxJobStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b86f485_fd7f_4824_886b_40c5caa617cc);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxJobStatusImpl: IDispatchImpl {
+    fn Status();
+    fn Pages();
+    fn Size();
+    fn CurrentPage();
+    fn DeviceId();
+    fn CSID();
+    fn TSID();
+    fn ExtendedStatusCode();
+    fn ExtendedStatus();
+    fn AvailableOperations();
+    fn Retries();
+    fn JobType();
+    fn ScheduledTime();
+    fn TransmissionStart();
+    fn TransmissionEnd();
+    fn CallerId();
+    fn RoutingInformation();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxJobStatusVtbl(
@@ -9197,6 +9612,11 @@ unsafe impl ::windows::core::Interface for IFaxLoggingOptions {
     type Vtable = IFaxLoggingOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34e64fb9_6b31_4d32_8b27_d286c0c33606);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxLoggingOptionsImpl: IDispatchImpl {
+    fn EventLogging();
+    fn ActivityLogging();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxLoggingOptionsVtbl(
@@ -9314,6 +9734,11 @@ impl ::core::fmt::Debug for IFaxOutboundRouting {
 unsafe impl ::windows::core::Interface for IFaxOutboundRouting {
     type Vtable = IFaxOutboundRoutingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25dc05a4_9909_41bd_a95b_7e5d1dec1d43);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxOutboundRoutingImpl: IDispatchImpl {
+    fn GetGroups();
+    fn GetRules();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9438,6 +9863,12 @@ impl ::core::fmt::Debug for IFaxOutboundRoutingGroup {
 unsafe impl ::windows::core::Interface for IFaxOutboundRoutingGroup {
     type Vtable = IFaxOutboundRoutingGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca6289a1_7e25_4f87_9a0b_93365734962c);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxOutboundRoutingGroupImpl: IDispatchImpl {
+    fn Name();
+    fn Status();
+    fn DeviceIds();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9575,6 +10006,14 @@ impl ::core::fmt::Debug for IFaxOutboundRoutingGroups {
 unsafe impl ::windows::core::Interface for IFaxOutboundRoutingGroups {
     type Vtable = IFaxOutboundRoutingGroupsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x235cbef7_c2de_4bfd_b8da_75097c82c87f);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxOutboundRoutingGroupsImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+    fn Add();
+    fn Remove();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9742,6 +10181,20 @@ unsafe impl ::windows::core::Interface for IFaxOutboundRoutingRule {
     type Vtable = IFaxOutboundRoutingRuleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1f795d5_07c2_469f_b027_acacc23219da);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxOutboundRoutingRuleImpl: IDispatchImpl {
+    fn CountryCode();
+    fn AreaCode();
+    fn Status();
+    fn UseDevice();
+    fn SetUseDevice();
+    fn DeviceId();
+    fn SetDeviceId();
+    fn GroupName();
+    fn SetGroupName();
+    fn Refresh();
+    fn Save();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxOutboundRoutingRuleVtbl(
@@ -9894,6 +10347,16 @@ impl ::core::fmt::Debug for IFaxOutboundRoutingRules {
 unsafe impl ::windows::core::Interface for IFaxOutboundRoutingRules {
     type Vtable = IFaxOutboundRoutingRulesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcefa1e7_ae7d_4ed6_8521_369edcca5120);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxOutboundRoutingRulesImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+    fn ItemByCountryAndArea();
+    fn RemoveByCountryAndArea();
+    fn Remove();
+    fn Add();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10093,6 +10556,27 @@ impl ::core::fmt::Debug for IFaxOutgoingArchive {
 unsafe impl ::windows::core::Interface for IFaxOutgoingArchive {
     type Vtable = IFaxOutgoingArchiveVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9c28f40_8d80_4e53_810f_9a79919b49fd);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxOutgoingArchiveImpl: IDispatchImpl {
+    fn UseArchive();
+    fn SetUseArchive();
+    fn ArchiveFolder();
+    fn SetArchiveFolder();
+    fn SizeQuotaWarning();
+    fn SetSizeQuotaWarning();
+    fn HighQuotaWaterMark();
+    fn SetHighQuotaWaterMark();
+    fn LowQuotaWaterMark();
+    fn SetLowQuotaWaterMark();
+    fn AgeLimit();
+    fn SetAgeLimit();
+    fn SizeLow();
+    fn SizeHigh();
+    fn Refresh();
+    fn Save();
+    fn GetMessages();
+    fn GetMessage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10377,6 +10861,40 @@ impl ::core::fmt::Debug for IFaxOutgoingJob {
 unsafe impl ::windows::core::Interface for IFaxOutgoingJob {
     type Vtable = IFaxOutgoingJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6356daad_6614_4583_bf7a_3ad67bbfc71c);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxOutgoingJobImpl: IDispatchImpl {
+    fn Subject();
+    fn DocumentName();
+    fn Pages();
+    fn Size();
+    fn SubmissionId();
+    fn Id();
+    fn OriginalScheduledTime();
+    fn SubmissionTime();
+    fn ReceiptType();
+    fn Priority();
+    fn Sender();
+    fn Recipient();
+    fn CurrentPage();
+    fn DeviceId();
+    fn Status();
+    fn ExtendedStatusCode();
+    fn ExtendedStatus();
+    fn AvailableOperations();
+    fn Retries();
+    fn ScheduledTime();
+    fn TransmissionStart();
+    fn TransmissionEnd();
+    fn CSID();
+    fn TSID();
+    fn GroupBroadcastReceipts();
+    fn Pause();
+    fn Resume();
+    fn Restart();
+    fn CopyTiff();
+    fn Refresh();
+    fn Cancel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10716,6 +11234,12 @@ unsafe impl ::windows::core::Interface for IFaxOutgoingJob2 {
     type Vtable = IFaxOutgoingJob2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x418a8d96_59a0_4789_b176_edf3dc8fa8f7);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxOutgoingJob2Impl: IFaxOutgoingJobImpl + IDispatchImpl {
+    fn HasCoverPage();
+    fn ReceiptAddress();
+    fn ScheduleType();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxOutgoingJob2Vtbl(
@@ -10880,6 +11404,12 @@ impl ::core::fmt::Debug for IFaxOutgoingJobs {
 unsafe impl ::windows::core::Interface for IFaxOutgoingJobs {
     type Vtable = IFaxOutgoingJobsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c56d8e6_8c2f_4573_944c_e505f8f5aeed);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxOutgoingJobsImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11091,6 +11621,28 @@ impl ::core::fmt::Debug for IFaxOutgoingMessage {
 unsafe impl ::windows::core::Interface for IFaxOutgoingMessage {
     type Vtable = IFaxOutgoingMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0ea35de_caa5_4a7c_82c7_2b60ba5f2be2);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxOutgoingMessageImpl: IDispatchImpl {
+    fn SubmissionId();
+    fn Id();
+    fn Subject();
+    fn DocumentName();
+    fn Retries();
+    fn Pages();
+    fn Size();
+    fn OriginalScheduledTime();
+    fn SubmissionTime();
+    fn Priority();
+    fn Sender();
+    fn Recipient();
+    fn DeviceName();
+    fn TransmissionStart();
+    fn TransmissionEnd();
+    fn CSID();
+    fn TSID();
+    fn CopyTiff();
+    fn Delete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11379,6 +11931,16 @@ unsafe impl ::windows::core::Interface for IFaxOutgoingMessage2 {
     type Vtable = IFaxOutgoingMessage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb37df687_bc88_4b46_b3be_b458b3ea9e7f);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxOutgoingMessage2Impl: IFaxOutgoingMessageImpl + IDispatchImpl {
+    fn HasCoverPage();
+    fn ReceiptType();
+    fn ReceiptAddress();
+    fn Read();
+    fn SetRead();
+    fn Save();
+    fn Refresh();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxOutgoingMessage2Vtbl(
@@ -11546,6 +12108,15 @@ impl ::core::fmt::Debug for IFaxOutgoingMessageIterator {
 unsafe impl ::windows::core::Interface for IFaxOutgoingMessageIterator {
     type Vtable = IFaxOutgoingMessageIteratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5ec5d4f_b840_432f_9980_112fe42a9b7a);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxOutgoingMessageIteratorImpl: IDispatchImpl {
+    fn Message();
+    fn AtEOF();
+    fn PrefetchSize();
+    fn SetPrefetchSize();
+    fn MoveFirst();
+    fn MoveNext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11768,6 +12339,33 @@ unsafe impl ::windows::core::Interface for IFaxOutgoingQueue {
     type Vtable = IFaxOutgoingQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80b1df24_d9ac_4333_b373_487cedc80ce5);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxOutgoingQueueImpl: IDispatchImpl {
+    fn Blocked();
+    fn SetBlocked();
+    fn Paused();
+    fn SetPaused();
+    fn AllowPersonalCoverPages();
+    fn SetAllowPersonalCoverPages();
+    fn UseDeviceTSID();
+    fn SetUseDeviceTSID();
+    fn Retries();
+    fn SetRetries();
+    fn RetryDelay();
+    fn SetRetryDelay();
+    fn DiscountRateStart();
+    fn SetDiscountRateStart();
+    fn DiscountRateEnd();
+    fn SetDiscountRateEnd();
+    fn AgeLimit();
+    fn SetAgeLimit();
+    fn Branding();
+    fn SetBranding();
+    fn Refresh();
+    fn Save();
+    fn GetJobs();
+    fn GetJob();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxOutgoingQueueVtbl(
@@ -11987,6 +12585,27 @@ unsafe impl ::windows::core::Interface for IFaxReceiptOptions {
     type Vtable = IFaxReceiptOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x378efaeb_5fcb_4afb_b2ee_e16e80614487);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxReceiptOptionsImpl: IDispatchImpl {
+    fn AuthenticationType();
+    fn SetAuthenticationType();
+    fn SMTPServer();
+    fn SetSMTPServer();
+    fn SMTPPort();
+    fn SetSMTPPort();
+    fn SMTPSender();
+    fn SetSMTPSender();
+    fn SMTPUser();
+    fn SetSMTPUser();
+    fn AllowedReceipts();
+    fn SetAllowedReceipts();
+    fn SMTPPassword();
+    fn SetSMTPPassword();
+    fn Refresh();
+    fn Save();
+    fn UseForInboundRouting();
+    fn SetUseForInboundRouting();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxReceiptOptionsVtbl(
@@ -12141,6 +12760,13 @@ unsafe impl ::windows::core::Interface for IFaxRecipient {
     type Vtable = IFaxRecipientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a3da3a0_538d_42b6_9444_aaa57d0ce2bc);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxRecipientImpl: IDispatchImpl {
+    fn FaxNumber();
+    fn SetFaxNumber();
+    fn Name();
+    fn SetName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxRecipientVtbl(
@@ -12279,6 +12905,14 @@ impl ::core::fmt::Debug for IFaxRecipients {
 unsafe impl ::windows::core::Interface for IFaxRecipients {
     type Vtable = IFaxRecipientsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9c9de5a_894e_4492_9fa3_08c627c11d5d);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxRecipientsImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+    fn Add();
+    fn Remove();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12424,6 +13058,16 @@ impl ::core::fmt::Debug for IFaxSecurity {
 unsafe impl ::windows::core::Interface for IFaxSecurity {
     type Vtable = IFaxSecurityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77b508c1_09c0_47a2_91eb_fce7fdf2690e);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxSecurityImpl: IDispatchImpl {
+    fn Descriptor();
+    fn SetDescriptor();
+    fn GrantedRights();
+    fn Refresh();
+    fn Save();
+    fn InformationType();
+    fn SetInformationType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12572,6 +13216,16 @@ impl ::core::fmt::Debug for IFaxSecurity2 {
 unsafe impl ::windows::core::Interface for IFaxSecurity2 {
     type Vtable = IFaxSecurity2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17d851f4_d09b_48fc_99c9_8f24c4db9ab1);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxSecurity2Impl: IDispatchImpl {
+    fn Descriptor();
+    fn SetDescriptor();
+    fn GrantedRights();
+    fn Refresh();
+    fn Save();
+    fn InformationType();
+    fn SetInformationType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12871,6 +13525,43 @@ impl ::core::fmt::Debug for IFaxSender {
 unsafe impl ::windows::core::Interface for IFaxSender {
     type Vtable = IFaxSenderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d879d7d_f57a_4cc6_a6f9_3ee5d527b46a);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxSenderImpl: IDispatchImpl {
+    fn BillingCode();
+    fn SetBillingCode();
+    fn City();
+    fn SetCity();
+    fn Company();
+    fn SetCompany();
+    fn Country();
+    fn SetCountry();
+    fn Department();
+    fn SetDepartment();
+    fn Email();
+    fn SetEmail();
+    fn FaxNumber();
+    fn SetFaxNumber();
+    fn HomePhone();
+    fn SetHomePhone();
+    fn Name();
+    fn SetName();
+    fn TSID();
+    fn SetTSID();
+    fn OfficePhone();
+    fn SetOfficePhone();
+    fn OfficeLocation();
+    fn SetOfficeLocation();
+    fn State();
+    fn SetState();
+    fn StreetAddress();
+    fn SetStreetAddress();
+    fn Title();
+    fn SetTitle();
+    fn ZipCode();
+    fn SetZipCode();
+    fn LoadDefaultSender();
+    fn SaveDefaultSender();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13173,6 +13864,35 @@ impl ::core::fmt::Debug for IFaxServer {
 unsafe impl ::windows::core::Interface for IFaxServer {
     type Vtable = IFaxServerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x475b6469_90a5_4878_a577_17a86e8e3462);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxServerImpl: IDispatchImpl {
+    fn Connect();
+    fn ServerName();
+    fn GetDeviceProviders();
+    fn GetDevices();
+    fn InboundRouting();
+    fn Folders();
+    fn LoggingOptions();
+    fn MajorVersion();
+    fn MinorVersion();
+    fn MajorBuild();
+    fn MinorBuild();
+    fn Debug();
+    fn Activity();
+    fn OutboundRouting();
+    fn ReceiptOptions();
+    fn Security();
+    fn Disconnect();
+    fn GetExtensionProperty();
+    fn SetExtensionProperty();
+    fn ListenToServerEvents();
+    fn RegisterDeviceProvider();
+    fn UnregisterDeviceProvider();
+    fn RegisterInboundRoutingExtension();
+    fn UnregisterInboundRoutingExtension();
+    fn RegisteredEvents();
+    fn APIVersion();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13484,6 +14204,13 @@ unsafe impl ::windows::core::Interface for IFaxServer2 {
     type Vtable = IFaxServer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x571ced0f_5609_4f40_9176_547e3a72ca7c);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxServer2Impl: IFaxServerImpl + IDispatchImpl {
+    fn Configuration();
+    fn CurrentAccount();
+    fn FaxAccountSet();
+    fn Security2();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxServer2Vtbl(
@@ -13628,6 +14355,8 @@ unsafe impl ::windows::core::Interface for IFaxServerNotify {
     type Vtable = IFaxServerNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e037b27_cf8a_4abd_b1e0_5704943bea6f);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxServerNotifyImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxServerNotifyVtbl(
@@ -13734,6 +14463,8 @@ unsafe impl ::windows::core::Interface for IFaxServerNotify2 {
     type Vtable = IFaxServerNotify2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x616ca8d6_a77a_4062_abfd_0e471241c7aa);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFaxServerNotify2Impl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaxServerNotify2Vtbl(
@@ -13873,6 +14604,25 @@ unsafe impl ::windows::core::Interface for IStiDevice {
     type Vtable = IStiDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cfa5a80_2dc8_11d0_90ea_00aa0060f86c);
 }
+pub trait IStiDeviceImpl {
+    fn Initialize();
+    fn GetCapabilities();
+    fn GetStatus();
+    fn DeviceReset();
+    fn Diagnostic();
+    fn Escape();
+    fn GetLastError();
+    fn LockDevice();
+    fn UnLockDevice();
+    fn RawReadData();
+    fn RawWriteData();
+    fn RawReadCommand();
+    fn RawWriteCommand();
+    fn Subscribe();
+    fn GetLastNotificationData();
+    fn UnSubscribe();
+    fn GetLastErrorInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStiDeviceVtbl(
@@ -13999,6 +14749,19 @@ impl ::core::fmt::Debug for IStiDeviceControl {
 unsafe impl ::windows::core::Interface for IStiDeviceControl {
     type Vtable = IStiDeviceControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x128a9860_52dc_11d0_9edf_444553540000);
+}
+pub trait IStiDeviceControlImpl {
+    fn Initialize();
+    fn RawReadData();
+    fn RawWriteData();
+    fn RawReadCommand();
+    fn RawWriteCommand();
+    fn RawDeviceControl();
+    fn GetLastError();
+    fn GetMyDevicePortName();
+    fn GetMyDeviceHandle();
+    fn GetMyDeviceOpenMode();
+    fn WriteToErrorLog();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14146,6 +14909,24 @@ impl ::core::fmt::Debug for IStiUSD {
 unsafe impl ::windows::core::Interface for IStiUSD {
     type Vtable = IStiUSDVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c9bb460_51ac_11d0_90ea_00aa0060f86c);
+}
+pub trait IStiUSDImpl {
+    fn Initialize();
+    fn GetCapabilities();
+    fn GetStatus();
+    fn DeviceReset();
+    fn Diagnostic();
+    fn Escape();
+    fn GetLastError();
+    fn LockDevice();
+    fn UnLockDevice();
+    fn RawReadData();
+    fn RawWriteData();
+    fn RawReadCommand();
+    fn RawWriteCommand();
+    fn SetNotificationHandle();
+    fn GetNotificationData();
+    fn GetLastErrorInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14295,6 +15076,23 @@ impl ::core::fmt::Debug for IStillImageW {
 unsafe impl ::windows::core::Interface for IStillImageW {
     type Vtable = IStillImageWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x641bd880_2dc8_11d0_90ea_00aa0060f86c);
+}
+pub trait IStillImageWImpl {
+    fn Initialize();
+    fn GetDeviceList();
+    fn GetDeviceInfo();
+    fn CreateDevice();
+    fn GetDeviceValue();
+    fn SetDeviceValue();
+    fn GetSTILaunchInformation();
+    fn RegisterLaunchApplication();
+    fn UnregisterLaunchApplication();
+    fn EnableHwNotifications();
+    fn GetHwNotificationState();
+    fn RefreshDeviceBus();
+    fn LaunchApplicationForDevice();
+    fn SetupDeviceParameters();
+    fn WriteToErrorLog();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15337,6 +16135,20 @@ unsafe impl ::windows::core::Interface for _IFaxAccountNotify {
     type Vtable = _IFaxAccountNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9b3bc81_ac1b_46f3_b39d_0adc30e1b788);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait _IFaxAccountNotifyImpl: IDispatchImpl {
+    fn OnIncomingJobAdded();
+    fn OnIncomingJobRemoved();
+    fn OnIncomingJobChanged();
+    fn OnOutgoingJobAdded();
+    fn OnOutgoingJobRemoved();
+    fn OnOutgoingJobChanged();
+    fn OnIncomingMessageAdded();
+    fn OnIncomingMessageRemoved();
+    fn OnOutgoingMessageAdded();
+    fn OnOutgoingMessageRemoved();
+    fn OnServerShutDown();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _IFaxAccountNotifyVtbl(
@@ -15578,6 +16390,35 @@ impl ::core::fmt::Debug for _IFaxServerNotify2 {
 unsafe impl ::windows::core::Interface for _IFaxServerNotify2 {
     type Vtable = _IFaxServerNotify2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec9c69b9_5fe7_4805_9467_82fcd96af903);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait _IFaxServerNotify2Impl: IDispatchImpl {
+    fn OnIncomingJobAdded();
+    fn OnIncomingJobRemoved();
+    fn OnIncomingJobChanged();
+    fn OnOutgoingJobAdded();
+    fn OnOutgoingJobRemoved();
+    fn OnOutgoingJobChanged();
+    fn OnIncomingMessageAdded();
+    fn OnIncomingMessageRemoved();
+    fn OnOutgoingMessageAdded();
+    fn OnOutgoingMessageRemoved();
+    fn OnReceiptOptionsChange();
+    fn OnActivityLoggingConfigChange();
+    fn OnSecurityConfigChange();
+    fn OnEventLoggingConfigChange();
+    fn OnOutgoingQueueConfigChange();
+    fn OnOutgoingArchiveConfigChange();
+    fn OnIncomingArchiveConfigChange();
+    fn OnDevicesConfigChange();
+    fn OnOutboundRoutingGroupsConfigChange();
+    fn OnOutboundRoutingRulesConfigChange();
+    fn OnServerActivityChange();
+    fn OnQueuesStatusChange();
+    fn OnNewCall();
+    fn OnServerShutDown();
+    fn OnDeviceStatusChange();
+    fn OnGeneralServerConfigChanged();
 }
 #[repr(C)]
 #[doc(hidden)]

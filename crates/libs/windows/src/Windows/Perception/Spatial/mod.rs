@@ -10,6 +10,13 @@ unsafe impl ::windows::core::Interface for ISpatialAnchor {
     type Vtable = ISpatialAnchorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0529e5ce_1d34_3702_bcec_eabff578a869);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialAnchorImpl {
+    fn CoordinateSystem();
+    fn RawCoordinateSystem();
+    fn RawCoordinateSystemAdjusted();
+    fn RemoveRawCoordinateSystemAdjusted();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAnchorVtbl(
@@ -33,6 +40,10 @@ unsafe impl ::windows::core::Interface for ISpatialAnchor2 {
     type Vtable = ISpatialAnchor2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed17c908_a695_4cf6_92fd_97263ba71047);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialAnchor2Impl {
+    fn RemovedByUser();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAnchor2Vtbl(
@@ -50,6 +61,12 @@ pub struct ISpatialAnchorExportSufficiency(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialAnchorExportSufficiency {
     type Vtable = ISpatialAnchorExportSufficiencyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77c25b2b_3409_4088_b91b_fdfd05d1648f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialAnchorExportSufficiencyImpl {
+    fn IsMinimallySufficient();
+    fn SufficiencyLevel();
+    fn RecommendedSufficiencyLevel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -70,6 +87,11 @@ pub struct ISpatialAnchorExporter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialAnchorExporter {
     type Vtable = ISpatialAnchorExporterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a2a4338_24fb_4269_89c5_88304aeef20f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialAnchorExporterImpl {
+    fn GetAnchorExportSufficiencyAsync();
+    fn TryExportAnchorAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -92,6 +114,11 @@ unsafe impl ::windows::core::Interface for ISpatialAnchorExporterStatics {
     type Vtable = ISpatialAnchorExporterStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed2507b8_2475_439c_85ff_7fed341fdc88);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialAnchorExporterStaticsImpl {
+    fn GetDefault();
+    fn RequestAccessAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAnchorExporterStaticsVtbl(
@@ -112,6 +139,10 @@ unsafe impl ::windows::core::Interface for ISpatialAnchorManagerStatics {
     type Vtable = ISpatialAnchorManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88e30eab_f3b7_420b_b086_8a80c07d910d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialAnchorManagerStaticsImpl {
+    fn RequestStoreAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAnchorManagerStaticsVtbl(
@@ -131,6 +162,10 @@ unsafe impl ::windows::core::Interface for ISpatialAnchorRawCoordinateSystemAdju
     type Vtable = ISpatialAnchorRawCoordinateSystemAdjustedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1e81eb8_56c7_3117_a2e4_81e0fcf28e00);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialAnchorRawCoordinateSystemAdjustedEventArgsImpl {
+    fn OldRawCoordinateSystemToNewRawCoordinateSystemTransform();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAnchorRawCoordinateSystemAdjustedEventArgsVtbl(
@@ -149,6 +184,12 @@ pub struct ISpatialAnchorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialAnchorStatics {
     type Vtable = ISpatialAnchorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9928642_0174_311c_ae79_0e5107669f16);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialAnchorStaticsImpl {
+    fn TryCreateRelativeTo();
+    fn TryCreateWithPositionRelativeTo();
+    fn TryCreateWithPositionAndOrientationRelativeTo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -171,6 +212,13 @@ pub struct ISpatialAnchorStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialAnchorStore {
     type Vtable = ISpatialAnchorStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0bc3636_486a_3cb0_9e6f_1245165c4db6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialAnchorStoreImpl {
+    fn GetAllSavedAnchors();
+    fn TrySave();
+    fn Remove();
+    fn Clear();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -196,6 +244,12 @@ unsafe impl ::windows::core::Interface for ISpatialAnchorTransferManagerStatics 
     type Vtable = ISpatialAnchorTransferManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03bbf9b9_12d8_4bce_8835_c5df3ac0adab);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait ISpatialAnchorTransferManagerStaticsImpl {
+    fn TryImportAnchorsAsync();
+    fn TryExportAnchorsAsync();
+    fn RequestAccessAsync();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -220,6 +274,8 @@ unsafe impl ::windows::core::Interface for ISpatialBoundingVolume {
     type Vtable = ISpatialBoundingVolumeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb2065da_68c3_33df_b7af_4c787207999c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialBoundingVolumeImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialBoundingVolumeVtbl(
@@ -236,6 +292,13 @@ pub struct ISpatialBoundingVolumeStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialBoundingVolumeStatics {
     type Vtable = ISpatialBoundingVolumeStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05889117_b3e1_36d8_b017_566181a5b196);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialBoundingVolumeStaticsImpl {
+    fn FromBox();
+    fn FromOrientedBox();
+    fn FromSphere();
+    fn FromFrustum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -262,6 +325,10 @@ unsafe impl ::windows::core::Interface for ISpatialCoordinateSystem {
     type Vtable = ISpatialCoordinateSystemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69ebca4b_60a3_3586_a653_59a7bd676d07);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialCoordinateSystemImpl {
+    fn TryGetTransformTo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialCoordinateSystemVtbl(
@@ -280,6 +347,12 @@ pub struct ISpatialEntity(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialEntity {
     type Vtable = ISpatialEntityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x166de955_e1eb_454c_ba08_e6c0668ddc65);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialEntityImpl {
+    fn Id();
+    fn Anchor();
+    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -302,6 +375,10 @@ unsafe impl ::windows::core::Interface for ISpatialEntityAddedEventArgs {
     type Vtable = ISpatialEntityAddedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa397f49b_156a_4707_ac2c_d31d570ed399);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialEntityAddedEventArgsImpl {
+    fn Entity();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialEntityAddedEventArgsVtbl(
@@ -319,6 +396,11 @@ pub struct ISpatialEntityFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialEntityFactory {
     type Vtable = ISpatialEntityFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1f1e325_349f_4225_a2f3_4b01c15fe056);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialEntityFactoryImpl {
+    fn CreateWithSpatialAnchor();
+    fn CreateWithSpatialAnchorAndProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -340,6 +422,10 @@ unsafe impl ::windows::core::Interface for ISpatialEntityRemovedEventArgs {
     type Vtable = ISpatialEntityRemovedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91741800_536d_4e9f_abf6_415b5444d651);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialEntityRemovedEventArgsImpl {
+    fn Entity();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialEntityRemovedEventArgsVtbl(
@@ -357,6 +443,12 @@ pub struct ISpatialEntityStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialEntityStore {
     type Vtable = ISpatialEntityStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x329788ba_e513_4f06_889d_1be30ecf43e6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialEntityStoreImpl {
+    fn SaveAsync();
+    fn RemoveAsync();
+    fn CreateEntityWatcher();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -380,6 +472,11 @@ unsafe impl ::windows::core::Interface for ISpatialEntityStoreStatics {
     type Vtable = ISpatialEntityStoreStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b4b389e_7c50_4e92_8a62_4d1d4b7ccd3e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialEntityStoreStaticsImpl {
+    fn IsSupported();
+    fn TryGetForRemoteSystemSession();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialEntityStoreStaticsVtbl(
@@ -400,6 +497,10 @@ unsafe impl ::windows::core::Interface for ISpatialEntityUpdatedEventArgs {
     type Vtable = ISpatialEntityUpdatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5671766_627b_43cb_a49f_b3be6d47deed);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialEntityUpdatedEventArgsImpl {
+    fn Entity();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialEntityUpdatedEventArgsVtbl(
@@ -417,6 +518,20 @@ pub struct ISpatialEntityWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialEntityWatcher {
     type Vtable = ISpatialEntityWatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3b85fa0_6d5e_4bbc_805d_5fe5b9ba1959);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialEntityWatcherImpl {
+    fn Status();
+    fn Added();
+    fn RemoveAdded();
+    fn Updated();
+    fn RemoveUpdated();
+    fn Removed();
+    fn RemoveRemoved();
+    fn EnumerationCompleted();
+    fn RemoveEnumerationCompleted();
+    fn Start();
+    fn Stop();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -454,6 +569,15 @@ unsafe impl ::windows::core::Interface for ISpatialLocation {
     type Vtable = ISpatialLocationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d81d29d_24a1_37d5_8fa1_39b4f9ad67e2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialLocationImpl {
+    fn Position();
+    fn Orientation();
+    fn AbsoluteLinearVelocity();
+    fn AbsoluteLinearAcceleration();
+    fn AbsoluteAngularVelocity();
+    fn AbsoluteAngularAcceleration();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialLocationVtbl(
@@ -483,6 +607,11 @@ unsafe impl ::windows::core::Interface for ISpatialLocation2 {
     type Vtable = ISpatialLocation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x117f2416_38a7_4a18_b404_ab8fabe1d78b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialLocation2Impl {
+    fn AbsoluteAngularVelocityAxisAngle();
+    fn AbsoluteAngularAccelerationAxisAngle();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialLocation2Vtbl(
@@ -503,6 +632,23 @@ pub struct ISpatialLocator(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialLocator {
     type Vtable = ISpatialLocatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6478925_9e0c_3bb6_997e_b64ecca24cf4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialLocatorImpl {
+    fn Locatability();
+    fn LocatabilityChanged();
+    fn RemoveLocatabilityChanged();
+    fn PositionalTrackingDeactivating();
+    fn RemovePositionalTrackingDeactivating();
+    fn TryLocateAtTimestamp();
+    fn CreateAttachedFrameOfReferenceAtCurrentHeading();
+    fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition();
+    fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation();
+    fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading();
+    fn CreateStationaryFrameOfReferenceAtCurrentLocation();
+    fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition();
+    fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation();
+    fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -545,6 +691,16 @@ unsafe impl ::windows::core::Interface for ISpatialLocatorAttachedFrameOfReferen
     type Vtable = ISpatialLocatorAttachedFrameOfReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1774ef6_1f4f_499c_9625_ef5e6ed7a048);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialLocatorAttachedFrameOfReferenceImpl {
+    fn RelativePosition();
+    fn SetRelativePosition();
+    fn RelativeOrientation();
+    fn SetRelativeOrientation();
+    fn AdjustHeading();
+    fn GetStationaryCoordinateSystemAtTimestamp();
+    fn TryGetRelativeHeadingAtTimestamp();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialLocatorAttachedFrameOfReferenceVtbl(
@@ -574,6 +730,11 @@ unsafe impl ::windows::core::Interface for ISpatialLocatorPositionalTrackingDeac
     type Vtable = ISpatialLocatorPositionalTrackingDeactivatingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8a84063_e3f4_368b_9061_9ea9d1d6cc16);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialLocatorPositionalTrackingDeactivatingEventArgsImpl {
+    fn Canceled();
+    fn SetCanceled();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialLocatorPositionalTrackingDeactivatingEventArgsVtbl(
@@ -593,6 +754,10 @@ unsafe impl ::windows::core::Interface for ISpatialLocatorStatics {
     type Vtable = ISpatialLocatorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb76e3340_a7c2_361b_bb82_56e93b89b1bb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialLocatorStaticsImpl {
+    fn GetDefault();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialLocatorStaticsVtbl(
@@ -610,6 +775,14 @@ pub struct ISpatialStageFrameOfReference(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialStageFrameOfReference {
     type Vtable = ISpatialStageFrameOfReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a8a3464_ad0d_4590_ab86_33062b674926);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialStageFrameOfReferenceImpl {
+    fn CoordinateSystem();
+    fn MovementRange();
+    fn LookDirectionRange();
+    fn GetCoordinateSystemAtCurrentLocation();
+    fn TryGetMovementBounds();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -634,6 +807,13 @@ unsafe impl ::windows::core::Interface for ISpatialStageFrameOfReferenceStatics 
     type Vtable = ISpatialStageFrameOfReferenceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf78d5c4d_a0a4_499c_8d91_a8c965d40654);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialStageFrameOfReferenceStaticsImpl {
+    fn Current();
+    fn CurrentChanged();
+    fn RemoveCurrentChanged();
+    fn RequestNewStageAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialStageFrameOfReferenceStaticsVtbl(
@@ -657,6 +837,10 @@ pub struct ISpatialStationaryFrameOfReference(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialStationaryFrameOfReference {
     type Vtable = ISpatialStationaryFrameOfReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09dbccb9_bcf8_3e7f_be7e_7edccbb178a8);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpatialStationaryFrameOfReferenceImpl {
+    fn CoordinateSystem();
 }
 #[repr(C)]
 #[doc(hidden)]

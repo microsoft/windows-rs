@@ -393,6 +393,10 @@ unsafe impl ::windows::core::Interface for IDetectedFace {
     type Vtable = IDetectedFaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8200d454_66bc_34df_9410_e89400195414);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDetectedFaceImpl {
+    fn FaceBox();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDetectedFaceVtbl(
@@ -411,6 +415,15 @@ pub struct IFaceDetector(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFaceDetector {
     type Vtable = IFaceDetectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16b672dc_fe6f_3117_8d95_c3f04d51630c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IFaceDetectorImpl {
+    fn DetectFacesAsync();
+    fn DetectFacesWithSearchAreaAsync();
+    fn MinDetectableFaceSize();
+    fn SetMinDetectableFaceSize();
+    fn MaxDetectableFaceSize();
+    fn SetMaxDetectableFaceSize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -441,6 +454,13 @@ unsafe impl ::windows::core::Interface for IFaceDetectorStatics {
     type Vtable = IFaceDetectorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc042d67_9047_33f6_881b_6746c1b218b8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFaceDetectorStaticsImpl {
+    fn CreateAsync();
+    fn GetSupportedBitmapPixelFormats();
+    fn IsBitmapPixelFormatSupported();
+    fn IsSupported();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaceDetectorStaticsVtbl(
@@ -464,6 +484,14 @@ pub struct IFaceTracker(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFaceTracker {
     type Vtable = IFaceTrackerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ba67d8c_a841_4420_93e6_2420a1884fcf);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IFaceTrackerImpl {
+    fn ProcessNextFrameAsync();
+    fn MinDetectableFaceSize();
+    fn SetMinDetectableFaceSize();
+    fn MaxDetectableFaceSize();
+    fn SetMaxDetectableFaceSize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -491,6 +519,13 @@ pub struct IFaceTrackerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFaceTrackerStatics {
     type Vtable = IFaceTrackerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9629198_1801_3fa5_932e_31d767af6c4d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IFaceTrackerStaticsImpl {
+    fn CreateAsync();
+    fn GetSupportedBitmapPixelFormats();
+    fn IsBitmapPixelFormatSupported();
+    fn IsSupported();
 }
 #[repr(C)]
 #[doc(hidden)]

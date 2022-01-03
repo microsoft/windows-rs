@@ -81,6 +81,12 @@ unsafe impl ::windows::core::Interface for IADesktopP2 {
     type Vtable = IADesktopP2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb22754e2_4574_11d1_9888_006097deacf9);
 }
+pub trait IADesktopP2Impl {
+    fn ReReadWallpaper();
+    fn GetADObjectFlags();
+    fn UpdateAllDesktopSubscriptions();
+    fn MakeDynamicChanges();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADesktopP2Vtbl(
@@ -156,6 +162,12 @@ unsafe impl ::windows::core::Interface for IActiveDesktopP {
     type Vtable = IActiveDesktopPVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52502ee0_ec80_11d0_89ab_00c04fc2972d);
 }
+pub trait IActiveDesktopPImpl {
+    fn SetSafeMode();
+    fn EnsureUpdateHTML();
+    fn SetScheme();
+    fn GetScheme();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveDesktopPVtbl(
@@ -218,6 +230,9 @@ impl ::core::fmt::Debug for IBriefcaseInitiator {
 unsafe impl ::windows::core::Interface for IBriefcaseInitiator {
     type Vtable = IBriefcaseInitiatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99180164_da16_101a_935c_444553540000);
+}
+pub trait IBriefcaseInitiatorImpl {
+    fn IsMonikerInBriefcase();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -295,6 +310,13 @@ impl ::core::fmt::Debug for IEmptyVolumeCache {
 unsafe impl ::windows::core::Interface for IEmptyVolumeCache {
     type Vtable = IEmptyVolumeCacheVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fce5227_04da_11d1_a004_00805f8abe06);
+}
+pub trait IEmptyVolumeCacheImpl {
+    fn Initialize();
+    fn GetSpaceUsed();
+    fn Purge();
+    fn ShowProperties();
+    fn Deactivate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -403,6 +425,9 @@ unsafe impl ::windows::core::Interface for IEmptyVolumeCache2 {
     type Vtable = IEmptyVolumeCache2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02b7e3ba_4db3_11d2_b2d9_00c04f8eec8c);
 }
+pub trait IEmptyVolumeCache2Impl: IEmptyVolumeCacheImpl {
+    fn InitializeEx();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmptyVolumeCache2Vtbl(
@@ -474,6 +499,10 @@ unsafe impl ::windows::core::Interface for IEmptyVolumeCacheCallBack {
     type Vtable = IEmptyVolumeCacheCallBackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e793361_73c6_11d0_8469_00aa00442901);
 }
+pub trait IEmptyVolumeCacheCallBackImpl {
+    fn ScanProgress();
+    fn PurgeProgress();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmptyVolumeCacheCallBackVtbl(
@@ -540,6 +569,10 @@ unsafe impl ::windows::core::Interface for IReconcilableObject {
     type Vtable = IReconcilableObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99180162_da16_101a_935c_444553540000);
 }
+pub trait IReconcilableObjectImpl {
+    fn Reconcile();
+    fn GetProgressFeedbackMaxEstimate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReconcilableObjectVtbl(
@@ -602,6 +635,10 @@ impl ::core::fmt::Debug for IReconcileInitiator {
 unsafe impl ::windows::core::Interface for IReconcileInitiator {
     type Vtable = IReconcileInitiatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99180161_da16_101a_935c_444553540000);
+}
+pub trait IReconcileInitiatorImpl {
+    fn SetAbortCallback();
+    fn SetProgressFeedback();
 }
 #[repr(C)]
 #[doc(hidden)]

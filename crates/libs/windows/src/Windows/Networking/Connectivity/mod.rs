@@ -1576,6 +1576,14 @@ unsafe impl ::windows::core::Interface for IAttributedNetworkUsage {
     type Vtable = IAttributedNetworkUsageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf769b039_eca2_45eb_ade1_b0368b756c49);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAttributedNetworkUsageImpl {
+    fn BytesSent();
+    fn BytesReceived();
+    fn AttributionId();
+    fn AttributionName();
+    fn AttributionThumbnail();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAttributedNetworkUsageVtbl(
@@ -1598,6 +1606,21 @@ pub struct ICellularApnContext(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICellularApnContext {
     type Vtable = ICellularApnContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fa529f4_effd_4542_9ab2_705bbf94943a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICellularApnContextImpl {
+    fn ProviderId();
+    fn SetProviderId();
+    fn AccessPointName();
+    fn SetAccessPointName();
+    fn UserName();
+    fn SetUserName();
+    fn Password();
+    fn SetPassword();
+    fn IsCompressionEnabled();
+    fn SetIsCompressionEnabled();
+    fn AuthenticationType();
+    fn SetAuthenticationType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1628,6 +1651,11 @@ unsafe impl ::windows::core::Interface for ICellularApnContext2 {
     type Vtable = ICellularApnContext2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76b0eb1a_ac49_4350_b1e5_dc4763bc69c7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICellularApnContext2Impl {
+    fn ProfileName();
+    fn SetProfileName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICellularApnContext2Vtbl(
@@ -1646,6 +1674,13 @@ pub struct IConnectionCost(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConnectionCost {
     type Vtable = IConnectionCostVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad7d829_3416_4b10_a202_bac0b075bdae);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IConnectionCostImpl {
+    fn NetworkCostType();
+    fn Roaming();
+    fn OverDataLimit();
+    fn ApproachingDataLimit();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1668,6 +1703,10 @@ unsafe impl ::windows::core::Interface for IConnectionCost2 {
     type Vtable = IConnectionCost2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e113a05_e209_4549_bb25_5e0db691cb05);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IConnectionCost2Impl {
+    fn BackgroundDataUsageRestricted();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectionCost2Vtbl(
@@ -1685,6 +1724,18 @@ pub struct IConnectionProfile(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConnectionProfile {
     type Vtable = IConnectionProfileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71ba143c_598e_49d0_84eb_8febaedcc195);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IConnectionProfileImpl {
+    fn ProfileName();
+    fn GetNetworkConnectivityLevel();
+    fn GetNetworkNames();
+    fn GetConnectionCost();
+    fn GetDataPlanStatus();
+    fn NetworkAdapter();
+    fn GetLocalUsage();
+    fn GetLocalUsagePerRoamingStates();
+    fn NetworkSecuritySettings();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1714,6 +1765,18 @@ pub struct IConnectionProfile2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConnectionProfile2 {
     type Vtable = IConnectionProfile2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2045145_4c9f_400c_9150_7ec7d6e2888a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IConnectionProfile2Impl {
+    fn IsWwanConnectionProfile();
+    fn IsWlanConnectionProfile();
+    fn WwanConnectionProfileDetails();
+    fn WlanConnectionProfileDetails();
+    fn ServiceProviderGuid();
+    fn GetSignalBars();
+    fn GetDomainConnectivityLevel();
+    fn GetNetworkUsageAsync();
+    fn GetConnectivityIntervalsAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1745,6 +1808,10 @@ unsafe impl ::windows::core::Interface for IConnectionProfile3 {
     type Vtable = IConnectionProfile3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x578c2528_4cd9_4161_8045_201cfd5b115c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IConnectionProfile3Impl {
+    fn GetAttributedNetworkUsageAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectionProfile3Vtbl(
@@ -1763,6 +1830,10 @@ pub struct IConnectionProfile4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConnectionProfile4 {
     type Vtable = IConnectionProfile4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a2d42cd_81e0_4ae6_abed_ab9ca13eb714);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IConnectionProfile4Impl {
+    fn GetProviderNetworkUsageAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1783,6 +1854,11 @@ unsafe impl ::windows::core::Interface for IConnectionProfile5 {
     type Vtable = IConnectionProfile5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85361ec7_9c73_4be0_8f14_578eec71ee0e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IConnectionProfile5Impl {
+    fn CanDelete();
+    fn TryDeleteAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectionProfile5Vtbl(
@@ -1802,6 +1878,19 @@ pub struct IConnectionProfileFilter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConnectionProfileFilter {
     type Vtable = IConnectionProfileFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204c7cc8_bd2d_4e8d_a4b3_455ec337388a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IConnectionProfileFilterImpl {
+    fn SetIsConnected();
+    fn IsConnected();
+    fn SetIsWwanConnectionProfile();
+    fn IsWwanConnectionProfile();
+    fn SetIsWlanConnectionProfile();
+    fn IsWlanConnectionProfile();
+    fn SetNetworkCostType();
+    fn NetworkCostType();
+    fn SetServiceProviderGuid();
+    fn ServiceProviderGuid();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1831,6 +1920,16 @@ pub struct IConnectionProfileFilter2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConnectionProfileFilter2 {
     type Vtable = IConnectionProfileFilter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd068ee1_c3fc_4fad_9ddc_593faa4b7885);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IConnectionProfileFilter2Impl {
+    fn SetIsRoaming();
+    fn IsRoaming();
+    fn SetIsOverDataLimit();
+    fn IsOverDataLimit();
+    fn SetIsBackgroundDataUsageRestricted();
+    fn IsBackgroundDataUsageRestricted();
+    fn RawData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1863,6 +1962,11 @@ unsafe impl ::windows::core::Interface for IConnectionProfileFilter3 {
     type Vtable = IConnectionProfileFilter3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0aaa09c0_5014_447c_8809_aee4cb0af94a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IConnectionProfileFilter3Impl {
+    fn SetPurposeGuid();
+    fn PurposeGuid();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectionProfileFilter3Vtbl(
@@ -1884,6 +1988,10 @@ unsafe impl ::windows::core::Interface for IConnectionSession {
     type Vtable = IConnectionSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff905d4c_f83b_41b0_8a0c_1462d9c56b73);
 }
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IConnectionSessionImpl: IClosableImpl {
+    fn ConnectionProfile();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectionSessionVtbl(
@@ -1901,6 +2009,11 @@ pub struct IConnectivityInterval(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConnectivityInterval {
     type Vtable = IConnectivityIntervalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4faa3fff_6746_4824_a964_eed8e87f8709);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IConnectivityIntervalImpl {
+    fn StartTime();
+    fn ConnectionDuration();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1923,6 +2036,12 @@ unsafe impl ::windows::core::Interface for IConnectivityManagerStatics {
     type Vtable = IConnectivityManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5120d4b1_4fb1_48b0_afc9_42e0092a8164);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IConnectivityManagerStaticsImpl {
+    fn AcquireConnectionAsync();
+    fn AddHttpRoutePolicy();
+    fn RemoveHttpRoutePolicy();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectivityManagerStaticsVtbl(
@@ -1943,6 +2062,15 @@ pub struct IDataPlanStatus(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDataPlanStatus {
     type Vtable = IDataPlanStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x977a8b8c_3885_40f3_8851_42cd2bd568bb);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataPlanStatusImpl {
+    fn DataPlanUsage();
+    fn DataLimitInMegabytes();
+    fn InboundBitsPerSecond();
+    fn OutboundBitsPerSecond();
+    fn NextBillingCycle();
+    fn MaxTransferSizeInMegabytes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1972,6 +2100,11 @@ unsafe impl ::windows::core::Interface for IDataPlanUsage {
     type Vtable = IDataPlanUsageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb921492d_3b44_47ff_b361_be59e69ed1b0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataPlanUsageImpl {
+    fn MegabytesUsed();
+    fn LastSyncTime();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataPlanUsageVtbl(
@@ -1993,6 +2126,11 @@ pub struct IDataUsage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDataUsage {
     type Vtable = IDataUsageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1431dd3_b146_4d39_b959_0c69b096c512);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IDataUsageImpl {
+    fn BytesSent();
+    fn BytesReceived();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -2016,6 +2154,11 @@ unsafe impl ::windows::core::Interface for IIPInformation {
     type Vtable = IIPInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd85145e0_138f_47d7_9b3a_36bb488cef33);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IIPInformationImpl {
+    fn NetworkAdapter();
+    fn PrefixLength();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIPInformationVtbl(
@@ -2035,6 +2178,12 @@ pub struct ILanIdentifier(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILanIdentifier {
     type Vtable = ILanIdentifierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48aa53aa_1108_4546_a6cb_9a74da4b7ba0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILanIdentifierImpl {
+    fn InfrastructureId();
+    fn PortId();
+    fn NetworkAdapterId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2056,6 +2205,11 @@ unsafe impl ::windows::core::Interface for ILanIdentifierData {
     type Vtable = ILanIdentifierDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa74e83c3_d639_45be_a36a_c4e4aeaf6d9b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILanIdentifierDataImpl {
+    fn Type();
+    fn Value();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILanIdentifierDataVtbl(
@@ -2075,6 +2229,15 @@ pub struct INetworkAdapter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INetworkAdapter {
     type Vtable = INetworkAdapterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b542e03_5388_496c_a8a3_affd39aec2e6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INetworkAdapterImpl {
+    fn OutboundMaxBitsPerSecond();
+    fn InboundMaxBitsPerSecond();
+    fn IanaInterfaceType();
+    fn NetworkItem();
+    fn NetworkAdapterId();
+    fn GetConnectedProfileAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2099,6 +2262,17 @@ pub struct INetworkInformationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INetworkInformationStatics {
     type Vtable = INetworkInformationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5074f851_950d_4165_9c15_365619481eea);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INetworkInformationStaticsImpl {
+    fn GetConnectionProfiles();
+    fn GetInternetConnectionProfile();
+    fn GetLanIdentifiers();
+    fn GetHostNames();
+    fn GetProxyConfigurationAsync();
+    fn GetSortedEndpointPairs();
+    fn NetworkStatusChanged();
+    fn RemoveNetworkStatusChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2132,6 +2306,10 @@ unsafe impl ::windows::core::Interface for INetworkInformationStatics2 {
     type Vtable = INetworkInformationStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x459ced14_2832_49b6_ba6e_e265f04786a8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INetworkInformationStatics2Impl {
+    fn FindConnectionProfilesAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkInformationStatics2Vtbl(
@@ -2150,6 +2328,11 @@ pub struct INetworkItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INetworkItem {
     type Vtable = INetworkItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01bc4d39_f5e0_4567_a28c_42080c831b2b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INetworkItemImpl {
+    fn NetworkId();
+    fn GetNetworkTypes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2170,6 +2353,11 @@ unsafe impl ::windows::core::Interface for INetworkSecuritySettings {
     type Vtable = INetworkSecuritySettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ca07e8d_917b_4b5f_b84d_28f7a5ac5402);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INetworkSecuritySettingsImpl {
+    fn NetworkAuthenticationType();
+    fn NetworkEncryptionType();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkSecuritySettingsVtbl(
@@ -2188,6 +2376,15 @@ pub struct INetworkStateChangeEventDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INetworkStateChangeEventDetails {
     type Vtable = INetworkStateChangeEventDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f0cf333_d7a6_44dd_a4e9_687c476b903d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INetworkStateChangeEventDetailsImpl {
+    fn HasNewInternetConnectionProfile();
+    fn HasNewConnectionCost();
+    fn HasNewNetworkConnectivityLevel();
+    fn HasNewDomainConnectivityLevel();
+    fn HasNewHostNameList();
+    fn HasNewWwanRegistrationState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2212,6 +2409,11 @@ unsafe impl ::windows::core::Interface for INetworkStateChangeEventDetails2 {
     type Vtable = INetworkStateChangeEventDetails2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd643c0e8_30d3_4f6a_ad47_6a1873ceb3c1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INetworkStateChangeEventDetails2Impl {
+    fn HasNewTetheringOperationalState();
+    fn HasNewTetheringClientCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkStateChangeEventDetails2Vtbl(
@@ -2230,6 +2432,12 @@ pub struct INetworkUsage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INetworkUsage {
     type Vtable = INetworkUsageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49da8fce_9985_4927_bf5b_072b5c65f8d9);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INetworkUsageImpl {
+    fn BytesSent();
+    fn BytesReceived();
+    fn ConnectionDuration();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2342,6 +2550,12 @@ unsafe impl ::windows::core::Interface for IProviderNetworkUsage {
     type Vtable = IProviderNetworkUsageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec69e04_7931_48c8_b8f3_46300fa42728);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IProviderNetworkUsageImpl {
+    fn BytesSent();
+    fn BytesReceived();
+    fn ProviderId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProviderNetworkUsageVtbl(
@@ -2361,6 +2575,11 @@ pub struct IProxyConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProxyConfiguration {
     type Vtable = IProxyConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef3a60b4_9004_4dd6_b7d8_b3e502f4aad0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IProxyConfigurationImpl {
+    fn ProxyUris();
+    fn CanConnectDirectly();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2382,6 +2601,12 @@ unsafe impl ::windows::core::Interface for IRoutePolicy {
     type Vtable = IRoutePolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11abc4ac_0fc7_42e4_8742_569923b1ca11);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRoutePolicyImpl {
+    fn ConnectionProfile();
+    fn HostName();
+    fn HostNameType();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRoutePolicyVtbl(
@@ -2402,6 +2627,10 @@ unsafe impl ::windows::core::Interface for IRoutePolicyFactory {
     type Vtable = IRoutePolicyFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36027933_a18e_4db5_a697_f58fa7364e44);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRoutePolicyFactoryImpl {
+    fn CreateRoutePolicy();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRoutePolicyFactoryVtbl(
@@ -2420,6 +2649,10 @@ unsafe impl ::windows::core::Interface for IWlanConnectionProfileDetails {
     type Vtable = IWlanConnectionProfileDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x562098cb_b35a_4bf1_a884_b7557e88ff86);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWlanConnectionProfileDetailsImpl {
+    fn GetConnectedSsid();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWlanConnectionProfileDetailsVtbl(
@@ -2437,6 +2670,13 @@ pub struct IWwanConnectionProfileDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWwanConnectionProfileDetails {
     type Vtable = IWwanConnectionProfileDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e4da8fe_835f_4df3_82fd_df556ebc09ef);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWwanConnectionProfileDetailsImpl {
+    fn HomeProviderId();
+    fn AccessPointName();
+    fn GetNetworkRegistrationState();
+    fn GetCurrentDataClass();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2458,6 +2698,11 @@ pub struct IWwanConnectionProfileDetails2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWwanConnectionProfileDetails2 {
     type Vtable = IWwanConnectionProfileDetails2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a754ede_a1ed_48b2_8e92_b460033d52e2);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWwanConnectionProfileDetails2Impl {
+    fn IPKind();
+    fn PurposeGuids();
 }
 #[repr(C)]
 #[doc(hidden)]

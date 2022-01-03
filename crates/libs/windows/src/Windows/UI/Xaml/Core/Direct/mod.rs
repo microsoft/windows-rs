@@ -6,6 +6,61 @@ unsafe impl ::windows::core::Interface for IXamlDirect {
     type Vtable = IXamlDirectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ffa1295_add2_590f_a051_70989b866ade);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IXamlDirectImpl {
+    fn GetObject();
+    fn GetXamlDirectObject();
+    fn CreateInstance();
+    fn SetObjectProperty();
+    fn SetXamlDirectObjectProperty();
+    fn SetBooleanProperty();
+    fn SetDoubleProperty();
+    fn SetInt32Property();
+    fn SetStringProperty();
+    fn SetDateTimeProperty();
+    fn SetPointProperty();
+    fn SetRectProperty();
+    fn SetSizeProperty();
+    fn SetTimeSpanProperty();
+    fn SetColorProperty();
+    fn SetCornerRadiusProperty();
+    fn SetDurationProperty();
+    fn SetGridLengthProperty();
+    fn SetThicknessProperty();
+    fn SetMatrixProperty();
+    fn SetMatrix3DProperty();
+    fn SetEnumProperty();
+    fn GetObjectProperty();
+    fn GetXamlDirectObjectProperty();
+    fn GetBooleanProperty();
+    fn GetDoubleProperty();
+    fn GetInt32Property();
+    fn GetStringProperty();
+    fn GetDateTimeProperty();
+    fn GetPointProperty();
+    fn GetRectProperty();
+    fn GetSizeProperty();
+    fn GetTimeSpanProperty();
+    fn GetColorProperty();
+    fn GetCornerRadiusProperty();
+    fn GetDurationProperty();
+    fn GetGridLengthProperty();
+    fn GetThicknessProperty();
+    fn GetMatrixProperty();
+    fn GetMatrix3DProperty();
+    fn GetEnumProperty();
+    fn ClearProperty();
+    fn GetCollectionCount();
+    fn GetXamlDirectObjectFromCollectionAt();
+    fn AddToCollection();
+    fn InsertIntoCollectionAt();
+    fn RemoveFromCollection();
+    fn RemoveFromCollectionAt();
+    fn ClearCollection();
+    fn AddEventHandler();
+    fn AddEventHandler_HandledEventsToo();
+    fn RemoveEventHandler();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlDirectVtbl(
@@ -151,6 +206,7 @@ unsafe impl ::windows::core::Interface for IXamlDirectObject {
     type Vtable = IXamlDirectObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10614a82_cee4_4645_ba25_d071ce778355);
 }
+pub trait IXamlDirectObjectImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlDirectObjectVtbl(
@@ -167,6 +223,10 @@ pub struct IXamlDirectStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlDirectStatics {
     type Vtable = IXamlDirectStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x321887cc_14e4_5c6f_878d_fbb604ad7d17);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IXamlDirectStaticsImpl {
+    fn GetDefault();
 }
 #[repr(C)]
 #[doc(hidden)]

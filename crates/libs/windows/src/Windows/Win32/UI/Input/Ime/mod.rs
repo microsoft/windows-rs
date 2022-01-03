@@ -722,6 +722,25 @@ unsafe impl ::windows::core::Interface for IActiveIME {
     type Vtable = IActiveIMEVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fe20962_d077_11d0_8fe7_00aa006bcc59);
 }
+pub trait IActiveIMEImpl {
+    fn Inquire();
+    fn ConversionList();
+    fn Configure();
+    fn Destroy();
+    fn Escape();
+    fn SetActiveContext();
+    fn ProcessKey();
+    fn Notify();
+    fn Select();
+    fn SetCompositionString();
+    fn ToAsciiEx();
+    fn RegisterWord();
+    fn UnregisterWord();
+    fn GetRegisterWordStyle();
+    fn EnumRegisterWord();
+    fn GetCodePageA();
+    fn GetLangId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveIMEVtbl(
@@ -916,6 +935,10 @@ impl ::core::fmt::Debug for IActiveIME2 {
 unsafe impl ::windows::core::Interface for IActiveIME2 {
     type Vtable = IActiveIME2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1c4bf0e_2d53_11d2_93e1_0060b067b86e);
+}
+pub trait IActiveIME2Impl: IActiveIMEImpl {
+    fn Sleep();
+    fn Unsleep();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1356,6 +1379,76 @@ impl ::core::fmt::Debug for IActiveIMMApp {
 unsafe impl ::windows::core::Interface for IActiveIMMApp {
     type Vtable = IActiveIMMAppVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c0e040_62d1_11d1_9326_0060b067b86e);
+}
+pub trait IActiveIMMAppImpl {
+    fn AssociateContext();
+    fn ConfigureIMEA();
+    fn ConfigureIMEW();
+    fn CreateContext();
+    fn DestroyContext();
+    fn EnumRegisterWordA();
+    fn EnumRegisterWordW();
+    fn EscapeA();
+    fn EscapeW();
+    fn GetCandidateListA();
+    fn GetCandidateListW();
+    fn GetCandidateListCountA();
+    fn GetCandidateListCountW();
+    fn GetCandidateWindow();
+    fn GetCompositionFontA();
+    fn GetCompositionFontW();
+    fn GetCompositionStringA();
+    fn GetCompositionStringW();
+    fn GetCompositionWindow();
+    fn GetContext();
+    fn GetConversionListA();
+    fn GetConversionListW();
+    fn GetConversionStatus();
+    fn GetDefaultIMEWnd();
+    fn GetDescriptionA();
+    fn GetDescriptionW();
+    fn GetGuideLineA();
+    fn GetGuideLineW();
+    fn GetIMEFileNameA();
+    fn GetIMEFileNameW();
+    fn GetOpenStatus();
+    fn GetProperty();
+    fn GetRegisterWordStyleA();
+    fn GetRegisterWordStyleW();
+    fn GetStatusWindowPos();
+    fn GetVirtualKey();
+    fn InstallIMEA();
+    fn InstallIMEW();
+    fn IsIME();
+    fn IsUIMessageA();
+    fn IsUIMessageW();
+    fn NotifyIME();
+    fn RegisterWordA();
+    fn RegisterWordW();
+    fn ReleaseContext();
+    fn SetCandidateWindow();
+    fn SetCompositionFontA();
+    fn SetCompositionFontW();
+    fn SetCompositionStringA();
+    fn SetCompositionStringW();
+    fn SetCompositionWindow();
+    fn SetConversionStatus();
+    fn SetOpenStatus();
+    fn SetStatusWindowPos();
+    fn SimulateHotKey();
+    fn UnregisterWordA();
+    fn UnregisterWordW();
+    fn Activate();
+    fn Deactivate();
+    fn OnDefWindowProc();
+    fn FilterClientWindows();
+    fn GetCodePageA();
+    fn GetLangId();
+    fn AssociateContextEx();
+    fn DisableIME();
+    fn GetImeMenuItemsA();
+    fn GetImeMenuItemsW();
+    fn EnumInputContext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2004,6 +2097,96 @@ unsafe impl ::windows::core::Interface for IActiveIMMIME {
     type Vtable = IActiveIMMIMEVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c03411_f96b_11d0_a475_00aa006bcc59);
 }
+pub trait IActiveIMMIMEImpl {
+    fn AssociateContext();
+    fn ConfigureIMEA();
+    fn ConfigureIMEW();
+    fn CreateContext();
+    fn DestroyContext();
+    fn EnumRegisterWordA();
+    fn EnumRegisterWordW();
+    fn EscapeA();
+    fn EscapeW();
+    fn GetCandidateListA();
+    fn GetCandidateListW();
+    fn GetCandidateListCountA();
+    fn GetCandidateListCountW();
+    fn GetCandidateWindow();
+    fn GetCompositionFontA();
+    fn GetCompositionFontW();
+    fn GetCompositionStringA();
+    fn GetCompositionStringW();
+    fn GetCompositionWindow();
+    fn GetContext();
+    fn GetConversionListA();
+    fn GetConversionListW();
+    fn GetConversionStatus();
+    fn GetDefaultIMEWnd();
+    fn GetDescriptionA();
+    fn GetDescriptionW();
+    fn GetGuideLineA();
+    fn GetGuideLineW();
+    fn GetIMEFileNameA();
+    fn GetIMEFileNameW();
+    fn GetOpenStatus();
+    fn GetProperty();
+    fn GetRegisterWordStyleA();
+    fn GetRegisterWordStyleW();
+    fn GetStatusWindowPos();
+    fn GetVirtualKey();
+    fn InstallIMEA();
+    fn InstallIMEW();
+    fn IsIME();
+    fn IsUIMessageA();
+    fn IsUIMessageW();
+    fn NotifyIME();
+    fn RegisterWordA();
+    fn RegisterWordW();
+    fn ReleaseContext();
+    fn SetCandidateWindow();
+    fn SetCompositionFontA();
+    fn SetCompositionFontW();
+    fn SetCompositionStringA();
+    fn SetCompositionStringW();
+    fn SetCompositionWindow();
+    fn SetConversionStatus();
+    fn SetOpenStatus();
+    fn SetStatusWindowPos();
+    fn SimulateHotKey();
+    fn UnregisterWordA();
+    fn UnregisterWordW();
+    fn GenerateMessage();
+    fn LockIMC();
+    fn UnlockIMC();
+    fn GetIMCLockCount();
+    fn CreateIMCC();
+    fn DestroyIMCC();
+    fn LockIMCC();
+    fn UnlockIMCC();
+    fn ReSizeIMCC();
+    fn GetIMCCSize();
+    fn GetIMCCLockCount();
+    fn GetHotKey();
+    fn SetHotKey();
+    fn CreateSoftKeyboard();
+    fn DestroySoftKeyboard();
+    fn ShowSoftKeyboard();
+    fn GetCodePageA();
+    fn GetLangId();
+    fn KeybdEvent();
+    fn LockModal();
+    fn UnlockModal();
+    fn AssociateContextEx();
+    fn DisableIME();
+    fn GetImeMenuItemsA();
+    fn GetImeMenuItemsW();
+    fn EnumInputContext();
+    fn RequestMessageA();
+    fn RequestMessageW();
+    fn SendIMCA();
+    fn SendIMCW();
+    fn IsSleeping();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveIMMIMEVtbl(
@@ -2248,6 +2431,13 @@ unsafe impl ::windows::core::Interface for IActiveIMMMessagePumpOwner {
     type Vtable = IActiveIMMMessagePumpOwnerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5cf2cfa_8aeb_11d1_9364_0060b067b86e);
 }
+pub trait IActiveIMMMessagePumpOwnerImpl {
+    fn Start();
+    fn End();
+    fn OnTranslateMessage();
+    fn Pause();
+    fn Resume();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveIMMMessagePumpOwnerVtbl(
@@ -2314,6 +2504,10 @@ impl ::core::fmt::Debug for IActiveIMMRegistrar {
 unsafe impl ::windows::core::Interface for IActiveIMMRegistrar {
     type Vtable = IActiveIMMRegistrarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3458082_bd00_11d1_939b_0060b067b86e);
+}
+pub trait IActiveIMMRegistrarImpl {
+    fn RegisterIME();
+    fn UnregisterIME();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2387,6 +2581,12 @@ impl ::core::fmt::Debug for IEnumInputContext {
 unsafe impl ::windows::core::Interface for IEnumInputContext {
     type Vtable = IEnumInputContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09b5eab0_f997_11d1_93d4_0060b067b86e);
+}
+pub trait IEnumInputContextImpl {
+    fn Clone();
+    fn Next();
+    fn Reset();
+    fn Skip();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2463,6 +2663,12 @@ unsafe impl ::windows::core::Interface for IEnumRegisterWordA {
     type Vtable = IEnumRegisterWordAVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c03412_f96b_11d0_a475_00aa006bcc59);
 }
+pub trait IEnumRegisterWordAImpl {
+    fn Clone();
+    fn Next();
+    fn Reset();
+    fn Skip();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumRegisterWordAVtbl(
@@ -2537,6 +2743,12 @@ impl ::core::fmt::Debug for IEnumRegisterWordW {
 unsafe impl ::windows::core::Interface for IEnumRegisterWordW {
     type Vtable = IEnumRegisterWordWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4955dd31_b159_11d0_8fcf_00aa006bcc59);
+}
+pub trait IEnumRegisterWordWImpl {
+    fn Clone();
+    fn Next();
+    fn Reset();
+    fn Skip();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2632,6 +2844,8 @@ unsafe impl ::windows::core::Interface for IFEClassFactory {
     type Vtable = IFEClassFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFEClassFactoryImpl: IClassFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFEClassFactoryVtbl(
@@ -2706,6 +2920,12 @@ impl ::core::fmt::Debug for IFECommon {
 unsafe impl ::windows::core::Interface for IFECommon {
     type Vtable = IFECommonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x019f7151_e6db_11d0_83c3_00c04fddb82e);
+}
+pub trait IFECommonImpl {
+    fn IsDefaultIME();
+    fn SetDefaultIME();
+    fn InvokeWordRegDialog();
+    fn InvokeDictToolDialog();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2958,6 +3178,25 @@ unsafe impl ::windows::core::Interface for IFEDictionary {
     type Vtable = IFEDictionaryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x019f7153_e6db_11d0_83c3_00c04fddb82e);
 }
+pub trait IFEDictionaryImpl {
+    fn Open();
+    fn Close();
+    fn GetHeader();
+    fn DisplayProperty();
+    fn GetPosTable();
+    fn GetWords();
+    fn NextWords();
+    fn Create();
+    fn SetHeader();
+    fn ExistWord();
+    fn ExistDependency();
+    fn RegisterWord();
+    fn RegisterDependency();
+    fn GetDependencies();
+    fn NextDependencies();
+    fn ConvertFromOldMSIME();
+    fn ConvertFromUserToSys();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFEDictionaryVtbl(
@@ -3066,6 +3305,14 @@ unsafe impl ::windows::core::Interface for IFELanguage {
     type Vtable = IFELanguageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x019f7152_e6db_11d0_83c3_00c04fddb82e);
 }
+pub trait IFELanguageImpl {
+    fn Open();
+    fn Close();
+    fn GetJMorphResult();
+    fn GetConversionModeCaps();
+    fn GetPhonetic();
+    fn GetConversion();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFELanguageVtbl(
@@ -3148,6 +3395,9 @@ unsafe impl ::windows::core::Interface for IImePad {
     type Vtable = IImePadVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d8e643a_c3a9_11d1_afef_00805f0c8b6d);
 }
+pub trait IImePadImpl {
+    fn Request();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImePadVtbl(
@@ -3225,6 +3475,13 @@ unsafe impl ::windows::core::Interface for IImePadApplet {
     type Vtable = IImePadAppletVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d8e643b_c3a9_11d1_afef_00805f0c8b6d);
 }
+pub trait IImePadAppletImpl {
+    fn Initialize();
+    fn Terminate();
+    fn GetAppletConfig();
+    fn CreateUI();
+    fn Notify();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImePadAppletVtbl(
@@ -3295,6 +3552,10 @@ unsafe impl ::windows::core::Interface for IImePlugInDictDictionaryList {
     type Vtable = IImePlugInDictDictionaryListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98752974_b0a6_489b_8f6f_bff3769c8eeb);
 }
+pub trait IImePlugInDictDictionaryListImpl {
+    fn GetDictionariesInUse();
+    fn DeleteDictionary();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImePlugInDictDictionaryListVtbl(
@@ -3354,6 +3615,9 @@ impl ::core::fmt::Debug for IImeSpecifyApplets {
 unsafe impl ::windows::core::Interface for IImeSpecifyApplets {
     type Vtable = IImeSpecifyAppletsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d8e643c_c3a9_11d1_afef_00805f0c8b6d);
+}
+pub trait IImeSpecifyAppletsImpl {
+    fn GetAppletIIDList();
 }
 #[repr(C)]
 #[doc(hidden)]

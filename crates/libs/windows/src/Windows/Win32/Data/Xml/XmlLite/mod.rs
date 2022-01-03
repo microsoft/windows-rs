@@ -256,6 +256,31 @@ unsafe impl ::windows::core::Interface for IXmlReader {
     type Vtable = IXmlReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7279fc81_709d_4095_b63d_69fe4b0d9030);
 }
+pub trait IXmlReaderImpl {
+    fn SetInput();
+    fn GetProperty();
+    fn SetProperty();
+    fn Read();
+    fn GetNodeType();
+    fn MoveToFirstAttribute();
+    fn MoveToNextAttribute();
+    fn MoveToAttributeByName();
+    fn MoveToElement();
+    fn GetQualifiedName();
+    fn GetNamespaceUri();
+    fn GetLocalName();
+    fn GetPrefix();
+    fn GetValue();
+    fn ReadValueChunk();
+    fn GetBaseUri();
+    fn IsDefault();
+    fn IsEmptyElement();
+    fn GetLineNumber();
+    fn GetLinePosition();
+    fn GetAttributeCount();
+    fn GetDepth();
+    fn IsEOF();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXmlReaderVtbl(
@@ -347,6 +372,9 @@ impl ::core::fmt::Debug for IXmlResolver {
 unsafe impl ::windows::core::Interface for IXmlResolver {
     type Vtable = IXmlResolverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7279fc82_709d_4095_b63d_69fe4b0d9030);
+}
+pub trait IXmlResolverImpl {
+    fn ResolveUri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -537,6 +565,37 @@ impl ::core::fmt::Debug for IXmlWriter {
 unsafe impl ::windows::core::Interface for IXmlWriter {
     type Vtable = IXmlWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7279fc88_709d_4095_b63d_69fe4b0d9030);
+}
+pub trait IXmlWriterImpl {
+    fn SetOutput();
+    fn GetProperty();
+    fn SetProperty();
+    fn WriteAttributes();
+    fn WriteAttributeString();
+    fn WriteCData();
+    fn WriteCharEntity();
+    fn WriteChars();
+    fn WriteComment();
+    fn WriteDocType();
+    fn WriteElementString();
+    fn WriteEndDocument();
+    fn WriteEndElement();
+    fn WriteEntityRef();
+    fn WriteFullEndElement();
+    fn WriteName();
+    fn WriteNmToken();
+    fn WriteNode();
+    fn WriteNodeShallow();
+    fn WriteProcessingInstruction();
+    fn WriteQualifiedName();
+    fn WriteRaw();
+    fn WriteRawChars();
+    fn WriteStartDocument();
+    fn WriteStartElement();
+    fn WriteString();
+    fn WriteSurrogateCharEntity();
+    fn WriteWhitespace();
+    fn Flush();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -770,6 +829,36 @@ impl ::core::fmt::Debug for IXmlWriterLite {
 unsafe impl ::windows::core::Interface for IXmlWriterLite {
     type Vtable = IXmlWriterLiteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x862494c6_1310_4aad_b3cd_2dbeebf670d3);
+}
+pub trait IXmlWriterLiteImpl {
+    fn SetOutput();
+    fn GetProperty();
+    fn SetProperty();
+    fn WriteAttributes();
+    fn WriteAttributeString();
+    fn WriteCData();
+    fn WriteCharEntity();
+    fn WriteChars();
+    fn WriteComment();
+    fn WriteDocType();
+    fn WriteElementString();
+    fn WriteEndDocument();
+    fn WriteEndElement();
+    fn WriteEntityRef();
+    fn WriteFullEndElement();
+    fn WriteName();
+    fn WriteNmToken();
+    fn WriteNode();
+    fn WriteNodeShallow();
+    fn WriteProcessingInstruction();
+    fn WriteRaw();
+    fn WriteRawChars();
+    fn WriteStartDocument();
+    fn WriteStartElement();
+    fn WriteString();
+    fn WriteSurrogateCharEntity();
+    fn WriteWhitespace();
+    fn Flush();
 }
 #[repr(C)]
 #[doc(hidden)]

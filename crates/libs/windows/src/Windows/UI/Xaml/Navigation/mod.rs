@@ -119,6 +119,13 @@ unsafe impl ::windows::core::Interface for IFrameNavigationOptions {
     type Vtable = IFrameNavigationOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb539ad2a_9fb7_520a_8f41_57a50c59cf92);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFrameNavigationOptionsImpl {
+    fn IsNavigationStackEnabled();
+    fn SetIsNavigationStackEnabled();
+    fn TransitionInfoOverride();
+    fn SetTransitionInfoOverride();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameNavigationOptionsVtbl(
@@ -142,6 +149,10 @@ unsafe impl ::windows::core::Interface for IFrameNavigationOptionsFactory {
     type Vtable = IFrameNavigationOptionsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4681e41_7e6d_5c7c_aca0_478681cc6fce);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFrameNavigationOptionsFactoryImpl {
+    fn CreateInstance();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameNavigationOptionsFactoryVtbl(
@@ -159,6 +170,13 @@ pub struct INavigatingCancelEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INavigatingCancelEventArgs {
     type Vtable = INavigatingCancelEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd1d67ae_eafb_4079_be80_6dc92a03aedf);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INavigatingCancelEventArgsImpl {
+    fn Cancel();
+    fn SetCancel();
+    fn NavigationMode();
+    fn SourcePageType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -182,6 +200,11 @@ unsafe impl ::windows::core::Interface for INavigatingCancelEventArgs2 {
     type Vtable = INavigatingCancelEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5407b704_8147_4343_838f_dd1ee908c137);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INavigatingCancelEventArgs2Impl {
+    fn Parameter();
+    fn NavigationTransitionInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INavigatingCancelEventArgs2Vtbl(
@@ -201,6 +224,15 @@ pub struct INavigationEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INavigationEventArgs {
     type Vtable = INavigationEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6aa9834_6691_44d1_bdf7_58820c27b0d0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INavigationEventArgsImpl {
+    fn Content();
+    fn Parameter();
+    fn SourcePageType();
+    fn NavigationMode();
+    fn Uri();
+    fn SetUri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -228,6 +260,10 @@ unsafe impl ::windows::core::Interface for INavigationEventArgs2 {
     type Vtable = INavigationEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbff71d9_979a_4b2e_a49b_3bb17fdef574);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INavigationEventArgs2Impl {
+    fn NavigationTransitionInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INavigationEventArgs2Vtbl(
@@ -246,6 +282,13 @@ pub struct INavigationFailedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INavigationFailedEventArgs {
     type Vtable = INavigationFailedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11c1dff7_36c2_4102_b2ef_0217a97289b3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INavigationFailedEventArgsImpl {
+    fn Exception();
+    fn Handled();
+    fn SetHandled();
+    fn SourcePageType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -269,6 +312,12 @@ unsafe impl ::windows::core::Interface for IPageStackEntry {
     type Vtable = IPageStackEntryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef8814a6_9388_4aca_8572_405194069080);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPageStackEntryImpl {
+    fn SourcePageType();
+    fn Parameter();
+    fn NavigationTransitionInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPageStackEntryVtbl(
@@ -291,6 +340,10 @@ unsafe impl ::windows::core::Interface for IPageStackEntryFactory {
     type Vtable = IPageStackEntryFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4454048a_a8b9_4f78_9b84_1f51f58851ff);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPageStackEntryFactoryImpl {
+    fn CreateInstance();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPageStackEntryFactoryVtbl(
@@ -309,6 +362,10 @@ pub struct IPageStackEntryStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPageStackEntryStatics {
     type Vtable = IPageStackEntryStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaceff8e3_246c_4033_9f01_01cb0da5254e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPageStackEntryStaticsImpl {
+    fn SourcePageTypeProperty();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -105,6 +105,13 @@ unsafe impl ::windows::core::Interface for IEnumWbemClassObject {
     type Vtable = IEnumWbemClassObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x027947e1_d731_11ce_a357_000000000001);
 }
+pub trait IEnumWbemClassObjectImpl {
+    fn Reset();
+    fn Next();
+    fn NextAsync();
+    fn Clone();
+    fn Skip();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumWbemClassObjectVtbl(
@@ -176,6 +183,11 @@ impl ::core::fmt::Debug for IMofCompiler {
 unsafe impl ::windows::core::Interface for IMofCompiler {
     type Vtable = IMofCompilerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6daf974e_2e37_11d2_aec9_00c04fb68820);
+}
+pub trait IMofCompilerImpl {
+    fn CompileFile();
+    fn CompileBuffer();
+    fn CreateBMOF();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -465,6 +477,49 @@ unsafe impl ::windows::core::Interface for ISWbemDateTime {
     type Vtable = ISWbemDateTimeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e97458a_cf77_11d3_b38f_00105a1f473a);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemDateTimeImpl: IDispatchImpl {
+    fn Value();
+    fn SetValue();
+    fn Year();
+    fn SetYear();
+    fn YearSpecified();
+    fn SetYearSpecified();
+    fn Month();
+    fn SetMonth();
+    fn MonthSpecified();
+    fn SetMonthSpecified();
+    fn Day();
+    fn SetDay();
+    fn DaySpecified();
+    fn SetDaySpecified();
+    fn Hours();
+    fn SetHours();
+    fn HoursSpecified();
+    fn SetHoursSpecified();
+    fn Minutes();
+    fn SetMinutes();
+    fn MinutesSpecified();
+    fn SetMinutesSpecified();
+    fn Seconds();
+    fn SetSeconds();
+    fn SecondsSpecified();
+    fn SetSecondsSpecified();
+    fn Microseconds();
+    fn SetMicroseconds();
+    fn MicrosecondsSpecified();
+    fn SetMicrosecondsSpecified();
+    fn UTC();
+    fn SetUTC();
+    fn UTCSpecified();
+    fn SetUTCSpecified();
+    fn IsInterval();
+    fn SetIsInterval();
+    fn GetVarDate();
+    fn SetVarDate();
+    fn GetFileTime();
+    fn SetFileTime();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemDateTimeVtbl(
@@ -624,6 +679,11 @@ impl ::core::fmt::Debug for ISWbemEventSource {
 unsafe impl ::windows::core::Interface for ISWbemEventSource {
     type Vtable = ISWbemEventSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27d54d92_0ebe_11d2_8b22_00600806d9b6);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemEventSourceImpl: IDispatchImpl {
+    fn NextEvent();
+    fn Security_();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -913,6 +973,8 @@ unsafe impl ::windows::core::Interface for ISWbemLastError {
     type Vtable = ISWbemLastErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd962db84_d4bb_11d1_8b09_00600806d9b6);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemLastErrorImpl: ISWbemObjectImpl + IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemLastErrorVtbl(
@@ -1073,6 +1135,11 @@ unsafe impl ::windows::core::Interface for ISWbemLocator {
     type Vtable = ISWbemLocatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76a6415b_cb41_11d1_8b02_00600806d9b6);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemLocatorImpl: IDispatchImpl {
+    fn ConnectServer();
+    fn Security_();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemLocatorVtbl(
@@ -1209,6 +1276,14 @@ unsafe impl ::windows::core::Interface for ISWbemMethod {
     type Vtable = ISWbemMethodVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x422e8e90_d955_11d1_8b09_00600806d9b6);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemMethodImpl: IDispatchImpl {
+    fn Name();
+    fn Origin();
+    fn InParameters();
+    fn OutParameters();
+    fn Qualifiers_();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemMethodVtbl(
@@ -1338,6 +1413,12 @@ unsafe impl ::windows::core::Interface for ISWbemMethodSet {
     type Vtable = ISWbemMethodSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc93ba292_d955_11d1_8b09_00600806d9b6);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemMethodSetImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemMethodSetVtbl(
@@ -1464,6 +1545,12 @@ impl ::core::fmt::Debug for ISWbemNamedValue {
 unsafe impl ::windows::core::Interface for ISWbemNamedValue {
     type Vtable = ISWbemNamedValueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76a64164_cb41_11d1_8b02_00600806d9b6);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemNamedValueImpl: IDispatchImpl {
+    fn Value();
+    fn SetValue();
+    fn Name();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1612,6 +1699,16 @@ impl ::core::fmt::Debug for ISWbemNamedValueSet {
 unsafe impl ::windows::core::Interface for ISWbemNamedValueSet {
     type Vtable = ISWbemNamedValueSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf2376ea_ce8c_11d1_8b05_00600806d9b6);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemNamedValueSetImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+    fn Add();
+    fn Remove();
+    fn Clone();
+    fn DeleteAll();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1888,6 +1985,34 @@ impl ::core::fmt::Debug for ISWbemObject {
 unsafe impl ::windows::core::Interface for ISWbemObject {
     type Vtable = ISWbemObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76a6415a_cb41_11d1_8b02_00600806d9b6);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemObjectImpl: IDispatchImpl {
+    fn Put_();
+    fn PutAsync_();
+    fn Delete_();
+    fn DeleteAsync_();
+    fn Instances_();
+    fn InstancesAsync_();
+    fn Subclasses_();
+    fn SubclassesAsync_();
+    fn Associators_();
+    fn AssociatorsAsync_();
+    fn References_();
+    fn ReferencesAsync_();
+    fn ExecMethod_();
+    fn ExecMethodAsync_();
+    fn Clone_();
+    fn GetObjectText_();
+    fn SpawnDerivedClass_();
+    fn SpawnInstance_();
+    fn CompareTo_();
+    fn Qualifiers_();
+    fn Properties_();
+    fn Methods_();
+    fn Derivation_();
+    fn Path_();
+    fn Security_();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2239,6 +2364,13 @@ unsafe impl ::windows::core::Interface for ISWbemObjectEx {
     type Vtable = ISWbemObjectExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x269ad56a_8a67_4129_bc8c_0506dcfe9880);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemObjectExImpl: ISWbemObjectImpl + IDispatchImpl {
+    fn Refresh_();
+    fn SystemProperties_();
+    fn GetText_();
+    fn SetFromText_();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemObjectExVtbl(
@@ -2517,6 +2649,32 @@ unsafe impl ::windows::core::Interface for ISWbemObjectPath {
     type Vtable = ISWbemObjectPathVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5791bc27_ce9c_11d1_97bf_0000f81e849c);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemObjectPathImpl: IDispatchImpl {
+    fn Path();
+    fn SetPath();
+    fn RelPath();
+    fn SetRelPath();
+    fn Server();
+    fn SetServer();
+    fn Namespace();
+    fn SetNamespace();
+    fn ParentNamespace();
+    fn DisplayName();
+    fn SetDisplayName();
+    fn Class();
+    fn SetClass();
+    fn IsClass();
+    fn SetAsClass();
+    fn IsSingleton();
+    fn SetAsSingleton();
+    fn Keys();
+    fn Security_();
+    fn Locale();
+    fn SetLocale();
+    fn Authority();
+    fn SetAuthority();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemObjectPathVtbl(
@@ -2689,6 +2847,14 @@ unsafe impl ::windows::core::Interface for ISWbemObjectSet {
     type Vtable = ISWbemObjectSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76a6415f_cb41_11d1_8b02_00600806d9b6);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemObjectSetImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+    fn Security_();
+    fn ItemIndex();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemObjectSetVtbl(
@@ -2826,6 +2992,14 @@ impl ::core::fmt::Debug for ISWbemPrivilege {
 unsafe impl ::windows::core::Interface for ISWbemPrivilege {
     type Vtable = ISWbemPrivilegeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26ee67bd_5804_11d2_8b4a_00600806d9b6);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemPrivilegeImpl: IDispatchImpl {
+    fn IsEnabled();
+    fn SetIsEnabled();
+    fn Name();
+    fn DisplayName();
+    fn Identifier();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2973,6 +3147,16 @@ impl ::core::fmt::Debug for ISWbemPrivilegeSet {
 unsafe impl ::windows::core::Interface for ISWbemPrivilegeSet {
     type Vtable = ISWbemPrivilegeSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26ee67bf_5804_11d2_8b4a_00600806d9b6);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemPrivilegeSetImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+    fn Add();
+    fn Remove();
+    fn DeleteAll();
+    fn AddAsString();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3131,6 +3315,17 @@ unsafe impl ::windows::core::Interface for ISWbemProperty {
     type Vtable = ISWbemPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a388f98_d4ba_11d1_8b09_00600806d9b6);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemPropertyImpl: IDispatchImpl {
+    fn Value();
+    fn SetValue();
+    fn Name();
+    fn IsLocal();
+    fn Origin();
+    fn CIMType();
+    fn Qualifiers_();
+    fn IsArray();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemPropertyVtbl(
@@ -3275,6 +3470,14 @@ impl ::core::fmt::Debug for ISWbemPropertySet {
 unsafe impl ::windows::core::Interface for ISWbemPropertySet {
     type Vtable = ISWbemPropertySetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdea0a7b2_d4ba_11d1_8b09_00600806d9b6);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemPropertySetImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+    fn Add();
+    fn Remove();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3444,6 +3647,20 @@ unsafe impl ::windows::core::Interface for ISWbemQualifier {
     type Vtable = ISWbemQualifierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79b05932_d3b7_11d1_8b06_00600806d9b6);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemQualifierImpl: IDispatchImpl {
+    fn Value();
+    fn SetValue();
+    fn Name();
+    fn IsLocal();
+    fn PropagatesToSubclass();
+    fn SetPropagatesToSubclass();
+    fn PropagatesToInstance();
+    fn SetPropagatesToInstance();
+    fn IsOverridable();
+    fn SetIsOverridable();
+    fn IsAmended();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemQualifierVtbl(
@@ -3591,6 +3808,14 @@ unsafe impl ::windows::core::Interface for ISWbemQualifierSet {
     type Vtable = ISWbemQualifierSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b16ed16_d3df_11d1_8b08_00600806d9b6);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemQualifierSetImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+    fn Add();
+    fn Remove();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemQualifierSetVtbl(
@@ -3733,6 +3958,15 @@ impl ::core::fmt::Debug for ISWbemRefreshableItem {
 unsafe impl ::windows::core::Interface for ISWbemRefreshableItem {
     type Vtable = ISWbemRefreshableItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ad4bf92_daab_11d3_b38f_00105a1f473a);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemRefreshableItemImpl: IDispatchImpl {
+    fn Index();
+    fn Refresher();
+    fn IsSet();
+    fn Object();
+    fn ObjectSet();
+    fn Remove();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3894,6 +4128,19 @@ unsafe impl ::windows::core::Interface for ISWbemRefresher {
     type Vtable = ISWbemRefresherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14d8250e_d9c2_11d3_b38f_00105a1f473a);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemRefresherImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+    fn Add();
+    fn AddEnum();
+    fn Remove();
+    fn Refresh();
+    fn AutoReconnect();
+    fn SetAutoReconnect();
+    fn DeleteAll();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemRefresherVtbl(
@@ -4034,6 +4281,14 @@ impl ::core::fmt::Debug for ISWbemSecurity {
 unsafe impl ::windows::core::Interface for ISWbemSecurity {
     type Vtable = ISWbemSecurityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb54d66e6_2287_11d2_8b33_00600806d9b6);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemSecurityImpl: IDispatchImpl {
+    fn ImpersonationLevel();
+    fn SetImpersonationLevel();
+    fn AuthenticationLevel();
+    fn SetAuthenticationLevel();
+    fn Privileges();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4292,6 +4547,28 @@ impl ::core::fmt::Debug for ISWbemServices {
 unsafe impl ::windows::core::Interface for ISWbemServices {
     type Vtable = ISWbemServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76a6415c_cb41_11d1_8b02_00600806d9b6);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemServicesImpl: IDispatchImpl {
+    fn Get();
+    fn GetAsync();
+    fn Delete();
+    fn DeleteAsync();
+    fn InstancesOf();
+    fn InstancesOfAsync();
+    fn SubclassesOf();
+    fn SubclassesOfAsync();
+    fn ExecQuery();
+    fn ExecQueryAsync();
+    fn AssociatorsOf();
+    fn AssociatorsOfAsync();
+    fn ReferencesTo();
+    fn ReferencesToAsync();
+    fn ExecNotificationQuery();
+    fn ExecNotificationQueryAsync();
+    fn ExecMethod();
+    fn ExecMethodAsync();
+    fn Security_();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4631,6 +4908,11 @@ unsafe impl ::windows::core::Interface for ISWbemServicesEx {
     type Vtable = ISWbemServicesExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2f68443_85dc_427e_91d8_366554cc754c);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemServicesExImpl: ISWbemServicesImpl + IDispatchImpl {
+    fn Put();
+    fn PutAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemServicesExVtbl(
@@ -4799,6 +5081,10 @@ unsafe impl ::windows::core::Interface for ISWbemSink {
     type Vtable = ISWbemSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75718c9f_f029_11d1_a1ac_00c04fb6c223);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemSinkImpl: IDispatchImpl {
+    fn Cancel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemSinkVtbl(
@@ -4906,6 +5192,8 @@ unsafe impl ::windows::core::Interface for ISWbemSinkEvents {
     type Vtable = ISWbemSinkEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75718ca0_f029_11d1_a1ac_00c04fb6c223);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISWbemSinkEventsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemSinkEventsVtbl(
@@ -4970,6 +5258,9 @@ impl ::core::fmt::Debug for IUnsecuredApartment {
 unsafe impl ::windows::core::Interface for IUnsecuredApartment {
     type Vtable = IUnsecuredApartmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cfaba8c_1523_11d1_ad79_00c04fd8fdff);
+}
+pub trait IUnsecuredApartmentImpl {
+    fn CreateObjectStub();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5081,6 +5372,12 @@ unsafe impl ::windows::core::Interface for IWMIExtension {
     type Vtable = IWMIExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadc1f06e_5c7e_11d2_8b74_00104b2afb41);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWMIExtensionImpl: IDispatchImpl {
+    fn WMIObjectPath();
+    fn GetWMIObject();
+    fn GetWMIServices();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMIExtensionVtbl(
@@ -5150,6 +5447,9 @@ unsafe impl ::windows::core::Interface for IWbemAddressResolution {
     type Vtable = IWbemAddressResolutionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7ce2e12_8c90_11d1_9e7b_00c04fc324a8);
 }
+pub trait IWbemAddressResolutionImpl {
+    fn Resolve();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemAddressResolutionVtbl(
@@ -5213,6 +5513,10 @@ impl ::core::fmt::Debug for IWbemBackupRestore {
 unsafe impl ::windows::core::Interface for IWbemBackupRestore {
     type Vtable = IWbemBackupRestoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc49e32c7_bc8b_11d2_85d4_00105a1f8304);
+}
+pub trait IWbemBackupRestoreImpl {
+    fn Backup();
+    fn Restore();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5308,6 +5612,10 @@ unsafe impl ::windows::core::Interface for IWbemBackupRestoreEx {
     type Vtable = IWbemBackupRestoreExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa359dec5_e813_4834_8a2a_ba7f1d777d76);
 }
+pub trait IWbemBackupRestoreExImpl: IWbemBackupRestoreImpl {
+    fn Pause();
+    fn Resume();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemBackupRestoreExVtbl(
@@ -5386,6 +5694,12 @@ impl ::core::fmt::Debug for IWbemCallResult {
 unsafe impl ::windows::core::Interface for IWbemCallResult {
     type Vtable = IWbemCallResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44aca675_e8fc_11d0_a07c_00c04fb68820);
+}
+pub trait IWbemCallResultImpl {
+    fn GetResultObject();
+    fn GetResultString();
+    fn GetResultServices();
+    fn GetCallStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5565,6 +5879,32 @@ unsafe impl ::windows::core::Interface for IWbemClassObject {
     type Vtable = IWbemClassObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc12a681_737f_11cf_884d_00aa004b2e24);
 }
+pub trait IWbemClassObjectImpl {
+    fn GetQualifierSet();
+    fn Get();
+    fn Put();
+    fn Delete();
+    fn GetNames();
+    fn BeginEnumeration();
+    fn Next();
+    fn EndEnumeration();
+    fn GetPropertyQualifierSet();
+    fn Clone();
+    fn GetObjectText();
+    fn SpawnDerivedClass();
+    fn SpawnInstance();
+    fn CompareTo();
+    fn GetPropertyOrigin();
+    fn InheritsFrom();
+    fn GetMethod();
+    fn PutMethod();
+    fn DeleteMethod();
+    fn BeginMethodEnumeration();
+    fn NextMethod();
+    fn EndMethodEnumeration();
+    fn GetMethodQualifierSet();
+    fn GetMethodOrigin();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemClassObjectVtbl(
@@ -5670,6 +6010,11 @@ unsafe impl ::windows::core::Interface for IWbemClientConnectionTransport {
     type Vtable = IWbemClientConnectionTransportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa889c72a_fcc1_4a9e_af61_ed071333fb5b);
 }
+pub trait IWbemClientConnectionTransportImpl {
+    fn Open();
+    fn OpenAsync();
+    fn Cancel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemClientConnectionTransportVtbl(
@@ -5732,6 +6077,9 @@ impl ::core::fmt::Debug for IWbemClientTransport {
 unsafe impl ::windows::core::Interface for IWbemClientTransport {
     type Vtable = IWbemClientTransportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7ce2e11_8c90_11d1_9e7b_00c04fc324a8);
+}
+pub trait IWbemClientTransportImpl {
+    fn ConnectServer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5809,6 +6157,13 @@ unsafe impl ::windows::core::Interface for IWbemConfigureRefresher {
     type Vtable = IWbemConfigureRefresherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49353c92_516b_11d1_aea6_00c04fb68820);
 }
+pub trait IWbemConfigureRefresherImpl {
+    fn AddObjectByPath();
+    fn AddObjectByTemplate();
+    fn AddRefresher();
+    fn Remove();
+    fn AddEnum();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemConfigureRefresherVtbl(
@@ -5873,6 +6228,9 @@ impl ::core::fmt::Debug for IWbemConnectorLogin {
 unsafe impl ::windows::core::Interface for IWbemConnectorLogin {
     type Vtable = IWbemConnectorLoginVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8ec9cb1_b135_4f10_8b1b_c7188bb0d186);
+}
+pub trait IWbemConnectorLoginImpl {
+    fn ConnectorLogin();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5947,6 +6305,12 @@ impl ::core::fmt::Debug for IWbemConstructClassObject {
 unsafe impl ::windows::core::Interface for IWbemConstructClassObject {
     type Vtable = IWbemConstructClassObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ef76194_70d5_11d1_ad90_00c04fd8fdff);
+}
+pub trait IWbemConstructClassObjectImpl {
+    fn SetInheritanceChain();
+    fn SetPropertyOrigin();
+    fn SetMethodOrigin();
+    fn SetServerNamespace();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6051,6 +6415,17 @@ impl ::core::fmt::Debug for IWbemContext {
 unsafe impl ::windows::core::Interface for IWbemContext {
     type Vtable = IWbemContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44aca674_e8fc_11d0_a07c_00c04fb68820);
+}
+pub trait IWbemContextImpl {
+    fn Clone();
+    fn GetNames();
+    fn BeginEnumeration();
+    fn Next();
+    fn EndEnumeration();
+    fn SetValue();
+    fn GetValue();
+    fn DeleteValue();
+    fn DeleteAll();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6157,6 +6532,10 @@ unsafe impl ::windows::core::Interface for IWbemDecoupledBasicEventProvider {
     type Vtable = IWbemDecoupledBasicEventProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86336d20_ca11_4786_9ef1_bc8a946b42fc);
 }
+pub trait IWbemDecoupledBasicEventProviderImpl: IWbemDecoupledRegistrarImpl {
+    fn GetSink();
+    fn GetService();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemDecoupledBasicEventProviderVtbl(
@@ -6223,6 +6602,10 @@ unsafe impl ::windows::core::Interface for IWbemDecoupledRegistrar {
     type Vtable = IWbemDecoupledRegistrarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1005cbcf_e64f_4646_bcd3_3a089d8a84b4);
 }
+pub trait IWbemDecoupledRegistrarImpl {
+    fn Register();
+    fn UnRegister();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemDecoupledRegistrarVtbl(
@@ -6283,6 +6666,9 @@ unsafe impl ::windows::core::Interface for IWbemEventConsumerProvider {
     type Vtable = IWbemEventConsumerProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe246107a_b06e_11d0_ad61_00c04fd8fdff);
 }
+pub trait IWbemEventConsumerProviderImpl {
+    fn FindConsumer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemEventConsumerProviderVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plogicalconsumer: ::windows::core::RawPtr, ppconsumer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -6334,6 +6720,9 @@ impl ::core::fmt::Debug for IWbemEventProvider {
 unsafe impl ::windows::core::Interface for IWbemEventProvider {
     type Vtable = IWbemEventProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe245105b_b06e_11d0_ad61_00c04fd8fdff);
+}
+pub trait IWbemEventProviderImpl {
+    fn ProvideEvents();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6390,6 +6779,10 @@ impl ::core::fmt::Debug for IWbemEventProviderQuerySink {
 unsafe impl ::windows::core::Interface for IWbemEventProviderQuerySink {
     type Vtable = IWbemEventProviderQuerySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x580acaf8_fa1c_11d0_ad72_00c04fd8fdff);
+}
+pub trait IWbemEventProviderQuerySinkImpl {
+    fn NewQuery();
+    fn CancelQuery();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6448,6 +6841,9 @@ impl ::core::fmt::Debug for IWbemEventProviderSecurity {
 unsafe impl ::windows::core::Interface for IWbemEventProviderSecurity {
     type Vtable = IWbemEventProviderSecurityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x631f7d96_d993_11d2_b339_00105a1f4aaf);
+}
+pub trait IWbemEventProviderSecurityImpl {
+    fn AccessCheck();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6544,6 +6940,12 @@ unsafe impl ::windows::core::Interface for IWbemEventSink {
     type Vtable = IWbemEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ae0080a_7e3a_4366_bf89_0feedc931659);
 }
+pub trait IWbemEventSinkImpl: IWbemObjectSinkImpl {
+    fn SetSinkSecurity();
+    fn IsActive();
+    fn GetRestrictedSink();
+    fn SetBatchingParameters();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemEventSinkVtbl(
@@ -6619,6 +7021,12 @@ impl ::core::fmt::Debug for IWbemHiPerfEnum {
 unsafe impl ::windows::core::Interface for IWbemHiPerfEnum {
     type Vtable = IWbemHiPerfEnumVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2705c288_79ae_11d2_b348_00105a1f8177);
+}
+pub trait IWbemHiPerfEnumImpl {
+    fn AddObjects();
+    fn RemoveObjects();
+    fn GetObjects();
+    fn RemoveAll();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6704,6 +7112,14 @@ unsafe impl ::windows::core::Interface for IWbemHiPerfProvider {
     type Vtable = IWbemHiPerfProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49353c93_516b_11d1_aea6_00c04fb68820);
 }
+pub trait IWbemHiPerfProviderImpl {
+    fn QueryInstances();
+    fn CreateRefresher();
+    fn CreateRefreshableObject();
+    fn StopRefreshing();
+    fn CreateRefreshableEnum();
+    fn GetObjects();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemHiPerfProviderVtbl(
@@ -6788,6 +7204,12 @@ unsafe impl ::windows::core::Interface for IWbemLevel1Login {
     type Vtable = IWbemLevel1LoginVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf309ad18_d86a_11d0_a075_00c04fb68820);
 }
+pub trait IWbemLevel1LoginImpl {
+    fn EstablishPosition();
+    fn RequestChallenge();
+    fn WBEMLogin();
+    fn NTLMLogin();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemLevel1LoginVtbl(
@@ -6853,6 +7275,9 @@ impl ::core::fmt::Debug for IWbemLocator {
 unsafe impl ::windows::core::Interface for IWbemLocator {
     type Vtable = IWbemLocatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc12a687_737f_11cf_884d_00aa004b2e24);
+}
+pub trait IWbemLocatorImpl {
+    fn ConnectServer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7093,6 +7518,18 @@ unsafe impl ::windows::core::Interface for IWbemObjectAccess {
     type Vtable = IWbemObjectAccessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49353c9a_516b_11d1_aea6_00c04fb68820);
 }
+pub trait IWbemObjectAccessImpl: IWbemClassObjectImpl {
+    fn GetPropertyHandle();
+    fn WritePropertyValue();
+    fn ReadPropertyValue();
+    fn ReadDWORD();
+    fn WriteDWORD();
+    fn ReadQWORD();
+    fn WriteQWORD();
+    fn GetPropertyInfoByHandle();
+    fn Lock();
+    fn Unlock();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemObjectAccessVtbl(
@@ -7205,6 +7642,10 @@ unsafe impl ::windows::core::Interface for IWbemObjectSink {
     type Vtable = IWbemObjectSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c857801_7381_11cf_884d_00aa004b2e24);
 }
+pub trait IWbemObjectSinkImpl {
+    fn Indicate();
+    fn SetStatus();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemObjectSinkVtbl(
@@ -7315,6 +7756,13 @@ unsafe impl ::windows::core::Interface for IWbemObjectSinkEx {
     type Vtable = IWbemObjectSinkExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7d35cfa_348b_485e_b524_252725d697ca);
 }
+pub trait IWbemObjectSinkExImpl: IWbemObjectSinkImpl {
+    fn WriteMessage();
+    fn WriteError();
+    fn PromptUser();
+    fn WriteProgress();
+    fn WriteStreamParameter();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemObjectSinkExVtbl(
@@ -7390,6 +7838,10 @@ impl ::core::fmt::Debug for IWbemObjectTextSrc {
 unsafe impl ::windows::core::Interface for IWbemObjectTextSrc {
     type Vtable = IWbemObjectTextSrcVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfbf883a_cad7_11d3_a11b_00105a1f515a);
+}
+pub trait IWbemObjectTextSrcImpl {
+    fn GetText();
+    fn CreateFromText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7572,6 +8024,34 @@ unsafe impl ::windows::core::Interface for IWbemPath {
     type Vtable = IWbemPathVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bc15af2_736c_477e_9e51_238af8667dcc);
 }
+pub trait IWbemPathImpl {
+    fn SetText();
+    fn GetText();
+    fn GetInfo();
+    fn SetServer();
+    fn GetServer();
+    fn GetNamespaceCount();
+    fn SetNamespaceAt();
+    fn GetNamespaceAt();
+    fn RemoveNamespaceAt();
+    fn RemoveAllNamespaces();
+    fn GetScopeCount();
+    fn SetScope();
+    fn SetScopeFromText();
+    fn GetScope();
+    fn GetScopeAsText();
+    fn RemoveScope();
+    fn RemoveAllScopes();
+    fn SetClassName();
+    fn GetClassName();
+    fn GetKeyList();
+    fn CreateClassPart();
+    fn DeleteClassPart();
+    fn IsRelative();
+    fn IsRelativeOrChild();
+    fn IsLocal();
+    fn IsSameClassName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemPathVtbl(
@@ -7715,6 +8195,18 @@ unsafe impl ::windows::core::Interface for IWbemPathKeyList {
     type Vtable = IWbemPathKeyListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ae62877_7544_4bb0_aa26_a13824659ed6);
 }
+pub trait IWbemPathKeyListImpl {
+    fn GetCount();
+    fn SetKey();
+    fn SetKey2();
+    fn GetKey();
+    fn GetKey2();
+    fn RemoveKey();
+    fn RemoveAllKeys();
+    fn MakeSingleton();
+    fn GetInfo();
+    fn GetText();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemPathKeyListVtbl(
@@ -7794,6 +8286,10 @@ unsafe impl ::windows::core::Interface for IWbemPropertyProvider {
     type Vtable = IWbemPropertyProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce61e841_65bc_11d0_b6bd_00aa003240c7);
 }
+pub trait IWbemPropertyProviderImpl {
+    fn GetProperty();
+    fn PutProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemPropertyProviderVtbl(
@@ -7854,6 +8350,9 @@ unsafe impl ::windows::core::Interface for IWbemProviderIdentity {
     type Vtable = IWbemProviderIdentityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x631f7d97_d993_11d2_b339_00105a1f4aaf);
 }
+pub trait IWbemProviderIdentityImpl {
+    fn SetRegistrationObject();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemProviderIdentityVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pprovreg: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -7906,6 +8405,9 @@ impl ::core::fmt::Debug for IWbemProviderInit {
 unsafe impl ::windows::core::Interface for IWbemProviderInit {
     type Vtable = IWbemProviderInitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1be41572_91dd_11d1_aeb2_00c04fb68820);
+}
+pub trait IWbemProviderInitImpl {
+    fn Initialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7964,6 +8466,9 @@ impl ::core::fmt::Debug for IWbemProviderInitSink {
 unsafe impl ::windows::core::Interface for IWbemProviderInitSink {
     type Vtable = IWbemProviderInitSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1be41571_91dd_11d1_aeb2_00c04fb68820);
+}
+pub trait IWbemProviderInitSinkImpl {
+    fn SetStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8046,6 +8551,15 @@ impl ::core::fmt::Debug for IWbemQualifierSet {
 unsafe impl ::windows::core::Interface for IWbemQualifierSet {
     type Vtable = IWbemQualifierSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc12a680_737f_11cf_884d_00aa004b2e24);
+}
+pub trait IWbemQualifierSetImpl {
+    fn Get();
+    fn Put();
+    fn Delete();
+    fn GetNames();
+    fn BeginEnumeration();
+    fn Next();
+    fn EndEnumeration();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8140,6 +8654,15 @@ unsafe impl ::windows::core::Interface for IWbemQuery {
     type Vtable = IWbemQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81166f58_dd98_11d3_a120_00105a1f515a);
 }
+pub trait IWbemQueryImpl {
+    fn Empty();
+    fn SetLanguageFeatures();
+    fn TestLanguageFeatures();
+    fn Parse();
+    fn GetAnalysis();
+    fn FreeMemory();
+    fn GetQueryInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemQueryVtbl(
@@ -8203,6 +8726,9 @@ impl ::core::fmt::Debug for IWbemRefresher {
 unsafe impl ::windows::core::Interface for IWbemRefresher {
     type Vtable = IWbemRefresherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49353c99_516b_11d1_aea6_00c04fb68820);
+}
+pub trait IWbemRefresherImpl {
+    fn Refresh();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8366,6 +8892,31 @@ unsafe impl ::windows::core::Interface for IWbemServices {
     type Vtable = IWbemServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9556dc99_828c_11cf_a37e_00aa003240c7);
 }
+pub trait IWbemServicesImpl {
+    fn OpenNamespace();
+    fn CancelAsyncCall();
+    fn QueryObjectSink();
+    fn GetObject();
+    fn GetObjectAsync();
+    fn PutClass();
+    fn PutClassAsync();
+    fn DeleteClass();
+    fn DeleteClassAsync();
+    fn CreateClassEnum();
+    fn CreateClassEnumAsync();
+    fn PutInstance();
+    fn PutInstanceAsync();
+    fn DeleteInstance();
+    fn DeleteInstanceAsync();
+    fn CreateInstanceEnum();
+    fn CreateInstanceEnumAsync();
+    fn ExecQuery();
+    fn ExecQueryAsync();
+    fn ExecNotificationQuery();
+    fn ExecNotificationQueryAsync();
+    fn ExecMethod();
+    fn ExecMethodAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemServicesVtbl(
@@ -8462,6 +9013,9 @@ unsafe impl ::windows::core::Interface for IWbemShutdown {
     type Vtable = IWbemShutdownVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7b31df9_d515_11d3_a11c_00105a1f515a);
 }
+pub trait IWbemShutdownImpl {
+    fn Shutdown();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemShutdownVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ureason: i32, umaxmilliseconds: u32, pctx: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -8521,6 +9075,10 @@ impl ::core::fmt::Debug for IWbemStatusCodeText {
 unsafe impl ::windows::core::Interface for IWbemStatusCodeText {
     type Vtable = IWbemStatusCodeTextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb87e1bc_3233_11d2_aec9_00c04fb68820);
+}
+pub trait IWbemStatusCodeTextImpl {
+    fn GetErrorCodeText();
+    fn GetFacilityCodeText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8582,6 +9140,9 @@ unsafe impl ::windows::core::Interface for IWbemTransport {
     type Vtable = IWbemTransportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x553fe584_2156_11d0_b6ae_00aa003240c7);
 }
+pub trait IWbemTransportImpl {
+    fn Initialize();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemTransportVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
@@ -8633,6 +9194,9 @@ impl ::core::fmt::Debug for IWbemUnboundObjectSink {
 unsafe impl ::windows::core::Interface for IWbemUnboundObjectSink {
     type Vtable = IWbemUnboundObjectSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe246107b_b06e_11d0_ad61_00c04fd8fdff);
+}
+pub trait IWbemUnboundObjectSinkImpl {
+    fn IndicateToConsumer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8717,6 +9281,9 @@ impl ::core::fmt::Debug for IWbemUnsecuredApartment {
 unsafe impl ::windows::core::Interface for IWbemUnsecuredApartment {
     type Vtable = IWbemUnsecuredApartmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31739d04_3471_4cf4_9a7c_57a44ae71956);
+}
+pub trait IWbemUnsecuredApartmentImpl: IUnsecuredApartmentImpl {
+    fn CreateSinkStub();
 }
 #[repr(C)]
 #[doc(hidden)]

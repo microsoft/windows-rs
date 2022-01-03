@@ -6,6 +6,8 @@ unsafe impl ::windows::core::Interface for IPalmRejectionDelayZonePreview {
     type Vtable = IPalmRejectionDelayZonePreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62b496cb_539d_5343_a65f_41f5300ec70c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPalmRejectionDelayZonePreviewImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPalmRejectionDelayZonePreviewVtbl(
@@ -22,6 +24,11 @@ pub struct IPalmRejectionDelayZonePreviewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPalmRejectionDelayZonePreviewStatics {
     type Vtable = IPalmRejectionDelayZonePreviewStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdef5ee0_93d0_53a9_8f0e_9a379f8f7530);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPalmRejectionDelayZonePreviewStaticsImpl {
+    fn CreateForVisual();
+    fn CreateForVisualWithViewportClip();
 }
 #[repr(C)]
 #[doc(hidden)]

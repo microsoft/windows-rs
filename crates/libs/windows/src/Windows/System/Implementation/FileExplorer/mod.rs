@@ -6,6 +6,10 @@ unsafe impl ::windows::core::Interface for ISysStorageProviderEventReceivedEvent
     type Vtable = ISysStorageProviderEventReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe132d1b9_7b9d_5820_9728_4262b5289142);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISysStorageProviderEventReceivedEventArgsImpl {
+    fn Json();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISysStorageProviderEventReceivedEventArgsVtbl(
@@ -23,6 +27,10 @@ pub struct ISysStorageProviderEventReceivedEventArgsFactory(::windows::core::IUn
 unsafe impl ::windows::core::Interface for ISysStorageProviderEventReceivedEventArgsFactory {
     type Vtable = ISysStorageProviderEventReceivedEventArgsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde1a780e_e975_5f68_bcc6_fb46281c6a61);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISysStorageProviderEventReceivedEventArgsFactoryImpl {
+    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -117,6 +125,10 @@ unsafe impl ::windows::core::RuntimeType for ISysStorageProviderEventSource {
 unsafe impl ::windows::core::Interface for ISysStorageProviderEventSource {
     type Vtable = ISysStorageProviderEventSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f36c476_9546_536a_8381_2f9a2c08cedd);
+}
+pub trait ISysStorageProviderEventSourceImpl {
+    fn EventReceived();
+    fn RemoveEventReceived();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -216,6 +228,10 @@ unsafe impl ::windows::core::Interface for ISysStorageProviderHandlerFactory {
     type Vtable = ISysStorageProviderHandlerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee798431_8213_5e89_a623_14d8c72b8a61);
 }
+pub trait ISysStorageProviderHandlerFactoryImpl {
+    fn GetHttpRequestProvider();
+    fn GetEventSource();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISysStorageProviderHandlerFactoryVtbl(
@@ -304,6 +320,9 @@ unsafe impl ::windows::core::RuntimeType for ISysStorageProviderHttpRequestProvi
 unsafe impl ::windows::core::Interface for ISysStorageProviderHttpRequestProvider {
     type Vtable = ISysStorageProviderHttpRequestProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb6fefb6_e76a_5c25_a33e_3e78a6e0e0ce);
+}
+pub trait ISysStorageProviderHttpRequestProviderImpl {
+    fn SendRequestAsync();
 }
 #[repr(C)]
 #[doc(hidden)]

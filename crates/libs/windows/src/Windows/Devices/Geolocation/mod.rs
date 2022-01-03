@@ -1986,6 +1986,14 @@ unsafe impl ::windows::core::Interface for ICivicAddress {
     type Vtable = ICivicAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8567a1a_64f4_4d48_bcea_f6b008eca34c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICivicAddressImpl {
+    fn Country();
+    fn State();
+    fn City();
+    fn PostalCode();
+    fn Timestamp();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICivicAddressVtbl(
@@ -2009,6 +2017,14 @@ unsafe impl ::windows::core::Interface for IGeoboundingBox {
     type Vtable = IGeoboundingBoxVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0896c80b_274f_43da_9a06_cbfcdaeb4ec2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeoboundingBoxImpl: IGeoshapeImpl {
+    fn NorthwestCorner();
+    fn SoutheastCorner();
+    fn Center();
+    fn MinAltitude();
+    fn MaxAltitude();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeoboundingBoxVtbl(
@@ -2031,6 +2047,12 @@ unsafe impl ::windows::core::Interface for IGeoboundingBoxFactory {
     type Vtable = IGeoboundingBoxFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4dfba589_0411_4abc_b3b5_5bbccb57d98c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeoboundingBoxFactoryImpl {
+    fn Create();
+    fn CreateWithAltitudeReference();
+    fn CreateWithAltitudeReferenceAndSpatialReference();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeoboundingBoxFactoryVtbl(
@@ -2050,6 +2072,12 @@ pub struct IGeoboundingBoxStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeoboundingBoxStatics {
     type Vtable = IGeoboundingBoxStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67b80708_e61a_4cd0_841b_93233792b5ca);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeoboundingBoxStaticsImpl {
+    fn TryCompute();
+    fn TryComputeWithAltitudeReference();
+    fn TryComputeWithAltitudeReferenceAndSpatialReference();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2074,6 +2102,11 @@ unsafe impl ::windows::core::Interface for IGeocircle {
     type Vtable = IGeocircleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39e45843_a7f9_4e63_92a7_ba0c28d124b1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeocircleImpl: IGeoshapeImpl {
+    fn Center();
+    fn Radius();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeocircleVtbl(
@@ -2092,6 +2125,12 @@ pub struct IGeocircleFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeocircleFactory {
     type Vtable = IGeocircleFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafd6531f_72b1_4f7d_87cc_4ed4c9849c05);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeocircleFactoryImpl {
+    fn Create();
+    fn CreateWithAltitudeReferenceSystem();
+    fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2112,6 +2151,17 @@ pub struct IGeocoordinate(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeocoordinate {
     type Vtable = IGeocoordinateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee21a3aa_976a_4c70_803d_083ea55bcbc4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeocoordinateImpl {
+    fn Latitude();
+    fn Longitude();
+    fn Altitude();
+    fn Accuracy();
+    fn AltitudeAccuracy();
+    fn Heading();
+    fn Speed();
+    fn Timestamp();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2145,6 +2195,12 @@ unsafe impl ::windows::core::Interface for IGeocoordinateSatelliteData {
     type Vtable = IGeocoordinateSatelliteDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc32a74d9_2608_474c_912c_06dd490f4af7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeocoordinateSatelliteDataImpl {
+    fn PositionDilutionOfPrecision();
+    fn HorizontalDilutionOfPrecision();
+    fn VerticalDilutionOfPrecision();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeocoordinateSatelliteDataVtbl(
@@ -2168,6 +2224,11 @@ unsafe impl ::windows::core::Interface for IGeocoordinateSatelliteData2 {
     type Vtable = IGeocoordinateSatelliteData2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x761c8cfd_a19d_5a51_80f5_71676115483e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeocoordinateSatelliteData2Impl {
+    fn GeometricDilutionOfPrecision();
+    fn TimeDilutionOfPrecision();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeocoordinateSatelliteData2Vtbl(
@@ -2189,6 +2250,10 @@ unsafe impl ::windows::core::Interface for IGeocoordinateWithPoint {
     type Vtable = IGeocoordinateWithPointVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfeea0525_d22c_4d46_b527_0b96066fc7db);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeocoordinateWithPointImpl {
+    fn Point();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeocoordinateWithPointVtbl(
@@ -2206,6 +2271,11 @@ pub struct IGeocoordinateWithPositionData(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeocoordinateWithPositionData {
     type Vtable = IGeocoordinateWithPositionDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95e634be_dbd6_40ac_b8f2_a65c0340d9a6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeocoordinateWithPositionDataImpl: IGeocoordinateImpl {
+    fn PositionSource();
+    fn SatelliteData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2226,6 +2296,10 @@ unsafe impl ::windows::core::Interface for IGeocoordinateWithPositionSourceTimes
     type Vtable = IGeocoordinateWithPositionSourceTimestampVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8543fc02_c9f1_4610_afe0_8bc3a6a87036);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeocoordinateWithPositionSourceTimestampImpl {
+    fn PositionSourceTimestamp();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeocoordinateWithPositionSourceTimestampVtbl(
@@ -2245,6 +2319,10 @@ unsafe impl ::windows::core::Interface for IGeocoordinateWithRemoteSource {
     type Vtable = IGeocoordinateWithRemoteSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x397cebd7_ee38_5f3b_8900_c4a7bc9cf953);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeocoordinateWithRemoteSourceImpl {
+    fn IsRemoteSource();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeocoordinateWithRemoteSourceVtbl(
@@ -2262,6 +2340,22 @@ pub struct IGeolocator(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeolocator {
     type Vtable = IGeolocatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9c3bf62_4524_4989_8aa9_de019d2e551f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeolocatorImpl {
+    fn DesiredAccuracy();
+    fn SetDesiredAccuracy();
+    fn MovementThreshold();
+    fn SetMovementThreshold();
+    fn ReportInterval();
+    fn SetReportInterval();
+    fn LocationStatus();
+    fn GetGeopositionAsync();
+    fn GetGeopositionAsyncWithAgeAndTimeout();
+    fn PositionChanged();
+    fn RemovePositionChanged();
+    fn StatusChanged();
+    fn RemoveStatusChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2299,6 +2393,10 @@ unsafe impl ::windows::core::Interface for IGeolocator2 {
     type Vtable = IGeolocator2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1b42e6d_8891_43b4_ad36_27c6fe9a97b1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeolocator2Impl {
+    fn AllowFallbackToConsentlessPositions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeolocator2Vtbl(
@@ -2316,6 +2414,12 @@ pub struct IGeolocatorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeolocatorStatics {
     type Vtable = IGeolocatorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a8e7571_2df5_4591_9f87_eb5fd894e9b7);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeolocatorStaticsImpl {
+    fn RequestAccessAsync();
+    fn GetGeopositionHistoryAsync();
+    fn GetGeopositionHistoryWithDurationAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2340,6 +2444,12 @@ unsafe impl ::windows::core::Interface for IGeolocatorStatics2 {
     type Vtable = IGeolocatorStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x993011a2_fa1c_4631_a71d_0dbeb1250d9c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeolocatorStatics2Impl {
+    fn IsDefaultGeopositionRecommended();
+    fn SetDefaultGeoposition();
+    fn DefaultGeoposition();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeolocatorStatics2Vtbl(
@@ -2362,6 +2472,11 @@ unsafe impl ::windows::core::Interface for IGeolocatorWithScalarAccuracy {
     type Vtable = IGeolocatorWithScalarAccuracyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96f5d3c1_b80f_460a_994d_a96c47a51aa4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeolocatorWithScalarAccuracyImpl: IGeolocatorImpl {
+    fn DesiredAccuracyInMeters();
+    fn SetDesiredAccuracyInMeters();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeolocatorWithScalarAccuracyVtbl(
@@ -2383,6 +2498,10 @@ unsafe impl ::windows::core::Interface for IGeopath {
     type Vtable = IGeopathVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe53fd7b9_2da4_4714_a652_de8593289898);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeopathImpl: IGeoshapeImpl {
+    fn Positions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeopathVtbl(
@@ -2401,6 +2520,12 @@ pub struct IGeopathFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeopathFactory {
     type Vtable = IGeopathFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27bea9c8_c7e7_4359_9b9b_fca3e05ef593);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeopathFactoryImpl {
+    fn Create();
+    fn CreateWithAltitudeReference();
+    fn CreateWithAltitudeReferenceAndSpatialReference();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2425,6 +2550,10 @@ unsafe impl ::windows::core::Interface for IGeopoint {
     type Vtable = IGeopointVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bfa00eb_e56e_49bb_9caf_cbaa78a8bcef);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeopointImpl: IGeoshapeImpl {
+    fn Position();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeopointVtbl(
@@ -2442,6 +2571,12 @@ pub struct IGeopointFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeopointFactory {
     type Vtable = IGeopointFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb6b8d33_76bd_4e30_8af7_a844dc37b7a0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeopointFactoryImpl {
+    fn Create();
+    fn CreateWithAltitudeReferenceSystem();
+    fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2463,6 +2598,11 @@ unsafe impl ::windows::core::Interface for IGeoposition {
     type Vtable = IGeopositionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc18d0454_7d41_4ff7_a957_9dffb4ef7f5b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeopositionImpl {
+    fn Coordinate();
+    fn CivicAddress();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeopositionVtbl(
@@ -2481,6 +2621,10 @@ pub struct IGeoposition2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeoposition2 {
     type Vtable = IGeoposition2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f62f697_8671_4b0d_86f8_474a8496187c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeoposition2Impl: IGeopositionImpl {
+    fn VenueData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2585,6 +2729,11 @@ unsafe impl ::windows::core::Interface for IGeoshape {
     type Vtable = IGeoshapeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc99ca2af_c729_43c1_8fab_d6dec914df7e);
 }
+pub trait IGeoshapeImpl {
+    fn GeoshapeType();
+    fn SpatialReferenceId();
+    fn AltitudeReferenceSystem();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeoshapeVtbl(
@@ -2604,6 +2753,12 @@ pub struct IGeovisit(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeovisit {
     type Vtable = IGeovisitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1877a76_9ef6_41ab_a0dd_793ece76e2de);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeovisitImpl {
+    fn Position();
+    fn StateChange();
+    fn Timestamp();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2625,6 +2780,14 @@ pub struct IGeovisitMonitor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeovisitMonitor {
     type Vtable = IGeovisitMonitorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80118aaf_5944_4591_83c1_396647f54f2c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeovisitMonitorImpl {
+    fn MonitoringScope();
+    fn Start();
+    fn Stop();
+    fn VisitStateChanged();
+    fn RemoveVisitStateChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2650,6 +2813,10 @@ unsafe impl ::windows::core::Interface for IGeovisitMonitorStatics {
     type Vtable = IGeovisitMonitorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcf976a7_bbf2_4cdd_95cf_554c82edfb87);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeovisitMonitorStaticsImpl {
+    fn GetLastReportAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeovisitMonitorStaticsVtbl(
@@ -2669,6 +2836,10 @@ unsafe impl ::windows::core::Interface for IGeovisitStateChangedEventArgs {
     type Vtable = IGeovisitStateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xceb4d1ff_8b53_4968_beed_4cecd029ce15);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeovisitStateChangedEventArgsImpl {
+    fn Visit();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeovisitStateChangedEventArgsVtbl(
@@ -2686,6 +2857,10 @@ pub struct IGeovisitTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeovisitTriggerDetails {
     type Vtable = IGeovisitTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea770d9e_d1c9_454b_99b7_b2f8cdd2482f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeovisitTriggerDetailsImpl {
+    fn ReadReports();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2706,6 +2881,10 @@ unsafe impl ::windows::core::Interface for IPositionChangedEventArgs {
     type Vtable = IPositionChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37859ce5_9d1e_46c5_bf3b_6ad8cac1a093);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPositionChangedEventArgsImpl {
+    fn Position();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPositionChangedEventArgsVtbl(
@@ -2724,6 +2903,10 @@ unsafe impl ::windows::core::Interface for IStatusChangedEventArgs {
     type Vtable = IStatusChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3453d2da_8c93_4111_a205_9aecfc9be5c0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStatusChangedEventArgsImpl {
+    fn Status();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStatusChangedEventArgsVtbl(
@@ -2741,6 +2924,11 @@ pub struct IVenueData(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVenueData {
     type Vtable = IVenueDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66f39187_60e3_4b2f_b527_4f53f1c3c677);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IVenueDataImpl {
+    fn Id();
+    fn Level();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -6310,6 +6310,13 @@ unsafe impl ::windows::core::Interface for IEmailAttachment {
     type Vtable = IEmailAttachmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf353caf9_57c8_4adb_b992_60fceb584f54);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailAttachmentImpl {
+    fn FileName();
+    fn SetFileName();
+    fn Data();
+    fn SetData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailAttachmentVtbl(
@@ -6332,6 +6339,23 @@ pub struct IEmailAttachment2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailAttachment2 {
     type Vtable = IEmailAttachment2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x225f1070_b0ff_4571_9d54_a706c48d55c6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailAttachment2Impl {
+    fn Id();
+    fn ContentId();
+    fn SetContentId();
+    fn ContentLocation();
+    fn SetContentLocation();
+    fn DownloadState();
+    fn SetDownloadState();
+    fn EstimatedDownloadSizeInBytes();
+    fn SetEstimatedDownloadSizeInBytes();
+    fn IsFromBaseMessage();
+    fn IsInline();
+    fn SetIsInline();
+    fn MimeType();
+    fn SetMimeType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6364,6 +6388,10 @@ unsafe impl ::windows::core::Interface for IEmailAttachmentFactory {
     type Vtable = IEmailAttachmentFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x796eac46_ed56_4979_8708_abb8bc854b7d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailAttachmentFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailAttachmentFactoryVtbl(
@@ -6383,6 +6411,10 @@ unsafe impl ::windows::core::Interface for IEmailAttachmentFactory2 {
     type Vtable = IEmailAttachmentFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23259435_51f9_427d_adcd_241023c8cfb7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailAttachmentFactory2Impl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailAttachmentFactory2Vtbl(
@@ -6401,6 +6433,24 @@ pub struct IEmailConversation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailConversation {
     type Vtable = IEmailConversationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda18c248_a0bc_4349_902d_90f66389f51b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailConversationImpl {
+    fn Id();
+    fn MailboxId();
+    fn FlagState();
+    fn HasAttachment();
+    fn Importance();
+    fn LastEmailResponseKind();
+    fn MessageCount();
+    fn MostRecentMessageId();
+    fn MostRecentMessageTime();
+    fn Preview();
+    fn LatestSender();
+    fn Subject();
+    fn UnreadMessageCount();
+    fn FindMessagesAsync();
+    fn FindMessagesWithCountAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6437,6 +6487,11 @@ unsafe impl ::windows::core::Interface for IEmailConversationBatch {
     type Vtable = IEmailConversationBatchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8c1ab81_01c5_432a_9df1_fe85d98a279a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailConversationBatchImpl {
+    fn Conversations();
+    fn Status();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailConversationBatchVtbl(
@@ -6457,6 +6512,10 @@ unsafe impl ::windows::core::Interface for IEmailConversationReader {
     type Vtable = IEmailConversationReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4630f82_2875_44c8_9b8c_85beb3a3c653);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailConversationReaderImpl {
+    fn ReadBatchAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailConversationReaderVtbl(
@@ -6475,6 +6534,34 @@ pub struct IEmailFolder(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailFolder {
     type Vtable = IEmailFolderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa24f7771_996c_4864_b1ba_ed1240e57d11);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailFolderImpl {
+    fn Id();
+    fn RemoteId();
+    fn SetRemoteId();
+    fn MailboxId();
+    fn ParentFolderId();
+    fn DisplayName();
+    fn SetDisplayName();
+    fn IsSyncEnabled();
+    fn SetIsSyncEnabled();
+    fn LastSuccessfulSyncTime();
+    fn SetLastSuccessfulSyncTime();
+    fn Kind();
+    fn CreateFolderAsync();
+    fn DeleteAsync();
+    fn FindChildFoldersAsync();
+    fn GetConversationReader();
+    fn GetConversationReaderWithOptions();
+    fn GetMessageAsync();
+    fn GetMessageReader();
+    fn GetMessageReaderWithOptions();
+    fn GetMessageCountsAsync();
+    fn TryMoveAsync();
+    fn TryMoveWithNewNameAsync();
+    fn TrySaveAsync();
+    fn SaveMessageAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6529,6 +6616,33 @@ unsafe impl ::windows::core::Interface for IEmailIrmInfo {
     type Vtable = IEmailIrmInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90f52193_b1a0_4ebd_a6b6_ddca55606e0e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailIrmInfoImpl {
+    fn CanEdit();
+    fn SetCanEdit();
+    fn CanExtractData();
+    fn SetCanExtractData();
+    fn CanForward();
+    fn SetCanForward();
+    fn CanModifyRecipientsOnResponse();
+    fn SetCanModifyRecipientsOnResponse();
+    fn CanPrintData();
+    fn SetCanPrintData();
+    fn CanRemoveIrmOnResponse();
+    fn SetCanRemoveIrmOnResponse();
+    fn CanReply();
+    fn SetCanReply();
+    fn CanReplyAll();
+    fn SetCanReplyAll();
+    fn ExpirationDate();
+    fn SetExpirationDate();
+    fn IsIrmOriginator();
+    fn SetIsIrmOriginator();
+    fn IsProgramaticAccessAllowed();
+    fn SetIsProgramaticAccessAllowed();
+    fn Template();
+    fn SetTemplate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailIrmInfoVtbl(
@@ -6572,6 +6686,10 @@ unsafe impl ::windows::core::Interface for IEmailIrmInfoFactory {
     type Vtable = IEmailIrmInfoFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x314bb18c_e3e6_4d7b_be8d_91a96311b01b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailIrmInfoFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailIrmInfoFactoryVtbl(
@@ -6590,6 +6708,15 @@ pub struct IEmailIrmTemplate(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailIrmTemplate {
     type Vtable = IEmailIrmTemplateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf327758d_546d_4bea_a963_54a38b2cc016);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailIrmTemplateImpl {
+    fn Id();
+    fn SetId();
+    fn Description();
+    fn SetDescription();
+    fn Name();
+    fn SetName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6614,6 +6741,10 @@ unsafe impl ::windows::core::Interface for IEmailIrmTemplateFactory {
     type Vtable = IEmailIrmTemplateFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3da31876_8738_4418_b9cb_471b936fe71e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailIrmTemplateFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailIrmTemplateFactoryVtbl(
@@ -6631,6 +6762,13 @@ pub struct IEmailItemCounts(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailItemCounts {
     type Vtable = IEmailItemCountsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bd13321_fec8_4bab_83ba_0baf3c1f6cbd);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailItemCountsImpl {
+    fn Flagged();
+    fn Important();
+    fn Total();
+    fn Unread();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6652,6 +6790,59 @@ pub struct IEmailMailbox(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailbox {
     type Vtable = IEmailMailboxVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8790649_cf5b_411b_80b1_4a6a1484ce25);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailboxImpl {
+    fn Capabilities();
+    fn ChangeTracker();
+    fn DisplayName();
+    fn SetDisplayName();
+    fn Id();
+    fn IsOwnedByCurrentApp();
+    fn IsDataEncryptedUnderLock();
+    fn MailAddress();
+    fn SetMailAddress();
+    fn MailAddressAliases();
+    fn OtherAppReadAccess();
+    fn SetOtherAppReadAccess();
+    fn OtherAppWriteAccess();
+    fn SetOtherAppWriteAccess();
+    fn Policies();
+    fn SourceDisplayName();
+    fn SyncManager();
+    fn UserDataAccountId();
+    fn GetConversationReader();
+    fn GetConversationReaderWithOptions();
+    fn GetMessageReader();
+    fn GetMessageReaderWithOptions();
+    fn DeleteAsync();
+    fn GetConversationAsync();
+    fn GetFolderAsync();
+    fn GetMessageAsync();
+    fn GetSpecialFolderAsync();
+    fn SaveAsync();
+    fn MarkMessageAsSeenAsync();
+    fn MarkFolderAsSeenAsync();
+    fn MarkMessageReadAsync();
+    fn ChangeMessageFlagStateAsync();
+    fn TryMoveMessageAsync();
+    fn TryMoveFolderAsync();
+    fn TryMoveFolderWithNewNameAsync();
+    fn DeleteMessageAsync();
+    fn MarkFolderSyncEnabledAsync();
+    fn SendMessageAsync();
+    fn SaveDraftAsync();
+    fn DownloadMessageAsync();
+    fn DownloadAttachmentAsync();
+    fn CreateResponseMessageAsync();
+    fn TryUpdateMeetingResponseAsync();
+    fn TryForwardMeetingAsync();
+    fn TryProposeNewTimeForMeetingAsync();
+    fn MailboxChanged();
+    fn RemoveMailboxChanged();
+    fn SmartSendMessageAsync();
+    fn TrySetAutoReplySettingsAsync();
+    fn TryGetAutoReplySettingsAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6749,6 +6940,12 @@ unsafe impl ::windows::core::Interface for IEmailMailbox2 {
     type Vtable = IEmailMailbox2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14f8e404_6ca2_4ab2_9241_79cd7bf46346);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailbox2Impl: IEmailMailboxImpl {
+    fn LinkedMailboxId();
+    fn NetworkAccountId();
+    fn NetworkId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailMailbox2Vtbl(
@@ -6768,6 +6965,14 @@ pub struct IEmailMailbox3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailbox3 {
     type Vtable = IEmailMailbox3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3da5897b_458b_408a_8e37_ac8b05d8af56);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailbox3Impl: IEmailMailboxImpl + IEmailMailbox2Impl {
+    fn ResolveRecipientsAsync();
+    fn ValidateCertificatesAsync();
+    fn TryEmptyFolderAsync();
+    fn TryCreateFolderAsync();
+    fn TryDeleteFolderAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6796,6 +7001,10 @@ unsafe impl ::windows::core::Interface for IEmailMailbox4 {
     type Vtable = IEmailMailbox4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d1f301b_f222_48a7_b7b6_716356cd26a1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailbox4Impl {
+    fn RegisterSyncManagerAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailMailbox4Vtbl(
@@ -6815,6 +7024,10 @@ unsafe impl ::windows::core::Interface for IEmailMailbox5 {
     type Vtable = IEmailMailbox5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39967087_0092_49be_bd0e_5d4dc9d96d90);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailbox5Impl {
+    fn GetChangeTracker();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailMailbox5Vtbl(
@@ -6832,6 +7045,11 @@ pub struct IEmailMailboxAction(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxAction {
     type Vtable = IEmailMailboxActionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac9889fa_21fa_4927_9210_d410582fdf3e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailboxActionImpl {
+    fn Kind();
+    fn ChangeNumber();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6851,6 +7069,13 @@ pub struct IEmailMailboxAutoReply(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxAutoReply {
     type Vtable = IEmailMailboxAutoReplyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe223254c_8ab4_485b_b31f_04d15476bd59);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailboxAutoReplyImpl {
+    fn IsEnabled();
+    fn SetIsEnabled();
+    fn Response();
+    fn SetResponse();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6872,6 +7097,20 @@ pub struct IEmailMailboxAutoReplySettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxAutoReplySettings {
     type Vtable = IEmailMailboxAutoReplySettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa87a9fa8_0ac6_4b77_ba77_a6b99e9a27b8);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailboxAutoReplySettingsImpl {
+    fn IsEnabled();
+    fn SetIsEnabled();
+    fn ResponseKind();
+    fn SetResponseKind();
+    fn StartTime();
+    fn SetStartTime();
+    fn EndTime();
+    fn SetEndTime();
+    fn InternalReply();
+    fn KnownExternalReply();
+    fn UnknownExternalReply();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6905,6 +7144,17 @@ unsafe impl ::windows::core::Interface for IEmailMailboxCapabilities {
     type Vtable = IEmailMailboxCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeedec3a6_89db_4305_82c4_439e0a33da11);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailboxCapabilitiesImpl {
+    fn CanForwardMeetings();
+    fn CanGetAndSetExternalAutoReplies();
+    fn CanGetAndSetInternalAutoReplies();
+    fn CanUpdateMeetingResponses();
+    fn CanServerSearchFolders();
+    fn CanServerSearchMailbox();
+    fn CanProposeNewTimeForMeetings();
+    fn CanSmartSend();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailMailboxCapabilitiesVtbl(
@@ -6930,6 +7180,15 @@ unsafe impl ::windows::core::Interface for IEmailMailboxCapabilities2 {
     type Vtable = IEmailMailboxCapabilities2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69723ee4_2f21_4cbc_88ab_2e7602a4806b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailboxCapabilities2Impl {
+    fn CanResolveRecipients();
+    fn CanValidateCertificates();
+    fn CanEmptyFolder();
+    fn CanCreateFolder();
+    fn CanDeleteFolder();
+    fn CanMoveFolder();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailMailboxCapabilities2Vtbl(
@@ -6952,6 +7211,23 @@ pub struct IEmailMailboxCapabilities3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxCapabilities3 {
     type Vtable = IEmailMailboxCapabilities3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf690e944_56f2_45aa_872c_0ce9f3db0b5c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailboxCapabilities3Impl {
+    fn SetCanForwardMeetings();
+    fn SetCanGetAndSetExternalAutoReplies();
+    fn SetCanGetAndSetInternalAutoReplies();
+    fn SetCanUpdateMeetingResponses();
+    fn SetCanServerSearchFolders();
+    fn SetCanServerSearchMailbox();
+    fn SetCanProposeNewTimeForMeetings();
+    fn SetCanSmartSend();
+    fn SetCanResolveRecipients();
+    fn SetCanValidateCertificates();
+    fn SetCanEmptyFolder();
+    fn SetCanCreateFolder();
+    fn SetCanDeleteFolder();
+    fn SetCanMoveFolder();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6984,6 +7260,13 @@ unsafe impl ::windows::core::Interface for IEmailMailboxChange {
     type Vtable = IEmailMailboxChangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61edf54b_11ef_400c_adde_8cde65c85e66);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailboxChangeImpl {
+    fn ChangeType();
+    fn MailboxActions();
+    fn Message();
+    fn Folder();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailMailboxChangeVtbl(
@@ -7006,6 +7289,12 @@ unsafe impl ::windows::core::Interface for IEmailMailboxChangeReader {
     type Vtable = IEmailMailboxChangeReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdbd0ebb_c53d_4331_97be_be75a2146a75);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailboxChangeReaderImpl {
+    fn AcceptChanges();
+    fn AcceptChangesThrough();
+    fn ReadBatchAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailMailboxChangeReaderVtbl(
@@ -7026,6 +7315,13 @@ pub struct IEmailMailboxChangeTracker(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxChangeTracker {
     type Vtable = IEmailMailboxChangeTrackerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ae48638_5166_42b7_8882_fd21c92bdd4b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailboxChangeTrackerImpl {
+    fn IsTracking();
+    fn Enable();
+    fn GetChangeReader();
+    fn Reset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7048,6 +7344,10 @@ unsafe impl ::windows::core::Interface for IEmailMailboxChangedDeferral {
     type Vtable = IEmailMailboxChangedDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x779a74c1_97c5_4b54_b30d_306232623e6d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailboxChangedDeferralImpl {
+    fn Complete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailMailboxChangedDeferralVtbl(
@@ -7065,6 +7365,10 @@ pub struct IEmailMailboxChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxChangedEventArgs {
     type Vtable = IEmailMailboxChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cfd5f6e_01d4_4e4a_a44c_b22dd42ec207);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailboxChangedEventArgsImpl {
+    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7084,6 +7388,11 @@ unsafe impl ::windows::core::Interface for IEmailMailboxCreateFolderResult {
     type Vtable = IEmailMailboxCreateFolderResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb228557f_2885_4998_b595_8a2d374ce950);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailboxCreateFolderResultImpl {
+    fn Status();
+    fn Folder();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailMailboxCreateFolderResultVtbl(
@@ -7102,6 +7411,13 @@ pub struct IEmailMailboxPolicies(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxPolicies {
     type Vtable = IEmailMailboxPoliciesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f3345c5_1c3b_4dc7_b410_6373783e545d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailboxPoliciesImpl {
+    fn AllowedSmimeEncryptionAlgorithmNegotiation();
+    fn AllowSmimeSoftCertificates();
+    fn RequiredSmimeEncryptionAlgorithm();
+    fn RequiredSmimeSigningAlgorithm();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7126,6 +7442,11 @@ unsafe impl ::windows::core::Interface for IEmailMailboxPolicies2 {
     type Vtable = IEmailMailboxPolicies2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbab58afb_a14b_497c_a8e2_55eac29cc4b5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailboxPolicies2Impl {
+    fn MustEncryptSmimeMessages();
+    fn MustSignSmimeMessages();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailMailboxPolicies2Vtbl(
@@ -7144,6 +7465,15 @@ pub struct IEmailMailboxPolicies3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxPolicies3 {
     type Vtable = IEmailMailboxPolicies3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdd4a01f_4867_414a_81a2_803919c44191);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailboxPolicies3Impl {
+    fn SetAllowedSmimeEncryptionAlgorithmNegotiation();
+    fn SetAllowSmimeSoftCertificates();
+    fn SetRequiredSmimeEncryptionAlgorithm();
+    fn SetRequiredSmimeSigningAlgorithm();
+    fn SetMustEncryptSmimeMessages();
+    fn SetMustSignSmimeMessages();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7169,6 +7499,15 @@ pub struct IEmailMailboxSyncManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxSyncManager {
     type Vtable = IEmailMailboxSyncManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x517ac55a_3591_4b5d_85bc_c71dde862263);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailboxSyncManagerImpl {
+    fn Status();
+    fn LastSuccessfulSyncTime();
+    fn LastAttemptedSyncTime();
+    fn SyncAsync();
+    fn SyncStatusChanged();
+    fn RemoveSyncStatusChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7198,6 +7537,12 @@ unsafe impl ::windows::core::Interface for IEmailMailboxSyncManager2 {
     type Vtable = IEmailMailboxSyncManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd8dc97e_95c1_4f89_81b7_e6aecb6695fc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMailboxSyncManager2Impl {
+    fn SetStatus();
+    fn SetLastSuccessfulSyncTime();
+    fn SetLastAttemptedSyncTime();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailMailboxSyncManager2Vtbl(
@@ -7219,6 +7564,12 @@ pub struct IEmailManagerForUser(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailManagerForUser {
     type Vtable = IEmailManagerForUserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf773de9f_3ca5_4b0f_90c1_156e40174ce5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailManagerForUserImpl {
+    fn ShowComposeNewEmailAsync();
+    fn RequestStoreAsync();
+    fn User();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7243,6 +7594,10 @@ unsafe impl ::windows::core::Interface for IEmailManagerStatics {
     type Vtable = IEmailManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5128654_55c5_4890_a824_216c2618ce7f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailManagerStaticsImpl {
+    fn ShowComposeNewEmailAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailManagerStaticsVtbl(
@@ -7261,6 +7616,10 @@ pub struct IEmailManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailManagerStatics2 {
     type Vtable = IEmailManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac052da3_b194_425d_b6d9_d0f04135eda2);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailManagerStatics2Impl {
+    fn RequestStoreAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7281,6 +7640,10 @@ unsafe impl ::windows::core::Interface for IEmailManagerStatics3 {
     type Vtable = IEmailManagerStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a722395_843e_4945_b3aa_349e07a362c5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailManagerStatics3Impl {
+    fn GetForUser();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailManagerStatics3Vtbl(
@@ -7299,6 +7662,35 @@ pub struct IEmailMeetingInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMeetingInfo {
     type Vtable = IEmailMeetingInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31c03fa9_7933_415f_a275_d165ba07026b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMeetingInfoImpl {
+    fn AllowNewTimeProposal();
+    fn SetAllowNewTimeProposal();
+    fn AppointmentRoamingId();
+    fn SetAppointmentRoamingId();
+    fn AppointmentOriginalStartTime();
+    fn SetAppointmentOriginalStartTime();
+    fn Duration();
+    fn SetDuration();
+    fn IsAllDay();
+    fn SetIsAllDay();
+    fn IsResponseRequested();
+    fn SetIsResponseRequested();
+    fn Location();
+    fn SetLocation();
+    fn ProposedStartTime();
+    fn SetProposedStartTime();
+    fn ProposedDuration();
+    fn SetProposedDuration();
+    fn RecurrenceStartTime();
+    fn SetRecurrenceStartTime();
+    fn Recurrence();
+    fn SetRecurrence();
+    fn RemoteChangeNumber();
+    fn SetRemoteChangeNumber();
+    fn StartTime();
+    fn SetStartTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7357,6 +7749,10 @@ unsafe impl ::windows::core::Interface for IEmailMeetingInfo2 {
     type Vtable = IEmailMeetingInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e59386d_b0d9_4fe5_867c_e31ed2b588b8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMeetingInfo2Impl {
+    fn IsReportedOutOfDateByServer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailMeetingInfo2Vtbl(
@@ -7374,6 +7770,17 @@ pub struct IEmailMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMessage {
     type Vtable = IEmailMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c6d948d_80b5_48f8_b0b1_e04e430f44e5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMessageImpl {
+    fn Subject();
+    fn SetSubject();
+    fn Body();
+    fn SetBody();
+    fn To();
+    fn CC();
+    fn Bcc();
+    fn Attachments();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7403,6 +7810,54 @@ pub struct IEmailMessage2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMessage2 {
     type Vtable = IEmailMessage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdc8248b_9f1a_44db_bd3c_65c384770f86);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMessage2Impl {
+    fn Id();
+    fn RemoteId();
+    fn SetRemoteId();
+    fn MailboxId();
+    fn ConversationId();
+    fn FolderId();
+    fn AllowInternetImages();
+    fn SetAllowInternetImages();
+    fn ChangeNumber();
+    fn DownloadState();
+    fn SetDownloadState();
+    fn EstimatedDownloadSizeInBytes();
+    fn SetEstimatedDownloadSizeInBytes();
+    fn FlagState();
+    fn SetFlagState();
+    fn HasPartialBodies();
+    fn Importance();
+    fn SetImportance();
+    fn InResponseToMessageId();
+    fn IrmInfo();
+    fn SetIrmInfo();
+    fn IsDraftMessage();
+    fn IsRead();
+    fn SetIsRead();
+    fn IsSeen();
+    fn SetIsSeen();
+    fn IsServerSearchMessage();
+    fn IsSmartSendable();
+    fn MessageClass();
+    fn SetMessageClass();
+    fn NormalizedSubject();
+    fn OriginalCodePage();
+    fn SetOriginalCodePage();
+    fn Preview();
+    fn SetPreview();
+    fn LastResponseKind();
+    fn SetLastResponseKind();
+    fn Sender();
+    fn SetSender();
+    fn SentTime();
+    fn SetSentTime();
+    fn MeetingInfo();
+    fn SetMeetingInfo();
+    fn GetBodyStream();
+    fn SetBodyStream();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7470,6 +7925,13 @@ unsafe impl ::windows::core::Interface for IEmailMessage3 {
     type Vtable = IEmailMessage3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1ea675c_e598_4d29_a018_fc7b7eece0a1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMessage3Impl {
+    fn SmimeData();
+    fn SetSmimeData();
+    fn SmimeKind();
+    fn SetSmimeKind();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailMessage3Vtbl(
@@ -7493,6 +7955,12 @@ unsafe impl ::windows::core::Interface for IEmailMessage4 {
     type Vtable = IEmailMessage4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x317cf181_3e7f_4a05_8394_3e10336dd435);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMessage4Impl {
+    fn ReplyTo();
+    fn SentRepresenting();
+    fn SetSentRepresenting();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailMessage4Vtbl(
@@ -7514,6 +7982,11 @@ unsafe impl ::windows::core::Interface for IEmailMessageBatch {
     type Vtable = IEmailMessageBatchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x605cd08f_25d9_4f1b_9e51_0514c0149653);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMessageBatchImpl {
+    fn Messages();
+    fn Status();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailMessageBatchVtbl(
@@ -7534,6 +8007,10 @@ unsafe impl ::windows::core::Interface for IEmailMessageReader {
     type Vtable = IEmailMessageReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f4abe9f_6213_4a85_a3b0_f92d1a839d19);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailMessageReaderImpl {
+    fn ReadBatchAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailMessageReaderVtbl(
@@ -7552,6 +8029,17 @@ pub struct IEmailQueryOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailQueryOptions {
     type Vtable = IEmailQueryOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45504b9b_3e7f_4d52_b6dd_d6fd4e1fbd9a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailQueryOptionsImpl {
+    fn TextSearch();
+    fn SortDirection();
+    fn SetSortDirection();
+    fn SortProperty();
+    fn SetSortProperty();
+    fn Kind();
+    fn SetKind();
+    fn FolderIds();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7579,6 +8067,11 @@ unsafe impl ::windows::core::Interface for IEmailQueryOptionsFactory {
     type Vtable = IEmailQueryOptionsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88f1a1b8_78ab_4ee8_b4e3_046d6e2fe5e2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailQueryOptionsFactoryImpl {
+    fn CreateWithText();
+    fn CreateWithTextAndFields();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailQueryOptionsFactoryVtbl(
@@ -7597,6 +8090,15 @@ pub struct IEmailQueryTextSearch(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailQueryTextSearch {
     type Vtable = IEmailQueryTextSearchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fa0a288_3c5d_46a5_a6e2_31d6fd17e540);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailQueryTextSearchImpl {
+    fn Fields();
+    fn SetFields();
+    fn SearchScope();
+    fn SetSearchScope();
+    fn Text();
+    fn SetText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7621,6 +8123,13 @@ unsafe impl ::windows::core::Interface for IEmailRecipient {
     type Vtable = IEmailRecipientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcae825b3_4478_4814_b900_c902b5e19b53);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailRecipientImpl {
+    fn Name();
+    fn SetName();
+    fn Address();
+    fn SetAddress();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailRecipientVtbl(
@@ -7642,6 +8151,11 @@ unsafe impl ::windows::core::Interface for IEmailRecipientFactory {
     type Vtable = IEmailRecipientFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5500b84d_c79a_4ef8_b909_722e18e3935d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailRecipientFactoryImpl {
+    fn Create();
+    fn CreateWithName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailRecipientFactoryVtbl(
@@ -7660,6 +8174,11 @@ pub struct IEmailRecipientResolutionResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailRecipientResolutionResult {
     type Vtable = IEmailRecipientResolutionResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x918338fa_8d8d_4573_80d1_07172a34b98d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailRecipientResolutionResultImpl {
+    fn Status();
+    fn PublicKeys();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7681,6 +8200,11 @@ unsafe impl ::windows::core::Interface for IEmailRecipientResolutionResult2 {
     type Vtable = IEmailRecipientResolutionResult2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e420bb6_ce5b_4bde_b9d4_e16da0b09fca);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailRecipientResolutionResult2Impl {
+    fn SetStatus();
+    fn SetPublicKeys();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailRecipientResolutionResult2Vtbl(
@@ -7700,6 +8224,20 @@ pub struct IEmailStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailStore {
     type Vtable = IEmailStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf803226e_9137_4f8b_a470_279ac3058eb6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailStoreImpl {
+    fn FindMailboxesAsync();
+    fn GetConversationReader();
+    fn GetConversationReaderWithOptions();
+    fn GetMessageReader();
+    fn GetMessageReaderWithOptions();
+    fn GetMailboxAsync();
+    fn GetConversationAsync();
+    fn GetFolderAsync();
+    fn GetMessageAsync();
+    fn CreateMailboxAsync();
+    fn CreateMailboxInAccountAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7736,6 +8274,8 @@ unsafe impl ::windows::core::Interface for IEmailStoreNotificationTriggerDetails
     type Vtable = IEmailStoreNotificationTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce17563c_46e6_43c9_96f7_facf7dd710cb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEmailStoreNotificationTriggerDetailsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailStoreNotificationTriggerDetailsVtbl(

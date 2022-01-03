@@ -92,6 +92,8 @@ unsafe impl ::windows::core::Interface for IApplicationDataManager {
     type Vtable = IApplicationDataManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74d10432_2e99_4000_9a3a_64307e858129);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationDataManagerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationDataManagerVtbl(
@@ -108,6 +110,10 @@ pub struct IApplicationDataManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApplicationDataManagerStatics {
     type Vtable = IApplicationDataManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e1862e3_698e_49a1_9752_dee94925b9b3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationDataManagerStaticsImpl {
+    fn CreateForPackageFamily();
 }
 #[repr(C)]
 #[doc(hidden)]

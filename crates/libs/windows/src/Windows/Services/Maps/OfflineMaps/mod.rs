@@ -6,6 +6,16 @@ unsafe impl ::windows::core::Interface for IOfflineMapPackage {
     type Vtable = IOfflineMapPackageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa797673b_a5b5_4144_b525_e68c8862664b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IOfflineMapPackageImpl {
+    fn Status();
+    fn DisplayName();
+    fn EnclosingRegionName();
+    fn EstimatedSizeInBytes();
+    fn RemoveStatusChanged();
+    fn StatusChanged();
+    fn RequestStartDownloadAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineMapPackageVtbl(
@@ -33,6 +43,11 @@ unsafe impl ::windows::core::Interface for IOfflineMapPackageQueryResult {
     type Vtable = IOfflineMapPackageQueryResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55585411_39e1_4e41_a4e1_5f4872bee199);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IOfflineMapPackageQueryResultImpl {
+    fn Status();
+    fn Packages();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineMapPackageQueryResultVtbl(
@@ -53,6 +68,10 @@ unsafe impl ::windows::core::Interface for IOfflineMapPackageStartDownloadResult
     type Vtable = IOfflineMapPackageStartDownloadResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd965b918_d4d6_4afe_9378_3ec71ef11c3d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IOfflineMapPackageStartDownloadResultImpl {
+    fn Status();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineMapPackageStartDownloadResultVtbl(
@@ -70,6 +89,12 @@ pub struct IOfflineMapPackageStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOfflineMapPackageStatics {
     type Vtable = IOfflineMapPackageStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185e7922_a831_4ab0_941f_6998fa929285);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IOfflineMapPackageStaticsImpl {
+    fn FindPackagesAsync();
+    fn FindPackagesInBoundingBoxAsync();
+    fn FindPackagesInGeocircleAsync();
 }
 #[repr(C)]
 #[doc(hidden)]

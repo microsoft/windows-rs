@@ -66,6 +66,12 @@ unsafe impl ::windows::core::Interface for IMLOperatorAttributes {
     type Vtable = IMLOperatorAttributesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b1b1759_ec40_466c_aab4_beb5347fd24c);
 }
+pub trait IMLOperatorAttributesImpl {
+    fn GetAttributeElementCount();
+    fn GetAttribute();
+    fn GetStringAttributeElementLength();
+    fn GetStringAttributeElement();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLOperatorAttributesVtbl(
@@ -129,6 +135,9 @@ impl ::core::fmt::Debug for IMLOperatorKernel {
 unsafe impl ::windows::core::Interface for IMLOperatorKernel {
     type Vtable = IMLOperatorKernelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11c4b4a0_b467_4eaa_a1a6_b961d8d0ed79);
+}
+pub trait IMLOperatorKernelImpl {
+    fn Compute();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -201,6 +210,13 @@ impl ::core::fmt::Debug for IMLOperatorKernelContext {
 unsafe impl ::windows::core::Interface for IMLOperatorKernelContext {
     type Vtable = IMLOperatorKernelContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82536a28_f022_4769_9d3f_8b278f84c0c3);
+}
+pub trait IMLOperatorKernelContextImpl {
+    fn GetInputTensor();
+    fn GetOutputTensor();
+    fn GetOutputTensor();
+    fn AllocateTemporaryData();
+    fn GetExecutionInterface();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -340,6 +356,17 @@ unsafe impl ::windows::core::Interface for IMLOperatorKernelCreationContext {
     type Vtable = IMLOperatorKernelCreationContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5459b53d_a0fc_4665_addd_70171ef7e631);
 }
+pub trait IMLOperatorKernelCreationContextImpl: IMLOperatorAttributesImpl {
+    fn GetInputCount();
+    fn GetOutputCount();
+    fn IsInputValid();
+    fn IsOutputValid();
+    fn GetInputEdgeDescription();
+    fn GetOutputEdgeDescription();
+    fn HasTensorShapeDescription();
+    fn GetTensorShapeDescription();
+    fn GetExecutionInterface();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLOperatorKernelCreationContextVtbl(
@@ -414,6 +441,9 @@ unsafe impl ::windows::core::Interface for IMLOperatorKernelFactory {
     type Vtable = IMLOperatorKernelFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef15ad6f_0dc9_4908_ab35_a575a30dfbf8);
 }
+pub trait IMLOperatorKernelFactoryImpl {
+    fn CreateKernel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLOperatorKernelFactoryVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, kernel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -471,6 +501,10 @@ impl ::core::fmt::Debug for IMLOperatorRegistry {
 unsafe impl ::windows::core::Interface for IMLOperatorRegistry {
     type Vtable = IMLOperatorRegistryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2af9dd2d_b516_4672_9ab5_530c208493ad);
+}
+pub trait IMLOperatorRegistryImpl {
+    fn RegisterOperatorSetSchema();
+    fn RegisterOperatorKernel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -604,6 +638,16 @@ unsafe impl ::windows::core::Interface for IMLOperatorShapeInferenceContext {
     type Vtable = IMLOperatorShapeInferenceContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x105b6b29_5408_4a68_9959_09b5955a3492);
 }
+pub trait IMLOperatorShapeInferenceContextImpl: IMLOperatorAttributesImpl {
+    fn GetInputCount();
+    fn GetOutputCount();
+    fn IsInputValid();
+    fn IsOutputValid();
+    fn GetInputEdgeDescription();
+    fn GetInputTensorDimensionCount();
+    fn GetInputTensorShape();
+    fn SetOutputTensorShape();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLOperatorShapeInferenceContextVtbl(
@@ -675,6 +719,9 @@ impl ::core::fmt::Debug for IMLOperatorShapeInferrer {
 unsafe impl ::windows::core::Interface for IMLOperatorShapeInferrer {
     type Vtable = IMLOperatorShapeInferrerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x540be5be_a6c9_40ee_83f6_d2b8b40a7798);
+}
+pub trait IMLOperatorShapeInferrerImpl {
+    fn InferOutputShapes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -751,6 +798,15 @@ impl ::core::fmt::Debug for IMLOperatorTensor {
 unsafe impl ::windows::core::Interface for IMLOperatorTensor {
     type Vtable = IMLOperatorTensorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fe41f41_f430_440e_aece_54416dc8b9db);
+}
+pub trait IMLOperatorTensorImpl {
+    fn GetDimensionCount();
+    fn GetShape();
+    fn GetTensorDataType();
+    fn IsCpuData();
+    fn IsDataInterface();
+    fn GetData();
+    fn GetDataInterface();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -832,6 +888,13 @@ impl ::core::fmt::Debug for IMLOperatorTensorShapeDescription {
 unsafe impl ::windows::core::Interface for IMLOperatorTensorShapeDescription {
     type Vtable = IMLOperatorTensorShapeDescriptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf20e8cbe_3b28_4248_be95_f96fbc6e4643);
+}
+pub trait IMLOperatorTensorShapeDescriptionImpl {
+    fn GetInputTensorDimensionCount();
+    fn GetInputTensorShape();
+    fn HasOutputShapeDescription();
+    fn GetOutputTensorDimensionCount();
+    fn GetOutputTensorShape();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -957,6 +1020,14 @@ unsafe impl ::windows::core::Interface for IMLOperatorTypeInferenceContext {
     type Vtable = IMLOperatorTypeInferenceContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec893bb1_f938_427b_8488_c8dcf775f138);
 }
+pub trait IMLOperatorTypeInferenceContextImpl: IMLOperatorAttributesImpl {
+    fn GetInputCount();
+    fn GetOutputCount();
+    fn IsInputValid();
+    fn IsOutputValid();
+    fn GetInputEdgeDescription();
+    fn SetOutputEdgeDescription();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLOperatorTypeInferenceContextVtbl(
@@ -1027,6 +1098,9 @@ unsafe impl ::windows::core::Interface for IMLOperatorTypeInferrer {
     type Vtable = IMLOperatorTypeInferrerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x781aeb48_9bcb_4797_bf77_8bf455217beb);
 }
+pub trait IMLOperatorTypeInferrerImpl {
+    fn InferOutputTypes();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLOperatorTypeInferrerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -1089,6 +1163,11 @@ impl ::core::fmt::Debug for IWinMLEvaluationContext {
 unsafe impl ::windows::core::Interface for IWinMLEvaluationContext {
     type Vtable = IWinMLEvaluationContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95848f9e_583d_4054_af12_916387cd8426);
+}
+pub trait IWinMLEvaluationContextImpl {
+    fn BindValue();
+    fn GetValueByName();
+    fn Clear();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1170,6 +1249,12 @@ unsafe impl ::windows::core::Interface for IWinMLModel {
     type Vtable = IWinMLModelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2eeb6a9_f31f_4055_a521_e30b5b33664a);
 }
+pub trait IWinMLModelImpl {
+    fn GetDescription();
+    fn EnumerateMetadata();
+    fn EnumerateModelInputs();
+    fn EnumerateModelOutputs();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWinMLModelVtbl(
@@ -1246,6 +1331,11 @@ unsafe impl ::windows::core::Interface for IWinMLRuntime {
     type Vtable = IWinMLRuntimeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0425329_40ae_48d9_bce3_829ef7b8a41a);
 }
+pub trait IWinMLRuntimeImpl {
+    fn LoadModel();
+    fn CreateEvaluationContext();
+    fn EvaluateModel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWinMLRuntimeVtbl(
@@ -1307,6 +1397,9 @@ impl ::core::fmt::Debug for IWinMLRuntimeFactory {
 unsafe impl ::windows::core::Interface for IWinMLRuntimeFactory {
     type Vtable = IWinMLRuntimeFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa807b84d_4ae5_4bc0_a76a_941aa246bd41);
+}
+pub trait IWinMLRuntimeFactoryImpl {
+    fn CreateRuntime();
 }
 #[repr(C)]
 #[doc(hidden)]

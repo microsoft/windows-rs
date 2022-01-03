@@ -91,6 +91,12 @@ unsafe impl ::windows::core::Interface for IAsynchronousDataRetriever {
     type Vtable = IAsynchronousDataRetrieverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fc7e470_61ea_4a88_9be4_df56a27cfef2);
 }
+pub trait IAsynchronousDataRetrieverImpl {
+    fn GetIdParameters();
+    fn RegisterCallback();
+    fn RevokeCallback();
+    fn LoadChangeData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsynchronousDataRetrieverVtbl(
@@ -184,6 +190,16 @@ unsafe impl ::windows::core::Interface for IChangeConflict {
     type Vtable = IChangeConflictVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x014ebf97_9f20_4f7a_bdd4_25979c77c002);
 }
+pub trait IChangeConflictImpl {
+    fn GetDestinationProviderConflictingChange();
+    fn GetSourceProviderConflictingChange();
+    fn GetDestinationProviderConflictingData();
+    fn GetSourceProviderConflictingData();
+    fn GetResolveActionForChange();
+    fn SetResolveActionForChange();
+    fn GetResolveActionForChangeUnit();
+    fn SetResolveActionForChangeUnit();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChangeConflictVtbl(
@@ -255,6 +271,11 @@ impl ::core::fmt::Debug for IChangeUnitException {
 unsafe impl ::windows::core::Interface for IChangeUnitException {
     type Vtable = IChangeUnitExceptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cd7ee7c_fec0_4021_99ee_f0e5348f2a5f);
+}
+pub trait IChangeUnitExceptionImpl {
+    fn GetItemId();
+    fn GetChangeUnitId();
+    fn GetClockVector();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -347,6 +368,11 @@ unsafe impl ::windows::core::Interface for IChangeUnitListFilterInfo {
     type Vtable = IChangeUnitListFilterInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2837671_0bdf_43fa_b502_232375fb50c2);
 }
+pub trait IChangeUnitListFilterInfoImpl: ISyncFilterInfoImpl {
+    fn Initialize();
+    fn GetChangeUnitIdCount();
+    fn GetChangeUnitId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChangeUnitListFilterInfoVtbl(
@@ -411,6 +437,10 @@ unsafe impl ::windows::core::Interface for IClockVector {
     type Vtable = IClockVectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14b2274a_8698_4cc6_9333_f89bd1d47bc4);
 }
+pub trait IClockVectorImpl {
+    fn GetClockVectorElements();
+    fn GetClockVectorElementCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClockVectorVtbl(
@@ -472,6 +502,10 @@ impl ::core::fmt::Debug for IClockVectorElement {
 unsafe impl ::windows::core::Interface for IClockVectorElement {
     type Vtable = IClockVectorElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe71c4250_adf8_4a07_8fae_5669596909c1);
+}
+pub trait IClockVectorElementImpl {
+    fn GetReplicaKey();
+    fn GetTickCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -563,6 +597,11 @@ impl ::core::fmt::Debug for ICombinedFilterInfo {
 unsafe impl ::windows::core::Interface for ICombinedFilterInfo {
     type Vtable = ICombinedFilterInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11f9de71_2818_4779_b2ac_42d450565f45);
+}
+pub trait ICombinedFilterInfoImpl: ISyncFilterInfoImpl {
+    fn GetFilterCount();
+    fn GetFilterInfo();
+    fn GetFilterCombinationType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -674,6 +713,20 @@ unsafe impl ::windows::core::Interface for IConstraintConflict {
     type Vtable = IConstraintConflictVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00d2302e_1cf8_4835_b85f_b7ca4f799e0a);
 }
+pub trait IConstraintConflictImpl {
+    fn GetDestinationProviderConflictingChange();
+    fn GetSourceProviderConflictingChange();
+    fn GetDestinationProviderOriginalChange();
+    fn GetDestinationProviderConflictingData();
+    fn GetSourceProviderConflictingData();
+    fn GetDestinationProviderOriginalData();
+    fn GetConstraintResolveActionForChange();
+    fn SetConstraintResolveActionForChange();
+    fn GetConstraintResolveActionForChangeUnit();
+    fn SetConstraintResolveActionForChangeUnit();
+    fn GetConstraintConflictReason();
+    fn IsTemporary();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConstraintConflictVtbl(
@@ -741,6 +794,9 @@ impl ::core::fmt::Debug for IConstructReplicaKeyMap {
 unsafe impl ::windows::core::Interface for IConstructReplicaKeyMap {
     type Vtable = IConstructReplicaKeyMapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xded10970_ec85_4115_b52c_4405845642a5);
+}
+pub trait IConstructReplicaKeyMapImpl {
+    fn FindOrAddReplica();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -810,6 +866,13 @@ unsafe impl ::windows::core::Interface for ICoreFragment {
     type Vtable = ICoreFragmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x613b2ab5_b304_47d9_9c31_ce6c54401a15);
 }
+pub trait ICoreFragmentImpl {
+    fn NextColumn();
+    fn NextRange();
+    fn Reset();
+    fn GetColumnCount();
+    fn GetRangeCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreFragmentVtbl(
@@ -874,6 +937,10 @@ impl ::core::fmt::Debug for ICoreFragmentInspector {
 unsafe impl ::windows::core::Interface for ICoreFragmentInspector {
     type Vtable = ICoreFragmentInspectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7fcc5fd_ae26_4679_ba16_96aac583c134);
+}
+pub trait ICoreFragmentInspectorImpl {
+    fn NextCoreFragments();
+    fn Reset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -957,6 +1024,9 @@ impl ::core::fmt::Debug for ICustomFilterInfo {
 unsafe impl ::windows::core::Interface for ICustomFilterInfo {
     type Vtable = ICustomFilterInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d335dff_6f88_4e4d_91a8_a3f351cfd473);
+}
+pub trait ICustomFilterInfoImpl: ISyncFilterInfoImpl {
+    fn GetSyncFilter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1100,6 +1170,10 @@ unsafe impl ::windows::core::Interface for IDataRetrieverCallback {
     type Vtable = IDataRetrieverCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71b4863b_f969_4676_bbc3_3d9fdc3fb2c7);
 }
+pub trait IDataRetrieverCallbackImpl {
+    fn LoadChangeDataComplete();
+    fn LoadChangeDataError();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataRetrieverCallbackVtbl(
@@ -1170,6 +1244,12 @@ impl ::core::fmt::Debug for IEnumChangeUnitExceptions {
 unsafe impl ::windows::core::Interface for IEnumChangeUnitExceptions {
     type Vtable = IEnumChangeUnitExceptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3074e802_9319_4420_be21_1022e2e21da8);
+}
+pub trait IEnumChangeUnitExceptionsImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1244,6 +1324,12 @@ unsafe impl ::windows::core::Interface for IEnumClockVector {
     type Vtable = IEnumClockVectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x525844db_2837_4799_9e80_81a66e02220c);
 }
+pub trait IEnumClockVectorImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumClockVectorVtbl(
@@ -1317,6 +1403,12 @@ unsafe impl ::windows::core::Interface for IEnumFeedClockVector {
     type Vtable = IEnumFeedClockVectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x550f763d_146a_48f6_abeb_6c88c7f70514);
 }
+pub trait IEnumFeedClockVectorImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumFeedClockVectorVtbl(
@@ -1376,6 +1468,9 @@ impl ::core::fmt::Debug for IEnumItemIds {
 unsafe impl ::windows::core::Interface for IEnumItemIds {
     type Vtable = IEnumItemIdsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43aa3f61_4b2e_4b60_83df_b110d3e148f1);
+}
+pub trait IEnumItemIdsImpl {
+    fn Next();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1441,6 +1536,12 @@ impl ::core::fmt::Debug for IEnumRangeExceptions {
 unsafe impl ::windows::core::Interface for IEnumRangeExceptions {
     type Vtable = IEnumRangeExceptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0944439f_ddb1_4176_b703_046ff22a2386);
+}
+pub trait IEnumRangeExceptionsImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1515,6 +1616,12 @@ unsafe impl ::windows::core::Interface for IEnumSingleItemExceptions {
     type Vtable = IEnumSingleItemExceptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe563381c_1b4d_4c66_9796_c86faccdcd40);
 }
+pub trait IEnumSingleItemExceptionsImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumSingleItemExceptionsVtbl(
@@ -1587,6 +1694,12 @@ impl ::core::fmt::Debug for IEnumSyncChangeUnits {
 unsafe impl ::windows::core::Interface for IEnumSyncChangeUnits {
     type Vtable = IEnumSyncChangeUnitsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x346b35f1_8703_4c6d_ab1a_4dbca2cff97f);
+}
+pub trait IEnumSyncChangeUnitsImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1661,6 +1774,12 @@ unsafe impl ::windows::core::Interface for IEnumSyncChanges {
     type Vtable = IEnumSyncChangesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f86be4a_5e78_4e32_ac1c_c24fd223ef85);
 }
+pub trait IEnumSyncChangesImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumSyncChangesVtbl(
@@ -1734,6 +1853,12 @@ unsafe impl ::windows::core::Interface for IEnumSyncProviderConfigUIInfos {
     type Vtable = IEnumSyncProviderConfigUIInfosVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6be2602_17c6_4658_a2d7_68ed3330f641);
 }
+pub trait IEnumSyncProviderConfigUIInfosImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumSyncProviderConfigUIInfosVtbl(
@@ -1806,6 +1931,12 @@ impl ::core::fmt::Debug for IEnumSyncProviderInfos {
 unsafe impl ::windows::core::Interface for IEnumSyncProviderInfos {
     type Vtable = IEnumSyncProviderInfosVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa04ba850_5eb1_460d_a973_393fcb608a11);
+}
+pub trait IEnumSyncProviderInfosImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1900,6 +2031,10 @@ unsafe impl ::windows::core::Interface for IFeedClockVector {
     type Vtable = IFeedClockVectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d1d98d1_9fb8_4ec9_a553_54dd924e0f67);
 }
+pub trait IFeedClockVectorImpl: IClockVectorImpl {
+    fn GetUpdateCount();
+    fn IsNoConflictsSpecified();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedClockVectorVtbl(
@@ -1993,6 +2128,10 @@ unsafe impl ::windows::core::Interface for IFeedClockVectorElement {
     type Vtable = IFeedClockVectorElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa40b46d2_e97b_4156_b6da_991f501b0f05);
 }
+pub trait IFeedClockVectorElementImpl: IClockVectorElementImpl {
+    fn GetSyncTime();
+    fn GetFlags();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedClockVectorElementVtbl(
@@ -2066,6 +2205,12 @@ unsafe impl ::windows::core::Interface for IFilterKeyMap {
     type Vtable = IFilterKeyMapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca169652_07c6_4708_a3da_6e4eba8d2297);
 }
+pub trait IFilterKeyMapImpl {
+    fn GetCount();
+    fn AddFilter();
+    fn GetFilter();
+    fn Serialize();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFilterKeyMapVtbl(
@@ -2126,6 +2271,9 @@ unsafe impl ::windows::core::Interface for IFilterRequestCallback {
     type Vtable = IFilterRequestCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82df8873_6360_463a_a8a1_ede5e1a1594d);
 }
+pub trait IFilterRequestCallbackImpl {
+    fn RequestFilter();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFilterRequestCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilter: *mut ::core::ffi::c_void, filteringtype: FILTERING_TYPE) -> ::windows::core::HRESULT);
@@ -2181,6 +2329,10 @@ impl ::core::fmt::Debug for IFilterTrackingProvider {
 unsafe impl ::windows::core::Interface for IFilterTrackingProvider {
     type Vtable = IFilterTrackingProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x743383c0_fc4e_45ba_ad81_d9d84c7a24f8);
+}
+pub trait IFilterTrackingProviderImpl {
+    fn SpecifyTrackedFilters();
+    fn AddTrackedFilter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2240,6 +2392,9 @@ unsafe impl ::windows::core::Interface for IFilterTrackingRequestCallback {
     type Vtable = IFilterTrackingRequestCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x713ca7bb_c858_4674_b4b6_1122436587a9);
 }
+pub trait IFilterTrackingRequestCallbackImpl {
+    fn RequestTrackedFilter();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFilterTrackingRequestCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilter: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -2296,6 +2451,10 @@ impl ::core::fmt::Debug for IFilterTrackingSyncChangeBuilder {
 unsafe impl ::windows::core::Interface for IFilterTrackingSyncChangeBuilder {
     type Vtable = IFilterTrackingSyncChangeBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x295024a0_70da_4c58_883c_ce2afb308d0b);
+}
+pub trait IFilterTrackingSyncChangeBuilderImpl {
+    fn AddFilterChange();
+    fn SetAllChangeUnitsPresentFlag();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2479,6 +2638,9 @@ unsafe impl ::windows::core::Interface for IForgottenKnowledge {
     type Vtable = IForgottenKnowledgeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x456e0f96_6036_452b_9f9d_bcc4b4a85db2);
 }
+pub trait IForgottenKnowledgeImpl: ISyncKnowledgeImpl {
+    fn ForgetToVersion();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IForgottenKnowledgeVtbl(
@@ -2610,6 +2772,15 @@ unsafe impl ::windows::core::Interface for IKnowledgeSyncProvider {
     type Vtable = IKnowledgeSyncProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43434a49_8da4_47f2_8172_ad7b8b024978);
 }
+pub trait IKnowledgeSyncProviderImpl: ISyncProviderImpl {
+    fn BeginSession();
+    fn GetSyncBatchParameters();
+    fn GetChangeBatch();
+    fn GetFullEnumerationChangeBatch();
+    fn ProcessChangeBatch();
+    fn ProcessFullEnumerationChangeBatch();
+    fn EndSession();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnowledgeSyncProviderVtbl(
@@ -2684,6 +2855,11 @@ unsafe impl ::windows::core::Interface for ILoadChangeContext {
     type Vtable = ILoadChangeContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44a4aaca_ec39_46d5_b5c9_d633c0ee67e2);
 }
+pub trait ILoadChangeContextImpl {
+    fn GetSyncChange();
+    fn SetRecoverableErrorOnChange();
+    fn SetRecoverableErrorOnChangeUnit();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoadChangeContextVtbl(
@@ -2742,6 +2918,9 @@ impl ::core::fmt::Debug for IProviderConverter {
 unsafe impl ::windows::core::Interface for IProviderConverter {
     type Vtable = IProviderConverterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x809b7276_98cf_4957_93a5_0ebdd3dddffd);
+}
+pub trait IProviderConverterImpl {
+    fn Initialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2802,6 +2981,11 @@ impl ::core::fmt::Debug for IRangeException {
 unsafe impl ::windows::core::Interface for IRangeException {
     type Vtable = IRangeExceptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75ae8777_6848_49f7_956c_a3a92f5096e8);
+}
+pub trait IRangeExceptionImpl {
+    fn GetClosedRangeStart();
+    fn GetClosedRangeEnd();
+    fn GetClockVector();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2879,6 +3063,13 @@ unsafe impl ::windows::core::Interface for IRecoverableError {
     type Vtable = IRecoverableErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f5625e8_0a7b_45ee_9637_1ce13645909e);
 }
+pub trait IRecoverableErrorImpl {
+    fn GetStage();
+    fn GetProvider();
+    fn GetChangeWithRecoverableError();
+    fn GetRecoverableErrorDataForChange();
+    fn GetRecoverableErrorDataForChangeUnit();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRecoverableErrorVtbl(
@@ -2950,6 +3141,11 @@ impl ::core::fmt::Debug for IRecoverableErrorData {
 unsafe impl ::windows::core::Interface for IRecoverableErrorData {
     type Vtable = IRecoverableErrorDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb37c4a0a_4b7d_4c2d_9711_3b00d119b1c8);
+}
+pub trait IRecoverableErrorDataImpl {
+    fn Initialize();
+    fn GetItemDisplayName();
+    fn GetErrorDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3023,6 +3219,11 @@ unsafe impl ::windows::core::Interface for IRegisteredSyncProvider {
     type Vtable = IRegisteredSyncProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x913bcf76_47c1_40b5_a896_5e8a9c414c14);
 }
+pub trait IRegisteredSyncProviderImpl {
+    fn Init();
+    fn GetInstanceId();
+    fn Reset();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRegisteredSyncProviderVtbl(
@@ -3091,6 +3292,11 @@ unsafe impl ::windows::core::Interface for IReplicaKeyMap {
     type Vtable = IReplicaKeyMapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2209f4fc_fd10_4ff0_84a8_f0a1982e440e);
 }
+pub trait IReplicaKeyMapImpl {
+    fn LookupReplicaKey();
+    fn LookupReplicaId();
+    fn Serialize();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReplicaKeyMapVtbl(
@@ -3150,6 +3356,9 @@ unsafe impl ::windows::core::Interface for IRequestFilteredSync {
     type Vtable = IRequestFilteredSyncVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e020184_6d18_46a7_a32a_da4aeb06696c);
 }
+pub trait IRequestFilteredSyncImpl {
+    fn SpecifyFilter();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRequestFilteredSyncVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -3205,6 +3414,10 @@ impl ::core::fmt::Debug for ISingleItemException {
 unsafe impl ::windows::core::Interface for ISingleItemException {
     type Vtable = ISingleItemExceptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x892fb9b0_7c55_4a18_9316_fdf449569b64);
+}
+pub trait ISingleItemExceptionImpl {
+    fn GetItemId();
+    fn GetClockVector();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3264,6 +3477,9 @@ unsafe impl ::windows::core::Interface for ISupportFilteredSync {
     type Vtable = ISupportFilteredSyncVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d128ded_d555_4e0d_bf4b_fb213a8a9302);
 }
+pub trait ISupportFilteredSyncImpl {
+    fn AddFilter();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISupportFilteredSyncVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilter: *mut ::core::ffi::c_void, filteringtype: FILTERING_TYPE) -> ::windows::core::HRESULT);
@@ -3319,6 +3535,10 @@ impl ::core::fmt::Debug for ISupportLastWriteTime {
 unsafe impl ::windows::core::Interface for ISupportLastWriteTime {
     type Vtable = ISupportLastWriteTimeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeadf816f_d0bd_43ca_8f40_5acdc6c06f7a);
+}
+pub trait ISupportLastWriteTimeImpl {
+    fn GetItemChangeTime();
+    fn GetChangeUnitChangeTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3393,6 +3613,13 @@ impl ::core::fmt::Debug for ISyncCallback {
 unsafe impl ::windows::core::Interface for ISyncCallback {
     type Vtable = ISyncCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0599797f_5ed9_485c_ae36_0c5d1bf2e7a5);
+}
+pub trait ISyncCallbackImpl {
+    fn OnProgress();
+    fn OnChange();
+    fn OnConflict();
+    fn OnFullEnumerationNeeded();
+    fn OnRecoverableError();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3499,6 +3726,10 @@ unsafe impl ::windows::core::Interface for ISyncCallback2 {
     type Vtable = ISyncCallback2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47ce84af_7442_4ead_8630_12015e030ad7);
 }
+pub trait ISyncCallback2Impl: ISyncCallbackImpl {
+    fn OnChangeApplied();
+    fn OnChangeFailed();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyncCallback2Vtbl(
@@ -3600,6 +3831,18 @@ impl ::core::fmt::Debug for ISyncChange {
 unsafe impl ::windows::core::Interface for ISyncChange {
     type Vtable = ISyncChangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1952beb_0f6b_4711_b136_01da85b968a6);
+}
+pub trait ISyncChangeImpl {
+    fn GetOwnerReplicaId();
+    fn GetRootItemId();
+    fn GetChangeVersion();
+    fn GetCreationVersion();
+    fn GetFlags();
+    fn GetWorkEstimate();
+    fn GetChangeUnits();
+    fn GetMadeWithKnowledge();
+    fn GetLearnedKnowledge();
+    fn SetWorkEstimate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3758,6 +4001,11 @@ impl ::core::fmt::Debug for ISyncChangeBatch {
 unsafe impl ::windows::core::Interface for ISyncChangeBatch {
     type Vtable = ISyncChangeBatchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70c64dee_380f_4c2e_8f70_31c55bd5f9b3);
+}
+pub trait ISyncChangeBatchImpl: ISyncChangeBatchBaseImpl {
+    fn BeginUnorderedGroup();
+    fn EndUnorderedGroup();
+    fn AddLoggedConflict();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3956,6 +4204,10 @@ unsafe impl ::windows::core::Interface for ISyncChangeBatch2 {
     type Vtable = ISyncChangeBatch2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x225f4a33_f5ee_4cc7_b039_67a262b4b2ac);
 }
+pub trait ISyncChangeBatch2Impl: ISyncChangeBatchImpl + ISyncChangeBatchBaseImpl {
+    fn AddMergeTombstoneMetadataToGroup();
+    fn AddMergeTombstoneLoggedConflict();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyncChangeBatch2Vtbl(
@@ -4047,6 +4299,12 @@ impl ::core::fmt::Debug for ISyncChangeBatchAdvanced {
 unsafe impl ::windows::core::Interface for ISyncChangeBatchAdvanced {
     type Vtable = ISyncChangeBatchAdvancedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f1a4995_cbc8_421d_b550_5d0bebf3e9a5);
+}
+pub trait ISyncChangeBatchAdvancedImpl {
+    fn GetFilterInfo();
+    fn ConvertFullEnumerationChangeBatchToRegularChangeBatch();
+    fn GetUpperBoundItemId();
+    fn GetBatchLevelKnowledgeShouldBeApplied();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4166,6 +4424,22 @@ impl ::core::fmt::Debug for ISyncChangeBatchBase {
 unsafe impl ::windows::core::Interface for ISyncChangeBatchBase {
     type Vtable = ISyncChangeBatchBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52f6e694_6a71_4494_a184_a8311bf5d227);
+}
+pub trait ISyncChangeBatchBaseImpl {
+    fn GetChangeEnumerator();
+    fn GetIsLastBatch();
+    fn GetWorkEstimateForBatch();
+    fn GetRemainingWorkEstimateForSession();
+    fn BeginOrderedGroup();
+    fn EndOrderedGroup();
+    fn AddItemMetadataToGroup();
+    fn GetLearnedKnowledge();
+    fn GetPrerequisiteKnowledge();
+    fn GetSourceForgottenKnowledge();
+    fn SetLastBatch();
+    fn SetWorkEstimateForBatch();
+    fn SetRemainingWorkEstimateForSession();
+    fn Serialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4320,6 +4594,9 @@ unsafe impl ::windows::core::Interface for ISyncChangeBatchBase2 {
     type Vtable = ISyncChangeBatchBase2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fdb596a_d755_4584_bd0c_c0c23a548fbf);
 }
+pub trait ISyncChangeBatchBase2Impl: ISyncChangeBatchBaseImpl {
+    fn SerializeWithOptions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyncChangeBatchBase2Vtbl(
@@ -4425,6 +4702,16 @@ impl ::core::fmt::Debug for ISyncChangeBatchWithFilterKeyMap {
 unsafe impl ::windows::core::Interface for ISyncChangeBatchWithFilterKeyMap {
     type Vtable = ISyncChangeBatchWithFilterKeyMapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde247002_566d_459a_a6ed_a5aab3459fb7);
+}
+pub trait ISyncChangeBatchWithFilterKeyMapImpl {
+    fn GetFilterKeyMap();
+    fn SetFilterKeyMap();
+    fn SetFilterForgottenKnowledge();
+    fn GetFilteredReplicaLearnedKnowledge();
+    fn GetLearnedFilterForgottenKnowledge();
+    fn GetFilteredReplicaLearnedForgottenKnowledge();
+    fn GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete();
+    fn GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4582,6 +4869,11 @@ unsafe impl ::windows::core::Interface for ISyncChangeBatchWithPrerequisite {
     type Vtable = ISyncChangeBatchWithPrerequisiteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x097f13be_5b92_4048_b3f2_7b42a2515e07);
 }
+pub trait ISyncChangeBatchWithPrerequisiteImpl: ISyncChangeBatchBaseImpl {
+    fn SetPrerequisiteKnowledge();
+    fn GetLearnedKnowledgeWithPrerequisite();
+    fn GetLearnedForgottenKnowledge();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyncChangeBatchWithPrerequisiteVtbl(
@@ -4656,6 +4948,9 @@ unsafe impl ::windows::core::Interface for ISyncChangeBuilder {
     type Vtable = ISyncChangeBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56f14771_8677_484f_a170_e386e418a676);
 }
+pub trait ISyncChangeBuilderImpl {
+    fn AddChangeUnitMetadata();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyncChangeBuilderVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbchangeunitid: *const u8, pchangeunitversion: *const SYNC_VERSION) -> ::windows::core::HRESULT);
@@ -4716,6 +5011,11 @@ impl ::core::fmt::Debug for ISyncChangeUnit {
 unsafe impl ::windows::core::Interface for ISyncChangeUnit {
     type Vtable = ISyncChangeUnitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60edd8ca_7341_4bb7_95ce_fab6394b51cb);
+}
+pub trait ISyncChangeUnitImpl {
+    fn GetItemChange();
+    fn GetChangeUnitId();
+    fn GetChangeUnitVersion();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4816,6 +5116,17 @@ unsafe impl ::windows::core::Interface for ISyncChangeWithFilterKeyMap {
     type Vtable = ISyncChangeWithFilterKeyMapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfe1ef00_e87d_42fd_a4e9_242d70414aef);
 }
+pub trait ISyncChangeWithFilterKeyMapImpl {
+    fn GetFilterCount();
+    fn GetFilterChange();
+    fn GetAllChangeUnitsPresentFlag();
+    fn GetFilterForgottenKnowledge();
+    fn GetFilteredReplicaLearnedKnowledge();
+    fn GetLearnedFilterForgottenKnowledge();
+    fn GetFilteredReplicaLearnedForgottenKnowledge();
+    fn GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete();
+    fn GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyncChangeWithFilterKeyMapVtbl(
@@ -4889,6 +5200,10 @@ unsafe impl ::windows::core::Interface for ISyncChangeWithPrerequisite {
     type Vtable = ISyncChangeWithPrerequisiteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e38382f_1589_48c3_92e4_05ecdcb4f3f7);
 }
+pub trait ISyncChangeWithPrerequisiteImpl {
+    fn GetPrerequisiteKnowledge();
+    fn GetLearnedKnowledgeWithPrerequisite();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyncChangeWithPrerequisiteVtbl(
@@ -4946,6 +5261,9 @@ impl ::core::fmt::Debug for ISyncConstraintCallback {
 unsafe impl ::windows::core::Interface for ISyncConstraintCallback {
     type Vtable = ISyncConstraintCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8af3843e_75b3_438c_bb51_6f020d70d3cb);
+}
+pub trait ISyncConstraintCallbackImpl {
+    fn OnConstraintConflict();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5015,6 +5333,12 @@ unsafe impl ::windows::core::Interface for ISyncDataConverter {
     type Vtable = ISyncDataConverterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x435d4861_68d5_44aa_a0f9_72a0b00ef9cf);
 }
+pub trait ISyncDataConverterImpl {
+    fn ConvertDataRetrieverFromProviderFormat();
+    fn ConvertDataRetrieverToProviderFormat();
+    fn ConvertDataFromProviderFormat();
+    fn ConvertDataToProviderFormat();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyncDataConverterVtbl(
@@ -5079,6 +5403,10 @@ unsafe impl ::windows::core::Interface for ISyncFilter {
     type Vtable = ISyncFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x087a3f15_0fcb_44c1_9639_53c14e2b5506);
 }
+pub trait ISyncFilterImpl {
+    fn IsIdentical();
+    fn Serialize();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyncFilterVtbl(
@@ -5138,6 +5466,9 @@ unsafe impl ::windows::core::Interface for ISyncFilterDeserializer {
     type Vtable = ISyncFilterDeserializerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb45b7a72_e5c7_46be_9c82_77b8b15dab8a);
 }
+pub trait ISyncFilterDeserializerImpl {
+    fn DeserializeSyncFilter();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyncFilterDeserializerVtbl(
@@ -5194,6 +5525,9 @@ impl ::core::fmt::Debug for ISyncFilterInfo {
 unsafe impl ::windows::core::Interface for ISyncFilterInfo {
     type Vtable = ISyncFilterInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x794eaaf8_3f2e_47e6_9728_17e6fcf94cb7);
+}
+pub trait ISyncFilterInfoImpl {
+    fn Serialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5271,6 +5605,9 @@ unsafe impl ::windows::core::Interface for ISyncFilterInfo2 {
     type Vtable = ISyncFilterInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19b394ba_e3d0_468c_934d_321968b2ab34);
 }
+pub trait ISyncFilterInfo2Impl: ISyncFilterInfoImpl {
+    fn GetFlags();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyncFilterInfo2Vtbl(
@@ -5334,6 +5671,10 @@ impl ::core::fmt::Debug for ISyncFullEnumerationChange {
 unsafe impl ::windows::core::Interface for ISyncFullEnumerationChange {
     type Vtable = ISyncFullEnumerationChangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9785e0bd_bdff_40c4_98c5_b34b2f1991b3);
+}
+pub trait ISyncFullEnumerationChangeImpl {
+    fn GetLearnedKnowledgeAfterRecoveryComplete();
+    fn GetLearnedForgottenKnowledge();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5483,6 +5824,11 @@ impl ::core::fmt::Debug for ISyncFullEnumerationChangeBatch {
 unsafe impl ::windows::core::Interface for ISyncFullEnumerationChangeBatch {
     type Vtable = ISyncFullEnumerationChangeBatchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef64197d_4f44_4ea2_b355_4524713e3bed);
+}
+pub trait ISyncFullEnumerationChangeBatchImpl: ISyncChangeBatchBaseImpl {
+    fn GetLearnedKnowledgeAfterRecoveryComplete();
+    fn GetClosedLowerBoundItemId();
+    fn GetClosedUpperBoundItemId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5674,6 +6020,9 @@ unsafe impl ::windows::core::Interface for ISyncFullEnumerationChangeBatch2 {
     type Vtable = ISyncFullEnumerationChangeBatch2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06449f4_a205_4b65_9724_01b22101eec1);
 }
+pub trait ISyncFullEnumerationChangeBatch2Impl: ISyncFullEnumerationChangeBatchImpl + ISyncChangeBatchBaseImpl {
+    fn AddMergeTombstoneMetadataToGroup();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyncFullEnumerationChangeBatch2Vtbl(
@@ -5847,6 +6196,32 @@ impl ::core::fmt::Debug for ISyncKnowledge {
 unsafe impl ::windows::core::Interface for ISyncKnowledge {
     type Vtable = ISyncKnowledgeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x615bbb53_c945_4203_bf4b_2cb65919a0aa);
+}
+pub trait ISyncKnowledgeImpl {
+    fn GetOwnerReplicaId();
+    fn Serialize();
+    fn SetLocalTickCount();
+    fn ContainsChange();
+    fn ContainsChangeUnit();
+    fn GetScopeVector();
+    fn GetReplicaKeyMap();
+    fn Clone();
+    fn ConvertVersion();
+    fn MapRemoteToLocal();
+    fn Union();
+    fn ProjectOntoItem();
+    fn ProjectOntoChangeUnit();
+    fn ProjectOntoRange();
+    fn ExcludeItem();
+    fn ExcludeChangeUnit();
+    fn ContainsKnowledge();
+    fn FindMinTickCountForReplica();
+    fn GetRangeExceptions();
+    fn GetSingleItemExceptions();
+    fn GetChangeUnitExceptions();
+    fn FindClockVectorForItem();
+    fn FindClockVectorForChangeUnit();
+    fn GetVersion();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6109,6 +6484,22 @@ unsafe impl ::windows::core::Interface for ISyncKnowledge2 {
     type Vtable = ISyncKnowledge2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed0addc0_3b4b_46a1_9a45_45661d2114c8);
 }
+pub trait ISyncKnowledge2Impl: ISyncKnowledgeImpl {
+    fn GetIdParameters();
+    fn ProjectOntoColumnSet();
+    fn SerializeWithOptions();
+    fn GetLowestUncontainedId();
+    fn GetInspector();
+    fn GetMinimumSupportedVersion();
+    fn GetStatistics();
+    fn ContainsKnowledgeForItem();
+    fn ContainsKnowledgeForChangeUnit();
+    fn ProjectOntoKnowledgeWithPrerequisite();
+    fn Complement();
+    fn IntersectsWithKnowledge();
+    fn GetKnowledgeCookie();
+    fn CompareToKnowledgeCookie();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyncKnowledge2Vtbl(
@@ -6205,6 +6596,9 @@ unsafe impl ::windows::core::Interface for ISyncMergeTombstoneChange {
     type Vtable = ISyncMergeTombstoneChangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ec62597_0903_484c_ad61_36d6e938f47b);
 }
+pub trait ISyncMergeTombstoneChangeImpl {
+    fn GetWinnerItemId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyncMergeTombstoneChangeVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbwinneritemid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::HRESULT);
@@ -6257,6 +6651,9 @@ impl ::core::fmt::Debug for ISyncProvider {
 unsafe impl ::windows::core::Interface for ISyncProvider {
     type Vtable = ISyncProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f657056_2bce_4a17_8c68_c7bb7898b56f);
+}
+pub trait ISyncProviderImpl {
+    fn GetIdParameters();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6333,6 +6730,12 @@ impl ::core::fmt::Debug for ISyncProviderConfigUI {
 unsafe impl ::windows::core::Interface for ISyncProviderConfigUI {
     type Vtable = ISyncProviderConfigUIVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b0705f6_cbcd_4071_ab05_3bdc364d4a0c);
+}
+pub trait ISyncProviderConfigUIImpl {
+    fn Init();
+    fn GetRegisteredProperties();
+    fn CreateAndRegisterNewSyncProvider();
+    fn ModifySyncProvider();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6450,6 +6853,10 @@ impl ::core::fmt::Debug for ISyncProviderConfigUIInfo {
 unsafe impl ::windows::core::Interface for ISyncProviderConfigUIInfo {
     type Vtable = ISyncProviderConfigUIInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x214141ae_33d7_4d8d_8e37_f227e880ce50);
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub trait ISyncProviderConfigUIInfoImpl: IPropertyStoreImpl {
+    fn GetSyncProviderConfigUI();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6570,6 +6977,10 @@ impl ::core::fmt::Debug for ISyncProviderInfo {
 unsafe impl ::windows::core::Interface for ISyncProviderInfo {
     type Vtable = ISyncProviderInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ee135de_88a4_4504_b0d0_f7920d7e5ba6);
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub trait ISyncProviderInfoImpl: IPropertyStoreImpl {
+    fn GetSyncProvider();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6713,6 +7124,24 @@ unsafe impl ::windows::core::Interface for ISyncProviderRegistration {
     type Vtable = ISyncProviderRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb45953b_7624_47bc_a472_eb8cac6b222e);
 }
+pub trait ISyncProviderRegistrationImpl {
+    fn CreateSyncProviderConfigUIRegistrationInstance();
+    fn UnregisterSyncProviderConfigUI();
+    fn EnumerateSyncProviderConfigUIs();
+    fn CreateSyncProviderRegistrationInstance();
+    fn UnregisterSyncProvider();
+    fn GetSyncProviderConfigUIInfoforProvider();
+    fn EnumerateSyncProviders();
+    fn GetSyncProviderInfo();
+    fn GetSyncProviderFromInstanceId();
+    fn GetSyncProviderConfigUIInfo();
+    fn GetSyncProviderConfigUIFromInstanceId();
+    fn GetSyncProviderState();
+    fn SetSyncProviderState();
+    fn RegisterForEvent();
+    fn RevokeEvent();
+    fn GetChange();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyncProviderRegistrationVtbl(
@@ -6795,6 +7224,10 @@ unsafe impl ::windows::core::Interface for ISyncRegistrationChange {
     type Vtable = ISyncRegistrationChangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeea0d9ae_6b29_43b4_9e70_e3ae33bb2c3b);
 }
+pub trait ISyncRegistrationChangeImpl {
+    fn GetEvent();
+    fn GetInstanceId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyncRegistrationChangeVtbl(
@@ -6853,6 +7286,9 @@ impl ::core::fmt::Debug for ISyncSessionExtendedErrorInfo {
 unsafe impl ::windows::core::Interface for ISyncSessionExtendedErrorInfo {
     type Vtable = ISyncSessionExtendedErrorInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x326c6810_790a_409b_b741_6999388761eb);
+}
+pub trait ISyncSessionExtendedErrorInfoImpl {
+    fn GetSyncProviderWithError();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6930,6 +7366,15 @@ impl ::core::fmt::Debug for ISyncSessionState {
 unsafe impl ::windows::core::Interface for ISyncSessionState {
     type Vtable = ISyncSessionStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8a940fe_9f01_483b_9434_c37d361225d9);
+}
+pub trait ISyncSessionStateImpl {
+    fn IsCanceled();
+    fn GetInfoForChangeApplication();
+    fn LoadInfoFromChangeApplication();
+    fn GetForgottenKnowledgeRecoveryRangeStart();
+    fn GetForgottenKnowledgeRecoveryRangeEnd();
+    fn SetForgottenKnowledgeRecoveryRange();
+    fn OnProgress();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7049,6 +7494,10 @@ unsafe impl ::windows::core::Interface for ISyncSessionState2 {
     type Vtable = ISyncSessionState2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e37cfa3_9e38_4c61_9ca3_ffe810b45ca2);
 }
+pub trait ISyncSessionState2Impl: ISyncSessionStateImpl {
+    fn SetProviderWithError();
+    fn GetSessionErrorStatus();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyncSessionState2Vtbl(
@@ -7121,6 +7570,10 @@ impl ::core::fmt::Debug for ISynchronousDataRetriever {
 unsafe impl ::windows::core::Interface for ISynchronousDataRetriever {
     type Vtable = ISynchronousDataRetrieverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b22f2a9_a4cd_4648_9d8e_3a510d4da04b);
+}
+pub trait ISynchronousDataRetrieverImpl {
+    fn GetIdParameters();
+    fn LoadChangeData();
 }
 #[repr(C)]
 #[doc(hidden)]

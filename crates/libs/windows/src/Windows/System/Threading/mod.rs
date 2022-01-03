@@ -8,6 +8,12 @@ unsafe impl ::windows::core::Interface for IThreadPoolStatics {
     type Vtable = IThreadPoolStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6bf67dd_84bd_44f8_ac1c_93ebcb9dba91);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IThreadPoolStaticsImpl {
+    fn RunAsync();
+    fn RunWithPriorityAsync();
+    fn RunWithPriorityAndOptionsAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThreadPoolStaticsVtbl(
@@ -31,6 +37,12 @@ unsafe impl ::windows::core::Interface for IThreadPoolTimer {
     type Vtable = IThreadPoolTimerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IThreadPoolTimerImpl {
+    fn Period();
+    fn Delay();
+    fn Cancel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThreadPoolTimerVtbl(
@@ -52,6 +64,13 @@ pub struct IThreadPoolTimerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IThreadPoolTimerStatics {
     type Vtable = IThreadPoolTimerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a8a9d02_e482_461b_b8c7_8efad1cce590);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IThreadPoolTimerStaticsImpl {
+    fn CreatePeriodicTimer();
+    fn CreateTimer();
+    fn CreatePeriodicTimerWithCompletion();
+    fn CreateTimerWithCompletion();
 }
 #[repr(C)]
 #[doc(hidden)]

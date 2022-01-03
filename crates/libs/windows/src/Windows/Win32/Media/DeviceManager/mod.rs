@@ -57,6 +57,10 @@ unsafe impl ::windows::core::Interface for IComponentAuthenticate {
     type Vtable = IComponentAuthenticateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9889c00_6d2b_11d3_8496_00c04f79dbc0);
 }
+pub trait IComponentAuthenticateImpl {
+    fn SACAuth();
+    fn SACGetProtocols();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComponentAuthenticateVtbl(
@@ -162,6 +166,19 @@ impl ::core::fmt::Debug for IMDSPDevice {
 unsafe impl ::windows::core::Interface for IMDSPDevice {
     type Vtable = IMDSPDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a12_33ed_11d3_8470_00c04f79dbc0);
+}
+pub trait IMDSPDeviceImpl {
+    fn GetName();
+    fn GetManufacturer();
+    fn GetVersion();
+    fn GetType();
+    fn GetSerialNumber();
+    fn GetPowerSource();
+    fn GetStatus();
+    fn GetDeviceIcon();
+    fn EnumStorage();
+    fn GetFormatSupport();
+    fn SendOpaqueCommand();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -321,6 +338,12 @@ impl ::core::fmt::Debug for IMDSPDevice2 {
 unsafe impl ::windows::core::Interface for IMDSPDevice2 {
     type Vtable = IMDSPDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x420d16ad_c97d_4e00_82aa_00e9f4335ddd);
+}
+pub trait IMDSPDevice2Impl: IMDSPDeviceImpl {
+    fn GetStorage();
+    fn GetFormatSupport2();
+    fn GetSpecifyPropertyPages();
+    fn GetCanonicalName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -536,6 +559,13 @@ unsafe impl ::windows::core::Interface for IMDSPDevice3 {
     type Vtable = IMDSPDevice3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a839845_fc55_487c_976f_ee38ac0e8c4e);
 }
+pub trait IMDSPDevice3Impl: IMDSPDevice2Impl + IMDSPDeviceImpl {
+    fn GetProperty();
+    fn SetProperty();
+    fn GetFormatCapability();
+    fn DeviceIoControl();
+    fn FindStorage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPDevice3Vtbl(
@@ -653,6 +683,16 @@ unsafe impl ::windows::core::Interface for IMDSPDeviceControl {
     type Vtable = IMDSPDeviceControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a14_33ed_11d3_8470_00c04f79dbc0);
 }
+pub trait IMDSPDeviceControlImpl {
+    fn GetDCStatus();
+    fn GetCapabilities();
+    fn Play();
+    fn Record();
+    fn Pause();
+    fn Resume();
+    fn Stop();
+    fn Seek();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPDeviceControlVtbl(
@@ -718,6 +758,9 @@ impl ::core::fmt::Debug for IMDSPDirectTransfer {
 unsafe impl ::windows::core::Interface for IMDSPDirectTransfer {
     type Vtable = IMDSPDirectTransferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2fe57a8_9304_478c_9ee4_47e397b912d7);
+}
+pub trait IMDSPDirectTransferImpl {
+    fn TransferToDevice();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -790,6 +833,12 @@ impl ::core::fmt::Debug for IMDSPEnumDevice {
 unsafe impl ::windows::core::Interface for IMDSPEnumDevice {
     type Vtable = IMDSPEnumDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a11_33ed_11d3_8470_00c04f79dbc0);
+}
+pub trait IMDSPEnumDeviceImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -864,6 +913,12 @@ impl ::core::fmt::Debug for IMDSPEnumStorage {
 unsafe impl ::windows::core::Interface for IMDSPEnumStorage {
     type Vtable = IMDSPEnumStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a15_33ed_11d3_8470_00c04f79dbc0);
+}
+pub trait IMDSPEnumStorageImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -953,6 +1008,16 @@ impl ::core::fmt::Debug for IMDSPObject {
 unsafe impl ::windows::core::Interface for IMDSPObject {
     type Vtable = IMDSPObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a18_33ed_11d3_8470_00c04f79dbc0);
+}
+pub trait IMDSPObjectImpl {
+    fn Open();
+    fn Read();
+    fn Write();
+    fn Delete();
+    fn Seek();
+    fn Rename();
+    fn Move();
+    fn Close();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1076,6 +1141,10 @@ unsafe impl ::windows::core::Interface for IMDSPObject2 {
     type Vtable = IMDSPObject2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f34cd3e_5907_4341_9af9_97f4187c3aa5);
 }
+pub trait IMDSPObject2Impl: IMDSPObjectImpl {
+    fn ReadOnClearChannel();
+    fn WriteOnClearChannel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPObject2Vtbl(
@@ -1172,6 +1241,15 @@ unsafe impl ::windows::core::Interface for IMDSPObjectInfo {
     type Vtable = IMDSPObjectInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a19_33ed_11d3_8470_00c04f79dbc0);
 }
+pub trait IMDSPObjectInfoImpl {
+    fn GetPlayLength();
+    fn SetPlayLength();
+    fn GetPlayOffset();
+    fn SetPlayOffset();
+    fn GetTotalLength();
+    fn GetLastPlayPosition();
+    fn GetLongestPlayPosition();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPObjectInfoVtbl(
@@ -1235,6 +1313,9 @@ impl ::core::fmt::Debug for IMDSPRevoked {
 unsafe impl ::windows::core::Interface for IMDSPRevoked {
     type Vtable = IMDSPRevokedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4e8f2d4_3f31_464d_b53d_4fc335998184);
+}
+pub trait IMDSPRevokedImpl {
+    fn GetRevocationURL();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1335,6 +1416,18 @@ impl ::core::fmt::Debug for IMDSPStorage {
 unsafe impl ::windows::core::Interface for IMDSPStorage {
     type Vtable = IMDSPStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a16_33ed_11d3_8470_00c04f79dbc0);
+}
+pub trait IMDSPStorageImpl {
+    fn SetAttributes();
+    fn GetStorageGlobals();
+    fn GetAttributes();
+    fn GetName();
+    fn GetDate();
+    fn GetSize();
+    fn GetRights();
+    fn CreateStorage();
+    fn EnumStorage();
+    fn SendOpaqueCommand();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1487,6 +1580,12 @@ impl ::core::fmt::Debug for IMDSPStorage2 {
 unsafe impl ::windows::core::Interface for IMDSPStorage2 {
     type Vtable = IMDSPStorage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a5e07a5_6454_4451_9c36_1c6ae7e2b1d6);
+}
+pub trait IMDSPStorage2Impl: IMDSPStorageImpl {
+    fn GetStorage();
+    fn CreateStorage2();
+    fn SetAttributes2();
+    fn GetAttributes2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1675,6 +1774,10 @@ impl ::core::fmt::Debug for IMDSPStorage3 {
 unsafe impl ::windows::core::Interface for IMDSPStorage3 {
     type Vtable = IMDSPStorage3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c669867_97ed_4a67_9706_1c5529d2a414);
+}
+pub trait IMDSPStorage3Impl: IMDSPStorage2Impl + IMDSPStorageImpl {
+    fn GetMetadata();
+    fn SetMetadata();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1916,6 +2019,14 @@ unsafe impl ::windows::core::Interface for IMDSPStorage4 {
     type Vtable = IMDSPStorage4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3133b2c4_515c_481b_b1ce_39327ecb4f74);
 }
+pub trait IMDSPStorage4Impl: IMDSPStorage3Impl + IMDSPStorage2Impl + IMDSPStorageImpl {
+    fn SetReferences();
+    fn GetReferences();
+    fn CreateStorageWithMetadata();
+    fn GetSpecifiedMetadata();
+    fn FindStorage();
+    fn GetParent();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPStorage4Vtbl(
@@ -2039,6 +2150,17 @@ unsafe impl ::windows::core::Interface for IMDSPStorageGlobals {
     type Vtable = IMDSPStorageGlobalsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a17_33ed_11d3_8470_00c04f79dbc0);
 }
+pub trait IMDSPStorageGlobalsImpl {
+    fn GetCapabilities();
+    fn GetSerialNumber();
+    fn GetTotalSize();
+    fn GetTotalFree();
+    fn GetTotalBad();
+    fn GetStatus();
+    fn Initialize();
+    fn GetDevice();
+    fn GetRootStorage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPStorageGlobalsVtbl(
@@ -2109,6 +2231,10 @@ impl ::core::fmt::Debug for IMDServiceProvider {
 unsafe impl ::windows::core::Interface for IMDServiceProvider {
     type Vtable = IMDServiceProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a10_33ed_11d3_8470_00c04f79dbc0);
+}
+pub trait IMDServiceProviderImpl {
+    fn GetDeviceCount();
+    fn EnumDevices();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2198,6 +2324,9 @@ impl ::core::fmt::Debug for IMDServiceProvider2 {
 unsafe impl ::windows::core::Interface for IMDServiceProvider2 {
     type Vtable = IMDServiceProvider2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2fa24b7_cda3_4694_9862_413ae1a34819);
+}
+pub trait IMDServiceProvider2Impl: IMDServiceProviderImpl {
+    fn CreateDevice();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2314,6 +2443,9 @@ unsafe impl ::windows::core::Interface for IMDServiceProvider3 {
     type Vtable = IMDServiceProvider3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ed13ef3_a971_4d19_9f51_0e1826b2da57);
 }
+pub trait IMDServiceProvider3Impl: IMDServiceProvider2Impl + IMDServiceProviderImpl {
+    fn SetDeviceEnumPreference();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDServiceProvider3Vtbl(
@@ -2377,6 +2509,9 @@ impl ::core::fmt::Debug for ISCPSecureAuthenticate {
 unsafe impl ::windows::core::Interface for ISCPSecureAuthenticate {
     type Vtable = ISCPSecureAuthenticateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a0f_33ed_11d3_8470_00c04f79dbc0);
+}
+pub trait ISCPSecureAuthenticateImpl {
+    fn GetSecureQuery();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2456,6 +2591,9 @@ unsafe impl ::windows::core::Interface for ISCPSecureAuthenticate2 {
     type Vtable = ISCPSecureAuthenticate2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb580cfae_1672_47e2_acaa_44bbecbcae5b);
 }
+pub trait ISCPSecureAuthenticate2Impl: ISCPSecureAuthenticateImpl {
+    fn GetSCPSession();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISCPSecureAuthenticate2Vtbl(
@@ -2521,6 +2659,11 @@ impl ::core::fmt::Debug for ISCPSecureExchange {
 unsafe impl ::windows::core::Interface for ISCPSecureExchange {
     type Vtable = ISCPSecureExchangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a0e_33ed_11d3_8470_00c04f79dbc0);
+}
+pub trait ISCPSecureExchangeImpl {
+    fn TransferContainerData();
+    fn ObjectData();
+    fn TransferComplete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2612,6 +2755,9 @@ impl ::core::fmt::Debug for ISCPSecureExchange2 {
 unsafe impl ::windows::core::Interface for ISCPSecureExchange2 {
     type Vtable = ISCPSecureExchange2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c62fc7b_2690_483f_9d44_0a20cb35577c);
+}
+pub trait ISCPSecureExchange2Impl: ISCPSecureExchangeImpl {
+    fn TransferContainerData2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2738,6 +2884,11 @@ unsafe impl ::windows::core::Interface for ISCPSecureExchange3 {
     type Vtable = ISCPSecureExchange3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab4e77e4_8908_4b17_bd2a_b1dbe6dd69e1);
 }
+pub trait ISCPSecureExchange3Impl: ISCPSecureExchange2Impl + ISCPSecureExchangeImpl {
+    fn TransferContainerDataOnClearChannel();
+    fn GetObjectDataOnClearChannel();
+    fn TransferCompleteForDevice();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISCPSecureExchange3Vtbl(
@@ -2813,6 +2964,12 @@ impl ::core::fmt::Debug for ISCPSecureQuery {
 unsafe impl ::windows::core::Interface for ISCPSecureQuery {
     type Vtable = ISCPSecureQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a0d_33ed_11d3_8470_00c04f79dbc0);
+}
+pub trait ISCPSecureQueryImpl {
+    fn GetDataDemands();
+    fn ExamineData();
+    fn MakeDecision();
+    fn GetRights();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2933,6 +3090,9 @@ impl ::core::fmt::Debug for ISCPSecureQuery2 {
 unsafe impl ::windows::core::Interface for ISCPSecureQuery2 {
     type Vtable = ISCPSecureQuery2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebe17e25_4fd7_4632_af46_6d93d4fcc72e);
+}
+pub trait ISCPSecureQuery2Impl: ISCPSecureQueryImpl {
+    fn MakeDecision2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3106,6 +3266,10 @@ unsafe impl ::windows::core::Interface for ISCPSecureQuery3 {
     type Vtable = ISCPSecureQuery3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7edd1a2_4dab_484b_b3c5_ad39b8b4c0b1);
 }
+pub trait ISCPSecureQuery3Impl: ISCPSecureQuery2Impl + ISCPSecureQueryImpl {
+    fn GetRightsOnClearChannel();
+    fn MakeDecisionOnClearChannel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISCPSecureQuery3Vtbl(
@@ -3180,6 +3344,11 @@ impl ::core::fmt::Debug for ISCPSession {
 unsafe impl ::windows::core::Interface for ISCPSession {
     type Vtable = ISCPSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88a3e6ed_eee4_4619_bbb3_fd4fb62715d1);
+}
+pub trait ISCPSessionImpl {
+    fn BeginSession();
+    fn EndSession();
+    fn GetSecureQuery();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3287,6 +3456,19 @@ impl ::core::fmt::Debug for IWMDMDevice {
 unsafe impl ::windows::core::Interface for IWMDMDevice {
     type Vtable = IWMDMDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a02_33ed_11d3_8470_00c04f79dbc0);
+}
+pub trait IWMDMDeviceImpl {
+    fn GetName();
+    fn GetManufacturer();
+    fn GetVersion();
+    fn GetType();
+    fn GetSerialNumber();
+    fn GetPowerSource();
+    fn GetStatus();
+    fn GetDeviceIcon();
+    fn EnumStorage();
+    fn GetFormatSupport();
+    fn SendOpaqueCommand();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3446,6 +3628,12 @@ impl ::core::fmt::Debug for IWMDMDevice2 {
 unsafe impl ::windows::core::Interface for IWMDMDevice2 {
     type Vtable = IWMDMDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe34f3d37_9d67_4fc1_9252_62d28b2f8b55);
+}
+pub trait IWMDMDevice2Impl: IWMDMDeviceImpl {
+    fn GetStorage();
+    fn GetFormatSupport2();
+    fn GetSpecifyPropertyPages();
+    fn GetCanonicalName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3661,6 +3849,13 @@ unsafe impl ::windows::core::Interface for IWMDMDevice3 {
     type Vtable = IWMDMDevice3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c03e4fe_05db_4dda_9e3c_06233a6d5d65);
 }
+pub trait IWMDMDevice3Impl: IWMDMDevice2Impl + IWMDMDeviceImpl {
+    fn GetProperty();
+    fn SetProperty();
+    fn GetFormatCapability();
+    fn DeviceIoControl();
+    fn FindStorage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMDevice3Vtbl(
@@ -3778,6 +3973,16 @@ unsafe impl ::windows::core::Interface for IWMDMDeviceControl {
     type Vtable = IWMDMDeviceControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a04_33ed_11d3_8470_00c04f79dbc0);
 }
+pub trait IWMDMDeviceControlImpl {
+    fn GetStatus();
+    fn GetCapabilities();
+    fn Play();
+    fn Record();
+    fn Pause();
+    fn Resume();
+    fn Stop();
+    fn Seek();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMDeviceControlVtbl(
@@ -3845,6 +4050,10 @@ impl ::core::fmt::Debug for IWMDMDeviceSession {
 unsafe impl ::windows::core::Interface for IWMDMDeviceSession {
     type Vtable = IWMDMDeviceSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82af0a65_9d96_412c_83e5_3c43e4b06cc7);
+}
+pub trait IWMDMDeviceSessionImpl {
+    fn BeginSession();
+    fn EndSession();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3917,6 +4126,12 @@ impl ::core::fmt::Debug for IWMDMEnumDevice {
 unsafe impl ::windows::core::Interface for IWMDMEnumDevice {
     type Vtable = IWMDMEnumDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a01_33ed_11d3_8470_00c04f79dbc0);
+}
+pub trait IWMDMEnumDeviceImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3991,6 +4206,12 @@ impl ::core::fmt::Debug for IWMDMEnumStorage {
 unsafe impl ::windows::core::Interface for IWMDMEnumStorage {
     type Vtable = IWMDMEnumStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a05_33ed_11d3_8470_00c04f79dbc0);
+}
+pub trait IWMDMEnumStorageImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4091,6 +4312,17 @@ unsafe impl ::windows::core::Interface for IWMDMLogger {
     type Vtable = IWMDMLoggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x110a3200_5a79_11d3_8d78_444553540000);
 }
+pub trait IWMDMLoggerImpl {
+    fn IsEnabled();
+    fn Enable();
+    fn GetLogFileName();
+    fn SetLogFileName();
+    fn LogString();
+    fn LogDword();
+    fn Reset();
+    fn GetSizeParams();
+    fn SetSizeParams();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMLoggerVtbl(
@@ -4177,6 +4409,12 @@ unsafe impl ::windows::core::Interface for IWMDMMetaData {
     type Vtable = IWMDMMetaDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec3b0663_0951_460a_9a80_0dceed3c043c);
 }
+pub trait IWMDMMetaDataImpl {
+    fn AddItem();
+    fn QueryByName();
+    fn QueryByIndex();
+    fn GetItemCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMMetaDataVtbl(
@@ -4239,6 +4477,9 @@ impl ::core::fmt::Debug for IWMDMNotification {
 unsafe impl ::windows::core::Interface for IWMDMNotification {
     type Vtable = IWMDMNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f5e95c0_0f43_4ed4_93d2_c89a45d59b81);
+}
+pub trait IWMDMNotificationImpl {
+    fn WMDMMessage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4326,6 +4567,15 @@ impl ::core::fmt::Debug for IWMDMObjectInfo {
 unsafe impl ::windows::core::Interface for IWMDMObjectInfo {
     type Vtable = IWMDMObjectInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a09_33ed_11d3_8470_00c04f79dbc0);
+}
+pub trait IWMDMObjectInfoImpl {
+    fn GetPlayLength();
+    fn SetPlayLength();
+    fn GetPlayOffset();
+    fn SetPlayOffset();
+    fn GetTotalLength();
+    fn GetLastPlayPosition();
+    fn GetLongestPlayPosition();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4427,6 +4677,18 @@ impl ::core::fmt::Debug for IWMDMOperation {
 unsafe impl ::windows::core::Interface for IWMDMOperation {
     type Vtable = IWMDMOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a0b_33ed_11d3_8470_00c04f79dbc0);
+}
+pub trait IWMDMOperationImpl {
+    fn BeginRead();
+    fn BeginWrite();
+    fn GetObjectName();
+    fn SetObjectName();
+    fn GetObjectAttributes();
+    fn SetObjectAttributes();
+    fn GetObjectTotalSize();
+    fn SetObjectTotalSize();
+    fn TransferObjectData();
+    fn End();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4564,6 +4826,10 @@ unsafe impl ::windows::core::Interface for IWMDMOperation2 {
     type Vtable = IWMDMOperation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33445b48_7df7_425c_ad8f_0fc6d82f9f75);
 }
+pub trait IWMDMOperation2Impl: IWMDMOperationImpl {
+    fn SetObjectAttributes2();
+    fn GetObjectAttributes2();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMOperation2Vtbl(
@@ -4698,6 +4964,9 @@ unsafe impl ::windows::core::Interface for IWMDMOperation3 {
     type Vtable = IWMDMOperation3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1f9b46a_9ca8_46d8_9d0f_1ec9bae54919);
 }
+pub trait IWMDMOperation3Impl: IWMDMOperationImpl {
+    fn TransferObjectDataOnClearChannel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMOperation3Vtbl(
@@ -4774,6 +5043,11 @@ impl ::core::fmt::Debug for IWMDMProgress {
 unsafe impl ::windows::core::Interface for IWMDMProgress {
     type Vtable = IWMDMProgressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a0c_33ed_11d3_8470_00c04f79dbc0);
+}
+pub trait IWMDMProgressImpl {
+    fn Begin();
+    fn Progress();
+    fn End();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4865,6 +5139,9 @@ impl ::core::fmt::Debug for IWMDMProgress2 {
 unsafe impl ::windows::core::Interface for IWMDMProgress2 {
     type Vtable = IWMDMProgress2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a43f550_b383_4e92_b04a_e6bbc660fefc);
+}
+pub trait IWMDMProgress2Impl: IWMDMProgressImpl {
+    fn End2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4990,6 +5267,11 @@ unsafe impl ::windows::core::Interface for IWMDMProgress3 {
     type Vtable = IWMDMProgress3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21de01cb_3bb4_4929_b21a_17af3f80f658);
 }
+pub trait IWMDMProgress3Impl: IWMDMProgress2Impl + IWMDMProgressImpl {
+    fn Begin3();
+    fn Progress3();
+    fn End3();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMProgress3Vtbl(
@@ -5053,6 +5335,9 @@ impl ::core::fmt::Debug for IWMDMRevoked {
 unsafe impl ::windows::core::Interface for IWMDMRevoked {
     type Vtable = IWMDMRevokedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebeccedb_88ee_4e55_b6a4_8d9f07d696aa);
+}
+pub trait IWMDMRevokedImpl {
+    fn GetRevocationURL();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5147,6 +5432,17 @@ impl ::core::fmt::Debug for IWMDMStorage {
 unsafe impl ::windows::core::Interface for IWMDMStorage {
     type Vtable = IWMDMStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a06_33ed_11d3_8470_00c04f79dbc0);
+}
+pub trait IWMDMStorageImpl {
+    fn SetAttributes();
+    fn GetStorageGlobals();
+    fn GetAttributes();
+    fn GetName();
+    fn GetDate();
+    fn GetSize();
+    fn GetRights();
+    fn EnumStorage();
+    fn SendOpaqueCommand();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5285,6 +5581,11 @@ impl ::core::fmt::Debug for IWMDMStorage2 {
 unsafe impl ::windows::core::Interface for IWMDMStorage2 {
     type Vtable = IWMDMStorage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ed5a144_5cd5_4683_9eff_72cbdb2d9533);
+}
+pub trait IWMDMStorage2Impl: IWMDMStorageImpl {
+    fn GetStorage();
+    fn SetAttributes2();
+    fn GetAttributes2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5468,6 +5769,12 @@ impl ::core::fmt::Debug for IWMDMStorage3 {
 unsafe impl ::windows::core::Interface for IWMDMStorage3 {
     type Vtable = IWMDMStorage3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97717eea_926a_464e_96a4_247b0216026e);
+}
+pub trait IWMDMStorage3Impl: IWMDMStorage2Impl + IWMDMStorageImpl {
+    fn GetMetadata();
+    fn SetMetadata();
+    fn CreateEmptyMetadataObject();
+    fn SetEnumPreference();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5706,6 +6013,14 @@ unsafe impl ::windows::core::Interface for IWMDMStorage4 {
     type Vtable = IWMDMStorage4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc225bac5_a03a_40b8_9a23_91cf478c64a6);
 }
+pub trait IWMDMStorage4Impl: IWMDMStorage3Impl + IWMDMStorage2Impl + IWMDMStorageImpl {
+    fn SetReferences();
+    fn GetReferences();
+    fn GetRightsWithProgress();
+    fn GetSpecifiedMetadata();
+    fn FindStorage();
+    fn GetParent();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMStorage4Vtbl(
@@ -5810,6 +6125,13 @@ impl ::core::fmt::Debug for IWMDMStorageControl {
 unsafe impl ::windows::core::Interface for IWMDMStorageControl {
     type Vtable = IWMDMStorageControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a08_33ed_11d3_8470_00c04f79dbc0);
+}
+pub trait IWMDMStorageControlImpl {
+    fn Insert();
+    fn Delete();
+    fn Rename();
+    fn Read();
+    fn Move();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5919,6 +6241,9 @@ impl ::core::fmt::Debug for IWMDMStorageControl2 {
 unsafe impl ::windows::core::Interface for IWMDMStorageControl2 {
     type Vtable = IWMDMStorageControl2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x972c2e88_bd6c_4125_8e09_84f837e637b6);
+}
+pub trait IWMDMStorageControl2Impl: IWMDMStorageControlImpl {
+    fn Insert2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6056,6 +6381,9 @@ unsafe impl ::windows::core::Interface for IWMDMStorageControl3 {
     type Vtable = IWMDMStorageControl3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3266365_d4f3_4696_8d53_bd27ec60993a);
 }
+pub trait IWMDMStorageControl3Impl: IWMDMStorageControl2Impl + IWMDMStorageControlImpl {
+    fn Insert3();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMStorageControl3Vtbl(
@@ -6150,6 +6478,15 @@ unsafe impl ::windows::core::Interface for IWMDMStorageGlobals {
     type Vtable = IWMDMStorageGlobalsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a07_33ed_11d3_8470_00c04f79dbc0);
 }
+pub trait IWMDMStorageGlobalsImpl {
+    fn GetCapabilities();
+    fn GetSerialNumber();
+    fn GetTotalSize();
+    fn GetTotalFree();
+    fn GetTotalBad();
+    fn GetStatus();
+    fn Initialize();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMStorageGlobalsVtbl(
@@ -6223,6 +6560,11 @@ impl ::core::fmt::Debug for IWMDeviceManager {
 unsafe impl ::windows::core::Interface for IWMDeviceManager {
     type Vtable = IWMDeviceManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a00_33ed_11d3_8470_00c04f79dbc0);
+}
+pub trait IWMDeviceManagerImpl {
+    fn GetRevision();
+    fn GetDeviceCount();
+    fn EnumDevices();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6328,6 +6670,11 @@ impl ::core::fmt::Debug for IWMDeviceManager2 {
 unsafe impl ::windows::core::Interface for IWMDeviceManager2 {
     type Vtable = IWMDeviceManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x923e5249_8731_4c5b_9b1c_b8b60b6e46af);
+}
+pub trait IWMDeviceManager2Impl: IWMDeviceManagerImpl {
+    fn GetDeviceFromCanonicalName();
+    fn EnumDevices2();
+    fn Reinitialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6461,6 +6808,9 @@ impl ::core::fmt::Debug for IWMDeviceManager3 {
 unsafe impl ::windows::core::Interface for IWMDeviceManager3 {
     type Vtable = IWMDeviceManager3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf185c41_100d_46ed_be2e_9ce8c44594ef);
+}
+pub trait IWMDeviceManager3Impl: IWMDeviceManager2Impl + IWMDeviceManagerImpl {
+    fn SetDeviceEnumPreference();
 }
 #[repr(C)]
 #[doc(hidden)]

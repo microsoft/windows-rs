@@ -10,6 +10,23 @@ unsafe impl ::windows::core::Interface for IUserDataAccount {
     type Vtable = IUserDataAccountVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9c4367e_b348_4910_be94_4ad4bba6dea7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataAccountImpl {
+    fn Id();
+    fn UserDisplayName();
+    fn SetUserDisplayName();
+    fn OtherAppReadAccess();
+    fn SetOtherAppReadAccess();
+    fn Icon();
+    fn DeviceAccountTypeId();
+    fn PackageFamilyName();
+    fn SaveAsync();
+    fn DeleteAsync();
+    fn FindAppointmentCalendarsAsync();
+    fn FindEmailMailboxesAsync();
+    fn FindContactListsAsync();
+    fn FindContactAnnotationListsAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataAccountVtbl(
@@ -48,6 +65,11 @@ unsafe impl ::windows::core::Interface for IUserDataAccount2 {
     type Vtable = IUserDataAccount2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x078cd89f_de82_404b_8195_c8a3ac198f60);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataAccount2Impl: IUserDataAccountImpl {
+    fn EnterpriseId();
+    fn IsProtectedUnderLock();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataAccount2Vtbl(
@@ -66,6 +88,12 @@ pub struct IUserDataAccount3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataAccount3 {
     type Vtable = IUserDataAccount3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01533845_6c43_4286_9d69_3e1709a1f266);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataAccount3Impl {
+    fn ExplictReadAccessPackageFamilyNames();
+    fn DisplayName();
+    fn SetDisplayName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -87,6 +115,17 @@ pub struct IUserDataAccount4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataAccount4 {
     type Vtable = IUserDataAccount4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4315210_eae5_4f0a_a8b2_1cca115e008f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataAccount4Impl {
+    fn CanShowCreateContactGroup();
+    fn SetCanShowCreateContactGroup();
+    fn ProviderProperties();
+    fn FindUserDataTaskListsAsync();
+    fn FindContactGroupsAsync();
+    fn TryShowCreateContactGroupAsync();
+    fn SetIsProtectedUnderLock();
+    fn SetIcon();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -118,6 +157,11 @@ unsafe impl ::windows::core::Interface for IUserDataAccountManagerForUser {
     type Vtable = IUserDataAccountManagerForUserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56a6e8db_db8f_41ab_a65f_8c5971aac982);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataAccountManagerForUserImpl {
+    fn RequestStoreAsync();
+    fn User();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataAccountManagerForUserVtbl(
@@ -138,6 +182,13 @@ pub struct IUserDataAccountManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataAccountManagerStatics {
     type Vtable = IUserDataAccountManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d9b89ea_1928_4a20_86d5_3c737f7dc3b0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataAccountManagerStaticsImpl {
+    fn RequestStoreAsync();
+    fn ShowAddAccountAsync();
+    fn ShowAccountSettingsAsync();
+    fn ShowAccountErrorResolverAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -164,6 +215,10 @@ unsafe impl ::windows::core::Interface for IUserDataAccountManagerStatics2 {
     type Vtable = IUserDataAccountManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a3ded88_316b_435e_b534_f7d4b4b7dba6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataAccountManagerStatics2Impl {
+    fn GetForUser();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataAccountManagerStatics2Vtbl(
@@ -182,6 +237,12 @@ pub struct IUserDataAccountStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataAccountStore {
     type Vtable = IUserDataAccountStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2073b0ad_7d0a_4e76_bf45_2368f978a59a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataAccountStoreImpl {
+    fn FindAccountsAsync();
+    fn GetAccountAsync();
+    fn CreateAccountAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -206,6 +267,12 @@ unsafe impl ::windows::core::Interface for IUserDataAccountStore2 {
     type Vtable = IUserDataAccountStore2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1e0aef7_9560_4631_8af0_061d30161469);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataAccountStore2Impl: IUserDataAccountStoreImpl {
+    fn CreateAccountWithPackageRelativeAppIdAsync();
+    fn StoreChanged();
+    fn RemoveStoreChanged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataAccountStore2Vtbl(
@@ -229,6 +296,10 @@ unsafe impl ::windows::core::Interface for IUserDataAccountStore3 {
     type Vtable = IUserDataAccountStore3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8142c094_f3c9_478b_b117_6585bebb6789);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataAccountStore3Impl: IUserDataAccountStoreImpl {
+    fn CreateAccountWithPackageRelativeAppIdAndEnterpriseIdAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataAccountStore3Vtbl(
@@ -247,6 +318,10 @@ pub struct IUserDataAccountStoreChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataAccountStoreChangedEventArgs {
     type Vtable = IUserDataAccountStoreChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84e3e2e5_8820_4512_b1f6_2e035be1072c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataAccountStoreChangedEventArgsImpl {
+    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]

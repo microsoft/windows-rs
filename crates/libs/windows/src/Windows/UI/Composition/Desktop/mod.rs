@@ -287,6 +287,10 @@ unsafe impl ::windows::core::Interface for IDesktopWindowTarget {
     type Vtable = IDesktopWindowTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6329d6ca_3366_490e_9db3_25312929ac51);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDesktopWindowTargetImpl {
+    fn IsTopmost();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDesktopWindowTargetVtbl(

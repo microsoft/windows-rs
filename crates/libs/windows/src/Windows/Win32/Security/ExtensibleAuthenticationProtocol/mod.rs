@@ -2657,6 +2657,13 @@ unsafe impl ::windows::core::Interface for IAccountingProviderConfig {
     type Vtable = IAccountingProviderConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66a2db18_d706_11d0_a37b_00c04fc9da04);
 }
+pub trait IAccountingProviderConfigImpl {
+    fn Initialize();
+    fn Uninitialize();
+    fn Configure();
+    fn Activate();
+    fn Deactivate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccountingProviderConfigVtbl(
@@ -2738,6 +2745,13 @@ impl ::core::fmt::Debug for IAuthenticationProviderConfig {
 unsafe impl ::windows::core::Interface for IAuthenticationProviderConfig {
     type Vtable = IAuthenticationProviderConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66a2db17_d706_11d0_a37b_00c04fc9da04);
+}
+pub trait IAuthenticationProviderConfigImpl {
+    fn Initialize();
+    fn Uninitialize();
+    fn Configure();
+    fn Activate();
+    fn Deactivate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2822,6 +2836,13 @@ impl ::core::fmt::Debug for IEAPProviderConfig {
 unsafe impl ::windows::core::Interface for IEAPProviderConfig {
     type Vtable = IEAPProviderConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66a2db19_d706_11d0_a37b_00c04fc9da04);
+}
+pub trait IEAPProviderConfigImpl {
+    fn Initialize();
+    fn Uninitialize();
+    fn ServerInvokeConfigUI();
+    fn RouterInvokeConfigUI();
+    fn RouterInvokeCredentialsUI();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2937,6 +2958,10 @@ impl ::core::fmt::Debug for IEAPProviderConfig2 {
 unsafe impl ::windows::core::Interface for IEAPProviderConfig2 {
     type Vtable = IEAPProviderConfig2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd565917a_85c4_4466_856e_671c3742ea9a);
+}
+pub trait IEAPProviderConfig2Impl: IEAPProviderConfigImpl {
+    fn ServerInvokeConfigUI2();
+    fn GetGlobalConfig();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3081,6 +3106,9 @@ unsafe impl ::windows::core::Interface for IEAPProviderConfig3 {
     type Vtable = IEAPProviderConfig3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb78ecd12_68bb_4f86_9bf0_8438dd3be982);
 }
+pub trait IEAPProviderConfig3Impl: IEAPProviderConfig2Impl + IEAPProviderConfigImpl {
+    fn ServerInvokeCertificateConfigUI();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEAPProviderConfig3Vtbl(
@@ -3156,6 +3184,10 @@ impl ::core::fmt::Debug for IRouterProtocolConfig {
 unsafe impl ::windows::core::Interface for IRouterProtocolConfig {
     type Vtable = IRouterProtocolConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66a2db16_d706_11d0_a37b_00c04fc9da04);
+}
+pub trait IRouterProtocolConfigImpl {
+    fn AddProtocol();
+    fn RemoveProtocol();
 }
 #[repr(C)]
 #[doc(hidden)]

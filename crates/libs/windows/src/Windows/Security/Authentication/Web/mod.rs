@@ -10,6 +10,12 @@ unsafe impl ::windows::core::Interface for IWebAuthenticationBrokerStatics {
     type Vtable = IWebAuthenticationBrokerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f149f1a_e673_40b5_bc22_201a6864a37b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWebAuthenticationBrokerStaticsImpl {
+    fn AuthenticateWithCallbackUriAsync();
+    fn AuthenticateWithoutCallbackUriAsync();
+    fn GetCurrentApplicationCallbackUri();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAuthenticationBrokerStaticsVtbl(
@@ -32,6 +38,14 @@ pub struct IWebAuthenticationBrokerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAuthenticationBrokerStatics2 {
     type Vtable = IWebAuthenticationBrokerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73cdfb9e_14e7_41da_a971_aaf4410b621e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWebAuthenticationBrokerStatics2Impl {
+    fn AuthenticateAndContinue();
+    fn AuthenticateWithCallbackUriAndContinue();
+    fn AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue();
+    fn AuthenticateSilentlyAsync();
+    fn AuthenticateSilentlyWithOptionsAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -59,6 +73,12 @@ pub struct IWebAuthenticationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAuthenticationResult {
     type Vtable = IWebAuthenticationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64002b4b_ede9_470a_a5cd_0323faf6e262);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWebAuthenticationResultImpl {
+    fn ResponseData();
+    fn ResponseStatus();
+    fn ResponseErrorDetail();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -624,6 +624,18 @@ unsafe impl ::windows::core::Interface for IXAPO {
     type Vtable = IXAPOVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa410b984_9839_4819_a0be_2856ae6b3adb);
 }
+pub trait IXAPOImpl {
+    fn GetRegistrationProperties();
+    fn IsInputFormatSupported();
+    fn IsOutputFormatSupported();
+    fn Initialize();
+    fn Reset();
+    fn LockForProcess();
+    fn UnlockForProcess();
+    fn Process();
+    fn CalcInputFrames();
+    fn CalcOutputFrames();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAPOVtbl(
@@ -703,6 +715,12 @@ unsafe impl ::windows::core::Interface for IXAPOHrtfParameters {
     type Vtable = IXAPOHrtfParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15b3cd66_e9de_4464_b6e6_2bc3cf63d455);
 }
+pub trait IXAPOHrtfParametersImpl {
+    fn SetSourcePosition();
+    fn SetSourceOrientation();
+    fn SetSourceGain();
+    fn SetEnvironment();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAPOHrtfParametersVtbl(
@@ -766,6 +784,10 @@ impl ::core::fmt::Debug for IXAPOParameters {
 unsafe impl ::windows::core::Interface for IXAPOParameters {
     type Vtable = IXAPOParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26d95c66_80f2_499a_ad54_5ae7f01c6d98);
+}
+pub trait IXAPOParametersImpl {
+    fn SetParameters();
+    fn GetParameters();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -865,6 +887,18 @@ unsafe impl ::windows::core::Interface for IXAudio2 {
     type Vtable = IXAudio2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b02e3cf_2e0b_4ec3_be45_1b2a3fe7210d);
 }
+pub trait IXAudio2Impl {
+    fn RegisterForCallbacks();
+    fn UnregisterForCallbacks();
+    fn CreateSourceVoice();
+    fn CreateSubmixVoice();
+    fn CreateMasteringVoice();
+    fn StartEngine();
+    fn StopEngine();
+    fn CommitChanges();
+    fn GetPerformanceData();
+    fn SetDebugConfiguration();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAudio2Vtbl(
@@ -923,6 +957,11 @@ unsafe impl ::windows::core::Interface for IXAudio2EngineCallback {
     type Vtable = IXAudio2EngineCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait IXAudio2EngineCallbackImpl {
+    fn OnProcessingPassStart();
+    fn OnProcessingPassEnd();
+    fn OnCriticalError();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAudio2EngineCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void), pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void), pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, error: ::windows::core::HRESULT));
@@ -978,6 +1017,10 @@ impl ::core::fmt::Debug for IXAudio2Extension {
 unsafe impl ::windows::core::Interface for IXAudio2Extension {
     type Vtable = IXAudio2ExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84ac29bb_d619_44d2_b197_e4acf7df3ed6);
+}
+pub trait IXAudio2ExtensionImpl {
+    fn GetProcessingQuantum();
+    fn GetProcessor();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1115,6 +1158,9 @@ impl ::core::fmt::Debug for IXAudio2MasteringVoice {
 unsafe impl ::windows::core::Interface for IXAudio2MasteringVoice {
     type Vtable = IXAudio2MasteringVoiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+}
+pub trait IXAudio2MasteringVoiceImpl: IXAudio2VoiceImpl {
+    fn GetChannelMask();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1305,6 +1351,18 @@ unsafe impl ::windows::core::Interface for IXAudio2SourceVoice {
     type Vtable = IXAudio2SourceVoiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait IXAudio2SourceVoiceImpl: IXAudio2VoiceImpl {
+    fn Start();
+    fn Stop();
+    fn SubmitSourceBuffer();
+    fn FlushSourceBuffers();
+    fn Discontinuity();
+    fn ExitLoop();
+    fn GetState();
+    fn SetFrequencyRatio();
+    fn GetFrequencyRatio();
+    fn SetSourceSampleRate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAudio2SourceVoiceVtbl(
@@ -1463,6 +1521,7 @@ unsafe impl ::windows::core::Interface for IXAudio2SubmixVoice {
     type Vtable = IXAudio2SubmixVoiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait IXAudio2SubmixVoiceImpl: IXAudio2VoiceImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAudio2SubmixVoiceVtbl(
@@ -1591,6 +1650,27 @@ unsafe impl ::windows::core::Interface for IXAudio2Voice {
     type Vtable = IXAudio2VoiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait IXAudio2VoiceImpl {
+    fn GetVoiceDetails();
+    fn SetOutputVoices();
+    fn SetEffectChain();
+    fn EnableEffect();
+    fn DisableEffect();
+    fn GetEffectState();
+    fn SetEffectParameters();
+    fn GetEffectParameters();
+    fn SetFilterParameters();
+    fn GetFilterParameters();
+    fn SetOutputFilterParameters();
+    fn GetOutputFilterParameters();
+    fn SetVolume();
+    fn GetVolume();
+    fn SetChannelVolumes();
+    fn GetChannelVolumes();
+    fn SetOutputMatrix();
+    fn GetOutputMatrix();
+    fn DestroyVoice();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAudio2VoiceVtbl(
@@ -1668,6 +1748,15 @@ impl ::core::fmt::Debug for IXAudio2VoiceCallback {
 unsafe impl ::windows::core::Interface for IXAudio2VoiceCallback {
     type Vtable = IXAudio2VoiceCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+}
+pub trait IXAudio2VoiceCallbackImpl {
+    fn OnVoiceProcessingPassStart();
+    fn OnVoiceProcessingPassEnd();
+    fn OnStreamEnd();
+    fn OnBufferStart();
+    fn OnBufferEnd();
+    fn OnLoopEnd();
+    fn OnVoiceError();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -101,6 +101,9 @@ unsafe impl ::windows::core::Interface for IAudioEndpointFormatControl {
     type Vtable = IAudioEndpointFormatControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x784cfd40_9f89_456e_a1a6_873b006a664e);
 }
+pub trait IAudioEndpointFormatControlImpl {
+    fn ResetToDefault();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEndpointFormatControlVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resetflags: u32) -> ::windows::core::HRESULT);
@@ -158,6 +161,10 @@ impl ::core::fmt::Debug for IAudioEndpointLastBufferControl {
 unsafe impl ::windows::core::Interface for IAudioEndpointLastBufferControl {
     type Vtable = IAudioEndpointLastBufferControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8520dd3_8f9d_4437_9861_62f584c33dd6);
+}
+pub trait IAudioEndpointLastBufferControlImpl {
+    fn IsLastBufferControlSupported();
+    fn ReleaseOutputDataPointerForLastBuffer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -225,6 +232,10 @@ unsafe impl ::windows::core::Interface for IAudioEndpointOffloadStreamMeter {
     type Vtable = IAudioEndpointOffloadStreamMeterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1546dce_9dd1_418b_9ab2_348ced161c86);
 }
+pub trait IAudioEndpointOffloadStreamMeterImpl {
+    fn GetMeterChannelCount();
+    fn GetMeteringData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEndpointOffloadStreamMeterVtbl(
@@ -287,6 +298,10 @@ impl ::core::fmt::Debug for IAudioEndpointOffloadStreamMute {
 unsafe impl ::windows::core::Interface for IAudioEndpointOffloadStreamMute {
     type Vtable = IAudioEndpointOffloadStreamMuteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfe21355_5ec2_40e0_8d6b_710ac3c00249);
+}
+pub trait IAudioEndpointOffloadStreamMuteImpl {
+    fn SetMute();
+    fn GetMute();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -356,6 +371,11 @@ impl ::core::fmt::Debug for IAudioEndpointOffloadStreamVolume {
 unsafe impl ::windows::core::Interface for IAudioEndpointOffloadStreamVolume {
     type Vtable = IAudioEndpointOffloadStreamVolumeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64f1dd49_71ca_4281_8672_3a9eddd1d0b6);
+}
+pub trait IAudioEndpointOffloadStreamVolumeImpl {
+    fn GetVolumeChannelCount();
+    fn SetChannelVolumes();
+    fn GetChannelVolumes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -494,6 +514,26 @@ unsafe impl ::windows::core::Interface for IAudioEndpointVolume {
     type Vtable = IAudioEndpointVolumeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cdf2c82_841e_4546_9722_0cf74078229a);
 }
+pub trait IAudioEndpointVolumeImpl {
+    fn RegisterControlChangeNotify();
+    fn UnregisterControlChangeNotify();
+    fn GetChannelCount();
+    fn SetMasterVolumeLevel();
+    fn SetMasterVolumeLevelScalar();
+    fn GetMasterVolumeLevel();
+    fn GetMasterVolumeLevelScalar();
+    fn SetChannelVolumeLevel();
+    fn SetChannelVolumeLevelScalar();
+    fn GetChannelVolumeLevel();
+    fn GetChannelVolumeLevelScalar();
+    fn SetMute();
+    fn GetMute();
+    fn GetVolumeStepInfo();
+    fn VolumeStepUp();
+    fn VolumeStepDown();
+    fn QueryHardwareSupport();
+    fn GetVolumeRange();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEndpointVolumeVtbl(
@@ -570,6 +610,9 @@ impl ::core::fmt::Debug for IAudioEndpointVolumeCallback {
 unsafe impl ::windows::core::Interface for IAudioEndpointVolumeCallback {
     type Vtable = IAudioEndpointVolumeCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x657804fa_d6ad_4496_8a60_352752af4f89);
+}
+pub trait IAudioEndpointVolumeCallbackImpl {
+    fn OnNotify();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -730,6 +773,9 @@ unsafe impl ::windows::core::Interface for IAudioEndpointVolumeEx {
     type Vtable = IAudioEndpointVolumeExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66e11784_f695_4f28_a505_a7080081a78f);
 }
+pub trait IAudioEndpointVolumeExImpl: IAudioEndpointVolumeImpl {
+    fn GetVolumeRangeChannel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEndpointVolumeExVtbl(
@@ -814,6 +860,10 @@ unsafe impl ::windows::core::Interface for IAudioLfxControl {
     type Vtable = IAudioLfxControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x076a6922_d802_4f83_baf6_409d9ca11bfe);
 }
+pub trait IAudioLfxControlImpl {
+    fn SetLocalEffectsState();
+    fn GetLocalEffectsState();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioLfxControlVtbl(
@@ -888,6 +938,12 @@ impl ::core::fmt::Debug for IAudioMeterInformation {
 unsafe impl ::windows::core::Interface for IAudioMeterInformation {
     type Vtable = IAudioMeterInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc02216f6_8c67_4b5b_9d00_d008e73e0064);
+}
+pub trait IAudioMeterInformationImpl {
+    fn GetPeakValue();
+    fn GetMeteringChannelCount();
+    fn GetChannelsPeakValues();
+    fn QueryHardwareSupport();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -970,6 +1026,13 @@ impl ::core::fmt::Debug for IHardwareAudioEngineBase {
 unsafe impl ::windows::core::Interface for IHardwareAudioEngineBase {
     type Vtable = IHardwareAudioEngineBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeddce3e4_f3c1_453a_b461_223563cbd886);
+}
+pub trait IHardwareAudioEngineBaseImpl {
+    fn GetAvailableOffloadConnectorCount();
+    fn GetEngineFormat();
+    fn SetEngineDeviceFormat();
+    fn SetGfxState();
+    fn GetGfxState();
 }
 #[repr(C)]
 #[doc(hidden)]

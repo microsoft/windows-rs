@@ -935,6 +935,13 @@ unsafe impl ::windows::core::Interface for IGameListEntry {
     type Vtable = IGameListEntryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x735924d3_811f_4494_b69c_c641a0c61543);
 }
+pub trait IGameListEntryImpl {
+    fn DisplayInfo();
+    fn LaunchAsync();
+    fn Category();
+    fn Properties();
+    fn SetCategoryAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameListEntryVtbl(
@@ -960,6 +967,17 @@ pub struct IGameListEntry2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameListEntry2 {
     type Vtable = IGameListEntry2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd84a8f8b_8749_4a25_90d3_f6c5a427886d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGameListEntry2Impl: IGameListEntryImpl {
+    fn LaunchableState();
+    fn LauncherExecutable();
+    fn LaunchParameters();
+    fn SetLauncherExecutableFileAsync();
+    fn SetLauncherExecutableFileWithParamsAsync();
+    fn TitleId();
+    fn SetTitleIdAsync();
+    fn GameModeConfiguration();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -989,6 +1007,17 @@ pub struct IGameListStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameListStatics {
     type Vtable = IGameListStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ddd0f6f_9c66_4b05_945c_d6ed78491b8c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGameListStaticsImpl {
+    fn FindAllAsync();
+    fn FindAllAsyncPackageFamilyName();
+    fn GameAdded();
+    fn RemoveGameAdded();
+    fn GameRemoved();
+    fn RemoveGameRemoved();
+    fn GameUpdated();
+    fn RemoveGameUpdated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1023,6 +1052,11 @@ unsafe impl ::windows::core::Interface for IGameListStatics2 {
     type Vtable = IGameListStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x395f2098_ea1a_45aa_9268_a83905686f27);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGameListStatics2Impl {
+    fn MergeEntriesAsync();
+    fn UnmergeEntryAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameListStatics2Vtbl(
@@ -1043,6 +1077,27 @@ pub struct IGameModeConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameModeConfiguration {
     type Vtable = IGameModeConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78e591af_b142_4ef0_8830_55bc2be4f5ea);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGameModeConfigurationImpl {
+    fn IsEnabled();
+    fn SetIsEnabled();
+    fn RelatedProcessNames();
+    fn PercentGpuTimeAllocatedToGame();
+    fn SetPercentGpuTimeAllocatedToGame();
+    fn PercentGpuMemoryAllocatedToGame();
+    fn SetPercentGpuMemoryAllocatedToGame();
+    fn PercentGpuMemoryAllocatedToSystemCompositor();
+    fn SetPercentGpuMemoryAllocatedToSystemCompositor();
+    fn MaxCpuCount();
+    fn SetMaxCpuCount();
+    fn CpuExclusivityMaskLow();
+    fn SetCpuExclusivityMaskLow();
+    fn CpuExclusivityMaskHigh();
+    fn SetCpuExclusivityMaskHigh();
+    fn AffinitizeToExclusiveCpus();
+    fn SetAffinitizeToExclusiveCpus();
+    fn SaveAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1093,6 +1148,11 @@ unsafe impl ::windows::core::Interface for IGameModeUserConfiguration {
     type Vtable = IGameModeUserConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72d34af4_756b_470f_a0c2_ba62a90795db);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGameModeUserConfigurationImpl {
+    fn GamingRelatedProcessNames();
+    fn SaveAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameModeUserConfigurationVtbl(
@@ -1113,6 +1173,10 @@ pub struct IGameModeUserConfigurationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameModeUserConfigurationStatics {
     type Vtable = IGameModeUserConfigurationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e50d97c_66ea_478e_a4a1_f57c0e8d00e7);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGameModeUserConfigurationStaticsImpl {
+    fn GetDefault();
 }
 #[repr(C)]
 #[doc(hidden)]

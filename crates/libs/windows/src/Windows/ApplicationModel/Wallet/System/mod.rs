@@ -6,6 +6,14 @@ unsafe impl ::windows::core::Interface for IWalletItemSystemStore {
     type Vtable = IWalletItemSystemStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x522e2bff_96a2_4a17_8d19_fe1d9f837561);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWalletItemSystemStoreImpl {
+    fn GetItemsAsync();
+    fn DeleteAsync();
+    fn ImportItemAsync();
+    fn GetAppStatusForItem();
+    fn LaunchAppForItemAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletItemSystemStoreVtbl(
@@ -32,6 +40,11 @@ unsafe impl ::windows::core::Interface for IWalletItemSystemStore2 {
     type Vtable = IWalletItemSystemStore2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf98d3a4e_be00_4fdd_9734_6c113c1ac1cb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWalletItemSystemStore2Impl {
+    fn ItemsChanged();
+    fn RemoveItemsChanged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletItemSystemStore2Vtbl(
@@ -52,6 +65,10 @@ pub struct IWalletManagerSystemStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletManagerSystemStatics {
     type Vtable = IWalletManagerSystemStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbee8eb89_2634_4b9a_8b23_ee8903c91fe0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWalletManagerSystemStaticsImpl {
+    fn RequestStoreAsync();
 }
 #[repr(C)]
 #[doc(hidden)]

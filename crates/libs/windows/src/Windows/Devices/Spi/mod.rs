@@ -8,6 +8,13 @@ unsafe impl ::windows::core::Interface for ISpiBusInfo {
     type Vtable = ISpiBusInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9929444a_54f2_48c6_b952_9c32fc02c669);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpiBusInfoImpl {
+    fn ChipSelectLineCount();
+    fn MinClockFrequency();
+    fn MaxClockFrequency();
+    fn SupportedDataBitLengths();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpiBusInfoVtbl(
@@ -29,6 +36,19 @@ pub struct ISpiConnectionSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpiConnectionSettings {
     type Vtable = ISpiConnectionSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5283a37f_f935_4b9f_a7a7_3a7890afa5ce);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpiConnectionSettingsImpl {
+    fn ChipSelectLine();
+    fn SetChipSelectLine();
+    fn Mode();
+    fn SetMode();
+    fn DataBitLength();
+    fn SetDataBitLength();
+    fn ClockFrequency();
+    fn SetClockFrequency();
+    fn SharingMode();
+    fn SetSharingMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -57,6 +77,10 @@ unsafe impl ::windows::core::Interface for ISpiConnectionSettingsFactory {
     type Vtable = ISpiConnectionSettingsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff99081e_10c4_44b7_9fea_a748b5a46f31);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpiConnectionSettingsFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpiConnectionSettingsFactoryVtbl(
@@ -75,6 +99,10 @@ unsafe impl ::windows::core::Interface for ISpiController {
     type Vtable = ISpiControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8d3c829_9895_4159_a934_8741f1ee6d27);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpiControllerImpl {
+    fn GetDevice();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpiControllerVtbl(
@@ -92,6 +120,11 @@ pub struct ISpiControllerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpiControllerStatics {
     type Vtable = ISpiControllerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d5229e2_138b_4e48_b964_4f2f79b9c5a2);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpiControllerStaticsImpl {
+    fn GetDefaultAsync();
+    fn GetControllersAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -113,6 +146,15 @@ pub struct ISpiDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpiDevice {
     type Vtable = ISpiDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05d5356d_11b6_4d39_84d5_95dfb4c9f2ce);
+}
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait ISpiDeviceImpl: IClosableImpl {
+    fn DeviceId();
+    fn ConnectionSettings();
+    fn Write();
+    fn Read();
+    fn TransferSequential();
+    fn TransferFullDuplex();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -230,6 +272,12 @@ unsafe impl ::windows::core::RuntimeType for ISpiDeviceStatics {
 unsafe impl ::windows::core::Interface for ISpiDeviceStatics {
     type Vtable = ISpiDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa278e559_5720_4d3f_bd93_56f5ff5a5879);
+}
+pub trait ISpiDeviceStaticsImpl {
+    fn GetDeviceSelector();
+    fn GetDeviceSelectorFromFriendlyName();
+    fn GetBusInfo();
+    fn FromIdAsync();
 }
 #[repr(C)]
 #[doc(hidden)]

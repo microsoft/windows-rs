@@ -127,6 +127,16 @@ unsafe impl ::windows::core::Interface for ISensLogon {
     type Vtable = ISensLogonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd597bab3_5b9f_11d1_8dd2_00aa004abd5e);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISensLogonImpl: IDispatchImpl {
+    fn Logon();
+    fn Logoff();
+    fn StartShell();
+    fn DisplayLock();
+    fn DisplayUnlock();
+    fn StartScreenSaver();
+    fn StopScreenSaver();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensLogonVtbl(
@@ -272,6 +282,14 @@ unsafe impl ::windows::core::Interface for ISensLogon2 {
     type Vtable = ISensLogon2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd597bab4_5b9f_11d1_8dd2_00aa004abd5e);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISensLogon2Impl: IDispatchImpl {
+    fn Logon();
+    fn Logoff();
+    fn SessionDisconnect();
+    fn SessionReconnect();
+    fn PostShell();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensLogon2Vtbl(
@@ -413,6 +431,14 @@ unsafe impl ::windows::core::Interface for ISensNetwork {
     type Vtable = ISensNetworkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd597bab1_5b9f_11d1_8dd2_00aa004abd5e);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISensNetworkImpl: IDispatchImpl {
+    fn ConnectionMade();
+    fn ConnectionMadeNoQOCInfo();
+    fn ConnectionLost();
+    fn DestinationReachable();
+    fn DestinationReachableNoQOCInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensNetworkVtbl(
@@ -540,6 +566,12 @@ impl ::core::fmt::Debug for ISensOnNow {
 unsafe impl ::windows::core::Interface for ISensOnNow {
     type Vtable = ISensOnNowVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd597bab2_5b9f_11d1_8dd2_00aa004abd5e);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISensOnNowImpl: IDispatchImpl {
+    fn OnACPower();
+    fn OnBatteryPower();
+    fn BatteryLow();
 }
 #[repr(C)]
 #[doc(hidden)]

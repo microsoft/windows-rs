@@ -74,6 +74,10 @@ unsafe impl ::windows::core::Interface for AsyncIFtpAuthenticationProvider {
     type Vtable = AsyncIFtpAuthenticationProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc24efb65_9f3e_4996_8fb1_ce166916bab5);
 }
+pub trait AsyncIFtpAuthenticationProviderImpl {
+    fn Begin_AuthenticateUser();
+    fn Finish_AuthenticateUser();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIFtpAuthenticationProviderVtbl(
@@ -139,6 +143,10 @@ impl ::core::fmt::Debug for AsyncIFtpAuthorizationProvider {
 unsafe impl ::windows::core::Interface for AsyncIFtpAuthorizationProvider {
     type Vtable = AsyncIFtpAuthorizationProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x860dc339_07e5_4a5c_9c61_8820cea012bc);
+}
+pub trait AsyncIFtpAuthorizationProviderImpl {
+    fn Begin_GetUserAccessPermission();
+    fn Finish_GetUserAccessPermission();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -206,6 +214,10 @@ unsafe impl ::windows::core::Interface for AsyncIFtpHomeDirectoryProvider {
     type Vtable = AsyncIFtpHomeDirectoryProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73f81638_6295_42bd_a2be_4a657f7c479c);
 }
+pub trait AsyncIFtpHomeDirectoryProviderImpl {
+    fn Begin_GetUserHomeDirectoryData();
+    fn Finish_GetUserHomeDirectoryData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIFtpHomeDirectoryProviderVtbl(
@@ -270,6 +282,10 @@ impl ::core::fmt::Debug for AsyncIFtpLogProvider {
 unsafe impl ::windows::core::Interface for AsyncIFtpLogProvider {
     type Vtable = AsyncIFtpLogProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00a0ae46_2498_48b2_95e6_df678ed7d49f);
+}
+pub trait AsyncIFtpLogProviderImpl {
+    fn Begin_Log();
+    fn Finish_Log();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -336,6 +352,10 @@ unsafe impl ::windows::core::Interface for AsyncIFtpPostprocessProvider {
     type Vtable = AsyncIFtpPostprocessProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa16b2542_9694_4eb1_a564_6c2e91fdc133);
 }
+pub trait AsyncIFtpPostprocessProviderImpl {
+    fn Begin_HandlePostprocess();
+    fn Finish_HandlePostprocess();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIFtpPostprocessProviderVtbl(
@@ -400,6 +420,10 @@ impl ::core::fmt::Debug for AsyncIFtpPreprocessProvider {
 unsafe impl ::windows::core::Interface for AsyncIFtpPreprocessProvider {
     type Vtable = AsyncIFtpPreprocessProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ff5fd8f_fd8e_48b1_a3e0_bf7073db4db5);
+}
+pub trait AsyncIFtpPreprocessProviderImpl {
+    fn Begin_HandlePreprocess();
+    fn Finish_HandlePreprocess();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -466,6 +490,10 @@ impl ::core::fmt::Debug for AsyncIFtpRoleProvider {
 unsafe impl ::windows::core::Interface for AsyncIFtpRoleProvider {
     type Vtable = AsyncIFtpRoleProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e83bf99_70ec_41ca_84b6_aca7c7a62caf);
+}
+pub trait AsyncIFtpRoleProviderImpl {
+    fn Begin_IsUserInRole();
+    fn Finish_IsUserInRole();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -539,6 +567,12 @@ impl ::core::fmt::Debug for AsyncIMSAdminBaseSinkW {
 unsafe impl ::windows::core::Interface for AsyncIMSAdminBaseSinkW {
     type Vtable = AsyncIMSAdminBaseSinkWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9e69613_b80d_11d0_b9b9_00a0c922e750);
+}
+pub trait AsyncIMSAdminBaseSinkWImpl {
+    fn Begin_SinkNotify();
+    fn Finish_SinkNotify();
+    fn Begin_ShutdownNotify();
+    fn Finish_ShutdownNotify();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2279,6 +2313,11 @@ unsafe impl ::windows::core::Interface for IADMEXT {
     type Vtable = IADMEXTVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51dfe970_f6f2_11d0_b9bd_00a0c922e750);
 }
+pub trait IADMEXTImpl {
+    fn Initialize();
+    fn EnumDcomCLSIDs();
+    fn Terminate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADMEXTVtbl(
@@ -2338,6 +2377,9 @@ impl ::core::fmt::Debug for IFtpAuthenticationProvider {
 unsafe impl ::windows::core::Interface for IFtpAuthenticationProvider {
     type Vtable = IFtpAuthenticationProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4659f95c_d5a8_4707_b2fc_6fd5794246cf);
+}
+pub trait IFtpAuthenticationProviderImpl {
+    fn AuthenticateUser();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2399,6 +2441,9 @@ unsafe impl ::windows::core::Interface for IFtpAuthorizationProvider {
     type Vtable = IFtpAuthorizationProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa50ae7a1_a35a_42b4_a4f3_f4f7057a05d1);
 }
+pub trait IFtpAuthorizationProviderImpl {
+    fn GetUserAccessPermission();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFtpAuthorizationProviderVtbl(
@@ -2459,6 +2504,9 @@ unsafe impl ::windows::core::Interface for IFtpHomeDirectoryProvider {
     type Vtable = IFtpHomeDirectoryProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0933b392_18dd_4097_8b9c_83325c35d9a6);
 }
+pub trait IFtpHomeDirectoryProviderImpl {
+    fn GetUserHomeDirectoryData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFtpHomeDirectoryProviderVtbl(
@@ -2517,6 +2565,9 @@ impl ::core::fmt::Debug for IFtpLogProvider {
 unsafe impl ::windows::core::Interface for IFtpLogProvider {
     type Vtable = IFtpLogProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa18a94cc_8299_4408_816c_7c3baca1a40e);
+}
+pub trait IFtpLogProviderImpl {
+    fn Log();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2578,6 +2629,9 @@ unsafe impl ::windows::core::Interface for IFtpPostprocessProvider {
     type Vtable = IFtpPostprocessProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4522cbc6_16cd_49ad_8653_9a2c579e4280);
 }
+pub trait IFtpPostprocessProviderImpl {
+    fn HandlePostprocess();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFtpPostprocessProviderVtbl(
@@ -2638,6 +2692,9 @@ unsafe impl ::windows::core::Interface for IFtpPreprocessProvider {
     type Vtable = IFtpPreprocessProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3c19b60_5a28_471a_8f93_ab30411cee82);
 }
+pub trait IFtpPreprocessProviderImpl {
+    fn HandlePreprocess();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFtpPreprocessProviderVtbl(
@@ -2696,6 +2753,9 @@ impl ::core::fmt::Debug for IFtpProviderConstruct {
 unsafe impl ::windows::core::Interface for IFtpProviderConstruct {
     type Vtable = IFtpProviderConstructVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d1a3f7b_412d_447c_b199_64f967e9a2da);
+}
+pub trait IFtpProviderConstructImpl {
+    fn Construct();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2756,6 +2816,9 @@ impl ::core::fmt::Debug for IFtpRoleProvider {
 unsafe impl ::windows::core::Interface for IFtpRoleProvider {
     type Vtable = IFtpRoleProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x909c850d_8ca0_4674_96b8_cc2941535725);
+}
+pub trait IFtpRoleProviderImpl {
+    fn IsUserInRole();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3093,6 +3156,14 @@ impl ::core::fmt::Debug for IMSAdminBase2W {
 unsafe impl ::windows::core::Interface for IMSAdminBase2W {
     type Vtable = IMSAdminBase2WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8298d101_f992_43b7_8eca_5052d885b995);
+}
+pub trait IMSAdminBase2WImpl: IMSAdminBaseWImpl {
+    fn BackupWithPasswd();
+    fn RestoreWithPasswd();
+    fn Export();
+    fn Import();
+    fn RestoreHistory();
+    fn EnumHistory();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3437,6 +3508,9 @@ unsafe impl ::windows::core::Interface for IMSAdminBase3W {
     type Vtable = IMSAdminBase3WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf612954d_3b0b_4c56_9563_227b7be624b4);
 }
+pub trait IMSAdminBase3WImpl: IMSAdminBase2WImpl + IMSAdminBaseWImpl {
+    fn GetChildPaths();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSAdminBase3WVtbl(
@@ -3564,6 +3638,10 @@ impl ::core::fmt::Debug for IMSAdminBaseSinkW {
 unsafe impl ::windows::core::Interface for IMSAdminBaseSinkW {
     type Vtable = IMSAdminBaseSinkWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9e69612_b80d_11d0_b9b9_00a0c922e750);
+}
+pub trait IMSAdminBaseSinkWImpl {
+    fn SinkNotify();
+    fn ShutdownNotify();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3771,6 +3849,39 @@ unsafe impl ::windows::core::Interface for IMSAdminBaseW {
     type Vtable = IMSAdminBaseWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70b51430_b6ca_11d0_b9b9_00a0c922e750);
 }
+pub trait IMSAdminBaseWImpl {
+    fn AddKey();
+    fn DeleteKey();
+    fn DeleteChildKeys();
+    fn EnumKeys();
+    fn CopyKey();
+    fn RenameKey();
+    fn SetData();
+    fn GetData();
+    fn DeleteData();
+    fn EnumData();
+    fn GetAllData();
+    fn DeleteAllData();
+    fn CopyData();
+    fn GetDataPaths();
+    fn OpenKey();
+    fn CloseKey();
+    fn ChangePermissions();
+    fn SaveData();
+    fn GetHandleInfo();
+    fn GetSystemChangeNumber();
+    fn GetDataSetNumber();
+    fn SetLastChangeTime();
+    fn GetLastChangeTime();
+    fn KeyExchangePhase1();
+    fn KeyExchangePhase2();
+    fn Backup();
+    fn Restore();
+    fn EnumBackups();
+    fn DeleteBackup();
+    fn UnmarshalInterface();
+    fn GetServerGuid();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSAdminBaseWVtbl(
@@ -3880,6 +3991,9 @@ impl ::core::fmt::Debug for IMSImpExpHelpW {
 unsafe impl ::windows::core::Interface for IMSImpExpHelpW {
     type Vtable = IMSImpExpHelpWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29ff67ff_8050_480f_9f30_cc41635f2f9d);
+}
+pub trait IMSImpExpHelpWImpl {
+    fn EnumeratePathsInFile();
 }
 #[repr(C)]
 #[doc(hidden)]

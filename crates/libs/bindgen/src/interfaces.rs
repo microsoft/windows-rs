@@ -196,20 +196,25 @@ fn gen_agile(def: &TypeDef, gen: &Gen) -> TokenStream {
 fn gen_implement(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     // TODO: gen trait for interface and cfg based on all interfaces being featured 
     // and if interface is exclusive then only provide implement trait if "implement_exclusive" is featured.
+    // Also cfg should include all method cfgs.
 
+    let ident = gen_impl_ident(def, gen);
+    let constraints = gen_type_constraints(def, gen);
     let mut cfg = cfg.clone();
     let mut requires = vec![];
 
     // vtable_types includes self at the end so reverse and skip it
     for def in def.vtable_types().iter().rev().skip(1) {
-        cfg = cfg.union(gen.element_cfg(def));
-        requires.push(gen_element_name(def, gen));
+        if let ElementType::TypeDef(def) = def {
+            cfg = cfg.union(gen.type_cfg(def));
+            requires.push(gen_impl_ident(def, gen));
+        }
     }
 
     if def.is_winrt() {
         for def in def.required_interfaces() {
             cfg = cfg.union(gen.type_cfg(&def));
-            requires.push(gen_type_name(&def, gen));
+            requires.push(gen_impl_ident(&def, gen));
         }
     }
 
@@ -217,7 +222,17 @@ fn gen_implement(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
         cfg.features.insert("implement_exclusive");
     }
 
+    let cfg = cfg.gen(gen);
 
+    let methods = def.methods().map(|method| {
+        let name = gen_ident(&method.rust_name());
+        quote! { fn #name(); }
+    });
 
-    quote!{}
+    quote!{
+        #cfg
+        pub trait #ident : #(#requires)+* where #(#constraints)* {
+            #(#methods)*
+        }
+    }
 }

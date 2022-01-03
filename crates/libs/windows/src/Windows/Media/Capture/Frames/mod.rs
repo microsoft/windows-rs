@@ -405,6 +405,12 @@ unsafe impl ::windows::core::Interface for IAudioMediaFrame {
     type Vtable = IAudioMediaFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3a9feff_8021_441b_9a46_e7f0137b7981);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAudioMediaFrameImpl {
+    fn FrameReference();
+    fn AudioEncodingProperties();
+    fn GetAudioFrame();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioMediaFrameVtbl(
@@ -426,6 +432,11 @@ unsafe impl ::windows::core::Interface for IBufferMediaFrame {
     type Vtable = IBufferMediaFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5b153c7_9b84_4062_b79c_a365b2596854);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBufferMediaFrameImpl {
+    fn FrameReference();
+    fn Buffer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBufferMediaFrameVtbl(
@@ -445,6 +456,13 @@ pub struct IDepthMediaFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDepthMediaFrame {
     type Vtable = IDepthMediaFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47135e4f_8549_45c0_925b_80d35efdb10a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDepthMediaFrameImpl {
+    fn FrameReference();
+    fn VideoMediaFrame();
+    fn DepthFormat();
+    fn TryCreateCoordinateMapper();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -468,6 +486,11 @@ unsafe impl ::windows::core::Interface for IDepthMediaFrame2 {
     type Vtable = IDepthMediaFrame2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cca473d_c4a4_4176_b0cd_33eae3b35aa3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDepthMediaFrame2Impl {
+    fn MaxReliableDepth();
+    fn MinReliableDepth();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDepthMediaFrame2Vtbl(
@@ -487,6 +510,11 @@ unsafe impl ::windows::core::Interface for IDepthMediaFrameFormat {
     type Vtable = IDepthMediaFrameFormatVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc312cf40_d729_453e_8780_2e04f140d28e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDepthMediaFrameFormatImpl {
+    fn VideoFormat();
+    fn DepthScaleInMeters();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDepthMediaFrameFormatVtbl(
@@ -505,6 +533,12 @@ pub struct IInfraredMediaFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInfraredMediaFrame {
     type Vtable = IInfraredMediaFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fd13503_004b_4f0e_91ac_465299b41658);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInfraredMediaFrameImpl {
+    fn FrameReference();
+    fn VideoMediaFrame();
+    fn IsIlluminated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -526,6 +560,8 @@ unsafe impl ::windows::core::Interface for IMediaFrameArrivedEventArgs {
     type Vtable = IMediaFrameArrivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b430add_a490_4435_ada1_9affd55239f7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaFrameArrivedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameArrivedEventArgsVtbl(
@@ -542,6 +578,14 @@ pub struct IMediaFrameFormat(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameFormat {
     type Vtable = IMediaFrameFormatVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71902b4e_b279_4a97_a9db_bd5a2fb78f39);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaFrameFormatImpl {
+    fn MajorType();
+    fn Subtype();
+    fn FrameRate();
+    fn Properties();
+    fn VideoFormat();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -567,6 +611,10 @@ unsafe impl ::windows::core::Interface for IMediaFrameFormat2 {
     type Vtable = IMediaFrameFormat2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63856340_5e87_4c10_86d1_6df097a6c6a8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaFrameFormat2Impl {
+    fn AudioEncodingProperties();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameFormat2Vtbl(
@@ -585,6 +633,14 @@ pub struct IMediaFrameReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameReader {
     type Vtable = IMediaFrameReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4c94395_2028_48ed_90b0_d1c1b162e24c);
+}
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IMediaFrameReaderImpl: IClosableImpl {
+    fn FrameArrived();
+    fn RemoveFrameArrived();
+    fn TryAcquireLatestFrame();
+    fn StartAsync();
+    fn StopAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -612,6 +668,11 @@ unsafe impl ::windows::core::Interface for IMediaFrameReader2 {
     type Vtable = IMediaFrameReader2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x871127b3_8531_4050_87cc_a13733cf3e9b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaFrameReader2Impl {
+    fn SetAcquisitionMode();
+    fn AcquisitionMode();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameReader2Vtbl(
@@ -630,6 +691,17 @@ pub struct IMediaFrameReference(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameReference {
     type Vtable = IMediaFrameReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6b88641_f0dc_4044_8dc9_961cedd05bad);
+}
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IMediaFrameReferenceImpl: IClosableImpl {
+    fn SourceKind();
+    fn Format();
+    fn SystemRelativeTime();
+    fn Duration();
+    fn Properties();
+    fn BufferMediaFrame();
+    fn VideoMediaFrame();
+    fn CoordinateSystem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -660,6 +732,10 @@ unsafe impl ::windows::core::Interface for IMediaFrameReference2 {
     type Vtable = IMediaFrameReference2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddbc3ecc_d5b2_49ef_836a_947d989b80c1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaFrameReference2Impl {
+    fn AudioMediaFrame();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameReference2Vtbl(
@@ -677,6 +753,17 @@ pub struct IMediaFrameSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameSource {
     type Vtable = IMediaFrameSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6782953_90db_46a8_8add_2aa884a8d253);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaFrameSourceImpl {
+    fn Info();
+    fn Controller();
+    fn SupportedFormats();
+    fn CurrentFormat();
+    fn SetFormatAsync();
+    fn FormatChanged();
+    fn RemoveFormatChanged();
+    fn TryGetCameraIntrinsics();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -708,6 +795,12 @@ unsafe impl ::windows::core::Interface for IMediaFrameSourceController {
     type Vtable = IMediaFrameSourceControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d076635_316d_4b8f_b7b6_eeb04a8c6525);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaFrameSourceControllerImpl {
+    fn GetPropertyAsync();
+    fn SetPropertyAsync();
+    fn VideoDeviceController();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceControllerVtbl(
@@ -731,6 +824,11 @@ unsafe impl ::windows::core::Interface for IMediaFrameSourceController2 {
     type Vtable = IMediaFrameSourceController2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefc49fd4_fcf2_4a03_b4e4_ac9628739bee);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaFrameSourceController2Impl {
+    fn GetPropertyByExtendedIdAsync();
+    fn SetPropertyByExtendedIdAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceController2Vtbl(
@@ -752,6 +850,10 @@ unsafe impl ::windows::core::Interface for IMediaFrameSourceController3 {
     type Vtable = IMediaFrameSourceController3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f0cf815_2464_4651_b1e8_4a82dbdb54de);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaFrameSourceController3Impl {
+    fn AudioDeviceController();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceController3Vtbl(
@@ -771,6 +873,11 @@ unsafe impl ::windows::core::Interface for IMediaFrameSourceGetPropertyResult {
     type Vtable = IMediaFrameSourceGetPropertyResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x088616c2_3a64_4bd5_bd2b_e7c898d2f37a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaFrameSourceGetPropertyResultImpl {
+    fn Status();
+    fn Value();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceGetPropertyResultVtbl(
@@ -789,6 +896,12 @@ pub struct IMediaFrameSourceGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameSourceGroup {
     type Vtable = IMediaFrameSourceGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f605b87_4832_4b5f_ae3d_412faab37d34);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaFrameSourceGroupImpl {
+    fn Id();
+    fn DisplayName();
+    fn SourceInfos();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -811,6 +924,12 @@ unsafe impl ::windows::core::Interface for IMediaFrameSourceGroupStatics {
     type Vtable = IMediaFrameSourceGroupStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c48bfc5_436f_4508_94cf_d5d8b7326445);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaFrameSourceGroupStaticsImpl {
+    fn FindAllAsync();
+    fn FromIdAsync();
+    fn GetDeviceSelector();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceGroupStaticsVtbl(
@@ -832,6 +951,16 @@ pub struct IMediaFrameSourceInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameSourceInfo {
     type Vtable = IMediaFrameSourceInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87bdc9cd_4601_408f_91cf_038318cd0af3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaFrameSourceInfoImpl {
+    fn Id();
+    fn MediaStreamType();
+    fn SourceKind();
+    fn SourceGroup();
+    fn DeviceInformation();
+    fn Properties();
+    fn CoordinateSystem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -860,6 +989,11 @@ unsafe impl ::windows::core::Interface for IMediaFrameSourceInfo2 {
     type Vtable = IMediaFrameSourceInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x195a7855_6457_42c6_a769_19b65bd32e6e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaFrameSourceInfo2Impl {
+    fn ProfileId();
+    fn VideoProfileMediaDescription();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceInfo2Vtbl(
@@ -880,6 +1014,10 @@ unsafe impl ::windows::core::Interface for IMediaFrameSourceInfo3 {
     type Vtable = IMediaFrameSourceInfo3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca824ab6_66ea_5885_a2b6_26c0eeec3c7b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaFrameSourceInfo3Impl {
+    fn GetRelativePanel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceInfo3Vtbl(
@@ -899,6 +1037,8 @@ unsafe impl ::windows::core::Interface for IMultiSourceMediaFrameArrivedEventArg
     type Vtable = IMultiSourceMediaFrameArrivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63115e01_cf51_48fd_aab0_6d693eb48127);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMultiSourceMediaFrameArrivedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultiSourceMediaFrameArrivedEventArgsVtbl(
@@ -915,6 +1055,14 @@ pub struct IMultiSourceMediaFrameReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMultiSourceMediaFrameReader {
     type Vtable = IMultiSourceMediaFrameReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d144402_f763_488d_98f2_b437bcf075e7);
+}
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IMultiSourceMediaFrameReaderImpl: IClosableImpl {
+    fn FrameArrived();
+    fn RemoveFrameArrived();
+    fn TryAcquireLatestFrame();
+    fn StartAsync();
+    fn StopAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -942,6 +1090,11 @@ unsafe impl ::windows::core::Interface for IMultiSourceMediaFrameReader2 {
     type Vtable = IMultiSourceMediaFrameReader2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef5c8abd_fc5c_4c6b_9d81_3cb9cc637c26);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMultiSourceMediaFrameReader2Impl {
+    fn SetAcquisitionMode();
+    fn AcquisitionMode();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultiSourceMediaFrameReader2Vtbl(
@@ -961,6 +1114,10 @@ unsafe impl ::windows::core::Interface for IMultiSourceMediaFrameReference {
     type Vtable = IMultiSourceMediaFrameReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21964b1a_7fe2_44d6_92e5_298e6d2810e9);
 }
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IMultiSourceMediaFrameReferenceImpl: IClosableImpl {
+    fn TryGetFrameReferenceBySourceId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultiSourceMediaFrameReferenceVtbl(
@@ -978,6 +1135,17 @@ pub struct IVideoMediaFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoMediaFrame {
     type Vtable = IVideoMediaFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00dd4ccb_32bd_4fe1_a013_7cc13cf5dbcf);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IVideoMediaFrameImpl {
+    fn FrameReference();
+    fn VideoFormat();
+    fn SoftwareBitmap();
+    fn Direct3DSurface();
+    fn CameraIntrinsics();
+    fn InfraredMediaFrame();
+    fn DepthMediaFrame();
+    fn GetVideoFrame();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1006,6 +1174,13 @@ pub struct IVideoMediaFrameFormat(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoMediaFrameFormat {
     type Vtable = IVideoMediaFrameFormatVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46027fc0_d71b_45c7_8f14_6d9a0ae604e4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IVideoMediaFrameFormatImpl {
+    fn MediaFrameFormat();
+    fn DepthFormat();
+    fn Width();
+    fn Height();
 }
 #[repr(C)]
 #[doc(hidden)]

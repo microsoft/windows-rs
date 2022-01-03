@@ -22082,6 +22082,29 @@ unsafe impl ::windows::core::Interface for ICertSrvSetup {
     type Vtable = ICertSrvSetupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb760a1bb_4784_44c0_8f12_555f0780ff25);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ICertSrvSetupImpl: IDispatchImpl {
+    fn CAErrorId();
+    fn CAErrorString();
+    fn InitializeDefaults();
+    fn GetCASetupProperty();
+    fn SetCASetupProperty();
+    fn IsPropertyEditable();
+    fn GetSupportedCATypes();
+    fn GetProviderNameList();
+    fn GetKeyLengthList();
+    fn GetHashAlgorithmList();
+    fn GetPrivateKeyContainerList();
+    fn GetExistingCACertificates();
+    fn CAImportPFX();
+    fn SetCADistinguishedName();
+    fn SetDatabaseInformation();
+    fn SetParentCAInformation();
+    fn SetWebCAInformation();
+    fn Install();
+    fn PreUnInstall();
+    fn PostUnInstall();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertSrvSetupVtbl(
@@ -22283,6 +22306,21 @@ unsafe impl ::windows::core::Interface for ICertSrvSetupKeyInformation {
     type Vtable = ICertSrvSetupKeyInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ba73778_36da_4c39_8a85_bcfa7d000793);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ICertSrvSetupKeyInformationImpl: IDispatchImpl {
+    fn ProviderName();
+    fn SetProviderName();
+    fn Length();
+    fn SetLength();
+    fn Existing();
+    fn SetExisting();
+    fn ContainerName();
+    fn SetContainerName();
+    fn HashAlgorithm();
+    fn SetHashAlgorithm();
+    fn ExistingCACertificate();
+    fn SetExistingCACertificate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertSrvSetupKeyInformationVtbl(
@@ -22429,6 +22467,13 @@ unsafe impl ::windows::core::Interface for ICertSrvSetupKeyInformationCollection
     type Vtable = ICertSrvSetupKeyInformationCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe65c8b00_e58f_41f9_a9ec_a28d7427c844);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ICertSrvSetupKeyInformationCollectionImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+    fn Add();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertSrvSetupKeyInformationCollectionVtbl(
@@ -22569,6 +22614,15 @@ impl ::core::fmt::Debug for ICertificateEnrollmentPolicyServerSetup {
 unsafe impl ::windows::core::Interface for ICertificateEnrollmentPolicyServerSetup {
     type Vtable = ICertificateEnrollmentPolicyServerSetupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x859252cc_238c_4a88_b8fd_a37e7d04e68b);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ICertificateEnrollmentPolicyServerSetupImpl: IDispatchImpl {
+    fn ErrorString();
+    fn InitializeInstallDefaults();
+    fn GetProperty();
+    fn SetProperty();
+    fn Install();
+    fn UnInstall();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22720,6 +22774,16 @@ impl ::core::fmt::Debug for ICertificateEnrollmentServerSetup {
 unsafe impl ::windows::core::Interface for ICertificateEnrollmentServerSetup {
     type Vtable = ICertificateEnrollmentServerSetupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70027fdb_9dd9_4921_8944_b35cb31bd2ec);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ICertificateEnrollmentServerSetupImpl: IDispatchImpl {
+    fn ErrorString();
+    fn InitializeInstallDefaults();
+    fn GetProperty();
+    fn SetProperty();
+    fn SetApplicationPoolCredentials();
+    fn Install();
+    fn UnInstall();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22904,6 +22968,21 @@ impl ::core::fmt::Debug for IMSCEPSetup {
 unsafe impl ::windows::core::Interface for IMSCEPSetup {
     type Vtable = IMSCEPSetupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f7761bb_9f3b_4592_9ee0_9a73259c313e);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSCEPSetupImpl: IDispatchImpl {
+    fn MSCEPErrorId();
+    fn MSCEPErrorString();
+    fn InitializeDefaults();
+    fn GetMSCEPSetupProperty();
+    fn SetMSCEPSetupProperty();
+    fn SetAccountInformation();
+    fn IsMSCEPStoreEmpty();
+    fn GetProviderNameList();
+    fn GetKeyLengthList();
+    fn Install();
+    fn PreUnInstall();
+    fn PostUnInstall();
 }
 #[repr(C)]
 #[doc(hidden)]

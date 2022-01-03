@@ -6,6 +6,10 @@ unsafe impl ::windows::core::Interface for ITargetedContentAction {
     type Vtable = ITargetedContentActionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd75b691e_6cd6_4ca0_9d8f_4728b0b7e6b6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITargetedContentActionImpl {
+    fn InvokeAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITargetedContentActionVtbl(
@@ -24,6 +28,10 @@ pub struct ITargetedContentAvailabilityChangedEventArgs(::windows::core::IUnknow
 unsafe impl ::windows::core::Interface for ITargetedContentAvailabilityChangedEventArgs {
     type Vtable = ITargetedContentAvailabilityChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0f59d26_5927_4450_965c_1ceb7becde65);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITargetedContentAvailabilityChangedEventArgsImpl {
+    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -44,6 +52,11 @@ unsafe impl ::windows::core::Interface for ITargetedContentChangedEventArgs {
     type Vtable = ITargetedContentChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99d488c9_587e_4586_8ef7_b54ca9453a16);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITargetedContentChangedEventArgsImpl {
+    fn GetDeferral();
+    fn HasPreviousContentExpired();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITargetedContentChangedEventArgsVtbl(
@@ -63,6 +76,16 @@ pub struct ITargetedContentCollection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetedContentCollection {
     type Vtable = ITargetedContentCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d4b66c5_f163_44ba_9f6e_e1a4c2bb559d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITargetedContentCollectionImpl {
+    fn Id();
+    fn ReportInteraction();
+    fn ReportCustomInteraction();
+    fn Path();
+    fn Properties();
+    fn Collections();
+    fn Items();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -91,6 +114,14 @@ unsafe impl ::windows::core::Interface for ITargetedContentContainer {
     type Vtable = ITargetedContentContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc2494c9_8837_47c2_850f_d79d64595926);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITargetedContentContainerImpl {
+    fn Id();
+    fn Timestamp();
+    fn Availability();
+    fn Content();
+    fn SelectSingleObject();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITargetedContentContainerVtbl(
@@ -114,6 +145,10 @@ unsafe impl ::windows::core::Interface for ITargetedContentContainerStatics {
     type Vtable = ITargetedContentContainerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b47e7fb_2140_4c1f_a736_c59583f227d8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITargetedContentContainerStaticsImpl {
+    fn GetAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITargetedContentContainerStaticsVtbl(
@@ -133,6 +168,11 @@ unsafe impl ::windows::core::Interface for ITargetedContentImage {
     type Vtable = ITargetedContentImageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7a585d9_779f_4b1e_bbb1_8eaf53fbeab2);
 }
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
+pub trait ITargetedContentImageImpl: IRandomAccessStreamReferenceImpl {
+    fn Height();
+    fn Width();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITargetedContentImageVtbl(
@@ -151,6 +191,15 @@ pub struct ITargetedContentItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetedContentItem {
     type Vtable = ITargetedContentItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38168dc4_276c_4c32_96ba_565c6e406e74);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITargetedContentItemImpl {
+    fn Path();
+    fn ReportInteraction();
+    fn ReportCustomInteraction();
+    fn State();
+    fn Properties();
+    fn Collections();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -177,6 +226,11 @@ unsafe impl ::windows::core::Interface for ITargetedContentItemState {
     type Vtable = ITargetedContentItemStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73935454_4c65_4b47_a441_472de53c79b6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITargetedContentItemStateImpl {
+    fn ShouldDisplay();
+    fn AppInstallationState();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITargetedContentItemStateVtbl(
@@ -195,6 +249,13 @@ pub struct ITargetedContentObject(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetedContentObject {
     type Vtable = ITargetedContentObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x041d7969_2212_42d1_9dfa_88a8e3033aa3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITargetedContentObjectImpl {
+    fn ObjectKind();
+    fn Collection();
+    fn Item();
+    fn Value();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -217,6 +278,10 @@ unsafe impl ::windows::core::Interface for ITargetedContentStateChangedEventArgs
     type Vtable = ITargetedContentStateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a1cef3d_8073_4416_8df2_546835a6414f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITargetedContentStateChangedEventArgsImpl {
+    fn GetDeferral();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITargetedContentStateChangedEventArgsVtbl(
@@ -235,6 +300,17 @@ pub struct ITargetedContentSubscription(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetedContentSubscription {
     type Vtable = ITargetedContentSubscriptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x882c2c49_c652_4c7a_acad_1f7fa2986c73);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITargetedContentSubscriptionImpl {
+    fn Id();
+    fn GetContentContainerAsync();
+    fn ContentChanged();
+    fn RemoveContentChanged();
+    fn AvailabilityChanged();
+    fn RemoveAvailabilityChanged();
+    fn StateChanged();
+    fn RemoveStateChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -268,6 +344,15 @@ unsafe impl ::windows::core::Interface for ITargetedContentSubscriptionOptions {
     type Vtable = ITargetedContentSubscriptionOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61ee6ad0_2c83_421b_8467_413eaf1aeb97);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITargetedContentSubscriptionOptionsImpl {
+    fn SubscriptionId();
+    fn AllowPartialContentAvailability();
+    fn SetAllowPartialContentAvailability();
+    fn CloudQueryParameters();
+    fn LocalFilters();
+    fn Update();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITargetedContentSubscriptionOptionsVtbl(
@@ -293,6 +378,11 @@ unsafe impl ::windows::core::Interface for ITargetedContentSubscriptionStatics {
     type Vtable = ITargetedContentSubscriptionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaddfe80_360d_4916_b53c_7ea27090d02a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITargetedContentSubscriptionStaticsImpl {
+    fn GetAsync();
+    fn GetOptions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITargetedContentSubscriptionStaticsVtbl(
@@ -312,6 +402,25 @@ pub struct ITargetedContentValue(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetedContentValue {
     type Vtable = ITargetedContentValueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaafde4b3_4215_4bf8_867f_43f04865f9bf);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITargetedContentValueImpl {
+    fn ValueKind();
+    fn Path();
+    fn String();
+    fn Uri();
+    fn Number();
+    fn Boolean();
+    fn File();
+    fn ImageFile();
+    fn Action();
+    fn Strings();
+    fn Uris();
+    fn Numbers();
+    fn Booleans();
+    fn Files();
+    fn ImageFiles();
+    fn Actions();
 }
 #[repr(C)]
 #[doc(hidden)]

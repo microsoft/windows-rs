@@ -261,6 +261,16 @@ unsafe impl ::windows::core::Interface for IContactPickerUI {
     type Vtable = IContactPickerUIVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2cc1366_cf66_43c4_a96a_a5a112db4746);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IContactPickerUIImpl {
+    fn AddContact();
+    fn RemoveContact();
+    fn ContainsContact();
+    fn DesiredFields();
+    fn SelectionMode();
+    fn ContactRemoved();
+    fn RemoveContactRemoved();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactPickerUIVtbl(
@@ -289,6 +299,11 @@ unsafe impl ::windows::core::Interface for IContactPickerUI2 {
     type Vtable = IContactPickerUI2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e449e28_7b25_4999_9b0b_875400a1e8c8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IContactPickerUI2Impl {
+    fn AddContact();
+    fn DesiredFieldsWithContactFieldType();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactPickerUI2Vtbl(
@@ -308,6 +323,10 @@ pub struct IContactRemovedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactRemovedEventArgs {
     type Vtable = IContactRemovedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f354338_3302_4d13_ad8d_adcc0ff9e47c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IContactRemovedEventArgsImpl {
+    fn Id();
 }
 #[repr(C)]
 #[doc(hidden)]

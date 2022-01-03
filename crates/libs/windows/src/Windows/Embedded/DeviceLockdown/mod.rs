@@ -129,6 +129,10 @@ unsafe impl ::windows::core::Interface for IDeviceLockdownProfileInformation {
     type Vtable = IDeviceLockdownProfileInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7980e14e_45b1_4a96_92fc_62756b739678);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceLockdownProfileInformationImpl {
+    fn Name();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceLockdownProfileInformationVtbl(
@@ -146,6 +150,13 @@ pub struct IDeviceLockdownProfileStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceLockdownProfileStatics {
     type Vtable = IDeviceLockdownProfileStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x622f6965_f9a8_41a1_a691_88cd80c7a069);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceLockdownProfileStaticsImpl {
+    fn GetSupportedLockdownProfiles();
+    fn GetCurrentLockdownProfile();
+    fn ApplyLockdownProfileAsync();
+    fn GetLockdownProfileInformation();
 }
 #[repr(C)]
 #[doc(hidden)]

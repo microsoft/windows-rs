@@ -6,6 +6,14 @@ unsafe impl ::windows::core::Interface for IPushNotificationChannel {
     type Vtable = IPushNotificationChannelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b28102e_ef0b_4f39_9b8a_a3c194de7081);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPushNotificationChannelImpl {
+    fn Uri();
+    fn ExpirationTime();
+    fn Close();
+    fn PushNotificationReceived();
+    fn RemovePushNotificationReceived();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPushNotificationChannelVtbl(
@@ -30,6 +38,13 @@ pub struct IPushNotificationChannelManagerForUser(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPushNotificationChannelManagerForUser {
     type Vtable = IPushNotificationChannelManagerForUserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4c45704_1182_42c7_8890_f563c4890dc4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPushNotificationChannelManagerForUserImpl {
+    fn CreatePushNotificationChannelForApplicationAsync();
+    fn CreatePushNotificationChannelForApplicationAsyncWithId();
+    fn CreatePushNotificationChannelForSecondaryTileAsync();
+    fn User();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -56,6 +71,11 @@ unsafe impl ::windows::core::Interface for IPushNotificationChannelManagerForUse
     type Vtable = IPushNotificationChannelManagerForUser2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc38b066a_7cc1_4dac_87fd_be6e920414a4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPushNotificationChannelManagerForUser2Impl {
+    fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync();
+    fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPushNotificationChannelManagerForUser2Vtbl(
@@ -76,6 +96,12 @@ pub struct IPushNotificationChannelManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPushNotificationChannelManagerStatics {
     type Vtable = IPushNotificationChannelManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8baf9b65_77a1_4588_bd19_861529a9dcf0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPushNotificationChannelManagerStaticsImpl {
+    fn CreatePushNotificationChannelForApplicationAsync();
+    fn CreatePushNotificationChannelForApplicationAsyncWithId();
+    fn CreatePushNotificationChannelForSecondaryTileAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -100,6 +126,10 @@ unsafe impl ::windows::core::Interface for IPushNotificationChannelManagerStatic
     type Vtable = IPushNotificationChannelManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb444a65d_a7e9_4b28_950e_f375a907f9df);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPushNotificationChannelManagerStatics2Impl {
+    fn GetForUser();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPushNotificationChannelManagerStatics2Vtbl(
@@ -119,6 +149,10 @@ unsafe impl ::windows::core::Interface for IPushNotificationChannelManagerStatic
     type Vtable = IPushNotificationChannelManagerStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4701fefe_0ede_4a3f_ae78_bfa471496925);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPushNotificationChannelManagerStatics3Impl {
+    fn GetDefault();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPushNotificationChannelManagerStatics3Vtbl(
@@ -136,6 +170,11 @@ pub struct IPushNotificationChannelManagerStatics4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPushNotificationChannelManagerStatics4 {
     type Vtable = IPushNotificationChannelManagerStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc540efb_7820_5a5b_9c01_b4757f774025);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPushNotificationChannelManagerStatics4Impl {
+    fn ChannelsRevoked();
+    fn RemoveChannelsRevoked();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -158,6 +197,8 @@ unsafe impl ::windows::core::Interface for IPushNotificationChannelsRevokedEvent
     type Vtable = IPushNotificationChannelsRevokedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20e1a24c_1a34_5beb_aae2_40c232c8c140);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPushNotificationChannelsRevokedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPushNotificationChannelsRevokedEventArgsVtbl(
@@ -174,6 +215,16 @@ pub struct IPushNotificationReceivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPushNotificationReceivedEventArgs {
     type Vtable = IPushNotificationReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1065e0c_36cd_484c_b935_0a99b753cf00);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPushNotificationReceivedEventArgsImpl {
+    fn SetCancel();
+    fn Cancel();
+    fn NotificationType();
+    fn ToastNotification();
+    fn TileNotification();
+    fn BadgeNotification();
+    fn RawNotification();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -202,6 +253,10 @@ unsafe impl ::windows::core::Interface for IRawNotification {
     type Vtable = IRawNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a227281_3b79_42ac_9963_22ab00d4f0b7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRawNotificationImpl {
+    fn Content();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawNotificationVtbl(
@@ -219,6 +274,11 @@ pub struct IRawNotification2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRawNotification2 {
     type Vtable = IRawNotification2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6d0cf19_0c6f_4cdd_9424_eec5be014d26);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRawNotification2Impl {
+    fn Headers();
+    fn ChannelId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -239,6 +299,10 @@ pub struct IRawNotification3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRawNotification3 {
     type Vtable = IRawNotification3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62737dde_8a73_424c_ab44_5635f40a96e5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRawNotification3Impl {
+    fn ContentBytes();
 }
 #[repr(C)]
 #[doc(hidden)]

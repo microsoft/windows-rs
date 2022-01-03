@@ -8,6 +8,13 @@ unsafe impl ::windows::core::Interface for IImageFeatureDescriptor {
     type Vtable = IImageFeatureDescriptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x365585a5_171a_4a2a_985f_265159d3895a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IImageFeatureDescriptorImpl {
+    fn BitmapPixelFormat();
+    fn BitmapAlphaMode();
+    fn Width();
+    fn Height();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageFeatureDescriptorVtbl(
@@ -31,6 +38,10 @@ unsafe impl ::windows::core::Interface for IImageFeatureDescriptor2 {
     type Vtable = IImageFeatureDescriptor2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b27cca7_d533_5862_bb98_1611b155b0e1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IImageFeatureDescriptor2Impl {
+    fn PixelRange();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageFeatureDescriptor2Vtbl(
@@ -48,6 +59,10 @@ pub struct IImageFeatureValue(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IImageFeatureValue {
     type Vtable = IImageFeatureValueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0414fd9_c9aa_4405_b7fb_94f87c8a3037);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IImageFeatureValueImpl {
+    fn VideoFrame();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -68,6 +83,10 @@ unsafe impl ::windows::core::Interface for IImageFeatureValueStatics {
     type Vtable = IImageFeatureValueStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bc317fd_23cb_4610_b085_c8e1c87ebaa0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IImageFeatureValueStaticsImpl {
+    fn CreateFromVideoFrame();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageFeatureValueStaticsVtbl(
@@ -86,6 +105,17 @@ pub struct ILearningModel(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILearningModel {
     type Vtable = ILearningModelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b8e4920_489f_4e86_9128_265a327b78fa);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILearningModelImpl {
+    fn Author();
+    fn Name();
+    fn Domain();
+    fn Description();
+    fn Version();
+    fn Metadata();
+    fn InputFeatures();
+    fn OutputFeatures();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -115,6 +145,12 @@ unsafe impl ::windows::core::Interface for ILearningModelBinding {
     type Vtable = ILearningModelBindingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea312f20_168f_4f8c_94fe_2e7ac31b4aa8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILearningModelBindingImpl {
+    fn Bind();
+    fn BindWithProperties();
+    fn Clear();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelBindingVtbl(
@@ -136,6 +172,10 @@ unsafe impl ::windows::core::Interface for ILearningModelBindingFactory {
     type Vtable = ILearningModelBindingFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc95f7a7a_e788_475e_8917_23aa381faf0b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILearningModelBindingFactoryImpl {
+    fn CreateFromSession();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelBindingFactoryVtbl(
@@ -153,6 +193,11 @@ pub struct ILearningModelDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILearningModelDevice {
     type Vtable = ILearningModelDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5c2c8fe_3f56_4a8c_ac5f_fdb92d8b8252);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILearningModelDeviceImpl {
+    fn AdapterId();
+    fn Direct3D11Device();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -175,6 +220,10 @@ unsafe impl ::windows::core::Interface for ILearningModelDeviceFactory {
     type Vtable = ILearningModelDeviceFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cffd74d_b1e5_4f20_80ad_0a56690db06b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILearningModelDeviceFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelDeviceFactoryVtbl(
@@ -192,6 +241,10 @@ pub struct ILearningModelDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILearningModelDeviceStatics {
     type Vtable = ILearningModelDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49f32107_a8bf_42bb_92c7_10b12dc5d21f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILearningModelDeviceStaticsImpl {
+    fn CreateFromDirect3D11Device();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -211,6 +264,13 @@ pub struct ILearningModelEvaluationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILearningModelEvaluationResult {
     type Vtable = ILearningModelEvaluationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2f9bfcd_960e_49c0_8593_eb190ae3eee2);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILearningModelEvaluationResultImpl {
+    fn CorrelationId();
+    fn ErrorStatus();
+    fn Succeeded();
+    fn Outputs();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -327,6 +387,12 @@ unsafe impl ::windows::core::Interface for ILearningModelFeatureDescriptor {
     type Vtable = ILearningModelFeatureDescriptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc08cf7c_6ed0_4004_97ba_b9a2eecd2b4f);
 }
+pub trait ILearningModelFeatureDescriptorImpl {
+    fn Name();
+    fn Description();
+    fn Kind();
+    fn IsRequired();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelFeatureDescriptorVtbl(
@@ -417,6 +483,9 @@ unsafe impl ::windows::core::Interface for ILearningModelFeatureValue {
     type Vtable = ILearningModelFeatureValueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf51005db_4085_4dfe_9fed_95eb0c0cf75c);
 }
+pub trait ILearningModelFeatureValueImpl {
+    fn Kind();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelFeatureValueVtbl(
@@ -495,6 +564,7 @@ unsafe impl ::windows::core::Interface for ILearningModelOperatorProvider {
     type Vtable = ILearningModelOperatorProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a222e5d_afb1_47ed_bfad_b5b3a459ec04);
 }
+pub trait ILearningModelOperatorProviderImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelOperatorProviderVtbl(
@@ -511,6 +581,16 @@ pub struct ILearningModelSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILearningModelSession {
     type Vtable = ILearningModelSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e58f8f6_b787_4c11_90f0_7129aeca74a9);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILearningModelSessionImpl {
+    fn Model();
+    fn Device();
+    fn EvaluationProperties();
+    fn EvaluateAsync();
+    fn EvaluateFeaturesAsync();
+    fn Evaluate();
+    fn EvaluateFeatures();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -540,6 +620,11 @@ unsafe impl ::windows::core::Interface for ILearningModelSessionFactory {
     type Vtable = ILearningModelSessionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f6b881d_1c9b_47b6_bfe0_f1cf62a67579);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILearningModelSessionFactoryImpl {
+    fn CreateFromModel();
+    fn CreateFromModelOnDevice();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelSessionFactoryVtbl(
@@ -559,6 +644,10 @@ unsafe impl ::windows::core::Interface for ILearningModelSessionFactory2 {
     type Vtable = ILearningModelSessionFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e5c88bf_0a1f_5fec_ade0_2fd91e4ef29b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILearningModelSessionFactory2Impl {
+    fn CreateFromModelOnDeviceWithSessionOptions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelSessionFactory2Vtbl(
@@ -576,6 +665,11 @@ pub struct ILearningModelSessionOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILearningModelSessionOptions {
     type Vtable = ILearningModelSessionOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8f63fa1_134d_5133_8cff_3a5c3c263beb);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILearningModelSessionOptionsImpl {
+    fn BatchSizeOverride();
+    fn SetBatchSizeOverride();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -596,6 +690,11 @@ unsafe impl ::windows::core::Interface for ILearningModelSessionOptions2 {
     type Vtable = ILearningModelSessionOptions2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fcd1dc4_175f_5bd2_8de5_2f2006a25adf);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILearningModelSessionOptions2Impl {
+    fn CloseModelOnSessionCreation();
+    fn SetCloseModelOnSessionCreation();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelSessionOptions2Vtbl(
@@ -615,6 +714,10 @@ unsafe impl ::windows::core::Interface for ILearningModelSessionOptions3 {
     type Vtable = ILearningModelSessionOptions3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58e15cee_d8c2_56fc_92e8_76d751081086);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILearningModelSessionOptions3Impl {
+    fn OverrideNamedDimension();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelSessionOptions3Vtbl(
@@ -632,6 +735,17 @@ pub struct ILearningModelStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILearningModelStatics {
     type Vtable = ILearningModelStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3b977e8_6952_4e47_8ef4_1f7f07897c6d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILearningModelStaticsImpl {
+    fn LoadFromStorageFileAsync();
+    fn LoadFromStreamAsync();
+    fn LoadFromFilePath();
+    fn LoadFromStream();
+    fn LoadFromStorageFileWithOperatorProviderAsync();
+    fn LoadFromStreamWithOperatorProviderAsync();
+    fn LoadFromFilePathWithOperatorProvider();
+    fn LoadFromStreamWithOperatorProvider();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -664,6 +778,11 @@ unsafe impl ::windows::core::Interface for IMapFeatureDescriptor {
     type Vtable = IMapFeatureDescriptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x530424bd_a257_436d_9e60_c2981f7cc5c4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapFeatureDescriptorImpl {
+    fn KeyKind();
+    fn ValueDescriptor();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapFeatureDescriptorVtbl(
@@ -682,6 +801,10 @@ pub struct ISequenceFeatureDescriptor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISequenceFeatureDescriptor {
     type Vtable = ISequenceFeatureDescriptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84f6945a_562b_4d62_a851_739aced96668);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISequenceFeatureDescriptorImpl {
+    fn ElementDescriptor();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -809,6 +932,10 @@ unsafe impl ::windows::core::Interface for ITensor {
     type Vtable = ITensorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05489593_a305_4a25_ad09_440119b4b7f6);
 }
+pub trait ITensorImpl: ILearningModelFeatureValueImpl {
+    fn TensorKind();
+    fn Shape();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorVtbl(
@@ -829,6 +956,10 @@ unsafe impl ::windows::core::Interface for ITensorBoolean {
     type Vtable = ITensorBooleanVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50f311ed_29e9_4a5c_a44d_8fc512584eed);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorBooleanImpl {
+    fn GetAsVectorView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorBooleanVtbl(
@@ -847,6 +978,13 @@ pub struct ITensorBooleanStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITensorBooleanStatics {
     type Vtable = ITensorBooleanStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2796862c_2357_49a7_b476_d0aa3dfe6866);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorBooleanStaticsImpl {
+    fn Create();
+    fn Create2();
+    fn CreateFromArray();
+    fn CreateFromIterable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -872,6 +1010,11 @@ unsafe impl ::windows::core::Interface for ITensorBooleanStatics2 {
     type Vtable = ITensorBooleanStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3a4a501_6a2d_52d7_b04b_c435baee0115);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorBooleanStatics2Impl {
+    fn CreateFromShapeArrayAndDataArray();
+    fn CreateFromBuffer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorBooleanStatics2Vtbl(
@@ -892,6 +1035,10 @@ unsafe impl ::windows::core::Interface for ITensorDouble {
     type Vtable = ITensorDoubleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91e41252_7a8f_4f0e_a28f_9637ffc8a3d0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorDoubleImpl {
+    fn GetAsVectorView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorDoubleVtbl(
@@ -910,6 +1057,13 @@ pub struct ITensorDoubleStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITensorDoubleStatics {
     type Vtable = ITensorDoubleStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa86693c5_9538_44e7_a3ca_5df374a5a70c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorDoubleStaticsImpl {
+    fn Create();
+    fn Create2();
+    fn CreateFromArray();
+    fn CreateFromIterable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -935,6 +1089,11 @@ unsafe impl ::windows::core::Interface for ITensorDoubleStatics2 {
     type Vtable = ITensorDoubleStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93a570de_5e9a_5094_85c8_592c655e68ac);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorDoubleStatics2Impl {
+    fn CreateFromShapeArrayAndDataArray();
+    fn CreateFromBuffer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorDoubleStatics2Vtbl(
@@ -954,6 +1113,11 @@ pub struct ITensorFeatureDescriptor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITensorFeatureDescriptor {
     type Vtable = ITensorFeatureDescriptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74455c80_946a_4310_a19c_ee0af028fce4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorFeatureDescriptorImpl {
+    fn TensorKind();
+    fn Shape();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -975,6 +1139,10 @@ unsafe impl ::windows::core::Interface for ITensorFloat {
     type Vtable = ITensorFloatVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2282d82_aa02_42c8_a0c8_df1efc9676e1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorFloatImpl {
+    fn GetAsVectorView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorFloatVtbl(
@@ -994,6 +1162,10 @@ unsafe impl ::windows::core::Interface for ITensorFloat16Bit {
     type Vtable = ITensorFloat16BitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ab994fc_5b89_4c3c_b5e4_5282a5316c0a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorFloat16BitImpl {
+    fn GetAsVectorView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorFloat16BitVtbl(
@@ -1012,6 +1184,13 @@ pub struct ITensorFloat16BitStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITensorFloat16BitStatics {
     type Vtable = ITensorFloat16BitStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa52db6f5_318a_44d4_820b_0cdc7054a84a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorFloat16BitStaticsImpl {
+    fn Create();
+    fn Create2();
+    fn CreateFromArray();
+    fn CreateFromIterable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1037,6 +1216,11 @@ unsafe impl ::windows::core::Interface for ITensorFloat16BitStatics2 {
     type Vtable = ITensorFloat16BitStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68545726_2dc7_51bf_b470_0b344cc2a1bc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorFloat16BitStatics2Impl {
+    fn CreateFromShapeArrayAndDataArray();
+    fn CreateFromBuffer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorFloat16BitStatics2Vtbl(
@@ -1056,6 +1240,13 @@ pub struct ITensorFloatStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITensorFloatStatics {
     type Vtable = ITensorFloatStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbcd395b_3ba3_452f_b10d_3c135e573fa9);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorFloatStaticsImpl {
+    fn Create();
+    fn Create2();
+    fn CreateFromArray();
+    fn CreateFromIterable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1081,6 +1272,11 @@ unsafe impl ::windows::core::Interface for ITensorFloatStatics2 {
     type Vtable = ITensorFloatStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24610bc1_5e44_5713_b281_8f4ad4d555e8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorFloatStatics2Impl {
+    fn CreateFromShapeArrayAndDataArray();
+    fn CreateFromBuffer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorFloatStatics2Vtbl(
@@ -1101,6 +1297,10 @@ unsafe impl ::windows::core::Interface for ITensorInt16Bit {
     type Vtable = ITensorInt16BitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98a32d39_e6d6_44af_8afa_baebc44dc020);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorInt16BitImpl {
+    fn GetAsVectorView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorInt16BitVtbl(
@@ -1119,6 +1319,13 @@ pub struct ITensorInt16BitStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITensorInt16BitStatics {
     type Vtable = ITensorInt16BitStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98646293_266e_4b1a_821f_e60d70898b91);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorInt16BitStaticsImpl {
+    fn Create();
+    fn Create2();
+    fn CreateFromArray();
+    fn CreateFromIterable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1144,6 +1351,11 @@ unsafe impl ::windows::core::Interface for ITensorInt16BitStatics2 {
     type Vtable = ITensorInt16BitStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cd70cf4_696c_5e5f_95d8_5ebf9670148b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorInt16BitStatics2Impl {
+    fn CreateFromShapeArrayAndDataArray();
+    fn CreateFromBuffer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorInt16BitStatics2Vtbl(
@@ -1164,6 +1376,10 @@ unsafe impl ::windows::core::Interface for ITensorInt32Bit {
     type Vtable = ITensorInt32BitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c0c28d3_207c_4486_a7d2_884522c5e589);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorInt32BitImpl {
+    fn GetAsVectorView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorInt32BitVtbl(
@@ -1182,6 +1398,13 @@ pub struct ITensorInt32BitStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITensorInt32BitStatics {
     type Vtable = ITensorInt32BitStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6539864b_52fa_4e35_907c_834cac417b50);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorInt32BitStaticsImpl {
+    fn Create();
+    fn Create2();
+    fn CreateFromArray();
+    fn CreateFromIterable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1207,6 +1430,11 @@ unsafe impl ::windows::core::Interface for ITensorInt32BitStatics2 {
     type Vtable = ITensorInt32BitStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c4b079a_e956_5ce0_a3bd_157d9d79b5ec);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorInt32BitStatics2Impl {
+    fn CreateFromShapeArrayAndDataArray();
+    fn CreateFromBuffer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorInt32BitStatics2Vtbl(
@@ -1227,6 +1455,10 @@ unsafe impl ::windows::core::Interface for ITensorInt64Bit {
     type Vtable = ITensorInt64BitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x499665ba_1fa2_45ad_af25_a0bd9bda4c87);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorInt64BitImpl {
+    fn GetAsVectorView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorInt64BitVtbl(
@@ -1245,6 +1477,13 @@ pub struct ITensorInt64BitStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITensorInt64BitStatics {
     type Vtable = ITensorInt64BitStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9648ad9d_1198_4d74_9517_783ab62b9cc2);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorInt64BitStaticsImpl {
+    fn Create();
+    fn Create2();
+    fn CreateFromArray();
+    fn CreateFromIterable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1270,6 +1509,11 @@ unsafe impl ::windows::core::Interface for ITensorInt64BitStatics2 {
     type Vtable = ITensorInt64BitStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d3d9dcb_ff40_5ec2_89fe_084e2b6bc6db);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorInt64BitStatics2Impl {
+    fn CreateFromShapeArrayAndDataArray();
+    fn CreateFromBuffer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorInt64BitStatics2Vtbl(
@@ -1290,6 +1534,10 @@ unsafe impl ::windows::core::Interface for ITensorInt8Bit {
     type Vtable = ITensorInt8BitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcddd97c5_ffd8_4fef_aefb_30e1a485b2ee);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorInt8BitImpl {
+    fn GetAsVectorView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorInt8BitVtbl(
@@ -1308,6 +1556,13 @@ pub struct ITensorInt8BitStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITensorInt8BitStatics {
     type Vtable = ITensorInt8BitStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1a12284_095c_4c76_a661_ac4cee1f3e8b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorInt8BitStaticsImpl {
+    fn Create();
+    fn Create2();
+    fn CreateFromArray();
+    fn CreateFromIterable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1333,6 +1588,11 @@ unsafe impl ::windows::core::Interface for ITensorInt8BitStatics2 {
     type Vtable = ITensorInt8BitStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0d59637_c468_56fb_9535_c052bdb93dc0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorInt8BitStatics2Impl {
+    fn CreateFromShapeArrayAndDataArray();
+    fn CreateFromBuffer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorInt8BitStatics2Vtbl(
@@ -1353,6 +1613,10 @@ unsafe impl ::windows::core::Interface for ITensorString {
     type Vtable = ITensorStringVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x582335c8_bdb1_4610_bc75_35e9cbf009b7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorStringImpl {
+    fn GetAsVectorView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorStringVtbl(
@@ -1371,6 +1635,13 @@ pub struct ITensorStringStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITensorStringStatics {
     type Vtable = ITensorStringStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83623324_cf26_4f17_a2d4_20ef8d097d53);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorStringStaticsImpl {
+    fn Create();
+    fn Create2();
+    fn CreateFromArray();
+    fn CreateFromIterable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1396,6 +1667,10 @@ unsafe impl ::windows::core::Interface for ITensorStringStatics2 {
     type Vtable = ITensorStringStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e355ed0_c8e2_5254_9137_0193a3668fd8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorStringStatics2Impl {
+    fn CreateFromShapeArrayAndDataArray();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorStringStatics2Vtbl(
@@ -1413,6 +1688,10 @@ pub struct ITensorUInt16Bit(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITensorUInt16Bit {
     type Vtable = ITensorUInt16BitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68140f4b_23c0_42f3_81f6_a891c011bc3f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorUInt16BitImpl {
+    fn GetAsVectorView();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1432,6 +1711,13 @@ pub struct ITensorUInt16BitStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITensorUInt16BitStatics {
     type Vtable = ITensorUInt16BitStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5df745dd_028a_481a_a27c_c7e6435e52dd);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorUInt16BitStaticsImpl {
+    fn Create();
+    fn Create2();
+    fn CreateFromArray();
+    fn CreateFromIterable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1457,6 +1743,11 @@ unsafe impl ::windows::core::Interface for ITensorUInt16BitStatics2 {
     type Vtable = ITensorUInt16BitStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8af40c64_d69f_5315_9348_490877bbd642);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorUInt16BitStatics2Impl {
+    fn CreateFromShapeArrayAndDataArray();
+    fn CreateFromBuffer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorUInt16BitStatics2Vtbl(
@@ -1477,6 +1768,10 @@ unsafe impl ::windows::core::Interface for ITensorUInt32Bit {
     type Vtable = ITensorUInt32BitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8c9c2ff_7511_45a3_bfac_c38f370d2237);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorUInt32BitImpl {
+    fn GetAsVectorView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorUInt32BitVtbl(
@@ -1495,6 +1790,13 @@ pub struct ITensorUInt32BitStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITensorUInt32BitStatics {
     type Vtable = ITensorUInt32BitStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x417c3837_e773_4378_8e7f_0cc33dbea697);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorUInt32BitStaticsImpl {
+    fn Create();
+    fn Create2();
+    fn CreateFromArray();
+    fn CreateFromIterable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1520,6 +1822,11 @@ unsafe impl ::windows::core::Interface for ITensorUInt32BitStatics2 {
     type Vtable = ITensorUInt32BitStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef1a1f1c_314e_569d_b496_5c8447d20cd2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorUInt32BitStatics2Impl {
+    fn CreateFromShapeArrayAndDataArray();
+    fn CreateFromBuffer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorUInt32BitStatics2Vtbl(
@@ -1540,6 +1847,10 @@ unsafe impl ::windows::core::Interface for ITensorUInt64Bit {
     type Vtable = ITensorUInt64BitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e70ffad_04bf_4825_839a_82baef8c7886);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorUInt64BitImpl {
+    fn GetAsVectorView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorUInt64BitVtbl(
@@ -1558,6 +1869,13 @@ pub struct ITensorUInt64BitStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITensorUInt64BitStatics {
     type Vtable = ITensorUInt64BitStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a7e20eb_242f_47cb_a9c6_f602ecfbfee4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorUInt64BitStaticsImpl {
+    fn Create();
+    fn Create2();
+    fn CreateFromArray();
+    fn CreateFromIterable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1583,6 +1901,11 @@ unsafe impl ::windows::core::Interface for ITensorUInt64BitStatics2 {
     type Vtable = ITensorUInt64BitStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x085a687d_67e1_5b1e_b232_4fabe9ca20b3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorUInt64BitStatics2Impl {
+    fn CreateFromShapeArrayAndDataArray();
+    fn CreateFromBuffer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorUInt64BitStatics2Vtbl(
@@ -1603,6 +1926,10 @@ unsafe impl ::windows::core::Interface for ITensorUInt8Bit {
     type Vtable = ITensorUInt8BitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58e1ae27_622b_48e3_be22_d867aed1daac);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorUInt8BitImpl {
+    fn GetAsVectorView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorUInt8BitVtbl(
@@ -1621,6 +1948,13 @@ pub struct ITensorUInt8BitStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITensorUInt8BitStatics {
     type Vtable = ITensorUInt8BitStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05f67583_bc24_4220_8a41_2dcd8c5ed33c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorUInt8BitStaticsImpl {
+    fn Create();
+    fn Create2();
+    fn CreateFromArray();
+    fn CreateFromIterable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1645,6 +1979,11 @@ pub struct ITensorUInt8BitStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITensorUInt8BitStatics2 {
     type Vtable = ITensorUInt8BitStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ba042d6_373e_5a3a_a2fc_a6c41bd52789);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITensorUInt8BitStatics2Impl {
+    fn CreateFromShapeArrayAndDataArray();
+    fn CreateFromBuffer();
 }
 #[repr(C)]
 #[doc(hidden)]

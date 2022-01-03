@@ -1389,6 +1389,9 @@ unsafe impl ::windows::core::Interface for ICcgDomainAuthCredentials {
     type Vtable = ICcgDomainAuthCredentialsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ecda518_2010_4437_8bc3_46e752b7b172);
 }
+pub trait ICcgDomainAuthCredentialsImpl {
+    fn GetPasswordCredentials();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICcgDomainAuthCredentialsVtbl(

@@ -10,6 +10,13 @@ unsafe impl ::windows::core::Interface for IKnownCameraIntrinsicsPropertiesStati
     type Vtable = IKnownCameraIntrinsicsPropertiesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c03978_437a_4d97_a663_fd3195600249);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IKnownCameraIntrinsicsPropertiesStaticsImpl {
+    fn FocalLength();
+    fn PrincipalPoint();
+    fn RadialDistortion();
+    fn TangentialDistortion();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -38,6 +45,12 @@ unsafe impl ::windows::core::Interface for IKnownPerceptionColorFrameSourcePrope
     type Vtable = IKnownPerceptionColorFrameSourcePropertiesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de4b);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IKnownPerceptionColorFrameSourcePropertiesStaticsImpl {
+    fn Exposure();
+    fn AutoExposureEnabled();
+    fn ExposureCompensation();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -64,6 +77,11 @@ unsafe impl ::windows::core::Interface for IKnownPerceptionDepthFrameSourcePrope
     type Vtable = IKnownPerceptionDepthFrameSourcePropertiesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de4a);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IKnownPerceptionDepthFrameSourcePropertiesStaticsImpl {
+    fn MinDepth();
+    fn MaxDepth();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -87,6 +105,14 @@ pub struct IKnownPerceptionFrameSourcePropertiesStatics(::windows::core::IUnknow
 unsafe impl ::windows::core::Interface for IKnownPerceptionFrameSourcePropertiesStatics {
     type Vtable = IKnownPerceptionFrameSourcePropertiesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de47);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IKnownPerceptionFrameSourcePropertiesStaticsImpl {
+    fn Id();
+    fn PhysicalDeviceIds();
+    fn FrameKind();
+    fn DeviceModelVersion();
+    fn EnclosureLocation();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -118,6 +144,10 @@ unsafe impl ::windows::core::Interface for IKnownPerceptionFrameSourceProperties
     type Vtable = IKnownPerceptionFrameSourcePropertiesStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9c86871_05dc_4a4d_8a5c_a4ecf26bbc46);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IKnownPerceptionFrameSourcePropertiesStatics2Impl {
+    fn DeviceId();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -139,6 +169,16 @@ pub struct IKnownPerceptionInfraredFrameSourcePropertiesStatics(::windows::core:
 unsafe impl ::windows::core::Interface for IKnownPerceptionInfraredFrameSourcePropertiesStatics {
     type Vtable = IKnownPerceptionInfraredFrameSourcePropertiesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de49);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IKnownPerceptionInfraredFrameSourcePropertiesStaticsImpl {
+    fn Exposure();
+    fn AutoExposureEnabled();
+    fn ExposureCompensation();
+    fn ActiveIlluminationEnabled();
+    fn AmbientSubtractionEnabled();
+    fn StructureLightPatternEnabled();
+    fn InterleavedIlluminationEnabled();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -174,6 +214,14 @@ unsafe impl ::windows::core::Interface for IKnownPerceptionVideoFrameSourcePrope
     type Vtable = IKnownPerceptionVideoFrameSourcePropertiesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de48);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IKnownPerceptionVideoFrameSourcePropertiesStaticsImpl {
+    fn VideoProfile();
+    fn SupportedVideoProfiles();
+    fn AvailableVideoProfiles();
+    fn IsMirrored();
+    fn CameraIntrinsics();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -203,6 +251,14 @@ pub struct IKnownPerceptionVideoProfilePropertiesStatics(::windows::core::IUnkno
 unsafe impl ::windows::core::Interface for IKnownPerceptionVideoProfilePropertiesStatics {
     type Vtable = IKnownPerceptionVideoProfilePropertiesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f08e2e7_5a76_43e3_a13a_da3d91a9ef98);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IKnownPerceptionVideoProfilePropertiesStaticsImpl {
+    fn BitmapPixelFormat();
+    fn BitmapAlphaMode();
+    fn Width();
+    fn Height();
+    fn FrameDuration();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -234,6 +290,10 @@ unsafe impl ::windows::core::Interface for IPerceptionColorFrame {
     type Vtable = IPerceptionColorFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe621549_2cbf_4f94_9861_f817ea317747);
 }
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionColorFrameImpl: IClosableImpl {
+    fn VideoFrame();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -255,6 +315,11 @@ pub struct IPerceptionColorFrameArrivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionColorFrameArrivedEventArgs {
     type Vtable = IPerceptionColorFrameArrivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fad02d5_86f7_4d8d_b966_5a3761ba9f59);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionColorFrameArrivedEventArgsImpl {
+    fn RelativeTime();
+    fn TryOpenFrame();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -279,6 +344,15 @@ pub struct IPerceptionColorFrameReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionColorFrameReader {
     type Vtable = IPerceptionColorFrameReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7650f56e_b9f5_461b_83ad_f222af2aaadc);
+}
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionColorFrameReaderImpl: IClosableImpl {
+    fn FrameArrived();
+    fn RemoveFrameArrived();
+    fn Source();
+    fn IsPaused();
+    fn SetIsPaused();
+    fn TryReadLatestFrame();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -311,6 +385,38 @@ pub struct IPerceptionColorFrameSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionColorFrameSource {
     type Vtable = IPerceptionColorFrameSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc6dba7c_0b58_468d_9ca1_6db04cc0477c);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionColorFrameSourceImpl {
+    fn AvailableChanged();
+    fn RemoveAvailableChanged();
+    fn ActiveChanged();
+    fn RemoveActiveChanged();
+    fn PropertiesChanged();
+    fn RemovePropertiesChanged();
+    fn VideoProfileChanged();
+    fn RemoveVideoProfileChanged();
+    fn CameraIntrinsicsChanged();
+    fn RemoveCameraIntrinsicsChanged();
+    fn Id();
+    fn DisplayName();
+    fn DeviceKind();
+    fn Available();
+    fn Active();
+    fn IsControlled();
+    fn Properties();
+    fn SupportedVideoProfiles();
+    fn AvailableVideoProfiles();
+    fn VideoProfile();
+    fn CameraIntrinsics();
+    fn AcquireControlSession();
+    fn CanControlIndependentlyFrom();
+    fn IsCorrelatedWith();
+    fn TryGetTransformTo();
+    fn TryGetDepthCorrelatedCameraIntrinsicsAsync();
+    fn TryGetDepthCorrelatedCoordinateMapperAsync();
+    fn TrySetVideoProfileAsync();
+    fn OpenReader();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -390,6 +496,10 @@ unsafe impl ::windows::core::Interface for IPerceptionColorFrameSource2 {
     type Vtable = IPerceptionColorFrameSource2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf88008e5_5631_45ed_ad98_8c6aa04cfb91);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionColorFrameSource2Impl {
+    fn DeviceId();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -411,6 +521,10 @@ pub struct IPerceptionColorFrameSourceAddedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionColorFrameSourceAddedEventArgs {
     type Vtable = IPerceptionColorFrameSourceAddedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd16bf4e6_da24_442c_bbd5_55549b5b94f3);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionColorFrameSourceAddedEventArgsImpl {
+    fn FrameSource();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -434,6 +548,10 @@ unsafe impl ::windows::core::Interface for IPerceptionColorFrameSourceRemovedEve
     type Vtable = IPerceptionColorFrameSourceRemovedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd277fa69_eb4c_42ef_ba4f_288f615c93c1);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionColorFrameSourceRemovedEventArgsImpl {
+    fn FrameSource();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -455,6 +573,13 @@ pub struct IPerceptionColorFrameSourceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionColorFrameSourceStatics {
     type Vtable = IPerceptionColorFrameSourceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5df3cca2_01f8_4a87_b859_d5e5b7e1de49);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionColorFrameSourceStaticsImpl {
+    fn CreateWatcher();
+    fn FindAllAsync();
+    fn FromIdAsync();
+    fn RequestAccessAsync();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -483,6 +608,20 @@ pub struct IPerceptionColorFrameSourceWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionColorFrameSourceWatcher {
     type Vtable = IPerceptionColorFrameSourceWatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96bd1392_e667_40c4_89f9_1462dea6a9cc);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionColorFrameSourceWatcherImpl {
+    fn SourceAdded();
+    fn RemoveSourceAdded();
+    fn SourceRemoved();
+    fn RemoveSourceRemoved();
+    fn Stopped();
+    fn RemoveStopped();
+    fn EnumerationCompleted();
+    fn RemoveEnumerationCompleted();
+    fn Status();
+    fn Start();
+    fn Stop();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -526,6 +665,12 @@ unsafe impl ::windows::core::Interface for IPerceptionControlSession {
     type Vtable = IPerceptionControlSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99998653_5a3d_417f_9239_f1889e548b48);
 }
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionControlSessionImpl: IClosableImpl {
+    fn ControlLost();
+    fn RemoveControlLost();
+    fn TrySetPropertyAsync();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -551,6 +696,13 @@ pub struct IPerceptionDepthCorrelatedCameraIntrinsics(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IPerceptionDepthCorrelatedCameraIntrinsics {
     type Vtable = IPerceptionDepthCorrelatedCameraIntrinsicsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6548ca01_86de_5be1_6582_807fcf4c95cf);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionDepthCorrelatedCameraIntrinsicsImpl {
+    fn UnprojectPixelAtCorrelatedDepth();
+    fn UnprojectPixelsAtCorrelatedDepth();
+    fn UnprojectRegionPixelsAtCorrelatedDepthAsync();
+    fn UnprojectAllPixelsAtCorrelatedDepthAsync();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -580,6 +732,13 @@ unsafe impl ::windows::core::Interface for IPerceptionDepthCorrelatedCoordinateM
     type Vtable = IPerceptionDepthCorrelatedCoordinateMapperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b4d9d1d_b5f6_469c_b8c2_b97a45e6863b);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionDepthCorrelatedCoordinateMapperImpl {
+    fn MapPixelToTarget();
+    fn MapPixelsToTarget();
+    fn MapRegionOfPixelsToTargetAsync();
+    fn MapAllPixelsToTargetAsync();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -608,6 +767,10 @@ unsafe impl ::windows::core::Interface for IPerceptionDepthFrame {
     type Vtable = IPerceptionDepthFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa37b81fc_9906_4ffd_9161_0024b360b657);
 }
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionDepthFrameImpl: IClosableImpl {
+    fn VideoFrame();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -629,6 +792,11 @@ pub struct IPerceptionDepthFrameArrivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionDepthFrameArrivedEventArgs {
     type Vtable = IPerceptionDepthFrameArrivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x443d25b2_b282_4637_9173_ac978435c985);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionDepthFrameArrivedEventArgsImpl {
+    fn RelativeTime();
+    fn TryOpenFrame();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -653,6 +821,15 @@ pub struct IPerceptionDepthFrameReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionDepthFrameReader {
     type Vtable = IPerceptionDepthFrameReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1a3c09f_299b_4612_a4f7_270f25a096ec);
+}
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionDepthFrameReaderImpl: IClosableImpl {
+    fn FrameArrived();
+    fn RemoveFrameArrived();
+    fn Source();
+    fn IsPaused();
+    fn SetIsPaused();
+    fn TryReadLatestFrame();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -685,6 +862,38 @@ pub struct IPerceptionDepthFrameSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionDepthFrameSource {
     type Vtable = IPerceptionDepthFrameSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79d433d6_47fb_4df1_bfc9_f01d40bd9942);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionDepthFrameSourceImpl {
+    fn AvailableChanged();
+    fn RemoveAvailableChanged();
+    fn ActiveChanged();
+    fn RemoveActiveChanged();
+    fn PropertiesChanged();
+    fn RemovePropertiesChanged();
+    fn VideoProfileChanged();
+    fn RemoveVideoProfileChanged();
+    fn CameraIntrinsicsChanged();
+    fn RemoveCameraIntrinsicsChanged();
+    fn Id();
+    fn DisplayName();
+    fn DeviceKind();
+    fn Available();
+    fn Active();
+    fn IsControlled();
+    fn Properties();
+    fn SupportedVideoProfiles();
+    fn AvailableVideoProfiles();
+    fn VideoProfile();
+    fn CameraIntrinsics();
+    fn AcquireControlSession();
+    fn CanControlIndependentlyFrom();
+    fn IsCorrelatedWith();
+    fn TryGetTransformTo();
+    fn TryGetDepthCorrelatedCameraIntrinsicsAsync();
+    fn TryGetDepthCorrelatedCoordinateMapperAsync();
+    fn TrySetVideoProfileAsync();
+    fn OpenReader();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -764,6 +973,10 @@ unsafe impl ::windows::core::Interface for IPerceptionDepthFrameSource2 {
     type Vtable = IPerceptionDepthFrameSource2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3d23d2e_6e2c_4e6d_91d9_704cd8dff79d);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionDepthFrameSource2Impl {
+    fn DeviceId();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -785,6 +998,10 @@ pub struct IPerceptionDepthFrameSourceAddedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionDepthFrameSourceAddedEventArgs {
     type Vtable = IPerceptionDepthFrameSourceAddedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93a48168_8bf8_45d2_a2f8_4ac0931cc7a6);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionDepthFrameSourceAddedEventArgsImpl {
+    fn FrameSource();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -808,6 +1025,10 @@ unsafe impl ::windows::core::Interface for IPerceptionDepthFrameSourceRemovedEve
     type Vtable = IPerceptionDepthFrameSourceRemovedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0c0cc4d_e96c_4d81_86dd_38b95e49c6df);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionDepthFrameSourceRemovedEventArgsImpl {
+    fn FrameSource();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -829,6 +1050,13 @@ pub struct IPerceptionDepthFrameSourceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionDepthFrameSourceStatics {
     type Vtable = IPerceptionDepthFrameSourceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5df3cca2_01f8_4a87_b859_d5e5b7e1de48);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionDepthFrameSourceStaticsImpl {
+    fn CreateWatcher();
+    fn FindAllAsync();
+    fn FromIdAsync();
+    fn RequestAccessAsync();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -857,6 +1085,20 @@ pub struct IPerceptionDepthFrameSourceWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionDepthFrameSourceWatcher {
     type Vtable = IPerceptionDepthFrameSourceWatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x780e96d1_8d02_4d2b_ada4_5ba624a0eb10);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionDepthFrameSourceWatcherImpl {
+    fn SourceAdded();
+    fn RemoveSourceAdded();
+    fn SourceRemoved();
+    fn RemoveSourceRemoved();
+    fn Stopped();
+    fn RemoveStopped();
+    fn EnumerationCompleted();
+    fn RemoveEnumerationCompleted();
+    fn Status();
+    fn Start();
+    fn Stop();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -900,6 +1142,11 @@ unsafe impl ::windows::core::Interface for IPerceptionFrameSourcePropertiesChang
     type Vtable = IPerceptionFrameSourcePropertiesChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c68e068_bcf1_4ecc_b891_7625d1244b6b);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionFrameSourcePropertiesChangedEventArgsImpl {
+    fn CollectionChange();
+    fn Key();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -923,6 +1170,11 @@ pub struct IPerceptionFrameSourcePropertyChangeResult(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IPerceptionFrameSourcePropertyChangeResult {
     type Vtable = IPerceptionFrameSourcePropertyChangeResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e33390a_3c90_4d22_b898_f42bba6418ff);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionFrameSourcePropertyChangeResultImpl {
+    fn Status();
+    fn NewValue();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -948,6 +1200,10 @@ unsafe impl ::windows::core::Interface for IPerceptionInfraredFrame {
     type Vtable = IPerceptionInfraredFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0886276_849e_4c7a_8ae6_b56064532153);
 }
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionInfraredFrameImpl: IClosableImpl {
+    fn VideoFrame();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -969,6 +1225,11 @@ pub struct IPerceptionInfraredFrameArrivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameArrivedEventArgs {
     type Vtable = IPerceptionInfraredFrameArrivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f77fac7_b4bd_4857_9d50_be8ef075daef);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionInfraredFrameArrivedEventArgsImpl {
+    fn RelativeTime();
+    fn TryOpenFrame();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -993,6 +1254,15 @@ pub struct IPerceptionInfraredFrameReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameReader {
     type Vtable = IPerceptionInfraredFrameReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7960ce18_d39b_4fc8_a04a_929734c6756c);
+}
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionInfraredFrameReaderImpl: IClosableImpl {
+    fn FrameArrived();
+    fn RemoveFrameArrived();
+    fn Source();
+    fn IsPaused();
+    fn SetIsPaused();
+    fn TryReadLatestFrame();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -1025,6 +1295,38 @@ pub struct IPerceptionInfraredFrameSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameSource {
     type Vtable = IPerceptionInfraredFrameSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55b08742_1808_494e_9e30_9d2a7be8f700);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionInfraredFrameSourceImpl {
+    fn AvailableChanged();
+    fn RemoveAvailableChanged();
+    fn ActiveChanged();
+    fn RemoveActiveChanged();
+    fn PropertiesChanged();
+    fn RemovePropertiesChanged();
+    fn VideoProfileChanged();
+    fn RemoveVideoProfileChanged();
+    fn CameraIntrinsicsChanged();
+    fn RemoveCameraIntrinsicsChanged();
+    fn Id();
+    fn DisplayName();
+    fn DeviceKind();
+    fn Available();
+    fn Active();
+    fn IsControlled();
+    fn Properties();
+    fn SupportedVideoProfiles();
+    fn AvailableVideoProfiles();
+    fn VideoProfile();
+    fn CameraIntrinsics();
+    fn AcquireControlSession();
+    fn CanControlIndependentlyFrom();
+    fn IsCorrelatedWith();
+    fn TryGetTransformTo();
+    fn TryGetDepthCorrelatedCameraIntrinsicsAsync();
+    fn TryGetDepthCorrelatedCoordinateMapperAsync();
+    fn TrySetVideoProfileAsync();
+    fn OpenReader();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -1104,6 +1406,10 @@ unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameSource2 {
     type Vtable = IPerceptionInfraredFrameSource2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcd4d798_4b0b_4300_8d85_410817faa032);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionInfraredFrameSource2Impl {
+    fn DeviceId();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -1125,6 +1431,10 @@ pub struct IPerceptionInfraredFrameSourceAddedEventArgs(::windows::core::IUnknow
 unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameSourceAddedEventArgs {
     type Vtable = IPerceptionInfraredFrameSourceAddedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d334120_95ce_4660_907a_d98035aa2b7c);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionInfraredFrameSourceAddedEventArgsImpl {
+    fn FrameSource();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -1148,6 +1458,10 @@ unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameSourceRemoved
     type Vtable = IPerceptionInfraredFrameSourceRemovedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea1a8071_7a70_4a61_af94_07303853f695);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionInfraredFrameSourceRemovedEventArgsImpl {
+    fn FrameSource();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -1169,6 +1483,13 @@ pub struct IPerceptionInfraredFrameSourceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameSourceStatics {
     type Vtable = IPerceptionInfraredFrameSourceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5df3cca2_01f8_4a87_b859_d5e5b7e1de47);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionInfraredFrameSourceStaticsImpl {
+    fn CreateWatcher();
+    fn FindAllAsync();
+    fn FromIdAsync();
+    fn RequestAccessAsync();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -1197,6 +1518,20 @@ pub struct IPerceptionInfraredFrameSourceWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameSourceWatcher {
     type Vtable = IPerceptionInfraredFrameSourceWatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x383cff99_d70c_444d_a8b0_720c2e66fe3b);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionInfraredFrameSourceWatcherImpl {
+    fn SourceAdded();
+    fn RemoveSourceAdded();
+    fn SourceRemoved();
+    fn RemoveSourceRemoved();
+    fn Stopped();
+    fn RemoveStopped();
+    fn EnumerationCompleted();
+    fn RemoveEnumerationCompleted();
+    fn Status();
+    fn Start();
+    fn Stop();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -1239,6 +1574,15 @@ pub struct IPerceptionVideoProfile(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionVideoProfile {
     type Vtable = IPerceptionVideoProfileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75763ea3_011a_470e_8225_6f05ade25648);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IPerceptionVideoProfileImpl {
+    fn BitmapPixelFormat();
+    fn BitmapAlphaMode();
+    fn Width();
+    fn Height();
+    fn FrameDuration();
+    fn IsEqual();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]

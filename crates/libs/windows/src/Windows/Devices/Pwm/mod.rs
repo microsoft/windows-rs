@@ -8,6 +8,15 @@ unsafe impl ::windows::core::Interface for IPwmController {
     type Vtable = IPwmControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc45f5c85_d2e8_42cf_9bd6_cf5ed029e6a7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPwmControllerImpl {
+    fn PinCount();
+    fn ActualFrequency();
+    fn SetDesiredFrequency();
+    fn MinFrequency();
+    fn MaxFrequency();
+    fn OpenPin();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPwmControllerVtbl(
@@ -31,6 +40,10 @@ unsafe impl ::windows::core::Interface for IPwmControllerStatics {
     type Vtable = IPwmControllerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4263bda1_8946_4404_bd48_81dd124af4d9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPwmControllerStaticsImpl {
+    fn GetControllersAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPwmControllerStaticsVtbl(
@@ -50,6 +63,10 @@ unsafe impl ::windows::core::Interface for IPwmControllerStatics2 {
     type Vtable = IPwmControllerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44fc5b1f_f119_4bdd_97ad_f76ef986736d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPwmControllerStatics2Impl {
+    fn GetDefaultAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPwmControllerStatics2Vtbl(
@@ -68,6 +85,12 @@ pub struct IPwmControllerStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPwmControllerStatics3 {
     type Vtable = IPwmControllerStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2581871_0229_4344_ae3f_9b7cd0e66b94);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPwmControllerStatics3Impl {
+    fn GetDeviceSelector();
+    fn GetDeviceSelectorFromFriendlyName();
+    fn FromIdAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -89,6 +112,17 @@ pub struct IPwmPin(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPwmPin {
     type Vtable = IPwmPinVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22972dc8_c6cf_4821_b7f9_c6454fb6af79);
+}
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IPwmPinImpl: IClosableImpl {
+    fn Controller();
+    fn GetActiveDutyCyclePercentage();
+    fn SetActiveDutyCyclePercentage();
+    fn Polarity();
+    fn SetPolarity();
+    fn Start();
+    fn Stop();
+    fn IsStarted();
 }
 #[repr(C)]
 #[doc(hidden)]

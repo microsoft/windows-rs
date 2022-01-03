@@ -6,6 +6,10 @@ unsafe impl ::windows::core::Interface for IXsltProcessor {
     type Vtable = IXsltProcessorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b64703f_550c_48c6_a90f_93a5b964518f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IXsltProcessorImpl {
+    fn TransformToString();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXsltProcessorVtbl(
@@ -25,6 +29,10 @@ unsafe impl ::windows::core::Interface for IXsltProcessor2 {
     type Vtable = IXsltProcessor2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8da45c56_97a5_44cb_a8be_27d86280c70a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IXsltProcessor2Impl {
+    fn TransformToDocument();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXsltProcessor2Vtbl(
@@ -43,6 +51,10 @@ pub struct IXsltProcessorFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXsltProcessorFactory {
     type Vtable = IXsltProcessorFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x274146c0_9a51_4663_bf30_0ef742146f20);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IXsltProcessorFactoryImpl {
+    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]

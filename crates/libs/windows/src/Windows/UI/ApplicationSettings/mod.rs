@@ -547,6 +547,11 @@ unsafe impl ::windows::core::Interface for IAccountsSettingsPane {
     type Vtable = IAccountsSettingsPaneVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81ea942c_4f09_4406_a538_838d9b14b7e6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAccountsSettingsPaneImpl {
+    fn AccountCommandsRequested();
+    fn RemoveAccountCommandsRequested();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccountsSettingsPaneVtbl(
@@ -567,6 +572,16 @@ pub struct IAccountsSettingsPaneCommandsRequestedEventArgs(::windows::core::IUnk
 unsafe impl ::windows::core::Interface for IAccountsSettingsPaneCommandsRequestedEventArgs {
     type Vtable = IAccountsSettingsPaneCommandsRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b68c099_db19_45d0_9abf_95d3773c9330);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAccountsSettingsPaneCommandsRequestedEventArgsImpl {
+    fn WebAccountProviderCommands();
+    fn WebAccountCommands();
+    fn CredentialCommands();
+    fn Commands();
+    fn HeaderText();
+    fn SetHeaderText();
+    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -596,6 +611,10 @@ unsafe impl ::windows::core::Interface for IAccountsSettingsPaneCommandsRequeste
     type Vtable = IAccountsSettingsPaneCommandsRequestedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x362f7bad_4e37_4967_8c40_e78ee7a1e5bb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAccountsSettingsPaneCommandsRequestedEventArgs2Impl {
+    fn User();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccountsSettingsPaneCommandsRequestedEventArgs2Vtbl(
@@ -615,6 +634,10 @@ unsafe impl ::windows::core::Interface for IAccountsSettingsPaneEventDeferral {
     type Vtable = IAccountsSettingsPaneEventDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbf25d3f_e5ba_40ef_93da_65e096e5fb04);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAccountsSettingsPaneEventDeferralImpl {
+    fn Complete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccountsSettingsPaneEventDeferralVtbl(
@@ -632,6 +655,11 @@ pub struct IAccountsSettingsPaneStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAccountsSettingsPaneStatics {
     type Vtable = IAccountsSettingsPaneStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x561f8b60_b0ec_4150_a8dc_208ee44b068a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAccountsSettingsPaneStaticsImpl {
+    fn GetForCurrentView();
+    fn Show();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -651,6 +679,11 @@ pub struct IAccountsSettingsPaneStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAccountsSettingsPaneStatics2 {
     type Vtable = IAccountsSettingsPaneStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd21df7c2_ce0d_484f_b8e8_e823c215765e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAccountsSettingsPaneStatics2Impl: IAccountsSettingsPaneStaticsImpl {
+    fn ShowManageAccountsAsync();
+    fn ShowAddAccountAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -673,6 +706,11 @@ unsafe impl ::windows::core::Interface for IAccountsSettingsPaneStatics3 {
     type Vtable = IAccountsSettingsPaneStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08410458_a2ba_4c6f_b4ac_48f514331216);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAccountsSettingsPaneStatics3Impl {
+    fn ShowManageAccountsForUserAsync();
+    fn ShowAddAccountForUserAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccountsSettingsPaneStatics3Vtbl(
@@ -694,6 +732,11 @@ unsafe impl ::windows::core::Interface for ICredentialCommand {
     type Vtable = ICredentialCommandVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5f665e6_6143_4a7a_a971_b017ba978ce2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICredentialCommandImpl {
+    fn PasswordCredential();
+    fn CredentialDeleted();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICredentialCommandVtbl(
@@ -713,6 +756,11 @@ pub struct ICredentialCommandFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICredentialCommandFactory {
     type Vtable = ICredentialCommandFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27e88c17_bc3e_4b80_9495_4ed720e48a91);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICredentialCommandFactoryImpl {
+    fn CreateCredentialCommand();
+    fn CreateCredentialCommandWithHandler();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -735,6 +783,10 @@ unsafe impl ::windows::core::Interface for ISettingsCommandFactory {
     type Vtable = ISettingsCommandFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68e15b33_1c83_433a_aa5a_ceeea5bd4764);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISettingsCommandFactoryImpl {
+    fn CreateSettingsCommand();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISettingsCommandFactoryVtbl(
@@ -753,6 +805,10 @@ pub struct ISettingsCommandStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISettingsCommandStatics {
     type Vtable = ISettingsCommandStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x749ae954_2f69_4b17_8aba_d05ce5778e46);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISettingsCommandStaticsImpl {
+    fn AccountsCommand();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -774,6 +830,11 @@ pub struct ISettingsPane(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISettingsPane {
     type Vtable = ISettingsPaneVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1cd0932_4570_4c69_8d38_89446561ace0);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait ISettingsPaneImpl {
+    fn CommandsRequested();
+    fn RemoveCommandsRequested();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -799,6 +860,10 @@ unsafe impl ::windows::core::Interface for ISettingsPaneCommandsRequest {
     type Vtable = ISettingsPaneCommandsRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44df23ae_5d6e_4068_a168_f47643182114);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait ISettingsPaneCommandsRequestImpl {
+    fn ApplicationCommands();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -821,6 +886,10 @@ unsafe impl ::windows::core::Interface for ISettingsPaneCommandsRequestedEventAr
     type Vtable = ISettingsPaneCommandsRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x205f5d24_1b48_4629_a6ca_2fdfedafb75d);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait ISettingsPaneCommandsRequestedEventArgsImpl {
+    fn Request();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -842,6 +911,12 @@ pub struct ISettingsPaneStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISettingsPaneStatics {
     type Vtable = ISettingsPaneStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c6a52c5_ff19_471b_ba6b_f8f35694ad9a);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait ISettingsPaneStaticsImpl {
+    fn GetForCurrentView();
+    fn Show();
+    fn Edge();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -867,6 +942,12 @@ unsafe impl ::windows::core::Interface for IWebAccountCommand {
     type Vtable = IWebAccountCommandVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaa39398_9cfa_4246_b0c4_a913a3896541);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWebAccountCommandImpl {
+    fn WebAccount();
+    fn Invoked();
+    fn Actions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountCommandVtbl(
@@ -888,6 +969,10 @@ unsafe impl ::windows::core::Interface for IWebAccountCommandFactory {
     type Vtable = IWebAccountCommandFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfa6cdff_2f2d_42f5_81de_1d56bafc496d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWebAccountCommandFactoryImpl {
+    fn CreateWebAccountCommand();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountCommandFactoryVtbl(
@@ -907,6 +992,10 @@ unsafe impl ::windows::core::Interface for IWebAccountInvokedArgs {
     type Vtable = IWebAccountInvokedArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7abcc40_a1d8_4c5d_9a7f_1d34b2f90ad2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWebAccountInvokedArgsImpl {
+    fn Action();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountInvokedArgsVtbl(
@@ -924,6 +1013,11 @@ pub struct IWebAccountProviderCommand(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountProviderCommand {
     type Vtable = IWebAccountProviderCommandVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd69bdd9a_a0a6_4e9b_88dc_c71e757a3501);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWebAccountProviderCommandImpl {
+    fn WebAccountProvider();
+    fn Invoked();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -944,6 +1038,10 @@ pub struct IWebAccountProviderCommandFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountProviderCommandFactory {
     type Vtable = IWebAccountProviderCommandFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5658a1b_b176_4776_8469_a9d3ff0b3f59);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWebAccountProviderCommandFactoryImpl {
+    fn CreateWebAccountProviderCommand();
 }
 #[repr(C)]
 #[doc(hidden)]

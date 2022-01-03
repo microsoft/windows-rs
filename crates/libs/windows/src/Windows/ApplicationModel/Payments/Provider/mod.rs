@@ -6,6 +6,11 @@ unsafe impl ::windows::core::Interface for IPaymentAppCanMakePaymentTriggerDetai
     type Vtable = IPaymentAppCanMakePaymentTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ce201f0_8b93_4eb6_8c46_2e4a6c6a26f6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPaymentAppCanMakePaymentTriggerDetailsImpl {
+    fn Request();
+    fn ReportCanMakePaymentResult();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentAppCanMakePaymentTriggerDetailsVtbl(
@@ -24,6 +29,11 @@ pub struct IPaymentAppManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentAppManager {
     type Vtable = IPaymentAppManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e47aa53_8521_4969_a957_df2538a3a98f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPaymentAppManagerImpl {
+    fn RegisterAsync();
+    fn UnregisterAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -46,6 +56,10 @@ unsafe impl ::windows::core::Interface for IPaymentAppManagerStatics {
     type Vtable = IPaymentAppManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa341ac28_fc89_4406_b4d9_34e7fe79dfb6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPaymentAppManagerStaticsImpl {
+    fn Current();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentAppManagerStaticsVtbl(
@@ -63,6 +77,20 @@ pub struct IPaymentTransaction(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentTransaction {
     type Vtable = IPaymentTransactionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62581da0_26a5_4e9b_a6eb_66606cf001d3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPaymentTransactionImpl {
+    fn PaymentRequest();
+    fn PayerEmail();
+    fn SetPayerEmail();
+    fn PayerName();
+    fn SetPayerName();
+    fn PayerPhoneNumber();
+    fn SetPayerPhoneNumber();
+    fn UpdateShippingAddressAsync();
+    fn UpdateSelectedShippingOptionAsync();
+    fn AcceptAsync();
+    fn Reject();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -95,6 +123,10 @@ unsafe impl ::windows::core::Interface for IPaymentTransactionAcceptResult {
     type Vtable = IPaymentTransactionAcceptResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x060e3276_d30c_4817_95a2_df7ae9273b56);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPaymentTransactionAcceptResultImpl {
+    fn Status();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentTransactionAcceptResultVtbl(
@@ -112,6 +144,10 @@ pub struct IPaymentTransactionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentTransactionStatics {
     type Vtable = IPaymentTransactionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d639750_ee0a_4df5_9b1e_1c0f9ec59881);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPaymentTransactionStaticsImpl {
+    fn FromIdAsync();
 }
 #[repr(C)]
 #[doc(hidden)]

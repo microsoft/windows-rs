@@ -104,6 +104,10 @@ unsafe impl ::windows::core::Interface for IMSMQApplication {
     type Vtable = IMSMQApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e085_dccd_11d0_aa4b_0060970debae);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQApplicationImpl: IDispatchImpl {
+    fn MachineIdOfMachineName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQApplicationVtbl(
@@ -274,6 +278,16 @@ impl ::core::fmt::Debug for IMSMQApplication2 {
 unsafe impl ::windows::core::Interface for IMSMQApplication2 {
     type Vtable = IMSMQApplication2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12a30900_7300_11d2_b0e6_00e02c074f6b);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQApplication2Impl: IMSMQApplicationImpl + IDispatchImpl {
+    fn RegisterCertificate();
+    fn MachineNameOfMachineId();
+    fn MSMQVersionMajor();
+    fn MSMQVersionMinor();
+    fn MSMQVersionBuild();
+    fn IsDsEnabled();
+    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -528,6 +542,19 @@ unsafe impl ::windows::core::Interface for IMSMQApplication3 {
     type Vtable = IMSMQApplication3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1f_2168_11d3_898c_00e02c074f6b);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQApplication3Impl: IMSMQApplication2Impl + IMSMQApplicationImpl + IDispatchImpl {
+    fn ActiveQueues();
+    fn PrivateQueues();
+    fn DirectoryServiceServer();
+    fn IsConnected();
+    fn BytesInAllQueues();
+    fn SetMachine();
+    fn Machine();
+    fn Connect();
+    fn Disconnect();
+    fn Tidy();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQApplication3Vtbl(
@@ -678,6 +705,12 @@ unsafe impl ::windows::core::Interface for IMSMQCollection {
     type Vtable = IMSMQCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0188ac2f_ecb3_4173_9779_635ca2039c72);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQCollectionImpl: IDispatchImpl {
+    fn Item();
+    fn Count();
+    fn _NewEnum();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQCollectionVtbl(
@@ -792,6 +825,10 @@ impl ::core::fmt::Debug for IMSMQCoordinatedTransactionDispenser {
 unsafe impl ::windows::core::Interface for IMSMQCoordinatedTransactionDispenser {
     type Vtable = IMSMQCoordinatedTransactionDispenserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e081_dccd_11d0_aa4b_0060970debae);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQCoordinatedTransactionDispenserImpl: IDispatchImpl {
+    fn BeginTransaction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -910,6 +947,11 @@ impl ::core::fmt::Debug for IMSMQCoordinatedTransactionDispenser2 {
 unsafe impl ::windows::core::Interface for IMSMQCoordinatedTransactionDispenser2 {
     type Vtable = IMSMQCoordinatedTransactionDispenser2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b10_2168_11d3_898c_00e02c074f6b);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQCoordinatedTransactionDispenser2Impl: IDispatchImpl {
+    fn BeginTransaction();
+    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1030,6 +1072,11 @@ impl ::core::fmt::Debug for IMSMQCoordinatedTransactionDispenser3 {
 unsafe impl ::windows::core::Interface for IMSMQCoordinatedTransactionDispenser3 {
     type Vtable = IMSMQCoordinatedTransactionDispenser3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b14_2168_11d3_898c_00e02c074f6b);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQCoordinatedTransactionDispenser3Impl: IDispatchImpl {
+    fn BeginTransaction();
+    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1214,6 +1261,23 @@ unsafe impl ::windows::core::Interface for IMSMQDestination {
     type Vtable = IMSMQDestinationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b16_2168_11d3_898c_00e02c074f6b);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQDestinationImpl: IDispatchImpl {
+    fn Open();
+    fn Close();
+    fn IsOpen();
+    fn IADs();
+    fn putref_IADs();
+    fn ADsPath();
+    fn SetADsPath();
+    fn PathName();
+    fn SetPathName();
+    fn FormatName();
+    fn SetFormatName();
+    fn Destinations();
+    fn putref_Destinations();
+    fn Properties();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQDestinationVtbl(
@@ -1345,6 +1409,8 @@ unsafe impl ::windows::core::Interface for IMSMQEvent {
     type Vtable = IMSMQEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e077_dccd_11d0_aa4b_0060970debae);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQEventImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQEventVtbl(
@@ -1476,6 +1542,10 @@ impl ::core::fmt::Debug for IMSMQEvent2 {
 unsafe impl ::windows::core::Interface for IMSMQEvent2 {
     type Vtable = IMSMQEvent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b12_2168_11d3_898c_00e02c074f6b);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQEvent2Impl: IMSMQEventImpl + IDispatchImpl {
+    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1631,6 +1701,8 @@ unsafe impl ::windows::core::Interface for IMSMQEvent3 {
     type Vtable = IMSMQEvent3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1c_2168_11d3_898c_00e02c074f6b);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQEvent3Impl: IMSMQEvent2Impl + IMSMQEventImpl + IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQEvent3Vtbl(
@@ -1786,6 +1858,18 @@ impl ::core::fmt::Debug for IMSMQManagement {
 unsafe impl ::windows::core::Interface for IMSMQManagement {
     type Vtable = IMSMQManagementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe5f0241_e489_4957_8cc4_a452fcf3e23e);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQManagementImpl: IDispatchImpl {
+    fn Init();
+    fn FormatName();
+    fn Machine();
+    fn MessageCount();
+    fn ForeignStatus();
+    fn QueueType();
+    fn IsLocal();
+    fn TransactionalStatus();
+    fn BytesInQueue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2143,6 +2227,58 @@ impl ::core::fmt::Debug for IMSMQMessage {
 unsafe impl ::windows::core::Interface for IMSMQMessage {
     type Vtable = IMSMQMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e074_dccd_11d0_aa4b_0060970debae);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQMessageImpl: IDispatchImpl {
+    fn Class();
+    fn PrivLevel();
+    fn SetPrivLevel();
+    fn AuthLevel();
+    fn SetAuthLevel();
+    fn IsAuthenticated();
+    fn Delivery();
+    fn SetDelivery();
+    fn Trace();
+    fn SetTrace();
+    fn Priority();
+    fn SetPriority();
+    fn Journal();
+    fn SetJournal();
+    fn ResponseQueueInfo();
+    fn putref_ResponseQueueInfo();
+    fn AppSpecific();
+    fn SetAppSpecific();
+    fn SourceMachineGuid();
+    fn BodyLength();
+    fn Body();
+    fn SetBody();
+    fn AdminQueueInfo();
+    fn putref_AdminQueueInfo();
+    fn Id();
+    fn CorrelationId();
+    fn SetCorrelationId();
+    fn Ack();
+    fn SetAck();
+    fn Label();
+    fn SetLabel();
+    fn MaxTimeToReachQueue();
+    fn SetMaxTimeToReachQueue();
+    fn MaxTimeToReceive();
+    fn SetMaxTimeToReceive();
+    fn HashAlgorithm();
+    fn SetHashAlgorithm();
+    fn EncryptAlgorithm();
+    fn SetEncryptAlgorithm();
+    fn SentTime();
+    fn ArrivedTime();
+    fn DestinationQueueInfo();
+    fn SenderCertificate();
+    fn SetSenderCertificate();
+    fn SenderId();
+    fn SenderIdType();
+    fn SetSenderIdType();
+    fn Send();
+    fn AttachCurrentSecurityContext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2683,6 +2819,84 @@ impl ::core::fmt::Debug for IMSMQMessage2 {
 unsafe impl ::windows::core::Interface for IMSMQMessage2 {
     type Vtable = IMSMQMessage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9933be0_a567_11d2_b0f3_00e02c074f6b);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQMessage2Impl: IDispatchImpl {
+    fn Class();
+    fn PrivLevel();
+    fn SetPrivLevel();
+    fn AuthLevel();
+    fn SetAuthLevel();
+    fn IsAuthenticated();
+    fn Delivery();
+    fn SetDelivery();
+    fn Trace();
+    fn SetTrace();
+    fn Priority();
+    fn SetPriority();
+    fn Journal();
+    fn SetJournal();
+    fn ResponseQueueInfo_v1();
+    fn putref_ResponseQueueInfo_v1();
+    fn AppSpecific();
+    fn SetAppSpecific();
+    fn SourceMachineGuid();
+    fn BodyLength();
+    fn Body();
+    fn SetBody();
+    fn AdminQueueInfo_v1();
+    fn putref_AdminQueueInfo_v1();
+    fn Id();
+    fn CorrelationId();
+    fn SetCorrelationId();
+    fn Ack();
+    fn SetAck();
+    fn Label();
+    fn SetLabel();
+    fn MaxTimeToReachQueue();
+    fn SetMaxTimeToReachQueue();
+    fn MaxTimeToReceive();
+    fn SetMaxTimeToReceive();
+    fn HashAlgorithm();
+    fn SetHashAlgorithm();
+    fn EncryptAlgorithm();
+    fn SetEncryptAlgorithm();
+    fn SentTime();
+    fn ArrivedTime();
+    fn DestinationQueueInfo();
+    fn SenderCertificate();
+    fn SetSenderCertificate();
+    fn SenderId();
+    fn SenderIdType();
+    fn SetSenderIdType();
+    fn Send();
+    fn AttachCurrentSecurityContext();
+    fn SenderVersion();
+    fn Extension();
+    fn SetExtension();
+    fn ConnectorTypeGuid();
+    fn SetConnectorTypeGuid();
+    fn TransactionStatusQueueInfo();
+    fn DestinationSymmetricKey();
+    fn SetDestinationSymmetricKey();
+    fn Signature();
+    fn SetSignature();
+    fn AuthenticationProviderType();
+    fn SetAuthenticationProviderType();
+    fn AuthenticationProviderName();
+    fn SetAuthenticationProviderName();
+    fn SetSenderId();
+    fn MsgClass();
+    fn SetMsgClass();
+    fn Properties();
+    fn TransactionId();
+    fn IsFirstInTransaction();
+    fn IsLastInTransaction();
+    fn ResponseQueueInfo();
+    fn putref_ResponseQueueInfo();
+    fn AdminQueueInfo();
+    fn putref_AdminQueueInfo();
+    fn ReceivedAuthenticationLevel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3344,6 +3558,100 @@ impl ::core::fmt::Debug for IMSMQMessage3 {
 unsafe impl ::windows::core::Interface for IMSMQMessage3 {
     type Vtable = IMSMQMessage3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1a_2168_11d3_898c_00e02c074f6b);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQMessage3Impl: IDispatchImpl {
+    fn Class();
+    fn PrivLevel();
+    fn SetPrivLevel();
+    fn AuthLevel();
+    fn SetAuthLevel();
+    fn IsAuthenticated();
+    fn Delivery();
+    fn SetDelivery();
+    fn Trace();
+    fn SetTrace();
+    fn Priority();
+    fn SetPriority();
+    fn Journal();
+    fn SetJournal();
+    fn ResponseQueueInfo_v1();
+    fn putref_ResponseQueueInfo_v1();
+    fn AppSpecific();
+    fn SetAppSpecific();
+    fn SourceMachineGuid();
+    fn BodyLength();
+    fn Body();
+    fn SetBody();
+    fn AdminQueueInfo_v1();
+    fn putref_AdminQueueInfo_v1();
+    fn Id();
+    fn CorrelationId();
+    fn SetCorrelationId();
+    fn Ack();
+    fn SetAck();
+    fn Label();
+    fn SetLabel();
+    fn MaxTimeToReachQueue();
+    fn SetMaxTimeToReachQueue();
+    fn MaxTimeToReceive();
+    fn SetMaxTimeToReceive();
+    fn HashAlgorithm();
+    fn SetHashAlgorithm();
+    fn EncryptAlgorithm();
+    fn SetEncryptAlgorithm();
+    fn SentTime();
+    fn ArrivedTime();
+    fn DestinationQueueInfo();
+    fn SenderCertificate();
+    fn SetSenderCertificate();
+    fn SenderId();
+    fn SenderIdType();
+    fn SetSenderIdType();
+    fn Send();
+    fn AttachCurrentSecurityContext();
+    fn SenderVersion();
+    fn Extension();
+    fn SetExtension();
+    fn ConnectorTypeGuid();
+    fn SetConnectorTypeGuid();
+    fn TransactionStatusQueueInfo();
+    fn DestinationSymmetricKey();
+    fn SetDestinationSymmetricKey();
+    fn Signature();
+    fn SetSignature();
+    fn AuthenticationProviderType();
+    fn SetAuthenticationProviderType();
+    fn AuthenticationProviderName();
+    fn SetAuthenticationProviderName();
+    fn SetSenderId();
+    fn MsgClass();
+    fn SetMsgClass();
+    fn Properties();
+    fn TransactionId();
+    fn IsFirstInTransaction();
+    fn IsLastInTransaction();
+    fn ResponseQueueInfo_v2();
+    fn putref_ResponseQueueInfo_v2();
+    fn AdminQueueInfo_v2();
+    fn putref_AdminQueueInfo_v2();
+    fn ReceivedAuthenticationLevel();
+    fn ResponseQueueInfo();
+    fn putref_ResponseQueueInfo();
+    fn AdminQueueInfo();
+    fn putref_AdminQueueInfo();
+    fn ResponseDestination();
+    fn putref_ResponseDestination();
+    fn Destination();
+    fn LookupId();
+    fn IsAuthenticated2();
+    fn IsFirstInTransaction2();
+    fn IsLastInTransaction2();
+    fn AttachCurrentSecurityContext2();
+    fn SoapEnvelope();
+    fn CompoundMessage();
+    fn SetSoapHeader();
+    fn SetSoapBody();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4030,6 +4338,100 @@ unsafe impl ::windows::core::Interface for IMSMQMessage4 {
     type Vtable = IMSMQMessage4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b23_2168_11d3_898c_00e02c074f6b);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQMessage4Impl: IDispatchImpl {
+    fn Class();
+    fn PrivLevel();
+    fn SetPrivLevel();
+    fn AuthLevel();
+    fn SetAuthLevel();
+    fn IsAuthenticated();
+    fn Delivery();
+    fn SetDelivery();
+    fn Trace();
+    fn SetTrace();
+    fn Priority();
+    fn SetPriority();
+    fn Journal();
+    fn SetJournal();
+    fn ResponseQueueInfo_v1();
+    fn putref_ResponseQueueInfo_v1();
+    fn AppSpecific();
+    fn SetAppSpecific();
+    fn SourceMachineGuid();
+    fn BodyLength();
+    fn Body();
+    fn SetBody();
+    fn AdminQueueInfo_v1();
+    fn putref_AdminQueueInfo_v1();
+    fn Id();
+    fn CorrelationId();
+    fn SetCorrelationId();
+    fn Ack();
+    fn SetAck();
+    fn Label();
+    fn SetLabel();
+    fn MaxTimeToReachQueue();
+    fn SetMaxTimeToReachQueue();
+    fn MaxTimeToReceive();
+    fn SetMaxTimeToReceive();
+    fn HashAlgorithm();
+    fn SetHashAlgorithm();
+    fn EncryptAlgorithm();
+    fn SetEncryptAlgorithm();
+    fn SentTime();
+    fn ArrivedTime();
+    fn DestinationQueueInfo();
+    fn SenderCertificate();
+    fn SetSenderCertificate();
+    fn SenderId();
+    fn SenderIdType();
+    fn SetSenderIdType();
+    fn Send();
+    fn AttachCurrentSecurityContext();
+    fn SenderVersion();
+    fn Extension();
+    fn SetExtension();
+    fn ConnectorTypeGuid();
+    fn SetConnectorTypeGuid();
+    fn TransactionStatusQueueInfo();
+    fn DestinationSymmetricKey();
+    fn SetDestinationSymmetricKey();
+    fn Signature();
+    fn SetSignature();
+    fn AuthenticationProviderType();
+    fn SetAuthenticationProviderType();
+    fn AuthenticationProviderName();
+    fn SetAuthenticationProviderName();
+    fn SetSenderId();
+    fn MsgClass();
+    fn SetMsgClass();
+    fn Properties();
+    fn TransactionId();
+    fn IsFirstInTransaction();
+    fn IsLastInTransaction();
+    fn ResponseQueueInfo_v2();
+    fn putref_ResponseQueueInfo_v2();
+    fn AdminQueueInfo_v2();
+    fn putref_AdminQueueInfo_v2();
+    fn ReceivedAuthenticationLevel();
+    fn ResponseQueueInfo();
+    fn putref_ResponseQueueInfo();
+    fn AdminQueueInfo();
+    fn putref_AdminQueueInfo();
+    fn ResponseDestination();
+    fn putref_ResponseDestination();
+    fn Destination();
+    fn LookupId();
+    fn IsAuthenticated2();
+    fn IsFirstInTransaction2();
+    fn IsLastInTransaction2();
+    fn AttachCurrentSecurityContext2();
+    fn SoapEnvelope();
+    fn CompoundMessage();
+    fn SetSoapHeader();
+    fn SetSoapBody();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQMessage4Vtbl(
@@ -4358,6 +4760,15 @@ unsafe impl ::windows::core::Interface for IMSMQOutgoingQueueManagement {
     type Vtable = IMSMQOutgoingQueueManagementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64c478fb_f9b0_4695_8a7f_439ac94326d3);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQOutgoingQueueManagementImpl: IMSMQManagementImpl + IDispatchImpl {
+    fn State();
+    fn NextHops();
+    fn EodGetSendInfo();
+    fn Resume();
+    fn Pause();
+    fn EodResend();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQOutgoingQueueManagementVtbl(
@@ -4495,6 +4906,11 @@ unsafe impl ::windows::core::Interface for IMSMQPrivateDestination {
     type Vtable = IMSMQPrivateDestinationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b17_2168_11d3_898c_00e02c074f6b);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQPrivateDestinationImpl: IDispatchImpl {
+    fn Handle();
+    fn SetHandle();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQPrivateDestinationVtbl(
@@ -4618,6 +5034,12 @@ unsafe impl ::windows::core::Interface for IMSMQPrivateEvent {
     type Vtable = IMSMQPrivateEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7ab3341_c9d3_11d1_bb47_0080c7c5a2c0);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQPrivateEventImpl: IDispatchImpl {
+    fn Hwnd();
+    fn FireArrivedEvent();
+    fn FireArrivedErrorEvent();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQPrivateEventVtbl(
@@ -4732,6 +5154,10 @@ impl ::core::fmt::Debug for IMSMQQuery {
 unsafe impl ::windows::core::Interface for IMSMQQuery {
     type Vtable = IMSMQQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e072_dccd_11d0_aa4b_0060970debae);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQQueryImpl: IDispatchImpl {
+    fn LookupQueue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4852,6 +5278,11 @@ impl ::core::fmt::Debug for IMSMQQuery2 {
 unsafe impl ::windows::core::Interface for IMSMQQuery2 {
     type Vtable = IMSMQQuery2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b0e_2168_11d3_898c_00e02c074f6b);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQQuery2Impl: IDispatchImpl {
+    fn LookupQueue();
+    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4995,6 +5426,12 @@ impl ::core::fmt::Debug for IMSMQQuery3 {
 unsafe impl ::windows::core::Interface for IMSMQQuery3 {
     type Vtable = IMSMQQuery3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b19_2168_11d3_898c_00e02c074f6b);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQQuery3Impl: IDispatchImpl {
+    fn LookupQueue_v2();
+    fn Properties();
+    fn LookupQueue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5140,6 +5577,12 @@ impl ::core::fmt::Debug for IMSMQQuery4 {
 unsafe impl ::windows::core::Interface for IMSMQQuery4 {
     type Vtable = IMSMQQuery4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b24_2168_11d3_898c_00e02c074f6b);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQQuery4Impl: IDispatchImpl {
+    fn LookupQueue_v2();
+    fn Properties();
+    fn LookupQueue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5320,6 +5763,22 @@ impl ::core::fmt::Debug for IMSMQQueue {
 unsafe impl ::windows::core::Interface for IMSMQQueue {
     type Vtable = IMSMQQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e076_dccd_11d0_aa4b_0060970debae);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQQueueImpl: IDispatchImpl {
+    fn Access();
+    fn ShareMode();
+    fn QueueInfo();
+    fn Handle();
+    fn IsOpen();
+    fn Close();
+    fn Receive();
+    fn Peek();
+    fn EnableNotification();
+    fn Reset();
+    fn ReceiveCurrent();
+    fn PeekNext();
+    fn PeekCurrent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5549,6 +6008,28 @@ impl ::core::fmt::Debug for IMSMQQueue2 {
 unsafe impl ::windows::core::Interface for IMSMQQueue2 {
     type Vtable = IMSMQQueue2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef0574e0_06d8_11d3_b100_00e02c074f6b);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQQueue2Impl: IDispatchImpl {
+    fn Access();
+    fn ShareMode();
+    fn QueueInfo();
+    fn Handle();
+    fn IsOpen();
+    fn Close();
+    fn Receive_v1();
+    fn Peek_v1();
+    fn EnableNotification();
+    fn Reset();
+    fn ReceiveCurrent_v1();
+    fn PeekNext_v1();
+    fn PeekCurrent_v1();
+    fn Receive();
+    fn Peek();
+    fn ReceiveCurrent();
+    fn PeekNext();
+    fn PeekCurrent();
+    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5865,6 +6346,41 @@ impl ::core::fmt::Debug for IMSMQQueue3 {
 unsafe impl ::windows::core::Interface for IMSMQQueue3 {
     type Vtable = IMSMQQueue3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1b_2168_11d3_898c_00e02c074f6b);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQQueue3Impl: IDispatchImpl {
+    fn Access();
+    fn ShareMode();
+    fn QueueInfo();
+    fn Handle();
+    fn IsOpen();
+    fn Close();
+    fn Receive_v1();
+    fn Peek_v1();
+    fn EnableNotification();
+    fn Reset();
+    fn ReceiveCurrent_v1();
+    fn PeekNext_v1();
+    fn PeekCurrent_v1();
+    fn Receive();
+    fn Peek();
+    fn ReceiveCurrent();
+    fn PeekNext();
+    fn PeekCurrent();
+    fn Properties();
+    fn Handle2();
+    fn ReceiveByLookupId();
+    fn ReceiveNextByLookupId();
+    fn ReceivePreviousByLookupId();
+    fn ReceiveFirstByLookupId();
+    fn ReceiveLastByLookupId();
+    fn PeekByLookupId();
+    fn PeekNextByLookupId();
+    fn PeekPreviousByLookupId();
+    fn PeekFirstByLookupId();
+    fn PeekLastByLookupId();
+    fn Purge();
+    fn IsOpen2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6212,6 +6728,42 @@ unsafe impl ::windows::core::Interface for IMSMQQueue4 {
     type Vtable = IMSMQQueue4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b20_2168_11d3_898c_00e02c074f6b);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQQueue4Impl: IDispatchImpl {
+    fn Access();
+    fn ShareMode();
+    fn QueueInfo();
+    fn Handle();
+    fn IsOpen();
+    fn Close();
+    fn Receive_v1();
+    fn Peek_v1();
+    fn EnableNotification();
+    fn Reset();
+    fn ReceiveCurrent_v1();
+    fn PeekNext_v1();
+    fn PeekCurrent_v1();
+    fn Receive();
+    fn Peek();
+    fn ReceiveCurrent();
+    fn PeekNext();
+    fn PeekCurrent();
+    fn Properties();
+    fn Handle2();
+    fn ReceiveByLookupId();
+    fn ReceiveNextByLookupId();
+    fn ReceivePreviousByLookupId();
+    fn ReceiveFirstByLookupId();
+    fn ReceiveLastByLookupId();
+    fn PeekByLookupId();
+    fn PeekNextByLookupId();
+    fn PeekPreviousByLookupId();
+    fn PeekFirstByLookupId();
+    fn PeekLastByLookupId();
+    fn Purge();
+    fn IsOpen2();
+    fn ReceiveByLookupIdAllowPeek();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueue4Vtbl(
@@ -6522,6 +7074,39 @@ impl ::core::fmt::Debug for IMSMQQueueInfo {
 unsafe impl ::windows::core::Interface for IMSMQQueueInfo {
     type Vtable = IMSMQQueueInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e07b_dccd_11d0_aa4b_0060970debae);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQQueueInfoImpl: IDispatchImpl {
+    fn QueueGuid();
+    fn ServiceTypeGuid();
+    fn SetServiceTypeGuid();
+    fn Label();
+    fn SetLabel();
+    fn PathName();
+    fn SetPathName();
+    fn FormatName();
+    fn SetFormatName();
+    fn IsTransactional();
+    fn PrivLevel();
+    fn SetPrivLevel();
+    fn Journal();
+    fn SetJournal();
+    fn Quota();
+    fn SetQuota();
+    fn BasePriority();
+    fn SetBasePriority();
+    fn CreateTime();
+    fn ModifyTime();
+    fn Authenticate();
+    fn SetAuthenticate();
+    fn JournalQuota();
+    fn SetJournalQuota();
+    fn IsWorldReadable();
+    fn Create();
+    fn Delete();
+    fn Open();
+    fn Refresh();
+    fn Update();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6841,6 +7426,43 @@ impl ::core::fmt::Debug for IMSMQQueueInfo2 {
 unsafe impl ::windows::core::Interface for IMSMQQueueInfo2 {
     type Vtable = IMSMQQueueInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd174a80_89cf_11d2_b0f2_00e02c074f6b);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQQueueInfo2Impl: IDispatchImpl {
+    fn QueueGuid();
+    fn ServiceTypeGuid();
+    fn SetServiceTypeGuid();
+    fn Label();
+    fn SetLabel();
+    fn PathName();
+    fn SetPathName();
+    fn FormatName();
+    fn SetFormatName();
+    fn IsTransactional();
+    fn PrivLevel();
+    fn SetPrivLevel();
+    fn Journal();
+    fn SetJournal();
+    fn Quota();
+    fn SetQuota();
+    fn BasePriority();
+    fn SetBasePriority();
+    fn CreateTime();
+    fn ModifyTime();
+    fn Authenticate();
+    fn SetAuthenticate();
+    fn JournalQuota();
+    fn SetJournalQuota();
+    fn IsWorldReadable();
+    fn Create();
+    fn Delete();
+    fn Open();
+    fn Refresh();
+    fn Update();
+    fn PathNameDNS();
+    fn Properties();
+    fn Security();
+    fn SetSecurity();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7195,6 +7817,48 @@ impl ::core::fmt::Debug for IMSMQQueueInfo3 {
 unsafe impl ::windows::core::Interface for IMSMQQueueInfo3 {
     type Vtable = IMSMQQueueInfo3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1d_2168_11d3_898c_00e02c074f6b);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQQueueInfo3Impl: IDispatchImpl {
+    fn QueueGuid();
+    fn ServiceTypeGuid();
+    fn SetServiceTypeGuid();
+    fn Label();
+    fn SetLabel();
+    fn PathName();
+    fn SetPathName();
+    fn FormatName();
+    fn SetFormatName();
+    fn IsTransactional();
+    fn PrivLevel();
+    fn SetPrivLevel();
+    fn Journal();
+    fn SetJournal();
+    fn Quota();
+    fn SetQuota();
+    fn BasePriority();
+    fn SetBasePriority();
+    fn CreateTime();
+    fn ModifyTime();
+    fn Authenticate();
+    fn SetAuthenticate();
+    fn JournalQuota();
+    fn SetJournalQuota();
+    fn IsWorldReadable();
+    fn Create();
+    fn Delete();
+    fn Open();
+    fn Refresh();
+    fn Update();
+    fn PathNameDNS();
+    fn Properties();
+    fn Security();
+    fn SetSecurity();
+    fn IsTransactional2();
+    fn IsWorldReadable2();
+    fn MulticastAddress();
+    fn SetMulticastAddress();
+    fn ADsPath();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7558,6 +8222,48 @@ unsafe impl ::windows::core::Interface for IMSMQQueueInfo4 {
     type Vtable = IMSMQQueueInfo4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b21_2168_11d3_898c_00e02c074f6b);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQQueueInfo4Impl: IDispatchImpl {
+    fn QueueGuid();
+    fn ServiceTypeGuid();
+    fn SetServiceTypeGuid();
+    fn Label();
+    fn SetLabel();
+    fn PathName();
+    fn SetPathName();
+    fn FormatName();
+    fn SetFormatName();
+    fn IsTransactional();
+    fn PrivLevel();
+    fn SetPrivLevel();
+    fn Journal();
+    fn SetJournal();
+    fn Quota();
+    fn SetQuota();
+    fn BasePriority();
+    fn SetBasePriority();
+    fn CreateTime();
+    fn ModifyTime();
+    fn Authenticate();
+    fn SetAuthenticate();
+    fn JournalQuota();
+    fn SetJournalQuota();
+    fn IsWorldReadable();
+    fn Create();
+    fn Delete();
+    fn Open();
+    fn Refresh();
+    fn Update();
+    fn PathNameDNS();
+    fn Properties();
+    fn Security();
+    fn SetSecurity();
+    fn IsTransactional2();
+    fn IsWorldReadable2();
+    fn MulticastAddress();
+    fn SetMulticastAddress();
+    fn ADsPath();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueInfo4Vtbl(
@@ -7731,6 +8437,11 @@ unsafe impl ::windows::core::Interface for IMSMQQueueInfos {
     type Vtable = IMSMQQueueInfosVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e07d_dccd_11d0_aa4b_0060970debae);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQQueueInfosImpl: IDispatchImpl {
+    fn Reset();
+    fn Next();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueInfosVtbl(
@@ -7853,6 +8564,12 @@ impl ::core::fmt::Debug for IMSMQQueueInfos2 {
 unsafe impl ::windows::core::Interface for IMSMQQueueInfos2 {
     type Vtable = IMSMQQueueInfos2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b0f_2168_11d3_898c_00e02c074f6b);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQQueueInfos2Impl: IDispatchImpl {
+    fn Reset();
+    fn Next();
+    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7979,6 +8696,12 @@ unsafe impl ::windows::core::Interface for IMSMQQueueInfos3 {
     type Vtable = IMSMQQueueInfos3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1e_2168_11d3_898c_00e02c074f6b);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQQueueInfos3Impl: IDispatchImpl {
+    fn Reset();
+    fn Next();
+    fn Properties();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueInfos3Vtbl(
@@ -8103,6 +8826,12 @@ impl ::core::fmt::Debug for IMSMQQueueInfos4 {
 unsafe impl ::windows::core::Interface for IMSMQQueueInfos4 {
     type Vtable = IMSMQQueueInfos4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b22_2168_11d3_898c_00e02c074f6b);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQQueueInfos4Impl: IDispatchImpl {
+    fn Reset();
+    fn Next();
+    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8299,6 +9028,12 @@ unsafe impl ::windows::core::Interface for IMSMQQueueManagement {
     type Vtable = IMSMQQueueManagementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fbe7759_5760_444d_b8a5_5e7ab9a84cce);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQQueueManagementImpl: IMSMQManagementImpl + IDispatchImpl {
+    fn JournalMessageCount();
+    fn BytesInJournal();
+    fn EodGetReceiveInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueManagementVtbl(
@@ -8437,6 +9172,12 @@ impl ::core::fmt::Debug for IMSMQTransaction {
 unsafe impl ::windows::core::Interface for IMSMQTransaction {
     type Vtable = IMSMQTransactionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e07f_dccd_11d0_aa4b_0060970debae);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQTransactionImpl: IDispatchImpl {
+    fn Transaction();
+    fn Commit();
+    fn Abort();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8594,6 +9335,11 @@ impl ::core::fmt::Debug for IMSMQTransaction2 {
 unsafe impl ::windows::core::Interface for IMSMQTransaction2 {
     type Vtable = IMSMQTransaction2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ce0c5b0_6e67_11d2_b0e6_00e02c074f6b);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQTransaction2Impl: IMSMQTransactionImpl + IDispatchImpl {
+    fn InitNew();
+    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8782,6 +9528,10 @@ unsafe impl ::windows::core::Interface for IMSMQTransaction3 {
     type Vtable = IMSMQTransaction3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b13_2168_11d3_898c_00e02c074f6b);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQTransaction3Impl: IMSMQTransaction2Impl + IMSMQTransactionImpl + IDispatchImpl {
+    fn ITransaction();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQTransaction3Vtbl(
@@ -8904,6 +9654,10 @@ unsafe impl ::windows::core::Interface for IMSMQTransactionDispenser {
     type Vtable = IMSMQTransactionDispenserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e083_dccd_11d0_aa4b_0060970debae);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQTransactionDispenserImpl: IDispatchImpl {
+    fn BeginTransaction();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQTransactionDispenserVtbl(
@@ -9021,6 +9775,11 @@ impl ::core::fmt::Debug for IMSMQTransactionDispenser2 {
 unsafe impl ::windows::core::Interface for IMSMQTransactionDispenser2 {
     type Vtable = IMSMQTransactionDispenser2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b11_2168_11d3_898c_00e02c074f6b);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQTransactionDispenser2Impl: IDispatchImpl {
+    fn BeginTransaction();
+    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9141,6 +9900,11 @@ impl ::core::fmt::Debug for IMSMQTransactionDispenser3 {
 unsafe impl ::windows::core::Interface for IMSMQTransactionDispenser3 {
     type Vtable = IMSMQTransactionDispenser3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b15_2168_11d3_898c_00e02c074f6b);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMSMQTransactionDispenser3Impl: IDispatchImpl {
+    fn BeginTransaction();
+    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10262,6 +11026,8 @@ unsafe impl ::windows::core::Interface for _DMSMQEventEvents {
     type Vtable = _DMSMQEventEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e078_dccd_11d0_aa4b_0060970debae);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait _DMSMQEventEventsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _DMSMQEventEventsVtbl(

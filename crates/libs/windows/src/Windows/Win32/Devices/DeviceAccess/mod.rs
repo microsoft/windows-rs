@@ -166,6 +166,12 @@ unsafe impl ::windows::core::Interface for ICreateDeviceAccessAsync {
     type Vtable = ICreateDeviceAccessAsyncVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3474628f_683d_42d2_abcb_db018c6503bc);
 }
+pub trait ICreateDeviceAccessAsyncImpl {
+    fn Cancel();
+    fn Wait();
+    fn Close();
+    fn GetResult();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICreateDeviceAccessAsyncVtbl(
@@ -234,6 +240,11 @@ unsafe impl ::windows::core::Interface for IDeviceIoControl {
     type Vtable = IDeviceIoControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9eefe161_23ab_4f18_9b49_991b586ae970);
 }
+pub trait IDeviceIoControlImpl {
+    fn DeviceIoControlSync();
+    fn DeviceIoControlAsync();
+    fn CancelOperation();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceIoControlVtbl(
@@ -292,6 +303,9 @@ impl ::core::fmt::Debug for IDeviceRequestCompletionCallback {
 unsafe impl ::windows::core::Interface for IDeviceRequestCompletionCallback {
     type Vtable = IDeviceRequestCompletionCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x999bad24_9acd_45bb_8669_2a2fc0288b04);
+}
+pub trait IDeviceRequestCompletionCallbackImpl {
+    fn Invoke();
 }
 #[repr(C)]
 #[doc(hidden)]

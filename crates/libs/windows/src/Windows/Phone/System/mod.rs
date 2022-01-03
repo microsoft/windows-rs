@@ -12,6 +12,10 @@ unsafe impl ::windows::core::Interface for ISystemProtectionStatics {
     type Vtable = ISystemProtectionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49c36560_97e1_4d99_8bfb_befeaa6ace6d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemProtectionStaticsImpl {
+    fn ScreenLocked();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemProtectionStaticsVtbl(
@@ -29,6 +33,10 @@ pub struct ISystemProtectionUnlockStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemProtectionUnlockStatics {
     type Vtable = ISystemProtectionUnlockStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0692fa3f_8f11_4c4b_aa0d_87d7af7b1779);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemProtectionUnlockStaticsImpl {
+    fn RequestScreenUnlock();
 }
 #[repr(C)]
 #[doc(hidden)]

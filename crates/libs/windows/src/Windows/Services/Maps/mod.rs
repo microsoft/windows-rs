@@ -115,6 +115,11 @@ unsafe impl ::windows::core::Interface for IEnhancedWaypoint {
     type Vtable = IEnhancedWaypointVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed268c74_5913_11e6_8b77_86f30ca893d3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEnhancedWaypointImpl {
+    fn Point();
+    fn Kind();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedWaypointVtbl(
@@ -135,6 +140,10 @@ unsafe impl ::windows::core::Interface for IEnhancedWaypointFactory {
     type Vtable = IEnhancedWaypointFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf868477_a2aa_46dd_b645_23b31b8aa6c7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEnhancedWaypointFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedWaypointFactoryVtbl(
@@ -154,6 +163,11 @@ unsafe impl ::windows::core::Interface for IManeuverWarning {
     type Vtable = IManeuverWarningVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1a36d8a_2630_4378_9e4a_6e44253dceba);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IManeuverWarningImpl {
+    fn Kind();
+    fn Severity();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManeuverWarningVtbl(
@@ -172,6 +186,24 @@ pub struct IMapAddress(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapAddress {
     type Vtable = IMapAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfa7a973_a3b4_4494_b3ff_cba94db69699);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapAddressImpl {
+    fn BuildingName();
+    fn BuildingFloor();
+    fn BuildingRoom();
+    fn BuildingWing();
+    fn StreetNumber();
+    fn Street();
+    fn Neighborhood();
+    fn District();
+    fn Town();
+    fn Region();
+    fn RegionCode();
+    fn Country();
+    fn CountryCode();
+    fn PostCode();
+    fn Continent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -205,6 +237,10 @@ unsafe impl ::windows::core::Interface for IMapAddress2 {
     type Vtable = IMapAddress2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75cd6df1_e5ad_45a9_bf40_6cf256c1dd13);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapAddress2Impl {
+    fn FormattedAddress();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapAddress2Vtbl(
@@ -222,6 +258,13 @@ pub struct IMapLocation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapLocation {
     type Vtable = IMapLocationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c073f57_0da4_42e8_9ee2_a96fcf2371dc);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapLocationImpl {
+    fn Point();
+    fn DisplayName();
+    fn Description();
+    fn Address();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -245,6 +288,11 @@ unsafe impl ::windows::core::Interface for IMapLocationFinderResult {
     type Vtable = IMapLocationFinderResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43f1f179_e8cc_45f6_bed2_54ccbf965d9a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapLocationFinderResultImpl {
+    fn Locations();
+    fn Status();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapLocationFinderResultVtbl(
@@ -264,6 +312,12 @@ pub struct IMapLocationFinderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapLocationFinderStatics {
     type Vtable = IMapLocationFinderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x318adb5d_1c5d_4f35_a2df_aaca94959517);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapLocationFinderStaticsImpl {
+    fn FindLocationsAtAsync();
+    fn FindLocationsAsync();
+    fn FindLocationsWithMaxCountAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -288,6 +342,10 @@ unsafe impl ::windows::core::Interface for IMapLocationFinderStatics2 {
     type Vtable = IMapLocationFinderStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x959a8b96_6485_4dfd_851a_33ac317e3af6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapLocationFinderStatics2Impl {
+    fn FindLocationsAtWithAccuracyAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapLocationFinderStatics2Vtbl(
@@ -307,6 +365,11 @@ unsafe impl ::windows::core::Interface for IMapManagerStatics {
     type Vtable = IMapManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37e3e515_82b4_4d54_8fd9_af2624b3011c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapManagerStaticsImpl {
+    fn ShowDownloadedMapsUI();
+    fn ShowMapsUpdateUI();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapManagerStaticsVtbl(
@@ -325,6 +388,15 @@ pub struct IMapRoute(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRoute {
     type Vtable = IMapRouteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb07b732_584d_4583_9c60_641fea274349);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapRouteImpl {
+    fn BoundingBox();
+    fn LengthInMeters();
+    fn EstimatedDuration();
+    fn Path();
+    fn Legs();
+    fn IsTrafficBased();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -353,6 +425,11 @@ unsafe impl ::windows::core::Interface for IMapRoute2 {
     type Vtable = IMapRoute2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1c5d40c_2213_4ab0_a260_46b38169beac);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapRoute2Impl {
+    fn ViolatedRestrictions();
+    fn HasBlockedRoads();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapRoute2Vtbl(
@@ -371,6 +448,11 @@ pub struct IMapRoute3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRoute3 {
     type Vtable = IMapRoute3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x858d1eae_f2ad_429f_bb37_cd21094ffc92);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapRoute3Impl {
+    fn DurationWithoutTraffic();
+    fn TrafficCongestion();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -392,6 +474,10 @@ unsafe impl ::windows::core::Interface for IMapRoute4 {
     type Vtable = IMapRoute4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x366c8ca5_3053_4fa1_80ff_d475f3ed1e6e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapRoute4Impl {
+    fn IsScenic();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapRoute4Vtbl(
@@ -409,6 +495,17 @@ pub struct IMapRouteDrivingOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRouteDrivingOptions {
     type Vtable = IMapRouteDrivingOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6815364d_c6dc_4697_a452_b18f8f0b67a1);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapRouteDrivingOptionsImpl {
+    fn MaxAlternateRouteCount();
+    fn SetMaxAlternateRouteCount();
+    fn InitialHeading();
+    fn SetInitialHeading();
+    fn RouteOptimization();
+    fn SetRouteOptimization();
+    fn RouteRestrictions();
+    fn SetRouteRestrictions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -437,6 +534,11 @@ unsafe impl ::windows::core::Interface for IMapRouteDrivingOptions2 {
     type Vtable = IMapRouteDrivingOptions2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35dc8670_c298_48d0_b5ad_825460645603);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapRouteDrivingOptions2Impl {
+    fn DepartureTime();
+    fn SetDepartureTime();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapRouteDrivingOptions2Vtbl(
@@ -458,6 +560,11 @@ unsafe impl ::windows::core::Interface for IMapRouteFinderResult {
     type Vtable = IMapRouteFinderResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa868a31a_9422_46ac_8ca1_b1614d4bfbe2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapRouteFinderResultImpl {
+    fn Route();
+    fn Status();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapRouteFinderResultVtbl(
@@ -477,6 +584,10 @@ unsafe impl ::windows::core::Interface for IMapRouteFinderResult2 {
     type Vtable = IMapRouteFinderResult2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20709c6d_d90c_46c8_91c6_7d4be4efb215);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapRouteFinderResult2Impl {
+    fn AlternateRoutes();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapRouteFinderResult2Vtbl(
@@ -495,6 +606,19 @@ pub struct IMapRouteFinderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRouteFinderStatics {
     type Vtable = IMapRouteFinderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8a5c50f_1c64_4c3a_81eb_1f7c152afbbb);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapRouteFinderStaticsImpl {
+    fn GetDrivingRouteAsync();
+    fn GetDrivingRouteWithOptimizationAsync();
+    fn GetDrivingRouteWithOptimizationAndRestrictionsAsync();
+    fn GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync();
+    fn GetDrivingRouteFromWaypointsAsync();
+    fn GetDrivingRouteFromWaypointsAndOptimizationAsync();
+    fn GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync();
+    fn GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync();
+    fn GetWalkingRouteAsync();
+    fn GetWalkingRouteFromWaypointsAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -533,6 +657,10 @@ unsafe impl ::windows::core::Interface for IMapRouteFinderStatics2 {
     type Vtable = IMapRouteFinderStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafcc2c73_7760_49af_b3bd_baf135b703e1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapRouteFinderStatics2Impl {
+    fn GetDrivingRouteWithOptionsAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapRouteFinderStatics2Vtbl(
@@ -551,6 +679,11 @@ pub struct IMapRouteFinderStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRouteFinderStatics3 {
     type Vtable = IMapRouteFinderStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6098134_5913_11e6_8b77_86f30ca893d3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapRouteFinderStatics3Impl {
+    fn GetDrivingRouteFromEnhancedWaypointsAsync();
+    fn GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -572,6 +705,14 @@ pub struct IMapRouteLeg(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRouteLeg {
     type Vtable = IMapRouteLegVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96f8b2f6_5bba_4d17_9db6_1a263fec7471);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapRouteLegImpl {
+    fn BoundingBox();
+    fn Path();
+    fn LengthInMeters();
+    fn EstimatedDuration();
+    fn Maneuvers();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -599,6 +740,11 @@ unsafe impl ::windows::core::Interface for IMapRouteLeg2 {
     type Vtable = IMapRouteLeg2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02e2062d_c9c6_45b8_8e54_1a10b57a17e8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapRouteLeg2Impl {
+    fn DurationWithoutTraffic();
+    fn TrafficCongestion();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapRouteLeg2Vtbl(
@@ -618,6 +764,15 @@ pub struct IMapRouteManeuver(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRouteManeuver {
     type Vtable = IMapRouteManeuverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed5c17f0_a6ab_4d65_a086_fa8a7e340df2);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapRouteManeuverImpl {
+    fn StartingPoint();
+    fn LengthInMeters();
+    fn InstructionText();
+    fn Kind();
+    fn ExitNumber();
+    fn ManeuverNotices();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -643,6 +798,12 @@ unsafe impl ::windows::core::Interface for IMapRouteManeuver2 {
     type Vtable = IMapRouteManeuver2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d7bcd9c_7c9b_41df_838b_eae21e4b05a9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapRouteManeuver2Impl {
+    fn StartHeading();
+    fn EndHeading();
+    fn StreetName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapRouteManeuver2Vtbl(
@@ -663,6 +824,10 @@ unsafe impl ::windows::core::Interface for IMapRouteManeuver3 {
     type Vtable = IMapRouteManeuver3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6a138df_0483_4166_85be_b99336c11875);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapRouteManeuver3Impl {
+    fn Warnings();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapRouteManeuver3Vtbl(
@@ -681,6 +846,11 @@ pub struct IMapServiceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapServiceStatics {
     type Vtable = IMapServiceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0144ad85_c04c_4cdd_871a_a0726d097cd4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapServiceStaticsImpl {
+    fn SetServiceToken();
+    fn ServiceToken();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -701,6 +871,10 @@ unsafe impl ::windows::core::Interface for IMapServiceStatics2 {
     type Vtable = IMapServiceStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8193eed_9c85_40a9_8896_0fc3fd2b7c2a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapServiceStatics2Impl {
+    fn WorldViewRegionCode();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapServiceStatics2Vtbl(
@@ -718,6 +892,10 @@ pub struct IMapServiceStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapServiceStatics3 {
     type Vtable = IMapServiceStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a11ce20_63a7_4854_b355_d6dcda223d1b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapServiceStatics3Impl {
+    fn DataAttributions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -737,6 +915,11 @@ unsafe impl ::windows::core::Interface for IMapServiceStatics4 {
     type Vtable = IMapServiceStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x088a2862_6abc_420e_945f_4cfd89c67356);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMapServiceStatics4Impl {
+    fn SetDataUsagePreference();
+    fn DataUsagePreference();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapServiceStatics4Vtbl(
@@ -755,6 +938,15 @@ pub struct IPlaceInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlaceInfo {
     type Vtable = IPlaceInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a0810b6_31c8_4f6a_9f18_950b4c38951a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlaceInfoImpl {
+    fn Show();
+    fn ShowWithPreferredPlacement();
+    fn Identifier();
+    fn DisplayName();
+    fn DisplayAddress();
+    fn Geoshape();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -782,6 +974,13 @@ unsafe impl ::windows::core::Interface for IPlaceInfoCreateOptions {
     type Vtable = IPlaceInfoCreateOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd33c125_67f1_4bb3_9907_ecce939b0399);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlaceInfoCreateOptionsImpl {
+    fn SetDisplayName();
+    fn DisplayName();
+    fn SetDisplayAddress();
+    fn DisplayAddress();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaceInfoCreateOptionsVtbl(
@@ -802,6 +1001,15 @@ pub struct IPlaceInfoStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlaceInfoStatics {
     type Vtable = IPlaceInfoStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82b9ff71_6cd0_48a4_afd9_5ed82097936b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlaceInfoStaticsImpl {
+    fn Create();
+    fn CreateWithGeopointAndOptions();
+    fn CreateFromIdentifier();
+    fn CreateFromIdentifierWithOptions();
+    fn CreateFromMapLocation();
+    fn IsShowSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -828,6 +1036,11 @@ pub struct IPlaceInfoStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlaceInfoStatics2 {
     type Vtable = IPlaceInfoStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x730f0249_4047_44a3_8f81_2550a5216370);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlaceInfoStatics2Impl {
+    fn CreateFromAddress();
+    fn CreateFromAddressWithName();
 }
 #[repr(C)]
 #[doc(hidden)]

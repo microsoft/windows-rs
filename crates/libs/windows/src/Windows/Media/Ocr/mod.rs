@@ -6,6 +6,11 @@ unsafe impl ::windows::core::Interface for IOcrEngine {
     type Vtable = IOcrEngineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a14bc41_5b76_3140_b680_8825562683ac);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IOcrEngineImpl {
+    fn RecognizeAsync();
+    fn RecognizerLanguage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOcrEngineVtbl(
@@ -26,6 +31,14 @@ pub struct IOcrEngineStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOcrEngineStatics {
     type Vtable = IOcrEngineStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bffa85a_3384_3540_9940_699120d428a8);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IOcrEngineStaticsImpl {
+    fn MaxImageDimension();
+    fn AvailableRecognizerLanguages();
+    fn IsLanguageSupported();
+    fn TryCreateFromLanguage();
+    fn TryCreateFromUserProfileLanguages();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -52,6 +65,11 @@ unsafe impl ::windows::core::Interface for IOcrLine {
     type Vtable = IOcrLineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0043a16f_e31f_3a24_899c_d444bd088124);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IOcrLineImpl {
+    fn Words();
+    fn Text();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOcrLineVtbl(
@@ -71,6 +89,12 @@ pub struct IOcrResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOcrResult {
     type Vtable = IOcrResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bd235b2_175b_3d6a_92e2_388c206e2f63);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IOcrResultImpl {
+    fn Lines();
+    fn TextAngle();
+    fn Text();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -93,6 +117,11 @@ pub struct IOcrWord(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOcrWord {
     type Vtable = IOcrWordVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c2a477a_5cd9_3525_ba2a_23d1e0a68a1d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IOcrWordImpl {
+    fn BoundingRect();
+    fn Text();
 }
 #[repr(C)]
 #[doc(hidden)]

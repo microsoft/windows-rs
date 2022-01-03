@@ -352,6 +352,12 @@ unsafe impl ::windows::core::Interface for IBasicProperties {
     type Vtable = IBasicPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd05d55db_785e_4a66_be02_9beec58aea81);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBasicPropertiesImpl {
+    fn Size();
+    fn DateModified();
+    fn ItemDate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBasicPropertiesVtbl(
@@ -373,6 +379,15 @@ pub struct IDocumentProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDocumentProperties {
     type Vtable = IDocumentPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7eab19bc_1821_4923_b4a9_0aea404d0070);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDocumentPropertiesImpl: IStorageItemExtraPropertiesImpl {
+    fn Author();
+    fn Title();
+    fn SetTitle();
+    fn Keywords();
+    fn Comment();
+    fn SetComment();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -399,6 +414,12 @@ unsafe impl ::windows::core::Interface for IGeotagHelperStatics {
     type Vtable = IGeotagHelperStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41493244_2524_4655_86a6_ed16f5fc716b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeotagHelperStaticsImpl {
+    fn GetGeotagAsync();
+    fn SetGeotagFromGeolocatorAsync();
+    fn SetGeotagAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeotagHelperStaticsVtbl(
@@ -421,6 +442,26 @@ pub struct IImageProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IImageProperties {
     type Vtable = IImagePropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x523c9424_fcff_4275_afee_ecdb9ab47973);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IImagePropertiesImpl: IStorageItemExtraPropertiesImpl {
+    fn Rating();
+    fn SetRating();
+    fn Keywords();
+    fn DateTaken();
+    fn SetDateTaken();
+    fn Width();
+    fn Height();
+    fn Title();
+    fn SetTitle();
+    fn Latitude();
+    fn Longitude();
+    fn CameraManufacturer();
+    fn SetCameraManufacturer();
+    fn CameraModel();
+    fn SetCameraModel();
+    fn Orientation();
+    fn PeopleNames();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -461,6 +502,34 @@ pub struct IMusicProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMusicProperties {
     type Vtable = IMusicPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc8aab62_66ec_419a_bc5d_ca65a4cb46da);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMusicPropertiesImpl: IStorageItemExtraPropertiesImpl {
+    fn Album();
+    fn SetAlbum();
+    fn Artist();
+    fn SetArtist();
+    fn Genre();
+    fn TrackNumber();
+    fn SetTrackNumber();
+    fn Title();
+    fn SetTitle();
+    fn Rating();
+    fn SetRating();
+    fn Duration();
+    fn Bitrate();
+    fn AlbumArtist();
+    fn SetAlbumArtist();
+    fn Composers();
+    fn Conductors();
+    fn Subtitle();
+    fn SetSubtitle();
+    fn Producers();
+    fn Publisher();
+    fn SetPublisher();
+    fn Writers();
+    fn Year();
+    fn SetYear();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -509,6 +578,13 @@ pub struct IStorageItemContentProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageItemContentProperties {
     type Vtable = IStorageItemContentPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05294bad_bc38_48bf_85d7_770e0e2ae0ba);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageItemContentPropertiesImpl: IStorageItemExtraPropertiesImpl {
+    fn GetMusicPropertiesAsync();
+    fn GetVideoPropertiesAsync();
+    fn GetImagePropertiesAsync();
+    fn GetDocumentPropertiesAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -623,6 +699,11 @@ unsafe impl ::windows::core::Interface for IStorageItemExtraProperties {
     type Vtable = IStorageItemExtraPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc54361b2_54cd_432b_bdbc_4b19c4b470d7);
 }
+pub trait IStorageItemExtraPropertiesImpl {
+    fn RetrievePropertiesAsync();
+    fn SavePropertiesAsync();
+    fn SavePropertiesAsyncOverloadDefault();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageItemExtraPropertiesVtbl(
@@ -646,6 +727,13 @@ unsafe impl ::windows::core::Interface for IThumbnailProperties {
     type Vtable = IThumbnailPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x693dd42f_dbe7_49b5_b3b3_2893ac5d3423);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IThumbnailPropertiesImpl {
+    fn OriginalWidth();
+    fn OriginalHeight();
+    fn ReturnedSmallerCachedSize();
+    fn Type();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThumbnailPropertiesVtbl(
@@ -666,6 +754,30 @@ pub struct IVideoProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoProperties {
     type Vtable = IVideoPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x719ae507_68de_4db8_97de_49998c059f2f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IVideoPropertiesImpl: IStorageItemExtraPropertiesImpl {
+    fn Rating();
+    fn SetRating();
+    fn Keywords();
+    fn Width();
+    fn Height();
+    fn Duration();
+    fn Latitude();
+    fn Longitude();
+    fn Title();
+    fn SetTitle();
+    fn Subtitle();
+    fn SetSubtitle();
+    fn Producers();
+    fn Publisher();
+    fn SetPublisher();
+    fn Writers();
+    fn Year();
+    fn SetYear();
+    fn Bitrate();
+    fn Directors();
+    fn Orientation();
 }
 #[repr(C)]
 #[doc(hidden)]

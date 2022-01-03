@@ -6,6 +6,11 @@ unsafe impl ::windows::core::Interface for IInstalledVoicesStatic {
     type Vtable = IInstalledVoicesStaticVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d526ecc_7533_4c3f_85be_888c2baeebdc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInstalledVoicesStaticImpl {
+    fn AllVoices();
+    fn DefaultVoice();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInstalledVoicesStaticVtbl(
@@ -26,6 +31,10 @@ unsafe impl ::windows::core::Interface for IInstalledVoicesStatic2 {
     type Vtable = IInstalledVoicesStatic2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64255f2e_358d_4058_be9a_fd3fcb423530);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInstalledVoicesStatic2Impl {
+    fn TrySetDefaultVoiceAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInstalledVoicesStatic2Vtbl(
@@ -45,6 +54,10 @@ unsafe impl ::windows::core::Interface for ISpeechSynthesisStream {
     type Vtable = ISpeechSynthesisStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83e46e93_244c_4622_ba0b_6229c4d0d65d);
 }
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
+pub trait ISpeechSynthesisStreamImpl: IClosableImpl + IContentTypeProviderImpl + IInputStreamImpl + IOutputStreamImpl + IRandomAccessStreamImpl + IRandomAccessStreamWithContentTypeImpl {
+    fn Markers();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechSynthesisStreamVtbl(
@@ -63,6 +76,13 @@ pub struct ISpeechSynthesizer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechSynthesizer {
     type Vtable = ISpeechSynthesizerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce9f7c76_97f4_4ced_ad68_d51c458e45c6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpeechSynthesizerImpl {
+    fn SynthesizeTextToStreamAsync();
+    fn SynthesizeSsmlToStreamAsync();
+    fn SetVoice();
+    fn Voice();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -87,6 +107,10 @@ unsafe impl ::windows::core::Interface for ISpeechSynthesizer2 {
     type Vtable = ISpeechSynthesizer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7c5ecb2_4339_4d6a_bbf8_c7a4f1544c2e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpeechSynthesizer2Impl {
+    fn Options();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechSynthesizer2Vtbl(
@@ -104,6 +128,13 @@ pub struct ISpeechSynthesizerOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechSynthesizerOptions {
     type Vtable = ISpeechSynthesizerOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0e23871_cc3d_43c9_91b1_ee185324d83d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpeechSynthesizerOptionsImpl {
+    fn IncludeWordBoundaryMetadata();
+    fn SetIncludeWordBoundaryMetadata();
+    fn IncludeSentenceBoundaryMetadata();
+    fn SetIncludeSentenceBoundaryMetadata();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -125,6 +156,15 @@ pub struct ISpeechSynthesizerOptions2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechSynthesizerOptions2 {
     type Vtable = ISpeechSynthesizerOptions2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cbef60e_119c_4bed_b118_d250c3a25793);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpeechSynthesizerOptions2Impl {
+    fn AudioVolume();
+    fn SetAudioVolume();
+    fn SpeakingRate();
+    fn SetSpeakingRate();
+    fn AudioPitch();
+    fn SetAudioPitch();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -149,6 +189,13 @@ unsafe impl ::windows::core::Interface for ISpeechSynthesizerOptions3 {
     type Vtable = ISpeechSynthesizerOptions3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x401ed877_902c_4814_a582_a5d0c0769fa8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISpeechSynthesizerOptions3Impl {
+    fn AppendedSilence();
+    fn SetAppendedSilence();
+    fn PunctuationSilence();
+    fn SetPunctuationSilence();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechSynthesizerOptions3Vtbl(
@@ -169,6 +216,14 @@ pub struct IVoiceInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVoiceInformation {
     type Vtable = IVoiceInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb127d6a4_1291_4604_aa9c_83134083352c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IVoiceInformationImpl {
+    fn DisplayName();
+    fn Id();
+    fn Language();
+    fn Description();
+    fn Gender();
 }
 #[repr(C)]
 #[doc(hidden)]

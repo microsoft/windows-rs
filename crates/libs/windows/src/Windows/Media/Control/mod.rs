@@ -1135,6 +1135,8 @@ unsafe impl ::windows::core::Interface for ICurrentSessionChangedEventArgs {
     type Vtable = ICurrentSessionChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6969cb39_0bfa_5fe0_8d73_09cc5e5408e1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICurrentSessionChangedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentSessionChangedEventArgsVtbl(
@@ -1151,6 +1153,34 @@ pub struct IGlobalSystemMediaTransportControlsSession(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSession {
     type Vtable = IGlobalSystemMediaTransportControlsSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7148c835_9b14_5ae2_ab85_dc9b1c14e1a8);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGlobalSystemMediaTransportControlsSessionImpl {
+    fn SourceAppUserModelId();
+    fn TryGetMediaPropertiesAsync();
+    fn GetTimelineProperties();
+    fn GetPlaybackInfo();
+    fn TryPlayAsync();
+    fn TryPauseAsync();
+    fn TryStopAsync();
+    fn TryRecordAsync();
+    fn TryFastForwardAsync();
+    fn TryRewindAsync();
+    fn TrySkipNextAsync();
+    fn TrySkipPreviousAsync();
+    fn TryChangeChannelUpAsync();
+    fn TryChangeChannelDownAsync();
+    fn TryTogglePlayPauseAsync();
+    fn TryChangeAutoRepeatModeAsync();
+    fn TryChangePlaybackRateAsync();
+    fn TryChangeShuffleActiveAsync();
+    fn TryChangePlaybackPositionAsync();
+    fn TimelinePropertiesChanged();
+    fn RemoveTimelinePropertiesChanged();
+    fn PlaybackInfoChanged();
+    fn RemovePlaybackInfoChanged();
+    fn MediaPropertiesChanged();
+    fn RemoveMediaPropertiesChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1216,6 +1246,15 @@ unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSe
     type Vtable = IGlobalSystemMediaTransportControlsSessionManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcace8eac_e86e_504a_ab31_5ff8ff1bce49);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGlobalSystemMediaTransportControlsSessionManagerImpl {
+    fn GetCurrentSession();
+    fn GetSessions();
+    fn CurrentSessionChanged();
+    fn RemoveCurrentSessionChanged();
+    fn SessionsChanged();
+    fn RemoveSessionsChanged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSessionManagerVtbl(
@@ -1244,6 +1283,10 @@ unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSe
     type Vtable = IGlobalSystemMediaTransportControlsSessionManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2050c4ee_11a0_57de_aed7_c97c70338245);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGlobalSystemMediaTransportControlsSessionManagerStaticsImpl {
+    fn RequestAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSessionManagerStaticsVtbl(
@@ -1262,6 +1305,19 @@ pub struct IGlobalSystemMediaTransportControlsSessionMediaProperties(::windows::
 unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSessionMediaProperties {
     type Vtable = IGlobalSystemMediaTransportControlsSessionMediaPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68856cf6_adb4_54b2_ac16_05837907acb6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGlobalSystemMediaTransportControlsSessionMediaPropertiesImpl {
+    fn Title();
+    fn Subtitle();
+    fn AlbumArtist();
+    fn Artist();
+    fn AlbumTitle();
+    fn TrackNumber();
+    fn Genres();
+    fn AlbumTrackCount();
+    fn PlaybackType();
+    fn Thumbnail();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1292,6 +1348,24 @@ pub struct IGlobalSystemMediaTransportControlsSessionPlaybackControls(::windows:
 unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSessionPlaybackControls {
     type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6501a3e6_bc7a_503a_bb1b_68f158f3fb03);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl {
+    fn IsPlayEnabled();
+    fn IsPauseEnabled();
+    fn IsStopEnabled();
+    fn IsRecordEnabled();
+    fn IsFastForwardEnabled();
+    fn IsRewindEnabled();
+    fn IsNextEnabled();
+    fn IsPreviousEnabled();
+    fn IsChannelUpEnabled();
+    fn IsChannelDownEnabled();
+    fn IsPlayPauseToggleEnabled();
+    fn IsShuffleEnabled();
+    fn IsRepeatEnabled();
+    fn IsPlaybackRateEnabled();
+    fn IsPlaybackPositionEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1325,6 +1399,15 @@ unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSe
     type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94b4b6cf_e8ba_51ad_87a7_c10ade106127);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGlobalSystemMediaTransportControlsSessionPlaybackInfoImpl {
+    fn Controls();
+    fn PlaybackStatus();
+    fn PlaybackType();
+    fn AutoRepeatMode();
+    fn PlaybackRate();
+    fn IsShuffleActive();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSessionPlaybackInfoVtbl(
@@ -1351,6 +1434,15 @@ pub struct IGlobalSystemMediaTransportControlsSessionTimelineProperties(::window
 unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSessionTimelineProperties {
     type Vtable = IGlobalSystemMediaTransportControlsSessionTimelinePropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xede34136_6f25_588d_8ecf_ea5b6735aaa5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGlobalSystemMediaTransportControlsSessionTimelinePropertiesImpl {
+    fn StartTime();
+    fn EndTime();
+    fn MinSeekTime();
+    fn MaxSeekTime();
+    fn Position();
+    fn LastUpdatedTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1381,6 +1473,8 @@ unsafe impl ::windows::core::Interface for IMediaPropertiesChangedEventArgs {
     type Vtable = IMediaPropertiesChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d3741cb_adf0_5cef_91ba_cfabcdd77678);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaPropertiesChangedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPropertiesChangedEventArgsVtbl(
@@ -1398,6 +1492,8 @@ unsafe impl ::windows::core::Interface for IPlaybackInfoChangedEventArgs {
     type Vtable = IPlaybackInfoChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x786756c2_bc0d_50a5_8807_054291fef139);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlaybackInfoChangedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaybackInfoChangedEventArgsVtbl(
@@ -1415,6 +1511,8 @@ unsafe impl ::windows::core::Interface for ISessionsChangedEventArgs {
     type Vtable = ISessionsChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbf0cd32_42c4_5a58_b317_f34bbfbd26e0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISessionsChangedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISessionsChangedEventArgsVtbl(
@@ -1432,6 +1530,8 @@ unsafe impl ::windows::core::Interface for ITimelinePropertiesChangedEventArgs {
     type Vtable = ITimelinePropertiesChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29033a2f_c923_5a77_bcaf_055ff415ad32);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITimelinePropertiesChangedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimelinePropertiesChangedEventArgsVtbl(

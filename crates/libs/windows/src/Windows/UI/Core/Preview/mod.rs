@@ -92,6 +92,8 @@ unsafe impl ::windows::core::Interface for ICoreAppWindowPreview {
     type Vtable = ICoreAppWindowPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4f6e665_365e_5fde_87a5_9543c3a15aa8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICoreAppWindowPreviewImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreAppWindowPreviewVtbl(
@@ -108,6 +110,10 @@ pub struct ICoreAppWindowPreviewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreAppWindowPreviewStatics {
     type Vtable = ICoreAppWindowPreviewStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33ac21be_423b_5db6_8a8e_4dc87353b75b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICoreAppWindowPreviewStaticsImpl {
+    fn GetIdFromWindow();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -127,6 +133,12 @@ pub struct ISystemNavigationCloseRequestedPreviewEventArgs(::windows::core::IUnk
 unsafe impl ::windows::core::Interface for ISystemNavigationCloseRequestedPreviewEventArgs {
     type Vtable = ISystemNavigationCloseRequestedPreviewEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83d00de1_cbe5_4f31_8414_361da046518f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemNavigationCloseRequestedPreviewEventArgsImpl {
+    fn Handled();
+    fn SetHandled();
+    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -149,6 +161,11 @@ unsafe impl ::windows::core::Interface for ISystemNavigationManagerPreview {
     type Vtable = ISystemNavigationManagerPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec5f0488_6425_4777_a536_cb5634427f0d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemNavigationManagerPreviewImpl {
+    fn CloseRequested();
+    fn RemoveCloseRequested();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemNavigationManagerPreviewVtbl(
@@ -169,6 +186,10 @@ pub struct ISystemNavigationManagerPreviewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemNavigationManagerPreviewStatics {
     type Vtable = ISystemNavigationManagerPreviewStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e971360_df74_4bce_84cb_bd1181ac0a71);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemNavigationManagerPreviewStaticsImpl {
+    fn GetForCurrentView();
 }
 #[repr(C)]
 #[doc(hidden)]

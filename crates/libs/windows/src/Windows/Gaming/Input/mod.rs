@@ -1484,6 +1484,11 @@ unsafe impl ::windows::core::Interface for IArcadeStick {
     type Vtable = IArcadeStickVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb14a539d_befb_4c81_8051_15ecf3b13036);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IArcadeStickImpl: IGameControllerImpl {
+    fn GetButtonLabel();
+    fn GetCurrentReading();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IArcadeStickVtbl(
@@ -1502,6 +1507,14 @@ pub struct IArcadeStickStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IArcadeStickStatics {
     type Vtable = IArcadeStickStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c37b8c8_37b1_4ad8_9458_200f1a30018e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IArcadeStickStaticsImpl {
+    fn ArcadeStickAdded();
+    fn RemoveArcadeStickAdded();
+    fn ArcadeStickRemoved();
+    fn RemoveArcadeStickRemoved();
+    fn ArcadeSticks();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1530,6 +1543,10 @@ unsafe impl ::windows::core::Interface for IArcadeStickStatics2 {
     type Vtable = IArcadeStickStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52b5d744_bb86_445a_b59c_596f0e2a49df);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IArcadeStickStatics2Impl: IArcadeStickStaticsImpl {
+    fn FromGameController();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IArcadeStickStatics2Vtbl(
@@ -1547,6 +1564,12 @@ pub struct IFlightStick(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFlightStick {
     type Vtable = IFlightStickVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4a2c01c_b83b_4459_a1a9_97b03c33da7c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IFlightStickImpl: IGameControllerImpl {
+    fn HatSwitchKind();
+    fn GetButtonLabel();
+    fn GetCurrentReading();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1567,6 +1590,15 @@ pub struct IFlightStickStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFlightStickStatics {
     type Vtable = IFlightStickStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5514924a_fecc_435e_83dc_5cec8a18a520);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IFlightStickStaticsImpl {
+    fn FlightStickAdded();
+    fn RemoveFlightStickAdded();
+    fn FlightStickRemoved();
+    fn RemoveFlightStickRemoved();
+    fn FlightSticks();
+    fn FromGameController();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1727,6 +1759,17 @@ unsafe impl ::windows::core::Interface for IGameController {
     type Vtable = IGameControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1baf6522_5f64_42c5_8267_b9fe2215bfbd);
 }
+pub trait IGameControllerImpl {
+    fn HeadsetConnected();
+    fn RemoveHeadsetConnected();
+    fn HeadsetDisconnected();
+    fn RemoveHeadsetDisconnected();
+    fn UserChanged();
+    fn RemoveUserChanged();
+    fn Headset();
+    fn IsWireless();
+    fn User();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameControllerVtbl(
@@ -1830,6 +1873,9 @@ unsafe impl ::windows::core::Interface for IGameControllerBatteryInfo {
     type Vtable = IGameControllerBatteryInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcecc681_3963_4da6_955d_553f3b6f6161);
 }
+pub trait IGameControllerBatteryInfoImpl {
+    fn TryGetBatteryReport();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameControllerBatteryInfoVtbl(
@@ -1848,6 +1894,12 @@ pub struct IGamepad(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGamepad {
     type Vtable = IGamepadVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc7bb43c_0a69_3903_9e9d_a50f86a45de5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGamepadImpl: IGameControllerImpl {
+    fn Vibration();
+    fn SetVibration();
+    fn GetCurrentReading();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1869,6 +1921,10 @@ unsafe impl ::windows::core::Interface for IGamepad2 {
     type Vtable = IGamepad2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c1689bd_5915_4245_b0c0_c89fae0308ff);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGamepad2Impl: IGameControllerImpl + IGamepadImpl {
+    fn GetButtonLabel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGamepad2Vtbl(
@@ -1886,6 +1942,14 @@ pub struct IGamepadStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGamepadStatics {
     type Vtable = IGamepadStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bbce529_d49c_39e9_9560_e47dde96b7c8);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGamepadStaticsImpl {
+    fn GamepadAdded();
+    fn RemoveGamepadAdded();
+    fn GamepadRemoved();
+    fn RemoveGamepadRemoved();
+    fn Gamepads();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1914,6 +1978,10 @@ unsafe impl ::windows::core::Interface for IGamepadStatics2 {
     type Vtable = IGamepadStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42676dc5_0856_47c4_9213_b395504c3a3c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGamepadStatics2Impl: IGamepadStaticsImpl {
+    fn FromGameController();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGamepadStatics2Vtbl(
@@ -1931,6 +1999,11 @@ pub struct IHeadset(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHeadset {
     type Vtable = IHeadsetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fd156ef_6925_3fa8_9181_029c5223ae3b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IHeadsetImpl {
+    fn CaptureDeviceId();
+    fn RenderDeviceId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1950,6 +2023,17 @@ pub struct IRacingWheel(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRacingWheel {
     type Vtable = IRacingWheelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf546656f_e106_4c82_a90f_554012904b85);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRacingWheelImpl: IGameControllerImpl {
+    fn HasClutch();
+    fn HasHandbrake();
+    fn HasPatternShifter();
+    fn MaxPatternShifterGear();
+    fn MaxWheelAngle();
+    fn WheelMotor();
+    fn GetButtonLabel();
+    fn GetCurrentReading();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1976,6 +2060,14 @@ pub struct IRacingWheelStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRacingWheelStatics {
     type Vtable = IRacingWheelStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ac12cd5_581b_4936_9f94_69f1e6514c7d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRacingWheelStaticsImpl {
+    fn RacingWheelAdded();
+    fn RemoveRacingWheelAdded();
+    fn RacingWheelRemoved();
+    fn RemoveRacingWheelRemoved();
+    fn RacingWheels();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2004,6 +2096,10 @@ unsafe impl ::windows::core::Interface for IRacingWheelStatics2 {
     type Vtable = IRacingWheelStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe666bcaa_edfd_4323_a9f6_3c384048d1ed);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRacingWheelStatics2Impl: IRacingWheelStaticsImpl {
+    fn FromGameController();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRacingWheelStatics2Vtbl(
@@ -2021,6 +2117,18 @@ pub struct IRawGameController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRawGameController {
     type Vtable = IRawGameControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cad6d91_a7e1_4f71_9a78_33e9c5dfea62);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRawGameControllerImpl: IGameControllerImpl {
+    fn AxisCount();
+    fn ButtonCount();
+    fn ForceFeedbackMotors();
+    fn HardwareProductId();
+    fn HardwareVendorId();
+    fn SwitchCount();
+    fn GetButtonLabel();
+    fn GetCurrentReading();
+    fn GetSwitchKind();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2049,6 +2157,12 @@ unsafe impl ::windows::core::Interface for IRawGameController2 {
     type Vtable = IRawGameController2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43c0c035_bb73_4756_a787_3ed6bea617bd);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRawGameController2Impl: IGameControllerImpl + IRawGameControllerImpl {
+    fn SimpleHapticsControllers();
+    fn NonRoamableId();
+    fn DisplayName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawGameController2Vtbl(
@@ -2069,6 +2183,15 @@ pub struct IRawGameControllerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRawGameControllerStatics {
     type Vtable = IRawGameControllerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb8d0792_e95a_4b19_afc7_0a59f8bf759e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRawGameControllerStaticsImpl {
+    fn RawGameControllerAdded();
+    fn RemoveRawGameControllerAdded();
+    fn RawGameControllerRemoved();
+    fn RemoveRawGameControllerRemoved();
+    fn RawGameControllers();
+    fn FromGameController();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2098,6 +2221,12 @@ unsafe impl ::windows::core::Interface for IUINavigationController {
     type Vtable = IUINavigationControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5aeefdd_f50e_4a55_8cdc_d33229548175);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUINavigationControllerImpl: IGameControllerImpl {
+    fn GetCurrentReading();
+    fn GetOptionalButtonLabel();
+    fn GetRequiredButtonLabel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUINavigationControllerVtbl(
@@ -2117,6 +2246,14 @@ pub struct IUINavigationControllerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUINavigationControllerStatics {
     type Vtable = IUINavigationControllerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f14930a_f6f8_4a48_8d89_94786cca0c2e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUINavigationControllerStaticsImpl {
+    fn UINavigationControllerAdded();
+    fn RemoveUINavigationControllerAdded();
+    fn UINavigationControllerRemoved();
+    fn RemoveUINavigationControllerRemoved();
+    fn UINavigationControllers();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2144,6 +2281,10 @@ pub struct IUINavigationControllerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUINavigationControllerStatics2 {
     type Vtable = IUINavigationControllerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0cb28e3_b20b_4b0b_9ed4_f3d53cec0de4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUINavigationControllerStatics2Impl: IUINavigationControllerStaticsImpl {
+    fn FromGameController();
 }
 #[repr(C)]
 #[doc(hidden)]

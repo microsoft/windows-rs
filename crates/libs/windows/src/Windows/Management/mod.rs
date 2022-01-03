@@ -16,6 +16,22 @@ unsafe impl ::windows::core::Interface for IMdmAlert {
     type Vtable = IMdmAlertVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0fbc327_28c1_4b52_a548_c5807caf70b6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMdmAlertImpl {
+    fn Data();
+    fn SetData();
+    fn Format();
+    fn SetFormat();
+    fn Mark();
+    fn SetMark();
+    fn Source();
+    fn SetSource();
+    fn Status();
+    fn Target();
+    fn SetTarget();
+    fn Type();
+    fn SetType();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMdmAlertVtbl(
@@ -46,6 +62,17 @@ unsafe impl ::windows::core::Interface for IMdmSession {
     type Vtable = IMdmSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe89314c_8f64_4797_a9d7_9d88f86ae166);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMdmSessionImpl {
+    fn Alerts();
+    fn ExtendedError();
+    fn Id();
+    fn State();
+    fn AttachAsync();
+    fn Delete();
+    fn StartAsync();
+    fn StartWithAlertsAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMdmSessionVtbl(
@@ -74,6 +101,13 @@ pub struct IMdmSessionManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMdmSessionManagerStatics {
     type Vtable = IMdmSessionManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf4ad959_f745_4b79_9b5c_de0bf8efe44b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMdmSessionManagerStaticsImpl {
+    fn SessionIds();
+    fn TryCreateSession();
+    fn DeleteSessionById();
+    fn GetSessionById();
 }
 #[repr(C)]
 #[doc(hidden)]

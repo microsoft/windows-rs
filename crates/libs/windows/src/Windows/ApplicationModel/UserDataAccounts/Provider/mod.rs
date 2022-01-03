@@ -6,6 +6,12 @@ unsafe impl ::windows::core::Interface for IUserDataAccountPartnerAccountInfo {
     type Vtable = IUserDataAccountPartnerAccountInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f200037_f6ef_4ec3_8630_012c59c1149f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataAccountPartnerAccountInfoImpl {
+    fn DisplayName();
+    fn Priority();
+    fn AccountKind();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataAccountPartnerAccountInfoVtbl(
@@ -25,6 +31,12 @@ pub struct IUserDataAccountProviderAddAccountOperation(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for IUserDataAccountProviderAddAccountOperation {
     type Vtable = IUserDataAccountProviderAddAccountOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9c72530_3f84_4b5d_8eaa_45e97aa842ed);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataAccountProviderAddAccountOperationImpl: IUserDataAccountProviderOperationImpl {
+    fn ContentKinds();
+    fn PartnerAccountInfos();
+    fn ReportCompleted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -116,6 +128,9 @@ unsafe impl ::windows::core::Interface for IUserDataAccountProviderOperation {
     type Vtable = IUserDataAccountProviderOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa20aad63_888c_4a62_a3dd_34d07a802b2b);
 }
+pub trait IUserDataAccountProviderOperationImpl {
+    fn Kind();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataAccountProviderOperationVtbl(
@@ -133,6 +148,11 @@ pub struct IUserDataAccountProviderResolveErrorsOperation(::windows::core::IUnkn
 unsafe impl ::windows::core::Interface for IUserDataAccountProviderResolveErrorsOperation {
     type Vtable = IUserDataAccountProviderResolveErrorsOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6235dc15_bfcb_41e1_9957_9759a28846cc);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataAccountProviderResolveErrorsOperationImpl: IUserDataAccountProviderOperationImpl {
+    fn UserDataAccountId();
+    fn ReportCompleted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -152,6 +172,11 @@ pub struct IUserDataAccountProviderSettingsOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataAccountProviderSettingsOperation {
     type Vtable = IUserDataAccountProviderSettingsOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92034db7_8648_4f30_acfa_3002658ca80d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataAccountProviderSettingsOperationImpl: IUserDataAccountProviderOperationImpl {
+    fn UserDataAccountId();
+    fn ReportCompleted();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -726,6 +726,11 @@ unsafe impl ::windows::core::Interface for IBufferProtectUnprotectResult {
     type Vtable = IBufferProtectUnprotectResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47995edc_6cec_4e3a_b251_9e7485d79e7a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBufferProtectUnprotectResultImpl {
+    fn Buffer();
+    fn ProtectionInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBufferProtectUnprotectResultVtbl(
@@ -746,6 +751,11 @@ unsafe impl ::windows::core::Interface for IDataProtectionInfo {
     type Vtable = IDataProtectionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8420b0c1_5e31_4405_9540_3f943af0cb26);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataProtectionInfoImpl {
+    fn Status();
+    fn Identity();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataProtectionInfoVtbl(
@@ -764,6 +774,15 @@ pub struct IDataProtectionManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDataProtectionManagerStatics {
     type Vtable = IDataProtectionManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6149b74_9144_4ee4_8a8a_30b5f361430e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataProtectionManagerStaticsImpl {
+    fn ProtectAsync();
+    fn UnprotectAsync();
+    fn ProtectStreamAsync();
+    fn UnprotectStreamAsync();
+    fn GetProtectionInfoAsync();
+    fn GetStreamProtectionInfoAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -794,6 +813,12 @@ unsafe impl ::windows::core::Interface for IFileProtectionInfo {
     type Vtable = IFileProtectionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ee96486_147e_4dd0_8faf_5253ed91ad0c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFileProtectionInfoImpl {
+    fn Status();
+    fn IsRoamable();
+    fn Identity();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileProtectionInfoVtbl(
@@ -814,6 +839,10 @@ unsafe impl ::windows::core::Interface for IFileProtectionInfo2 {
     type Vtable = IFileProtectionInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82123a4c_557a_498d_8e94_944cd5836432);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFileProtectionInfo2Impl {
+    fn IsProtectWhileOpenSupported();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileProtectionInfo2Vtbl(
@@ -831,6 +860,16 @@ pub struct IFileProtectionManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileProtectionManagerStatics {
     type Vtable = IFileProtectionManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5846fc9b_e613_426b_bb38_88cba1dc9adb);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IFileProtectionManagerStaticsImpl {
+    fn ProtectAsync();
+    fn CopyProtectionAsync();
+    fn GetProtectionInfoAsync();
+    fn SaveFileAsContainerAsync();
+    fn LoadFileFromContainerAsync();
+    fn LoadFileFromContainerWithTargetAsync();
+    fn CreateProtectedAndOpenAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -863,6 +902,12 @@ unsafe impl ::windows::core::Interface for IFileProtectionManagerStatics2 {
     type Vtable = IFileProtectionManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83d2a745_0483_41ab_b2d5_bc7f23d74ebb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFileProtectionManagerStatics2Impl {
+    fn IsContainerAsync();
+    fn LoadFileFromContainerWithTargetAndNameCollisionOptionAsync();
+    fn SaveFileAsContainerWithSharingAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileProtectionManagerStatics2Vtbl(
@@ -886,6 +931,11 @@ unsafe impl ::windows::core::Interface for IFileProtectionManagerStatics3 {
     type Vtable = IFileProtectionManagerStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6918849a_624f_46d6_b241_e9cd5fdf3e3f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFileProtectionManagerStatics3Impl {
+    fn UnprotectAsync();
+    fn UnprotectWithOptionsAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileProtectionManagerStatics3Vtbl(
@@ -908,6 +958,13 @@ pub struct IFileRevocationManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileRevocationManagerStatics {
     type Vtable = IFileRevocationManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x256bbc3d_1c5d_4260_8c75_9144cfb78ba9);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IFileRevocationManagerStaticsImpl {
+    fn ProtectAsync();
+    fn CopyProtectionAsync();
+    fn Revoke();
+    fn GetStatusAsync();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -935,6 +992,11 @@ unsafe impl ::windows::core::Interface for IFileUnprotectOptions {
     type Vtable = IFileUnprotectOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d1312f1_3b0d_4dd8_a1f8_1ec53822e2f3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFileUnprotectOptionsImpl {
+    fn SetAudit();
+    fn Audit();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileUnprotectOptionsVtbl(
@@ -954,6 +1016,10 @@ unsafe impl ::windows::core::Interface for IFileUnprotectOptionsFactory {
     type Vtable = IFileUnprotectOptionsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51aeb39c_da8c_4c3f_9bfb_cb73a7cce0dd);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFileUnprotectOptionsFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileUnprotectOptionsFactoryVtbl(
@@ -971,6 +1037,10 @@ pub struct IProtectedAccessResumedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectedAccessResumedEventArgs {
     type Vtable = IProtectedAccessResumedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac4dca59_5d80_4e95_8c5f_8539450eebe0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IProtectedAccessResumedEventArgsImpl {
+    fn Identities();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -990,6 +1060,12 @@ pub struct IProtectedAccessSuspendingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectedAccessSuspendingEventArgs {
     type Vtable = IProtectedAccessSuspendingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75a193e0_a344_429f_b975_04fc1f88c185);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IProtectedAccessSuspendingEventArgsImpl {
+    fn Identities();
+    fn Deadline();
+    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1014,6 +1090,11 @@ unsafe impl ::windows::core::Interface for IProtectedContainerExportResult {
     type Vtable = IProtectedContainerExportResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3948ef95_f7fb_4b42_afb0_df70b41543c1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IProtectedContainerExportResultImpl {
+    fn Status();
+    fn File();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtectedContainerExportResultVtbl(
@@ -1033,6 +1114,11 @@ pub struct IProtectedContainerImportResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectedContainerImportResult {
     type Vtable = IProtectedContainerImportResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdb780d1_e7bb_4d1a_9339_34dc41149f9b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IProtectedContainerImportResultImpl {
+    fn Status();
+    fn File();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1054,6 +1140,10 @@ unsafe impl ::windows::core::Interface for IProtectedContentRevokedEventArgs {
     type Vtable = IProtectedContentRevokedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63686821_58b9_47ee_93d9_f0f741cf43f0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IProtectedContentRevokedEventArgsImpl {
+    fn Identities();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtectedContentRevokedEventArgsVtbl(
@@ -1072,6 +1162,12 @@ pub struct IProtectedFileCreateResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectedFileCreateResult {
     type Vtable = IProtectedFileCreateResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28e3ed6a_e9e7_4a03_9f53_bdb16172699b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IProtectedFileCreateResultImpl {
+    fn File();
+    fn Stream();
+    fn ProtectionInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1094,6 +1190,17 @@ pub struct IProtectionPolicyAuditInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectionPolicyAuditInfo {
     type Vtable = IProtectionPolicyAuditInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x425ab7e4_feb7_44fc_b3bb_c3c4d7ecbebb);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IProtectionPolicyAuditInfoImpl {
+    fn SetAction();
+    fn Action();
+    fn SetDataDescription();
+    fn DataDescription();
+    fn SetSourceDescription();
+    fn SourceDescription();
+    fn SetTargetDescription();
+    fn TargetDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1120,6 +1227,11 @@ unsafe impl ::windows::core::Interface for IProtectionPolicyAuditInfoFactory {
     type Vtable = IProtectionPolicyAuditInfoFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ed4180b_92e8_42d5_83d4_25440b423549);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IProtectionPolicyAuditInfoFactoryImpl {
+    fn Create();
+    fn CreateWithActionAndDataDescription();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtectionPolicyAuditInfoFactoryVtbl(
@@ -1138,6 +1250,11 @@ pub struct IProtectionPolicyManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectionPolicyManager {
     type Vtable = IProtectionPolicyManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5703e18_a08d_47e6_a240_9934d7165eb5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IProtectionPolicyManagerImpl {
+    fn SetIdentity();
+    fn Identity();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1158,6 +1275,11 @@ unsafe impl ::windows::core::Interface for IProtectionPolicyManager2 {
     type Vtable = IProtectionPolicyManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabf7527a_8435_417f_99b6_51beaf365888);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IProtectionPolicyManager2Impl {
+    fn SetShowEnterpriseIndicator();
+    fn ShowEnterpriseIndicator();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtectionPolicyManager2Vtbl(
@@ -1176,6 +1298,24 @@ pub struct IProtectionPolicyManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectionPolicyManagerStatics {
     type Vtable = IProtectionPolicyManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0bffc66_8c3d_4d56_8804_c68f0ad32ec5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IProtectionPolicyManagerStaticsImpl {
+    fn IsIdentityManaged();
+    fn TryApplyProcessUIPolicy();
+    fn ClearProcessUIPolicy();
+    fn CreateCurrentThreadNetworkContext();
+    fn GetPrimaryManagedIdentityForNetworkEndpointAsync();
+    fn RevokeContent();
+    fn GetForCurrentView();
+    fn ProtectedAccessSuspending();
+    fn RemoveProtectedAccessSuspending();
+    fn ProtectedAccessResumed();
+    fn RemoveProtectedAccessResumed();
+    fn ProtectedContentRevoked();
+    fn RemoveProtectedContentRevoked();
+    fn CheckAccess();
+    fn RequestAccessAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1217,6 +1357,18 @@ unsafe impl ::windows::core::Interface for IProtectionPolicyManagerStatics2 {
     type Vtable = IProtectionPolicyManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb68f9a8c_39e0_4649_b2e4_070ab8a579b3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IProtectionPolicyManagerStatics2Impl {
+    fn HasContentBeenRevokedSince();
+    fn CheckAccessForApp();
+    fn RequestAccessForAppAsync();
+    fn GetEnforcementLevel();
+    fn IsUserDecryptionAllowed();
+    fn IsProtectionUnderLockRequired();
+    fn PolicyChanged();
+    fn RemovePolicyChanged();
+    fn IsProtectionEnabled();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtectionPolicyManagerStatics2Vtbl(
@@ -1247,6 +1399,14 @@ unsafe impl ::windows::core::Interface for IProtectionPolicyManagerStatics3 {
     type Vtable = IProtectionPolicyManagerStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48ff9e8c_6a6f_4d9f_bced_18ab537aa015);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IProtectionPolicyManagerStatics3Impl {
+    fn RequestAccessWithAuditingInfoAsync();
+    fn RequestAccessWithMessageAsync();
+    fn RequestAccessForAppWithAuditingInfoAsync();
+    fn RequestAccessForAppWithMessageAsync();
+    fn LogAuditEvent();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtectionPolicyManagerStatics3Vtbl(
@@ -1272,6 +1432,20 @@ pub struct IProtectionPolicyManagerStatics4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectionPolicyManagerStatics4 {
     type Vtable = IProtectionPolicyManagerStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20b794db_ccbd_490f_8c83_49ccb77aea6c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IProtectionPolicyManagerStatics4Impl {
+    fn IsRoamableProtectionEnabled();
+    fn RequestAccessWithBehaviorAsync();
+    fn RequestAccessForAppWithBehaviorAsync();
+    fn RequestAccessToFilesForAppAsync();
+    fn RequestAccessToFilesForAppWithMessageAndBehaviorAsync();
+    fn RequestAccessToFilesForProcessAsync();
+    fn RequestAccessToFilesForProcessWithMessageAndBehaviorAsync();
+    fn IsFileProtectionRequiredAsync();
+    fn IsFileProtectionRequiredForNewFileAsync();
+    fn PrimaryManagedIdentity();
+    fn GetPrimaryManagedIdentityForIdentity();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1309,6 +1483,8 @@ unsafe impl ::windows::core::Interface for IThreadNetworkContext {
     type Vtable = IThreadNetworkContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa4ea8e9_ef13_405a_b12c_d7348c6f41fc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IThreadNetworkContextImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThreadNetworkContextVtbl(

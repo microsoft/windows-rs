@@ -6,6 +6,12 @@ unsafe impl ::windows::core::Interface for IPdfDocument {
     type Vtable = IPdfDocumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac7ebedd_80fa_4089_846e_81b77ff5a86c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPdfDocumentImpl {
+    fn GetPage();
+    fn PageCount();
+    fn IsPasswordProtected();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPdfDocumentVtbl(
@@ -25,6 +31,13 @@ pub struct IPdfDocumentStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPdfDocumentStatics {
     type Vtable = IPdfDocumentStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x433a0b5f_c007_4788_90f2_08143d922599);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPdfDocumentStaticsImpl {
+    fn LoadFromFileAsync();
+    fn LoadFromFileWithPasswordAsync();
+    fn LoadFromStreamAsync();
+    fn LoadFromStreamWithPasswordAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -50,6 +63,17 @@ pub struct IPdfPage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPdfPage {
     type Vtable = IPdfPageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9db4b0c8_5320_4cfc_ad76_493fdad0e594);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPdfPageImpl {
+    fn RenderToStreamAsync();
+    fn RenderWithOptionsToStreamAsync();
+    fn PreparePageAsync();
+    fn Index();
+    fn Size();
+    fn Dimensions();
+    fn Rotation();
+    fn PreferredZoom();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -80,6 +104,14 @@ unsafe impl ::windows::core::Interface for IPdfPageDimensions {
     type Vtable = IPdfPageDimensionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22170471_313e_44e8_835d_63a3e7624a10);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPdfPageDimensionsImpl {
+    fn MediaBox();
+    fn CropBox();
+    fn BleedBox();
+    fn TrimBox();
+    fn ArtBox();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPdfPageDimensionsVtbl(
@@ -106,6 +138,21 @@ pub struct IPdfPageRenderOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPdfPageRenderOptions {
     type Vtable = IPdfPageRenderOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c98056f_b7cf_4c29_9a04_52d90267f425);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPdfPageRenderOptionsImpl {
+    fn SourceRect();
+    fn SetSourceRect();
+    fn DestinationWidth();
+    fn SetDestinationWidth();
+    fn DestinationHeight();
+    fn SetDestinationHeight();
+    fn BackgroundColor();
+    fn SetBackgroundColor();
+    fn IsIgnoringHighContrast();
+    fn SetIsIgnoringHighContrast();
+    fn BitmapEncoderId();
+    fn SetBitmapEncoderId();
 }
 #[repr(C)]
 #[doc(hidden)]

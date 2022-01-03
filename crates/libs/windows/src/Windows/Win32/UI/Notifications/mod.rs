@@ -49,6 +49,9 @@ unsafe impl ::windows::core::Interface for INotificationActivationCallback {
     type Vtable = INotificationActivationCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53e31837_6600_4a81_9395_75cffe746f94);
 }
+pub trait INotificationActivationCallbackImpl {
+    fn Activate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INotificationActivationCallbackVtbl(

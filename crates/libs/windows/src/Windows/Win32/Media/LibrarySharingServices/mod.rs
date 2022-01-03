@@ -110,6 +110,13 @@ unsafe impl ::windows::core::Interface for IWindowsMediaLibrarySharingDevice {
     type Vtable = IWindowsMediaLibrarySharingDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3dccc293_4fd9_4191_a25b_8e57c5d27bd4);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWindowsMediaLibrarySharingDeviceImpl: IDispatchImpl {
+    fn DeviceID();
+    fn Authorization();
+    fn SetAuthorization();
+    fn Properties();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsMediaLibrarySharingDeviceVtbl(
@@ -237,6 +244,12 @@ unsafe impl ::windows::core::Interface for IWindowsMediaLibrarySharingDeviceProp
     type Vtable = IWindowsMediaLibrarySharingDevicePropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4623214_6b06_40c5_a623_b2ff4c076bfd);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWindowsMediaLibrarySharingDevicePropertiesImpl: IDispatchImpl {
+    fn Item();
+    fn Count();
+    fn GetProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsMediaLibrarySharingDevicePropertiesVtbl(
@@ -358,6 +371,11 @@ impl ::core::fmt::Debug for IWindowsMediaLibrarySharingDeviceProperty {
 unsafe impl ::windows::core::Interface for IWindowsMediaLibrarySharingDeviceProperty {
     type Vtable = IWindowsMediaLibrarySharingDevicePropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81e26927_7a7d_40a7_81d4_bddc02960e3e);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWindowsMediaLibrarySharingDevicePropertyImpl: IDispatchImpl {
+    fn Name();
+    fn Value();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -484,6 +502,12 @@ impl ::core::fmt::Debug for IWindowsMediaLibrarySharingDevices {
 unsafe impl ::windows::core::Interface for IWindowsMediaLibrarySharingDevices {
     type Vtable = IWindowsMediaLibrarySharingDevicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1803f9d6_fe6d_4546_bf5b_992fe8ec12d1);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWindowsMediaLibrarySharingDevicesImpl: IDispatchImpl {
+    fn Item();
+    fn Count();
+    fn GetDevice();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -686,6 +710,28 @@ impl ::core::fmt::Debug for IWindowsMediaLibrarySharingServices {
 unsafe impl ::windows::core::Interface for IWindowsMediaLibrarySharingServices {
     type Vtable = IWindowsMediaLibrarySharingServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01f5f85e_0a81_40da_a7c8_21ef3af8440c);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWindowsMediaLibrarySharingServicesImpl: IDispatchImpl {
+    fn showShareMediaCPL();
+    fn userHomeMediaSharingState();
+    fn SetuserHomeMediaSharingState();
+    fn userHomeMediaSharingLibraryName();
+    fn SetuserHomeMediaSharingLibraryName();
+    fn computerHomeMediaSharingAllowedState();
+    fn SetcomputerHomeMediaSharingAllowedState();
+    fn userInternetMediaSharingState();
+    fn SetuserInternetMediaSharingState();
+    fn computerInternetMediaSharingAllowedState();
+    fn SetcomputerInternetMediaSharingAllowedState();
+    fn internetMediaSharingSecurityGroup();
+    fn SetinternetMediaSharingSecurityGroup();
+    fn allowSharingToAllDevices();
+    fn SetallowSharingToAllDevices();
+    fn setDefaultAuthorization();
+    fn setAuthorizationState();
+    fn getAllDevices();
+    fn customSettingsApplied();
 }
 #[repr(C)]
 #[doc(hidden)]

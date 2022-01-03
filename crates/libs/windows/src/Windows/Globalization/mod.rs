@@ -2527,6 +2527,13 @@ unsafe impl ::windows::core::Interface for IApplicationLanguagesStatics {
     type Vtable = IApplicationLanguagesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75b40847_0a4c_4a92_9565_fd63c95f7aed);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationLanguagesStaticsImpl {
+    fn PrimaryLanguageOverride();
+    fn SetPrimaryLanguageOverride();
+    fn Languages();
+    fn ManifestLanguages();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationLanguagesStaticsVtbl(
@@ -2550,6 +2557,10 @@ unsafe impl ::windows::core::Interface for IApplicationLanguagesStatics2 {
     type Vtable = IApplicationLanguagesStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1df0de4f_072b_4d7b_8f06_cb2db40f2bb5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationLanguagesStatics2Impl {
+    fn GetLanguagesForUser();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationLanguagesStatics2Vtbl(
@@ -2568,6 +2579,107 @@ pub struct ICalendar(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICalendar {
     type Vtable = ICalendarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca30221d_86d9_40fb_a26b_d44eb7cf08ea);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICalendarImpl {
+    fn Clone();
+    fn SetToMin();
+    fn SetToMax();
+    fn Languages();
+    fn NumeralSystem();
+    fn SetNumeralSystem();
+    fn GetCalendarSystem();
+    fn ChangeCalendarSystem();
+    fn GetClock();
+    fn ChangeClock();
+    fn GetDateTime();
+    fn SetDateTime();
+    fn SetToNow();
+    fn FirstEra();
+    fn LastEra();
+    fn NumberOfEras();
+    fn Era();
+    fn SetEra();
+    fn AddEras();
+    fn EraAsFullString();
+    fn EraAsString();
+    fn FirstYearInThisEra();
+    fn LastYearInThisEra();
+    fn NumberOfYearsInThisEra();
+    fn Year();
+    fn SetYear();
+    fn AddYears();
+    fn YearAsString();
+    fn YearAsTruncatedString();
+    fn YearAsPaddedString();
+    fn FirstMonthInThisYear();
+    fn LastMonthInThisYear();
+    fn NumberOfMonthsInThisYear();
+    fn Month();
+    fn SetMonth();
+    fn AddMonths();
+    fn MonthAsFullString();
+    fn MonthAsString();
+    fn MonthAsFullSoloString();
+    fn MonthAsSoloString();
+    fn MonthAsNumericString();
+    fn MonthAsPaddedNumericString();
+    fn AddWeeks();
+    fn FirstDayInThisMonth();
+    fn LastDayInThisMonth();
+    fn NumberOfDaysInThisMonth();
+    fn Day();
+    fn SetDay();
+    fn AddDays();
+    fn DayAsString();
+    fn DayAsPaddedString();
+    fn DayOfWeek();
+    fn DayOfWeekAsFullString();
+    fn DayOfWeekAsString();
+    fn DayOfWeekAsFullSoloString();
+    fn DayOfWeekAsSoloString();
+    fn FirstPeriodInThisDay();
+    fn LastPeriodInThisDay();
+    fn NumberOfPeriodsInThisDay();
+    fn Period();
+    fn SetPeriod();
+    fn AddPeriods();
+    fn PeriodAsFullString();
+    fn PeriodAsString();
+    fn FirstHourInThisPeriod();
+    fn LastHourInThisPeriod();
+    fn NumberOfHoursInThisPeriod();
+    fn Hour();
+    fn SetHour();
+    fn AddHours();
+    fn HourAsString();
+    fn HourAsPaddedString();
+    fn Minute();
+    fn SetMinute();
+    fn AddMinutes();
+    fn MinuteAsString();
+    fn MinuteAsPaddedString();
+    fn Second();
+    fn SetSecond();
+    fn AddSeconds();
+    fn SecondAsString();
+    fn SecondAsPaddedString();
+    fn Nanosecond();
+    fn SetNanosecond();
+    fn AddNanoseconds();
+    fn NanosecondAsString();
+    fn NanosecondAsPaddedString();
+    fn Compare();
+    fn CompareDateTime();
+    fn CopyTo();
+    fn FirstMinuteInThisHour();
+    fn LastMinuteInThisHour();
+    fn NumberOfMinutesInThisHour();
+    fn FirstSecondInThisMinute();
+    fn LastSecondInThisMinute();
+    fn NumberOfSecondsInThisMinute();
+    fn ResolvedLanguage();
+    fn IsDaylightSavingTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2688,6 +2800,11 @@ unsafe impl ::windows::core::Interface for ICalendarFactory {
     type Vtable = ICalendarFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83f58412_e56b_4c75_a66e_0f63d57758a6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICalendarFactoryImpl {
+    fn CreateCalendarDefaultCalendarAndClock();
+    fn CreateCalendar();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICalendarFactoryVtbl(
@@ -2709,6 +2826,10 @@ unsafe impl ::windows::core::Interface for ICalendarFactory2 {
     type Vtable = ICalendarFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb44b378c_ca7e_4590_9e72_ea2bec1a5115);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICalendarFactory2Impl {
+    fn CreateCalendarWithTimeZone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICalendarFactory2Vtbl(
@@ -2727,6 +2848,18 @@ pub struct ICalendarIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICalendarIdentifiersStatics {
     type Vtable = ICalendarIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80653f68_2cb2_4c1f_b590_f0f52bf4fd1a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICalendarIdentifiersStaticsImpl {
+    fn Gregorian();
+    fn Hebrew();
+    fn Hijri();
+    fn Japanese();
+    fn Julian();
+    fn Korean();
+    fn Taiwan();
+    fn Thai();
+    fn UmAlQura();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2754,6 +2887,10 @@ unsafe impl ::windows::core::Interface for ICalendarIdentifiersStatics2 {
     type Vtable = ICalendarIdentifiersStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7df4d488_5fd0_42a7_95b5_7d98d823075f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICalendarIdentifiersStatics2Impl {
+    fn Persian();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICalendarIdentifiersStatics2Vtbl(
@@ -2771,6 +2908,14 @@ pub struct ICalendarIdentifiersStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICalendarIdentifiersStatics3 {
     type Vtable = ICalendarIdentifiersStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c225423_1fad_40c0_9334_a8eb90db04f5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICalendarIdentifiersStatics3Impl {
+    fn ChineseLunar();
+    fn JapaneseLunar();
+    fn KoreanLunar();
+    fn TaiwanLunar();
+    fn VietnameseLunar();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2794,6 +2939,11 @@ unsafe impl ::windows::core::Interface for IClockIdentifiersStatics {
     type Vtable = IClockIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x523805bb_12ec_4f83_bc31_b1b4376b0808);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IClockIdentifiersStaticsImpl {
+    fn TwelveHour();
+    fn TwentyFourHour();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClockIdentifiersStaticsVtbl(
@@ -2812,6 +2962,11 @@ pub struct ICurrencyAmount(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICurrencyAmount {
     type Vtable = ICurrencyAmountVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74b49942_eb75_443a_95b3_7d723f56f93c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICurrencyAmountImpl {
+    fn Amount();
+    fn Currency();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2832,6 +2987,10 @@ unsafe impl ::windows::core::Interface for ICurrencyAmountFactory {
     type Vtable = ICurrencyAmountFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48d7168f_ef3b_4aee_a6a1_4b036fe03ff0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICurrencyAmountFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrencyAmountFactoryVtbl(
@@ -2849,6 +3008,166 @@ pub struct ICurrencyIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICurrencyIdentifiersStatics {
     type Vtable = ICurrencyIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f1d091b_d586_4913_9b6a_a9bd2dc12874);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICurrencyIdentifiersStaticsImpl {
+    fn AED();
+    fn AFN();
+    fn ALL();
+    fn AMD();
+    fn ANG();
+    fn AOA();
+    fn ARS();
+    fn AUD();
+    fn AWG();
+    fn AZN();
+    fn BAM();
+    fn BBD();
+    fn BDT();
+    fn BGN();
+    fn BHD();
+    fn BIF();
+    fn BMD();
+    fn BND();
+    fn BOB();
+    fn BRL();
+    fn BSD();
+    fn BTN();
+    fn BWP();
+    fn BYR();
+    fn BZD();
+    fn CAD();
+    fn CDF();
+    fn CHF();
+    fn CLP();
+    fn CNY();
+    fn COP();
+    fn CRC();
+    fn CUP();
+    fn CVE();
+    fn CZK();
+    fn DJF();
+    fn DKK();
+    fn DOP();
+    fn DZD();
+    fn EGP();
+    fn ERN();
+    fn ETB();
+    fn EUR();
+    fn FJD();
+    fn FKP();
+    fn GBP();
+    fn GEL();
+    fn GHS();
+    fn GIP();
+    fn GMD();
+    fn GNF();
+    fn GTQ();
+    fn GYD();
+    fn HKD();
+    fn HNL();
+    fn HRK();
+    fn HTG();
+    fn HUF();
+    fn IDR();
+    fn ILS();
+    fn INR();
+    fn IQD();
+    fn IRR();
+    fn ISK();
+    fn JMD();
+    fn JOD();
+    fn JPY();
+    fn KES();
+    fn KGS();
+    fn KHR();
+    fn KMF();
+    fn KPW();
+    fn KRW();
+    fn KWD();
+    fn KYD();
+    fn KZT();
+    fn LAK();
+    fn LBP();
+    fn LKR();
+    fn LRD();
+    fn LSL();
+    fn LTL();
+    fn LVL();
+    fn LYD();
+    fn MAD();
+    fn MDL();
+    fn MGA();
+    fn MKD();
+    fn MMK();
+    fn MNT();
+    fn MOP();
+    fn MRO();
+    fn MUR();
+    fn MVR();
+    fn MWK();
+    fn MXN();
+    fn MYR();
+    fn MZN();
+    fn NAD();
+    fn NGN();
+    fn NIO();
+    fn NOK();
+    fn NPR();
+    fn NZD();
+    fn OMR();
+    fn PAB();
+    fn PEN();
+    fn PGK();
+    fn PHP();
+    fn PKR();
+    fn PLN();
+    fn PYG();
+    fn QAR();
+    fn RON();
+    fn RSD();
+    fn RUB();
+    fn RWF();
+    fn SAR();
+    fn SBD();
+    fn SCR();
+    fn SDG();
+    fn SEK();
+    fn SGD();
+    fn SHP();
+    fn SLL();
+    fn SOS();
+    fn SRD();
+    fn STD();
+    fn SYP();
+    fn SZL();
+    fn THB();
+    fn TJS();
+    fn TMT();
+    fn TND();
+    fn TOP();
+    fn TRY();
+    fn TTD();
+    fn TWD();
+    fn TZS();
+    fn UAH();
+    fn UGX();
+    fn USD();
+    fn UYU();
+    fn UZS();
+    fn VEF();
+    fn VND();
+    fn VUV();
+    fn WST();
+    fn XAF();
+    fn XCD();
+    fn XOF();
+    fn XPF();
+    fn XXX();
+    fn YER();
+    fn ZAR();
+    fn ZMW();
+    fn ZWL();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3024,6 +3343,10 @@ unsafe impl ::windows::core::Interface for ICurrencyIdentifiersStatics2 {
     type Vtable = ICurrencyIdentifiersStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1814797f_c3b2_4c33_9591_980011950d37);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICurrencyIdentifiersStatics2Impl {
+    fn BYN();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrencyIdentifiersStatics2Vtbl(
@@ -3041,6 +3364,13 @@ pub struct ICurrencyIdentifiersStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICurrencyIdentifiersStatics3 {
     type Vtable = ICurrencyIdentifiersStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fb23bfa_ed25_4f4d_857f_237f1748c21c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICurrencyIdentifiersStatics3Impl {
+    fn MRU();
+    fn SSP();
+    fn STN();
+    fn VES();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3062,6 +3392,16 @@ pub struct IGeographicRegion(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeographicRegion {
     type Vtable = IGeographicRegionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01e9a621_4a64_4ed9_954f_9edeb07bd903);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeographicRegionImpl {
+    fn Code();
+    fn CodeTwoLetter();
+    fn CodeThreeLetter();
+    fn CodeThreeDigit();
+    fn DisplayName();
+    fn NativeName();
+    fn CurrenciesInUse();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3088,6 +3428,10 @@ unsafe impl ::windows::core::Interface for IGeographicRegionFactory {
     type Vtable = IGeographicRegionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53425270_77b4_426b_859f_81e19d512546);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeographicRegionFactoryImpl {
+    fn CreateGeographicRegion();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeographicRegionFactoryVtbl(
@@ -3106,6 +3450,10 @@ unsafe impl ::windows::core::Interface for IGeographicRegionStatics {
     type Vtable = IGeographicRegionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29e28974_7ad9_4ef4_8799_b3b44fadec08);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGeographicRegionStaticsImpl {
+    fn IsSupported();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeographicRegionStaticsVtbl(
@@ -3123,6 +3471,12 @@ pub struct IJapanesePhoneme(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJapanesePhoneme {
     type Vtable = IJapanesePhonemeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f6a9300_e85b_43e6_897d_5d82f862df21);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IJapanesePhonemeImpl {
+    fn DisplayText();
+    fn YomiText();
+    fn IsPhraseStart();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3143,6 +3497,11 @@ pub struct IJapanesePhoneticAnalyzerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJapanesePhoneticAnalyzerStatics {
     type Vtable = IJapanesePhoneticAnalyzerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88ab9e90_93de_41b2_b4d5_8edb227fd1c2);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IJapanesePhoneticAnalyzerStaticsImpl {
+    fn GetWords();
+    fn GetWordsWithMonoRubyOption();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3165,6 +3524,13 @@ unsafe impl ::windows::core::Interface for ILanguage {
     type Vtable = ILanguageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea79a752_f7c2_4265_b1bd_c4dec4e4f080);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILanguageImpl {
+    fn LanguageTag();
+    fn DisplayName();
+    fn NativeName();
+    fn Script();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILanguageVtbl(
@@ -3186,6 +3552,10 @@ unsafe impl ::windows::core::Interface for ILanguage2 {
     type Vtable = ILanguage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a47e5b5_d94d_4886_a404_a5a5b9d5b494);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILanguage2Impl {
+    fn LayoutDirection();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILanguage2Vtbl(
@@ -3204,6 +3574,10 @@ unsafe impl ::windows::core::Interface for ILanguage3 {
     type Vtable = ILanguage3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6af3d10_641a_5ba4_bb43_5e12aed75954);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILanguage3Impl {
+    fn AbbreviatedName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILanguage3Vtbl(
@@ -3221,6 +3595,10 @@ pub struct ILanguageExtensionSubtags(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILanguageExtensionSubtags {
     type Vtable = ILanguageExtensionSubtagsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d7daf45_368d_4364_852b_dec927037b85);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILanguageExtensionSubtagsImpl {
+    fn GetExtensionSubtags();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3241,6 +3619,10 @@ unsafe impl ::windows::core::Interface for ILanguageFactory {
     type Vtable = ILanguageFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b0252ac_0c27_44f8_b792_9793fb66c63e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILanguageFactoryImpl {
+    fn CreateLanguage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILanguageFactoryVtbl(
@@ -3258,6 +3640,11 @@ pub struct ILanguageStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILanguageStatics {
     type Vtable = ILanguageStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb23cd557_0865_46d4_89b8_d59be8990f0d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILanguageStaticsImpl {
+    fn IsWellFormed();
+    fn CurrentInputMethodLanguageTag();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3278,6 +3665,10 @@ unsafe impl ::windows::core::Interface for ILanguageStatics2 {
     type Vtable = ILanguageStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30199f6e_914b_4b2a_9d6e_e3b0e27dbe4f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILanguageStatics2Impl {
+    fn TrySetInputMethodLanguageTag();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILanguageStatics2Vtbl(
@@ -3295,6 +3686,10 @@ pub struct ILanguageStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILanguageStatics3 {
     type Vtable = ILanguageStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd15ecb5a_71de_5752_9542_fac5b4f27261);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILanguageStatics3Impl {
+    fn GetMuiCompatibleLanguageListFromLanguageTags();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3314,6 +3709,45 @@ pub struct INumeralSystemIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INumeralSystemIdentifiersStatics {
     type Vtable = INumeralSystemIdentifiersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5c662c3_68c9_4d3d_b765_972029e21dec);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INumeralSystemIdentifiersStaticsImpl {
+    fn Arab();
+    fn ArabExt();
+    fn Bali();
+    fn Beng();
+    fn Cham();
+    fn Deva();
+    fn FullWide();
+    fn Gujr();
+    fn Guru();
+    fn HaniDec();
+    fn Java();
+    fn Kali();
+    fn Khmr();
+    fn Knda();
+    fn Lana();
+    fn LanaTham();
+    fn Laoo();
+    fn Latn();
+    fn Lepc();
+    fn Limb();
+    fn Mlym();
+    fn Mong();
+    fn Mtei();
+    fn Mymr();
+    fn MymrShan();
+    fn Nkoo();
+    fn Olck();
+    fn Orya();
+    fn Saur();
+    fn Sund();
+    fn Talu();
+    fn TamlDec();
+    fn Telu();
+    fn Thai();
+    fn Tibt();
+    fn Vaii();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3368,6 +3802,21 @@ unsafe impl ::windows::core::Interface for INumeralSystemIdentifiersStatics2 {
     type Vtable = INumeralSystemIdentifiersStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f003228_9ddb_4a34_9104_0260c091a7c7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INumeralSystemIdentifiersStatics2Impl {
+    fn Brah();
+    fn Osma();
+    fn MathBold();
+    fn MathDbl();
+    fn MathSans();
+    fn MathSanb();
+    fn MathMono();
+    fn ZmthBold();
+    fn ZmthDbl();
+    fn ZmthSans();
+    fn ZmthSanb();
+    fn ZmthMono();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INumeralSystemIdentifiersStatics2Vtbl(
@@ -3396,6 +3845,13 @@ pub struct ITimeZoneOnCalendar(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITimeZoneOnCalendar {
     type Vtable = ITimeZoneOnCalendarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb3c25e5_46cf_4317_a3f5_02621ad54478);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITimeZoneOnCalendarImpl {
+    fn GetTimeZone();
+    fn ChangeTimeZone();
+    fn TimeZoneAsFullString();
+    fn TimeZoneAsString();
 }
 #[repr(C)]
 #[doc(hidden)]

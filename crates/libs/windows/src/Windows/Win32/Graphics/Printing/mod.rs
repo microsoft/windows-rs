@@ -6534,6 +6534,9 @@ unsafe impl ::windows::core::Interface for IAsyncGetSendNotificationCookie {
     type Vtable = IAsyncGetSendNotificationCookieVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait IAsyncGetSendNotificationCookieImpl: IPrintAsyncCookieImpl {
+    fn FinishAsyncCallWithData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsyncGetSendNotificationCookieVtbl(
@@ -6602,6 +6605,11 @@ impl ::core::fmt::Debug for IAsyncGetSrvReferralCookie {
 unsafe impl ::windows::core::Interface for IAsyncGetSrvReferralCookie {
     type Vtable = IAsyncGetSrvReferralCookieVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+}
+pub trait IAsyncGetSrvReferralCookieImpl {
+    fn FinishAsyncCall();
+    fn CancelAsyncCall();
+    fn FinishAsyncCallWithData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6706,6 +6714,13 @@ impl ::core::fmt::Debug for IBidiAsyncNotifyChannel {
 unsafe impl ::windows::core::Interface for IBidiAsyncNotifyChannel {
     type Vtable = IBidiAsyncNotifyChannelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x532818f7_921b_4fb2_bff8_2f4fd52ebebf);
+}
+pub trait IBidiAsyncNotifyChannelImpl: IPrintAsyncNotifyChannelImpl {
+    fn CreateNotificationChannel();
+    fn GetPrintName();
+    fn GetChannelNotificationType();
+    fn AsyncGetNotificationSendResponse();
+    fn AsyncCloseChannel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8810,6 +8825,10 @@ unsafe impl ::windows::core::Interface for IPrintAsyncCookie {
     type Vtable = IPrintAsyncCookieVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait IPrintAsyncCookieImpl {
+    fn FinishAsyncCall();
+    fn CancelAsyncCall();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncCookieVtbl(
@@ -8896,6 +8915,9 @@ unsafe impl ::windows::core::Interface for IPrintAsyncNewChannelCookie {
     type Vtable = IPrintAsyncNewChannelCookieVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+pub trait IPrintAsyncNewChannelCookieImpl: IPrintAsyncCookieImpl {
+    fn FinishAsyncCallWithData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNewChannelCookieVtbl(
@@ -8961,6 +8983,10 @@ unsafe impl ::windows::core::Interface for IPrintAsyncNotify {
     type Vtable = IPrintAsyncNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x532818f7_921b_4fb2_bff8_2f4fd52ebebf);
 }
+pub trait IPrintAsyncNotifyImpl {
+    fn CreatePrintAsyncNotifyChannel();
+    fn CreatePrintAsyncNotifyRegistration();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNotifyVtbl(
@@ -9022,6 +9048,10 @@ impl ::core::fmt::Debug for IPrintAsyncNotifyCallback {
 unsafe impl ::windows::core::Interface for IPrintAsyncNotifyCallback {
     type Vtable = IPrintAsyncNotifyCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7def34c1_9d92_4c99_b3b3_db94a9d4191b);
+}
+pub trait IPrintAsyncNotifyCallbackImpl {
+    fn OnEventNotify();
+    fn ChannelClosed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9085,6 +9115,10 @@ unsafe impl ::windows::core::Interface for IPrintAsyncNotifyChannel {
     type Vtable = IPrintAsyncNotifyChannelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a5031b1_1f3f_4db0_a462_4530ed8b0451);
 }
+pub trait IPrintAsyncNotifyChannelImpl {
+    fn SendNotification();
+    fn CloseChannel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNotifyChannelVtbl(
@@ -9147,6 +9181,10 @@ unsafe impl ::windows::core::Interface for IPrintAsyncNotifyDataObject {
     type Vtable = IPrintAsyncNotifyDataObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77cf513e_5d49_4789_9f30_d0822b335c0d);
 }
+pub trait IPrintAsyncNotifyDataObjectImpl {
+    fn AcquireData();
+    fn ReleaseData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNotifyDataObjectVtbl(
@@ -9208,6 +9246,10 @@ impl ::core::fmt::Debug for IPrintAsyncNotifyRegistration {
 unsafe impl ::windows::core::Interface for IPrintAsyncNotifyRegistration {
     type Vtable = IPrintAsyncNotifyRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f6f27b6_6f86_4591_9203_64c3bfadedfe);
+}
+pub trait IPrintAsyncNotifyRegistrationImpl {
+    fn RegisterForNotifications();
+    fn UnregisterForNotifications();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9277,6 +9319,11 @@ impl ::core::fmt::Debug for IPrintAsyncNotifyServerReferral {
 unsafe impl ::windows::core::Interface for IPrintAsyncNotifyServerReferral {
     type Vtable = IPrintAsyncNotifyServerReferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+}
+pub trait IPrintAsyncNotifyServerReferralImpl {
+    fn GetServerReferral();
+    fn AsyncGetServerReferral();
+    fn SetServerReferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9366,6 +9413,9 @@ impl ::core::fmt::Debug for IPrintBidiAsyncNotifyRegistration {
 unsafe impl ::windows::core::Interface for IPrintBidiAsyncNotifyRegistration {
     type Vtable = IPrintBidiAsyncNotifyRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+}
+pub trait IPrintBidiAsyncNotifyRegistrationImpl: IPrintAsyncNotifyRegistrationImpl {
+    fn AsyncGetNewChannel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9530,6 +9580,17 @@ unsafe impl ::windows::core::Interface for IPrintCoreHelper {
     type Vtable = IPrintCoreHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa89ec53e_3905_49c6_9c1a_c0a88117fdb6);
 }
+pub trait IPrintCoreHelperImpl {
+    fn GetOption();
+    fn SetOptions();
+    fn EnumConstrainedOptions();
+    fn WhyConstrained();
+    fn EnumFeatures();
+    fn EnumOptions();
+    fn GetFontSubstitution();
+    fn SetFontSubstitution();
+    fn CreateInstanceOfMSXMLObject();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintCoreHelperVtbl(
@@ -9678,6 +9739,11 @@ impl ::core::fmt::Debug for IPrintCoreHelperPS {
 unsafe impl ::windows::core::Interface for IPrintCoreHelperPS {
     type Vtable = IPrintCoreHelperPSVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2c14f6f_95d3_4d63_96cf_6bd9e6c907c2);
+}
+pub trait IPrintCoreHelperPSImpl: IPrintCoreHelperImpl {
+    fn GetGlobalAttribute();
+    fn GetFeatureAttribute();
+    fn GetOptionAttribute();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9829,6 +9895,10 @@ impl ::core::fmt::Debug for IPrintCoreHelperUni {
 unsafe impl ::windows::core::Interface for IPrintCoreHelperUni {
     type Vtable = IPrintCoreHelperUniVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e8e51d6_e5ee_4426_817b_958b9444eb79);
+}
+pub trait IPrintCoreHelperUniImpl: IPrintCoreHelperImpl {
+    fn CreateGDLSnapshot();
+    fn CreateDefaultGDLSnapshot();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10004,6 +10074,9 @@ unsafe impl ::windows::core::Interface for IPrintCoreHelperUni2 {
     type Vtable = IPrintCoreHelperUni2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c8afdfc_ead0_4d2d_8071_9bf0175a6c3a);
 }
+pub trait IPrintCoreHelperUni2Impl: IPrintCoreHelperUniImpl + IPrintCoreHelperImpl {
+    fn GetNamedCommand();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintCoreHelperUni2Vtbl(
@@ -10164,6 +10237,18 @@ unsafe impl ::windows::core::Interface for IPrintCoreUI2 {
     type Vtable = IPrintCoreUI2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x085ccfca_3adf_4c9e_b491_d851a6edc997);
 }
+pub trait IPrintCoreUI2Impl: IPrintOemDriverUIImpl {
+    fn GetOptions();
+    fn SetOptions();
+    fn EnumConstrainedOptions();
+    fn WhyConstrained();
+    fn GetGlobalAttribute();
+    fn GetFeatureAttribute();
+    fn GetOptionAttribute();
+    fn EnumFeatures();
+    fn EnumOptions();
+    fn QuerySimulationSupport();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintCoreUI2Vtbl(
@@ -10275,6 +10360,15 @@ impl ::core::fmt::Debug for IPrintJob {
 unsafe impl ::windows::core::Interface for IPrintJob {
     type Vtable = IPrintJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb771dab8_1282_41b7_858c_f206e4d20577);
+}
+pub trait IPrintJobImpl {
+    fn Name();
+    fn Id();
+    fn PrintedPages();
+    fn TotalPages();
+    fn Status();
+    fn SubmissionTime();
+    fn RequestCancel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10397,6 +10491,12 @@ unsafe impl ::windows::core::Interface for IPrintJobCollection {
     type Vtable = IPrintJobCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72b82a24_a598_4e87_895f_cdb23a49e9dc);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrintJobCollectionImpl: IDispatchImpl {
+    fn Count();
+    fn GetAt();
+    fn _NewEnum();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintJobCollectionVtbl(
@@ -10469,6 +10569,10 @@ unsafe impl ::windows::core::Interface for IPrintOemCommon {
     type Vtable = IPrintOemCommonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f42285e_91d5_11d1_8820_00c04fb961ec);
 }
+pub trait IPrintOemCommonImpl {
+    fn GetInfo();
+    fn DevMode();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintOemCommonVtbl(
@@ -10537,6 +10641,11 @@ impl ::core::fmt::Debug for IPrintOemDriverUI {
 unsafe impl ::windows::core::Interface for IPrintOemDriverUI {
     type Vtable = IPrintOemDriverUIVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92b05d50_78bc_11d1_9480_00a0c90640b8);
+}
+pub trait IPrintOemDriverUIImpl {
+    fn DrvGetDriverSetting();
+    fn DrvUpgradeRegistrySetting();
+    fn DrvUpdateUISetting();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10681,6 +10790,20 @@ impl ::core::fmt::Debug for IPrintOemUI {
 unsafe impl ::windows::core::Interface for IPrintOemUI {
     type Vtable = IPrintOemUIVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6a7a9d0_774c_11d1_947f_00a0c90640b8);
+}
+pub trait IPrintOemUIImpl: IPrintOemCommonImpl {
+    fn PublishDriverInterface();
+    fn CommonUIProp();
+    fn DocumentPropertySheets();
+    fn DevicePropertySheets();
+    fn DevQueryPrintEx();
+    fn DeviceCapabilitiesA();
+    fn UpgradePrinter();
+    fn PrinterEvent();
+    fn DriverEvent();
+    fn QueryColorProfile();
+    fn FontInstallerDlgProc();
+    fn UpdateExternalFonts();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10880,6 +11003,11 @@ unsafe impl ::windows::core::Interface for IPrintOemUI2 {
     type Vtable = IPrintOemUI2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x292515f9_b54b_489b_9275_bab56821395e);
 }
+pub trait IPrintOemUI2Impl: IPrintOemUIImpl + IPrintOemCommonImpl {
+    fn QueryJobAttributes();
+    fn HideStandardUI();
+    fn DocumentEvent();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintOemUI2Vtbl(
@@ -10976,6 +11104,11 @@ impl ::core::fmt::Debug for IPrintOemUIMXDC {
 unsafe impl ::windows::core::Interface for IPrintOemUIMXDC {
     type Vtable = IPrintOemUIMXDCVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7349d725_e2c1_4dca_afb5_c13e91bc9306);
+}
+pub trait IPrintOemUIMXDCImpl {
+    fn AdjustImageableArea();
+    fn AdjustImageCompression();
+    fn AdjustDPI();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11305,6 +11438,11 @@ unsafe impl ::windows::core::Interface for IPrintPreviewDxgiPackageTarget {
     type Vtable = IPrintPreviewDxgiPackageTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a6dd0ad_1e2a_4e99_a5ba_91f17818290e);
 }
+pub trait IPrintPreviewDxgiPackageTargetImpl {
+    fn SetJobPageCount();
+    fn DrawPage();
+    fn InvalidatePreview();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintPreviewDxgiPackageTargetVtbl(
@@ -11542,6 +11680,11 @@ unsafe impl ::windows::core::Interface for IPrintSchemaAsyncOperation {
     type Vtable = IPrintSchemaAsyncOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x143c8dcb_d37f_47f7_88e8_6b1d21f2c5f7);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrintSchemaAsyncOperationImpl: IDispatchImpl {
+    fn Start();
+    fn Cancel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaAsyncOperationVtbl(
@@ -11653,6 +11796,10 @@ impl ::core::fmt::Debug for IPrintSchemaAsyncOperationEvent {
 unsafe impl ::windows::core::Interface for IPrintSchemaAsyncOperationEvent {
     type Vtable = IPrintSchemaAsyncOperationEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23adbb16_0133_4906_b29a_1dce1d026379);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrintSchemaAsyncOperationEventImpl: IDispatchImpl {
+    fn Completed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11834,6 +11981,16 @@ impl ::core::fmt::Debug for IPrintSchemaCapabilities {
 unsafe impl ::windows::core::Interface for IPrintSchemaCapabilities {
     type Vtable = IPrintSchemaCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a577640_501d_4927_bcd0_5ef57a7ed175);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrintSchemaCapabilitiesImpl: IPrintSchemaElementImpl + IDispatchImpl {
+    fn GetFeatureByKeyName();
+    fn GetFeature();
+    fn PageImageableSize();
+    fn JobCopiesAllDocumentsMinValue();
+    fn JobCopiesAllDocumentsMaxValue();
+    fn GetSelectedOptionInPrintTicket();
+    fn GetOptions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12055,6 +12212,10 @@ unsafe impl ::windows::core::Interface for IPrintSchemaCapabilities2 {
     type Vtable = IPrintSchemaCapabilities2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb58845f4_9970_4d87_a636_169fb82ed642);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrintSchemaCapabilities2Impl: IPrintSchemaCapabilitiesImpl + IPrintSchemaElementImpl + IDispatchImpl {
+    fn GetParameterDefinition();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaCapabilities2Vtbl(
@@ -12220,6 +12381,10 @@ unsafe impl ::windows::core::Interface for IPrintSchemaDisplayableElement {
     type Vtable = IPrintSchemaDisplayableElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf45af49_d6aa_407d_bf87_3912236e9d94);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrintSchemaDisplayableElementImpl: IPrintSchemaElementImpl + IDispatchImpl {
+    fn DisplayName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaDisplayableElementVtbl(
@@ -12349,6 +12514,12 @@ impl ::core::fmt::Debug for IPrintSchemaElement {
 unsafe impl ::windows::core::Interface for IPrintSchemaElement {
     type Vtable = IPrintSchemaElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x724c1646_e64b_4bbf_8eb4_d45e4fd580da);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrintSchemaElementImpl: IDispatchImpl {
+    fn XmlNode();
+    fn Name();
+    fn NamespaceUri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12549,6 +12720,14 @@ impl ::core::fmt::Debug for IPrintSchemaFeature {
 unsafe impl ::windows::core::Interface for IPrintSchemaFeature {
     type Vtable = IPrintSchemaFeatureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef189461_5d62_4626_8e57_ff83583c4826);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrintSchemaFeatureImpl: IPrintSchemaDisplayableElementImpl + IPrintSchemaElementImpl + IDispatchImpl {
+    fn SelectedOption();
+    fn SetSelectedOption();
+    fn SelectionType();
+    fn GetOption();
+    fn DisplayUI();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12775,6 +12954,10 @@ unsafe impl ::windows::core::Interface for IPrintSchemaNUpOption {
     type Vtable = IPrintSchemaNUpOptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f6342f2_d848_42e3_8995_c10a9ef9a3ba);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrintSchemaNUpOptionImpl: IPrintSchemaOptionImpl + IPrintSchemaDisplayableElementImpl + IPrintSchemaElementImpl + IDispatchImpl {
+    fn PagesPerSheet();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaNUpOptionVtbl(
@@ -12974,6 +13157,12 @@ unsafe impl ::windows::core::Interface for IPrintSchemaOption {
     type Vtable = IPrintSchemaOptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66bb2f51_5844_4997_8d70_4b7cc221cf92);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrintSchemaOptionImpl: IPrintSchemaDisplayableElementImpl + IPrintSchemaElementImpl + IDispatchImpl {
+    fn Selected();
+    fn Constrained();
+    fn GetPropertyValue();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaOptionVtbl(
@@ -13106,6 +13295,12 @@ impl ::core::fmt::Debug for IPrintSchemaOptionCollection {
 unsafe impl ::windows::core::Interface for IPrintSchemaOptionCollection {
     type Vtable = IPrintSchemaOptionCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbaecb0bd_a946_4771_bc30_e8b24f8d45c1);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrintSchemaOptionCollectionImpl: IDispatchImpl {
+    fn Count();
+    fn GetAt();
+    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13282,6 +13477,15 @@ impl ::core::fmt::Debug for IPrintSchemaPageImageableSize {
 unsafe impl ::windows::core::Interface for IPrintSchemaPageImageableSize {
     type Vtable = IPrintSchemaPageImageableSizeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c85bf5e_dc7c_4f61_839b_4107e1c9b68e);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrintSchemaPageImageableSizeImpl: IPrintSchemaElementImpl + IDispatchImpl {
+    fn ImageableSizeWidthInMicrons();
+    fn ImageableSizeHeightInMicrons();
+    fn OriginWidthInMicrons();
+    fn OriginHeightInMicrons();
+    fn ExtentWidthInMicrons();
+    fn ExtentHeightInMicrons();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13510,6 +13714,11 @@ unsafe impl ::windows::core::Interface for IPrintSchemaPageMediaSizeOption {
     type Vtable = IPrintSchemaPageMediaSizeOptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68746729_f493_4830_a10f_69028774605d);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrintSchemaPageMediaSizeOptionImpl: IPrintSchemaOptionImpl + IPrintSchemaDisplayableElementImpl + IPrintSchemaElementImpl + IDispatchImpl {
+    fn WidthInMicrons();
+    fn HeightInMicrons();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaPageMediaSizeOptionVtbl(
@@ -13720,6 +13929,14 @@ unsafe impl ::windows::core::Interface for IPrintSchemaParameterDefinition {
     type Vtable = IPrintSchemaParameterDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5ade81e_0e61_4fe1_81c6_c333e4ffe0f1);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrintSchemaParameterDefinitionImpl: IPrintSchemaDisplayableElementImpl + IPrintSchemaElementImpl + IDispatchImpl {
+    fn UserInputRequired();
+    fn UnitType();
+    fn DataType();
+    fn RangeMin();
+    fn RangeMax();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaParameterDefinitionVtbl(
@@ -13887,6 +14104,11 @@ impl ::core::fmt::Debug for IPrintSchemaParameterInitializer {
 unsafe impl ::windows::core::Interface for IPrintSchemaParameterInitializer {
     type Vtable = IPrintSchemaParameterInitializerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52027082_0b74_4648_9564_828cc6cb656c);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrintSchemaParameterInitializerImpl: IPrintSchemaElementImpl + IDispatchImpl {
+    fn Value();
+    fn SetValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14079,6 +14301,17 @@ impl ::core::fmt::Debug for IPrintSchemaTicket {
 unsafe impl ::windows::core::Interface for IPrintSchemaTicket {
     type Vtable = IPrintSchemaTicketVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe480b861_4708_4e6d_a5b4_a2b4eeb9baa4);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrintSchemaTicketImpl: IPrintSchemaElementImpl + IDispatchImpl {
+    fn GetFeatureByKeyName();
+    fn GetFeature();
+    fn ValidateAsync();
+    fn CommitAsync();
+    fn NotifyXmlChanged();
+    fn GetCapabilities();
+    fn JobCopiesAllDocuments();
+    fn SetJobCopiesAllDocuments();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14304,6 +14537,10 @@ unsafe impl ::windows::core::Interface for IPrintSchemaTicket2 {
     type Vtable = IPrintSchemaTicket2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ec1f844_766a_47a1_91f4_2eeb6190f80c);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrintSchemaTicket2Impl: IPrintSchemaTicketImpl + IPrintSchemaElementImpl + IDispatchImpl {
+    fn GetParameterInitializer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaTicket2Vtbl(
@@ -14416,6 +14653,15 @@ impl ::core::fmt::Debug for IPrintTicketProvider {
 unsafe impl ::windows::core::Interface for IPrintTicketProvider {
     type Vtable = IPrintTicketProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb5116db_0a23_4c3a_a6b6_89e5558dfb5d);
+}
+pub trait IPrintTicketProviderImpl {
+    fn GetSupportedVersions();
+    fn BindPrinter();
+    fn QueryDeviceNamespace();
+    fn ConvertPrintTicketToDevMode();
+    fn ConvertDevModeToPrintTicket();
+    fn GetPrintCapabilities();
+    fn ValidatePrintTicket();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14551,6 +14797,10 @@ unsafe impl ::windows::core::Interface for IPrintTicketProvider2 {
     type Vtable = IPrintTicketProvider2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8a70ab2_3dfc_4fec_a074_511b13c651cb);
 }
+pub trait IPrintTicketProvider2Impl: IPrintTicketProviderImpl {
+    fn GetPrintDeviceCapabilities();
+    fn GetPrintDeviceResources();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTicketProvider2Vtbl(
@@ -14652,6 +14902,9 @@ impl ::core::fmt::Debug for IPrintUnidiAsyncNotifyRegistration {
 unsafe impl ::windows::core::Interface for IPrintUnidiAsyncNotifyRegistration {
     type Vtable = IPrintUnidiAsyncNotifyRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+}
+pub trait IPrintUnidiAsyncNotifyRegistrationImpl: IPrintAsyncNotifyRegistrationImpl {
+    fn AsyncGetNotification();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14840,6 +15093,9 @@ unsafe impl ::windows::core::Interface for IPrinterBidiSetRequestCallback {
     type Vtable = IPrinterBidiSetRequestCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc52d32dd_f2b4_4052_8502_ec4305ecb71f);
 }
+pub trait IPrinterBidiSetRequestCallbackImpl {
+    fn Completed();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterBidiSetRequestCallbackVtbl(
@@ -14897,6 +15153,9 @@ impl ::core::fmt::Debug for IPrinterExtensionAsyncOperation {
 unsafe impl ::windows::core::Interface for IPrinterExtensionAsyncOperation {
     type Vtable = IPrinterExtensionAsyncOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x108d6a23_6a4b_4552_9448_68b427186acd);
+}
+pub trait IPrinterExtensionAsyncOperationImpl {
+    fn Cancel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15011,6 +15270,13 @@ impl ::core::fmt::Debug for IPrinterExtensionContext {
 unsafe impl ::windows::core::Interface for IPrinterExtensionContext {
     type Vtable = IPrinterExtensionContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39843bf2_c4d2_41fd_b4b2_aedbee5e1900);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrinterExtensionContextImpl: IDispatchImpl {
+    fn PrinterQueue();
+    fn PrintSchemaTicket();
+    fn DriverProperties();
+    fn UserProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15137,6 +15403,12 @@ unsafe impl ::windows::core::Interface for IPrinterExtensionContextCollection {
     type Vtable = IPrinterExtensionContextCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb476970_9bab_4861_811e_3e98b0c5addf);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrinterExtensionContextCollectionImpl: IDispatchImpl {
+    fn Count();
+    fn GetAt();
+    fn _NewEnum();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterExtensionContextCollectionVtbl(
@@ -15253,6 +15525,11 @@ impl ::core::fmt::Debug for IPrinterExtensionEvent {
 unsafe impl ::windows::core::Interface for IPrinterExtensionEvent {
     type Vtable = IPrinterExtensionEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc093cb63_5ef5_4585_af8e_4d5637487b57);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrinterExtensionEventImpl: IDispatchImpl {
+    fn OnDriverEvent();
+    fn OnPrinterQueuesEnumerated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15441,6 +15718,16 @@ unsafe impl ::windows::core::Interface for IPrinterExtensionEventArgs {
     type Vtable = IPrinterExtensionEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39843bf4_c4d2_41fd_b4b2_aedbee5e1900);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrinterExtensionEventArgsImpl: IPrinterExtensionContextImpl + IDispatchImpl {
+    fn BidiNotification();
+    fn ReasonId();
+    fn Request();
+    fn SourceApplication();
+    fn DetailedReasonId();
+    fn WindowModal();
+    fn WindowParent();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterExtensionEventArgsVtbl(
@@ -15523,6 +15810,10 @@ impl ::core::fmt::Debug for IPrinterExtensionManager {
 unsafe impl ::windows::core::Interface for IPrinterExtensionManager {
     type Vtable = IPrinterExtensionManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93c6eb8c_b001_4355_9629_8e8a1b3f8e77);
+}
+pub trait IPrinterExtensionManagerImpl {
+    fn EnableEvents();
+    fn DisableEvents();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15632,6 +15923,11 @@ impl ::core::fmt::Debug for IPrinterExtensionRequest {
 unsafe impl ::windows::core::Interface for IPrinterExtensionRequest {
     type Vtable = IPrinterExtensionRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39843bf3_c4d2_41fd_b4b2_aedbee5e1900);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrinterExtensionRequestImpl: IDispatchImpl {
+    fn Cancel();
+    fn Complete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15797,6 +16093,19 @@ unsafe impl ::windows::core::Interface for IPrinterPropertyBag {
     type Vtable = IPrinterPropertyBagVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfea77364_df95_4a23_a905_019b79a8e481);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrinterPropertyBagImpl: IDispatchImpl {
+    fn GetBool();
+    fn SetBool();
+    fn GetInt32();
+    fn SetInt32();
+    fn GetString();
+    fn SetString();
+    fn GetBytes();
+    fn SetBytes();
+    fn GetReadStream();
+    fn GetWriteStream();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterPropertyBagVtbl(
@@ -15944,6 +16253,13 @@ impl ::core::fmt::Debug for IPrinterQueue {
 unsafe impl ::windows::core::Interface for IPrinterQueue {
     type Vtable = IPrinterQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3580a828_07fe_4b94_ac1a_757d9d2d3056);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrinterQueueImpl: IDispatchImpl {
+    fn Handle();
+    fn Name();
+    fn SendBidiQuery();
+    fn GetProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16111,6 +16427,11 @@ unsafe impl ::windows::core::Interface for IPrinterQueue2 {
     type Vtable = IPrinterQueue2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cd444e8_c9bb_49b3_8e38_e03209416131);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrinterQueue2Impl: IPrinterQueueImpl + IDispatchImpl {
+    fn SendBidiSetRequestAsync();
+    fn GetPrinterQueueView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterQueue2Vtbl(
@@ -16232,6 +16553,10 @@ unsafe impl ::windows::core::Interface for IPrinterQueueEvent {
     type Vtable = IPrinterQueueEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x214685f6_7b78_4681_87e0_495f739273d1);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrinterQueueEventImpl: IDispatchImpl {
+    fn OnBidiResponseReceived();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterQueueEventVtbl(
@@ -16344,6 +16669,10 @@ unsafe impl ::windows::core::Interface for IPrinterQueueView {
     type Vtable = IPrinterQueueViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x476e2969_3b2b_4b3f_8277_cff6056042aa);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrinterQueueViewImpl: IDispatchImpl {
+    fn SetViewRange();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterQueueViewVtbl(
@@ -16454,6 +16783,10 @@ impl ::core::fmt::Debug for IPrinterQueueViewEvent {
 unsafe impl ::windows::core::Interface for IPrinterQueueViewEvent {
     type Vtable = IPrinterQueueViewEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5b6042b_fd21_404a_a0ef_e2fbb52b9080);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrinterQueueViewEventImpl: IDispatchImpl {
+    fn OnChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16576,6 +16909,12 @@ impl ::core::fmt::Debug for IPrinterScriptContext {
 unsafe impl ::windows::core::Interface for IPrinterScriptContext {
     type Vtable = IPrinterScriptContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x066acbca_8881_49c9_bb98_fae16b4889e1);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrinterScriptContextImpl: IDispatchImpl {
+    fn DriverProperties();
+    fn QueueProperties();
+    fn UserProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16741,6 +17080,19 @@ impl ::core::fmt::Debug for IPrinterScriptablePropertyBag {
 unsafe impl ::windows::core::Interface for IPrinterScriptablePropertyBag {
     type Vtable = IPrinterScriptablePropertyBagVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91c7765f_ed57_49ad_8b01_dc24816a5294);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrinterScriptablePropertyBagImpl: IDispatchImpl {
+    fn GetBool();
+    fn SetBool();
+    fn GetInt32();
+    fn SetInt32();
+    fn GetString();
+    fn SetString();
+    fn GetBytes();
+    fn SetBytes();
+    fn GetReadStream();
+    fn GetWriteStream();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16950,6 +17302,10 @@ unsafe impl ::windows::core::Interface for IPrinterScriptablePropertyBag2 {
     type Vtable = IPrinterScriptablePropertyBag2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a1c53c4_8638_4b3e_b518_2773c94556a3);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrinterScriptablePropertyBag2Impl: IPrinterScriptablePropertyBagImpl + IDispatchImpl {
+    fn GetReadStreamAsXML();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterScriptablePropertyBag2Vtbl(
@@ -17089,6 +17445,11 @@ impl ::core::fmt::Debug for IPrinterScriptableSequentialStream {
 unsafe impl ::windows::core::Interface for IPrinterScriptableSequentialStream {
     type Vtable = IPrinterScriptableSequentialStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2072838a_316f_467a_a949_27f68c44a854);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrinterScriptableSequentialStreamImpl: IDispatchImpl {
+    fn Read();
+    fn Write();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17245,6 +17606,12 @@ impl ::core::fmt::Debug for IPrinterScriptableStream {
 unsafe impl ::windows::core::Interface for IPrinterScriptableStream {
     type Vtable = IPrinterScriptableStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7edf9a92_4750_41a5_a17f_879a6f4f7dcb);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPrinterScriptableStreamImpl: IPrinterScriptableSequentialStreamImpl + IDispatchImpl {
+    fn Commit();
+    fn Seek();
+    fn SetSize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17593,6 +17960,9 @@ unsafe impl ::windows::core::Interface for IXpsRasterizationFactory {
     type Vtable = IXpsRasterizationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe094808a_24c6_482b_a3a7_c21ac9b55f17);
 }
+pub trait IXpsRasterizationFactoryImpl {
+    fn CreateRasterizer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsRasterizationFactoryVtbl(
@@ -17653,6 +18023,9 @@ unsafe impl ::windows::core::Interface for IXpsRasterizationFactory1 {
     type Vtable = IXpsRasterizationFactory1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d6e5f77_6414_4a1e_a8e0_d4194ce6a26f);
 }
+pub trait IXpsRasterizationFactory1Impl {
+    fn CreateRasterizer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsRasterizationFactory1Vtbl(
@@ -17712,6 +18085,9 @@ impl ::core::fmt::Debug for IXpsRasterizationFactory2 {
 unsafe impl ::windows::core::Interface for IXpsRasterizationFactory2 {
     type Vtable = IXpsRasterizationFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c16ce3e_10f5_41fd_9ddc_6826669c2ff6);
+}
+pub trait IXpsRasterizationFactory2Impl {
+    fn CreateRasterizer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17777,6 +18153,10 @@ unsafe impl ::windows::core::Interface for IXpsRasterizer {
     type Vtable = IXpsRasterizerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7567cfc8_c156_47a8_9dac_11a2ae5bdd6b);
 }
+pub trait IXpsRasterizerImpl {
+    fn RasterizeRect();
+    fn SetMinimalLineWidth();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsRasterizerVtbl(
@@ -17835,6 +18215,9 @@ impl ::core::fmt::Debug for IXpsRasterizerNotificationCallback {
 unsafe impl ::windows::core::Interface for IXpsRasterizerNotificationCallback {
     type Vtable = IXpsRasterizerNotificationCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ab8fd0d_cb94_49c2_9cb0_97ec1d5469d2);
+}
+pub trait IXpsRasterizerNotificationCallbackImpl {
+    fn Continue();
 }
 #[repr(C)]
 #[doc(hidden)]

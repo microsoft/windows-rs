@@ -52,6 +52,10 @@ unsafe impl ::windows::core::Interface for IWCNConnectNotify {
     type Vtable = IWCNConnectNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc100be9f_d33a_4a4b_bf23_bbef4663d017);
 }
+pub trait IWCNConnectNotifyImpl {
+    fn ConnectSucceeded();
+    fn ConnectFailed();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWCNConnectNotifyVtbl(
@@ -153,6 +157,19 @@ impl ::core::fmt::Debug for IWCNDevice {
 unsafe impl ::windows::core::Interface for IWCNDevice {
     type Vtable = IWCNDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc100be9c_d33a_4a4b_bf23_bbef4663d017);
+}
+pub trait IWCNDeviceImpl {
+    fn SetPassword();
+    fn Connect();
+    fn GetAttribute();
+    fn GetIntegerAttribute();
+    fn GetStringAttribute();
+    fn GetNetworkProfile();
+    fn SetNetworkProfile();
+    fn GetVendorExtension();
+    fn SetVendorExtension();
+    fn Unadvise();
+    fn SetNFCPasswordParams();
 }
 #[repr(C)]
 #[doc(hidden)]

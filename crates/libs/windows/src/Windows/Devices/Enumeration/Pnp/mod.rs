@@ -6,6 +6,13 @@ unsafe impl ::windows::core::Interface for IPnpObject {
     type Vtable = IPnpObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95c66258_733b_4a8f_93a3_db078ac870c1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPnpObjectImpl {
+    fn Type();
+    fn Id();
+    fn Properties();
+    fn Update();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPnpObjectVtbl(
@@ -27,6 +34,14 @@ pub struct IPnpObjectStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPnpObjectStatics {
     type Vtable = IPnpObjectStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3c32a3d_d168_4660_bbf3_a733b14b6e01);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPnpObjectStaticsImpl {
+    fn CreateFromIdAsync();
+    fn FindAllAsync();
+    fn FindAllAsyncAqsFilter();
+    fn CreateWatcher();
+    fn CreateWatcherAqsFilter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -55,6 +70,12 @@ unsafe impl ::windows::core::Interface for IPnpObjectUpdate {
     type Vtable = IPnpObjectUpdateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f59e812_001e_4844_bcc6_432886856a17);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPnpObjectUpdateImpl {
+    fn Type();
+    fn Id();
+    fn Properties();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPnpObjectUpdateVtbl(
@@ -75,6 +96,22 @@ pub struct IPnpObjectWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPnpObjectWatcher {
     type Vtable = IPnpObjectWatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83c95ca8_4772_4a7a_aca8_e48c42a89c44);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPnpObjectWatcherImpl {
+    fn Added();
+    fn RemoveAdded();
+    fn Updated();
+    fn RemoveUpdated();
+    fn Removed();
+    fn RemoveRemoved();
+    fn EnumerationCompleted();
+    fn RemoveEnumerationCompleted();
+    fn Stopped();
+    fn RemoveStopped();
+    fn Status();
+    fn Start();
+    fn Stop();
 }
 #[repr(C)]
 #[doc(hidden)]

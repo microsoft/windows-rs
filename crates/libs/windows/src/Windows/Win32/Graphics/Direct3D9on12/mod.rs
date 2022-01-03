@@ -134,6 +134,11 @@ unsafe impl ::windows::core::Interface for IDirect3DDevice9On12 {
     type Vtable = IDirect3DDevice9On12Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7fda234_b589_4049_940d_8878977531c8);
 }
+pub trait IDirect3DDevice9On12Impl {
+    fn GetD3D12Device();
+    fn UnwrapUnderlyingResource();
+    fn ReturnUnderlyingResource();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DDevice9On12Vtbl(

@@ -54,6 +54,10 @@ unsafe impl ::windows::core::Interface for IPdfRendererNative {
     type Vtable = IPdfRendererNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d9dcd91_d277_4947_8527_07a0daeda94a);
 }
+pub trait IPdfRendererNativeImpl {
+    fn RenderPageToSurface();
+    fn RenderPageToDeviceContext();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPdfRendererNativeVtbl(

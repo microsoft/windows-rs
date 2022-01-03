@@ -90,6 +90,8 @@ unsafe impl ::windows::core::Interface for IDummyMBNUCMExt {
     type Vtable = IDummyMBNUCMExtVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_ffff_4bbb_aaee_338e368af6fa);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IDummyMBNUCMExtImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDummyMBNUCMExtVtbl(
@@ -188,6 +190,15 @@ unsafe impl ::windows::core::Interface for IMbnConnection {
     type Vtable = IMbnConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_200d_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnConnectionImpl {
+    fn ConnectionID();
+    fn InterfaceID();
+    fn Connect();
+    fn Disconnect();
+    fn GetConnectionState();
+    fn GetVoiceCallState();
+    fn GetActivationNetworkError();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionVtbl(
@@ -263,6 +274,10 @@ unsafe impl ::windows::core::Interface for IMbnConnectionContext {
     type Vtable = IMbnConnectionContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_200b_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnConnectionContextImpl {
+    fn GetProvisionedContexts();
+    fn SetProvisionedContext();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionContextVtbl(
@@ -326,6 +341,10 @@ impl ::core::fmt::Debug for IMbnConnectionContextEvents {
 unsafe impl ::windows::core::Interface for IMbnConnectionContextEvents {
     type Vtable = IMbnConnectionContextEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_200c_4bbb_aaee_338e368af6fa);
+}
+pub trait IMbnConnectionContextEventsImpl {
+    fn OnProvisionedContextListChange();
+    fn OnSetProvisionedContextComplete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -397,6 +416,12 @@ unsafe impl ::windows::core::Interface for IMbnConnectionEvents {
     type Vtable = IMbnConnectionEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_200e_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnConnectionEventsImpl {
+    fn OnConnectComplete();
+    fn OnDisconnectComplete();
+    fn OnConnectStateChange();
+    fn OnVoiceCallStateChange();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionEventsVtbl(
@@ -465,6 +490,10 @@ unsafe impl ::windows::core::Interface for IMbnConnectionManager {
     type Vtable = IMbnConnectionManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_201d_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnConnectionManagerImpl {
+    fn GetConnection();
+    fn GetConnections();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionManagerVtbl(
@@ -528,6 +557,10 @@ impl ::core::fmt::Debug for IMbnConnectionManagerEvents {
 unsafe impl ::windows::core::Interface for IMbnConnectionManagerEvents {
     type Vtable = IMbnConnectionManagerEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_201e_4bbb_aaee_338e368af6fa);
+}
+pub trait IMbnConnectionManagerEventsImpl {
+    fn OnConnectionArrival();
+    fn OnConnectionRemoval();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -598,6 +631,11 @@ unsafe impl ::windows::core::Interface for IMbnConnectionProfile {
     type Vtable = IMbnConnectionProfileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2010_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnConnectionProfileImpl {
+    fn GetProfileXmlData();
+    fn UpdateProfile();
+    fn Delete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionProfileVtbl(
@@ -658,6 +696,9 @@ impl ::core::fmt::Debug for IMbnConnectionProfileEvents {
 unsafe impl ::windows::core::Interface for IMbnConnectionProfileEvents {
     type Vtable = IMbnConnectionProfileEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2011_4bbb_aaee_338e368af6fa);
+}
+pub trait IMbnConnectionProfileEventsImpl {
+    fn OnProfileUpdate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -724,6 +765,11 @@ unsafe impl ::windows::core::Interface for IMbnConnectionProfileManager {
     type Vtable = IMbnConnectionProfileManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_200f_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnConnectionProfileManagerImpl {
+    fn GetConnectionProfiles();
+    fn GetConnectionProfile();
+    fn CreateConnectionProfile();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionProfileManagerVtbl(
@@ -789,6 +835,10 @@ impl ::core::fmt::Debug for IMbnConnectionProfileManagerEvents {
 unsafe impl ::windows::core::Interface for IMbnConnectionProfileManagerEvents {
     type Vtable = IMbnConnectionProfileManagerEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_201f_4bbb_aaee_338e368af6fa);
+}
+pub trait IMbnConnectionProfileManagerEventsImpl {
+    fn OnConnectionProfileArrival();
+    fn OnConnectionProfileRemoval();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -911,6 +961,20 @@ unsafe impl ::windows::core::Interface for IMbnDeviceService {
     type Vtable = IMbnDeviceServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3bb9a71_dc70_4be9_a4da_7886ae8b191b);
 }
+pub trait IMbnDeviceServiceImpl {
+    fn QuerySupportedCommands();
+    fn OpenCommandSession();
+    fn CloseCommandSession();
+    fn SetCommand();
+    fn QueryCommand();
+    fn OpenDataSession();
+    fn CloseDataSession();
+    fn WriteData();
+    fn InterfaceID();
+    fn DeviceServiceID();
+    fn IsCommandSessionOpen();
+    fn IsDataSessionOpen();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnDeviceServiceVtbl(
@@ -987,6 +1051,9 @@ unsafe impl ::windows::core::Interface for IMbnDeviceServiceStateEvents {
     type Vtable = IMbnDeviceServiceStateEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d3ff196_89ee_49d8_8b60_33ffddffc58d);
 }
+pub trait IMbnDeviceServiceStateEventsImpl {
+    fn OnSessionsStateChange();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnDeviceServiceStateEventsVtbl(
@@ -1062,6 +1129,12 @@ impl ::core::fmt::Debug for IMbnDeviceServicesContext {
 unsafe impl ::windows::core::Interface for IMbnDeviceServicesContext {
     type Vtable = IMbnDeviceServicesContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc5ac347_1592_4068_80bb_6a57580150d8);
+}
+pub trait IMbnDeviceServicesContextImpl {
+    fn EnumerateDeviceServices();
+    fn GetDeviceService();
+    fn MaxCommandSize();
+    fn MaxDataSize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1171,6 +1244,19 @@ unsafe impl ::windows::core::Interface for IMbnDeviceServicesEvents {
     type Vtable = IMbnDeviceServicesEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a900c19_6824_4e97_b76e_cf239d0ca642);
 }
+pub trait IMbnDeviceServicesEventsImpl {
+    fn OnQuerySupportedCommandsComplete();
+    fn OnOpenCommandSessionComplete();
+    fn OnCloseCommandSessionComplete();
+    fn OnSetCommandComplete();
+    fn OnQueryCommandComplete();
+    fn OnEventNotification();
+    fn OnOpenDataSessionComplete();
+    fn OnCloseDataSessionComplete();
+    fn OnWriteDataComplete();
+    fn OnReadData();
+    fn OnInterfaceStateChange();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnDeviceServicesEventsVtbl(
@@ -1245,6 +1331,9 @@ impl ::core::fmt::Debug for IMbnDeviceServicesManager {
 unsafe impl ::windows::core::Interface for IMbnDeviceServicesManager {
     type Vtable = IMbnDeviceServicesManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20a26258_6811_4478_ac1d_13324e45e41c);
+}
+pub trait IMbnDeviceServicesManagerImpl {
+    fn GetDeviceServicesContext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1360,6 +1449,19 @@ unsafe impl ::windows::core::Interface for IMbnInterface {
     type Vtable = IMbnInterfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2001_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnInterfaceImpl {
+    fn InterfaceID();
+    fn GetInterfaceCapability();
+    fn GetSubscriberInformation();
+    fn GetReadyState();
+    fn InEmergencyMode();
+    fn GetHomeProvider();
+    fn GetPreferredProviders();
+    fn SetPreferredProviders();
+    fn GetVisibleProviders();
+    fn ScanNetwork();
+    fn GetConnection();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnInterfaceVtbl(
@@ -1461,6 +1563,16 @@ unsafe impl ::windows::core::Interface for IMbnInterfaceEvents {
     type Vtable = IMbnInterfaceEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2002_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnInterfaceEventsImpl {
+    fn OnInterfaceCapabilityAvailable();
+    fn OnSubscriberInformationChange();
+    fn OnReadyStateChange();
+    fn OnEmergencyModeChange();
+    fn OnHomeProviderAvailable();
+    fn OnPreferredProvidersChange();
+    fn OnSetPreferredProvidersComplete();
+    fn OnScanNetworkComplete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnInterfaceEventsVtbl(
@@ -1533,6 +1645,10 @@ unsafe impl ::windows::core::Interface for IMbnInterfaceManager {
     type Vtable = IMbnInterfaceManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_201b_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnInterfaceManagerImpl {
+    fn GetInterface();
+    fn GetInterfaces();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnInterfaceManagerVtbl(
@@ -1596,6 +1712,10 @@ impl ::core::fmt::Debug for IMbnInterfaceManagerEvents {
 unsafe impl ::windows::core::Interface for IMbnInterfaceManagerEvents {
     type Vtable = IMbnInterfaceManagerEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_201c_4bbb_aaee_338e368af6fa);
+}
+pub trait IMbnInterfaceManagerEventsImpl {
+    fn OnInterfaceArrival();
+    fn OnInterfaceRemoval();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1684,6 +1804,14 @@ unsafe impl ::windows::core::Interface for IMbnMultiCarrier {
     type Vtable = IMbnMultiCarrierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2020_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnMultiCarrierImpl {
+    fn SetHomeProvider();
+    fn GetPreferredProviders();
+    fn GetVisibleProviders();
+    fn GetSupportedCellularClasses();
+    fn GetCurrentCellularClass();
+    fn ScanNetwork();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnMultiCarrierVtbl(
@@ -1765,6 +1893,13 @@ impl ::core::fmt::Debug for IMbnMultiCarrierEvents {
 unsafe impl ::windows::core::Interface for IMbnMultiCarrierEvents {
     type Vtable = IMbnMultiCarrierEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcdddab6_2021_4bbb_aaee_338e368af6fa);
+}
+pub trait IMbnMultiCarrierEventsImpl {
+    fn OnSetHomeProviderComplete();
+    fn OnCurrentCellularClassChange();
+    fn OnPreferredProvidersChange();
+    fn OnScanNetworkComplete();
+    fn OnInterfaceCapabilityChange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1883,6 +2018,19 @@ unsafe impl ::windows::core::Interface for IMbnPin {
     type Vtable = IMbnPinVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2007_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnPinImpl {
+    fn PinType();
+    fn PinFormat();
+    fn PinLengthMin();
+    fn PinLengthMax();
+    fn PinMode();
+    fn Enable();
+    fn Disable();
+    fn Enter();
+    fn Change();
+    fn Unblock();
+    fn GetPinManager();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnPinVtbl(
@@ -1971,6 +2119,13 @@ unsafe impl ::windows::core::Interface for IMbnPinEvents {
     type Vtable = IMbnPinEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2008_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnPinEventsImpl {
+    fn OnEnableComplete();
+    fn OnDisableComplete();
+    fn OnEnterComplete();
+    fn OnChangeComplete();
+    fn OnUnblockComplete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnPinEventsVtbl(
@@ -2044,6 +2199,11 @@ unsafe impl ::windows::core::Interface for IMbnPinManager {
     type Vtable = IMbnPinManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2005_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnPinManagerImpl {
+    fn GetPinList();
+    fn GetPin();
+    fn GetPinState();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnPinManagerVtbl(
@@ -2107,6 +2267,10 @@ impl ::core::fmt::Debug for IMbnPinManagerEvents {
 unsafe impl ::windows::core::Interface for IMbnPinManagerEvents {
     type Vtable = IMbnPinManagerEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2006_4bbb_aaee_338e368af6fa);
+}
+pub trait IMbnPinManagerEventsImpl {
+    fn OnPinListAvailable();
+    fn OnGetPinStateComplete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2177,6 +2341,11 @@ unsafe impl ::windows::core::Interface for IMbnRadio {
     type Vtable = IMbnRadioVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdccccab6_201f_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnRadioImpl {
+    fn SoftwareRadioState();
+    fn HardwareRadioState();
+    fn SetSoftwareRadioState();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnRadioVtbl(
@@ -2239,6 +2408,10 @@ impl ::core::fmt::Debug for IMbnRadioEvents {
 unsafe impl ::windows::core::Interface for IMbnRadioEvents {
     type Vtable = IMbnRadioEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcdddab6_201f_4bbb_aaee_338e368af6fa);
+}
+pub trait IMbnRadioEventsImpl {
+    fn OnRadioStateChange();
+    fn OnSetSoftwareRadioStateComplete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2348,6 +2521,18 @@ unsafe impl ::windows::core::Interface for IMbnRegistration {
     type Vtable = IMbnRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2009_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnRegistrationImpl {
+    fn GetRegisterState();
+    fn GetRegisterMode();
+    fn GetProviderID();
+    fn GetProviderName();
+    fn GetRoamingText();
+    fn GetAvailableDataClasses();
+    fn GetCurrentDataClass();
+    fn GetRegistrationNetworkError();
+    fn GetPacketAttachNetworkError();
+    fn SetRegisterMode();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnRegistrationVtbl(
@@ -2430,6 +2615,12 @@ unsafe impl ::windows::core::Interface for IMbnRegistrationEvents {
     type Vtable = IMbnRegistrationEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_200a_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnRegistrationEventsImpl {
+    fn OnRegisterModeAvailable();
+    fn OnRegisterStateChange();
+    fn OnPacketServiceStateChange();
+    fn OnSetRegisterModeComplete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnRegistrationEventsVtbl(
@@ -2492,6 +2683,9 @@ unsafe impl ::windows::core::Interface for IMbnServiceActivation {
     type Vtable = IMbnServiceActivationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2017_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnServiceActivationImpl {
+    fn Activate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnServiceActivationVtbl(
@@ -2550,6 +2744,9 @@ impl ::core::fmt::Debug for IMbnServiceActivationEvents {
 unsafe impl ::windows::core::Interface for IMbnServiceActivationEvents {
     type Vtable = IMbnServiceActivationEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2018_4bbb_aaee_338e368af6fa);
+}
+pub trait IMbnServiceActivationEventsImpl {
+    fn OnActivationComplete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2615,6 +2812,10 @@ unsafe impl ::windows::core::Interface for IMbnSignal {
     type Vtable = IMbnSignalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2003_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnSignalImpl {
+    fn GetSignalStrength();
+    fn GetSignalError();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnSignalVtbl(
@@ -2672,6 +2873,9 @@ impl ::core::fmt::Debug for IMbnSignalEvents {
 unsafe impl ::windows::core::Interface for IMbnSignalEvents {
     type Vtable = IMbnSignalEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2004_4bbb_aaee_338e368af6fa);
+}
+pub trait IMbnSignalEventsImpl {
+    fn OnSignalStateChange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2763,6 +2967,16 @@ impl ::core::fmt::Debug for IMbnSms {
 unsafe impl ::windows::core::Interface for IMbnSms {
     type Vtable = IMbnSmsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2015_4bbb_aaee_338e368af6fa);
+}
+pub trait IMbnSmsImpl {
+    fn GetSmsConfiguration();
+    fn SetSmsConfiguration();
+    fn SmsSendPdu();
+    fn SmsSendCdma();
+    fn SmsSendCdmaPdu();
+    fn SmsRead();
+    fn SmsDelete();
+    fn GetSmsStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2857,6 +3071,14 @@ unsafe impl ::windows::core::Interface for IMbnSmsConfiguration {
     type Vtable = IMbnSmsConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2012_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnSmsConfigurationImpl {
+    fn ServiceCenterAddress();
+    fn SetServiceCenterAddress();
+    fn MaxMessageIndex();
+    fn CdmaShortMsgSize();
+    fn SmsFormat();
+    fn SetSmsFormat();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnSmsConfigurationVtbl(
@@ -2947,6 +3169,15 @@ unsafe impl ::windows::core::Interface for IMbnSmsEvents {
     type Vtable = IMbnSmsEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2016_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnSmsEventsImpl {
+    fn OnSmsConfigurationChange();
+    fn OnSetSmsConfigurationComplete();
+    fn OnSmsSendComplete();
+    fn OnSmsReadComplete();
+    fn OnSmsNewClass0Message();
+    fn OnSmsDeleteComplete();
+    fn OnSmsStatusChange();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnSmsEventsVtbl(
@@ -3029,6 +3260,12 @@ impl ::core::fmt::Debug for IMbnSmsReadMsgPdu {
 unsafe impl ::windows::core::Interface for IMbnSmsReadMsgPdu {
     type Vtable = IMbnSmsReadMsgPduVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2013_4bbb_aaee_338e368af6fa);
+}
+pub trait IMbnSmsReadMsgPduImpl {
+    fn Index();
+    fn Status();
+    fn PduData();
+    fn Message();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3131,6 +3368,16 @@ unsafe impl ::windows::core::Interface for IMbnSmsReadMsgTextCdma {
     type Vtable = IMbnSmsReadMsgTextCdmaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2014_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnSmsReadMsgTextCdmaImpl {
+    fn Index();
+    fn Status();
+    fn Address();
+    fn Timestamp();
+    fn EncodingID();
+    fn LanguageID();
+    fn SizeInCharacters();
+    fn Message();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnSmsReadMsgTextCdmaVtbl(
@@ -3212,6 +3459,11 @@ unsafe impl ::windows::core::Interface for IMbnSubscriberInformation {
     type Vtable = IMbnSubscriberInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x459ecc43_bcf5_11dc_a8a8_001321f1405f);
 }
+pub trait IMbnSubscriberInformationImpl {
+    fn SubscriberID();
+    fn SimIccID();
+    fn TelephoneNumbers();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnSubscriberInformationVtbl(
@@ -3280,6 +3532,10 @@ unsafe impl ::windows::core::Interface for IMbnVendorSpecificEvents {
     type Vtable = IMbnVendorSpecificEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_201a_4bbb_aaee_338e368af6fa);
 }
+pub trait IMbnVendorSpecificEventsImpl {
+    fn OnEventNotification();
+    fn OnSetVendorSpecificComplete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnVendorSpecificEventsVtbl(
@@ -3341,6 +3597,9 @@ impl ::core::fmt::Debug for IMbnVendorSpecificOperation {
 unsafe impl ::windows::core::Interface for IMbnVendorSpecificOperation {
     type Vtable = IMbnVendorSpecificOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2019_4bbb_aaee_338e368af6fa);
+}
+pub trait IMbnVendorSpecificOperationImpl {
+    fn SetVendorSpecific();
 }
 #[repr(C)]
 #[doc(hidden)]

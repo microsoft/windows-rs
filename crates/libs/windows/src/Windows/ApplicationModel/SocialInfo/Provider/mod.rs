@@ -8,6 +8,18 @@ unsafe impl ::windows::core::Interface for ISocialDashboardItemUpdater {
     type Vtable = ISocialDashboardItemUpdaterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cde9dc9_4800_46cd_869b_1973ec685bde);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait ISocialDashboardItemUpdaterImpl {
+    fn OwnerRemoteId();
+    fn Content();
+    fn Timestamp();
+    fn SetTimestamp();
+    fn SetThumbnail();
+    fn Thumbnail();
+    fn CommitAsync();
+    fn TargetUri();
+    fn SetTargetUri();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -46,6 +58,13 @@ unsafe impl ::windows::core::Interface for ISocialFeedUpdater {
     type Vtable = ISocialFeedUpdaterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a0c0aa7_ed89_4bd5_a8d9_15f4d9861c10);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait ISocialFeedUpdaterImpl {
+    fn OwnerRemoteId();
+    fn Kind();
+    fn Items();
+    fn CommitAsync();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -73,6 +92,15 @@ pub struct ISocialInfoProviderManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISocialInfoProviderManagerStatics {
     type Vtable = ISocialInfoProviderManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b88e52b_7787_48d6_aa12_d8e8f47ab85a);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait ISocialInfoProviderManagerStaticsImpl {
+    fn CreateSocialFeedUpdaterAsync();
+    fn CreateDashboardItemUpdaterAsync();
+    fn UpdateBadgeCountValue();
+    fn ReportNewContentAvailable();
+    fn ProvisionAsync();
+    fn DeprovisionAsync();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]

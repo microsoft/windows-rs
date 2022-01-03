@@ -34,6 +34,11 @@ unsafe impl ::windows::core::Interface for IGameControllerProviderInfoStatics {
     type Vtable = IGameControllerProviderInfoStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0be1e6c5_d9bd_44ee_8362_488b2e464bfb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGameControllerProviderInfoStaticsImpl {
+    fn GetParentProviderId();
+    fn GetProviderId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameControllerProviderInfoStaticsVtbl(

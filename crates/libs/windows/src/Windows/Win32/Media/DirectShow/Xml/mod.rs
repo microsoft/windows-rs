@@ -60,6 +60,11 @@ unsafe impl ::windows::core::Interface for IXMLGraphBuilder {
     type Vtable = IXMLGraphBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bb05960_5fbf_11d2_a521_44df07c10000);
 }
+pub trait IXMLGraphBuilderImpl {
+    fn BuildFromXML();
+    fn SaveToXML();
+    fn BuildFromXMLFile();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLGraphBuilderVtbl(

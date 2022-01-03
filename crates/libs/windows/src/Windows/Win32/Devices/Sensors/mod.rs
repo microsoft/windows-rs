@@ -347,6 +347,10 @@ unsafe impl ::windows::core::Interface for ILocationPermissions {
     type Vtable = ILocationPermissionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5fb0a7f_e74e_44f5_8e02_4806863a274f);
 }
+pub trait ILocationPermissionsImpl {
+    fn GetGlobalLocationPermission();
+    fn CheckLocationCapability();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocationPermissionsVtbl(
@@ -480,6 +484,23 @@ unsafe impl ::windows::core::Interface for ISensor {
     type Vtable = ISensorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fa08f80_2657_458e_af75_46f73fa6ac5c);
 }
+pub trait ISensorImpl {
+    fn GetID();
+    fn GetCategory();
+    fn GetType();
+    fn GetFriendlyName();
+    fn GetProperty();
+    fn GetProperties();
+    fn GetSupportedDataFields();
+    fn SetProperties();
+    fn SupportsDataField();
+    fn GetState();
+    fn GetData();
+    fn SupportsEvent();
+    fn GetEventInterest();
+    fn SetEventInterest();
+    fn SetEventSink();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensorVtbl(
@@ -579,6 +600,14 @@ unsafe impl ::windows::core::Interface for ISensorCollection {
     type Vtable = ISensorCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23571e11_e545_4dd8_a337_b89bf44b10df);
 }
+pub trait ISensorCollectionImpl {
+    fn GetAt();
+    fn GetCount();
+    fn Add();
+    fn Remove();
+    fn RemoveByID();
+    fn Clear();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensorCollectionVtbl(
@@ -655,6 +684,11 @@ unsafe impl ::windows::core::Interface for ISensorDataReport {
     type Vtable = ISensorDataReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ab9df9b_c4b5_4796_8898_0470706a2e1d);
 }
+pub trait ISensorDataReportImpl {
+    fn GetTimestamp();
+    fn GetSensorValue();
+    fn GetSensorValues();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensorDataReportVtbl(
@@ -729,6 +763,12 @@ impl ::core::fmt::Debug for ISensorEvents {
 unsafe impl ::windows::core::Interface for ISensorEvents {
     type Vtable = ISensorEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d8dcc91_4641_47e7_b7c3_b74f48a6c391);
+}
+pub trait ISensorEventsImpl {
+    fn OnStateChanged();
+    fn OnDataUpdated();
+    fn OnEvent();
+    fn OnLeave();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -811,6 +851,13 @@ unsafe impl ::windows::core::Interface for ISensorManager {
     type Vtable = ISensorManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd77db67_45a8_42dc_8d00_6dcf15f8377a);
 }
+pub trait ISensorManagerImpl {
+    fn GetSensorsByCategory();
+    fn GetSensorsByType();
+    fn GetSensorByID();
+    fn SetEventSink();
+    fn RequestPermissions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensorManagerVtbl(
@@ -872,6 +919,9 @@ impl ::core::fmt::Debug for ISensorManagerEvents {
 unsafe impl ::windows::core::Interface for ISensorManagerEvents {
     type Vtable = ISensorManagerEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b3b0b86_266a_4aad_b21f_fde5501001b7);
+}
+pub trait ISensorManagerEventsImpl {
+    fn OnSensorEnter();
 }
 #[repr(C)]
 #[doc(hidden)]

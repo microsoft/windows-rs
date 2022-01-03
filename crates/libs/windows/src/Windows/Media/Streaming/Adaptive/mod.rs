@@ -2214,6 +2214,35 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSource {
     type Vtable = IAdaptiveMediaSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c7332ef_d39f_4396_b4d9_043957a7c964);
 }
+#[cfg(all(feature = "Media_Core", feature = "implement_exclusive"))]
+pub trait IAdaptiveMediaSourceImpl: IMediaSourceImpl {
+    fn IsLive();
+    fn DesiredLiveOffset();
+    fn SetDesiredLiveOffset();
+    fn InitialBitrate();
+    fn SetInitialBitrate();
+    fn CurrentDownloadBitrate();
+    fn CurrentPlaybackBitrate();
+    fn AvailableBitrates();
+    fn DesiredMinBitrate();
+    fn SetDesiredMinBitrate();
+    fn DesiredMaxBitrate();
+    fn SetDesiredMaxBitrate();
+    fn AudioOnlyPlayback();
+    fn InboundBitsPerSecond();
+    fn InboundBitsPerSecondWindow();
+    fn SetInboundBitsPerSecondWindow();
+    fn DownloadBitrateChanged();
+    fn RemoveDownloadBitrateChanged();
+    fn PlaybackBitrateChanged();
+    fn RemovePlaybackBitrateChanged();
+    fn DownloadRequested();
+    fn RemoveDownloadRequested();
+    fn DownloadCompleted();
+    fn RemoveDownloadCompleted();
+    fn DownloadFailed();
+    fn RemoveDownloadFailed();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceVtbl(
@@ -2276,6 +2305,10 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSource2 {
     type Vtable = IAdaptiveMediaSource2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17890342_6760_4bb9_a58a_f7aa98b08c0e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSource2Impl {
+    fn AdvancedSettings();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSource2Vtbl(
@@ -2293,6 +2326,15 @@ pub struct IAdaptiveMediaSource3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdaptiveMediaSource3 {
     type Vtable = IAdaptiveMediaSource3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba7023fd_c334_461b_a36e_c99f54f7174a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSource3Impl {
+    fn MinLiveOffset();
+    fn MaxSeekableWindowSize();
+    fn DesiredSeekableWindowSize();
+    fn SetDesiredSeekableWindowSize();
+    fn Diagnostics();
+    fn GetCorrelatedTimes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2321,6 +2363,15 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceAdvancedSettings 
     type Vtable = IAdaptiveMediaSourceAdvancedSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55db1680_1aeb_47dc_aa08_9a11610ba45a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceAdvancedSettingsImpl {
+    fn AllSegmentsIndependent();
+    fn SetAllSegmentsIndependent();
+    fn DesiredBitrateHeadroomRatio();
+    fn SetDesiredBitrateHeadroomRatio();
+    fn BitrateDowngradeTriggerRatio();
+    fn SetBitrateDowngradeTriggerRatio();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceAdvancedSettingsVtbl(
@@ -2348,6 +2399,12 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceCorrelatedTimes {
     type Vtable = IAdaptiveMediaSourceCorrelatedTimesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05108787_e032_48e1_ab8d_002b0b3051df);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceCorrelatedTimesImpl {
+    fn Position();
+    fn PresentationTimeStamp();
+    fn ProgramDateTime();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceCorrelatedTimesVtbl(
@@ -2371,6 +2428,12 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceCreationResult {
     type Vtable = IAdaptiveMediaSourceCreationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4686b6b2_800f_4e31_9093_76d4782013e7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceCreationResultImpl {
+    fn Status();
+    fn MediaSource();
+    fn HttpResponseMessage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceCreationResultVtbl(
@@ -2392,6 +2455,10 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceCreationResult2 {
     type Vtable = IAdaptiveMediaSourceCreationResult2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c3243bf_1c44_404b_a201_df45ac7898e8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceCreationResult2Impl {
+    fn ExtendedError();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceCreationResult2Vtbl(
@@ -2409,6 +2476,18 @@ pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs(::windows::core::IUn
 unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDiagnosticAvailableEventArgs {
     type Vtable = IAdaptiveMediaSourceDiagnosticAvailableEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3af64f06_6d9c_494a_b7a9_b3a5dee6ad68);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceDiagnosticAvailableEventArgsImpl {
+    fn DiagnosticType();
+    fn RequestId();
+    fn Position();
+    fn SegmentId();
+    fn ResourceType();
+    fn ResourceUri();
+    fn ResourceByteRangeOffset();
+    fn ResourceByteRangeLength();
+    fn Bitrate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2444,6 +2523,10 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDiagnosticAvailab
     type Vtable = IAdaptiveMediaSourceDiagnosticAvailableEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c6dd857_16a5_4d9f_810e_00bd901b3ef9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceDiagnosticAvailableEventArgs2Impl {
+    fn ExtendedError();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs2Vtbl(
@@ -2461,6 +2544,11 @@ pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs3(::windows::core::IU
 unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDiagnosticAvailableEventArgs3 {
     type Vtable = IAdaptiveMediaSourceDiagnosticAvailableEventArgs3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3650cd5_daeb_4103_84da_68769ad513ff);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceDiagnosticAvailableEventArgs3Impl {
+    fn ResourceDuration();
+    fn ResourceContentType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2481,6 +2569,11 @@ pub struct IAdaptiveMediaSourceDiagnostics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDiagnostics {
     type Vtable = IAdaptiveMediaSourceDiagnosticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b24ee68_962e_448c_aebf_b29b56098e23);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceDiagnosticsImpl {
+    fn DiagnosticAvailable();
+    fn RemoveDiagnosticAvailable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2503,6 +2596,11 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadBitrateCh
     type Vtable = IAdaptiveMediaSourceDownloadBitrateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x670c0a44_e04e_4eff_816a_17399f78f4ba);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceDownloadBitrateChangedEventArgsImpl {
+    fn OldValue();
+    fn NewValue();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadBitrateChangedEventArgsVtbl(
@@ -2522,6 +2620,10 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadBitrateCh
     type Vtable = IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3f1f444_96ae_4de0_b540_2b3246e6968c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2Impl {
+    fn Reason();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2Vtbl(
@@ -2539,6 +2641,14 @@ pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs(::windows::core::IUnkn
 unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadCompletedEventArgs {
     type Vtable = IAdaptiveMediaSourceDownloadCompletedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19240dc3_5b37_4a1a_8970_d621cb6ca83b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceDownloadCompletedEventArgsImpl {
+    fn ResourceType();
+    fn ResourceUri();
+    fn ResourceByteRangeOffset();
+    fn ResourceByteRangeLength();
+    fn HttpResponseMessage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2566,6 +2676,12 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadCompleted
     type Vtable = IAdaptiveMediaSourceDownloadCompletedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x704744c4_964a_40e4_af95_9177dd6dfa00);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceDownloadCompletedEventArgs2Impl {
+    fn RequestId();
+    fn Statistics();
+    fn Position();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs2Vtbl(
@@ -2587,6 +2703,11 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadCompleted
     type Vtable = IAdaptiveMediaSourceDownloadCompletedEventArgs3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f8a8bd1_93b2_47c6_badc_8be2c8f7f6e8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceDownloadCompletedEventArgs3Impl {
+    fn ResourceDuration();
+    fn ResourceContentType();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs3Vtbl(
@@ -2606,6 +2727,14 @@ pub struct IAdaptiveMediaSourceDownloadFailedEventArgs(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadFailedEventArgs {
     type Vtable = IAdaptiveMediaSourceDownloadFailedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37739048_f4ab_40a4_b135_c6dfd8bd7ff1);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceDownloadFailedEventArgsImpl {
+    fn ResourceType();
+    fn ResourceUri();
+    fn ResourceByteRangeOffset();
+    fn ResourceByteRangeLength();
+    fn HttpResponseMessage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2633,6 +2762,13 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadFailedEve
     type Vtable = IAdaptiveMediaSourceDownloadFailedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70919568_967c_4986_90c5_c6fc4b31e2d8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceDownloadFailedEventArgs2Impl {
+    fn RequestId();
+    fn ExtendedError();
+    fn Statistics();
+    fn Position();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadFailedEventArgs2Vtbl(
@@ -2655,6 +2791,11 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadFailedEve
     type Vtable = IAdaptiveMediaSourceDownloadFailedEventArgs3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0354549_1132_4a10_915a_c2211b5b9409);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceDownloadFailedEventArgs3Impl {
+    fn ResourceDuration();
+    fn ResourceContentType();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadFailedEventArgs3Vtbl(
@@ -2675,6 +2816,10 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadRequested
     type Vtable = IAdaptiveMediaSourceDownloadRequestedDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05c68f64_fa20_4dbd_9821_4bf4c9bf77ab);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceDownloadRequestedDeferralImpl {
+    fn Complete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadRequestedDeferralVtbl(
@@ -2692,6 +2837,15 @@ pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs(::windows::core::IUnkn
 unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadRequestedEventArgs {
     type Vtable = IAdaptiveMediaSourceDownloadRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc83fdffd_44a9_47a2_bf96_03398b4bfaaf);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceDownloadRequestedEventArgsImpl {
+    fn ResourceType();
+    fn ResourceUri();
+    fn ResourceByteRangeOffset();
+    fn ResourceByteRangeLength();
+    fn Result();
+    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2719,6 +2873,11 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadRequested
     type Vtable = IAdaptiveMediaSourceDownloadRequestedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb37d8bfe_aa44_4d82_825b_611de3bcfecb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceDownloadRequestedEventArgs2Impl {
+    fn RequestId();
+    fn Position();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs2Vtbl(
@@ -2739,6 +2898,11 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadRequested
     type Vtable = IAdaptiveMediaSourceDownloadRequestedEventArgs3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x333c50fd_4f62_4481_ab44_1e47b0574225);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceDownloadRequestedEventArgs3Impl {
+    fn ResourceDuration();
+    fn ResourceContentType();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs3Vtbl(
@@ -2758,6 +2922,19 @@ pub struct IAdaptiveMediaSourceDownloadResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadResult {
     type Vtable = IAdaptiveMediaSourceDownloadResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4afdc73_bcee_4a6a_9f0a_fec41e2339b0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceDownloadResultImpl {
+    fn ResourceUri();
+    fn SetResourceUri();
+    fn InputStream();
+    fn SetInputStream();
+    fn Buffer();
+    fn SetBuffer();
+    fn ContentType();
+    fn SetContentType();
+    fn ExtendedStatus();
+    fn SetExtendedStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2792,6 +2969,13 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadResult2 {
     type Vtable = IAdaptiveMediaSourceDownloadResult2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15552cb7_7b80_4ac4_8660_a4b97f7c70f0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceDownloadResult2Impl {
+    fn ResourceByteRangeOffset();
+    fn SetResourceByteRangeOffset();
+    fn ResourceByteRangeLength();
+    fn SetResourceByteRangeLength();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadResult2Vtbl(
@@ -2817,6 +3001,13 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadStatistic
     type Vtable = IAdaptiveMediaSourceDownloadStatisticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa306cefb_e96a_4dff_a9b8_1ae08c01ae98);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceDownloadStatisticsImpl {
+    fn ContentBytesReceivedCount();
+    fn TimeToHeadersReceived();
+    fn TimeToFirstByteReceived();
+    fn TimeToLastByteReceived();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadStatisticsVtbl(
@@ -2841,6 +3032,12 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourcePlaybackBitrateCh
     type Vtable = IAdaptiveMediaSourcePlaybackBitrateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23a29f6d_7dda_4a51_87a9_6fa8c5b292be);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourcePlaybackBitrateChangedEventArgsImpl {
+    fn OldValue();
+    fn NewValue();
+    fn AudioOnly();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourcePlaybackBitrateChangedEventArgsVtbl(
@@ -2860,6 +3057,14 @@ pub struct IAdaptiveMediaSourceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceStatics {
     type Vtable = IAdaptiveMediaSourceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50a6bd5d_66ef_4cd3_9579_9e660507dc3f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdaptiveMediaSourceStaticsImpl {
+    fn IsContentTypeSupported();
+    fn CreateFromUriAsync();
+    fn CreateFromUriWithDownloaderAsync();
+    fn CreateFromStreamAsync();
+    fn CreateFromStreamWithDownloaderAsync();
 }
 #[repr(C)]
 #[doc(hidden)]

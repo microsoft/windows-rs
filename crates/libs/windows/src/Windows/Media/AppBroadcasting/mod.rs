@@ -441,6 +441,12 @@ unsafe impl ::windows::core::Interface for IAppBroadcastingMonitor {
     type Vtable = IAppBroadcastingMonitorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f95a68_8907_48a0_b8ef_24d208137542);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppBroadcastingMonitorImpl {
+    fn IsCurrentAppBroadcasting();
+    fn IsCurrentAppBroadcastingChanged();
+    fn RemoveIsCurrentAppBroadcastingChanged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastingMonitorVtbl(
@@ -463,6 +469,11 @@ unsafe impl ::windows::core::Interface for IAppBroadcastingStatus {
     type Vtable = IAppBroadcastingStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1225e4df_03a1_42f8_8b80_c9228cd9cf2e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppBroadcastingStatusImpl {
+    fn CanStartBroadcast();
+    fn Details();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastingStatusVtbl(
@@ -481,6 +492,17 @@ pub struct IAppBroadcastingStatusDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastingStatusDetails {
     type Vtable = IAppBroadcastingStatusDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x069dada4_b573_4e3c_8e19_1bafacd09713);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppBroadcastingStatusDetailsImpl {
+    fn IsAnyAppBroadcasting();
+    fn IsCaptureResourceUnavailable();
+    fn IsGameStreamInProgress();
+    fn IsGpuConstrained();
+    fn IsAppInactive();
+    fn IsBlockedForApp();
+    fn IsDisabledByUser();
+    fn IsDisabledBySystem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -507,6 +529,11 @@ unsafe impl ::windows::core::Interface for IAppBroadcastingUI {
     type Vtable = IAppBroadcastingUIVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe56f9f8f_ee99_4dca_a3c3_70af3db44f5f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppBroadcastingUIImpl {
+    fn GetStatus();
+    fn ShowBroadcastUI();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastingUIVtbl(
@@ -525,6 +552,11 @@ pub struct IAppBroadcastingUIStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastingUIStatics {
     type Vtable = IAppBroadcastingUIStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55a8a79d_23cb_4579_9c34_886fe02c045a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppBroadcastingUIStaticsImpl {
+    fn GetDefault();
+    fn GetForUser();
 }
 #[repr(C)]
 #[doc(hidden)]

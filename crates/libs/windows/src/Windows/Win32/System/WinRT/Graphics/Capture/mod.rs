@@ -56,6 +56,10 @@ unsafe impl ::windows::core::Interface for IGraphicsCaptureItemInterop {
     type Vtable = IGraphicsCaptureItemInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3628e81b_3cac_4c60_b7f4_23ce0e0c3356);
 }
+pub trait IGraphicsCaptureItemInteropImpl {
+    fn CreateForWindow();
+    fn CreateForMonitor();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureItemInteropVtbl(

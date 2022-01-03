@@ -8,6 +8,10 @@ unsafe impl ::windows::core::Interface for IInputActivationListenerPreviewStatic
     type Vtable = IInputActivationListenerPreviewStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0551ce5_0de6_5be0_a589_f737201a4582);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInputActivationListenerPreviewStaticsImpl {
+    fn CreateForApplicationWindow();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputActivationListenerPreviewStaticsVtbl(

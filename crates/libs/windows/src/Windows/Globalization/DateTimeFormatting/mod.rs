@@ -424,6 +424,27 @@ unsafe impl ::windows::core::Interface for IDateTimeFormatter {
     type Vtable = IDateTimeFormatterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95eeca10_73e0_4e4b_a183_3d6ad0ba35ec);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDateTimeFormatterImpl {
+    fn Languages();
+    fn GeographicRegion();
+    fn Calendar();
+    fn Clock();
+    fn NumeralSystem();
+    fn SetNumeralSystem();
+    fn Patterns();
+    fn Template();
+    fn Format();
+    fn IncludeYear();
+    fn IncludeMonth();
+    fn IncludeDayOfWeek();
+    fn IncludeDay();
+    fn IncludeHour();
+    fn IncludeMinute();
+    fn IncludeSecond();
+    fn ResolvedLanguage();
+    fn ResolvedGeographicRegion();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDateTimeFormatterVtbl(
@@ -462,6 +483,10 @@ unsafe impl ::windows::core::Interface for IDateTimeFormatter2 {
     type Vtable = IDateTimeFormatter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27c91a86_bdaa_4fd0_9e36_671d5aa5ee03);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDateTimeFormatter2Impl {
+    fn FormatUsingTimeZone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDateTimeFormatter2Vtbl(
@@ -480,6 +505,16 @@ pub struct IDateTimeFormatterFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDateTimeFormatterFactory {
     type Vtable = IDateTimeFormatterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec8d8a53_1a2e_412d_8815_3b745fb1a2a0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDateTimeFormatterFactoryImpl {
+    fn CreateDateTimeFormatter();
+    fn CreateDateTimeFormatterLanguages();
+    fn CreateDateTimeFormatterContext();
+    fn CreateDateTimeFormatterDate();
+    fn CreateDateTimeFormatterTime();
+    fn CreateDateTimeFormatterDateTimeLanguages();
+    fn CreateDateTimeFormatterDateTimeContext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -508,6 +543,13 @@ pub struct IDateTimeFormatterStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDateTimeFormatterStatics {
     type Vtable = IDateTimeFormatterStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfcde7c0_df4c_4a2e_9012_f47daf3f1212);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDateTimeFormatterStaticsImpl {
+    fn LongDate();
+    fn LongTime();
+    fn ShortDate();
+    fn ShortTime();
 }
 #[repr(C)]
 #[doc(hidden)]

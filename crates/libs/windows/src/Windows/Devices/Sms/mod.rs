@@ -1219,6 +1219,31 @@ unsafe impl ::windows::core::Interface for ISmsAppMessage {
     type Vtable = ISmsAppMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8bb8494_d3a0_4a0a_86d7_291033a8cf54);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISmsAppMessageImpl: ISmsMessageBaseImpl {
+    fn Timestamp();
+    fn To();
+    fn SetTo();
+    fn From();
+    fn Body();
+    fn SetBody();
+    fn CallbackNumber();
+    fn SetCallbackNumber();
+    fn IsDeliveryNotificationEnabled();
+    fn SetIsDeliveryNotificationEnabled();
+    fn RetryAttemptCount();
+    fn SetRetryAttemptCount();
+    fn Encoding();
+    fn SetEncoding();
+    fn PortNumber();
+    fn SetPortNumber();
+    fn TeleserviceId();
+    fn SetTeleserviceId();
+    fn ProtocolId();
+    fn SetProtocolId();
+    fn BinaryBody();
+    fn SetBinaryBody();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsAppMessageVtbl(
@@ -1411,6 +1436,13 @@ unsafe impl ::windows::core::Interface for ISmsBinaryMessage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bf4e813_3b53_4c6e_b61a_d86a63755650);
 }
 #[cfg(feature = "deprecated")]
+pub trait ISmsBinaryMessageImpl: ISmsMessageImpl {
+    fn Format();
+    fn SetFormat();
+    fn GetData();
+    fn SetData();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsBinaryMessageVtbl(
@@ -1435,6 +1467,19 @@ pub struct ISmsBroadcastMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsBroadcastMessage {
     type Vtable = ISmsBroadcastMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75aebbf1_e4b7_4874_a09c_2956e592f957);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISmsBroadcastMessageImpl: ISmsMessageBaseImpl {
+    fn Timestamp();
+    fn To();
+    fn Body();
+    fn Channel();
+    fn GeographicalScope();
+    fn MessageCode();
+    fn UpdateNumber();
+    fn BroadcastType();
+    fn IsEmergencyAlert();
+    fn IsUserPopupRequested();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1626,6 +1671,19 @@ unsafe impl ::windows::core::Interface for ISmsDevice {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x091791ed_872b_4eec_9c72_ab11627b34ec);
 }
 #[cfg(feature = "deprecated")]
+pub trait ISmsDeviceImpl {
+    fn SendMessageAsync();
+    fn CalculateLength();
+    fn AccountPhoneNumber();
+    fn CellularClass();
+    fn MessageStore();
+    fn DeviceStatus();
+    fn SmsMessageReceived();
+    fn RemoveSmsMessageReceived();
+    fn SmsDeviceStatusChanged();
+    fn RemoveSmsDeviceStatusChanged();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsDeviceVtbl(
@@ -1663,6 +1721,20 @@ unsafe impl ::windows::core::Interface for ISmsDevice2 {
     type Vtable = ISmsDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd8a5c13_e522_46cb_b8d5_9ead30fb6c47);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISmsDevice2Impl {
+    fn SmscAddress();
+    fn SetSmscAddress();
+    fn DeviceId();
+    fn ParentDeviceId();
+    fn AccountPhoneNumber();
+    fn CellularClass();
+    fn DeviceStatus();
+    fn CalculateLength();
+    fn SendMessageAndGetResultAsync();
+    fn DeviceStatusChanged();
+    fn RemoveDeviceStatusChanged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsDevice2Vtbl(
@@ -1694,6 +1766,13 @@ unsafe impl ::windows::core::Interface for ISmsDevice2Statics {
     type Vtable = ISmsDevice2StaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65c78325_1031_491e_8fb6_ef9991afe363);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISmsDevice2StaticsImpl {
+    fn GetDeviceSelector();
+    fn FromId();
+    fn GetDefault();
+    fn FromParentId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsDevice2StaticsVtbl(
@@ -1716,6 +1795,14 @@ pub struct ISmsDeviceMessageStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsDeviceMessageStore {
     type Vtable = ISmsDeviceMessageStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9889f253_f188_4427_8d54_ce0c2423c5c1);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait ISmsDeviceMessageStoreImpl {
+    fn DeleteMessageAsync();
+    fn DeleteMessagesAsync();
+    fn GetMessageAsync();
+    fn GetMessagesAsync();
+    fn MaxMessages();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -1747,6 +1834,12 @@ unsafe impl ::windows::core::Interface for ISmsDeviceStatics {
     type Vtable = ISmsDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf88d07ea_d815_4dd1_a234_4520ce4604a4);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait ISmsDeviceStaticsImpl {
+    fn GetDeviceSelector();
+    fn FromIdAsync();
+    fn GetDefaultAsync();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -1773,6 +1866,10 @@ unsafe impl ::windows::core::Interface for ISmsDeviceStatics2 {
     type Vtable = ISmsDeviceStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ca11c87_0873_4caf_8a7d_bd471e8586d1);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait ISmsDeviceStatics2Impl {
+    fn FromNetworkAccountIdAsync();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -1792,6 +1889,23 @@ pub struct ISmsFilterRule(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsFilterRule {
     type Vtable = ISmsFilterRuleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40e32fae_b049_4fbc_afe9_e2a610eff55c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISmsFilterRuleImpl {
+    fn MessageType();
+    fn ImsiPrefixes();
+    fn DeviceIds();
+    fn SenderNumbers();
+    fn TextMessagePrefixes();
+    fn PortNumbers();
+    fn CellularClass();
+    fn SetCellularClass();
+    fn ProtocolIds();
+    fn TeleserviceIds();
+    fn WapApplicationIds();
+    fn WapContentTypes();
+    fn BroadcastTypes();
+    fn BroadcastChannels();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1835,6 +1949,10 @@ unsafe impl ::windows::core::Interface for ISmsFilterRuleFactory {
     type Vtable = ISmsFilterRuleFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00c36508_6296_4f29_9aad_8920ceba3ce8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISmsFilterRuleFactoryImpl {
+    fn CreateFilterRule();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsFilterRuleFactoryVtbl(
@@ -1852,6 +1970,11 @@ pub struct ISmsFilterRules(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsFilterRules {
     type Vtable = ISmsFilterRulesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e47eafb_79cd_4881_9894_55a4135b23fa);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISmsFilterRulesImpl {
+    fn ActionType();
+    fn Rules();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1872,6 +1995,10 @@ pub struct ISmsFilterRulesFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsFilterRulesFactory {
     type Vtable = ISmsFilterRulesFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa09924ed_6e2e_4530_9fde_465d02eed00e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISmsFilterRulesFactoryImpl {
+    fn CreateFilterRules();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1967,6 +2094,10 @@ unsafe impl ::windows::core::RuntimeType for ISmsMessage {
 unsafe impl ::windows::core::Interface for ISmsMessage {
     type Vtable = ISmsMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed3c5e28_6984_4b07_811d_8d5906ed3cea);
+}
+pub trait ISmsMessageImpl {
+    fn Id();
+    fn MessageClass();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2088,6 +2219,13 @@ unsafe impl ::windows::core::Interface for ISmsMessageBase {
     type Vtable = ISmsMessageBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cf0fe30_fe50_4fc6_aa88_4ccfe27a29ea);
 }
+pub trait ISmsMessageBaseImpl {
+    fn MessageType();
+    fn DeviceId();
+    fn CellularClass();
+    fn MessageClass();
+    fn SimIccId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsMessageBaseVtbl(
@@ -2112,6 +2250,11 @@ unsafe impl ::windows::core::Interface for ISmsMessageReceivedEventArgs {
     type Vtable = ISmsMessageReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08e80a98_b8e5_41c1_a3d8_d3abfae22675);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait ISmsMessageReceivedEventArgsImpl {
+    fn TextMessage();
+    fn BinaryMessage();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -2133,6 +2276,18 @@ pub struct ISmsMessageReceivedTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsMessageReceivedTriggerDetails {
     type Vtable = ISmsMessageReceivedTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bcfcbd4_2657_4128_ad5f_e3877132bdb1);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISmsMessageReceivedTriggerDetailsImpl {
+    fn MessageType();
+    fn TextMessage();
+    fn WapMessage();
+    fn AppMessage();
+    fn BroadcastMessage();
+    fn VoicemailMessage();
+    fn StatusMessage();
+    fn Drop();
+    fn Accept();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2160,6 +2315,13 @@ unsafe impl ::windows::core::Interface for ISmsMessageRegistration {
     type Vtable = ISmsMessageRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1720503e_f34f_446b_83b3_0ff19923b409);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISmsMessageRegistrationImpl {
+    fn Id();
+    fn Unregister();
+    fn MessageReceived();
+    fn RemoveMessageReceived();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsMessageRegistrationVtbl(
@@ -2183,6 +2345,11 @@ unsafe impl ::windows::core::Interface for ISmsMessageRegistrationStatics {
     type Vtable = ISmsMessageRegistrationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63a05464_2898_4778_a03c_6f994907d63a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISmsMessageRegistrationStaticsImpl {
+    fn AllRegistrations();
+    fn Register();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsMessageRegistrationStaticsVtbl(
@@ -2204,6 +2371,11 @@ pub struct ISmsReceivedEventDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsReceivedEventDetails {
     type Vtable = ISmsReceivedEventDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bb50f15_e46d_4c82_847d_5a0304c1d53d);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait ISmsReceivedEventDetailsImpl {
+    fn DeviceId();
+    fn MessageIndex();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -2229,6 +2401,11 @@ unsafe impl ::windows::core::Interface for ISmsReceivedEventDetails2 {
     type Vtable = ISmsReceivedEventDetails2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40e05c86_a7b4_4771_9ae7_0b5ffb12c03a);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait ISmsReceivedEventDetails2Impl {
+    fn MessageClass();
+    fn BinaryMessage();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -2250,6 +2427,16 @@ pub struct ISmsSendMessageResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsSendMessageResult {
     type Vtable = ISmsSendMessageResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb139af2_78c9_4feb_9622_452328088d62);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISmsSendMessageResultImpl {
+    fn IsSuccessful();
+    fn MessageReferenceNumbers();
+    fn CellularClass();
+    fn ModemErrorCode();
+    fn IsErrorTransient();
+    fn NetworkCauseCode();
+    fn TransportFailureCause();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2275,6 +2462,16 @@ pub struct ISmsStatusMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsStatusMessage {
     type Vtable = ISmsStatusMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6d28342_b70b_4677_9379_c9783fdff8f4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISmsStatusMessageImpl: ISmsMessageBaseImpl {
+    fn To();
+    fn From();
+    fn Body();
+    fn Status();
+    fn MessageReferenceNumber();
+    fn ServiceCenterTimestamp();
+    fn DischargeTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2527,6 +2724,22 @@ unsafe impl ::windows::core::Interface for ISmsTextMessage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd61c904c_a495_487f_9a6f_971548c5bc9f);
 }
 #[cfg(feature = "deprecated")]
+pub trait ISmsTextMessageImpl: ISmsMessageImpl {
+    fn Timestamp();
+    fn PartReferenceId();
+    fn PartNumber();
+    fn PartCount();
+    fn To();
+    fn SetTo();
+    fn From();
+    fn SetFrom();
+    fn Body();
+    fn SetBody();
+    fn Encoding();
+    fn SetEncoding();
+    fn ToBinaryMessages();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsTextMessageVtbl(
@@ -2570,6 +2783,25 @@ unsafe impl ::windows::core::Interface for ISmsTextMessage2 {
     type Vtable = ISmsTextMessage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22a0d893_4555_4755_b5a1_e7fd84955f8d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISmsTextMessage2Impl: ISmsMessageBaseImpl {
+    fn Timestamp();
+    fn To();
+    fn SetTo();
+    fn From();
+    fn Body();
+    fn SetBody();
+    fn Encoding();
+    fn SetEncoding();
+    fn CallbackNumber();
+    fn SetCallbackNumber();
+    fn IsDeliveryNotificationEnabled();
+    fn SetIsDeliveryNotificationEnabled();
+    fn RetryAttemptCount();
+    fn SetRetryAttemptCount();
+    fn TeleserviceId();
+    fn ProtocolId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsTextMessage2Vtbl(
@@ -2606,6 +2838,11 @@ unsafe impl ::windows::core::Interface for ISmsTextMessageStatics {
     type Vtable = ISmsTextMessageStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f68c5ed_3ccc_47a3_8c55_380d3b010892);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait ISmsTextMessageStaticsImpl {
+    fn FromBinaryMessage();
+    fn FromBinaryData();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -2627,6 +2864,13 @@ pub struct ISmsVoicemailMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsVoicemailMessage {
     type Vtable = ISmsVoicemailMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x271aa0a6_95b1_44ff_bcb8_b8fdd7e08bc3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISmsVoicemailMessageImpl: ISmsMessageBaseImpl {
+    fn Timestamp();
+    fn To();
+    fn Body();
+    fn MessageCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2650,6 +2894,16 @@ pub struct ISmsWapMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsWapMessage {
     type Vtable = ISmsWapMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd937743_7a55_4d3b_9021_f22e022d09c5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISmsWapMessageImpl: ISmsMessageBaseImpl {
+    fn Timestamp();
+    fn To();
+    fn From();
+    fn ApplicationId();
+    fn ContentType();
+    fn BinaryBody();
+    fn Headers();
 }
 #[repr(C)]
 #[doc(hidden)]

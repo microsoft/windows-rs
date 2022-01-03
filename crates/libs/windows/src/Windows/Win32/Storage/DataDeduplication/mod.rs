@@ -363,6 +363,9 @@ unsafe impl ::windows::core::Interface for IDedupBackupSupport {
     type Vtable = IDedupBackupSupportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc719d963_2b2d_415e_acf7_7eb7ca596ff4);
 }
+pub trait IDedupBackupSupportImpl {
+    fn RestoreFiles();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDedupBackupSupportVtbl(
@@ -434,6 +437,12 @@ impl ::core::fmt::Debug for IDedupChunkLibrary {
 unsafe impl ::windows::core::Interface for IDedupChunkLibrary {
     type Vtable = IDedupChunkLibraryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb5144d7_2720_4dcc_8777_78597416ec23);
+}
+pub trait IDedupChunkLibraryImpl {
+    fn InitializeForPushBuffers();
+    fn Uninitialize();
+    fn SetParameter();
+    fn StartChunking();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -553,6 +562,20 @@ unsafe impl ::windows::core::Interface for IDedupDataPort {
     type Vtable = IDedupDataPortVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7963d734_40a9_4ea3_bbf6_5a89d26f7ae8);
 }
+pub trait IDedupDataPortImpl {
+    fn GetStatus();
+    fn LookupChunks();
+    fn InsertChunks();
+    fn InsertChunksWithStream();
+    fn CommitStreams();
+    fn CommitStreamsWithStream();
+    fn GetStreams();
+    fn GetStreamsResults();
+    fn GetChunks();
+    fn GetChunksResults();
+    fn GetRequestStatus();
+    fn GetRequestResults();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDedupDataPortVtbl(
@@ -638,6 +661,11 @@ unsafe impl ::windows::core::Interface for IDedupDataPortManager {
     type Vtable = IDedupDataPortManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44677452_b90a_445e_8192_cdcfe81511fb);
 }
+pub trait IDedupDataPortManagerImpl {
+    fn GetConfiguration();
+    fn GetVolumeStatus();
+    fn GetVolumeDataPort();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDedupDataPortManagerVtbl(
@@ -711,6 +739,12 @@ unsafe impl ::windows::core::Interface for IDedupIterateChunksHash32 {
     type Vtable = IDedupIterateChunksHash32Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90b584d3_72aa_400f_9767_cad866a5a2d8);
 }
+pub trait IDedupIterateChunksHash32Impl {
+    fn PushBuffer();
+    fn Next();
+    fn Drain();
+    fn Reset();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDedupIterateChunksHash32Vtbl(
@@ -781,6 +815,11 @@ impl ::core::fmt::Debug for IDedupReadFileCallback {
 unsafe impl ::windows::core::Interface for IDedupReadFileCallback {
     type Vtable = IDedupReadFileCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bacc67a_2f1d_42d0_897e_6ff62dd533bb);
+}
+pub trait IDedupReadFileCallbackImpl {
+    fn ReadBackupFile();
+    fn OrderContainersRestore();
+    fn PreviewContainerRead();
 }
 #[repr(C)]
 #[doc(hidden)]

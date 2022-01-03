@@ -100,6 +100,9 @@ unsafe impl ::windows::core::Interface for IOplockBreakingHandler {
     type Vtable = IOplockBreakingHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x826abe3d_3acd_47d3_84f2_88aaedcf6304);
 }
+pub trait IOplockBreakingHandlerImpl {
+    fn OplockBreaking();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOplockBreakingHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
@@ -152,6 +155,9 @@ impl ::core::fmt::Debug for IRandomAccessStreamFileAccessMode {
 unsafe impl ::windows::core::Interface for IRandomAccessStreamFileAccessMode {
     type Vtable = IRandomAccessStreamFileAccessModeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x332e5848_2e15_458e_85c4_c911c0c3d6f4);
+}
+pub trait IRandomAccessStreamFileAccessModeImpl {
+    fn GetMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -206,6 +212,9 @@ impl ::core::fmt::Debug for IStorageFolderHandleAccess {
 unsafe impl ::windows::core::Interface for IStorageFolderHandleAccess {
     type Vtable = IStorageFolderHandleAccessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf19938f_5462_48a0_be65_d2a3271a08d6);
+}
+pub trait IStorageFolderHandleAccessImpl {
+    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -267,6 +276,9 @@ unsafe impl ::windows::core::Interface for IStorageItemHandleAccess {
     type Vtable = IStorageItemHandleAccessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ca296b2_2c25_4d22_b785_b885c8201e6a);
 }
+pub trait IStorageItemHandleAccessImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageItemHandleAccessVtbl(
@@ -325,6 +337,9 @@ unsafe impl ::windows::core::Interface for IUnbufferedFileHandleOplockCallback {
     type Vtable = IUnbufferedFileHandleOplockCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1019a0e_6243_4329_8497_2e75894d7710);
 }
+pub trait IUnbufferedFileHandleOplockCallbackImpl {
+    fn OnBrokenCallback();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUnbufferedFileHandleOplockCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
@@ -381,6 +396,10 @@ impl ::core::fmt::Debug for IUnbufferedFileHandleProvider {
 unsafe impl ::windows::core::Interface for IUnbufferedFileHandleProvider {
     type Vtable = IUnbufferedFileHandleProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa65c9109_42ab_4b94_a7b1_dd2e4e68515e);
+}
+pub trait IUnbufferedFileHandleProviderImpl {
+    fn OpenUnbufferedFileHandle();
+    fn CloseUnbufferedFileHandle();
 }
 #[repr(C)]
 #[doc(hidden)]

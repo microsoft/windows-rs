@@ -6,6 +6,15 @@ unsafe impl ::windows::core::Interface for IRadio {
     type Vtable = IRadioVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x252118df_b33e_416a_875f_1cf38ae2d83e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadioImpl {
+    fn SetStateAsync();
+    fn StateChanged();
+    fn RemoveStateChanged();
+    fn State();
+    fn Name();
+    fn Kind();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadioVtbl(
@@ -31,6 +40,13 @@ pub struct IRadioStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRadioStatics {
     type Vtable = IRadioStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fb6a12e_67cb_46ae_aae9_65919f86eff4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRadioStaticsImpl {
+    fn GetRadiosAsync();
+    fn GetDeviceSelector();
+    fn FromIdAsync();
+    fn RequestAccessAsync();
 }
 #[repr(C)]
 #[doc(hidden)]

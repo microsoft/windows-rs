@@ -741,6 +741,12 @@ unsafe impl ::windows::core::Interface for IDirect3D11CaptureFrame {
     type Vtable = IDirect3D11CaptureFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa50c623_38da_4b32_acf3_fa9734ad800e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDirect3D11CaptureFrameImpl {
+    fn Surface();
+    fn SystemRelativeTime();
+    fn ContentSize();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3D11CaptureFrameVtbl(
@@ -762,6 +768,15 @@ pub struct IDirect3D11CaptureFramePool(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDirect3D11CaptureFramePool {
     type Vtable = IDirect3D11CaptureFramePoolVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24eb6d22_1975_422e_82e7_780dbd8ddf24);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDirect3D11CaptureFramePoolImpl {
+    fn Recreate();
+    fn TryGetNextFrame();
+    fn FrameArrived();
+    fn RemoveFrameArrived();
+    fn CreateCaptureSession();
+    fn DispatcherQueue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -790,6 +805,10 @@ unsafe impl ::windows::core::Interface for IDirect3D11CaptureFramePoolStatics {
     type Vtable = IDirect3D11CaptureFramePoolStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7784056a_67aa_4d53_ae54_1088d5a8ca21);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDirect3D11CaptureFramePoolStaticsImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3D11CaptureFramePoolStaticsVtbl(
@@ -808,6 +827,10 @@ pub struct IDirect3D11CaptureFramePoolStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDirect3D11CaptureFramePoolStatics2 {
     type Vtable = IDirect3D11CaptureFramePoolStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x589b103f_6bbc_5df5_a991_02e28b3b66d5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDirect3D11CaptureFramePoolStatics2Impl {
+    fn CreateFreeThreaded();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -828,6 +851,10 @@ unsafe impl ::windows::core::Interface for IGraphicsCaptureAccessStatics {
     type Vtable = IGraphicsCaptureAccessStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x743ed370_06ec_5040_a58a_901f0f757095);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGraphicsCaptureAccessStaticsImpl {
+    fn RequestAccessAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureAccessStaticsVtbl(
@@ -846,6 +873,13 @@ pub struct IGraphicsCaptureItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGraphicsCaptureItem {
     type Vtable = IGraphicsCaptureItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79c3f95b_31f7_4ec2_a464_632ef5d30760);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGraphicsCaptureItemImpl {
+    fn DisplayName();
+    fn Size();
+    fn Closed();
+    fn RemoveClosed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -870,6 +904,10 @@ unsafe impl ::windows::core::Interface for IGraphicsCaptureItemStatics {
     type Vtable = IGraphicsCaptureItemStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa87ebea5_457c_5788_ab47_0cf1d3637e74);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGraphicsCaptureItemStaticsImpl {
+    fn CreateFromVisual();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureItemStaticsVtbl(
@@ -888,6 +926,11 @@ pub struct IGraphicsCaptureItemStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGraphicsCaptureItemStatics2 {
     type Vtable = IGraphicsCaptureItemStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b92acc9_e584_5862_bf5c_9c316c6d2dbb);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGraphicsCaptureItemStatics2Impl {
+    fn TryCreateFromWindowId();
+    fn TryCreateFromDisplayId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -909,6 +952,10 @@ unsafe impl ::windows::core::Interface for IGraphicsCapturePicker {
     type Vtable = IGraphicsCapturePickerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a1711b3_ad79_4b4a_9336_1318fdde3539);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGraphicsCapturePickerImpl {
+    fn PickSingleItemAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsCapturePickerVtbl(
@@ -928,6 +975,10 @@ unsafe impl ::windows::core::Interface for IGraphicsCaptureSession {
     type Vtable = IGraphicsCaptureSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x814e42a9_f70f_4ad7_939b_fddcc6eb880d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGraphicsCaptureSessionImpl {
+    fn StartCapture();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureSessionVtbl(
@@ -945,6 +996,11 @@ pub struct IGraphicsCaptureSession2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGraphicsCaptureSession2 {
     type Vtable = IGraphicsCaptureSession2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c39ae40_7d2e_5044_804e_8b6799d4cf9e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGraphicsCaptureSession2Impl {
+    fn IsCursorCaptureEnabled();
+    fn SetIsCursorCaptureEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -965,6 +1021,11 @@ unsafe impl ::windows::core::Interface for IGraphicsCaptureSession3 {
     type Vtable = IGraphicsCaptureSession3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2cdd966_22ae_5ea1_9596_3a289344c3be);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGraphicsCaptureSession3Impl {
+    fn IsBorderRequired();
+    fn SetIsBorderRequired();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureSession3Vtbl(
@@ -983,6 +1044,10 @@ pub struct IGraphicsCaptureSessionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGraphicsCaptureSessionStatics {
     type Vtable = IGraphicsCaptureSessionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2224a540_5974_49aa_b232_0882536f4cb5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGraphicsCaptureSessionStaticsImpl {
+    fn IsSupported();
 }
 #[repr(C)]
 #[doc(hidden)]

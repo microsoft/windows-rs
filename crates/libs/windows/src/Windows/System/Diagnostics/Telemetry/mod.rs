@@ -6,6 +6,11 @@ unsafe impl ::windows::core::Interface for IPlatformTelemetryClientStatics {
     type Vtable = IPlatformTelemetryClientStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bf3f25d_d5c3_4eea_8dbe_9c8dbb0d9d8f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlatformTelemetryClientStaticsImpl {
+    fn Register();
+    fn RegisterWithSettings();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlatformTelemetryClientStaticsVtbl(
@@ -25,6 +30,10 @@ unsafe impl ::windows::core::Interface for IPlatformTelemetryRegistrationResult 
     type Vtable = IPlatformTelemetryRegistrationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d8518ab_2292_49bd_a15a_3d71d2145112);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlatformTelemetryRegistrationResultImpl {
+    fn Status();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlatformTelemetryRegistrationResultVtbl(
@@ -42,6 +51,13 @@ pub struct IPlatformTelemetryRegistrationSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlatformTelemetryRegistrationSettings {
     type Vtable = IPlatformTelemetryRegistrationSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x819a8582_ca19_415e_bb79_9c224bfa3a73);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlatformTelemetryRegistrationSettingsImpl {
+    fn StorageSize();
+    fn SetStorageSize();
+    fn UploadQuotaSize();
+    fn SetUploadQuotaSize();
 }
 #[repr(C)]
 #[doc(hidden)]

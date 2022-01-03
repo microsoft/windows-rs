@@ -897,6 +897,16 @@ unsafe impl ::windows::core::Interface for ISdo {
     type Vtable = ISdoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56bc53de_96db_11d1_bf3f_000000000000);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISdoImpl: IDispatchImpl {
+    fn GetPropertyInfo();
+    fn GetProperty();
+    fn PutProperty();
+    fn ResetProperty();
+    fn Apply();
+    fn Restore();
+    fn _NewEnum();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISdoVtbl(
@@ -1052,6 +1062,17 @@ unsafe impl ::windows::core::Interface for ISdoCollection {
     type Vtable = ISdoCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56bc53e2_96db_11d1_bf3f_000000000000);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISdoCollectionImpl: IDispatchImpl {
+    fn Count();
+    fn Add();
+    fn Remove();
+    fn RemoveAll();
+    fn Reload();
+    fn IsNameUnique();
+    fn Item();
+    fn _NewEnum();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISdoCollectionVtbl(
@@ -1197,6 +1218,14 @@ impl ::core::fmt::Debug for ISdoDictionaryOld {
 unsafe impl ::windows::core::Interface for ISdoDictionaryOld {
     type Vtable = ISdoDictionaryOldVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd432e5f4_53d8_11d2_9a3a_00c04fb998ac);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISdoDictionaryOldImpl: IDispatchImpl {
+    fn EnumAttributes();
+    fn GetAttributeInfo();
+    fn EnumAttributeValues();
+    fn CreateAttribute();
+    fn GetAttributeID();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1361,6 +1390,18 @@ impl ::core::fmt::Debug for ISdoMachine {
 unsafe impl ::windows::core::Interface for ISdoMachine {
     type Vtable = ISdoMachineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x479f6e75_49a2_11d2_8eca_00c04fc2f519);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISdoMachineImpl: IDispatchImpl {
+    fn Attach();
+    fn GetDictionarySDO();
+    fn GetServiceSDO();
+    fn GetUserSDO();
+    fn GetOSType();
+    fn GetDomainType();
+    fn IsDirectoryAvailable();
+    fn GetAttachedComputer();
+    fn GetSDOSchema();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1573,6 +1614,14 @@ unsafe impl ::windows::core::Interface for ISdoMachine2 {
     type Vtable = ISdoMachine2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x518e5ffe_d8ce_4f7e_a5db_b40a35419d3b);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISdoMachine2Impl: ISdoMachineImpl + IDispatchImpl {
+    fn GetTemplatesSDO();
+    fn EnableTemplates();
+    fn SyncConfigAgainstTemplates();
+    fn ImportRemoteTemplates();
+    fn Reload();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISdoMachine2Vtbl(
@@ -1716,6 +1765,13 @@ impl ::core::fmt::Debug for ISdoServiceControl {
 unsafe impl ::windows::core::Interface for ISdoServiceControl {
     type Vtable = ISdoServiceControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x479f6e74_49a2_11d2_8eca_00c04fc2f519);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ISdoServiceControlImpl: IDispatchImpl {
+    fn StartService();
+    fn StopService();
+    fn GetServiceStatus();
+    fn ResetService();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1894,6 +1950,12 @@ impl ::core::fmt::Debug for ITemplateSdo {
 unsafe impl ::windows::core::Interface for ITemplateSdo {
     type Vtable = ITemplateSdoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8aa85302_d2e2_4e20_8b1f_a571e437d6c9);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait ITemplateSdoImpl: ISdoImpl + IDispatchImpl {
+    fn AddToCollection();
+    fn AddToSdo();
+    fn AddToSdoAsProperty();
 }
 #[repr(C)]
 #[doc(hidden)]

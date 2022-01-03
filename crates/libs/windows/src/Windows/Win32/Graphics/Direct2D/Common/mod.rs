@@ -1082,6 +1082,15 @@ unsafe impl ::windows::core::Interface for ID2D1SimplifiedGeometrySink {
     type Vtable = ID2D1SimplifiedGeometrySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd9069e_12e2_11dc_9fed_001143a055f9);
 }
+pub trait ID2D1SimplifiedGeometrySinkImpl {
+    fn SetFillMode();
+    fn SetSegmentFlags();
+    fn BeginFigure();
+    fn AddLines();
+    fn AddBeziers();
+    fn EndFigure();
+    fn Close();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1SimplifiedGeometrySinkVtbl(

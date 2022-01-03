@@ -6,6 +6,22 @@ unsafe impl ::windows::core::Interface for IPhotoImportDeleteImportedItemsFromSo
     type Vtable = IPhotoImportDeleteImportedItemsFromSourceResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4e112f8_843d_428a_a1a6_81510292b0ae);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPhotoImportDeleteImportedItemsFromSourceResultImpl {
+    fn Session();
+    fn HasSucceeded();
+    fn DeletedItems();
+    fn PhotosCount();
+    fn PhotosSizeInBytes();
+    fn VideosCount();
+    fn VideosSizeInBytes();
+    fn SidecarsCount();
+    fn SidecarsSizeInBytes();
+    fn SiblingsCount();
+    fn SiblingsSizeInBytes();
+    fn TotalCount();
+    fn TotalSizeInBytes();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoImportDeleteImportedItemsFromSourceResultVtbl(
@@ -36,6 +52,42 @@ pub struct IPhotoImportFindItemsResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportFindItemsResult {
     type Vtable = IPhotoImportFindItemsResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3915e647_6c78_492b_844e_8fe5e8f6bfb9);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPhotoImportFindItemsResultImpl {
+    fn Session();
+    fn HasSucceeded();
+    fn FoundItems();
+    fn PhotosCount();
+    fn PhotosSizeInBytes();
+    fn VideosCount();
+    fn VideosSizeInBytes();
+    fn SidecarsCount();
+    fn SidecarsSizeInBytes();
+    fn SiblingsCount();
+    fn SiblingsSizeInBytes();
+    fn TotalCount();
+    fn TotalSizeInBytes();
+    fn SelectAll();
+    fn SelectNone();
+    fn SelectNewAsync();
+    fn SetImportMode();
+    fn ImportMode();
+    fn SelectedPhotosCount();
+    fn SelectedPhotosSizeInBytes();
+    fn SelectedVideosCount();
+    fn SelectedVideosSizeInBytes();
+    fn SelectedSidecarsCount();
+    fn SelectedSidecarsSizeInBytes();
+    fn SelectedSiblingsCount();
+    fn SelectedSiblingsSizeInBytes();
+    fn SelectedTotalCount();
+    fn SelectedTotalSizeInBytes();
+    fn SelectionChanged();
+    fn RemoveSelectionChanged();
+    fn ImportItemsAsync();
+    fn ItemImported();
+    fn RemoveItemImported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -94,6 +146,10 @@ unsafe impl ::windows::core::Interface for IPhotoImportFindItemsResult2 {
     type Vtable = IPhotoImportFindItemsResult2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbdd6a3b_ecf9_406a_815e_5015625b0a88);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPhotoImportFindItemsResult2Impl {
+    fn AddItemsInDateRangeToSelection();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoImportFindItemsResult2Vtbl(
@@ -112,6 +168,23 @@ pub struct IPhotoImportImportItemsResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportImportItemsResult {
     type Vtable = IPhotoImportImportItemsResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4d4f478_d419_4443_a84e_f06a850c0b00);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPhotoImportImportItemsResultImpl {
+    fn Session();
+    fn HasSucceeded();
+    fn ImportedItems();
+    fn PhotosCount();
+    fn PhotosSizeInBytes();
+    fn VideosCount();
+    fn VideosSizeInBytes();
+    fn SidecarsCount();
+    fn SidecarsSizeInBytes();
+    fn SiblingsCount();
+    fn SiblingsSizeInBytes();
+    fn TotalCount();
+    fn TotalSizeInBytes();
+    fn DeleteImportedItemsFromSourceAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -145,6 +218,22 @@ pub struct IPhotoImportItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportItem {
     type Vtable = IPhotoImportItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9d07e76_9bfc_43b8_b356_633b6a988c9e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPhotoImportItemImpl {
+    fn Name();
+    fn ItemKey();
+    fn ContentType();
+    fn SizeInBytes();
+    fn Date();
+    fn Sibling();
+    fn Sidecars();
+    fn VideoSegments();
+    fn IsSelected();
+    fn SetIsSelected();
+    fn Thumbnail();
+    fn ImportedFileNames();
+    fn DeletedFileNames();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -182,6 +271,10 @@ unsafe impl ::windows::core::Interface for IPhotoImportItem2 {
     type Vtable = IPhotoImportItem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1053505_f53b_46a3_9e30_3610791a9110);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPhotoImportItem2Impl {
+    fn Path();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoImportItem2Vtbl(
@@ -200,6 +293,10 @@ unsafe impl ::windows::core::Interface for IPhotoImportItemImportedEventArgs {
     type Vtable = IPhotoImportItemImportedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42cb2fdd_7d68_47b5_bc7c_ceb73e0c77dc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPhotoImportItemImportedEventArgsImpl {
+    fn ImportedItem();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoImportItemImportedEventArgsVtbl(
@@ -217,6 +314,12 @@ pub struct IPhotoImportManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportManagerStatics {
     type Vtable = IPhotoImportManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2771903d_a046_4f06_9b9c_bfd662e83287);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPhotoImportManagerStaticsImpl {
+    fn IsSupportedAsync();
+    fn FindAllSourcesAsync();
+    fn GetPendingOperations();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -240,6 +343,14 @@ pub struct IPhotoImportOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportOperation {
     type Vtable = IPhotoImportOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9f797e4_a09a_4ee4_a4b1_20940277a5be);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPhotoImportOperationImpl {
+    fn Stage();
+    fn Session();
+    fn ContinueFindingItemsAsync();
+    fn ContinueImportingItemsAsync();
+    fn ContinueDeletingImportedItemsFromSourceAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -266,6 +377,10 @@ unsafe impl ::windows::core::Interface for IPhotoImportSelectionChangedEventArgs
     type Vtable = IPhotoImportSelectionChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10461782_fa9d_4c30_8bc9_4d64911572d5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPhotoImportSelectionChangedEventArgsImpl {
+    fn IsSelectionEmpty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoImportSelectionChangedEventArgsVtbl(
@@ -283,6 +398,20 @@ pub struct IPhotoImportSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportSession {
     type Vtable = IPhotoImportSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa63916e_ecdb_4efe_94c6_5f5cafe34cfb);
+}
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IPhotoImportSessionImpl: IClosableImpl {
+    fn Source();
+    fn SessionId();
+    fn SetDestinationFolder();
+    fn DestinationFolder();
+    fn SetAppendSessionDateToDestinationFolder();
+    fn AppendSessionDateToDestinationFolder();
+    fn SetSubfolderCreationMode();
+    fn SubfolderCreationMode();
+    fn SetDestinationFileNamePrefix();
+    fn DestinationFileNamePrefix();
+    fn FindItemsAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -315,6 +444,13 @@ unsafe impl ::windows::core::Interface for IPhotoImportSession2 {
     type Vtable = IPhotoImportSession2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a526710_3ec6_469d_a375_2b9f4785391e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPhotoImportSession2Impl {
+    fn SetSubfolderDateFormat();
+    fn SubfolderDateFormat();
+    fn SetRememberDeselectedItems();
+    fn RememberDeselectedItems();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoImportSession2Vtbl(
@@ -336,6 +472,12 @@ unsafe impl ::windows::core::Interface for IPhotoImportSidecar {
     type Vtable = IPhotoImportSidecarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46d7d757_f802_44c7_9c98_7a71f4bc1486);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPhotoImportSidecarImpl {
+    fn Name();
+    fn SizeInBytes();
+    fn Date();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoImportSidecarVtbl(
@@ -356,6 +498,26 @@ pub struct IPhotoImportSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportSource {
     type Vtable = IPhotoImportSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f8ea35e_145b_4cd6_87f1_54965a982fef);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPhotoImportSourceImpl {
+    fn Id();
+    fn DisplayName();
+    fn Description();
+    fn Manufacturer();
+    fn Model();
+    fn SerialNumber();
+    fn ConnectionProtocol();
+    fn ConnectionTransport();
+    fn Type();
+    fn PowerSource();
+    fn BatteryLevelPercent();
+    fn DateTime();
+    fn StorageMedia();
+    fn IsLocked();
+    fn IsMassStorage();
+    fn Thumbnail();
+    fn CreateImportSession();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -396,6 +558,11 @@ unsafe impl ::windows::core::Interface for IPhotoImportSourceStatics {
     type Vtable = IPhotoImportSourceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0528e586_32d8_467c_8cee_23a1b2f43e85);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPhotoImportSourceStaticsImpl {
+    fn FromIdAsync();
+    fn FromFolderAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoImportSourceStaticsVtbl(
@@ -416,6 +583,17 @@ pub struct IPhotoImportStorageMedium(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportStorageMedium {
     type Vtable = IPhotoImportStorageMediumVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2b9b093_fc85_487f_87c2_58d675d05b07);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPhotoImportStorageMediumImpl {
+    fn Name();
+    fn Description();
+    fn SerialNumber();
+    fn StorageMediumType();
+    fn SupportedAccessMode();
+    fn CapacityInBytes();
+    fn AvailableSpaceInBytes();
+    fn Refresh();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -441,6 +619,14 @@ pub struct IPhotoImportVideoSegment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportVideoSegment {
     type Vtable = IPhotoImportVideoSegmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x623c0289_321a_41d8_9166_8c62a333276c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPhotoImportVideoSegmentImpl {
+    fn Name();
+    fn SizeInBytes();
+    fn Date();
+    fn Sibling();
+    fn Sidecars();
 }
 #[repr(C)]
 #[doc(hidden)]

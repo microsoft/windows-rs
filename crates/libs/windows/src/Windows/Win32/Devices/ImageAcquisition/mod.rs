@@ -402,6 +402,13 @@ unsafe impl ::windows::core::Interface for IEnumWIA_DEV_CAPS {
     type Vtable = IEnumWIA_DEV_CAPSVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fcc4287_aca6_11d2_a093_00c04f72dc3c);
 }
+pub trait IEnumWIA_DEV_CAPSImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+    fn GetCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumWIA_DEV_CAPSVtbl(
@@ -482,6 +489,13 @@ unsafe impl ::windows::core::Interface for IEnumWIA_DEV_INFO {
     type Vtable = IEnumWIA_DEV_INFOVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e38b83c_8cf1_11d1_bf92_0060081ed811);
 }
+pub trait IEnumWIA_DEV_INFOImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+    fn GetCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumWIA_DEV_INFOVtbl(
@@ -560,6 +574,13 @@ impl ::core::fmt::Debug for IEnumWIA_FORMAT_INFO {
 unsafe impl ::windows::core::Interface for IEnumWIA_FORMAT_INFO {
     type Vtable = IEnumWIA_FORMAT_INFOVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81befc5b_656d_44f1_b24c_d41d51b4dc81);
+}
+pub trait IEnumWIA_FORMAT_INFOImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+    fn GetCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -640,6 +661,13 @@ unsafe impl ::windows::core::Interface for IEnumWiaItem {
     type Vtable = IEnumWiaItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e8383fc_3391_11d2_9a33_00c04fa36145);
 }
+pub trait IEnumWiaItemImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+    fn GetCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumWiaItemVtbl(
@@ -718,6 +746,13 @@ impl ::core::fmt::Debug for IEnumWiaItem2 {
 unsafe impl ::windows::core::Interface for IEnumWiaItem2 {
     type Vtable = IEnumWiaItem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59970af4_cd0d_44d9_ab24_52295630e582);
+}
+pub trait IEnumWiaItem2Impl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+    fn GetCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -812,6 +847,10 @@ unsafe impl ::windows::core::Interface for IWiaAppErrorHandler {
     type Vtable = IWiaAppErrorHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c16186c_d0a6_400c_80f4_d26986a0e734);
 }
+pub trait IWiaAppErrorHandlerImpl {
+    fn GetWindow();
+    fn ReportStatus();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaAppErrorHandlerVtbl(
@@ -870,6 +909,9 @@ impl ::core::fmt::Debug for IWiaDataCallback {
 unsafe impl ::windows::core::Interface for IWiaDataCallback {
     type Vtable = IWiaDataCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa558a866_a5b0_11d2_a08f_00c04f72dc3c);
+}
+pub trait IWiaDataCallbackImpl {
+    fn BandedDataCallback();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -947,6 +989,13 @@ impl ::core::fmt::Debug for IWiaDataTransfer {
 unsafe impl ::windows::core::Interface for IWiaDataTransfer {
     type Vtable = IWiaDataTransferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6cef998_a5b0_11d2_a08f_00c04f72dc3c);
+}
+pub trait IWiaDataTransferImpl {
+    fn idtGetData();
+    fn idtGetBandedData();
+    fn idtQueryGetData();
+    fn idtEnumWIA_FORMAT_INFO();
+    fn idtGetExtendedTransferInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1053,6 +1102,17 @@ impl ::core::fmt::Debug for IWiaDevMgr {
 unsafe impl ::windows::core::Interface for IWiaDevMgr {
     type Vtable = IWiaDevMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5eb2502a_8cf1_11d1_bf92_0060081ed811);
+}
+pub trait IWiaDevMgrImpl {
+    fn EnumDeviceInfo();
+    fn CreateDevice();
+    fn SelectDeviceDlg();
+    fn SelectDeviceDlgID();
+    fn GetImageDlg();
+    fn RegisterEventCallbackProgram();
+    fn RegisterEventCallbackInterface();
+    fn RegisterEventCallbackCLSID();
+    fn AddDeviceDlg();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1164,6 +1224,16 @@ impl ::core::fmt::Debug for IWiaDevMgr2 {
 unsafe impl ::windows::core::Interface for IWiaDevMgr2 {
     type Vtable = IWiaDevMgr2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79c07cf1_cbdd_41ee_8ec3_f00080cada7a);
+}
+pub trait IWiaDevMgr2Impl {
+    fn EnumDeviceInfo();
+    fn CreateDevice();
+    fn SelectDeviceDlg();
+    fn SelectDeviceDlgID();
+    fn RegisterEventCallbackInterface();
+    fn RegisterEventCallbackProgram();
+    fn RegisterEventCallbackCLSID();
+    fn GetImageDlg();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1299,6 +1369,21 @@ unsafe impl ::windows::core::Interface for IWiaDrvItem {
     type Vtable = IWiaDrvItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f02b5c5_b00c_11d2_a094_00c04f72dc3c);
 }
+pub trait IWiaDrvItemImpl {
+    fn GetItemFlags();
+    fn GetDeviceSpecContext();
+    fn GetFullItemName();
+    fn GetItemName();
+    fn AddItemToFolder();
+    fn UnlinkItemTree();
+    fn RemoveItemFromFolder();
+    fn FindItemByName();
+    fn FindChildItemByName();
+    fn GetParentItem();
+    fn GetFirstChildItem();
+    fn GetNextSiblingItem();
+    fn DumpItemData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaDrvItemVtbl(
@@ -1380,6 +1465,10 @@ unsafe impl ::windows::core::Interface for IWiaErrorHandler {
     type Vtable = IWiaErrorHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e4a51b1_bc1f_443d_a835_72e890759ef3);
 }
+pub trait IWiaErrorHandlerImpl {
+    fn ReportStatus();
+    fn GetStatusDescription();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaErrorHandlerVtbl(
@@ -1440,6 +1529,9 @@ impl ::core::fmt::Debug for IWiaEventCallback {
 unsafe impl ::windows::core::Interface for IWiaEventCallback {
     type Vtable = IWiaEventCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae6287b0_0084_11d2_973b_00a0c9068f2e);
+}
+pub trait IWiaEventCallbackImpl {
+    fn ImageEventCallback();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1511,6 +1603,12 @@ impl ::core::fmt::Debug for IWiaImageFilter {
 unsafe impl ::windows::core::Interface for IWiaImageFilter {
     type Vtable = IWiaImageFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8a79ffa_450b_41f1_8f87_849ccd94ebf6);
+}
+pub trait IWiaImageFilterImpl {
+    fn InitializeFilter();
+    fn SetNewCallback();
+    fn FilterPreviewImage();
+    fn ApplyProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1644,6 +1742,23 @@ impl ::core::fmt::Debug for IWiaItem {
 unsafe impl ::windows::core::Interface for IWiaItem {
     type Vtable = IWiaItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4db1ad10_3391_11d2_9a33_00c04fa36145);
+}
+pub trait IWiaItemImpl {
+    fn GetItemType();
+    fn AnalyzeItem();
+    fn EnumChildItems();
+    fn DeleteItem();
+    fn CreateChildItem();
+    fn EnumRegisterEventInfo();
+    fn FindItemByName();
+    fn DeviceDlg();
+    fn DeviceCommand();
+    fn GetRootItem();
+    fn EnumDeviceCapabilities();
+    fn DumpItemData();
+    fn DumpDrvItemData();
+    fn DumpTreeItemData();
+    fn Diagnostic();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1797,6 +1912,24 @@ unsafe impl ::windows::core::Interface for IWiaItem2 {
     type Vtable = IWiaItem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cba0075_1287_407d_9b77_cf0e030435cc);
 }
+pub trait IWiaItem2Impl {
+    fn CreateChildItem();
+    fn DeleteItem();
+    fn EnumChildItems();
+    fn FindItemByName();
+    fn GetItemCategory();
+    fn GetItemType();
+    fn DeviceDlg();
+    fn DeviceCommand();
+    fn EnumDeviceCapabilities();
+    fn CheckExtension();
+    fn GetExtension();
+    fn GetParentItem();
+    fn GetRootItem();
+    fn GetPreviewComponent();
+    fn EnumRegisterEventInfo();
+    fn Diagnostic();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaItem2Vtbl(
@@ -1884,6 +2017,11 @@ unsafe impl ::windows::core::Interface for IWiaItemExtras {
     type Vtable = IWiaItemExtrasVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6291ef2c_36ef_4532_876a_8e132593778d);
 }
+pub trait IWiaItemExtrasImpl {
+    fn GetExtendedErrorInfo();
+    fn Escape();
+    fn CancelPendingIO();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaItemExtrasVtbl(
@@ -1952,6 +2090,11 @@ impl ::core::fmt::Debug for IWiaLog {
 unsafe impl ::windows::core::Interface for IWiaLog {
     type Vtable = IWiaLogVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa00c10b6_82a1_452f_8b6c_86062aad6890);
+}
+pub trait IWiaLogImpl {
+    fn InitializeLog();
+    fn hResult();
+    fn Log();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2030,6 +2173,13 @@ impl ::core::fmt::Debug for IWiaLogEx {
 unsafe impl ::windows::core::Interface for IWiaLogEx {
     type Vtable = IWiaLogExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf1f22ac_7a40_4787_b421_aeb47a1fbd0b);
+}
+pub trait IWiaLogExImpl {
+    fn InitializeLogEx();
+    fn hResult();
+    fn Log();
+    fn hResultEx();
+    fn LogEx();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2174,6 +2324,25 @@ unsafe impl ::windows::core::Interface for IWiaMiniDrv {
     type Vtable = IWiaMiniDrvVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8cdee14_3c6c_11d2_9a35_00c04fa36145);
 }
+pub trait IWiaMiniDrvImpl {
+    fn drvInitializeWia();
+    fn drvAcquireItemData();
+    fn drvInitItemProperties();
+    fn drvValidateItemProperties();
+    fn drvWriteItemProperties();
+    fn drvReadItemProperties();
+    fn drvLockWiaDevice();
+    fn drvUnLockWiaDevice();
+    fn drvAnalyzeItem();
+    fn drvGetDeviceErrorStr();
+    fn drvDeviceCommand();
+    fn drvGetCapabilities();
+    fn drvDeleteItem();
+    fn drvFreeDrvItemContext();
+    fn drvGetWiaFormatInfo();
+    fn drvNotifyPnpEvent();
+    fn drvUnInitializeWia();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaMiniDrvVtbl(
@@ -2256,6 +2425,9 @@ unsafe impl ::windows::core::Interface for IWiaMiniDrvCallBack {
     type Vtable = IWiaMiniDrvCallBackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33a57d5a_3de8_11d2_9a36_00c04fa36145);
 }
+pub trait IWiaMiniDrvCallBackImpl {
+    fn MiniDrvCallback();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaMiniDrvCallBackVtbl(
@@ -2320,6 +2492,10 @@ unsafe impl ::windows::core::Interface for IWiaMiniDrvTransferCallback {
     type Vtable = IWiaMiniDrvTransferCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9d2ee89_2ce5_4ff0_8adb_c961d1d774ca);
 }
+pub trait IWiaMiniDrvTransferCallbackImpl {
+    fn GetNextStream();
+    fn SendMessage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaMiniDrvTransferCallbackVtbl(
@@ -2378,6 +2554,9 @@ impl ::core::fmt::Debug for IWiaNotifyDevMgr {
 unsafe impl ::windows::core::Interface for IWiaNotifyDevMgr {
     type Vtable = IWiaNotifyDevMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70681ea0_e7bf_4291_9fb1_4e8813a3f78e);
+}
+pub trait IWiaNotifyDevMgrImpl {
+    fn NewDeviceArrival();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2442,6 +2621,12 @@ impl ::core::fmt::Debug for IWiaPreview {
 unsafe impl ::windows::core::Interface for IWiaPreview {
     type Vtable = IWiaPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95c2b4fd_33f2_4d86_ad40_9431f0df08f7);
+}
+pub trait IWiaPreviewImpl {
+    fn GetNewPreview();
+    fn UpdatePreview();
+    fn DetectRegions();
+    fn Clear();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2577,6 +2762,24 @@ unsafe impl ::windows::core::Interface for IWiaPropertyStorage {
     type Vtable = IWiaPropertyStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98b5e8a0_29cc_491a_aac0_e6db4fdcceb6);
 }
+pub trait IWiaPropertyStorageImpl {
+    fn ReadMultiple();
+    fn WriteMultiple();
+    fn DeleteMultiple();
+    fn ReadPropertyNames();
+    fn WritePropertyNames();
+    fn DeletePropertyNames();
+    fn Commit();
+    fn Revert();
+    fn Enum();
+    fn SetTimes();
+    fn SetClass();
+    fn Stat();
+    fn GetPropertyAttributes();
+    fn GetCount();
+    fn GetPropertyStream();
+    fn SetPropertyStream();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaPropertyStorageVtbl(
@@ -2661,6 +2864,9 @@ unsafe impl ::windows::core::Interface for IWiaSegmentationFilter {
     type Vtable = IWiaSegmentationFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec46a697_ac04_4447_8f65_ff63d5154b21);
 }
+pub trait IWiaSegmentationFilterImpl {
+    fn DetectRegions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaSegmentationFilterVtbl(
@@ -2733,6 +2939,12 @@ unsafe impl ::windows::core::Interface for IWiaTransfer {
     type Vtable = IWiaTransferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc39d6942_2f4e_4d04_92fe_4ef4d3a1de5a);
 }
+pub trait IWiaTransferImpl {
+    fn Download();
+    fn Upload();
+    fn Cancel();
+    fn EnumWIA_FORMAT_INFO();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaTransferVtbl(
@@ -2799,6 +3011,10 @@ impl ::core::fmt::Debug for IWiaTransferCallback {
 unsafe impl ::windows::core::Interface for IWiaTransferCallback {
     type Vtable = IWiaTransferCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27d4eaaf_28a6_4ca5_9aab_e678168b9527);
+}
+pub trait IWiaTransferCallbackImpl {
+    fn TransferCallback();
+    fn GetNextStream();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2870,6 +3086,11 @@ unsafe impl ::windows::core::Interface for IWiaUIExtension {
     type Vtable = IWiaUIExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda319113_50ee_4c80_b460_57d005d44a2c);
 }
+pub trait IWiaUIExtensionImpl {
+    fn DeviceDialog();
+    fn GetDeviceIcon();
+    fn GetDeviceBitmapLogo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaUIExtensionVtbl(
@@ -2937,6 +3158,10 @@ impl ::core::fmt::Debug for IWiaUIExtension2 {
 unsafe impl ::windows::core::Interface for IWiaUIExtension2 {
     type Vtable = IWiaUIExtension2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x305600d7_5088_46d7_9a15_b77b09cdba7a);
+}
+pub trait IWiaUIExtension2Impl {
+    fn DeviceDialog();
+    fn GetDeviceIcon();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3058,6 +3283,21 @@ impl ::core::fmt::Debug for IWiaVideo {
 unsafe impl ::windows::core::Interface for IWiaVideo {
     type Vtable = IWiaVideoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd52920aa_db88_41f0_946c_e00dc0a19cfa);
+}
+pub trait IWiaVideoImpl {
+    fn PreviewVisible();
+    fn SetPreviewVisible();
+    fn ImagesDirectory();
+    fn SetImagesDirectory();
+    fn CreateVideoByWiaDevID();
+    fn CreateVideoByDevNum();
+    fn CreateVideoByName();
+    fn DestroyVideo();
+    fn Play();
+    fn Pause();
+    fn TakePicture();
+    fn ResizeVideo();
+    fn GetCurrentState();
 }
 #[repr(C)]
 #[doc(hidden)]

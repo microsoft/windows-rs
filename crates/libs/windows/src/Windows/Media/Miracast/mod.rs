@@ -6,6 +6,22 @@ unsafe impl ::windows::core::Interface for IMiracastReceiver {
     type Vtable = IMiracastReceiverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a315258_e444_51b4_aff7_b88daa1229e0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMiracastReceiverImpl {
+    fn GetDefaultSettings();
+    fn GetCurrentSettings();
+    fn GetCurrentSettingsAsync();
+    fn DisconnectAllAndApplySettings();
+    fn DisconnectAllAndApplySettingsAsync();
+    fn GetStatus();
+    fn GetStatusAsync();
+    fn StatusChanged();
+    fn RemoveStatusChanged();
+    fn CreateSession();
+    fn CreateSessionAsync();
+    fn ClearKnownTransmitters();
+    fn RemoveKnownTransmitter();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMiracastReceiverVtbl(
@@ -43,6 +59,11 @@ unsafe impl ::windows::core::Interface for IMiracastReceiverApplySettingsResult 
     type Vtable = IMiracastReceiverApplySettingsResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0aa6272_09cd_58e1_a4f2_5d5143d312f9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMiracastReceiverApplySettingsResultImpl {
+    fn Status();
+    fn ExtendedError();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMiracastReceiverApplySettingsResultVtbl(
@@ -61,6 +82,19 @@ pub struct IMiracastReceiverConnection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMiracastReceiverConnection {
     type Vtable = IMiracastReceiverConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x704b2f36_d2e5_551f_a854_f822b7917d28);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMiracastReceiverConnectionImpl {
+    fn Disconnect();
+    fn DisconnectWithMessage();
+    fn Pause();
+    fn PauseAsync();
+    fn Resume();
+    fn ResumeAsync();
+    fn Transmitter();
+    fn InputDevices();
+    fn CursorImageChannel();
+    fn StreamControl();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -91,6 +125,12 @@ unsafe impl ::windows::core::Interface for IMiracastReceiverConnectionCreatedEve
     type Vtable = IMiracastReceiverConnectionCreatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d8dfa39_307a_5c0f_94bd_d0c69d169982);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMiracastReceiverConnectionCreatedEventArgsImpl {
+    fn Connection();
+    fn Pin();
+    fn GetDeferral();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMiracastReceiverConnectionCreatedEventArgsVtbl(
@@ -111,6 +151,17 @@ pub struct IMiracastReceiverCursorImageChannel(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMiracastReceiverCursorImageChannel {
     type Vtable = IMiracastReceiverCursorImageChannelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9ac332d_723a_5a9d_b90a_81153efa2a0f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMiracastReceiverCursorImageChannelImpl {
+    fn IsEnabled();
+    fn MaxImageSize();
+    fn Position();
+    fn ImageStream();
+    fn ImageStreamChanged();
+    fn RemoveImageStreamChanged();
+    fn PositionChanged();
+    fn RemovePositionChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -144,6 +195,13 @@ unsafe impl ::windows::core::Interface for IMiracastReceiverCursorImageChannelSe
     type Vtable = IMiracastReceiverCursorImageChannelSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccdbedff_bd00_5b9c_8e4c_00cacf86b634);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMiracastReceiverCursorImageChannelSettingsImpl {
+    fn IsEnabled();
+    fn SetIsEnabled();
+    fn MaxImageSize();
+    fn SetMaxImageSize();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMiracastReceiverCursorImageChannelSettingsVtbl(
@@ -167,6 +225,10 @@ unsafe impl ::windows::core::Interface for IMiracastReceiverDisconnectedEventArg
     type Vtable = IMiracastReceiverDisconnectedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9a15e5e_5fee_57e6_b4b0_04727db93229);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMiracastReceiverDisconnectedEventArgsImpl {
+    fn Connection();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMiracastReceiverDisconnectedEventArgsVtbl(
@@ -184,6 +246,17 @@ pub struct IMiracastReceiverGameControllerDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMiracastReceiverGameControllerDevice {
     type Vtable = IMiracastReceiverGameControllerDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d7171e8_bed4_5118_a058_e2477eb5888d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMiracastReceiverGameControllerDeviceImpl {
+    fn TransmitInput();
+    fn SetTransmitInput();
+    fn IsRequestedByTransmitter();
+    fn IsTransmittingInput();
+    fn Mode();
+    fn SetMode();
+    fn Changed();
+    fn RemoveChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -212,6 +285,11 @@ unsafe impl ::windows::core::Interface for IMiracastReceiverInputDevices {
     type Vtable = IMiracastReceiverInputDevicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda35bb02_28aa_5ee8_96f5_a42901c66f00);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMiracastReceiverInputDevicesImpl {
+    fn Keyboard();
+    fn GameController();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMiracastReceiverInputDevicesVtbl(
@@ -230,6 +308,15 @@ pub struct IMiracastReceiverKeyboardDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMiracastReceiverKeyboardDevice {
     type Vtable = IMiracastReceiverKeyboardDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbeb67272_06c0_54ff_ac96_217464ff2501);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMiracastReceiverKeyboardDeviceImpl {
+    fn TransmitInput();
+    fn SetTransmitInput();
+    fn IsRequestedByTransmitter();
+    fn IsTransmittingInput();
+    fn Changed();
+    fn RemoveChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -256,6 +343,13 @@ unsafe impl ::windows::core::Interface for IMiracastReceiverMediaSourceCreatedEv
     type Vtable = IMiracastReceiverMediaSourceCreatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17cf519e_1246_531d_945a_6b158e39c3aa);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMiracastReceiverMediaSourceCreatedEventArgsImpl {
+    fn Connection();
+    fn MediaSource();
+    fn CursorImageChannelSettings();
+    fn GetDeferral();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMiracastReceiverMediaSourceCreatedEventArgsVtbl(
@@ -278,6 +372,21 @@ pub struct IMiracastReceiverSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMiracastReceiverSession {
     type Vtable = IMiracastReceiverSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d2bcdb4_ef8b_5209_bfc9_c32116504803);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMiracastReceiverSessionImpl {
+    fn ConnectionCreated();
+    fn RemoveConnectionCreated();
+    fn MediaSourceCreated();
+    fn RemoveMediaSourceCreated();
+    fn Disconnected();
+    fn RemoveDisconnected();
+    fn AllowConnectionTakeover();
+    fn SetAllowConnectionTakeover();
+    fn MaxSimultaneousConnections();
+    fn SetMaxSimultaneousConnections();
+    fn Start();
+    fn StartAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -315,6 +424,11 @@ unsafe impl ::windows::core::Interface for IMiracastReceiverSessionStartResult {
     type Vtable = IMiracastReceiverSessionStartResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7c573ee_40ca_51ff_95f2_c9de34f2e90e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMiracastReceiverSessionStartResultImpl {
+    fn Status();
+    fn ExtendedError();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMiracastReceiverSessionStartResultVtbl(
@@ -333,6 +447,19 @@ pub struct IMiracastReceiverSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMiracastReceiverSettings {
     type Vtable = IMiracastReceiverSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57cd2f24_c55a_5fbe_9464_eb05307705dd);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMiracastReceiverSettingsImpl {
+    fn FriendlyName();
+    fn SetFriendlyName();
+    fn ModelName();
+    fn SetModelName();
+    fn ModelNumber();
+    fn SetModelNumber();
+    fn AuthorizationMethod();
+    fn SetAuthorizationMethod();
+    fn RequireAuthorizationFromKnownTransmitters();
+    fn SetRequireAuthorizationFromKnownTransmitters();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -361,6 +488,14 @@ unsafe impl ::windows::core::Interface for IMiracastReceiverStatus {
     type Vtable = IMiracastReceiverStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc28a5591_23ab_519e_ad09_90bff6dcc87e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMiracastReceiverStatusImpl {
+    fn ListeningStatus();
+    fn WiFiStatus();
+    fn IsConnectionTakeoverSupported();
+    fn MaxSimultaneousConnections();
+    fn KnownTransmitters();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMiracastReceiverStatusVtbl(
@@ -383,6 +518,15 @@ pub struct IMiracastReceiverStreamControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMiracastReceiverStreamControl {
     type Vtable = IMiracastReceiverStreamControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38ea2d8b_2769_5ad7_8a8a_254b9df7ba82);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMiracastReceiverStreamControlImpl {
+    fn GetVideoStreamSettings();
+    fn GetVideoStreamSettingsAsync();
+    fn SuggestVideoStreamSettings();
+    fn SuggestVideoStreamSettingsAsync();
+    fn MuteAudio();
+    fn SetMuteAudio();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -409,6 +553,13 @@ unsafe impl ::windows::core::Interface for IMiracastReceiverVideoStreamSettings 
     type Vtable = IMiracastReceiverVideoStreamSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x169b5e1b_149d_52d0_b126_6f89744e4f50);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMiracastReceiverVideoStreamSettingsImpl {
+    fn Size();
+    fn SetSize();
+    fn Bitrate();
+    fn SetBitrate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMiracastReceiverVideoStreamSettingsVtbl(
@@ -431,6 +582,16 @@ pub struct IMiracastTransmitter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMiracastTransmitter {
     type Vtable = IMiracastTransmitterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x342d79fd_2e64_5508_8a30_833d1eac70d0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMiracastTransmitterImpl {
+    fn Name();
+    fn SetName();
+    fn AuthorizationStatus();
+    fn SetAuthorizationStatus();
+    fn GetConnections();
+    fn MacAddress();
+    fn LastConnectionTime();
 }
 #[repr(C)]
 #[doc(hidden)]

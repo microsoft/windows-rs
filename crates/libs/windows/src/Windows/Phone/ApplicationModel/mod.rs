@@ -86,6 +86,10 @@ unsafe impl ::windows::core::Interface for IApplicationProfileStatics {
     type Vtable = IApplicationProfileStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5008ab4_7e7a_11e1_a7f2_b0a14824019b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationProfileStaticsImpl {
+    fn Modes();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationProfileStaticsVtbl(

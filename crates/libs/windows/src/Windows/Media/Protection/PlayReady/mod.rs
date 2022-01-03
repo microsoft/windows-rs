@@ -8,6 +8,23 @@ unsafe impl ::windows::core::Interface for INDClient {
     type Vtable = INDClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bd6781b_61b8_46e2_99a5_8abcb6b9f7d6);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait INDClientImpl {
+    fn RegistrationCompleted();
+    fn RemoveRegistrationCompleted();
+    fn ProximityDetectionCompleted();
+    fn RemoveProximityDetectionCompleted();
+    fn LicenseFetchCompleted();
+    fn RemoveLicenseFetchCompleted();
+    fn ReRegistrationNeeded();
+    fn RemoveReRegistrationNeeded();
+    fn ClosedCaptionDataReceived();
+    fn RemoveClosedCaptionDataReceived();
+    fn StartAsync();
+    fn LicenseFetchAsync();
+    fn ReRegistrationAsync();
+    fn Close();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -55,6 +72,10 @@ pub struct INDClientFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INDClientFactory {
     type Vtable = INDClientFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e53dd62_fee8_451f_b0d4_f706cca3e037);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait INDClientFactoryImpl {
+    fn CreateInstance();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -181,6 +202,12 @@ unsafe impl ::windows::core::Interface for INDClosedCaptionDataReceivedEventArgs
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4738d29f_c345_4649_8468_b8c5fc357190);
 }
 #[cfg(feature = "deprecated")]
+pub trait INDClosedCaptionDataReceivedEventArgsImpl {
+    fn ClosedCaptionDataFormat();
+    fn PresentationTimestamp();
+    fn ClosedCaptionData();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDClosedCaptionDataReceivedEventArgsVtbl(
@@ -300,6 +327,11 @@ unsafe impl ::windows::core::Interface for INDCustomData {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5cb0fdc_2d09_4f19_b5e1_76a0b3ee9267);
 }
 #[cfg(feature = "deprecated")]
+pub trait INDCustomDataImpl {
+    fn CustomDataTypeID();
+    fn CustomData();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDCustomDataVtbl(
@@ -322,6 +354,10 @@ pub struct INDCustomDataFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INDCustomDataFactory {
     type Vtable = INDCustomDataFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd65405ab_3424_4833_8c9a_af5fdeb22872);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait INDCustomDataFactoryImpl {
+    fn CreateInstance();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -487,6 +523,18 @@ unsafe impl ::windows::core::Interface for INDDownloadEngine {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d223d65_c4b6_4438_8d46_b96e6d0fb21f);
 }
 #[cfg(feature = "deprecated")]
+pub trait INDDownloadEngineImpl {
+    fn Open();
+    fn Pause();
+    fn Resume();
+    fn Close();
+    fn Seek();
+    fn CanSeek();
+    fn BufferFullMinThresholdInSamples();
+    fn BufferFullMaxThresholdInSamples();
+    fn Notifier();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDDownloadEngineVtbl(
@@ -636,6 +684,15 @@ unsafe impl ::windows::core::Interface for INDDownloadEngineNotifier {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd720b4d4_f4b8_4530_a809_9193a571e7fc);
 }
 #[cfg(feature = "deprecated")]
+pub trait INDDownloadEngineNotifierImpl {
+    fn OnStreamOpened();
+    fn OnPlayReadyObjectReceived();
+    fn OnContentIDReceived();
+    fn OnDataReceived();
+    fn OnEndOfStream();
+    fn OnNetworkError();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDDownloadEngineNotifierVtbl(
@@ -750,6 +807,10 @@ unsafe impl ::windows::core::RuntimeType for INDLicenseFetchCompletedEventArgs {
 unsafe impl ::windows::core::Interface for INDLicenseFetchCompletedEventArgs {
     type Vtable = INDLicenseFetchCompletedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ee30a1a_11b2_4558_8865_e3a516922517);
+}
+#[cfg(feature = "deprecated")]
+pub trait INDLicenseFetchCompletedEventArgsImpl {
+    fn ResponseCustomData();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -882,6 +943,13 @@ unsafe impl ::windows::core::Interface for INDLicenseFetchDescriptor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5498d33a_e686_4935_a567_7ca77ad20fa4);
 }
 #[cfg(feature = "deprecated")]
+pub trait INDLicenseFetchDescriptorImpl {
+    fn ContentIDType();
+    fn ContentID();
+    fn LicenseFetchChallengeCustomData();
+    fn SetLicenseFetchChallengeCustomData();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDLicenseFetchDescriptorVtbl(
@@ -908,6 +976,10 @@ pub struct INDLicenseFetchDescriptorFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INDLicenseFetchDescriptorFactory {
     type Vtable = INDLicenseFetchDescriptorFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0031202_cfac_4f00_ae6a_97af80b848f2);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait INDLicenseFetchDescriptorFactoryImpl {
+    fn CreateInstance();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -1014,6 +1086,10 @@ unsafe impl ::windows::core::RuntimeType for INDLicenseFetchResult {
 unsafe impl ::windows::core::Interface for INDLicenseFetchResult {
     type Vtable = INDLicenseFetchResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21d39698_aa62_45ff_a5ff_8037e5433825);
+}
+#[cfg(feature = "deprecated")]
+pub trait INDLicenseFetchResultImpl {
+    fn ResponseCustomData();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -1149,6 +1225,13 @@ unsafe impl ::windows::core::Interface for INDMessenger {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd42df95d_a75b_47bf_8249_bc83820da38a);
 }
 #[cfg(feature = "deprecated")]
+pub trait INDMessengerImpl {
+    fn SendRegistrationRequestAsync();
+    fn SendProximityDetectionStartAsync();
+    fn SendProximityDetectionResponseAsync();
+    fn SendLicenseFetchRequestAsync();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDMessengerVtbl(
@@ -1259,6 +1342,10 @@ unsafe impl ::windows::core::RuntimeType for INDProximityDetectionCompletedEvent
 unsafe impl ::windows::core::Interface for INDProximityDetectionCompletedEventArgs {
     type Vtable = INDProximityDetectionCompletedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a706328_da25_4f8c_9eb7_5d0fc3658bca);
+}
+#[cfg(feature = "deprecated")]
+pub trait INDProximityDetectionCompletedEventArgsImpl {
+    fn ProximityDetectionRetryCount();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -1391,6 +1478,13 @@ unsafe impl ::windows::core::Interface for INDRegistrationCompletedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e39b64d_ab5b_4905_acdc_787a77c6374d);
 }
 #[cfg(feature = "deprecated")]
+pub trait INDRegistrationCompletedEventArgsImpl {
+    fn ResponseCustomData();
+    fn TransmitterProperties();
+    fn TransmitterCertificateAccepted();
+    fn SetTransmitterCertificateAccepted();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDRegistrationCompletedEventArgsVtbl(
@@ -1503,6 +1597,10 @@ unsafe impl ::windows::core::Interface for INDSendResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3685517_a584_479d_90b7_d689c7bf7c80);
 }
 #[cfg(feature = "deprecated")]
+pub trait INDSendResultImpl {
+    fn Response();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDSendResultVtbl(
@@ -1609,6 +1707,10 @@ unsafe impl ::windows::core::Interface for INDStartResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79f6e96e_f50f_4015_8ba4_c2bc344ebd4e);
 }
 #[cfg(feature = "deprecated")]
+pub trait INDStartResultImpl {
+    fn MediaStreamSource();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDStartResultVtbl(
@@ -1713,6 +1815,10 @@ unsafe impl ::windows::core::RuntimeType for INDStorageFileHelper {
 unsafe impl ::windows::core::Interface for INDStorageFileHelper {
     type Vtable = INDStorageFileHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8f0bef8_91d2_4d47_a3f9_eaff4edb729f);
+}
+#[cfg(feature = "deprecated")]
+pub trait INDStorageFileHelperImpl {
+    fn GetFileURLs();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -1848,6 +1954,14 @@ unsafe impl ::windows::core::Interface for INDStreamParser {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0baa198_9796_41c9_8695_59437e67e66a);
 }
 #[cfg(feature = "deprecated")]
+pub trait INDStreamParserImpl {
+    fn ParseData();
+    fn GetStreamInformation();
+    fn BeginOfStream();
+    fn EndOfStream();
+    fn Notifier();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDStreamParserVtbl(
@@ -1977,6 +2091,13 @@ unsafe impl ::windows::core::Interface for INDStreamParserNotifier {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc167acd0_2ce6_426c_ace5_5e9275fea715);
 }
 #[cfg(feature = "deprecated")]
+pub trait INDStreamParserNotifierImpl {
+    fn OnContentIDReceived();
+    fn OnMediaStreamDescriptorCreated();
+    fn OnSampleParsed();
+    fn OnBeginSetupDecryptor();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDStreamParserNotifierVtbl(
@@ -2003,6 +2124,10 @@ pub struct INDTCPMessengerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INDTCPMessengerFactory {
     type Vtable = INDTCPMessengerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7dd85cfe_1b99_4f68_8f82_8177f7cedf2b);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait INDTCPMessengerFactoryImpl {
+    fn CreateInstance();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -2201,6 +2326,20 @@ unsafe impl ::windows::core::Interface for INDTransmitterProperties {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe536af23_ac4f_4adc_8c66_4ff7c2702dd6);
 }
 #[cfg(feature = "deprecated")]
+pub trait INDTransmitterPropertiesImpl {
+    fn CertificateType();
+    fn PlatformIdentifier();
+    fn SupportedFeatures();
+    fn SecurityLevel();
+    fn SecurityVersion();
+    fn ExpirationDate();
+    fn ClientID();
+    fn ModelDigest();
+    fn ModelManufacturerName();
+    fn ModelName();
+    fn ModelNumber();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDTransmitterPropertiesVtbl(
@@ -2240,6 +2379,19 @@ unsafe impl ::windows::core::Interface for IPlayReadyContentHeader {
     type Vtable = IPlayReadyContentHeaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a438a6a_7f4c_452e_88bd_0148c6387a2c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyContentHeaderImpl {
+    fn KeyId();
+    fn KeyIdString();
+    fn LicenseAcquisitionUrl();
+    fn LicenseAcquisitionUserInterfaceUrl();
+    fn DomainServiceId();
+    fn EncryptionType();
+    fn CustomAttributes();
+    fn DecryptorSetup();
+    fn GetSerializedHeader();
+    fn HeaderWithEmbeddedUpdates();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyContentHeaderVtbl(
@@ -2269,6 +2421,11 @@ unsafe impl ::windows::core::Interface for IPlayReadyContentHeader2 {
     type Vtable = IPlayReadyContentHeader2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x359c79f4_2180_498c_965b_e754d875eab2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyContentHeader2Impl: IPlayReadyContentHeaderImpl {
+    fn KeyIds();
+    fn KeyIdStrings();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyContentHeader2Vtbl(
@@ -2287,6 +2444,12 @@ pub struct IPlayReadyContentHeaderFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlayReadyContentHeaderFactory {
     type Vtable = IPlayReadyContentHeaderFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb97c8ff_b758_4776_bf01_217a8b510b2c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyContentHeaderFactoryImpl {
+    fn CreateInstanceFromWindowsMediaDrmHeader();
+    fn CreateInstanceFromComponents();
+    fn CreateInstanceFromPlayReadyHeader();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2310,6 +2473,10 @@ unsafe impl ::windows::core::Interface for IPlayReadyContentHeaderFactory2 {
     type Vtable = IPlayReadyContentHeaderFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1239cf5_ae6d_4778_97fd_6e3a2eeadbeb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyContentHeaderFactory2Impl {
+    fn CreateInstanceFromComponents2();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyContentHeaderFactory2Vtbl(
@@ -2328,6 +2495,10 @@ pub struct IPlayReadyContentResolver(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlayReadyContentResolver {
     type Vtable = IPlayReadyContentResolverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbfd2523_906d_4982_a6b8_6849565a7ce8);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyContentResolverImpl {
+    fn ServiceRequest();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2449,6 +2620,13 @@ unsafe impl ::windows::core::Interface for IPlayReadyDomain {
     type Vtable = IPlayReadyDomainVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadcc93ac_97e6_43ef_95e4_d7868f3b16a9);
 }
+pub trait IPlayReadyDomainImpl {
+    fn AccountId();
+    fn ServiceId();
+    fn Revision();
+    fn FriendlyName();
+    fn DomainJoinUrl();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyDomainVtbl(
@@ -2472,6 +2650,10 @@ unsafe impl ::windows::core::Interface for IPlayReadyDomainIterableFactory {
     type Vtable = IPlayReadyDomainIterableFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4df384ee_3121_4df3_a5e8_d0c24c0500fc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyDomainIterableFactoryImpl {
+    fn CreateInstance();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyDomainIterableFactoryVtbl(
@@ -2490,6 +2672,15 @@ pub struct IPlayReadyDomainJoinServiceRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlayReadyDomainJoinServiceRequest {
     type Vtable = IPlayReadyDomainJoinServiceRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x171b4a5a_405f_4739_b040_67b9f0c38758);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyDomainJoinServiceRequestImpl: IMediaProtectionServiceRequestImpl + IPlayReadyServiceRequestImpl {
+    fn DomainAccountId();
+    fn SetDomainAccountId();
+    fn DomainFriendlyName();
+    fn SetDomainFriendlyName();
+    fn DomainServiceId();
+    fn SetDomainServiceId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2514,6 +2705,13 @@ unsafe impl ::windows::core::Interface for IPlayReadyDomainLeaveServiceRequest {
     type Vtable = IPlayReadyDomainLeaveServiceRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x062d58be_97ad_4917_aa03_46d4c252d464);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyDomainLeaveServiceRequestImpl: IMediaProtectionServiceRequestImpl + IPlayReadyServiceRequestImpl {
+    fn DomainAccountId();
+    fn SetDomainAccountId();
+    fn DomainServiceId();
+    fn SetDomainServiceId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyDomainLeaveServiceRequestVtbl(
@@ -2535,6 +2733,10 @@ unsafe impl ::windows::core::Interface for IPlayReadyITADataGenerator {
     type Vtable = IPlayReadyITADataGeneratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24446b8e_10b9_4530_b25b_901a8029a9b2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyITADataGeneratorImpl {
+    fn GenerateData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyITADataGeneratorVtbl(
@@ -2554,6 +2756,8 @@ unsafe impl ::windows::core::Interface for IPlayReadyIndividualizationServiceReq
     type Vtable = IPlayReadyIndividualizationServiceRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21f5a86b_008c_4611_ab2f_aaa6c69f0e24);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyIndividualizationServiceRequestImpl: IMediaProtectionServiceRequestImpl + IPlayReadyServiceRequestImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyIndividualizationServiceRequestVtbl(
@@ -2689,6 +2893,15 @@ unsafe impl ::windows::core::Interface for IPlayReadyLicense {
     type Vtable = IPlayReadyLicenseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee474c4e_fa3c_414d_a9f2_3ffc1ef832d4);
 }
+pub trait IPlayReadyLicenseImpl {
+    fn FullyEvaluated();
+    fn UsableForPlay();
+    fn ExpirationDate();
+    fn ExpireAfterFirstPlay();
+    fn DomainAccountID();
+    fn ChainDepth();
+    fn GetKIDAtChainDepth();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyLicenseVtbl(
@@ -2713,6 +2926,13 @@ pub struct IPlayReadyLicense2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlayReadyLicense2 {
     type Vtable = IPlayReadyLicense2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30f4e7a7_d8e3_48a0_bcda_ff9f40530436);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyLicense2Impl: IPlayReadyLicenseImpl {
+    fn SecureStopId();
+    fn SecurityLevel();
+    fn InMemoryOnly();
+    fn ExpiresInRealTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2951,6 +3171,12 @@ unsafe impl ::windows::core::Interface for IPlayReadyLicenseAcquisitionServiceRe
     type Vtable = IPlayReadyLicenseAcquisitionServiceRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d85ff45_3e9f_4f48_93e1_9530c8d58c3e);
 }
+pub trait IPlayReadyLicenseAcquisitionServiceRequestImpl: IMediaProtectionServiceRequestImpl + IPlayReadyServiceRequestImpl {
+    fn ContentHeader();
+    fn SetContentHeader();
+    fn DomainServiceId();
+    fn SetDomainServiceId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyLicenseAcquisitionServiceRequestVtbl(
@@ -2972,6 +3198,10 @@ unsafe impl ::windows::core::Interface for IPlayReadyLicenseAcquisitionServiceRe
     type Vtable = IPlayReadyLicenseAcquisitionServiceRequest2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7fa5eb5_fe0c_b225_bc60_5a9edd32ceb5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyLicenseAcquisitionServiceRequest2Impl: IMediaProtectionServiceRequestImpl + IPlayReadyLicenseAcquisitionServiceRequestImpl + IPlayReadyServiceRequestImpl {
+    fn SessionId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyLicenseAcquisitionServiceRequest2Vtbl(
@@ -2989,6 +3219,10 @@ pub struct IPlayReadyLicenseAcquisitionServiceRequest3(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for IPlayReadyLicenseAcquisitionServiceRequest3 {
     type Vtable = IPlayReadyLicenseAcquisitionServiceRequest3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x394e5f4d_7f75_430d_b2e7_7f75f34b2d75);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyLicenseAcquisitionServiceRequest3Impl: IMediaProtectionServiceRequestImpl + IPlayReadyLicenseAcquisitionServiceRequestImpl + IPlayReadyLicenseAcquisitionServiceRequest2Impl + IPlayReadyServiceRequestImpl {
+    fn CreateLicenseIterable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3009,6 +3243,10 @@ unsafe impl ::windows::core::Interface for IPlayReadyLicenseIterableFactory {
     type Vtable = IPlayReadyLicenseIterableFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4179f08_0837_4978_8e68_be4293c8d7a6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyLicenseIterableFactoryImpl {
+    fn CreateInstance();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyLicenseIterableFactoryVtbl(
@@ -3027,6 +3265,10 @@ pub struct IPlayReadyLicenseManagement(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlayReadyLicenseManagement {
     type Vtable = IPlayReadyLicenseManagementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaaeb2141_0957_4405_b892_8bf3ec5dadd9);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyLicenseManagementImpl {
+    fn DeleteLicenses();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3120,6 +3362,10 @@ unsafe impl ::windows::core::RuntimeType for IPlayReadyLicenseSession {
 unsafe impl ::windows::core::Interface for IPlayReadyLicenseSession {
     type Vtable = IPlayReadyLicenseSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1723a39_87fa_4fdd_abbb_a9720e845259);
+}
+pub trait IPlayReadyLicenseSessionImpl {
+    fn CreateLAServiceRequest();
+    fn ConfigureMediaProtectionManager();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3245,6 +3491,9 @@ unsafe impl ::windows::core::Interface for IPlayReadyLicenseSession2 {
     type Vtable = IPlayReadyLicenseSession2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4909be3a_3aed_4656_8ad7_ee0fd7799510);
 }
+pub trait IPlayReadyLicenseSession2Impl: IPlayReadyLicenseSessionImpl {
+    fn CreateLicenseIterable();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyLicenseSession2Vtbl(
@@ -3263,6 +3512,10 @@ pub struct IPlayReadyLicenseSessionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlayReadyLicenseSessionFactory {
     type Vtable = IPlayReadyLicenseSessionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62492699_6527_429e_98be_48d798ac2739);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyLicenseSessionFactoryImpl {
+    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3283,6 +3536,11 @@ unsafe impl ::windows::core::Interface for IPlayReadyMeteringReportServiceReques
     type Vtable = IPlayReadyMeteringReportServiceRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc12b231c_0ecd_4f11_a185_1e24a4a67fb7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyMeteringReportServiceRequestImpl: IMediaProtectionServiceRequestImpl + IPlayReadyServiceRequestImpl {
+    fn MeteringCertificate();
+    fn SetMeteringCertificate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyMeteringReportServiceRequestVtbl(
@@ -3302,6 +3560,8 @@ unsafe impl ::windows::core::Interface for IPlayReadyRevocationServiceRequest {
     type Vtable = IPlayReadyRevocationServiceRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x543d66ac_faf0_4560_84a5_0e4acec939e4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyRevocationServiceRequestImpl: IMediaProtectionServiceRequestImpl + IPlayReadyServiceRequestImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyRevocationServiceRequestVtbl(
@@ -3318,6 +3578,10 @@ pub struct IPlayReadySecureStopIterableFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlayReadySecureStopIterableFactory {
     type Vtable = IPlayReadySecureStopIterableFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f1f0165_4214_4d9e_81eb_e89f9d294aee);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadySecureStopIterableFactoryImpl {
+    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3570,6 +3834,13 @@ unsafe impl ::windows::core::Interface for IPlayReadySecureStopServiceRequest {
     type Vtable = IPlayReadySecureStopServiceRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5501ee5_01bf_4401_9677_05630a6a4cc8);
 }
+pub trait IPlayReadySecureStopServiceRequestImpl: IMediaProtectionServiceRequestImpl + IPlayReadyServiceRequestImpl {
+    fn SessionID();
+    fn StartTime();
+    fn UpdateTime();
+    fn Stopped();
+    fn PublisherCertificate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadySecureStopServiceRequestVtbl(
@@ -3593,6 +3864,11 @@ pub struct IPlayReadySecureStopServiceRequestFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlayReadySecureStopServiceRequestFactory {
     type Vtable = IPlayReadySecureStopServiceRequestFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e448ac9_e67e_494e_9f49_6285438c76cf);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadySecureStopServiceRequestFactoryImpl {
+    fn CreateInstance();
+    fn CreateInstanceFromSessionID();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3781,6 +4057,17 @@ unsafe impl ::windows::core::Interface for IPlayReadyServiceRequest {
     type Vtable = IPlayReadyServiceRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bad2836_a703_45a6_a180_76f3565aa725);
 }
+pub trait IPlayReadyServiceRequestImpl: IMediaProtectionServiceRequestImpl {
+    fn Uri();
+    fn SetUri();
+    fn ResponseCustomData();
+    fn ChallengeCustomData();
+    fn SetChallengeCustomData();
+    fn BeginServiceRequest();
+    fn NextServiceRequest();
+    fn GenerateManualEnablingChallenge();
+    fn ProcessManualEnablingResponse();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyServiceRequestVtbl(
@@ -3810,6 +4097,12 @@ unsafe impl ::windows::core::Interface for IPlayReadySoapMessage {
     type Vtable = IPlayReadySoapMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb659fcb5_ce41_41ba_8a0d_61df5fffa139);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadySoapMessageImpl {
+    fn GetMessageBody();
+    fn MessageHeaders();
+    fn Uri();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadySoapMessageVtbl(
@@ -3831,6 +4124,17 @@ pub struct IPlayReadyStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlayReadyStatics {
     type Vtable = IPlayReadyStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e69c00d_247c_469a_8f31_5c1a1571d9c6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyStaticsImpl {
+    fn DomainJoinServiceRequestType();
+    fn DomainLeaveServiceRequestType();
+    fn IndividualizationServiceRequestType();
+    fn LicenseAcquirerServiceRequestType();
+    fn MeteringReportServiceRequestType();
+    fn RevocationServiceRequestType();
+    fn MediaProtectionSystemId();
+    fn PlayReadySecurityVersion();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3857,6 +4161,10 @@ unsafe impl ::windows::core::Interface for IPlayReadyStatics2 {
     type Vtable = IPlayReadyStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f8d6a92_5f9a_423e_9466_b33969af7a3d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyStatics2Impl: IPlayReadyStaticsImpl {
+    fn PlayReadyCertificateSecurityLevel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyStatics2Vtbl(
@@ -3874,6 +4182,11 @@ pub struct IPlayReadyStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlayReadyStatics3 {
     type Vtable = IPlayReadyStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fa33f71_2dd3_4bed_ae49_f7148e63e710);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyStatics3Impl: IPlayReadyStaticsImpl + IPlayReadyStatics2Impl {
+    fn SecureStopServiceRequestType();
+    fn CheckSupportedHardware();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3894,6 +4207,11 @@ unsafe impl ::windows::core::Interface for IPlayReadyStatics4 {
     type Vtable = IPlayReadyStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50a91300_d824_4231_9d5e_78ef8844c7d7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyStatics4Impl: IPlayReadyStaticsImpl + IPlayReadyStatics2Impl + IPlayReadyStatics3Impl {
+    fn InputTrustAuthorityToCreate();
+    fn ProtectionSystemId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyStatics4Vtbl(
@@ -3912,6 +4230,12 @@ pub struct IPlayReadyStatics5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlayReadyStatics5 {
     type Vtable = IPlayReadyStatics5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x230a7075_dfa0_4f8e_a779_cefea9c6824b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPlayReadyStatics5Impl: IPlayReadyStaticsImpl + IPlayReadyStatics2Impl + IPlayReadyStatics3Impl + IPlayReadyStatics4Impl {
+    fn HardwareDRMDisabledAtTime();
+    fn HardwareDRMDisabledUntilTime();
+    fn ResetHardwareDRMDisabled();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -6,6 +6,15 @@ unsafe impl ::windows::core::Interface for INamedResource {
     type Vtable = INamedResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c98c219_0b13_4240_89a5_d495dc189a00);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INamedResourceImpl {
+    fn Uri();
+    fn Candidates();
+    fn Resolve();
+    fn ResolveForContext();
+    fn ResolveAll();
+    fn ResolveAllForContext();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INamedResourceVtbl(
@@ -33,6 +42,16 @@ unsafe impl ::windows::core::Interface for IResourceCandidate {
     type Vtable = IResourceCandidateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf5207d9_c433_4764_b3fd_8fa6bfbcbadc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IResourceCandidateImpl {
+    fn Qualifiers();
+    fn IsMatch();
+    fn IsMatchAsDefault();
+    fn IsDefault();
+    fn ValueAsString();
+    fn GetValueAsFileAsync();
+    fn GetQualifierValue();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceCandidateVtbl(
@@ -59,6 +78,10 @@ unsafe impl ::windows::core::Interface for IResourceCandidate2 {
     type Vtable = IResourceCandidate2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69e5b468_f6fc_4013_aaa2_d53f1757d3b5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IResourceCandidate2Impl {
+    fn GetValueAsStreamAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceCandidate2Vtbl(
@@ -78,6 +101,10 @@ unsafe impl ::windows::core::Interface for IResourceCandidate3 {
     type Vtable = IResourceCandidate3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08ae97f8_517a_4674_958c_4a3c7cd2cc6b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IResourceCandidate3Impl {
+    fn Kind();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceCandidate3Vtbl(
@@ -95,6 +122,16 @@ pub struct IResourceContext(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceContext {
     type Vtable = IResourceContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fa22f4b_707e_4b27_ad0d_d0d8cd468fd2);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IResourceContextImpl {
+    fn QualifierValues();
+    fn Reset();
+    fn ResetQualifierValues();
+    fn OverrideToMatch();
+    fn Clone();
+    fn Languages();
+    fn SetLanguages();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -125,6 +162,10 @@ unsafe impl ::windows::core::Interface for IResourceContextStatics {
     type Vtable = IResourceContextStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98be9d6c_6338_4b31_99df_b2b442f17149);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IResourceContextStaticsImpl {
+    fn CreateMatchingContext();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceContextStaticsVtbl(
@@ -143,6 +184,14 @@ pub struct IResourceContextStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceContextStatics2 {
     type Vtable = IResourceContextStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41f752ef_12af_41b9_ab36_b1eb4b512460);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IResourceContextStatics2Impl {
+    fn GetForCurrentView();
+    fn SetGlobalQualifierValue();
+    fn ResetGlobalQualifierValues();
+    fn ResetGlobalQualifierValuesForSpecifiedQualifiers();
+    fn GetForViewIndependentUse();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -167,6 +216,10 @@ unsafe impl ::windows::core::Interface for IResourceContextStatics3 {
     type Vtable = IResourceContextStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20cf492c_af0f_450b_9da6_106dd0c29a39);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IResourceContextStatics3Impl {
+    fn SetGlobalQualifierValueWithPersistence();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceContextStatics3Vtbl(
@@ -184,6 +237,10 @@ pub struct IResourceContextStatics4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceContextStatics4 {
     type Vtable = IResourceContextStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22eb9ccd_fb31_4bfa_b86b_df9d9d7bdc39);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IResourceContextStatics4Impl {
+    fn GetForUIContext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -203,6 +260,14 @@ pub struct IResourceManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceManager {
     type Vtable = IResourceManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf744d97b_9988_44fb_abd6_5378844cfa8b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IResourceManagerImpl {
+    fn MainResourceMap();
+    fn AllResourceMaps();
+    fn DefaultContext();
+    fn LoadPriFiles();
+    fn UnloadPriFiles();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -229,6 +294,11 @@ unsafe impl ::windows::core::Interface for IResourceManager2 {
     type Vtable = IResourceManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d66fe6c_a4d7_4c23_9e85_675f304c252d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IResourceManager2Impl {
+    fn GetAllNamedResourcesForPackage();
+    fn GetAllSubtreesForPackage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceManager2Vtbl(
@@ -250,6 +320,11 @@ unsafe impl ::windows::core::Interface for IResourceManagerStatics {
     type Vtable = IResourceManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cc0fdfc_69ee_4e43_9901_47f12687baf7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IResourceManagerStaticsImpl {
+    fn Current();
+    fn IsResourceReference();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceManagerStaticsVtbl(
@@ -268,6 +343,13 @@ pub struct IResourceMap(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceMap {
     type Vtable = IResourceMapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72284824_db8c_42f8_b08c_53ff357dad82);
+}
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
+pub trait IResourceMapImpl: IIterableImpl<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, NamedResource>> + IMapViewImpl<::windows::core::HSTRING, NamedResource> {
+    fn Uri();
+    fn GetValue();
+    fn GetValueForContext();
+    fn GetSubtree();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -290,6 +372,14 @@ pub struct IResourceQualifier(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceQualifier {
     type Vtable = IResourceQualifierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x785da5b2_4afd_4376_a888_c5f9a6b7a05c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IResourceQualifierImpl {
+    fn QualifierName();
+    fn QualifierValue();
+    fn IsDefault();
+    fn IsMatch();
+    fn Score();
 }
 #[repr(C)]
 #[doc(hidden)]

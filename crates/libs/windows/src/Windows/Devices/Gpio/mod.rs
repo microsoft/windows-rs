@@ -1108,6 +1108,16 @@ unsafe impl ::windows::core::Interface for IGpioChangeCounter {
     type Vtable = IGpioChangeCounterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb5ec0de_6801_43ff_803d_4576628a8b26);
 }
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IGpioChangeCounterImpl: IClosableImpl {
+    fn SetPolarity();
+    fn Polarity();
+    fn IsStarted();
+    fn Start();
+    fn Stop();
+    fn Read();
+    fn Reset();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioChangeCounterVtbl(
@@ -1134,6 +1144,10 @@ unsafe impl ::windows::core::Interface for IGpioChangeCounterFactory {
     type Vtable = IGpioChangeCounterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x147d94b6_0a9e_410c_b4fa_f89f4052084d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGpioChangeCounterFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioChangeCounterFactoryVtbl(
@@ -1151,6 +1165,23 @@ pub struct IGpioChangeReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGpioChangeReader {
     type Vtable = IGpioChangeReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0abc885f_e031_48e8_8590_70de78363c6d);
+}
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IGpioChangeReaderImpl: IClosableImpl {
+    fn Capacity();
+    fn Length();
+    fn IsEmpty();
+    fn IsOverflowed();
+    fn SetPolarity();
+    fn Polarity();
+    fn IsStarted();
+    fn Start();
+    fn Stop();
+    fn Clear();
+    fn GetNextItem();
+    fn PeekNextItem();
+    fn GetAllItems();
+    fn WaitForItemsAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1187,6 +1218,11 @@ unsafe impl ::windows::core::Interface for IGpioChangeReaderFactory {
     type Vtable = IGpioChangeReaderFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9598ef3_390e_441a_9d1c_e8de0b2df0df);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGpioChangeReaderFactoryImpl {
+    fn Create();
+    fn CreateWithCapacity();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioChangeReaderFactoryVtbl(
@@ -1205,6 +1241,13 @@ pub struct IGpioController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGpioController {
     type Vtable = IGpioControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x284012e3_7461_469c_a8bc_61d69d08a53c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGpioControllerImpl {
+    fn PinCount();
+    fn OpenPin();
+    fn OpenPinWithSharingMode();
+    fn TryOpenPin();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1227,6 +1270,10 @@ unsafe impl ::windows::core::Interface for IGpioControllerStatics {
     type Vtable = IGpioControllerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ed6f42e_7af7_4116_9533_c43d99a1fb64);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGpioControllerStaticsImpl {
+    fn GetDefault();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioControllerStaticsVtbl(
@@ -1244,6 +1291,11 @@ pub struct IGpioControllerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGpioControllerStatics2 {
     type Vtable = IGpioControllerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x912b7d20_6ca4_4106_a373_fffd346b0e5b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGpioControllerStatics2Impl {
+    fn GetControllersAsync();
+    fn GetDefaultAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1265,6 +1317,20 @@ pub struct IGpioPin(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGpioPin {
     type Vtable = IGpioPinVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11d9b087_afae_4790_9ee9_e0eac942d201);
+}
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IGpioPinImpl: IClosableImpl {
+    fn ValueChanged();
+    fn RemoveValueChanged();
+    fn DebounceTimeout();
+    fn SetDebounceTimeout();
+    fn PinNumber();
+    fn SharingMode();
+    fn IsDriveModeSupported();
+    fn GetDriveMode();
+    fn SetDriveMode();
+    fn Write();
+    fn Read();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1297,6 +1363,10 @@ pub struct IGpioPinValueChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGpioPinValueChangedEventArgs {
     type Vtable = IGpioPinValueChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3137aae1_703d_4059_bd24_b5b25dffb84e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGpioPinValueChangedEventArgsImpl {
+    fn Edge();
 }
 #[repr(C)]
 #[doc(hidden)]

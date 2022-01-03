@@ -107,6 +107,13 @@ unsafe impl ::windows::core::Interface for IAnnotationProvider {
     type Vtable = IAnnotationProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95ba1417_4437_451b_9461_050a49b59d06);
 }
+pub trait IAnnotationProviderImpl {
+    fn AnnotationTypeId();
+    fn AnnotationTypeName();
+    fn Author();
+    fn DateTime();
+    fn Target();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnnotationProviderVtbl(
@@ -198,6 +205,9 @@ unsafe impl ::windows::core::RuntimeType for ICustomNavigationProvider {
 unsafe impl ::windows::core::Interface for ICustomNavigationProvider {
     type Vtable = ICustomNavigationProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bd8a6d0_2fa3_4717_b28c_4917ce54928d);
+}
+pub trait ICustomNavigationProviderImpl {
+    fn NavigateCustom();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -291,6 +301,10 @@ unsafe impl ::windows::core::RuntimeType for IDockProvider {
 unsafe impl ::windows::core::Interface for IDockProvider {
     type Vtable = IDockProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48c243f8_78b1_44a0_ac5f_750757bcde3c);
+}
+pub trait IDockProviderImpl {
+    fn DockPosition();
+    fn SetDockPosition();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -404,6 +418,12 @@ unsafe impl ::windows::core::Interface for IDragProvider {
     type Vtable = IDragProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e7786a9_7ffc_4f57_b965_1ef1f373f546);
 }
+pub trait IDragProviderImpl {
+    fn IsGrabbed();
+    fn DropEffect();
+    fn DropEffects();
+    fn GetGrabbedItems();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragProviderVtbl(
@@ -502,6 +522,10 @@ unsafe impl ::windows::core::Interface for IDropTargetProvider {
     type Vtable = IDropTargetProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a245bdd_b458_4fe0_98c8_aac89df56d61);
 }
+pub trait IDropTargetProviderImpl {
+    fn DropEffect();
+    fn DropEffects();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDropTargetProviderVtbl(
@@ -599,6 +623,11 @@ unsafe impl ::windows::core::RuntimeType for IExpandCollapseProvider {
 unsafe impl ::windows::core::Interface for IExpandCollapseProvider {
     type Vtable = IExpandCollapseProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49ac8399_d626_4543_94b9_a6d9a9593af6);
+}
+pub trait IExpandCollapseProviderImpl {
+    fn ExpandCollapseState();
+    fn Collapse();
+    fn Expand();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -721,6 +750,13 @@ unsafe impl ::windows::core::Interface for IGridItemProvider {
     type Vtable = IGridItemProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfff3683c_7407_45bb_a936_df3ed6d3837d);
 }
+pub trait IGridItemProviderImpl {
+    fn Column();
+    fn ColumnSpan();
+    fn ContainingGrid();
+    fn Row();
+    fn RowSpan();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridItemProviderVtbl(
@@ -828,6 +864,11 @@ unsafe impl ::windows::core::Interface for IGridProvider {
     type Vtable = IGridProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b62b7a0_932c_4490_9a13_02fdb39a8f5b);
 }
+pub trait IGridProviderImpl {
+    fn ColumnCount();
+    fn RowCount();
+    fn GetItem();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridProviderVtbl(
@@ -848,6 +889,8 @@ unsafe impl ::windows::core::Interface for IIRawElementProviderSimple {
     type Vtable = IIRawElementProviderSimpleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec752224_9b77_4720_bb21_4ac89fdb1afd);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IIRawElementProviderSimpleImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIRawElementProviderSimpleVtbl(
@@ -930,6 +973,9 @@ unsafe impl ::windows::core::RuntimeType for IInvokeProvider {
 unsafe impl ::windows::core::Interface for IInvokeProvider {
     type Vtable = IInvokeProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7d1a187_b13c_4540_b09e_6778e2dc9ba5);
+}
+pub trait IInvokeProviderImpl {
+    fn Invoke();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1017,6 +1063,9 @@ unsafe impl ::windows::core::RuntimeType for IItemContainerProvider {
 unsafe impl ::windows::core::Interface for IItemContainerProvider {
     type Vtable = IItemContainerProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef5cd845_e1d4_40f4_bad5_c7fad44a703e);
+}
+pub trait IItemContainerProviderImpl {
+    fn FindItemByProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1126,6 +1175,12 @@ unsafe impl ::windows::core::Interface for IMultipleViewProvider {
     type Vtable = IMultipleViewProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd014e196_0e50_4843_a5d2_c22897c8845a);
 }
+pub trait IMultipleViewProviderImpl {
+    fn CurrentView();
+    fn GetSupportedViews();
+    fn GetViewName();
+    fn SetCurrentView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultipleViewProviderVtbl(
@@ -1215,6 +1270,9 @@ unsafe impl ::windows::core::RuntimeType for IObjectModelProvider {
 unsafe impl ::windows::core::Interface for IObjectModelProvider {
     type Vtable = IObjectModelProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3ca36b9_0793_4ed0_bbf4_9ff4e0f98f80);
+}
+pub trait IObjectModelProviderImpl {
+    fn GetUnderlyingObjectModel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1347,6 +1405,15 @@ unsafe impl ::windows::core::RuntimeType for IRangeValueProvider {
 unsafe impl ::windows::core::Interface for IRangeValueProvider {
     type Vtable = IRangeValueProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x838a34a8_7d5f_4079_af03_c3d015e93413);
+}
+pub trait IRangeValueProviderImpl {
+    fn IsReadOnly();
+    fn LargeChange();
+    fn Maximum();
+    fn Minimum();
+    fn SmallChange();
+    fn Value();
+    fn SetValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1530,6 +1597,9 @@ unsafe impl ::windows::core::Interface for IScrollItemProvider {
     type Vtable = IScrollItemProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a3ec090_5d2c_4e42_9ee6_9d58db100b55);
 }
+pub trait IScrollItemProviderImpl {
+    fn ScrollIntoView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollItemProviderVtbl(
@@ -1667,6 +1737,16 @@ unsafe impl ::windows::core::Interface for IScrollProvider {
     type Vtable = IScrollProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x374bf581_7716_4bbc_82eb_d997006ea999);
 }
+pub trait IScrollProviderImpl {
+    fn HorizontallyScrollable();
+    fn HorizontalScrollPercent();
+    fn HorizontalViewSize();
+    fn VerticallyScrollable();
+    fn VerticalScrollPercent();
+    fn VerticalViewSize();
+    fn Scroll();
+    fn SetScrollPercent();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollProviderVtbl(
@@ -1784,6 +1864,13 @@ unsafe impl ::windows::core::Interface for ISelectionItemProvider {
     type Vtable = ISelectionItemProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a4977c1_830d_42d2_bf62_042ebddecc19);
 }
+pub trait ISelectionItemProviderImpl {
+    fn IsSelected();
+    fn SelectionContainer();
+    fn AddToSelection();
+    fn RemoveFromSelection();
+    fn Select();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectionItemProviderVtbl(
@@ -1891,6 +1978,11 @@ unsafe impl ::windows::core::Interface for ISelectionProvider {
     type Vtable = ISelectionProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f018fca_b944_4395_8de1_88f674af51d3);
 }
+pub trait ISelectionProviderImpl {
+    fn CanSelectMultiple();
+    fn IsSelectionRequired();
+    fn GetSelection();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectionProviderVtbl(
@@ -1996,6 +2088,11 @@ unsafe impl ::windows::core::Interface for ISpreadsheetItemProvider {
     type Vtable = ISpreadsheetItemProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebde8f92_6015_4826_b719_47521a81c67e);
 }
+pub trait ISpreadsheetItemProviderImpl {
+    fn Formula();
+    fn GetAnnotationObjects();
+    fn GetAnnotationTypes();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpreadsheetItemProviderVtbl(
@@ -2084,6 +2181,9 @@ unsafe impl ::windows::core::RuntimeType for ISpreadsheetProvider {
 unsafe impl ::windows::core::Interface for ISpreadsheetProvider {
     type Vtable = ISpreadsheetProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15359093_bd99_4cfd_9f07_3b14b315e23d);
+}
+pub trait ISpreadsheetProviderImpl {
+    fn GetItemByName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2220,6 +2320,15 @@ unsafe impl ::windows::core::Interface for IStylesProvider {
     type Vtable = IStylesProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a5b7a17_7c01_4bec_9cd4_2dfa7dc246cd);
 }
+pub trait IStylesProviderImpl {
+    fn ExtendedProperties();
+    fn FillColor();
+    fn FillPatternColor();
+    fn FillPatternStyle();
+    fn Shape();
+    fn StyleId();
+    fn StyleName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStylesProviderVtbl(
@@ -2314,6 +2423,10 @@ unsafe impl ::windows::core::RuntimeType for ISynchronizedInputProvider {
 unsafe impl ::windows::core::Interface for ISynchronizedInputProvider {
     type Vtable = ISynchronizedInputProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d60cecb_da54_4aa3_b915_e3244427d4ac);
+}
+pub trait ISynchronizedInputProviderImpl {
+    fn Cancel();
+    fn StartListening();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2410,6 +2523,10 @@ unsafe impl ::windows::core::RuntimeType for ITableItemProvider {
 unsafe impl ::windows::core::Interface for ITableItemProvider {
     type Vtable = ITableItemProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b2c49cd_1de2_4ee2_a3e1_fb553559d15d);
+}
+pub trait ITableItemProviderImpl {
+    fn GetColumnHeaderItems();
+    fn GetRowHeaderItems();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2515,6 +2632,11 @@ unsafe impl ::windows::core::Interface for ITableProvider {
     type Vtable = ITableProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a8ed399_6824_4595_bab3_464bc9a04417);
 }
+pub trait ITableProviderImpl {
+    fn RowOrColumnMajor();
+    fn GetColumnHeaders();
+    fn GetRowHeaders();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITableProviderVtbl(
@@ -2611,6 +2733,10 @@ unsafe impl ::windows::core::RuntimeType for ITextChildProvider {
 unsafe impl ::windows::core::Interface for ITextChildProvider {
     type Vtable = ITextChildProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1133c336_a89b_4130_9be6_55e33334f557);
+}
+pub trait ITextChildProviderImpl {
+    fn TextContainer();
+    fn TextRange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2779,6 +2905,10 @@ unsafe impl ::windows::core::Interface for ITextEditProvider {
     type Vtable = ITextEditProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea3605b4_3a05_400e_b5f9_4e91b40f6176);
 }
+pub trait ITextEditProviderImpl: ITextProviderImpl {
+    fn GetActiveComposition();
+    fn GetConversionTarget();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextEditProviderVtbl(
@@ -2907,6 +3037,14 @@ unsafe impl ::windows::core::RuntimeType for ITextProvider {
 unsafe impl ::windows::core::Interface for ITextProvider {
     type Vtable = ITextProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb5bbc9f_4807_4f2a_8678_1b13f3c60e22);
+}
+pub trait ITextProviderImpl {
+    fn DocumentRange();
+    fn SupportedTextSelection();
+    fn GetSelection();
+    fn GetVisibleRanges();
+    fn RangeFromChild();
+    fn RangeFromPoint();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3079,6 +3217,10 @@ unsafe impl ::windows::core::RuntimeType for ITextProvider2 {
 unsafe impl ::windows::core::Interface for ITextProvider2 {
     type Vtable = ITextProvider2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf1d48bc_0487_4e7f_9d5e_f09e77e41246);
+}
+pub trait ITextProvider2Impl: ITextProviderImpl {
+    fn RangeFromAnnotation();
+    fn GetCaretRange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3287,6 +3429,26 @@ unsafe impl ::windows::core::RuntimeType for ITextRangeProvider {
 unsafe impl ::windows::core::Interface for ITextRangeProvider {
     type Vtable = ITextRangeProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0274688d_06e9_4f66_9446_28a5be98fbd0);
+}
+pub trait ITextRangeProviderImpl {
+    fn Clone();
+    fn Compare();
+    fn CompareEndpoints();
+    fn ExpandToEnclosingUnit();
+    fn FindAttribute();
+    fn FindText();
+    fn GetAttributeValue();
+    fn GetBoundingRectangles();
+    fn GetEnclosingElement();
+    fn GetText();
+    fn Move();
+    fn MoveEndpointByUnit();
+    fn MoveEndpointByRange();
+    fn Select();
+    fn AddToSelection();
+    fn RemoveFromSelection();
+    fn ScrollIntoView();
+    fn GetChildren();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3544,6 +3706,9 @@ unsafe impl ::windows::core::Interface for ITextRangeProvider2 {
     type Vtable = ITextRangeProvider2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3be3dfb_9f54_4642_a7a5_5c18d5ee2a3f);
 }
+pub trait ITextRangeProvider2Impl: ITextRangeProviderImpl {
+    fn ShowContextMenu();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextRangeProvider2Vtbl(
@@ -3635,6 +3800,10 @@ unsafe impl ::windows::core::RuntimeType for IToggleProvider {
 unsafe impl ::windows::core::Interface for IToggleProvider {
     type Vtable = IToggleProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93b88290_656f_44f7_aeaf_78b8f944d062);
+}
+pub trait IToggleProviderImpl {
+    fn ToggleState();
+    fn Toggle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3754,6 +3923,14 @@ unsafe impl ::windows::core::RuntimeType for ITransformProvider {
 unsafe impl ::windows::core::Interface for ITransformProvider {
     type Vtable = ITransformProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79670fdd_f6a9_4a65_af17_861db799a2da);
+}
+pub trait ITransformProviderImpl {
+    fn CanMove();
+    fn CanResize();
+    fn CanRotate();
+    fn Move();
+    fn Resize();
+    fn Rotate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3942,6 +4119,14 @@ unsafe impl ::windows::core::Interface for ITransformProvider2 {
     type Vtable = ITransformProvider2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8b11756_a39f_4e97_8c7d_c1ea8dd633c5);
 }
+pub trait ITransformProvider2Impl: ITransformProviderImpl {
+    fn CanZoom();
+    fn ZoomLevel();
+    fn MaxZoom();
+    fn MinZoom();
+    fn Zoom();
+    fn ZoomByUnit();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransformProvider2Vtbl(
@@ -4047,6 +4232,11 @@ unsafe impl ::windows::core::Interface for IValueProvider {
     type Vtable = IValueProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2086b7a7_ac0e_47d1_ab9b_2a64292afdf8);
 }
+pub trait IValueProviderImpl {
+    fn IsReadOnly();
+    fn Value();
+    fn SetValue();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IValueProviderVtbl(
@@ -4132,6 +4322,9 @@ unsafe impl ::windows::core::RuntimeType for IVirtualizedItemProvider {
 unsafe impl ::windows::core::Interface for IVirtualizedItemProvider {
     type Vtable = IVirtualizedItemProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17d4a04b_d658_48e0_a574_5a516c58dfa7);
+}
+pub trait IVirtualizedItemProviderImpl {
+    fn Realize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4277,6 +4470,17 @@ unsafe impl ::windows::core::RuntimeType for IWindowProvider {
 unsafe impl ::windows::core::Interface for IWindowProvider {
     type Vtable = IWindowProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1baa8b3d_38cf_415a_85d3_20e43a0ec1b1);
+}
+pub trait IWindowProviderImpl {
+    fn IsModal();
+    fn IsTopmost();
+    fn Maximizable();
+    fn Minimizable();
+    fn InteractionState();
+    fn VisualState();
+    fn Close();
+    fn SetVisualState();
+    fn WaitForInputIdle();
 }
 #[repr(C)]
 #[doc(hidden)]

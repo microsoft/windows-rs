@@ -8,6 +8,36 @@ unsafe impl ::windows::core::Interface for IUserDataTask {
     type Vtable = IUserDataTaskVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c6585d1_e0d4_4f99_aee2_bc2d5ddadf4c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataTaskImpl {
+    fn Id();
+    fn ListId();
+    fn RemoteId();
+    fn SetRemoteId();
+    fn CompletedDate();
+    fn SetCompletedDate();
+    fn Details();
+    fn SetDetails();
+    fn DetailsKind();
+    fn SetDetailsKind();
+    fn DueDate();
+    fn SetDueDate();
+    fn Kind();
+    fn Priority();
+    fn SetPriority();
+    fn RecurrenceProperties();
+    fn SetRecurrenceProperties();
+    fn RegenerationProperties();
+    fn SetRegenerationProperties();
+    fn Reminder();
+    fn SetReminder();
+    fn Sensitivity();
+    fn SetSensitivity();
+    fn Subject();
+    fn SetSubject();
+    fn StartDate();
+    fn SetStartDate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskVtbl(
@@ -60,6 +90,10 @@ unsafe impl ::windows::core::Interface for IUserDataTaskBatch {
     type Vtable = IUserDataTaskBatchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x382da5fe_20b5_431c_8f42_a5d292ec930c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataTaskBatchImpl {
+    fn Tasks();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskBatchVtbl(
@@ -78,6 +112,28 @@ pub struct IUserDataTaskList(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataTaskList {
     type Vtable = IUserDataTaskListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49412e39_7c1d_4df1_bed3_314b7cbf5e4e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataTaskListImpl {
+    fn Id();
+    fn UserDataAccountId();
+    fn DisplayName();
+    fn SetDisplayName();
+    fn SourceDisplayName();
+    fn OtherAppReadAccess();
+    fn SetOtherAppReadAccess();
+    fn OtherAppWriteAccess();
+    fn SetOtherAppWriteAccess();
+    fn LimitedWriteOperations();
+    fn SyncManager();
+    fn RegisterSyncManagerAsync();
+    fn GetTaskReader();
+    fn GetTaskReaderWithOptions();
+    fn GetTaskAsync();
+    fn SaveTaskAsync();
+    fn DeleteTaskAsync();
+    fn DeleteAsync();
+    fn SaveAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -121,6 +177,13 @@ unsafe impl ::windows::core::Interface for IUserDataTaskListLimitedWriteOperatio
     type Vtable = IUserDataTaskListLimitedWriteOperationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7aa267f2_6078_4183_919e_4f29f19cfae9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataTaskListLimitedWriteOperationsImpl {
+    fn TryCompleteTaskAsync();
+    fn TryCreateOrUpdateTaskAsync();
+    fn TryDeleteTaskAsync();
+    fn TrySkipOccurrenceAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskListLimitedWriteOperationsVtbl(
@@ -145,6 +208,18 @@ pub struct IUserDataTaskListSyncManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataTaskListSyncManager {
     type Vtable = IUserDataTaskListSyncManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e591a95_1dcf_469f_93ec_ba48bb553c6b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataTaskListSyncManagerImpl {
+    fn LastAttemptedSyncTime();
+    fn SetLastAttemptedSyncTime();
+    fn LastSuccessfulSyncTime();
+    fn SetLastSuccessfulSyncTime();
+    fn Status();
+    fn SetStatus();
+    fn SyncAsync();
+    fn SyncStatusChanged();
+    fn RemoveSyncStatusChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -179,6 +254,11 @@ unsafe impl ::windows::core::Interface for IUserDataTaskManager {
     type Vtable = IUserDataTaskManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8451c914_e60b_48a9_9211_7fb8a56cb84c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataTaskManagerImpl {
+    fn RequestStoreAsync();
+    fn User();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskManagerVtbl(
@@ -200,6 +280,11 @@ unsafe impl ::windows::core::Interface for IUserDataTaskManagerStatics {
     type Vtable = IUserDataTaskManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb35539f8_c502_47fc_a81e_100883719d55);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataTaskManagerStaticsImpl {
+    fn GetDefault();
+    fn GetForUser();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskManagerStaticsVtbl(
@@ -219,6 +304,13 @@ pub struct IUserDataTaskQueryOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataTaskQueryOptions {
     type Vtable = IUserDataTaskQueryOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x959f27ed_909a_4d30_8c1b_331d8fe667e2);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataTaskQueryOptionsImpl {
+    fn SortProperty();
+    fn SetSortProperty();
+    fn Kind();
+    fn SetKind();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -241,6 +333,10 @@ unsafe impl ::windows::core::Interface for IUserDataTaskReader {
     type Vtable = IUserDataTaskReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03e688b1_4ccf_4500_883b_e76290cfed63);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataTaskReaderImpl {
+    fn ReadBatchAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskReaderVtbl(
@@ -259,6 +355,25 @@ pub struct IUserDataTaskRecurrenceProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataTaskRecurrenceProperties {
     type Vtable = IUserDataTaskRecurrencePropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73df80b0_27c6_40ce_b149_9cd41485a69e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataTaskRecurrencePropertiesImpl {
+    fn Unit();
+    fn SetUnit();
+    fn Occurrences();
+    fn SetOccurrences();
+    fn Until();
+    fn SetUntil();
+    fn Interval();
+    fn SetInterval();
+    fn DaysOfWeek();
+    fn SetDaysOfWeek();
+    fn WeekOfMonth();
+    fn SetWeekOfMonth();
+    fn Month();
+    fn SetMonth();
+    fn Day();
+    fn SetDay();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -305,6 +420,17 @@ unsafe impl ::windows::core::Interface for IUserDataTaskRegenerationProperties {
     type Vtable = IUserDataTaskRegenerationPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92ab0007_090e_4704_bb5c_84fc0b0d9c31);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataTaskRegenerationPropertiesImpl {
+    fn Unit();
+    fn SetUnit();
+    fn Occurrences();
+    fn SetOccurrences();
+    fn Until();
+    fn SetUntil();
+    fn Interval();
+    fn SetInterval();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskRegenerationPropertiesVtbl(
@@ -333,6 +459,13 @@ pub struct IUserDataTaskStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataTaskStore {
     type Vtable = IUserDataTaskStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf06a9cb0_f1db_45ba_8a62_086004c0213d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataTaskStoreImpl {
+    fn CreateListAsync();
+    fn CreateListInAccountAsync();
+    fn FindListsAsync();
+    fn GetListAsync();
 }
 #[repr(C)]
 #[doc(hidden)]

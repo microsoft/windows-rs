@@ -46,6 +46,19 @@ unsafe impl ::windows::core::Interface for IInkDrawingAttributes {
     type Vtable = IInkDrawingAttributesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97a2176c_6774_48ad_84f0_48f5a9be74f9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkDrawingAttributesImpl {
+    fn Color();
+    fn SetColor();
+    fn PenTip();
+    fn SetPenTip();
+    fn Size();
+    fn SetSize();
+    fn IgnorePressure();
+    fn SetIgnorePressure();
+    fn FitToCurve();
+    fn SetFitToCurve();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkDrawingAttributesVtbl(
@@ -75,6 +88,13 @@ unsafe impl ::windows::core::Interface for IInkDrawingAttributes2 {
     type Vtable = IInkDrawingAttributes2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cab6508_8ec4_42fd_a5a5_e4b7d1d5316d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkDrawingAttributes2Impl {
+    fn PenTipTransform();
+    fn SetPenTipTransform();
+    fn DrawAsHighlighter();
+    fn SetDrawAsHighlighter();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkDrawingAttributes2Vtbl(
@@ -98,6 +118,11 @@ unsafe impl ::windows::core::Interface for IInkDrawingAttributes3 {
     type Vtable = IInkDrawingAttributes3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72020002_7d5b_4690_8af4_e664cbe2b74f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkDrawingAttributes3Impl {
+    fn Kind();
+    fn PencilProperties();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkDrawingAttributes3Vtbl(
@@ -116,6 +141,11 @@ pub struct IInkDrawingAttributes4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkDrawingAttributes4 {
     type Vtable = IInkDrawingAttributes4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef65dc25_9f19_456d_91a3_bc3a3d91c5fb);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkDrawingAttributes4Impl {
+    fn IgnoreTilt();
+    fn SetIgnoreTilt();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -136,6 +166,10 @@ unsafe impl ::windows::core::Interface for IInkDrawingAttributes5 {
     type Vtable = IInkDrawingAttributes5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd11aa0bb_0775_4852_ae64_41143a7ae6c9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkDrawingAttributes5Impl {
+    fn ModelerAttributes();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkDrawingAttributes5Vtbl(
@@ -153,6 +187,11 @@ pub struct IInkDrawingAttributesPencilProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkDrawingAttributesPencilProperties {
     type Vtable = IInkDrawingAttributesPencilPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f2534cb_2d86_41bb_b0e8_e4c2a0253c52);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkDrawingAttributesPencilPropertiesImpl {
+    fn Opacity();
+    fn SetOpacity();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -173,6 +212,10 @@ unsafe impl ::windows::core::Interface for IInkDrawingAttributesStatics {
     type Vtable = IInkDrawingAttributesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf731e03f_1a65_4862_96cb_6e1665e17f6d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkDrawingAttributesStaticsImpl {
+    fn CreateForPencil();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkDrawingAttributesStaticsVtbl(
@@ -190,6 +233,13 @@ pub struct IInkInputConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkInputConfiguration {
     type Vtable = IInkInputConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93a68dc4_0b7b_49d7_b34f_9901e524dcf2);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkInputConfigurationImpl {
+    fn IsPrimaryBarrelButtonInputEnabled();
+    fn SetIsPrimaryBarrelButtonInputEnabled();
+    fn IsEraserInputEnabled();
+    fn SetIsEraserInputEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -212,6 +262,11 @@ unsafe impl ::windows::core::Interface for IInkInputConfiguration2 {
     type Vtable = IInkInputConfiguration2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ac2272e_81b4_5cc4_a36d_d057c387dfda);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkInputConfiguration2Impl {
+    fn IsPenHapticFeedbackEnabled();
+    fn SetIsPenHapticFeedbackEnabled();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkInputConfiguration2Vtbl(
@@ -230,6 +285,13 @@ pub struct IInkInputProcessingConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkInputProcessingConfiguration {
     type Vtable = IInkInputProcessingConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2778d85e_33ca_4b06_a6d3_ac3945116d37);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkInputProcessingConfigurationImpl {
+    fn Mode();
+    fn SetMode();
+    fn RightDragAction();
+    fn SetRightDragAction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -251,6 +313,16 @@ pub struct IInkManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkManager {
     type Vtable = IInkManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4744737d_671b_4163_9c95_4e8d7a035fe1);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkManagerImpl: IInkRecognizerContainerImpl + IInkStrokeContainerImpl {
+    fn Mode();
+    fn SetMode();
+    fn ProcessPointerDown();
+    fn ProcessPointerUpdate();
+    fn ProcessPointerUp();
+    fn SetDefaultDrawingAttributes();
+    fn RecognizeAsync2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -278,6 +350,13 @@ unsafe impl ::windows::core::Interface for IInkModelerAttributes {
     type Vtable = IInkModelerAttributesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad31f27_0cd9_4bfd_b6f3_9e03ba8d7454);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkModelerAttributesImpl {
+    fn PredictionTime();
+    fn SetPredictionTime();
+    fn ScalingFactor();
+    fn SetScalingFactor();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkModelerAttributesVtbl(
@@ -301,6 +380,11 @@ unsafe impl ::windows::core::Interface for IInkModelerAttributes2 {
     type Vtable = IInkModelerAttributes2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86d1d09a_4ef8_5e25_b7bc_b65424f16bb3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkModelerAttributes2Impl {
+    fn UseVelocityBasedPressure();
+    fn SetUseVelocityBasedPressure();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkModelerAttributes2Vtbl(
@@ -319,6 +403,11 @@ pub struct IInkPoint(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkPoint {
     type Vtable = IInkPointVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f87272b_858c_46a5_9b41_d195970459fd);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkPointImpl {
+    fn Position();
+    fn Pressure();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -339,6 +428,12 @@ pub struct IInkPoint2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkPoint2 {
     type Vtable = IInkPoint2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfba9c3f7_ae56_4d5c_bd2f_0ac45f5e4af9);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkPoint2Impl {
+    fn TiltX();
+    fn TiltY();
+    fn Timestamp();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -430,6 +525,9 @@ unsafe impl ::windows::core::Interface for IInkPointFactory {
     type Vtable = IInkPointFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29e5d51c_c98f_405d_9f3b_e53e31068d4d);
 }
+pub trait IInkPointFactoryImpl {
+    fn CreateInkPoint();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkPointFactoryVtbl(
@@ -449,6 +547,10 @@ unsafe impl ::windows::core::Interface for IInkPointFactory2 {
     type Vtable = IInkPointFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0145e85_daff_45f2_ad69_050d8256a209);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkPointFactory2Impl {
+    fn CreateInkPointWithTiltAndTimestamp();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkPointFactory2Vtbl(
@@ -467,6 +569,26 @@ pub struct IInkPresenter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkPresenter {
     type Vtable = IInkPresenterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa69b70e2_887b_458f_b173_4fe4438930a3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkPresenterImpl {
+    fn IsInputEnabled();
+    fn SetIsInputEnabled();
+    fn InputDeviceTypes();
+    fn SetInputDeviceTypes();
+    fn UnprocessedInput();
+    fn StrokeInput();
+    fn InputProcessingConfiguration();
+    fn StrokeContainer();
+    fn SetStrokeContainer();
+    fn CopyDefaultDrawingAttributes();
+    fn UpdateDefaultDrawingAttributes();
+    fn ActivateCustomDrying();
+    fn SetPredefinedConfiguration();
+    fn StrokesCollected();
+    fn RemoveStrokesCollected();
+    fn StrokesErased();
+    fn RemoveStrokesErased();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -508,6 +630,11 @@ unsafe impl ::windows::core::Interface for IInkPresenter2 {
     type Vtable = IInkPresenter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf53e612_9a34_11e6_9f33_a24fc0d9649c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkPresenter2Impl: IInkPresenterImpl {
+    fn HighContrastAdjustment();
+    fn SetHighContrastAdjustment();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkPresenter2Vtbl(
@@ -527,6 +654,10 @@ unsafe impl ::windows::core::Interface for IInkPresenter3 {
     type Vtable = IInkPresenter3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51e1ce89_d37d_4a90_83fc_7f5e9dfbf217);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkPresenter3Impl {
+    fn InputConfiguration();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkPresenter3Vtbl(
@@ -544,6 +675,23 @@ pub struct IInkPresenterProtractor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkPresenterProtractor {
     type Vtable = IInkPresenterProtractorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7de3f2aa_ef6c_4e91_a73b_5b70d56fbd17);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkPresenterProtractorImpl: IInkPresenterStencilImpl {
+    fn AreTickMarksVisible();
+    fn SetAreTickMarksVisible();
+    fn AreRaysVisible();
+    fn SetAreRaysVisible();
+    fn IsCenterMarkerVisible();
+    fn SetIsCenterMarkerVisible();
+    fn IsAngleReadoutVisible();
+    fn SetIsAngleReadoutVisible();
+    fn IsResizable();
+    fn SetIsResizable();
+    fn Radius();
+    fn SetRadius();
+    fn AccentColor();
+    fn SetAccentColor();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -576,6 +724,10 @@ unsafe impl ::windows::core::Interface for IInkPresenterProtractorFactory {
     type Vtable = IInkPresenterProtractorFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x320103c9_68fa_47e9_8127_8370711fc46c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkPresenterProtractorFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkPresenterProtractorFactoryVtbl(
@@ -593,6 +745,13 @@ pub struct IInkPresenterRuler(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkPresenterRuler {
     type Vtable = IInkPresenterRulerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cda7d5a_dec7_4dd7_877a_2133f183d48a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkPresenterRulerImpl: IInkPresenterStencilImpl {
+    fn Length();
+    fn SetLength();
+    fn Width();
+    fn SetWidth();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -614,6 +773,13 @@ pub struct IInkPresenterRuler2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkPresenterRuler2 {
     type Vtable = IInkPresenterRuler2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45130dc1_bc61_44d4_a423_54712ae671c4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkPresenterRuler2Impl {
+    fn AreTickMarksVisible();
+    fn SetAreTickMarksVisible();
+    fn IsCompassVisible();
+    fn SetIsCompassVisible();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -704,6 +870,9 @@ unsafe impl ::windows::core::RuntimeType for IInkPresenterRulerFactory {
 unsafe impl ::windows::core::Interface for IInkPresenterRulerFactory {
     type Vtable = IInkPresenterRulerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34361beb_9001_4a4b_a690_69dbaf63e501);
+}
+pub trait IInkPresenterRulerFactoryImpl {
+    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -846,6 +1015,17 @@ unsafe impl ::windows::core::Interface for IInkPresenterStencil {
     type Vtable = IInkPresenterStencilVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30d12d6d_3e06_4d02_b116_277fb5d8addc);
 }
+pub trait IInkPresenterStencilImpl {
+    fn Kind();
+    fn IsVisible();
+    fn SetIsVisible();
+    fn BackgroundColor();
+    fn SetBackgroundColor();
+    fn ForegroundColor();
+    fn SetForegroundColor();
+    fn Transform();
+    fn SetTransform();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkPresenterStencilVtbl(
@@ -874,6 +1054,12 @@ unsafe impl ::windows::core::Interface for IInkRecognitionResult {
     type Vtable = IInkRecognitionResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36461a94_5068_40ef_8a05_2c2fb60908a2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkRecognitionResultImpl {
+    fn BoundingRect();
+    fn GetTextCandidates();
+    fn GetStrokes();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkRecognitionResultVtbl(
@@ -896,6 +1082,10 @@ pub struct IInkRecognizer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkRecognizer {
     type Vtable = IInkRecognizerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x077ccea3_904d_442a_b151_aaca3631c43b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkRecognizerImpl {
+    fn Name();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -999,6 +1189,11 @@ unsafe impl ::windows::core::Interface for IInkRecognizerContainer {
     type Vtable = IInkRecognizerContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa74d9a31_8047_4698_a912_f82a5085012f);
 }
+pub trait IInkRecognizerContainerImpl {
+    fn SetDefaultRecognizer();
+    fn RecognizeAsync();
+    fn GetRecognizers();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkRecognizerContainerVtbl(
@@ -1020,6 +1215,17 @@ pub struct IInkStroke(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkStroke {
     type Vtable = IInkStrokeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15144d60_cce3_4fcf_9d52_11518ab6afd4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkStrokeImpl {
+    fn DrawingAttributes();
+    fn SetDrawingAttributes();
+    fn BoundingRect();
+    fn Selected();
+    fn SetSelected();
+    fn Recognized();
+    fn GetRenderingSegments();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1048,6 +1254,12 @@ unsafe impl ::windows::core::Interface for IInkStroke2 {
     type Vtable = IInkStroke2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5db9e4f4_bafa_4de1_89d3_201b1ed7d89b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkStroke2Impl {
+    fn PointTransform();
+    fn SetPointTransform();
+    fn GetInkPoints();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkStroke2Vtbl(
@@ -1070,6 +1282,14 @@ pub struct IInkStroke3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkStroke3 {
     type Vtable = IInkStroke3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a807374_9499_411d_a1c4_68855d03d65f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkStroke3Impl {
+    fn Id();
+    fn StrokeStartedTime();
+    fn SetStrokeStartedTime();
+    fn StrokeDuration();
+    fn SetStrokeDuration();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1097,6 +1317,10 @@ unsafe impl ::windows::core::Interface for IInkStroke4 {
     type Vtable = IInkStroke4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd5b62e5_b6e9_5b91_a577_1921d2348690);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkStroke4Impl {
+    fn PointerId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkStroke4Vtbl(
@@ -1114,6 +1338,14 @@ pub struct IInkStrokeBuilder(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkStrokeBuilder {
     type Vtable = IInkStrokeBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82bbd1dc_1c63_41dc_9e07_4b4a70ced801);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkStrokeBuilderImpl {
+    fn BeginStroke();
+    fn AppendToStroke();
+    fn EndStroke();
+    fn CreateStroke();
+    fn SetDefaultDrawingAttributes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1138,6 +1370,10 @@ unsafe impl ::windows::core::Interface for IInkStrokeBuilder2 {
     type Vtable = IInkStrokeBuilder2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd82bc27_731f_4cbc_bbbf_6d468044f1e5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkStrokeBuilder2Impl {
+    fn CreateStrokeFromInkPoints();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkStrokeBuilder2Vtbl(
@@ -1156,6 +1392,10 @@ pub struct IInkStrokeBuilder3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkStrokeBuilder3 {
     type Vtable = IInkStrokeBuilder3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2c71fcd_5472_46b1_a81d_c37a3d169441);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkStrokeBuilder3Impl {
+    fn CreateStrokeFromInkPoints();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1351,6 +1591,22 @@ unsafe impl ::windows::core::Interface for IInkStrokeContainer {
     type Vtable = IInkStrokeContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22accbc6_faa9_4f14_b68c_f6cee670ae16);
 }
+pub trait IInkStrokeContainerImpl {
+    fn BoundingRect();
+    fn AddStroke();
+    fn DeleteSelected();
+    fn MoveSelected();
+    fn SelectWithPolyLine();
+    fn SelectWithLine();
+    fn CopySelectedToClipboard();
+    fn PasteFromClipboard();
+    fn CanPasteFromClipboard();
+    fn LoadAsync();
+    fn SaveAsync();
+    fn UpdateRecognitionResults();
+    fn GetStrokes();
+    fn GetRecognitionResults();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkStrokeContainerVtbl(
@@ -1393,6 +1649,11 @@ unsafe impl ::windows::core::Interface for IInkStrokeContainer2 {
     type Vtable = IInkStrokeContainer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8901d364_da36_4bcf_9e5c_d195825995b4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkStrokeContainer2Impl {
+    fn AddStrokes();
+    fn Clear();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkStrokeContainer2Vtbl(
@@ -1413,6 +1674,11 @@ unsafe impl ::windows::core::Interface for IInkStrokeContainer3 {
     type Vtable = IInkStrokeContainer3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d07bea5_baea_4c82_a719_7b83da1067d2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkStrokeContainer3Impl {
+    fn SaveWithFormatAsync();
+    fn GetStrokeById();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkStrokeContainer3Vtbl(
@@ -1432,6 +1698,18 @@ pub struct IInkStrokeInput(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkStrokeInput {
     type Vtable = IInkStrokeInputVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf2ffe7b_5e10_43c6_a080_88f26e1dc67d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkStrokeInputImpl {
+    fn StrokeStarted();
+    fn RemoveStrokeStarted();
+    fn StrokeContinued();
+    fn RemoveStrokeContinued();
+    fn StrokeEnded();
+    fn RemoveStrokeEnded();
+    fn StrokeCanceled();
+    fn RemoveStrokeCanceled();
+    fn InkPresenter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1467,6 +1745,16 @@ unsafe impl ::windows::core::Interface for IInkStrokeRenderingSegment {
     type Vtable = IInkStrokeRenderingSegmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68510f1f_88e3_477a_a2fa_569f5f1f9bd5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkStrokeRenderingSegmentImpl {
+    fn Position();
+    fn BezierControlPoint1();
+    fn BezierControlPoint2();
+    fn Pressure();
+    fn TiltX();
+    fn TiltY();
+    fn Twist();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkStrokeRenderingSegmentVtbl(
@@ -1494,6 +1782,10 @@ unsafe impl ::windows::core::Interface for IInkStrokesCollectedEventArgs {
     type Vtable = IInkStrokesCollectedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4f3f229_1938_495c_b4d9_6de4b08d4811);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkStrokesCollectedEventArgsImpl {
+    fn Strokes();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkStrokesCollectedEventArgsVtbl(
@@ -1512,6 +1804,10 @@ pub struct IInkStrokesErasedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkStrokesErasedEventArgs {
     type Vtable = IInkStrokesErasedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4216a22_1503_4ebf_8ff5_2de84584a8aa);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkStrokesErasedEventArgsImpl {
+    fn Strokes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1532,6 +1828,11 @@ unsafe impl ::windows::core::Interface for IInkSynchronizer {
     type Vtable = IInkSynchronizerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b9ea160_ae9b_45f9_8407_4b493b163661);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkSynchronizerImpl {
+    fn BeginDry();
+    fn EndDry();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkSynchronizerVtbl(
@@ -1551,6 +1852,24 @@ pub struct IInkUnprocessedInput(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkUnprocessedInput {
     type Vtable = IInkUnprocessedInputVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb4445e0_8398_4921_ac3b_ab978c5ba256);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IInkUnprocessedInputImpl {
+    fn PointerEntered();
+    fn RemovePointerEntered();
+    fn PointerHovered();
+    fn RemovePointerHovered();
+    fn PointerExited();
+    fn RemovePointerExited();
+    fn PointerPressed();
+    fn RemovePointerPressed();
+    fn PointerMoved();
+    fn RemovePointerMoved();
+    fn PointerReleased();
+    fn RemovePointerReleased();
+    fn PointerLost();
+    fn RemovePointerLost();
+    fn InkPresenter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1598,6 +1917,15 @@ unsafe impl ::windows::core::Interface for IPenAndInkSettings {
     type Vtable = IPenAndInkSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc2ceb8f_0066_44a8_bb7a_b839b3deb8f5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPenAndInkSettingsImpl {
+    fn IsHandwritingDirectlyIntoTextFieldEnabled();
+    fn PenHandedness();
+    fn HandwritingLineHeight();
+    fn FontFamilyName();
+    fn UserConsentsToHandwritingTelemetryCollection();
+    fn IsTouchHandwritingEnabled();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenAndInkSettingsVtbl(
@@ -1621,6 +1949,10 @@ unsafe impl ::windows::core::Interface for IPenAndInkSettings2 {
     type Vtable = IPenAndInkSettings2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3262da53_1f44_55e2_9929_ebf77e5481b8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPenAndInkSettings2Impl {
+    fn SetPenHandedness();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenAndInkSettings2Vtbl(
@@ -1638,6 +1970,10 @@ pub struct IPenAndInkSettingsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPenAndInkSettingsStatics {
     type Vtable = IPenAndInkSettingsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed6dd036_5708_5c3c_96db_f2f552eab641);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPenAndInkSettingsStaticsImpl {
+    fn GetDefault();
 }
 #[repr(C)]
 #[doc(hidden)]

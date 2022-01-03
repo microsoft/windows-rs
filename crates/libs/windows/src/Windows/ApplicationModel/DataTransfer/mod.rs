@@ -2498,6 +2498,15 @@ unsafe impl ::windows::core::Interface for IClipboardContentOptions {
     type Vtable = IClipboardContentOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe888a98c_ad4b_5447_a056_ab3556276d2b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IClipboardContentOptionsImpl {
+    fn IsRoamable();
+    fn SetIsRoamable();
+    fn IsAllowedInHistory();
+    fn SetIsAllowedInHistory();
+    fn RoamingFormats();
+    fn HistoryFormats();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClipboardContentOptionsVtbl(
@@ -2523,6 +2532,8 @@ unsafe impl ::windows::core::Interface for IClipboardHistoryChangedEventArgs {
     type Vtable = IClipboardHistoryChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0be453f_8ea2_53ce_9aba_8d2212573452);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IClipboardHistoryChangedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClipboardHistoryChangedEventArgsVtbl(
@@ -2539,6 +2550,12 @@ pub struct IClipboardHistoryItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClipboardHistoryItem {
     type Vtable = IClipboardHistoryItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0173bd8a_afff_5c50_ab92_3d19f481ec58);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IClipboardHistoryItemImpl {
+    fn Id();
+    fn Timestamp();
+    fn Content();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2561,6 +2578,11 @@ unsafe impl ::windows::core::Interface for IClipboardHistoryItemsResult {
     type Vtable = IClipboardHistoryItemsResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6dfdee6_0ee2_52e3_852b_f295db65939a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IClipboardHistoryItemsResultImpl {
+    fn Status();
+    fn Items();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClipboardHistoryItemsResultVtbl(
@@ -2580,6 +2602,15 @@ pub struct IClipboardStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClipboardStatics {
     type Vtable = IClipboardStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc627e291_34e2_4963_8eed_93cbb0ea3d70);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IClipboardStaticsImpl {
+    fn GetContent();
+    fn SetContent();
+    fn Flush();
+    fn Clear();
+    fn ContentChanged();
+    fn RemoveContentChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2605,6 +2636,22 @@ pub struct IClipboardStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClipboardStatics2 {
     type Vtable = IClipboardStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac1b6a_d29f_554b_b303_f0452345fe02);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IClipboardStatics2Impl {
+    fn GetHistoryItemsAsync();
+    fn ClearHistory();
+    fn DeleteItemFromHistory();
+    fn SetHistoryItemAsContent();
+    fn IsHistoryEnabled();
+    fn IsRoamingEnabled();
+    fn SetContentWithOptions();
+    fn HistoryChanged();
+    fn RemoveHistoryChanged();
+    fn RoamingEnabledChanged();
+    fn RemoveRoamingEnabledChanged();
+    fn HistoryEnabledChanged();
+    fn RemoveHistoryEnabledChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2642,6 +2689,27 @@ pub struct IDataPackage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDataPackage {
     type Vtable = IDataPackageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61ebf5c7_efea_4346_9554_981d7e198ffe);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataPackageImpl {
+    fn GetView();
+    fn Properties();
+    fn RequestedOperation();
+    fn SetRequestedOperation();
+    fn OperationCompleted();
+    fn RemoveOperationCompleted();
+    fn Destroyed();
+    fn RemoveDestroyed();
+    fn SetData();
+    fn SetDataProvider();
+    fn SetText();
+    fn SetUri();
+    fn SetHtmlFormat();
+    fn ResourceMap();
+    fn SetRtf();
+    fn SetBitmap();
+    fn SetStorageItemsReadOnly();
+    fn SetStorageItems();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2687,6 +2755,11 @@ unsafe impl ::windows::core::Interface for IDataPackage2 {
     type Vtable = IDataPackage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x041c1fe9_2409_45e1_a538_4c53eeee04a7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataPackage2Impl {
+    fn SetApplicationLink();
+    fn SetWebLink();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataPackage2Vtbl(
@@ -2707,6 +2780,11 @@ pub struct IDataPackage3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDataPackage3 {
     type Vtable = IDataPackage3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88f31f5d_787b_4d32_965a_a9838105a056);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataPackage3Impl {
+    fn ShareCompleted();
+    fn RemoveShareCompleted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2729,6 +2807,11 @@ unsafe impl ::windows::core::Interface for IDataPackage4 {
     type Vtable = IDataPackage4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13a24ec8_9382_536f_852a_3045e1b29a3b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataPackage4Impl {
+    fn ShareCanceled();
+    fn RemoveShareCanceled();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataPackage4Vtbl(
@@ -2749,6 +2832,20 @@ pub struct IDataPackagePropertySet(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDataPackagePropertySet {
     type Vtable = IDataPackagePropertySetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd1c93eb_4c4c_443a_a8d3_f5c241e91689);
+}
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
+pub trait IDataPackagePropertySetImpl: IIterableImpl<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> + IMapImpl<::windows::core::HSTRING, ::windows::core::IInspectable> {
+    fn Title();
+    fn SetTitle();
+    fn Description();
+    fn SetDescription();
+    fn Thumbnail();
+    fn SetThumbnail();
+    fn FileTypes();
+    fn ApplicationName();
+    fn SetApplicationName();
+    fn ApplicationListingUri();
+    fn SetApplicationListingUri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2782,6 +2879,19 @@ pub struct IDataPackagePropertySet2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDataPackagePropertySet2 {
     type Vtable = IDataPackagePropertySet2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb505d4a_9800_46aa_b181_7b6f0f2b919a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataPackagePropertySet2Impl {
+    fn ContentSourceWebLink();
+    fn SetContentSourceWebLink();
+    fn ContentSourceApplicationLink();
+    fn SetContentSourceApplicationLink();
+    fn PackageFamilyName();
+    fn SetPackageFamilyName();
+    fn Square30x30Logo();
+    fn SetSquare30x30Logo();
+    fn LogoBackgroundColor();
+    fn SetLogoBackgroundColor();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2818,6 +2928,11 @@ unsafe impl ::windows::core::Interface for IDataPackagePropertySet3 {
     type Vtable = IDataPackagePropertySet3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e87fd9b_5205_401b_874a_455653bd39e8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataPackagePropertySet3Impl {
+    fn EnterpriseId();
+    fn SetEnterpriseId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataPackagePropertySet3Vtbl(
@@ -2837,6 +2952,11 @@ unsafe impl ::windows::core::Interface for IDataPackagePropertySet4 {
     type Vtable = IDataPackagePropertySet4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6390ebf5_1739_4c74_b22f_865fab5e8545);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataPackagePropertySet4Impl {
+    fn ContentSourceUserActivityJson();
+    fn SetContentSourceUserActivityJson();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataPackagePropertySet4Vtbl(
@@ -2855,6 +2975,15 @@ pub struct IDataPackagePropertySetView(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDataPackagePropertySetView {
     type Vtable = IDataPackagePropertySetViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb94cec01_0c1a_4c57_be55_75d01289735d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataPackagePropertySetViewImpl {
+    fn Title();
+    fn Description();
+    fn Thumbnail();
+    fn FileTypes();
+    fn ApplicationName();
+    fn ApplicationListingUri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2882,6 +3011,14 @@ unsafe impl ::windows::core::Interface for IDataPackagePropertySetView2 {
     type Vtable = IDataPackagePropertySetView2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6054509b_8ebe_4feb_9c1e_75e69de54b84);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataPackagePropertySetView2Impl {
+    fn PackageFamilyName();
+    fn ContentSourceWebLink();
+    fn ContentSourceApplicationLink();
+    fn Square30x30Logo();
+    fn LogoBackgroundColor();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataPackagePropertySetView2Vtbl(
@@ -2908,6 +3045,10 @@ unsafe impl ::windows::core::Interface for IDataPackagePropertySetView3 {
     type Vtable = IDataPackagePropertySetView3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb764ce5_d174_495c_84fc_1a51f6ab45d7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataPackagePropertySetView3Impl {
+    fn EnterpriseId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataPackagePropertySetView3Vtbl(
@@ -2925,6 +3066,10 @@ pub struct IDataPackagePropertySetView4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDataPackagePropertySetView4 {
     type Vtable = IDataPackagePropertySetView4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4474c80d_d16f_40ae_9580_6f8562b94235);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataPackagePropertySetView4Impl {
+    fn ContentSourceUserActivityJson();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2944,6 +3089,10 @@ unsafe impl ::windows::core::Interface for IDataPackagePropertySetView5 {
     type Vtable = IDataPackagePropertySetView5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f0a9445_3760_50bb_8523_c4202ded7d78);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataPackagePropertySetView5Impl {
+    fn IsFromRoamingClipboard();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataPackagePropertySetView5Vtbl(
@@ -2961,6 +3110,23 @@ pub struct IDataPackageView(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDataPackageView {
     type Vtable = IDataPackageViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b840471_5900_4d85_a90b_10cb85fe3552);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataPackageViewImpl {
+    fn Properties();
+    fn RequestedOperation();
+    fn ReportOperationCompleted();
+    fn AvailableFormats();
+    fn Contains();
+    fn GetDataAsync();
+    fn GetTextAsync();
+    fn GetCustomTextAsync();
+    fn GetUriAsync();
+    fn GetHtmlFormatAsync();
+    fn GetResourceMapAsync();
+    fn GetRtfAsync();
+    fn GetBitmapAsync();
+    fn GetStorageItemsAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3003,6 +3169,11 @@ unsafe impl ::windows::core::Interface for IDataPackageView2 {
     type Vtable = IDataPackageView2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40ecba95_2450_4c1d_b6b4_ed45463dee9c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataPackageView2Impl {
+    fn GetApplicationLinkAsync();
+    fn GetWebLinkAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataPackageView2Vtbl(
@@ -3023,6 +3194,12 @@ pub struct IDataPackageView3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDataPackageView3 {
     type Vtable = IDataPackageView3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd37771a8_ddad_4288_8428_d1cae394128b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataPackageView3Impl {
+    fn RequestAccessAsync();
+    fn RequestAccessWithEnterpriseIdAsync();
+    fn UnlockAndAssumeEnterpriseIdentity();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3047,6 +3224,10 @@ unsafe impl ::windows::core::Interface for IDataPackageView4 {
     type Vtable = IDataPackageView4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfe96f1f_e042_4433_a09f_26d6ffda8b85);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataPackageView4Impl {
+    fn SetAcceptedFormatId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataPackageView4Vtbl(
@@ -3065,6 +3246,10 @@ unsafe impl ::windows::core::Interface for IDataProviderDeferral {
     type Vtable = IDataProviderDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2cf2373_2d26_43d9_b69d_dcb86d03f6da);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataProviderDeferralImpl {
+    fn Complete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataProviderDeferralVtbl(
@@ -3082,6 +3267,13 @@ pub struct IDataProviderRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDataProviderRequest {
     type Vtable = IDataProviderRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebbc7157_d3c8_47da_acde_f82388d5f716);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataProviderRequestImpl {
+    fn FormatId();
+    fn Deadline();
+    fn GetDeferral();
+    fn SetData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3104,6 +3296,14 @@ pub struct IDataRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDataRequest {
     type Vtable = IDataRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4341ae3b_fc12_4e53_8c02_ac714c415a27);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataRequestImpl {
+    fn Data();
+    fn SetData();
+    fn Deadline();
+    fn FailWithDisplayText();
+    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3128,6 +3328,10 @@ unsafe impl ::windows::core::Interface for IDataRequestDeferral {
     type Vtable = IDataRequestDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dc4b89f_0386_4263_87c1_ed7dce30890e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataRequestDeferralImpl {
+    fn Complete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataRequestDeferralVtbl(
@@ -3146,6 +3350,10 @@ unsafe impl ::windows::core::Interface for IDataRequestedEventArgs {
     type Vtable = IDataRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb8ba807_6ac5_43c9_8ac5_9ba232163182);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataRequestedEventArgsImpl {
+    fn Request();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataRequestedEventArgsVtbl(
@@ -3163,6 +3371,13 @@ pub struct IDataTransferManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDataTransferManager {
     type Vtable = IDataTransferManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5caee9b_8708_49d1_8d36_67d25a8da00c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataTransferManagerImpl {
+    fn DataRequested();
+    fn RemoveDataRequested();
+    fn TargetApplicationChosen();
+    fn RemoveTargetApplicationChosen();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3189,6 +3404,11 @@ unsafe impl ::windows::core::Interface for IDataTransferManager2 {
     type Vtable = IDataTransferManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30ae7d71_8ba8_4c02_8e3f_ddb23b388715);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataTransferManager2Impl {
+    fn ShareProvidersRequested();
+    fn RemoveShareProvidersRequested();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataTransferManager2Vtbl(
@@ -3210,6 +3430,11 @@ unsafe impl ::windows::core::Interface for IDataTransferManagerStatics {
     type Vtable = IDataTransferManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9da01aa_e00e_4cfe_aa44_2dd932dca3d8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataTransferManagerStaticsImpl {
+    fn ShowShareUI();
+    fn GetForCurrentView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataTransferManagerStaticsVtbl(
@@ -3229,6 +3454,10 @@ unsafe impl ::windows::core::Interface for IDataTransferManagerStatics2 {
     type Vtable = IDataTransferManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc54ec2ec_9f97_4d63_9868_395e271ad8f5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataTransferManagerStatics2Impl {
+    fn IsSupported();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataTransferManagerStatics2Vtbl(
@@ -3247,6 +3476,10 @@ unsafe impl ::windows::core::Interface for IDataTransferManagerStatics3 {
     type Vtable = IDataTransferManagerStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05845473_6c82_4f5c_ac23_62e458361fac);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDataTransferManagerStatics3Impl {
+    fn ShowShareUIWithOptions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataTransferManagerStatics3Vtbl(
@@ -3264,6 +3497,11 @@ pub struct IHtmlFormatHelperStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHtmlFormatHelperStatics {
     type Vtable = IHtmlFormatHelperStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe22e7749_dd70_446f_aefc_61cee59f655e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IHtmlFormatHelperStaticsImpl {
+    fn GetStaticFragment();
+    fn CreateHtmlFormat();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3284,6 +3522,10 @@ unsafe impl ::windows::core::Interface for IOperationCompletedEventArgs {
     type Vtable = IOperationCompletedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7af329d_051d_4fab_b1a9_47fd77f70a41);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IOperationCompletedEventArgsImpl {
+    fn Operation();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOperationCompletedEventArgsVtbl(
@@ -3301,6 +3543,10 @@ pub struct IOperationCompletedEventArgs2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOperationCompletedEventArgs2 {
     type Vtable = IOperationCompletedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x858fa073_1e19_4105_b2f7_c8478808d562);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IOperationCompletedEventArgs2Impl {
+    fn AcceptedFormatId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3320,6 +3566,10 @@ unsafe impl ::windows::core::Interface for IShareCompletedEventArgs {
     type Vtable = IShareCompletedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4574c442_f913_4f60_9df7_cc4060ab1916);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IShareCompletedEventArgsImpl {
+    fn ShareTarget();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShareCompletedEventArgsVtbl(
@@ -3337,6 +3587,14 @@ pub struct IShareProvider(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShareProvider {
     type Vtable = IShareProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fabe026_443e_4cda_af25_8d81070efd80);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IShareProviderImpl {
+    fn Title();
+    fn DisplayIcon();
+    fn BackgroundColor();
+    fn Tag();
+    fn SetTag();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3362,6 +3620,10 @@ unsafe impl ::windows::core::Interface for IShareProviderFactory {
     type Vtable = IShareProviderFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x172a174c_e79e_4f6d_b07d_128f469e0296);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IShareProviderFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShareProviderFactoryVtbl(
@@ -3380,6 +3642,12 @@ pub struct IShareProviderOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShareProviderOperation {
     type Vtable = IShareProviderOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19cef937_d435_4179_b6af_14e0492b69f6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IShareProviderOperationImpl {
+    fn Data();
+    fn Provider();
+    fn ReportCompleted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3400,6 +3668,12 @@ pub struct IShareProvidersRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShareProvidersRequestedEventArgs {
     type Vtable = IShareProvidersRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf888f356_a3f8_4fce_85e4_8826e63be799);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IShareProvidersRequestedEventArgsImpl {
+    fn Providers();
+    fn Data();
+    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3423,6 +3697,11 @@ unsafe impl ::windows::core::Interface for IShareTargetInfo {
     type Vtable = IShareTargetInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x385be607_c6e8_4114_b294_28f3bb6f9904);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IShareTargetInfoImpl {
+    fn AppUserModelId();
+    fn ShareProvider();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShareTargetInfoVtbl(
@@ -3441,6 +3720,13 @@ pub struct IShareUIOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShareUIOptions {
     type Vtable = IShareUIOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72fa8a80_342f_4d90_9551_2ae04e37680c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IShareUIOptionsImpl {
+    fn Theme();
+    fn SetTheme();
+    fn SelectionRect();
+    fn SetSelectionRect();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3465,6 +3751,12 @@ unsafe impl ::windows::core::Interface for ISharedStorageAccessManagerStatics {
     type Vtable = ISharedStorageAccessManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6132ada_34b1_4849_bd5f_d09fee3158c5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISharedStorageAccessManagerStaticsImpl {
+    fn AddFile();
+    fn RedeemTokenForFileAsync();
+    fn RemoveFile();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISharedStorageAccessManagerStaticsVtbl(
@@ -3486,6 +3778,15 @@ pub struct IStandardDataFormatsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStandardDataFormatsStatics {
     type Vtable = IStandardDataFormatsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ed681a1_a880_40c9_b4ed_0bee1e15f549);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStandardDataFormatsStaticsImpl {
+    fn Text();
+    fn Uri();
+    fn Html();
+    fn Rtf();
+    fn Bitmap();
+    fn StorageItems();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3511,6 +3812,11 @@ unsafe impl ::windows::core::Interface for IStandardDataFormatsStatics2 {
     type Vtable = IStandardDataFormatsStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42a254f4_9d76_42e8_861b_47c25dd0cf71);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStandardDataFormatsStatics2Impl {
+    fn WebLink();
+    fn ApplicationLink();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStandardDataFormatsStatics2Vtbl(
@@ -3530,6 +3836,10 @@ unsafe impl ::windows::core::Interface for IStandardDataFormatsStatics3 {
     type Vtable = IStandardDataFormatsStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b57b069_01d4_474c_8b5f_bc8e27f38b21);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStandardDataFormatsStatics3Impl {
+    fn UserActivityJsonArray();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStandardDataFormatsStatics3Vtbl(
@@ -3547,6 +3857,10 @@ pub struct ITargetApplicationChosenEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetApplicationChosenEventArgs {
     type Vtable = ITargetApplicationChosenEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca6fb8ac_2987_4ee3_9c54_d8afbcb86c1d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITargetApplicationChosenEventArgsImpl {
+    fn ApplicationName();
 }
 #[repr(C)]
 #[doc(hidden)]

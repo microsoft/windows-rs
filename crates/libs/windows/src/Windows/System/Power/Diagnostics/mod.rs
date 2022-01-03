@@ -82,6 +82,12 @@ unsafe impl ::windows::core::Interface for IBackgroundEnergyDiagnosticsStatics {
     type Vtable = IBackgroundEnergyDiagnosticsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7663702_d3a6_46e0_8f9b_50b95bb4f9c5);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IBackgroundEnergyDiagnosticsStaticsImpl {
+    fn DeviceSpecificConversionFactor();
+    fn ComputeTotalEnergyUsage();
+    fn ResetTotalEnergyUsage();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -107,6 +113,12 @@ pub struct IForegroundEnergyDiagnosticsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IForegroundEnergyDiagnosticsStatics {
     type Vtable = IForegroundEnergyDiagnosticsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23ca0917_cd07_4609_be15_8fe894c5e41e);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IForegroundEnergyDiagnosticsStaticsImpl {
+    fn DeviceSpecificConversionFactor();
+    fn ComputeTotalEnergyUsage();
+    fn ResetTotalEnergyUsage();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]

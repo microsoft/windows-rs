@@ -6,6 +6,22 @@ unsafe impl ::windows::core::Interface for INamedPolicyData {
     type Vtable = INamedPolicyDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38dcb198_95ac_4077_a643_8078cae26400);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INamedPolicyDataImpl {
+    fn Area();
+    fn Name();
+    fn Kind();
+    fn IsManaged();
+    fn IsUserPolicy();
+    fn User();
+    fn GetBoolean();
+    fn GetBinary();
+    fn GetInt32();
+    fn GetInt64();
+    fn GetString();
+    fn Changed();
+    fn RemoveChanged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INamedPolicyDataVtbl(
@@ -39,6 +55,11 @@ pub struct INamedPolicyStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INamedPolicyStatics {
     type Vtable = INamedPolicyStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f793be7_76c4_4058_8cad_67662cd05f0d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INamedPolicyStaticsImpl {
+    fn GetPolicyFromPath();
+    fn GetPolicyFromPathForUser();
 }
 #[repr(C)]
 #[doc(hidden)]

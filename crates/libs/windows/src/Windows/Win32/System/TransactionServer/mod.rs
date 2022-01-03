@@ -114,6 +114,13 @@ unsafe impl ::windows::core::Interface for ICatalog {
     type Vtable = ICatalogVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22870_8a19_11d0_81b6_00a0c9231c29);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait ICatalogImpl: IDispatchImpl {
+    fn GetCollection();
+    fn Connect();
+    fn MajorVersion();
+    fn MinorVersion();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICatalogVtbl(
@@ -246,6 +253,13 @@ unsafe impl ::windows::core::Interface for IComponentUtil {
     type Vtable = IComponentUtilVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22873_8a19_11d0_81b6_00a0c9231c29);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IComponentUtilImpl: IDispatchImpl {
+    fn InstallComponent();
+    fn ImportComponent();
+    fn ImportComponentByName();
+    fn GetCLSIDs();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComponentUtilVtbl(
@@ -375,6 +389,12 @@ unsafe impl ::windows::core::Interface for IPackageUtil {
     type Vtable = IPackageUtilVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22874_8a19_11d0_81b6_00a0c9231c29);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPackageUtilImpl: IDispatchImpl {
+    fn InstallPackage();
+    fn ExportPackage();
+    fn ShutdownPackage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageUtilVtbl(
@@ -497,6 +517,11 @@ unsafe impl ::windows::core::Interface for IRemoteComponentUtil {
     type Vtable = IRemoteComponentUtilVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22875_8a19_11d0_81b6_00a0c9231c29);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRemoteComponentUtilImpl: IDispatchImpl {
+    fn InstallRemoteComponent();
+    fn InstallRemoteComponentByName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteComponentUtilVtbl(
@@ -616,6 +641,11 @@ impl ::core::fmt::Debug for IRoleAssociationUtil {
 unsafe impl ::windows::core::Interface for IRoleAssociationUtil {
     type Vtable = IRoleAssociationUtilVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22876_8a19_11d0_81b6_00a0c9231c29);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRoleAssociationUtilImpl: IDispatchImpl {
+    fn AssociateRole();
+    fn AssociateRoleByName();
 }
 #[repr(C)]
 #[doc(hidden)]

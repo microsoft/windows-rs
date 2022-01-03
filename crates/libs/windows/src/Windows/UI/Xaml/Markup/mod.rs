@@ -72,6 +72,9 @@ unsafe impl ::windows::core::Interface for IComponentConnector {
     type Vtable = IComponentConnectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6790987_e6e5_47f2_92c6_eccce4ba159a);
 }
+pub trait IComponentConnectorImpl {
+    fn Connect();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComponentConnectorVtbl(
@@ -158,6 +161,9 @@ unsafe impl ::windows::core::RuntimeType for IComponentConnector2 {
 unsafe impl ::windows::core::Interface for IComponentConnector2 {
     type Vtable = IComponentConnector2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc8f368b_eccc_498e_b139_91142254d7ae);
+}
+pub trait IComponentConnector2Impl {
+    fn GetBindingConnector();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -248,6 +254,10 @@ unsafe impl ::windows::core::Interface for IDataTemplateComponent {
     type Vtable = IDataTemplateComponentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08429dc8_8ab0_4747_aa9a_feadfc8da8e1);
 }
+pub trait IDataTemplateComponentImpl {
+    fn Recycle();
+    fn ProcessBindings();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataTemplateComponentVtbl(
@@ -267,6 +277,8 @@ unsafe impl ::windows::core::Interface for IMarkupExtension {
     type Vtable = IMarkupExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ee3416d_562b_486e_9ee5_0f0cbcc8048c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMarkupExtensionImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMarkupExtensionVtbl(
@@ -283,6 +295,10 @@ pub struct IMarkupExtensionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMarkupExtensionFactory {
     type Vtable = IMarkupExtensionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65329c05_fb5a_4567_9d55_5cdfbada2739);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMarkupExtensionFactoryImpl {
+    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -302,6 +318,10 @@ unsafe impl ::windows::core::Interface for IMarkupExtensionOverrides {
     type Vtable = IMarkupExtensionOverridesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x393779bf_b9c0_4ffb_a57f_58e7356e425f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMarkupExtensionOverridesImpl {
+    fn ProvideValue();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMarkupExtensionOverridesVtbl(
@@ -320,6 +340,8 @@ unsafe impl ::windows::core::Interface for IXamlBinaryWriter {
     type Vtable = IXamlBinaryWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x829d2ad3_620a_46f6_845d_436a05927100);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IXamlBinaryWriterImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlBinaryWriterVtbl(
@@ -336,6 +358,10 @@ pub struct IXamlBinaryWriterStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlBinaryWriterStatics {
     type Vtable = IXamlBinaryWriterStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d8ed07a_9b82_4aa8_b68b_026f2de1cc86);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IXamlBinaryWriterStaticsImpl {
+    fn Write();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -422,6 +448,9 @@ unsafe impl ::windows::core::Interface for IXamlBindScopeDiagnostics {
     type Vtable = IXamlBindScopeDiagnosticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf264a29d_bded_43aa_a5b0_26ac21a81eb8);
 }
+pub trait IXamlBindScopeDiagnosticsImpl {
+    fn Disable();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlBindScopeDiagnosticsVtbl(
@@ -440,6 +469,8 @@ unsafe impl ::windows::core::Interface for IXamlBindingHelper {
     type Vtable = IXamlBindingHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaa6fb06_8ab9_4ef7_8ae7_fbd30bbfd06d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IXamlBindingHelperImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlBindingHelperVtbl(
@@ -456,6 +487,32 @@ pub struct IXamlBindingHelperStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlBindingHelperStatics {
     type Vtable = IXamlBindingHelperStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf65cfb71_c80c_4ffa_86ee_558754ee336d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IXamlBindingHelperStaticsImpl {
+    fn DataTemplateComponentProperty();
+    fn GetDataTemplateComponent();
+    fn SetDataTemplateComponent();
+    fn SuspendRendering();
+    fn ResumeRendering();
+    fn ConvertValue();
+    fn SetPropertyFromString();
+    fn SetPropertyFromBoolean();
+    fn SetPropertyFromChar16();
+    fn SetPropertyFromDateTime();
+    fn SetPropertyFromDouble();
+    fn SetPropertyFromInt32();
+    fn SetPropertyFromUInt32();
+    fn SetPropertyFromInt64();
+    fn SetPropertyFromUInt64();
+    fn SetPropertyFromSingle();
+    fn SetPropertyFromPoint();
+    fn SetPropertyFromRect();
+    fn SetPropertyFromSize();
+    fn SetPropertyFromTimeSpan();
+    fn SetPropertyFromByte();
+    fn SetPropertyFromUri();
+    fn SetPropertyFromObject();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -504,6 +561,8 @@ unsafe impl ::windows::core::Interface for IXamlMarkupHelper {
     type Vtable = IXamlMarkupHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0e6673c_5342_44ef_85a7_ed327a739d9a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IXamlMarkupHelperImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlMarkupHelperVtbl(
@@ -520,6 +579,10 @@ pub struct IXamlMarkupHelperStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlMarkupHelperStatics {
     type Vtable = IXamlMarkupHelperStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9bc3725_f34f_445c_81a2_6b72a5e8f072);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IXamlMarkupHelperStaticsImpl {
+    fn UnloadObject();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -661,6 +724,16 @@ unsafe impl ::windows::core::Interface for IXamlMember {
     type Vtable = IXamlMemberVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc541f58c_43a9_4216_b718_e0b11b14e93e);
 }
+pub trait IXamlMemberImpl {
+    fn IsAttachable();
+    fn IsDependencyProperty();
+    fn IsReadOnly();
+    fn Name();
+    fn TargetType();
+    fn Type();
+    fn GetValue();
+    fn SetValue();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlMemberVtbl(
@@ -772,6 +845,11 @@ unsafe impl ::windows::core::Interface for IXamlMetadataProvider {
     type Vtable = IXamlMetadataProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3765d69_68a5_4b32_8861_fdb90c1f5836);
 }
+pub trait IXamlMetadataProviderImpl {
+    fn GetXamlType();
+    fn GetXamlTypeByFullName();
+    fn GetXmlnsDefinitions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlMetadataProviderVtbl(
@@ -793,6 +871,8 @@ unsafe impl ::windows::core::Interface for IXamlReader {
     type Vtable = IXamlReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24374cf1_cceb_48bf_a514_41b0186f84c2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IXamlReaderImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlReaderVtbl(
@@ -809,6 +889,11 @@ pub struct IXamlReaderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlReaderStatics {
     type Vtable = IXamlReaderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9891c6bd_534f_4955_b85a_8a8dc0dca602);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IXamlReaderStaticsImpl {
+    fn Load();
+    fn LoadWithInitialTemplateValidation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1025,6 +1110,26 @@ unsafe impl ::windows::core::RuntimeType for IXamlType {
 unsafe impl ::windows::core::Interface for IXamlType {
     type Vtable = IXamlTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7920eab1_a2e5_479a_bd50_6cef3c0b4970);
+}
+pub trait IXamlTypeImpl {
+    fn BaseType();
+    fn ContentProperty();
+    fn FullName();
+    fn IsArray();
+    fn IsCollection();
+    fn IsConstructible();
+    fn IsDictionary();
+    fn IsMarkupExtension();
+    fn IsBindable();
+    fn ItemType();
+    fn KeyType();
+    fn UnderlyingType();
+    fn ActivateInstance();
+    fn CreateFromString();
+    fn GetMember();
+    fn AddToVector();
+    fn AddToMap();
+    fn RunInitializer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1288,6 +1393,9 @@ unsafe impl ::windows::core::RuntimeType for IXamlType2 {
 unsafe impl ::windows::core::Interface for IXamlType2 {
     type Vtable = IXamlType2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f0c6e3b_433b_56ad_8f69_78a4dd3e64f9);
+}
+pub trait IXamlType2Impl: IXamlTypeImpl {
+    fn BoxedType();
 }
 #[repr(C)]
 #[doc(hidden)]

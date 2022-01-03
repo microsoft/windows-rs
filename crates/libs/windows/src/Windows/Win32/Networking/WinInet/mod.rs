@@ -4269,6 +4269,10 @@ unsafe impl ::windows::core::Interface for IDialBranding {
     type Vtable = IDialBrandingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8aecafa9_4306_43cc_8c5a_765f2979cc16);
 }
+pub trait IDialBrandingImpl {
+    fn Initialize();
+    fn GetBitmap();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialBrandingVtbl(
@@ -4358,6 +4362,15 @@ unsafe impl ::windows::core::Interface for IDialEngine {
     type Vtable = IDialEngineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39fd782b_7905_40d5_9148_3c9b190423d5);
 }
+pub trait IDialEngineImpl {
+    fn Initialize();
+    fn GetProperty();
+    fn SetProperty();
+    fn Dial();
+    fn HangUp();
+    fn GetConnectedState();
+    fn GetConnectHandle();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialEngineVtbl(
@@ -4423,6 +4436,9 @@ impl ::core::fmt::Debug for IDialEventSink {
 unsafe impl ::windows::core::Interface for IDialEventSink {
     type Vtable = IDialEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d86f4ff_6e2d_4488_b2e9_6934afd41bea);
+}
+pub trait IDialEventSinkImpl {
+    fn OnEvent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7080,6 +7096,9 @@ unsafe impl ::windows::core::Interface for IProofOfPossessionCookieInfoManager {
     type Vtable = IProofOfPossessionCookieInfoManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdaece56_4edf_43df_b113_88e4556fa1bb);
 }
+pub trait IProofOfPossessionCookieInfoManagerImpl {
+    fn GetCookieInfoForUri();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProofOfPossessionCookieInfoManagerVtbl(
@@ -7138,6 +7157,9 @@ impl ::core::fmt::Debug for IProofOfPossessionCookieInfoManager2 {
 unsafe impl ::windows::core::Interface for IProofOfPossessionCookieInfoManager2 {
     type Vtable = IProofOfPossessionCookieInfoManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15e41407_b42f_4ae7_9966_34a087b2d713);
+}
+pub trait IProofOfPossessionCookieInfoManager2Impl {
+    fn GetCookieInfoWithUriForAccount();
 }
 #[repr(C)]
 #[doc(hidden)]

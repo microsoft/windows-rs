@@ -142,6 +142,20 @@ unsafe impl ::windows::core::Interface for ICryptographicBufferStatics {
     type Vtable = ICryptographicBufferStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x320b7e22_3cb0_4cdf_8663_1d28910065eb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICryptographicBufferStaticsImpl {
+    fn Compare();
+    fn GenerateRandom();
+    fn GenerateRandomNumber();
+    fn CreateFromByteArray();
+    fn CopyToByteArray();
+    fn DecodeFromHexString();
+    fn EncodeToHexString();
+    fn DecodeFromBase64String();
+    fn EncodeToBase64String();
+    fn ConvertStringToBinary();
+    fn ConvertBinaryToString();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICryptographicBufferStaticsVtbl(

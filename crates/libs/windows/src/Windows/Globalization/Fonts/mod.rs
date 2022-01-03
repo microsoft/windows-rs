@@ -6,6 +6,14 @@ unsafe impl ::windows::core::Interface for ILanguageFont {
     type Vtable = ILanguageFontVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb12e5c3a_b76d_459b_beeb_901151cd77d1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILanguageFontImpl {
+    fn FontFamily();
+    fn FontWeight();
+    fn FontStretch();
+    fn FontStyle();
+    fn ScaleFactor();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILanguageFontVtbl(
@@ -30,6 +38,20 @@ pub struct ILanguageFontGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILanguageFontGroup {
     type Vtable = ILanguageFontGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf33a7fc3_3a5c_4aea_b9ff_b39fb242f7f6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILanguageFontGroupImpl {
+    fn UITextFont();
+    fn UIHeadingFont();
+    fn UITitleFont();
+    fn UICaptionFont();
+    fn UINotificationHeadingFont();
+    fn TraditionalDocumentFont();
+    fn ModernDocumentFont();
+    fn DocumentHeadingFont();
+    fn FixedWidthTextFont();
+    fn DocumentAlternate1Font();
+    fn DocumentAlternate2Font();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -58,6 +80,10 @@ pub struct ILanguageFontGroupFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILanguageFontGroupFactory {
     type Vtable = ILanguageFontGroupFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcaeac67_4e77_49c7_b856_dde934fc735b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILanguageFontGroupFactoryImpl {
+    fn CreateLanguageFontGroup();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -1501,6 +1501,10 @@ unsafe impl ::windows::core::Interface for ID3DBlob {
     type Vtable = ID3DBlobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
 }
+pub trait ID3DBlobImpl {
+    fn GetBufferPointer();
+    fn GetBufferSize();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3DBlobVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> usize);
@@ -1558,6 +1562,10 @@ unsafe impl ::windows::core::Interface for ID3DDestructionNotifier {
     type Vtable = ID3DDestructionNotifierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
 }
+pub trait ID3DDestructionNotifierImpl {
+    fn RegisterDestructionCallback();
+    fn UnregisterDestructionCallback();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3DDestructionNotifierVtbl(
@@ -1600,6 +1608,10 @@ impl ::core::fmt::Debug for ID3DInclude {
 unsafe impl ::windows::core::Interface for ID3DInclude {
     type Vtable = ID3DIncludeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+}
+pub trait ID3DIncludeImpl {
+    fn Open();
+    fn Close();
 }
 #[repr(C)]
 #[doc(hidden)]

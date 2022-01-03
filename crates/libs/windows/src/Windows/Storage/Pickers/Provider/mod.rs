@@ -486,6 +486,22 @@ unsafe impl ::windows::core::Interface for IFileOpenPickerUI {
     type Vtable = IFileOpenPickerUIVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdda45a10_f9d4_40c4_8af5_c5b6b5a61d1d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFileOpenPickerUIImpl {
+    fn AddFile();
+    fn RemoveFile();
+    fn ContainsFile();
+    fn CanAddFile();
+    fn AllowedFileTypes();
+    fn SelectionMode();
+    fn SettingsIdentifier();
+    fn Title();
+    fn SetTitle();
+    fn FileRemoved();
+    fn RemoveFileRemoved();
+    fn Closing();
+    fn RemoveClosing();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileOpenPickerUIVtbl(
@@ -523,6 +539,10 @@ unsafe impl ::windows::core::Interface for IFileRemovedEventArgs {
     type Vtable = IFileRemovedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13043da7_7fca_4c2b_9eca_6890f9f00185);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IFileRemovedEventArgsImpl {
+    fn Id();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -542,6 +562,19 @@ pub struct IFileSavePickerUI(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileSavePickerUI {
     type Vtable = IFileSavePickerUIVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9656c1e7_3e56_43cc_8a39_33c73d9d542b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IFileSavePickerUIImpl {
+    fn Title();
+    fn SetTitle();
+    fn AllowedFileTypes();
+    fn SettingsIdentifier();
+    fn FileName();
+    fn TrySetFileName();
+    fn FileNameChanged();
+    fn RemoveFileNameChanged();
+    fn TargetFileRequested();
+    fn RemoveTargetFileRequested();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -575,6 +608,10 @@ unsafe impl ::windows::core::Interface for IPickerClosingDeferral {
     type Vtable = IPickerClosingDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7af7f71e_1a67_4a31_ae80_e907708a619b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPickerClosingDeferralImpl {
+    fn Complete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPickerClosingDeferralVtbl(
@@ -592,6 +629,11 @@ pub struct IPickerClosingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPickerClosingEventArgs {
     type Vtable = IPickerClosingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e59f224_b332_4f12_8b9f_a8c2f06b32cd);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPickerClosingEventArgsImpl {
+    fn ClosingOperation();
+    fn IsCanceled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -611,6 +653,11 @@ pub struct IPickerClosingOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPickerClosingOperation {
     type Vtable = IPickerClosingOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ce9fb84_beee_4e39_a773_fc5f0eae328d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPickerClosingOperationImpl {
+    fn GetDeferral();
+    fn Deadline();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -632,6 +679,12 @@ unsafe impl ::windows::core::Interface for ITargetFileRequest {
     type Vtable = ITargetFileRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42bd3355_7f88_478b_8e81_690b20340678);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITargetFileRequestImpl {
+    fn TargetFile();
+    fn SetTargetFile();
+    fn GetDeferral();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITargetFileRequestVtbl(
@@ -652,6 +705,10 @@ unsafe impl ::windows::core::Interface for ITargetFileRequestDeferral {
     type Vtable = ITargetFileRequestDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4aee9d91_bf15_4da9_95f6_f6b7d558225b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITargetFileRequestDeferralImpl {
+    fn Complete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITargetFileRequestDeferralVtbl(
@@ -669,6 +726,10 @@ pub struct ITargetFileRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetFileRequestedEventArgs {
     type Vtable = ITargetFileRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb163dbc1_1b51_4c89_a591_0fd40b3c57c9);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITargetFileRequestedEventArgsImpl {
+    fn Request();
 }
 #[repr(C)]
 #[doc(hidden)]

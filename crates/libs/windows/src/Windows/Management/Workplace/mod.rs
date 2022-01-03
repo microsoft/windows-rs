@@ -6,6 +6,13 @@ unsafe impl ::windows::core::Interface for IMdmAllowPolicyStatics {
     type Vtable = IMdmAllowPolicyStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc39709e7_741c_41f2_a4b6_314c31502586);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMdmAllowPolicyStaticsImpl {
+    fn IsBrowserAllowed();
+    fn IsCameraAllowed();
+    fn IsMicrosoftAccountAllowed();
+    fn IsStoreAllowed();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMdmAllowPolicyStaticsVtbl(
@@ -27,6 +34,10 @@ unsafe impl ::windows::core::Interface for IMdmPolicyStatics2 {
     type Vtable = IMdmPolicyStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc99c7526_03d4_49f9_a993_43efccd265c4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMdmPolicyStatics2Impl {
+    fn GetMessagingSyncPolicy();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMdmPolicyStatics2Vtbl(
@@ -44,6 +55,10 @@ pub struct IWorkplaceSettingsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWorkplaceSettingsStatics {
     type Vtable = IWorkplaceSettingsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4676ffd_2d92_4c08_bad4_f6590b54a6d3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWorkplaceSettingsStaticsImpl {
+    fn IsMicrosoftAccountOptional();
 }
 #[repr(C)]
 #[doc(hidden)]

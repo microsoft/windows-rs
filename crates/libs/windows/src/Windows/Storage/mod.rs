@@ -1712,6 +1712,18 @@ unsafe impl ::windows::core::Interface for IAppDataPaths {
     type Vtable = IAppDataPathsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7301d60a_79a2_48c9_9ec0_3fda092f79e1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppDataPathsImpl {
+    fn Cookies();
+    fn Desktop();
+    fn Documents();
+    fn Favorites();
+    fn History();
+    fn InternetCache();
+    fn LocalAppData();
+    fn ProgramData();
+    fn RoamingAppData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppDataPathsVtbl(
@@ -1738,6 +1750,11 @@ unsafe impl ::windows::core::Interface for IAppDataPathsStatics {
     type Vtable = IAppDataPathsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8eb2afe_a9d9_4b14_b999_e3921379d903);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppDataPathsStaticsImpl {
+    fn GetForUser();
+    fn GetDefault();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppDataPathsStaticsVtbl(
@@ -1757,6 +1774,22 @@ pub struct IApplicationData(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApplicationData {
     type Vtable = IApplicationDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3da6fb7_b744_4b45_b0b8_223a0938d0dc);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationDataImpl {
+    fn Version();
+    fn SetVersionAsync();
+    fn ClearAllAsync();
+    fn ClearAsync();
+    fn LocalSettings();
+    fn RoamingSettings();
+    fn LocalFolder();
+    fn RoamingFolder();
+    fn TemporaryFolder();
+    fn DataChanged();
+    fn RemoveDataChanged();
+    fn SignalDataChanged();
+    fn RoamingStorageQuota();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1793,6 +1826,10 @@ unsafe impl ::windows::core::Interface for IApplicationData2 {
     type Vtable = IApplicationData2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e65cd69_0ba3_4e32_be29_b02de6607638);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationData2Impl {
+    fn LocalCacheFolder();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationData2Vtbl(
@@ -1810,6 +1847,12 @@ pub struct IApplicationData3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApplicationData3 {
     type Vtable = IApplicationData3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc222cf4_2772_4c1d_aa2c_c9f743ade8d1);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationData3Impl {
+    fn GetPublisherCacheFolder();
+    fn ClearPublisherCacheFolderAsync();
+    fn SharedLocalFolder();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1831,6 +1874,15 @@ pub struct IApplicationDataContainer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApplicationDataContainer {
     type Vtable = IApplicationDataContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5aefd1e_f467_40ba_8566_ab640a441e1d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationDataContainerImpl {
+    fn Name();
+    fn Locality();
+    fn Values();
+    fn Containers();
+    fn CreateContainer();
+    fn DeleteContainer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1857,6 +1909,10 @@ unsafe impl ::windows::core::Interface for IApplicationDataStatics {
     type Vtable = IApplicationDataStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5612147b_e843_45e3_94d8_06169e3c8e17);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationDataStaticsImpl {
+    fn Current();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationDataStaticsVtbl(
@@ -1874,6 +1930,10 @@ pub struct IApplicationDataStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApplicationDataStatics2 {
     type Vtable = IApplicationDataStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd606211_cf49_40a4_a47c_c7f0dbba8107);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IApplicationDataStatics2Impl {
+    fn GetForUserAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1894,6 +1954,11 @@ unsafe impl ::windows::core::Interface for ICachedFileManagerStatics {
     type Vtable = ICachedFileManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ffc224a_e782_495d_b614_654c4f0b2370);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICachedFileManagerStaticsImpl {
+    fn DeferUpdates();
+    fn CompleteUpdatesAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICachedFileManagerStaticsVtbl(
@@ -1913,6 +1978,13 @@ pub struct IDownloadsFolderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDownloadsFolderStatics {
     type Vtable = IDownloadsFolderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27862ed0_404e_47df_a1e2_e37308be7b37);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDownloadsFolderStaticsImpl {
+    fn CreateFileAsync();
+    fn CreateFolderAsync();
+    fn CreateFileWithCollisionOptionAsync();
+    fn CreateFolderWithCollisionOptionAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1939,6 +2011,13 @@ unsafe impl ::windows::core::Interface for IDownloadsFolderStatics2 {
     type Vtable = IDownloadsFolderStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe93045bd_8ef8_4f8e_8d15_ac0e265f390d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDownloadsFolderStatics2Impl {
+    fn CreateFileForUserAsync();
+    fn CreateFolderForUserAsync();
+    fn CreateFileForUserWithCollisionOptionAsync();
+    fn CreateFolderForUserWithCollisionOptionAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDownloadsFolderStatics2Vtbl(
@@ -1963,6 +2042,24 @@ pub struct IFileIOStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileIOStatics {
     type Vtable = IFileIOStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x887411eb_7f54_4732_a5f0_5e43e3b8c2f5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IFileIOStaticsImpl {
+    fn ReadTextAsync();
+    fn ReadTextWithEncodingAsync();
+    fn WriteTextAsync();
+    fn WriteTextWithEncodingAsync();
+    fn AppendTextAsync();
+    fn AppendTextWithEncodingAsync();
+    fn ReadLinesAsync();
+    fn ReadLinesWithEncodingAsync();
+    fn WriteLinesAsync();
+    fn WriteLinesWithEncodingAsync();
+    fn AppendLinesAsync();
+    fn AppendLinesWithEncodingAsync();
+    fn ReadBufferAsync();
+    fn WriteBufferAsync();
+    fn WriteBytesAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2011,6 +2108,10 @@ unsafe impl ::windows::core::Interface for IKnownFoldersCameraRollStatics {
     type Vtable = IKnownFoldersCameraRollStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d115e66_27e8_492f_b8e5_2f90896cd4cd);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IKnownFoldersCameraRollStaticsImpl {
+    fn CameraRoll();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownFoldersCameraRollStaticsVtbl(
@@ -2028,6 +2129,10 @@ pub struct IKnownFoldersPlaylistsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKnownFoldersPlaylistsStatics {
     type Vtable = IKnownFoldersPlaylistsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdad5ecd6_306f_4d6a_b496_46ba8eb106ce);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IKnownFoldersPlaylistsStaticsImpl {
+    fn Playlists();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2047,6 +2152,10 @@ unsafe impl ::windows::core::Interface for IKnownFoldersSavedPicturesStatics {
     type Vtable = IKnownFoldersSavedPicturesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x055c93ea_253d_467c_b6ca_a97da1e9a18d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IKnownFoldersSavedPicturesStaticsImpl {
+    fn SavedPictures();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownFoldersSavedPicturesStaticsVtbl(
@@ -2064,6 +2173,16 @@ pub struct IKnownFoldersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKnownFoldersStatics {
     type Vtable = IKnownFoldersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a2a7520_4802_452d_9ad9_4351ada7ec35);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IKnownFoldersStaticsImpl {
+    fn MusicLibrary();
+    fn PicturesLibrary();
+    fn VideosLibrary();
+    fn DocumentsLibrary();
+    fn HomeGroup();
+    fn RemovableDevices();
+    fn MediaServerDevices();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2089,6 +2208,12 @@ unsafe impl ::windows::core::Interface for IKnownFoldersStatics2 {
     type Vtable = IKnownFoldersStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x194bd0cd_cf6e_4d07_9d53_e9163a2536e9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IKnownFoldersStatics2Impl {
+    fn Objects3D();
+    fn AppCaptures();
+    fn RecordedCalls();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownFoldersStatics2Vtbl(
@@ -2109,6 +2234,10 @@ unsafe impl ::windows::core::Interface for IKnownFoldersStatics3 {
     type Vtable = IKnownFoldersStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5194341_9742_4ed5_823d_fc1401148764);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IKnownFoldersStatics3Impl {
+    fn GetFolderForUserAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownFoldersStatics3Vtbl(
@@ -2127,6 +2256,12 @@ pub struct IKnownFoldersStatics4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKnownFoldersStatics4 {
     type Vtable = IKnownFoldersStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1722e6bf_9ff9_4b21_bed5_90ecb13a192e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IKnownFoldersStatics4Impl {
+    fn RequestAccessAsync();
+    fn RequestAccessForUserAsync();
+    fn GetFolderAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2150,6 +2285,24 @@ pub struct IPathIOStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPathIOStatics {
     type Vtable = IPathIOStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f2f3758_8ec7_4381_922b_8f6c07d288f3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPathIOStaticsImpl {
+    fn ReadTextAsync();
+    fn ReadTextWithEncodingAsync();
+    fn WriteTextAsync();
+    fn WriteTextWithEncodingAsync();
+    fn AppendTextAsync();
+    fn AppendTextWithEncodingAsync();
+    fn ReadLinesAsync();
+    fn ReadLinesWithEncodingAsync();
+    fn WriteLinesAsync();
+    fn WriteLinesWithEncodingAsync();
+    fn AppendLinesAsync();
+    fn AppendLinesWithEncodingAsync();
+    fn ReadBufferAsync();
+    fn WriteBufferAsync();
+    fn WriteBytesAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2198,6 +2351,10 @@ unsafe impl ::windows::core::Interface for ISetVersionDeferral {
     type Vtable = ISetVersionDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x033508a2_781a_437a_b078_3f32badcfe47);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISetVersionDeferralImpl {
+    fn Complete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISetVersionDeferralVtbl(
@@ -2215,6 +2372,12 @@ pub struct ISetVersionRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISetVersionRequest {
     type Vtable = ISetVersionRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9c76b9b_1056_4e69_8330_162619956f9b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISetVersionRequestImpl {
+    fn CurrentVersion();
+    fn DesiredVersion();
+    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2581,6 +2744,21 @@ unsafe impl ::windows::core::Interface for IStorageFile {
     type Vtable = IStorageFileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa3f6186_4214_428c_a64c_14c9ac7315ea);
 }
+#[cfg(feature = "Storage_Streams")]
+pub trait IStorageFileImpl: IInputStreamReferenceImpl + IRandomAccessStreamReferenceImpl + IStorageItemImpl {
+    fn FileType();
+    fn ContentType();
+    fn OpenAsync();
+    fn OpenTransactedWriteAsync();
+    fn CopyOverloadDefaultNameAndOptions();
+    fn CopyOverloadDefaultOptions();
+    fn CopyOverload();
+    fn CopyAndReplaceAsync();
+    fn MoveOverloadDefaultNameAndOptions();
+    fn MoveOverloadDefaultOptions();
+    fn MoveOverload();
+    fn MoveAndReplaceAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageFileVtbl(
@@ -2699,6 +2877,10 @@ unsafe impl ::windows::core::Interface for IStorageFile2 {
     type Vtable = IStorageFile2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x954e4bcf_0a77_42fb_b777_c2ed58a52e44);
 }
+pub trait IStorageFile2Impl {
+    fn OpenWithOptionsAsync();
+    fn OpenTransactedWriteWithOptionsAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageFile2Vtbl(
@@ -2789,6 +2971,9 @@ unsafe impl ::windows::core::Interface for IStorageFilePropertiesWithAvailabilit
     type Vtable = IStorageFilePropertiesWithAvailabilityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafcbbe9b_582b_4133_9648_e44ca46ee491);
 }
+pub trait IStorageFilePropertiesWithAvailabilityImpl {
+    fn IsAvailable();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageFilePropertiesWithAvailabilityVtbl(
@@ -2806,6 +2991,15 @@ pub struct IStorageFileStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageFileStatics {
     type Vtable = IStorageFileStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5984c710_daf2_43c8_8bb4_a4d3eacfd03f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageFileStaticsImpl {
+    fn GetFileFromPathAsync();
+    fn GetFileFromApplicationUriAsync();
+    fn CreateStreamedFileAsync();
+    fn ReplaceWithStreamedFileAsync();
+    fn CreateStreamedFileFromUriAsync();
+    fn ReplaceWithStreamedFileFromUriAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2835,6 +3029,10 @@ pub struct IStorageFileStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageFileStatics2 {
     type Vtable = IStorageFileStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c76a781_212e_4af9_8f04_740cae108974);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageFileStatics2Impl {
+    fn GetFileFromPathForUserAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3114,6 +3312,18 @@ unsafe impl ::windows::core::Interface for IStorageFolder {
     type Vtable = IStorageFolderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72d1cb78_b3ef_4f75_a80b_6fd9dae2944b);
 }
+pub trait IStorageFolderImpl: IStorageItemImpl {
+    fn CreateFileAsyncOverloadDefaultOptions();
+    fn CreateFileAsync();
+    fn CreateFolderAsyncOverloadDefaultOptions();
+    fn CreateFolderAsync();
+    fn GetFileAsync();
+    fn GetFolderAsync();
+    fn GetItemAsync();
+    fn GetFilesAsyncOverloadDefaultOptionsStartAndCount();
+    fn GetFoldersAsyncOverloadDefaultOptionsStartAndCount();
+    fn GetItemsAsyncOverloadDefaultStartAndCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageFolderVtbl(
@@ -3221,6 +3431,9 @@ unsafe impl ::windows::core::Interface for IStorageFolder2 {
     type Vtable = IStorageFolder2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe827e8b9_08d9_4a8e_a0ac_fe5ed3cbbbd3);
 }
+pub trait IStorageFolder2Impl {
+    fn TryGetItemAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageFolder2Vtbl(
@@ -3240,6 +3453,10 @@ unsafe impl ::windows::core::Interface for IStorageFolder3 {
     type Vtable = IStorageFolder3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f617899_bde1_4124_aeb3_b06ad96f98d4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageFolder3Impl {
+    fn TryGetChangeTracker();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageFolder3Vtbl(
@@ -3257,6 +3474,10 @@ pub struct IStorageFolderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageFolderStatics {
     type Vtable = IStorageFolderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08f327ff_85d5_48b9_aee9_28511e339f9f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageFolderStaticsImpl {
+    fn GetFolderFromPathAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3276,6 +3497,10 @@ pub struct IStorageFolderStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageFolderStatics2 {
     type Vtable = IStorageFolderStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4656dc3_71d2_467d_8b29_371f0f62bf6f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageFolderStatics2Impl {
+    fn GetFolderFromPathForUserAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3442,6 +3667,18 @@ unsafe impl ::windows::core::RuntimeType for IStorageItem {
 unsafe impl ::windows::core::Interface for IStorageItem {
     type Vtable = IStorageItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4207a996_ca2f_42f7_bde8_8b10457a7f30);
+}
+pub trait IStorageItemImpl {
+    fn RenameAsyncOverloadDefaultOptions();
+    fn RenameAsync();
+    fn DeleteAsyncOverloadDefaultOptions();
+    fn DeleteAsync();
+    fn GetBasicPropertiesAsync();
+    fn Name();
+    fn Path();
+    fn Attributes();
+    fn DateCreated();
+    fn IsOfType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3662,6 +3899,10 @@ unsafe impl ::windows::core::Interface for IStorageItem2 {
     type Vtable = IStorageItem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f926d2_083c_4283_b45b_81c007237e44);
 }
+pub trait IStorageItem2Impl: IStorageItemImpl {
+    fn GetParentAsync();
+    fn IsEqual();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageItem2Vtbl(
@@ -3802,6 +4043,15 @@ unsafe impl ::windows::core::RuntimeType for IStorageItemProperties {
 unsafe impl ::windows::core::Interface for IStorageItemProperties {
     type Vtable = IStorageItemPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86664478_8029_46fe_a789_1c2f3e2ffb5c);
+}
+pub trait IStorageItemPropertiesImpl {
+    fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions();
+    fn GetThumbnailAsyncOverloadDefaultOptions();
+    fn GetThumbnailAsync();
+    fn DisplayName();
+    fn DisplayType();
+    fn FolderRelativeId();
+    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4001,6 +4251,11 @@ unsafe impl ::windows::core::Interface for IStorageItemProperties2 {
     type Vtable = IStorageItemProperties2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e86a951_04b9_4bd2_929d_fef3f71621d0);
 }
+pub trait IStorageItemProperties2Impl: IStorageItemPropertiesImpl {
+    fn GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions();
+    fn GetScaledImageAsThumbnailAsyncOverloadDefaultOptions();
+    fn GetScaledImageAsThumbnailAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageItemProperties2Vtbl(
@@ -4175,6 +4430,9 @@ unsafe impl ::windows::core::Interface for IStorageItemPropertiesWithProvider {
     type Vtable = IStorageItemPropertiesWithProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x861bf39b_6368_4dee_b40e_74684a5ce714);
 }
+pub trait IStorageItemPropertiesWithProviderImpl: IStorageItemPropertiesImpl {
+    fn Provider();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageItemPropertiesWithProviderVtbl(
@@ -4192,6 +4450,15 @@ pub struct IStorageLibrary(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageLibrary {
     type Vtable = IStorageLibraryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1edd7103_0e5e_4d6c_b5e8_9318983d6a03);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageLibraryImpl {
+    fn RequestAddFolderAsync();
+    fn RequestRemoveFolderAsync();
+    fn Folders();
+    fn SaveFolder();
+    fn DefinitionChanged();
+    fn RemoveDefinitionChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4221,6 +4488,10 @@ unsafe impl ::windows::core::Interface for IStorageLibrary2 {
     type Vtable = IStorageLibrary2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b0ce348_fcb3_4031_afb0_a68d7bd44534);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageLibrary2Impl {
+    fn ChangeTracker();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageLibrary2Vtbl(
@@ -4238,6 +4509,10 @@ pub struct IStorageLibrary3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageLibrary3 {
     type Vtable = IStorageLibrary3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a281291_2154_4201_8113_d2c05ce1ad23);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageLibrary3Impl {
+    fn AreFolderSuggestionsAvailableAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4257,6 +4532,14 @@ pub struct IStorageLibraryChange(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageLibraryChange {
     type Vtable = IStorageLibraryChangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00980b23_2be2_4909_aa48_159f5203a51e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageLibraryChangeImpl {
+    fn ChangeType();
+    fn Path();
+    fn PreviousPath();
+    fn IsOfType();
+    fn GetStorageItemAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4281,6 +4564,11 @@ unsafe impl ::windows::core::Interface for IStorageLibraryChangeReader {
     type Vtable = IStorageLibraryChangeReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf205bc83_fca2_41f9_8954_ee2e991eb96f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageLibraryChangeReaderImpl {
+    fn ReadBatchAsync();
+    fn AcceptChangesAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageLibraryChangeReaderVtbl(
@@ -4302,6 +4590,10 @@ unsafe impl ::windows::core::Interface for IStorageLibraryChangeReader2 {
     type Vtable = IStorageLibraryChangeReader2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabf4868b_fbcc_4a4f_999e_e7ab7c646dbe);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageLibraryChangeReader2Impl {
+    fn GetLastChangeId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageLibraryChangeReader2Vtbl(
@@ -4319,6 +4611,12 @@ pub struct IStorageLibraryChangeTracker(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageLibraryChangeTracker {
     type Vtable = IStorageLibraryChangeTrackerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e157316_6073_44f6_9681_7492d1286c90);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageLibraryChangeTrackerImpl {
+    fn GetChangeReader();
+    fn Enable();
+    fn Reset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4340,6 +4638,11 @@ unsafe impl ::windows::core::Interface for IStorageLibraryChangeTracker2 {
     type Vtable = IStorageLibraryChangeTracker2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd051c3b_0f9f_42f9_8fb3_158d82e13821);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageLibraryChangeTracker2Impl {
+    fn EnableWithOptions();
+    fn Disable();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageLibraryChangeTracker2Vtbl(
@@ -4358,6 +4661,11 @@ pub struct IStorageLibraryChangeTrackerOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageLibraryChangeTrackerOptions {
     type Vtable = IStorageLibraryChangeTrackerOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb52bcd4_1a6d_59c0_ad2a_823a20532483);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageLibraryChangeTrackerOptionsImpl {
+    fn TrackChangeDetails();
+    fn SetTrackChangeDetails();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4378,6 +4686,8 @@ unsafe impl ::windows::core::Interface for IStorageLibraryLastChangeId {
     type Vtable = IStorageLibraryLastChangeIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5281826a_bbe1_53bc_82ca_81cc7f039329);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageLibraryLastChangeIdImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageLibraryLastChangeIdVtbl(
@@ -4394,6 +4704,10 @@ pub struct IStorageLibraryLastChangeIdStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageLibraryLastChangeIdStatics {
     type Vtable = IStorageLibraryLastChangeIdStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81a49128_2ca3_5309_b0d1_cf0788e40762);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageLibraryLastChangeIdStaticsImpl {
+    fn Unknown();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4412,6 +4726,10 @@ pub struct IStorageLibraryStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageLibraryStatics {
     type Vtable = IStorageLibraryStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4208a6db_684a_49c6_9e59_90121ee050d6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageLibraryStaticsImpl {
+    fn GetLibraryAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4432,6 +4750,10 @@ unsafe impl ::windows::core::Interface for IStorageLibraryStatics2 {
     type Vtable = IStorageLibraryStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffb08ddc_fa75_4695_b9d1_7f81f97832e3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageLibraryStatics2Impl {
+    fn GetLibraryForUserAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageLibraryStatics2Vtbl(
@@ -4450,6 +4772,11 @@ pub struct IStorageProvider(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageProvider {
     type Vtable = IStorageProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe705eed4_d478_47d6_ba46_1a8ebe114a20);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageProviderImpl {
+    fn Id();
+    fn DisplayName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4470,6 +4797,10 @@ unsafe impl ::windows::core::Interface for IStorageProvider2 {
     type Vtable = IStorageProvider2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x010d1917_3404_414b_9fd7_cd44472eaa39);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageProvider2Impl: IStorageProviderImpl {
+    fn IsPropertySupportedForPartialFileAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageProvider2Vtbl(
@@ -4488,6 +4819,11 @@ pub struct IStorageStreamTransaction(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageStreamTransaction {
     type Vtable = IStorageStreamTransactionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf67cf363_a53d_4d94_ae2c_67232d93acdd);
+}
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IStorageStreamTransactionImpl: IClosableImpl {
+    fn Stream();
+    fn CommitAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4576,6 +4912,9 @@ unsafe impl ::windows::core::Interface for IStreamedFileDataRequest {
     type Vtable = IStreamedFileDataRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1673fcce_dabd_4d50_beee_180b8a8191b6);
 }
+pub trait IStreamedFileDataRequestImpl {
+    fn FailAndClose();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStreamedFileDataRequestVtbl(
@@ -4594,6 +4933,10 @@ unsafe impl ::windows::core::Interface for ISystemAudioProperties {
     type Vtable = ISystemAudioPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f8f38b7_308c_47e1_924d_8645348e5db7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemAudioPropertiesImpl {
+    fn EncodingBitrate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemAudioPropertiesVtbl(
@@ -4611,6 +4954,25 @@ pub struct ISystemDataPaths(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemDataPaths {
     type Vtable = ISystemDataPathsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe32abf70_d8fa_45ec_a942_d2e26fb60ba5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemDataPathsImpl {
+    fn Fonts();
+    fn ProgramData();
+    fn Public();
+    fn PublicDesktop();
+    fn PublicDocuments();
+    fn PublicDownloads();
+    fn PublicMusic();
+    fn PublicPictures();
+    fn PublicVideos();
+    fn System();
+    fn SystemHost();
+    fn SystemX86();
+    fn SystemX64();
+    fn SystemArm();
+    fn UserProfiles();
+    fn Windows();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4645,6 +5007,10 @@ unsafe impl ::windows::core::Interface for ISystemDataPathsStatics {
     type Vtable = ISystemDataPathsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0f96fd0_9920_4bca_b379_f96fdf7caad8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemDataPathsStaticsImpl {
+    fn GetDefault();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemDataPathsStaticsVtbl(
@@ -4662,6 +5028,11 @@ pub struct ISystemGPSProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemGPSProperties {
     type Vtable = ISystemGPSPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0f46eb4_c174_481a_bc25_921986f6a6f3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemGPSPropertiesImpl {
+    fn LatitudeDecimal();
+    fn LongitudeDecimal();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4682,6 +5053,11 @@ unsafe impl ::windows::core::Interface for ISystemImageProperties {
     type Vtable = ISystemImagePropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x011b2e30_8b39_4308_bea1_e8aa61e47826);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemImagePropertiesImpl {
+    fn HorizontalSize();
+    fn VerticalSize();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemImagePropertiesVtbl(
@@ -4700,6 +5076,15 @@ pub struct ISystemMediaProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemMediaProperties {
     type Vtable = ISystemMediaPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa42b3316_8415_40dc_8c44_98361d235430);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemMediaPropertiesImpl {
+    fn Duration();
+    fn Producer();
+    fn Publisher();
+    fn SubTitle();
+    fn Writer();
+    fn Year();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4723,6 +5108,17 @@ pub struct ISystemMusicProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemMusicProperties {
     type Vtable = ISystemMusicPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb47988d5_67af_4bc3_8d39_5b89022026a1);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemMusicPropertiesImpl {
+    fn AlbumArtist();
+    fn AlbumTitle();
+    fn Artist();
+    fn Composer();
+    fn Conductor();
+    fn DisplayArtist();
+    fn Genre();
+    fn TrackNumber();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4749,6 +5145,14 @@ unsafe impl ::windows::core::Interface for ISystemPhotoProperties {
     type Vtable = ISystemPhotoPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4734fc3d_ab21_4424_b735_f4353a56c8fc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemPhotoPropertiesImpl {
+    fn CameraManufacturer();
+    fn CameraModel();
+    fn DateTaken();
+    fn Orientation();
+    fn PeopleNames();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemPhotoPropertiesVtbl(
@@ -4770,6 +5174,22 @@ pub struct ISystemProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemProperties {
     type Vtable = ISystemPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x917a71c1_85f3_4dd1_b001_a50bfd21c8d2);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemPropertiesImpl {
+    fn Author();
+    fn Comment();
+    fn ItemNameDisplay();
+    fn Keywords();
+    fn Rating();
+    fn Title();
+    fn Audio();
+    fn GPS();
+    fn Media();
+    fn Music();
+    fn Photo();
+    fn Video();
+    fn Image();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4801,6 +5221,14 @@ unsafe impl ::windows::core::Interface for ISystemVideoProperties {
     type Vtable = ISystemVideoPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2040f715_67f8_4322_9b80_4fa9fefb83e8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISystemVideoPropertiesImpl {
+    fn Director();
+    fn FrameHeight();
+    fn FrameWidth();
+    fn Orientation();
+    fn TotalBitrate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemVideoPropertiesVtbl(
@@ -4822,6 +5250,28 @@ pub struct IUserDataPaths(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataPaths {
     type Vtable = IUserDataPathsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9c53912_abc4_46ff_8a2b_dc9d7fa6e52f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataPathsImpl {
+    fn CameraRoll();
+    fn Cookies();
+    fn Desktop();
+    fn Documents();
+    fn Downloads();
+    fn Favorites();
+    fn History();
+    fn InternetCache();
+    fn LocalAppData();
+    fn LocalAppDataLow();
+    fn Music();
+    fn Pictures();
+    fn Profile();
+    fn Recent();
+    fn RoamingAppData();
+    fn SavedPictures();
+    fn Screenshots();
+    fn Templates();
+    fn Videos();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4858,6 +5308,11 @@ pub struct IUserDataPathsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataPathsStatics {
     type Vtable = IUserDataPathsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01b29def_e062_48a1_8b0c_f2c7a9ca56c0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDataPathsStaticsImpl {
+    fn GetForUser();
+    fn GetDefault();
 }
 #[repr(C)]
 #[doc(hidden)]

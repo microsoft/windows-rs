@@ -6,6 +6,11 @@ unsafe impl ::windows::core::Interface for IScreenReaderPositionChangedEventArgs
     type Vtable = IScreenReaderPositionChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x557eb5e5_54d0_5ccd_9fc5_ed33357f8a9f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IScreenReaderPositionChangedEventArgsImpl {
+    fn ScreenPositionInRawPixels();
+    fn IsReadingText();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScreenReaderPositionChangedEventArgsVtbl(
@@ -25,6 +30,12 @@ pub struct IScreenReaderService(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IScreenReaderService {
     type Vtable = IScreenReaderServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19475427_eac0_50d3_bdd9_9b487a226256);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IScreenReaderServiceImpl {
+    fn CurrentScreenReaderPosition();
+    fn ScreenReaderPositionChanged();
+    fn RemoveScreenReaderPositionChanged();
 }
 #[repr(C)]
 #[doc(hidden)]

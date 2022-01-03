@@ -1126,6 +1126,13 @@ unsafe impl ::windows::core::Interface for IITDatabase {
     type Vtable = IITDatabaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5a2_dedf_11d0_9a61_00c04fb68bf7);
 }
+pub trait IITDatabaseImpl {
+    fn Open();
+    fn Close();
+    fn CreateObject();
+    fn GetObject();
+    fn GetObjectPersistence();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IITDatabaseVtbl(
@@ -1347,6 +1354,27 @@ unsafe impl ::windows::core::Interface for IITPropList {
     type Vtable = IITPropListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f403bb1_9997_11d0_a850_00aa006c7d01);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IITPropListImpl: IPersistStreamInitImpl + IPersistImpl {
+    fn Set();
+    fn Set();
+    fn Set();
+    fn Add();
+    fn Get();
+    fn Clear();
+    fn SetPersist();
+    fn SetPersist();
+    fn GetFirst();
+    fn GetNext();
+    fn GetPropCount();
+    fn SaveHeader();
+    fn SaveData();
+    fn GetHeaderSize();
+    fn GetDataSize();
+    fn SaveDataToStream();
+    fn LoadFromMem();
+    fn SaveToMem();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IITPropListVtbl(
@@ -1563,6 +1591,38 @@ unsafe impl ::windows::core::Interface for IITResultSet {
     type Vtable = IITResultSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bb91d41_998b_11d0_a850_00aa006c7d01);
 }
+pub trait IITResultSetImpl {
+    fn SetColumnPriority();
+    fn SetColumnHeap();
+    fn SetKeyProp();
+    fn Add();
+    fn Add();
+    fn Add();
+    fn Add();
+    fn Append();
+    fn Set();
+    fn Set();
+    fn Set();
+    fn Set();
+    fn Copy();
+    fn AppendRows();
+    fn Get();
+    fn GetKeyProp();
+    fn GetColumnPriority();
+    fn GetRowCount();
+    fn GetColumnCount();
+    fn GetColumn();
+    fn GetColumn();
+    fn GetColumnFromPropID();
+    fn Clear();
+    fn ClearRows();
+    fn Free();
+    fn IsCompleted();
+    fn Cancel();
+    fn Pause();
+    fn GetRowStatus();
+    fn GetColumnStatus();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IITResultSetVtbl(
@@ -1709,6 +1769,21 @@ unsafe impl ::windows::core::Interface for IITWordWheel {
     type Vtable = IITWordWheelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5a4_dedf_11d0_9a61_00c04fb68bf7);
 }
+pub trait IITWordWheelImpl {
+    fn Open();
+    fn Close();
+    fn GetLocaleInfo();
+    fn GetSorterInstance();
+    fn Count();
+    fn Lookup();
+    fn Lookup();
+    fn Lookup();
+    fn SetGroup();
+    fn GetGroup();
+    fn GetDataCount();
+    fn GetData();
+    fn GetDataColumns();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IITWordWheelVtbl(
@@ -1786,6 +1861,10 @@ unsafe impl ::windows::core::Interface for IStemSink {
     type Vtable = IStemSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe77c330_7f42_11ce_be57_00aa0051fe20);
 }
+pub trait IStemSinkImpl {
+    fn PutAltWord();
+    fn PutWord();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStemSinkVtbl(
@@ -1862,6 +1941,13 @@ impl ::core::fmt::Debug for IStemmerConfig {
 unsafe impl ::windows::core::Interface for IStemmerConfig {
     type Vtable = IStemmerConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5a7_dedf_11d0_9a61_00c04fb68bf7);
+}
+pub trait IStemmerConfigImpl {
+    fn SetLocaleInfo();
+    fn GetLocaleInfo();
+    fn SetControlInfo();
+    fn GetControlInfo();
+    fn LoadExternalStemmerData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1970,6 +2056,17 @@ impl ::core::fmt::Debug for IWordBreakerConfig {
 unsafe impl ::windows::core::Interface for IWordBreakerConfig {
     type Vtable = IWordBreakerConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5a6_dedf_11d0_9a61_00c04fb68bf7);
+}
+pub trait IWordBreakerConfigImpl {
+    fn SetLocaleInfo();
+    fn GetLocaleInfo();
+    fn SetBreakWordType();
+    fn GetBreakWordType();
+    fn SetControlInfo();
+    fn GetControlInfo();
+    fn LoadExternalBreakerData();
+    fn SetWordStemmer();
+    fn GetWordStemmer();
 }
 #[repr(C)]
 #[doc(hidden)]

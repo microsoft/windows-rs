@@ -330,6 +330,12 @@ unsafe impl ::windows::core::Interface for IAdcChannel {
     type Vtable = IAdcChannelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x040bf414_2588_4a56_abef_73a260acc60a);
 }
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IAdcChannelImpl: IClosableImpl {
+    fn Controller();
+    fn ReadValue();
+    fn ReadRatio();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdcChannelVtbl(
@@ -349,6 +355,17 @@ pub struct IAdcController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdcController {
     type Vtable = IAdcControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a76e4b0_a896_4219_86b6_ea8cdce98f56);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdcControllerImpl {
+    fn ChannelCount();
+    fn ResolutionInBits();
+    fn MinValue();
+    fn MaxValue();
+    fn ChannelMode();
+    fn SetChannelMode();
+    fn IsChannelModeSupported();
+    fn OpenChannel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -375,6 +392,10 @@ unsafe impl ::windows::core::Interface for IAdcControllerStatics {
     type Vtable = IAdcControllerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcce98e0c_01f8_4891_bc3b_be53ef279ca4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdcControllerStaticsImpl {
+    fn GetControllersAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdcControllerStaticsVtbl(
@@ -393,6 +414,10 @@ pub struct IAdcControllerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdcControllerStatics2 {
     type Vtable = IAdcControllerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2b93b1d_977b_4f5a_a5fe_a6abaffe6484);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdcControllerStatics2Impl {
+    fn GetDefaultAsync();
 }
 #[repr(C)]
 #[doc(hidden)]

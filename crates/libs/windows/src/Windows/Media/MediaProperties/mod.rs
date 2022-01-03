@@ -532,6 +532,17 @@ unsafe impl ::windows::core::Interface for IAudioEncodingProperties {
     type Vtable = IAudioEncodingPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62bc7a16_005c_4b3b_8a0b_0a090e9687f3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAudioEncodingPropertiesImpl: IMediaEncodingPropertiesImpl {
+    fn SetBitrate();
+    fn Bitrate();
+    fn SetChannelCount();
+    fn ChannelCount();
+    fn SetSampleRate();
+    fn SampleRate();
+    fn SetBitsPerSample();
+    fn BitsPerSample();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEncodingPropertiesVtbl(
@@ -557,6 +568,10 @@ unsafe impl ::windows::core::Interface for IAudioEncodingProperties2 {
     type Vtable = IAudioEncodingProperties2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc45d54da_80bd_4c23_80d5_72d4a181e894);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAudioEncodingProperties2Impl {
+    fn IsSpatial();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEncodingProperties2Vtbl(
@@ -575,6 +590,10 @@ unsafe impl ::windows::core::Interface for IAudioEncodingProperties3 {
     type Vtable = IAudioEncodingProperties3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87600341_748c_4f8d_b0fd_10caf08ff087);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAudioEncodingProperties3Impl {
+    fn Copy();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEncodingProperties3Vtbl(
@@ -592,6 +611,14 @@ pub struct IAudioEncodingPropertiesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioEncodingPropertiesStatics {
     type Vtable = IAudioEncodingPropertiesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cad332c_ebe9_4527_b36d_e42a13cf38db);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAudioEncodingPropertiesStaticsImpl {
+    fn CreateAac();
+    fn CreateAacAdts();
+    fn CreateMp3();
+    fn CreatePcm();
+    fn CreateWma();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -615,6 +642,11 @@ unsafe impl ::windows::core::Interface for IAudioEncodingPropertiesStatics2 {
     type Vtable = IAudioEncodingPropertiesStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7489316f_77a0_433d_8ed5_4040280e8665);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAudioEncodingPropertiesStatics2Impl {
+    fn CreateAlac();
+    fn CreateFlac();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEncodingPropertiesStatics2Vtbl(
@@ -633,6 +665,11 @@ pub struct IAudioEncodingPropertiesWithFormatUserData(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IAudioEncodingPropertiesWithFormatUserData {
     type Vtable = IAudioEncodingPropertiesWithFormatUserDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98f10d79_13ea_49ff_be70_2673db69702c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAudioEncodingPropertiesWithFormatUserDataImpl {
+    fn SetFormatUserData();
+    fn GetFormatUserData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -653,6 +690,8 @@ unsafe impl ::windows::core::Interface for IContainerEncodingProperties {
     type Vtable = IContainerEncodingPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59ac2a57_b32a_479e_8a61_4b7f2e9e7ea0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IContainerEncodingPropertiesImpl: IMediaEncodingPropertiesImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContainerEncodingPropertiesVtbl(
@@ -669,6 +708,10 @@ pub struct IContainerEncodingProperties2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContainerEncodingProperties2 {
     type Vtable = IContainerEncodingProperties2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb272c029_ae26_4819_baad_ad7a49b0a876);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IContainerEncodingProperties2Impl {
+    fn Copy();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -687,6 +730,19 @@ pub struct IH264ProfileIdsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IH264ProfileIdsStatics {
     type Vtable = IH264ProfileIdsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38654ca7_846a_4f97_a2e5_c3a15bbf70fd);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IH264ProfileIdsStaticsImpl {
+    fn ConstrainedBaseline();
+    fn Baseline();
+    fn Extended();
+    fn Main();
+    fn High();
+    fn High10();
+    fn High422();
+    fn High444();
+    fn StereoHigh();
+    fn MultiviewHigh();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -715,6 +771,13 @@ unsafe impl ::windows::core::Interface for IImageEncodingProperties {
     type Vtable = IImageEncodingPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78625635_f331_4189_b1c3_b48d5ae034f1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IImageEncodingPropertiesImpl: IMediaEncodingPropertiesImpl {
+    fn SetWidth();
+    fn Width();
+    fn SetHeight();
+    fn Height();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageEncodingPropertiesVtbl(
@@ -736,6 +799,10 @@ unsafe impl ::windows::core::Interface for IImageEncodingProperties2 {
     type Vtable = IImageEncodingProperties2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc854a2df_c923_469b_ac8e_6a9f3c1cd9e3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IImageEncodingProperties2Impl {
+    fn Copy();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageEncodingProperties2Vtbl(
@@ -753,6 +820,12 @@ pub struct IImageEncodingPropertiesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IImageEncodingPropertiesStatics {
     type Vtable = IImageEncodingPropertiesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x257c68dc_8b99_439e_aa59_913a36161297);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IImageEncodingPropertiesStaticsImpl {
+    fn CreateJpeg();
+    fn CreatePng();
+    fn CreateJpegXR();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -774,6 +847,11 @@ unsafe impl ::windows::core::Interface for IImageEncodingPropertiesStatics2 {
     type Vtable = IImageEncodingPropertiesStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6c25b29_3824_46b0_956e_501329e1be3c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IImageEncodingPropertiesStatics2Impl {
+    fn CreateUncompressed();
+    fn CreateBmp();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageEncodingPropertiesStatics2Vtbl(
@@ -793,6 +871,10 @@ unsafe impl ::windows::core::Interface for IImageEncodingPropertiesStatics3 {
     type Vtable = IImageEncodingPropertiesStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48f4814d_a2ff_48dc_8ea0_e90680663656);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IImageEncodingPropertiesStatics3Impl {
+    fn CreateHeif();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageEncodingPropertiesStatics3Vtbl(
@@ -810,6 +892,15 @@ pub struct IMediaEncodingProfile(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaEncodingProfile {
     type Vtable = IMediaEncodingProfileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7dbf5a8_1db9_4783_876b_3dfe12acfdb3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaEncodingProfileImpl {
+    fn SetAudio();
+    fn Audio();
+    fn SetVideo();
+    fn Video();
+    fn SetContainer();
+    fn Container();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -833,6 +924,13 @@ pub struct IMediaEncodingProfile2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaEncodingProfile2 {
     type Vtable = IMediaEncodingProfile2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x349b3e0a_4035_488e_9877_85632865ed10);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaEncodingProfile2Impl {
+    fn SetAudioTracks();
+    fn GetAudioTracks();
+    fn SetVideoTracks();
+    fn GetVideoTracks();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -859,6 +957,11 @@ unsafe impl ::windows::core::Interface for IMediaEncodingProfile3 {
     type Vtable = IMediaEncodingProfile3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba6ebe88_7570_4e69_accf_5611ad015f88);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaEncodingProfile3Impl {
+    fn SetTimedMetadataTracks();
+    fn GetTimedMetadataTracks();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingProfile3Vtbl(
@@ -879,6 +982,16 @@ pub struct IMediaEncodingProfileStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaEncodingProfileStatics {
     type Vtable = IMediaEncodingProfileStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x197f352c_2ede_4a45_a896_817a4854f8fe);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaEncodingProfileStaticsImpl {
+    fn CreateM4a();
+    fn CreateMp3();
+    fn CreateWma();
+    fn CreateMp4();
+    fn CreateWmv();
+    fn CreateFromFileAsync();
+    fn CreateFromStreamAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -906,6 +1019,11 @@ unsafe impl ::windows::core::Interface for IMediaEncodingProfileStatics2 {
     type Vtable = IMediaEncodingProfileStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce8de74f_6af4_4288_8fe2_79adf1f79a43);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaEncodingProfileStatics2Impl {
+    fn CreateWav();
+    fn CreateAvi();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingProfileStatics2Vtbl(
@@ -924,6 +1042,12 @@ pub struct IMediaEncodingProfileStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaEncodingProfileStatics3 {
     type Vtable = IMediaEncodingProfileStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90dac5aa_cf76_4294_a9ed_1a1420f51f6b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaEncodingProfileStatics3Impl {
+    fn CreateAlac();
+    fn CreateFlac();
+    fn CreateHevc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1036,6 +1160,12 @@ unsafe impl ::windows::core::Interface for IMediaEncodingProperties {
     type Vtable = IMediaEncodingPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4002af6_acd4_4e5a_a24b_5d7498a8b8c4);
 }
+pub trait IMediaEncodingPropertiesImpl {
+    fn Properties();
+    fn Type();
+    fn SetSubtype();
+    fn Subtype();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingPropertiesVtbl(
@@ -1057,6 +1187,49 @@ pub struct IMediaEncodingSubtypesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaEncodingSubtypesStatics {
     type Vtable = IMediaEncodingSubtypesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37b6580e_a171_4464_ba5a_53189e48c1c8);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaEncodingSubtypesStaticsImpl {
+    fn Aac();
+    fn AacAdts();
+    fn Ac3();
+    fn AmrNb();
+    fn AmrWb();
+    fn Argb32();
+    fn Asf();
+    fn Avi();
+    fn Bgra8();
+    fn Bmp();
+    fn Eac3();
+    fn Float();
+    fn Gif();
+    fn H263();
+    fn H264();
+    fn H264Es();
+    fn Hevc();
+    fn HevcEs();
+    fn Iyuv();
+    fn Jpeg();
+    fn JpegXr();
+    fn Mjpg();
+    fn Mpeg();
+    fn Mpeg1();
+    fn Mpeg2();
+    fn Mp3();
+    fn Mpeg4();
+    fn Nv12();
+    fn Pcm();
+    fn Png();
+    fn Rgb24();
+    fn Rgb32();
+    fn Tiff();
+    fn Wave();
+    fn Wma8();
+    fn Wma9();
+    fn Wmv3();
+    fn Wvc1();
+    fn Yuy2();
+    fn Yv12();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1115,6 +1288,13 @@ unsafe impl ::windows::core::Interface for IMediaEncodingSubtypesStatics2 {
     type Vtable = IMediaEncodingSubtypesStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b7cd23d_42ff_4d33_8531_0626bee4b52d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaEncodingSubtypesStatics2Impl {
+    fn Vp9();
+    fn L8();
+    fn L16();
+    fn D16();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingSubtypesStatics2Vtbl(
@@ -1136,6 +1316,11 @@ unsafe impl ::windows::core::Interface for IMediaEncodingSubtypesStatics3 {
     type Vtable = IMediaEncodingSubtypesStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba2414e4_883d_464e_a44f_097da08ef7ff);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaEncodingSubtypesStatics3Impl {
+    fn Alac();
+    fn Flac();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingSubtypesStatics3Vtbl(
@@ -1155,6 +1340,10 @@ unsafe impl ::windows::core::Interface for IMediaEncodingSubtypesStatics4 {
     type Vtable = IMediaEncodingSubtypesStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddece58a_3949_4644_8a2c_59ef02c642fa);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaEncodingSubtypesStatics4Impl {
+    fn P010();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingSubtypesStatics4Vtbl(
@@ -1173,6 +1362,10 @@ unsafe impl ::windows::core::Interface for IMediaEncodingSubtypesStatics5 {
     type Vtable = IMediaEncodingSubtypesStatics5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ad4a007_ffce_4760_9828_5d0c99637e6a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaEncodingSubtypesStatics5Impl {
+    fn Heif();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingSubtypesStatics5Vtbl(
@@ -1190,6 +1383,13 @@ pub struct IMediaEncodingSubtypesStatics6(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaEncodingSubtypesStatics6 {
     type Vtable = IMediaEncodingSubtypesStatics6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1252973_a984_5912_93bb_54e7e569e053);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaEncodingSubtypesStatics6Impl {
+    fn Pgs();
+    fn Srt();
+    fn Ssa();
+    fn VobSub();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1212,6 +1412,13 @@ unsafe impl ::windows::core::Interface for IMediaRatio {
     type Vtable = IMediaRatioVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2d0fee5_8929_401d_ac78_7d357e378163);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMediaRatioImpl {
+    fn SetNumerator();
+    fn Numerator();
+    fn SetDenominator();
+    fn Denominator();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaRatioVtbl(
@@ -1232,6 +1439,14 @@ pub struct IMpeg2ProfileIdsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMpeg2ProfileIdsStatics {
     type Vtable = IMpeg2ProfileIdsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa461ff85_e57a_4128_9b21_d5331b04235c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMpeg2ProfileIdsStaticsImpl {
+    fn Simple();
+    fn Main();
+    fn SignalNoiseRatioScalable();
+    fn SpatiallyScalable();
+    fn High();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1255,6 +1470,12 @@ unsafe impl ::windows::core::Interface for ITimedMetadataEncodingProperties {
     type Vtable = ITimedMetadataEncodingPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51cd30d3_d690_4cfa_97f4_4a398e9db420);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITimedMetadataEncodingPropertiesImpl {
+    fn SetFormatUserData();
+    fn GetFormatUserData();
+    fn Copy();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedMetadataEncodingPropertiesVtbl(
@@ -1274,6 +1495,13 @@ pub struct ITimedMetadataEncodingPropertiesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITimedMetadataEncodingPropertiesStatics {
     type Vtable = ITimedMetadataEncodingPropertiesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6629bb67_6e55_5643_89a0_7a7e8d85b52c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITimedMetadataEncodingPropertiesStaticsImpl {
+    fn CreatePgs();
+    fn CreateSrt();
+    fn CreateSsa();
+    fn CreateVobSub();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1295,6 +1523,17 @@ pub struct IVideoEncodingProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoEncodingProperties {
     type Vtable = IVideoEncodingPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76ee6c9a_37c2_4f2a_880a_1282bbb4373d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IVideoEncodingPropertiesImpl: IMediaEncodingPropertiesImpl {
+    fn SetBitrate();
+    fn Bitrate();
+    fn SetWidth();
+    fn Width();
+    fn SetHeight();
+    fn Height();
+    fn FrameRate();
+    fn PixelAspectRatio();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1321,6 +1560,13 @@ unsafe impl ::windows::core::Interface for IVideoEncodingProperties2 {
     type Vtable = IVideoEncodingProperties2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf743a1ef_d465_4290_a94b_ef0f1528f8e3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IVideoEncodingProperties2Impl {
+    fn SetFormatUserData();
+    fn GetFormatUserData();
+    fn SetProfileId();
+    fn ProfileId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoEncodingProperties2Vtbl(
@@ -1342,6 +1588,10 @@ unsafe impl ::windows::core::Interface for IVideoEncodingProperties3 {
     type Vtable = IVideoEncodingProperties3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x386bcdc4_873a_479f_b3eb_56c1fcbec6d7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IVideoEncodingProperties3Impl {
+    fn StereoscopicVideoPackingMode();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoEncodingProperties3Vtbl(
@@ -1359,6 +1609,10 @@ pub struct IVideoEncodingProperties4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoEncodingProperties4 {
     type Vtable = IVideoEncodingProperties4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x724ef014_c10c_40f2_9d72_3ee13b45fa8e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IVideoEncodingProperties4Impl {
+    fn SphericalVideoFrameFormat();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1378,6 +1632,10 @@ unsafe impl ::windows::core::Interface for IVideoEncodingProperties5 {
     type Vtable = IVideoEncodingProperties5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4959080f_272f_4ece_a4df_c0ccdb33d840);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IVideoEncodingProperties5Impl {
+    fn Copy();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoEncodingProperties5Vtbl(
@@ -1395,6 +1653,12 @@ pub struct IVideoEncodingPropertiesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoEncodingPropertiesStatics {
     type Vtable = IVideoEncodingPropertiesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ce14d44_1dc5_43db_9f38_ebebf90152cb);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IVideoEncodingPropertiesStaticsImpl {
+    fn CreateH264();
+    fn CreateMpeg2();
+    fn CreateUncompressed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1415,6 +1679,10 @@ pub struct IVideoEncodingPropertiesStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoEncodingPropertiesStatics2 {
     type Vtable = IVideoEncodingPropertiesStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf1ebd5d_49fe_4d00_b59a_cfa4dfc51944);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IVideoEncodingPropertiesStatics2Impl {
+    fn CreateHevc();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -57,6 +57,10 @@ unsafe impl ::windows::core::Interface for IDesktopWindowXamlSourceNative {
     type Vtable = IDesktopWindowXamlSourceNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cbcf1bf_2f76_4e9c_96ab_e84b37972554);
 }
+pub trait IDesktopWindowXamlSourceNativeImpl {
+    fn AttachToWindow();
+    fn WindowHandle();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDesktopWindowXamlSourceNativeVtbl(
@@ -149,6 +153,9 @@ unsafe impl ::windows::core::Interface for IDesktopWindowXamlSourceNative2 {
     type Vtable = IDesktopWindowXamlSourceNative2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3dcd8c7_3057_4692_99c3_7b7720afda31);
 }
+pub trait IDesktopWindowXamlSourceNative2Impl: IDesktopWindowXamlSourceNativeImpl {
+    fn PreTranslateMessage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDesktopWindowXamlSourceNative2Vtbl(
@@ -210,6 +217,9 @@ impl ::core::fmt::Debug for IFindReferenceTargetsCallback {
 unsafe impl ::windows::core::Interface for IFindReferenceTargetsCallback {
     type Vtable = IFindReferenceTargetsCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b3486c_4687_4229_8d14_505ab584dd88);
+}
+pub trait IFindReferenceTargetsCallbackImpl {
+    fn FoundTrackerTarget();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -288,6 +298,15 @@ unsafe impl ::windows::core::Interface for IReferenceTracker {
     type Vtable = IReferenceTrackerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11d3b13a_180e_4789_a8be_7712882893e6);
 }
+pub trait IReferenceTrackerImpl {
+    fn ConnectFromTrackerSource();
+    fn DisconnectFromTrackerSource();
+    fn FindTrackerTargets();
+    fn GetReferenceTrackerManager();
+    fn AddRefFromTrackerSource();
+    fn ReleaseFromTrackerSource();
+    fn PegFromTrackerSource();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReferenceTrackerVtbl(
@@ -346,6 +365,7 @@ unsafe impl ::windows::core::Interface for IReferenceTrackerExtension {
     type Vtable = IReferenceTrackerExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e897caa_59d5_4613_8f8c_f7ebd1f399b0);
 }
+pub trait IReferenceTrackerExtensionImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReferenceTrackerExtensionVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
@@ -418,6 +438,14 @@ impl ::core::fmt::Debug for IReferenceTrackerHost {
 unsafe impl ::windows::core::Interface for IReferenceTrackerHost {
     type Vtable = IReferenceTrackerHostVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29a71c6a_3c42_4416_a39d_e2825a07a773);
+}
+pub trait IReferenceTrackerHostImpl {
+    fn DisconnectUnusedReferenceSources();
+    fn ReleaseDisconnectedReferenceSources();
+    fn NotifyEndOfReferenceTrackingOnThread();
+    fn GetTrackerTarget();
+    fn AddMemoryPressure();
+    fn RemoveMemoryPressure();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -493,6 +521,12 @@ unsafe impl ::windows::core::Interface for IReferenceTrackerManager {
     type Vtable = IReferenceTrackerManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cf184b4_7ccb_4dda_8455_7e6ce99a3298);
 }
+pub trait IReferenceTrackerManagerImpl {
+    fn ReferenceTrackingStarted();
+    fn FindTrackerTargetsCompleted();
+    fn ReferenceTrackingCompleted();
+    fn SetReferenceTrackerHost();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReferenceTrackerManagerVtbl(
@@ -565,6 +599,12 @@ unsafe impl ::windows::core::Interface for IReferenceTrackerTarget {
     type Vtable = IReferenceTrackerTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64bd43f8_bfee_4ec4_b7eb_2935158dae21);
 }
+pub trait IReferenceTrackerTargetImpl {
+    fn AddRefFromReferenceTracker();
+    fn ReleaseFromReferenceTracker();
+    fn Peg();
+    fn Unpeg();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReferenceTrackerTargetVtbl(
@@ -624,6 +664,9 @@ impl ::core::fmt::Debug for ISurfaceImageSourceManagerNative {
 unsafe impl ::windows::core::Interface for ISurfaceImageSourceManagerNative {
     type Vtable = ISurfaceImageSourceManagerNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c8798b7_1d88_4a0f_b59b_b93f600de8c8);
+}
+pub trait ISurfaceImageSourceManagerNativeImpl {
+    fn FlushAllSurfacesWithDevice();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -686,6 +729,11 @@ impl ::core::fmt::Debug for ISurfaceImageSourceNative {
 unsafe impl ::windows::core::Interface for ISurfaceImageSourceNative {
     type Vtable = ISurfaceImageSourceNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e9edc1_d307_4525_9886_0fafaa44163c);
+}
+pub trait ISurfaceImageSourceNativeImpl {
+    fn SetDevice();
+    fn BeginDraw();
+    fn EndDraw();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -765,6 +813,13 @@ unsafe impl ::windows::core::Interface for ISurfaceImageSourceNativeWithD2D {
     type Vtable = ISurfaceImageSourceNativeWithD2DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54298223_41e1_4a41_9c08_02e8256864a1);
 }
+pub trait ISurfaceImageSourceNativeWithD2DImpl {
+    fn SetDevice();
+    fn BeginDraw();
+    fn EndDraw();
+    fn SuspendDraw();
+    fn ResumeDraw();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISurfaceImageSourceNativeWithD2DVtbl(
@@ -828,6 +883,9 @@ unsafe impl ::windows::core::Interface for ISwapChainBackgroundPanelNative {
     type Vtable = ISwapChainBackgroundPanelNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43bebd4e_add5_4035_8f85_5608d08e9dc9);
 }
+pub trait ISwapChainBackgroundPanelNativeImpl {
+    fn SetSwapChain();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISwapChainBackgroundPanelNativeVtbl(
@@ -886,6 +944,9 @@ impl ::core::fmt::Debug for ISwapChainPanelNative {
 unsafe impl ::windows::core::Interface for ISwapChainPanelNative {
     type Vtable = ISwapChainPanelNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf92f19d2_3ade_45a6_a20c_f6f1ea90554b);
+}
+pub trait ISwapChainPanelNativeImpl {
+    fn SetSwapChain();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -971,6 +1032,9 @@ unsafe impl ::windows::core::Interface for ISwapChainPanelNative2 {
     type Vtable = ISwapChainPanelNative2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5a2f60c_37b2_44a2_937b_8d8eb9726821);
 }
+pub trait ISwapChainPanelNative2Impl: ISwapChainPanelNativeImpl {
+    fn SetSwapChainHandle();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISwapChainPanelNative2Vtbl(
@@ -1043,6 +1107,12 @@ impl ::core::fmt::Debug for ITrackerOwner {
 unsafe impl ::windows::core::Interface for ITrackerOwner {
     type Vtable = ITrackerOwnerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb24c20b_9816_4ac7_8cff_36f67a118f4e);
+}
+pub trait ITrackerOwnerImpl {
+    fn CreateTrackerHandle();
+    fn DeleteTrackerHandle();
+    fn SetTrackerValue();
+    fn TryGetSafeTrackerValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1163,6 +1233,14 @@ unsafe impl ::windows::core::Interface for IVirtualSurfaceImageSourceNative {
     type Vtable = IVirtualSurfaceImageSourceNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9550983_360b_4f53_b391_afd695078691);
 }
+pub trait IVirtualSurfaceImageSourceNativeImpl: ISurfaceImageSourceNativeImpl {
+    fn Invalidate();
+    fn GetUpdateRectCount();
+    fn GetUpdateRects();
+    fn GetVisibleBounds();
+    fn RegisterForUpdatesNeeded();
+    fn Resize();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVirtualSurfaceImageSourceNativeVtbl(
@@ -1232,6 +1310,9 @@ impl ::core::fmt::Debug for IVirtualSurfaceUpdatesCallbackNative {
 unsafe impl ::windows::core::Interface for IVirtualSurfaceUpdatesCallbackNative {
     type Vtable = IVirtualSurfaceUpdatesCallbackNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbf2e947_8e6c_4254_9eee_7738f71386c9);
+}
+pub trait IVirtualSurfaceUpdatesCallbackNativeImpl {
+    fn UpdatesNeeded();
 }
 #[repr(C)]
 #[doc(hidden)]

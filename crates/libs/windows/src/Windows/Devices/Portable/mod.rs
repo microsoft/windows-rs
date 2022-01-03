@@ -6,6 +6,11 @@ unsafe impl ::windows::core::Interface for IServiceDeviceStatics {
     type Vtable = IServiceDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa88214e1_59c7_4a20_aba6_9f6707937230);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IServiceDeviceStaticsImpl {
+    fn GetDeviceSelector();
+    fn GetDeviceSelectorFromServiceId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IServiceDeviceStaticsVtbl(
@@ -24,6 +29,11 @@ pub struct IStorageDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageDeviceStatics {
     type Vtable = IStorageDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ece44ee_1b23_4dd2_8652_bc164f003128);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageDeviceStaticsImpl {
+    fn FromId();
+    fn GetDeviceSelector();
 }
 #[repr(C)]
 #[doc(hidden)]

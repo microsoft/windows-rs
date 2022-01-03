@@ -277,6 +277,11 @@ unsafe impl ::windows::core::Interface for IDMOQualityControl {
     type Vtable = IDMOQualityControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65abea96_cf36_453f_af8a_705e98f16260);
 }
+pub trait IDMOQualityControlImpl {
+    fn SetNow();
+    fn SetStatus();
+    fn GetStatus();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMOQualityControlVtbl(
@@ -350,6 +355,12 @@ impl ::core::fmt::Debug for IDMOVideoOutputOptimizations {
 unsafe impl ::windows::core::Interface for IDMOVideoOutputOptimizations {
     type Vtable = IDMOVideoOutputOptimizationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe8f4f4e_5b16_4d29_b350_7f6b5d9298ac);
+}
+pub trait IDMOVideoOutputOptimizationsImpl {
+    fn QueryOperationModePreferences();
+    fn SetOperationMode();
+    fn GetCurrentOperationMode();
+    fn GetCurrentSampleRequirements();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -425,6 +436,12 @@ unsafe impl ::windows::core::Interface for IEnumDMO {
     type Vtable = IEnumDMOVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c3cd98a_2bfa_4a53_9c27_5249ba64ba0f);
 }
+pub trait IEnumDMOImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDMOVtbl(
@@ -494,6 +511,11 @@ impl ::core::fmt::Debug for IMediaBuffer {
 unsafe impl ::windows::core::Interface for IMediaBuffer {
     type Vtable = IMediaBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59eff8b9_938c_4a26_82f2_95cb84cdc837);
+}
+pub trait IMediaBufferImpl {
+    fn SetLength();
+    fn GetMaxLength();
+    fn GetBufferAndLength();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -648,6 +670,29 @@ unsafe impl ::windows::core::Interface for IMediaObject {
     type Vtable = IMediaObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8ad0f58_5494_4102_97c5_ec798e59bcf4);
 }
+pub trait IMediaObjectImpl {
+    fn GetStreamCount();
+    fn GetInputStreamInfo();
+    fn GetOutputStreamInfo();
+    fn GetInputType();
+    fn GetOutputType();
+    fn SetInputType();
+    fn SetOutputType();
+    fn GetInputCurrentType();
+    fn GetOutputCurrentType();
+    fn GetInputSizeInfo();
+    fn GetOutputSizeInfo();
+    fn GetInputMaxLatency();
+    fn SetInputMaxLatency();
+    fn Flush();
+    fn Discontinuity();
+    fn AllocateStreamingResources();
+    fn FreeStreamingResources();
+    fn GetInputStatus();
+    fn ProcessInput();
+    fn ProcessOutput();
+    fn Lock();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaObjectVtbl(
@@ -740,6 +785,11 @@ impl ::core::fmt::Debug for IMediaObjectInPlace {
 unsafe impl ::windows::core::Interface for IMediaObjectInPlace {
     type Vtable = IMediaObjectInPlaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x651b9ad0_0fc7_4aa9_9538_d89931010741);
+}
+pub trait IMediaObjectInPlaceImpl {
+    fn Process();
+    fn Clone();
+    fn GetLatency();
 }
 #[repr(C)]
 #[doc(hidden)]

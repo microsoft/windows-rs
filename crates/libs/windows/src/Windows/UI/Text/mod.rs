@@ -585,6 +585,19 @@ unsafe impl ::windows::core::Interface for IContentLinkInfo {
     type Vtable = IContentLinkInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ed52525_1c5f_48cb_b335_78b50a2ee642);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IContentLinkInfoImpl {
+    fn Id();
+    fn SetId();
+    fn DisplayText();
+    fn SetDisplayText();
+    fn SecondaryText();
+    fn SetSecondaryText();
+    fn Uri();
+    fn SetUri();
+    fn LinkContentKind();
+    fn SetLinkContentKind();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentLinkInfoVtbl(
@@ -614,6 +627,8 @@ unsafe impl ::windows::core::Interface for IFontWeights {
     type Vtable = IFontWeightsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7880a444_01ab_4997_8517_df822a0c45f1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFontWeightsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFontWeightsVtbl(
@@ -630,6 +645,20 @@ pub struct IFontWeightsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFontWeightsStatics {
     type Vtable = IFontWeightsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3b579d5_1ba9_48eb_9dad_c095e8c23ba3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IFontWeightsStaticsImpl {
+    fn Black();
+    fn Bold();
+    fn ExtraBlack();
+    fn ExtraBold();
+    fn ExtraLight();
+    fn Light();
+    fn Medium();
+    fn Normal();
+    fn SemiBold();
+    fn SemiLight();
+    fn Thin();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -658,6 +687,11 @@ pub struct IRichEditTextRange(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRichEditTextRange {
     type Vtable = IRichEditTextRangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x374e3515_ba8a_4a6e_8c59_0dde3d0cf5cd);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRichEditTextRangeImpl {
+    fn ContentLinkInfo();
+    fn SetContentLinkInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1067,6 +1101,58 @@ unsafe impl ::windows::core::Interface for ITextCharacterFormat {
     type Vtable = ITextCharacterFormatVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5adef3db_05fb_442d_8065_642afea02ced);
 }
+pub trait ITextCharacterFormatImpl {
+    fn AllCaps();
+    fn SetAllCaps();
+    fn BackgroundColor();
+    fn SetBackgroundColor();
+    fn Bold();
+    fn SetBold();
+    fn FontStretch();
+    fn SetFontStretch();
+    fn FontStyle();
+    fn SetFontStyle();
+    fn ForegroundColor();
+    fn SetForegroundColor();
+    fn Hidden();
+    fn SetHidden();
+    fn Italic();
+    fn SetItalic();
+    fn Kerning();
+    fn SetKerning();
+    fn LanguageTag();
+    fn SetLanguageTag();
+    fn LinkType();
+    fn Name();
+    fn SetName();
+    fn Outline();
+    fn SetOutline();
+    fn Position();
+    fn SetPosition();
+    fn ProtectedText();
+    fn SetProtectedText();
+    fn Size();
+    fn SetSize();
+    fn SmallCaps();
+    fn SetSmallCaps();
+    fn Spacing();
+    fn SetSpacing();
+    fn Strikethrough();
+    fn SetStrikethrough();
+    fn Subscript();
+    fn SetSubscript();
+    fn Superscript();
+    fn SetSuperscript();
+    fn TextScript();
+    fn SetTextScript();
+    fn Underline();
+    fn SetUnderline();
+    fn Weight();
+    fn SetWeight();
+    fn SetClone();
+    fn GetClone();
+    fn IsEqual();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextCharacterFormatVtbl(
@@ -1133,6 +1219,17 @@ pub struct ITextConstantsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITextConstantsStatics {
     type Vtable = ITextConstantsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x779e7c33_189d_4bfa_97c8_10db135d976e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITextConstantsStaticsImpl {
+    fn AutoColor();
+    fn MinUnitCount();
+    fn MaxUnitCount();
+    fn UndefinedColor();
+    fn UndefinedFloatValue();
+    fn UndefinedInt32Value();
+    fn UndefinedFontStretch();
+    fn UndefinedFontStyle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1400,6 +1497,35 @@ unsafe impl ::windows::core::Interface for ITextDocument {
     type Vtable = ITextDocumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbeee4ddb_90b2_408c_a2f6_0a0ac31e33e4);
 }
+pub trait ITextDocumentImpl {
+    fn CaretType();
+    fn SetCaretType();
+    fn DefaultTabStop();
+    fn SetDefaultTabStop();
+    fn Selection();
+    fn UndoLimit();
+    fn SetUndoLimit();
+    fn CanCopy();
+    fn CanPaste();
+    fn CanRedo();
+    fn CanUndo();
+    fn ApplyDisplayUpdates();
+    fn BatchDisplayUpdates();
+    fn BeginUndoGroup();
+    fn EndUndoGroup();
+    fn GetDefaultCharacterFormat();
+    fn GetDefaultParagraphFormat();
+    fn GetRange();
+    fn GetRangeFromPoint();
+    fn GetText();
+    fn LoadFromStream();
+    fn Redo();
+    fn SaveToStream();
+    fn SetDefaultCharacterFormat();
+    fn SetDefaultParagraphFormat();
+    fn SetText();
+    fn Undo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextDocumentVtbl(
@@ -1447,6 +1573,13 @@ unsafe impl ::windows::core::Interface for ITextDocument2 {
     type Vtable = ITextDocument2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2311112_8c89_49c9_9118_f057cbb814ee);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITextDocument2Impl {
+    fn AlignmentIncludesTrailingWhitespace();
+    fn SetAlignmentIncludesTrailingWhitespace();
+    fn IgnoreTrailingCharacterSpacing();
+    fn SetIgnoreTrailingCharacterSpacing();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextDocument2Vtbl(
@@ -1468,6 +1601,10 @@ unsafe impl ::windows::core::Interface for ITextDocument3 {
     type Vtable = ITextDocument3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75ab03a1_a6f8_441d_aa18_0a851d6e5e3c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITextDocument3Impl {
+    fn ClearUndoRedoHistory();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextDocument3Vtbl(
@@ -1485,6 +1622,12 @@ pub struct ITextDocument4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITextDocument4 {
     type Vtable = ITextDocument4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x619c20f2_cb3b_4521_981f_2865b1b93f04);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITextDocument4Impl {
+    fn SetMath();
+    fn GetMath();
+    fn SetMathMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1878,6 +2021,56 @@ unsafe impl ::windows::core::RuntimeType for ITextParagraphFormat {
 unsafe impl ::windows::core::Interface for ITextParagraphFormat {
     type Vtable = ITextParagraphFormatVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cf8cfa6_4676_498a_93f5_bbdbfc0bd883);
+}
+pub trait ITextParagraphFormatImpl {
+    fn Alignment();
+    fn SetAlignment();
+    fn FirstLineIndent();
+    fn KeepTogether();
+    fn SetKeepTogether();
+    fn KeepWithNext();
+    fn SetKeepWithNext();
+    fn LeftIndent();
+    fn LineSpacing();
+    fn LineSpacingRule();
+    fn ListAlignment();
+    fn SetListAlignment();
+    fn ListLevelIndex();
+    fn SetListLevelIndex();
+    fn ListStart();
+    fn SetListStart();
+    fn ListStyle();
+    fn SetListStyle();
+    fn ListTab();
+    fn SetListTab();
+    fn ListType();
+    fn SetListType();
+    fn NoLineNumber();
+    fn SetNoLineNumber();
+    fn PageBreakBefore();
+    fn SetPageBreakBefore();
+    fn RightIndent();
+    fn SetRightIndent();
+    fn RightToLeft();
+    fn SetRightToLeft();
+    fn Style();
+    fn SetStyle();
+    fn SpaceAfter();
+    fn SetSpaceAfter();
+    fn SpaceBefore();
+    fn SetSpaceBefore();
+    fn WidowControl();
+    fn SetWidowControl();
+    fn TabCount();
+    fn AddTab();
+    fn ClearAllTabs();
+    fn DeleteTab();
+    fn GetClone();
+    fn GetTab();
+    fn IsEqual();
+    fn SetClone();
+    fn SetIndents();
+    fn SetLineSpacing();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2345,6 +2538,60 @@ unsafe impl ::windows::core::RuntimeType for ITextRange {
 unsafe impl ::windows::core::Interface for ITextRange {
     type Vtable = ITextRangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b9e4e57_c072_42a0_8945_af503ee54768);
+}
+pub trait ITextRangeImpl {
+    fn Character();
+    fn SetCharacter();
+    fn CharacterFormat();
+    fn SetCharacterFormat();
+    fn FormattedText();
+    fn SetFormattedText();
+    fn EndPosition();
+    fn SetEndPosition();
+    fn Gravity();
+    fn SetGravity();
+    fn Length();
+    fn Link();
+    fn SetLink();
+    fn ParagraphFormat();
+    fn SetParagraphFormat();
+    fn StartPosition();
+    fn SetStartPosition();
+    fn StoryLength();
+    fn Text();
+    fn SetText();
+    fn CanPaste();
+    fn ChangeCase();
+    fn Collapse();
+    fn Copy();
+    fn Cut();
+    fn Delete();
+    fn EndOf();
+    fn Expand();
+    fn FindText();
+    fn GetCharacterUtf32();
+    fn GetClone();
+    fn GetIndex();
+    fn GetPoint();
+    fn GetRect();
+    fn GetText();
+    fn GetTextViaStream();
+    fn InRange();
+    fn InsertImage();
+    fn InStory();
+    fn IsEqual();
+    fn Move();
+    fn MoveEnd();
+    fn MoveStart();
+    fn Paste();
+    fn ScrollIntoView();
+    fn MatchSelection();
+    fn SetIndex();
+    fn SetPoint();
+    fn SetRange();
+    fn SetText();
+    fn SetTextViaStream();
+    fn StartOf();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2918,6 +3165,18 @@ unsafe impl ::windows::core::RuntimeType for ITextSelection {
 unsafe impl ::windows::core::Interface for ITextSelection {
     type Vtable = ITextSelectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6d36724_f28f_430a_b2cf_c343671ec0e9);
+}
+pub trait ITextSelectionImpl: ITextRangeImpl {
+    fn Options();
+    fn SetOptions();
+    fn Type();
+    fn EndKey();
+    fn HomeKey();
+    fn MoveDown();
+    fn MoveLeft();
+    fn MoveRight();
+    fn MoveUp();
+    fn TypeText();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -80,6 +80,10 @@ unsafe impl ::windows::core::Interface for IGeometrySource2DInterop {
     type Vtable = IGeometrySource2DInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0657af73_53fd_47cf_84ff_c8492d2a80a3);
 }
+pub trait IGeometrySource2DInteropImpl {
+    fn GetGeometry();
+    fn TryGetGeometryUsingFactory();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeometrySource2DInteropVtbl(
@@ -167,6 +171,14 @@ impl ::core::fmt::Debug for IGraphicsEffectD2D1Interop {
 unsafe impl ::windows::core::Interface for IGraphicsEffectD2D1Interop {
     type Vtable = IGraphicsEffectD2D1InteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fc57384_a068_44d7_a331_30982fcf7177);
+}
+pub trait IGraphicsEffectD2D1InteropImpl {
+    fn GetEffectId();
+    fn GetNamedPropertyMapping();
+    fn GetPropertyCount();
+    fn GetProperty();
+    fn GetSource();
+    fn GetSourceCount();
 }
 #[repr(C)]
 #[doc(hidden)]

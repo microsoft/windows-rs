@@ -1850,6 +1850,20 @@ unsafe impl ::windows::core::Interface for IAdvancedColorInfo {
     type Vtable = IAdvancedColorInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8797dcfb_b229_4081_ae9a_2cc85e34ad6a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAdvancedColorInfoImpl {
+    fn CurrentAdvancedColorKind();
+    fn RedPrimary();
+    fn GreenPrimary();
+    fn BluePrimary();
+    fn WhitePoint();
+    fn MaxLuminanceInNits();
+    fn MinLuminanceInNits();
+    fn MaxAverageFullFrameLuminanceInNits();
+    fn SdrWhiteLevelInNits();
+    fn IsHdrMetadataFormatCurrentlySupported();
+    fn IsAdvancedColorKindAvailable();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedColorInfoVtbl(
@@ -1881,6 +1895,23 @@ pub struct IBrightnessOverride(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBrightnessOverride {
     type Vtable = IBrightnessOverrideVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96c9621a_c143_4392_bedd_4a7e9574c8fd);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBrightnessOverrideImpl {
+    fn IsSupported();
+    fn IsOverrideActive();
+    fn BrightnessLevel();
+    fn SetBrightnessLevel();
+    fn SetBrightnessScenario();
+    fn GetLevelForScenario();
+    fn StartOverride();
+    fn StopOverride();
+    fn IsSupportedChanged();
+    fn RemoveIsSupportedChanged();
+    fn IsOverrideActiveChanged();
+    fn RemoveIsOverrideActiveChanged();
+    fn BrightnessLevelChanged();
+    fn RemoveBrightnessLevelChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1919,6 +1950,11 @@ unsafe impl ::windows::core::Interface for IBrightnessOverrideSettings {
     type Vtable = IBrightnessOverrideSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd112ab2a_7604_4dba_bcf8_4b6f49502cb0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBrightnessOverrideSettingsImpl {
+    fn DesiredLevel();
+    fn DesiredNits();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBrightnessOverrideSettingsVtbl(
@@ -1937,6 +1973,12 @@ pub struct IBrightnessOverrideSettingsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBrightnessOverrideSettingsStatics {
     type Vtable = IBrightnessOverrideSettingsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd487dc90_6f74_440b_b383_5fe96cf00b0f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBrightnessOverrideSettingsStaticsImpl {
+    fn CreateFromLevel();
+    fn CreateFromNits();
+    fn CreateFromDisplayBrightnessOverrideScenario();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1957,6 +1999,12 @@ pub struct IBrightnessOverrideStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBrightnessOverrideStatics {
     type Vtable = IBrightnessOverrideStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03a7b9ed_e1f1_4a68_a11f_946ad8ce5393);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBrightnessOverrideStaticsImpl {
+    fn GetDefaultForSystem();
+    fn GetForCurrentView();
+    fn SaveForSystemAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1979,6 +2027,10 @@ unsafe impl ::windows::core::Interface for IColorOverrideSettings {
     type Vtable = IColorOverrideSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbefa134_4a81_4c4d_a5b6_7d1b5c4bd00b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IColorOverrideSettingsImpl {
+    fn DesiredDisplayColorOverrideScenario();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorOverrideSettingsVtbl(
@@ -1997,6 +2049,10 @@ unsafe impl ::windows::core::Interface for IColorOverrideSettingsStatics {
     type Vtable = IColorOverrideSettingsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb068e05f_c41f_4ac9_afab_827ab6248f9a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IColorOverrideSettingsStaticsImpl {
+    fn CreateFromDisplayColorOverrideScenario();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorOverrideSettingsStaticsVtbl(
@@ -2014,6 +2070,24 @@ pub struct IDisplayEnhancementOverride(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayEnhancementOverride {
     type Vtable = IDisplayEnhancementOverrideVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x429594cf_d97a_4b02_a428_5c4292f7f522);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDisplayEnhancementOverrideImpl {
+    fn ColorOverrideSettings();
+    fn SetColorOverrideSettings();
+    fn BrightnessOverrideSettings();
+    fn SetBrightnessOverrideSettings();
+    fn CanOverride();
+    fn IsOverrideActive();
+    fn GetCurrentDisplayEnhancementOverrideCapabilities();
+    fn RequestOverride();
+    fn StopOverride();
+    fn CanOverrideChanged();
+    fn RemoveCanOverrideChanged();
+    fn IsOverrideActiveChanged();
+    fn RemoveIsOverrideActiveChanged();
+    fn DisplayEnhancementOverrideCapabilitiesChanged();
+    fn RemoveDisplayEnhancementOverrideCapabilitiesChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2053,6 +2127,12 @@ unsafe impl ::windows::core::Interface for IDisplayEnhancementOverrideCapabiliti
     type Vtable = IDisplayEnhancementOverrideCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x457060de_ee5a_47b7_9918_1e51e812ccc8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDisplayEnhancementOverrideCapabilitiesImpl {
+    fn IsBrightnessControlSupported();
+    fn IsBrightnessNitsControlSupported();
+    fn GetSupportedNitRanges();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayEnhancementOverrideCapabilitiesVtbl(
@@ -2074,6 +2154,10 @@ unsafe impl ::windows::core::Interface for IDisplayEnhancementOverrideCapabiliti
     type Vtable = IDisplayEnhancementOverrideCapabilitiesChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb61e664_15fa_49da_8b77_07dbd2af585d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDisplayEnhancementOverrideCapabilitiesChangedEventArgsImpl {
+    fn Capabilities();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgsVtbl(
@@ -2092,6 +2176,10 @@ unsafe impl ::windows::core::Interface for IDisplayEnhancementOverrideStatics {
     type Vtable = IDisplayEnhancementOverrideStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf5b7ec1_9791_4453_b013_29b6f778e519);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDisplayEnhancementOverrideStaticsImpl {
+    fn GetForCurrentView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayEnhancementOverrideStaticsVtbl(
@@ -2109,6 +2197,25 @@ pub struct IDisplayInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayInformation {
     type Vtable = IDisplayInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbed112ae_adc3_4dc9_ae65_851f4d7d4799);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDisplayInformationImpl {
+    fn CurrentOrientation();
+    fn NativeOrientation();
+    fn OrientationChanged();
+    fn RemoveOrientationChanged();
+    fn ResolutionScale();
+    fn LogicalDpi();
+    fn RawDpiX();
+    fn RawDpiY();
+    fn DpiChanged();
+    fn RemoveDpiChanged();
+    fn StereoEnabled();
+    fn StereoEnabledChanged();
+    fn RemoveStereoEnabledChanged();
+    fn GetColorProfileAsync();
+    fn ColorProfileChanged();
+    fn RemoveColorProfileChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2152,6 +2259,10 @@ unsafe impl ::windows::core::Interface for IDisplayInformation2 {
     type Vtable = IDisplayInformation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4dcd0021_fad1_4b8e_8edf_775887b8bf19);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDisplayInformation2Impl: IDisplayInformationImpl {
+    fn RawPixelsPerViewPixel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayInformation2Vtbl(
@@ -2169,6 +2280,10 @@ pub struct IDisplayInformation3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayInformation3 {
     type Vtable = IDisplayInformation3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb15011d_0f09_4466_8ff3_11de9a3c929a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDisplayInformation3Impl {
+    fn DiagonalSizeInInches();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2189,6 +2304,11 @@ unsafe impl ::windows::core::Interface for IDisplayInformation4 {
     type Vtable = IDisplayInformation4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc972ce2f_1242_46be_b536_e1aafe9e7acf);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDisplayInformation4Impl {
+    fn ScreenWidthInRawPixels();
+    fn ScreenHeightInRawPixels();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayInformation4Vtbl(
@@ -2207,6 +2327,12 @@ pub struct IDisplayInformation5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayInformation5 {
     type Vtable = IDisplayInformation5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a5442dc_2cde_4a8d_80d1_21dc5adcc1aa);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDisplayInformation5Impl {
+    fn GetAdvancedColorInfo();
+    fn AdvancedColorInfoChanged();
+    fn RemoveAdvancedColorInfoChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2229,6 +2355,14 @@ pub struct IDisplayInformationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayInformationStatics {
     type Vtable = IDisplayInformationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6a02a6c_d452_44dc_ba07_96f3c6adf9d1);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDisplayInformationStaticsImpl {
+    fn GetForCurrentView();
+    fn AutoRotationPreferences();
+    fn SetAutoRotationPreferences();
+    fn DisplayContentsInvalidated();
+    fn RemoveDisplayContentsInvalidated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2255,6 +2389,27 @@ pub struct IDisplayPropertiesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayPropertiesStatics {
     type Vtable = IDisplayPropertiesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6937ed8d_30ea_4ded_8271_4553ff02f68a);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait IDisplayPropertiesStaticsImpl {
+    fn CurrentOrientation();
+    fn NativeOrientation();
+    fn AutoRotationPreferences();
+    fn SetAutoRotationPreferences();
+    fn OrientationChanged();
+    fn RemoveOrientationChanged();
+    fn ResolutionScale();
+    fn LogicalDpi();
+    fn LogicalDpiChanged();
+    fn RemoveLogicalDpiChanged();
+    fn StereoEnabled();
+    fn StereoEnabledChanged();
+    fn RemoveStereoEnabledChanged();
+    fn GetColorProfileAsync();
+    fn ColorProfileChanged();
+    fn RemoveColorProfileChanged();
+    fn DisplayContentsInvalidated();
+    fn RemoveDisplayContentsInvalidated();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -2310,6 +2465,8 @@ unsafe impl ::windows::core::Interface for IDisplayServices {
     type Vtable = IDisplayServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b54f32b_890d_5747_bd26_fdbdeb0c8a71);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDisplayServicesImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayServicesVtbl(
@@ -2326,6 +2483,10 @@ pub struct IDisplayServicesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayServicesStatics {
     type Vtable = IDisplayServicesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc2096bf_730a_5560_b461_91c13d692e0c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDisplayServicesStaticsImpl {
+    fn FindAll();
 }
 #[repr(C)]
 #[doc(hidden)]

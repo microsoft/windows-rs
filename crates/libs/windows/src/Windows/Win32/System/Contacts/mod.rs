@@ -118,6 +118,11 @@ unsafe impl ::windows::core::Interface for IContact {
     type Vtable = IContactVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf941b671_bda7_4f77_884a_f46462f226a7);
 }
+pub trait IContactImpl {
+    fn GetContactID();
+    fn GetPath();
+    fn CommitChanges();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactVtbl(
@@ -220,6 +225,17 @@ unsafe impl ::windows::core::Interface for IContactAggregationAggregate {
     type Vtable = IContactAggregationAggregateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ed1c814_cd30_43c8_9b8d_2e489e53d54b);
 }
+pub trait IContactAggregationAggregateImpl {
+    fn Save();
+    fn GetComponentItems();
+    fn Link();
+    fn Groups();
+    fn AntiLink();
+    fn SetAntiLink();
+    fn FavoriteOrder();
+    fn SetFavoriteOrder();
+    fn Id();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactAggregationAggregateVtbl(
@@ -305,6 +321,12 @@ impl ::core::fmt::Debug for IContactAggregationAggregateCollection {
 unsafe impl ::windows::core::Interface for IContactAggregationAggregateCollection {
     type Vtable = IContactAggregationAggregateCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2359f3a6_3a68_40af_98db_0f9eb143c3bb);
+}
+pub trait IContactAggregationAggregateCollectionImpl {
+    fn FindFirst();
+    fn FindFirstByAntiLinkId();
+    fn FindNext();
+    fn Count();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -453,6 +475,26 @@ unsafe impl ::windows::core::Interface for IContactAggregationContact {
     type Vtable = IContactAggregationContactVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1eb22e86_4c86_41f0_9f9f_c251e9fda6c3);
 }
+pub trait IContactAggregationContactImpl {
+    fn Delete();
+    fn Save();
+    fn MoveToAggregate();
+    fn Unlink();
+    fn AccountId();
+    fn SetAccountId();
+    fn AggregateId();
+    fn Id();
+    fn IsMe();
+    fn IsExternal();
+    fn NetworkSourceId();
+    fn SetNetworkSourceId();
+    fn NetworkSourceIdString();
+    fn SetNetworkSourceIdString();
+    fn RemoteObjectId();
+    fn SetRemoteObjectId();
+    fn SyncIdentityHash();
+    fn SetSyncIdentityHash();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactAggregationContactVtbl(
@@ -558,6 +600,13 @@ impl ::core::fmt::Debug for IContactAggregationContactCollection {
 unsafe impl ::windows::core::Interface for IContactAggregationContactCollection {
     type Vtable = IContactAggregationContactCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x826e66fa_81de_43ca_a6fb_8c785cd996c6);
+}
+pub trait IContactAggregationContactCollectionImpl {
+    fn FindFirst();
+    fn FindNext();
+    fn FindFirstByIdentityHash();
+    fn Count();
+    fn FindFirstByRemoteId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -667,6 +716,18 @@ unsafe impl ::windows::core::Interface for IContactAggregationGroup {
     type Vtable = IContactAggregationGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc93c545f_1284_499b_96af_07372af473e0);
 }
+pub trait IContactAggregationGroupImpl {
+    fn Delete();
+    fn Save();
+    fn Add();
+    fn Remove();
+    fn Members();
+    fn GlobalObjectId();
+    fn SetGlobalObjectId();
+    fn Id();
+    fn Name();
+    fn SetName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactAggregationGroupVtbl(
@@ -753,6 +814,12 @@ impl ::core::fmt::Debug for IContactAggregationGroupCollection {
 unsafe impl ::windows::core::Interface for IContactAggregationGroupCollection {
     type Vtable = IContactAggregationGroupCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20a19a9c_d2f3_4b83_9143_beffd2cc226d);
+}
+pub trait IContactAggregationGroupCollectionImpl {
+    fn FindFirst();
+    fn FindFirstByGlobalObjectId();
+    fn FindNext();
+    fn Count();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -897,6 +964,25 @@ unsafe impl ::windows::core::Interface for IContactAggregationLink {
     type Vtable = IContactAggregationLinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6813323_a183_4654_8627_79b30de3a0ec);
 }
+pub trait IContactAggregationLinkImpl {
+    fn Delete();
+    fn Save();
+    fn AccountId();
+    fn SetAccountId();
+    fn Id();
+    fn IsLinkResolved();
+    fn SetIsLinkResolved();
+    fn NetworkSourceIdString();
+    fn SetNetworkSourceIdString();
+    fn RemoteObjectId();
+    fn SetRemoteObjectId();
+    fn ServerPerson();
+    fn SetServerPerson();
+    fn ServerPersonBaseline();
+    fn SetServerPersonBaseline();
+    fn SyncIdentityHash();
+    fn SetSyncIdentityHash();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactAggregationLinkVtbl(
@@ -997,6 +1083,12 @@ impl ::core::fmt::Debug for IContactAggregationLinkCollection {
 unsafe impl ::windows::core::Interface for IContactAggregationLinkCollection {
     type Vtable = IContactAggregationLinkCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8bc0e93_fb55_4f28_b9fa_b1c274153292);
+}
+pub trait IContactAggregationLinkCollectionImpl {
+    fn FindFirst();
+    fn FindFirstByRemoteId();
+    fn FindNext();
+    fn Count();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1132,6 +1224,23 @@ impl ::core::fmt::Debug for IContactAggregationManager {
 unsafe impl ::windows::core::Interface for IContactAggregationManager {
     type Vtable = IContactAggregationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d865989_4b1f_4b60_8f34_c2ad468b2b50);
+}
+pub trait IContactAggregationManagerImpl {
+    fn GetVersionInfo();
+    fn CreateOrOpenGroup();
+    fn CreateExternalContact();
+    fn CreateServerPerson();
+    fn CreateServerContactLink();
+    fn Flush();
+    fn OpenAggregateContact();
+    fn OpenContact();
+    fn OpenServerContactLink();
+    fn OpenServerPerson();
+    fn Contacts();
+    fn AggregateContacts();
+    fn Groups();
+    fn ServerPersons();
+    fn ServerContactLinks();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1322,6 +1431,31 @@ unsafe impl ::windows::core::Interface for IContactAggregationServerPerson {
     type Vtable = IContactAggregationServerPersonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fdc3d4b_1b82_4334_85c5_25184ee5a5f2);
 }
+pub trait IContactAggregationServerPersonImpl {
+    fn Delete();
+    fn Save();
+    fn AggregateId();
+    fn SetAggregateId();
+    fn AntiLink();
+    fn SetAntiLink();
+    fn AntiLinkBaseline();
+    fn SetAntiLinkBaseline();
+    fn FavoriteOrder();
+    fn SetFavoriteOrder();
+    fn FavoriteOrderBaseline();
+    fn SetFavoriteOrderBaseline();
+    fn Groups();
+    fn SetGroups();
+    fn GroupsBaseline();
+    fn SetGroupsBaseline();
+    fn Id();
+    fn IsTombstone();
+    fn SetIsTombstone();
+    fn LinkedAggregateId();
+    fn SetLinkedAggregateId();
+    fn ObjectId();
+    fn SetObjectId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactAggregationServerPersonVtbl(
@@ -1443,6 +1577,14 @@ unsafe impl ::windows::core::Interface for IContactAggregationServerPersonCollec
     type Vtable = IContactAggregationServerPersonCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f730a4a_6604_47b6_a987_669ecf1e5751);
 }
+pub trait IContactAggregationServerPersonCollectionImpl {
+    fn FindFirst();
+    fn FindFirstByServerId();
+    fn FindFirstByAggregateId();
+    fn FindFirstByLinkedAggregateId();
+    fn FindNext();
+    fn Count();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactAggregationServerPersonCollectionVtbl(
@@ -1516,6 +1658,11 @@ impl ::core::fmt::Debug for IContactCollection {
 unsafe impl ::windows::core::Interface for IContactCollection {
     type Vtable = IContactCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6afa338_d779_11d9_8bde_f66bad1e3f3a);
+}
+pub trait IContactCollectionImpl {
+    fn Reset();
+    fn Next();
+    fn GetCurrent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1601,6 +1748,14 @@ impl ::core::fmt::Debug for IContactManager {
 unsafe impl ::windows::core::Interface for IContactManager {
     type Vtable = IContactManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad553d98_deb1_474a_8e17_fc0c2075b738);
+}
+pub trait IContactManagerImpl {
+    fn Initialize();
+    fn Load();
+    fn MergeContactIDs();
+    fn GetMeContact();
+    fn SetMeContact();
+    fn GetContactCollection();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1728,6 +1883,21 @@ unsafe impl ::windows::core::Interface for IContactProperties {
     type Vtable = IContactPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70dd27dd_5cbd_46e8_bef0_23b6b346288f);
 }
+pub trait IContactPropertiesImpl {
+    fn GetString();
+    fn GetDate();
+    fn GetBinary();
+    fn GetLabels();
+    fn SetString();
+    fn SetDate();
+    fn SetBinary();
+    fn SetLabels();
+    fn CreateArrayNode();
+    fn DeleteProperty();
+    fn DeleteArrayNode();
+    fn DeleteLabels();
+    fn GetPropertyCollection();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactPropertiesVtbl(
@@ -1836,6 +2006,15 @@ impl ::core::fmt::Debug for IContactPropertyCollection {
 unsafe impl ::windows::core::Interface for IContactPropertyCollection {
     type Vtable = IContactPropertyCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffd3adf8_fa64_4328_b1b6_2e0db509cb3c);
+}
+pub trait IContactPropertyCollectionImpl {
+    fn Reset();
+    fn Next();
+    fn GetPropertyName();
+    fn GetPropertyType();
+    fn GetPropertyVersion();
+    fn GetPropertyModificationDate();
+    fn GetPropertyArrayElementID();
 }
 #[repr(C)]
 #[doc(hidden)]

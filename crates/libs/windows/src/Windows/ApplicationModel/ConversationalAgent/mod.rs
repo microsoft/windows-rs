@@ -2423,6 +2423,33 @@ unsafe impl ::windows::core::Interface for IActivationSignalDetectionConfigurati
     type Vtable = IActivationSignalDetectionConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40d8be16_5217_581c_9ab2_ce9b2f2e8e00);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IActivationSignalDetectionConfigurationImpl {
+    fn SignalId();
+    fn ModelId();
+    fn DisplayName();
+    fn IsActive();
+    fn SetEnabled();
+    fn SetEnabledAsync();
+    fn AvailabilityInfo();
+    fn AvailabilityChanged();
+    fn RemoveAvailabilityChanged();
+    fn SetModelData();
+    fn SetModelDataAsync();
+    fn GetModelDataType();
+    fn GetModelDataTypeAsync();
+    fn GetModelData();
+    fn GetModelDataAsync();
+    fn ClearModelData();
+    fn ClearModelDataAsync();
+    fn TrainingStepsCompleted();
+    fn TrainingStepsRemaining();
+    fn TrainingDataFormat();
+    fn ApplyTrainingData();
+    fn ApplyTrainingDataAsync();
+    fn ClearTrainingData();
+    fn ClearTrainingDataAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivationSignalDetectionConfigurationVtbl(
@@ -2476,6 +2503,14 @@ unsafe impl ::windows::core::Interface for IActivationSignalDetectionConfigurati
     type Vtable = IActivationSignalDetectionConfiguration2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71d9b022_562c_57ce_a78b_8b4ff0145bab);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IActivationSignalDetectionConfiguration2Impl {
+    fn SetModelDataWithResult();
+    fn SetModelDataWithResultAsync();
+    fn SetEnabledWithResultAsync();
+    fn SetEnabledWithResult();
+    fn TrainingStepCompletionMaxAllowedTime();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivationSignalDetectionConfiguration2Vtbl(
@@ -2501,6 +2536,11 @@ unsafe impl ::windows::core::Interface for IActivationSignalDetectionConfigurati
     type Vtable = IActivationSignalDetectionConfigurationCreationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c89bc1b_8d12_5e48_a71c_7f6bc1cd66e0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IActivationSignalDetectionConfigurationCreationResultImpl {
+    fn Status();
+    fn Configuration();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivationSignalDetectionConfigurationCreationResultVtbl(
@@ -2519,6 +2559,25 @@ pub struct IActivationSignalDetector(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IActivationSignalDetector {
     type Vtable = IActivationSignalDetectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5bf345f_a4d0_5b2b_8e65_b3c55ee756ff);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IActivationSignalDetectorImpl {
+    fn ProviderId();
+    fn Kind();
+    fn CanCreateConfigurations();
+    fn SupportedModelDataTypes();
+    fn SupportedTrainingDataFormats();
+    fn SupportedPowerStates();
+    fn GetSupportedModelIdsForSignalId();
+    fn GetSupportedModelIdsForSignalIdAsync();
+    fn CreateConfiguration();
+    fn CreateConfigurationAsync();
+    fn GetConfigurations();
+    fn GetConfigurationsAsync();
+    fn GetConfiguration();
+    fn GetConfigurationAsync();
+    fn RemoveConfiguration();
+    fn RemoveConfigurationAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2563,6 +2622,16 @@ unsafe impl ::windows::core::Interface for IActivationSignalDetector2 {
     type Vtable = IActivationSignalDetector2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7e2490a_baa5_59d2_85d1_ba42f7cf78c9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IActivationSignalDetector2Impl {
+    fn GetAvailableModelIdsForSignalIdAsync();
+    fn GetAvailableModelIdsForSignalId();
+    fn CreateConfigurationWithResultAsync();
+    fn CreateConfigurationWithResult();
+    fn RemoveConfigurationWithResultAsync();
+    fn RemoveConfigurationWithResult();
+    fn DetectorId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivationSignalDetector2Vtbl(
@@ -2591,6 +2660,13 @@ unsafe impl ::windows::core::Interface for IConversationalAgentDetectorManager {
     type Vtable = IConversationalAgentDetectorManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde94fbb0_597a_5df8_8cfb_9dbb583ba3ff);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IConversationalAgentDetectorManagerImpl {
+    fn GetAllActivationSignalDetectors();
+    fn GetAllActivationSignalDetectorsAsync();
+    fn GetActivationSignalDetectors();
+    fn GetActivationSignalDetectorsAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentDetectorManagerVtbl(
@@ -2616,6 +2692,11 @@ unsafe impl ::windows::core::Interface for IConversationalAgentDetectorManager2 
     type Vtable = IConversationalAgentDetectorManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84610f31_d7f3_52fe_9311_c9eb4e3eb30a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IConversationalAgentDetectorManager2Impl {
+    fn GetActivationSignalDetectorFromId();
+    fn GetActivationSignalDetectorFromIdAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentDetectorManager2Vtbl(
@@ -2636,6 +2717,10 @@ unsafe impl ::windows::core::Interface for IConversationalAgentDetectorManagerSt
     type Vtable = IConversationalAgentDetectorManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36a8d283_fa0e_5693_8489_0fb2f0ab40d3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IConversationalAgentDetectorManagerStaticsImpl {
+    fn Default();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentDetectorManagerStaticsVtbl(
@@ -2653,6 +2738,43 @@ pub struct IConversationalAgentSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConversationalAgentSession {
     type Vtable = IConversationalAgentSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaaae09a_b7ba_57e5_ad13_df520f9b6fa7);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IConversationalAgentSessionImpl {
+    fn SessionInterrupted();
+    fn RemoveSessionInterrupted();
+    fn SignalDetected();
+    fn RemoveSignalDetected();
+    fn SystemStateChanged();
+    fn RemoveSystemStateChanged();
+    fn AgentState();
+    fn Signal();
+    fn IsIndicatorLightAvailable();
+    fn IsScreenAvailable();
+    fn IsUserAuthenticated();
+    fn IsVoiceActivationAvailable();
+    fn IsInterruptible();
+    fn IsInterrupted();
+    fn RequestInterruptibleAsync();
+    fn RequestInterruptible();
+    fn RequestAgentStateChangeAsync();
+    fn RequestAgentStateChange();
+    fn RequestForegroundActivationAsync();
+    fn RequestForegroundActivation();
+    fn GetAudioClientAsync();
+    fn GetAudioClient();
+    fn CreateAudioDeviceInputNodeAsync();
+    fn CreateAudioDeviceInputNode();
+    fn GetAudioCaptureDeviceIdAsync();
+    fn GetAudioCaptureDeviceId();
+    fn GetAudioRenderDeviceIdAsync();
+    fn GetAudioRenderDeviceId();
+    fn GetSignalModelIdAsync();
+    fn GetSignalModelId();
+    fn SetSignalModelIdAsync();
+    fn SetSignalModelId();
+    fn GetSupportedSignalModelIdsAsync();
+    fn GetSupportedSignalModelIds();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2723,6 +2845,15 @@ unsafe impl ::windows::core::Interface for IConversationalAgentSession2 {
     type Vtable = IConversationalAgentSession2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7a9fbf9_ac78_57ff_9596_acc7a1c9a607);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IConversationalAgentSession2Impl {
+    fn RequestActivationAsync();
+    fn RequestActivation();
+    fn SetSupportLockScreenActivationAsync();
+    fn SetSupportLockScreenActivation();
+    fn GetMissingPrerequisites();
+    fn GetMissingPrerequisitesAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentSession2Vtbl(
@@ -2750,6 +2881,8 @@ unsafe impl ::windows::core::Interface for IConversationalAgentSessionInterrupte
     type Vtable = IConversationalAgentSessionInterruptedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9766591f_f63d_5d3e_9bf2_bd0760552686);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IConversationalAgentSessionInterruptedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentSessionInterruptedEventArgsVtbl(
@@ -2766,6 +2899,11 @@ pub struct IConversationalAgentSessionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConversationalAgentSessionStatics {
     type Vtable = IConversationalAgentSessionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa005166e_e954_576e_be04_11b8ed10f37b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IConversationalAgentSessionStaticsImpl {
+    fn GetCurrentSessionAsync();
+    fn GetCurrentSessionSync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2786,6 +2924,21 @@ pub struct IConversationalAgentSignal(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConversationalAgentSignal {
     type Vtable = IConversationalAgentSignalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20ed25f7_b120_51f2_8603_265d6a47f232);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IConversationalAgentSignalImpl {
+    fn IsSignalVerificationRequired();
+    fn SetIsSignalVerificationRequired();
+    fn SignalId();
+    fn SetSignalId();
+    fn SignalName();
+    fn SetSignalName();
+    fn SignalContext();
+    fn SetSignalContext();
+    fn SignalStart();
+    fn SetSignalStart();
+    fn SignalEnd();
+    fn SetSignalEnd();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2820,6 +2973,11 @@ unsafe impl ::windows::core::Interface for IConversationalAgentSignal2 {
     type Vtable = IConversationalAgentSignal2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0cc7ba9_9a7b_5c34_880e_b6146c904ecb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IConversationalAgentSignal2Impl {
+    fn DetectorId();
+    fn DetectorKind();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentSignal2Vtbl(
@@ -2839,6 +2997,8 @@ unsafe impl ::windows::core::Interface for IConversationalAgentSignalDetectedEve
     type Vtable = IConversationalAgentSignalDetectedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d57eb8f_f88a_599b_91d3_d604876708bc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IConversationalAgentSignalDetectedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentSignalDetectedEventArgsVtbl(
@@ -2855,6 +3015,10 @@ pub struct IConversationalAgentSystemStateChangedEventArgs(::windows::core::IUnk
 unsafe impl ::windows::core::Interface for IConversationalAgentSystemStateChangedEventArgs {
     type Vtable = IConversationalAgentSystemStateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c2c6e3e_2785_59a7_8e71_38adeef79928);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IConversationalAgentSystemStateChangedEventArgsImpl {
+    fn SystemStateChangeType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2874,6 +3038,10 @@ unsafe impl ::windows::core::Interface for IDetectionConfigurationAvailabilityCh
     type Vtable = IDetectionConfigurationAvailabilityChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5129c9fb_4be8_5f14_af2b_88d62b1b4462);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDetectionConfigurationAvailabilityChangedEventArgsImpl {
+    fn Kind();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDetectionConfigurationAvailabilityChangedEventArgsVtbl(
@@ -2891,6 +3059,13 @@ pub struct IDetectionConfigurationAvailabilityInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDetectionConfigurationAvailabilityInfo {
     type Vtable = IDetectionConfigurationAvailabilityInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5affeb0_40f0_5398_b838_91979c2c6208);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDetectionConfigurationAvailabilityInfoImpl {
+    fn IsEnabled();
+    fn HasSystemResourceAccess();
+    fn HasPermission();
+    fn HasLockScreenPermission();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2912,6 +3087,10 @@ pub struct IDetectionConfigurationAvailabilityInfo2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDetectionConfigurationAvailabilityInfo2 {
     type Vtable = IDetectionConfigurationAvailabilityInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30e06433_38b3_5c4b_84c3_62b6e685b2ff);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDetectionConfigurationAvailabilityInfo2Impl {
+    fn UnavailableSystemResources();
 }
 #[repr(C)]
 #[doc(hidden)]

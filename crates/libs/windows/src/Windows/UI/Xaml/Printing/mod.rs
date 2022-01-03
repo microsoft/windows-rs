@@ -333,6 +333,10 @@ unsafe impl ::windows::core::Interface for IAddPagesEventArgs {
     type Vtable = IAddPagesEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2e52be5_056c_4420_9795_cb3526ce0c20);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAddPagesEventArgsImpl {
+    fn PrintTaskOptions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAddPagesEventArgsVtbl(
@@ -352,6 +356,10 @@ unsafe impl ::windows::core::Interface for IGetPreviewPageEventArgs {
     type Vtable = IGetPreviewPageEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa43d703d_dea9_4df6_a7ed_35049cd485c7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGetPreviewPageEventArgsImpl {
+    fn PageNumber();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetPreviewPageEventArgsVtbl(
@@ -369,6 +377,11 @@ pub struct IPaginateEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaginateEventArgs {
     type Vtable = IPaginateEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed945fd6_79ab_42b7_930a_3d6e09011d21);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPaginateEventArgsImpl {
+    fn PrintTaskOptions();
+    fn CurrentPreviewPageNumber();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -389,6 +402,21 @@ pub struct IPrintDocument(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintDocument {
     type Vtable = IPrintDocumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe44327c3_a999_485b_b1d8_72dc517821e6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintDocumentImpl {
+    fn DocumentSource();
+    fn Paginate();
+    fn RemovePaginate();
+    fn GetPreviewPage();
+    fn RemoveGetPreviewPage();
+    fn AddPages();
+    fn RemoveAddPages();
+    fn AddPage();
+    fn AddPagesComplete();
+    fn SetPreviewPageCount();
+    fn SetPreviewPage();
+    fn InvalidatePreview();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -426,6 +454,10 @@ unsafe impl ::windows::core::Interface for IPrintDocumentFactory {
     type Vtable = IPrintDocumentFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb87b18f_2606_4a2f_99d4_a7cdbc35d7c7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintDocumentFactoryImpl {
+    fn CreateInstance();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintDocumentFactoryVtbl(
@@ -443,6 +475,10 @@ pub struct IPrintDocumentStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintDocumentStatics {
     type Vtable = IPrintDocumentStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd970a3c_b152_49e0_a6bd_6aa6477e43c7);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPrintDocumentStaticsImpl {
+    fn DocumentSourceProperty();
 }
 #[repr(C)]
 #[doc(hidden)]

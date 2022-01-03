@@ -6,6 +6,10 @@ unsafe impl ::windows::core::Interface for INotePlacementChangedPreviewEventArgs
     type Vtable = INotePlacementChangedPreviewEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x491d57b7_f780_4e7f_a939_9a4caf965214);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INotePlacementChangedPreviewEventArgsImpl {
+    fn ViewId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INotePlacementChangedPreviewEventArgsVtbl(
@@ -23,6 +27,11 @@ pub struct INoteVisibilityChangedPreviewEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INoteVisibilityChangedPreviewEventArgs {
     type Vtable = INoteVisibilityChangedPreviewEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e34649e_3815_4ff6_83b3_a14d17120e24);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INoteVisibilityChangedPreviewEventArgsImpl {
+    fn ViewId();
+    fn IsVisible();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -42,6 +51,24 @@ pub struct INotesWindowManagerPreview(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INotesWindowManagerPreview {
     type Vtable = INotesWindowManagerPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc2ac23e_4850_4f13_9cc7_ff487efdfcde);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INotesWindowManagerPreviewImpl {
+    fn IsScreenLocked();
+    fn ShowNote();
+    fn ShowNoteRelativeTo();
+    fn ShowNoteWithPlacement();
+    fn HideNote();
+    fn GetNotePlacement();
+    fn TrySetNoteSize();
+    fn SetFocusToNextView();
+    fn SetNotesThumbnailAsync();
+    fn SystemLockStateChanged();
+    fn RemoveSystemLockStateChanged();
+    fn NotePlacementChanged();
+    fn RemoveNotePlacementChanged();
+    fn NoteVisibilityChanged();
+    fn RemoveNoteVisibilityChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -85,6 +112,13 @@ unsafe impl ::windows::core::Interface for INotesWindowManagerPreview2 {
     type Vtable = INotesWindowManagerPreview2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedfe864a_1f54_4b09_9823_ff477f6fa3bc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INotesWindowManagerPreview2Impl {
+    fn ShowNoteRelativeToWithOptions();
+    fn ShowNoteWithPlacementWithOptions();
+    fn SetFocusToPreviousView();
+    fn SetThumbnailImageForTaskSwitcherAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INotesWindowManagerPreview2Vtbl(
@@ -108,6 +142,11 @@ unsafe impl ::windows::core::Interface for INotesWindowManagerPreviewShowNoteOpt
     type Vtable = INotesWindowManagerPreviewShowNoteOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x886b09d6_a6ae_4007_a56d_1ca70c84c0d2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INotesWindowManagerPreviewShowNoteOptionsImpl {
+    fn ShowWithFocus();
+    fn SetShowWithFocus();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INotesWindowManagerPreviewShowNoteOptionsVtbl(
@@ -126,6 +165,10 @@ pub struct INotesWindowManagerPreviewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INotesWindowManagerPreviewStatics {
     type Vtable = INotesWindowManagerPreviewStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6668cc88_0a8e_4127_a38e_995445868a78);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INotesWindowManagerPreviewStaticsImpl {
+    fn GetForCurrentApp();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -1004,6 +1004,11 @@ unsafe impl ::windows::core::Interface for IDirectWriterLock {
     type Vtable = IDirectWriterLockVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e6d4d92_6738_11cf_9608_00aa00680db4);
 }
+pub trait IDirectWriterLockImpl {
+    fn WaitForWriteAccess();
+    fn ReleaseWriteAccess();
+    fn HaveWriteAccess();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectWriterLockVtbl(
@@ -1076,6 +1081,12 @@ impl ::core::fmt::Debug for IEnumSTATPROPSETSTG {
 unsafe impl ::windows::core::Interface for IEnumSTATPROPSETSTG {
     type Vtable = IEnumSTATPROPSETSTGVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000013b_0000_0000_c000_000000000046);
+}
+pub trait IEnumSTATPROPSETSTGImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1152,6 +1163,12 @@ unsafe impl ::windows::core::Interface for IEnumSTATPROPSTG {
     type Vtable = IEnumSTATPROPSTGVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000139_0000_0000_c000_000000000046);
 }
+pub trait IEnumSTATPROPSTGImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumSTATPROPSTGVtbl(
@@ -1226,6 +1243,12 @@ impl ::core::fmt::Debug for IEnumSTATSTG {
 unsafe impl ::windows::core::Interface for IEnumSTATSTG {
     type Vtable = IEnumSTATSTGVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000d_0000_0000_c000_000000000046);
+}
+pub trait IEnumSTATSTGImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1302,6 +1325,12 @@ impl ::core::fmt::Debug for IFillLockBytes {
 unsafe impl ::windows::core::Interface for IFillLockBytes {
     type Vtable = IFillLockBytesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99caf010_415e_11cf_8814_00aa00b569f5);
+}
+pub trait IFillLockBytesImpl {
+    fn FillAppend();
+    fn FillAt();
+    fn SetFillSize();
+    fn Terminate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1381,6 +1410,13 @@ impl ::core::fmt::Debug for ILayoutStorage {
 unsafe impl ::windows::core::Interface for ILayoutStorage {
     type Vtable = ILayoutStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e6d4d90_6738_11cf_9608_00aa00680db4);
+}
+pub trait ILayoutStorageImpl {
+    fn LayoutScript();
+    fn BeginMonitor();
+    fn EndMonitor();
+    fn ReLayoutDocfile();
+    fn ReLayoutDocfileOnILockBytes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1470,6 +1506,15 @@ impl ::core::fmt::Debug for ILockBytes {
 unsafe impl ::windows::core::Interface for ILockBytes {
     type Vtable = ILockBytesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000a_0000_0000_c000_000000000046);
+}
+pub trait ILockBytesImpl {
+    fn ReadAt();
+    fn WriteAt();
+    fn Flush();
+    fn SetSize();
+    fn LockRegion();
+    fn UnlockRegion();
+    fn Stat();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1581,6 +1626,14 @@ unsafe impl ::windows::core::Interface for IPersistStorage {
     type Vtable = IPersistStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000010a_0000_0000_c000_000000000046);
 }
+pub trait IPersistStorageImpl: IPersistImpl {
+    fn IsDirty();
+    fn InitNew();
+    fn Load();
+    fn Save();
+    fn SaveCompleted();
+    fn HandsOffStorage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPersistStorageVtbl(
@@ -1650,6 +1703,10 @@ impl ::core::fmt::Debug for IPropertyBag {
 unsafe impl ::windows::core::Interface for IPropertyBag {
     type Vtable = IPropertyBagVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55272a00_42cb_11ce_8135_00aa004bb851);
+}
+pub trait IPropertyBagImpl {
+    fn Read();
+    fn Write();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1732,6 +1789,13 @@ unsafe impl ::windows::core::Interface for IPropertyBag2 {
     type Vtable = IPropertyBag2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22f55882_280b_11d0_a8a9_00a0c90c2004);
 }
+pub trait IPropertyBag2Impl {
+    fn Read();
+    fn Write();
+    fn CountProperties();
+    fn GetPropertyInfo();
+    fn LoadObject();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyBag2Vtbl(
@@ -1811,6 +1875,12 @@ impl ::core::fmt::Debug for IPropertySetStorage {
 unsafe impl ::windows::core::Interface for IPropertySetStorage {
     type Vtable = IPropertySetStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000013a_0000_0000_c000_000000000046);
+}
+pub trait IPropertySetStorageImpl {
+    fn Create();
+    fn Open();
+    fn Delete();
+    fn Enum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1925,6 +1995,20 @@ unsafe impl ::windows::core::Interface for IPropertyStorage {
     type Vtable = IPropertyStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000138_0000_0000_c000_000000000046);
 }
+pub trait IPropertyStorageImpl {
+    fn ReadMultiple();
+    fn WriteMultiple();
+    fn DeleteMultiple();
+    fn ReadPropertyNames();
+    fn WritePropertyNames();
+    fn DeletePropertyNames();
+    fn Commit();
+    fn Revert();
+    fn Enum();
+    fn SetTimes();
+    fn SetClass();
+    fn Stat();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyStorageVtbl(
@@ -2000,6 +2084,9 @@ impl ::core::fmt::Debug for IRootStorage {
 unsafe impl ::windows::core::Interface for IRootStorage {
     type Vtable = IRootStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000012_0000_0000_c000_000000000046);
+}
+pub trait IRootStorageImpl {
+    fn SwitchToFile();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2126,6 +2213,23 @@ impl ::core::fmt::Debug for IStorage {
 unsafe impl ::windows::core::Interface for IStorage {
     type Vtable = IStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000b_0000_0000_c000_000000000046);
+}
+pub trait IStorageImpl {
+    fn CreateStream();
+    fn OpenStream();
+    fn CreateStorage();
+    fn OpenStorage();
+    fn CopyTo();
+    fn MoveElementTo();
+    fn Commit();
+    fn Revert();
+    fn EnumElements();
+    fn DestroyElement();
+    fn RenameElement();
+    fn SetElementTimes();
+    fn SetClass();
+    fn SetStateBits();
+    fn Stat();
 }
 #[repr(C)]
 #[doc(hidden)]

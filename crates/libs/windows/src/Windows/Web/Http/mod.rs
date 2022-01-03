@@ -4270,6 +4270,11 @@ unsafe impl ::windows::core::Interface for IHttpBufferContentFactory {
     type Vtable = IHttpBufferContentFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc20c193_c41f_4ff7_9123_6435736eadc2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpBufferContentFactoryImpl {
+    fn CreateFromBuffer();
+    fn CreateFromBufferWithOffset();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpBufferContentFactoryVtbl(
@@ -4290,6 +4295,20 @@ pub struct IHttpClient(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpClient {
     type Vtable = IHttpClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fda1151_3574_4880_a8ba_e6b1e0061f3d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpClientImpl {
+    fn DeleteAsync();
+    fn GetAsync();
+    fn GetWithOptionAsync();
+    fn GetBufferAsync();
+    fn GetInputStreamAsync();
+    fn GetStringAsync();
+    fn PostAsync();
+    fn PutAsync();
+    fn SendRequestAsync();
+    fn SendRequestWithOptionAsync();
+    fn DefaultRequestHeaders();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4330,6 +4349,19 @@ unsafe impl ::windows::core::Interface for IHttpClient2 {
     type Vtable = IHttpClient2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdd83348_e8b7_4cec_b1b0_dc455fe72c92);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpClient2Impl {
+    fn TryDeleteAsync();
+    fn TryGetAsync();
+    fn TryGetAsync2();
+    fn TryGetBufferAsync();
+    fn TryGetInputStreamAsync();
+    fn TryGetStringAsync();
+    fn TryPostAsync();
+    fn TryPutAsync();
+    fn TrySendRequestAsync();
+    fn TrySendRequestAsync2();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpClient2Vtbl(
@@ -4366,6 +4398,10 @@ pub struct IHttpClientFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpClientFactory {
     type Vtable = IHttpClientFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc30c4eca_e3fa_4f99_afb4_63cc65009462);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpClientFactoryImpl {
+    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4541,6 +4577,16 @@ unsafe impl ::windows::core::Interface for IHttpContent {
     type Vtable = IHttpContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b14a441_fba7_4bd2_af0a_839de7c295da);
 }
+#[cfg(feature = "Foundation")]
+pub trait IHttpContentImpl: IClosableImpl {
+    fn Headers();
+    fn BufferAllAsync();
+    fn ReadAsBufferAsync();
+    fn ReadAsInputStreamAsync();
+    fn ReadAsStringAsync();
+    fn TryComputeLength();
+    fn WriteToStreamAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpContentVtbl(
@@ -4570,6 +4616,20 @@ pub struct IHttpCookie(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpCookie {
     type Vtable = IHttpCookieVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f5488e2_cc2d_4779_86a7_88f10687d249);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpCookieImpl {
+    fn Name();
+    fn Domain();
+    fn Path();
+    fn Expires();
+    fn SetExpires();
+    fn HttpOnly();
+    fn SetHttpOnly();
+    fn Secure();
+    fn SetSecure();
+    fn Value();
+    fn SetValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4601,6 +4661,10 @@ unsafe impl ::windows::core::Interface for IHttpCookieFactory {
     type Vtable = IHttpCookieFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a0585a9_931c_4cd1_a96d_c21701785c5f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpCookieFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpCookieFactoryVtbl(
@@ -4618,6 +4682,13 @@ pub struct IHttpCookieManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpCookieManager {
     type Vtable = IHttpCookieManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a431780_cd4f_4e57_a84a_5b0a53d6bb96);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpCookieManagerImpl {
+    fn SetCookie();
+    fn SetCookieWithThirdParty();
+    fn DeleteCookie();
+    fn GetCookies();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4641,6 +4712,10 @@ unsafe impl ::windows::core::Interface for IHttpFormUrlEncodedContentFactory {
     type Vtable = IHttpFormUrlEncodedContentFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43f0138c_2f73_4302_b5f3_eae9238a5e01);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpFormUrlEncodedContentFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpFormUrlEncodedContentFactoryVtbl(
@@ -4659,6 +4734,14 @@ pub struct IHttpGetBufferResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpGetBufferResult {
     type Vtable = IHttpGetBufferResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53d08e7c_e209_404e_9a49_742d8236fd3a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpGetBufferResultImpl {
+    fn ExtendedError();
+    fn RequestMessage();
+    fn ResponseMessage();
+    fn Succeeded();
+    fn Value();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4683,6 +4766,14 @@ unsafe impl ::windows::core::Interface for IHttpGetInputStreamResult {
     type Vtable = IHttpGetInputStreamResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5d63463_13aa_4ee0_be95_a0c39fe91203);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpGetInputStreamResultImpl {
+    fn ExtendedError();
+    fn RequestMessage();
+    fn ResponseMessage();
+    fn Succeeded();
+    fn Value();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpGetInputStreamResultVtbl(
@@ -4706,6 +4797,14 @@ unsafe impl ::windows::core::Interface for IHttpGetStringResult {
     type Vtable = IHttpGetStringResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bac466d_8509_4775_b16d_8953f47a7f5f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpGetStringResultImpl {
+    fn ExtendedError();
+    fn RequestMessage();
+    fn ResponseMessage();
+    fn Succeeded();
+    fn Value();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpGetStringResultVtbl(
@@ -4728,6 +4827,10 @@ unsafe impl ::windows::core::Interface for IHttpMethod {
     type Vtable = IHttpMethodVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728d4022_700d_4fe0_afa5_40299c58dbfd);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpMethodImpl {
+    fn Method();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpMethodVtbl(
@@ -4746,6 +4849,10 @@ unsafe impl ::windows::core::Interface for IHttpMethodFactory {
     type Vtable = IHttpMethodFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c51d10d_36d7_40f8_a86d_e759caf2f83f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpMethodFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpMethodFactoryVtbl(
@@ -4763,6 +4870,16 @@ pub struct IHttpMethodStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpMethodStatics {
     type Vtable = IHttpMethodStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64d171f0_d99a_4153_8dc6_d68cc4cce317);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpMethodStaticsImpl {
+    fn Delete();
+    fn Get();
+    fn Head();
+    fn Options();
+    fn Patch();
+    fn Post();
+    fn Put();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4788,6 +4905,10 @@ unsafe impl ::windows::core::Interface for IHttpMultipartContent {
     type Vtable = IHttpMultipartContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf916aff_9926_4ac9_aaf1_e0d04ef09bb9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpMultipartContentImpl {
+    fn Add();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpMultipartContentVtbl(
@@ -4805,6 +4926,11 @@ pub struct IHttpMultipartContentFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpMultipartContentFactory {
     type Vtable = IHttpMultipartContentFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7eb42e62_0222_4f20_b372_47d5db5d33b4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpMultipartContentFactoryImpl {
+    fn CreateWithSubtype();
+    fn CreateWithSubtypeAndBoundary();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4824,6 +4950,12 @@ pub struct IHttpMultipartFormDataContent(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpMultipartFormDataContent {
     type Vtable = IHttpMultipartFormDataContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64d337e2_e967_4624_b6d1_cf74604a4a42);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpMultipartFormDataContentImpl {
+    fn Add();
+    fn AddWithName();
+    fn AddWithNameAndFileName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4845,6 +4977,10 @@ unsafe impl ::windows::core::Interface for IHttpMultipartFormDataContentFactory 
     type Vtable = IHttpMultipartFormDataContentFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa04d7311_5017_4622_93a8_49b24a4fcbfc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpMultipartFormDataContentFactoryImpl {
+    fn CreateWithBoundary();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpMultipartFormDataContentFactoryVtbl(
@@ -4862,6 +4998,18 @@ pub struct IHttpRequestMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpRequestMessage {
     type Vtable = IHttpRequestMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5762b3c_74d4_4811_b5dc_9f8b4e2f9abf);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpRequestMessageImpl {
+    fn Content();
+    fn SetContent();
+    fn Headers();
+    fn Method();
+    fn SetMethod();
+    fn Properties();
+    fn RequestUri();
+    fn SetRequestUri();
+    fn TransportInformation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4893,6 +5041,10 @@ unsafe impl ::windows::core::Interface for IHttpRequestMessageFactory {
     type Vtable = IHttpRequestMessageFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bac994e_3886_412e_aec3_52ec7f25616f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpRequestMessageFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpRequestMessageFactoryVtbl(
@@ -4911,6 +5063,13 @@ pub struct IHttpRequestResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpRequestResult {
     type Vtable = IHttpRequestResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6acf4da8_b5eb_4a35_a902_4217fbe820c5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpRequestResultImpl {
+    fn ExtendedError();
+    fn RequestMessage();
+    fn ResponseMessage();
+    fn Succeeded();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4932,6 +5091,24 @@ pub struct IHttpResponseMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpResponseMessage {
     type Vtable = IHttpResponseMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfee200fb_8664_44e0_95d9_42696199bffc);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpResponseMessageImpl {
+    fn Content();
+    fn SetContent();
+    fn Headers();
+    fn IsSuccessStatusCode();
+    fn ReasonPhrase();
+    fn SetReasonPhrase();
+    fn RequestMessage();
+    fn SetRequestMessage();
+    fn Source();
+    fn SetSource();
+    fn StatusCode();
+    fn SetStatusCode();
+    fn Version();
+    fn SetVersion();
+    fn EnsureSuccessStatusCode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4966,6 +5143,10 @@ unsafe impl ::windows::core::Interface for IHttpResponseMessageFactory {
     type Vtable = IHttpResponseMessageFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52a8af99_f095_43da_b60f_7cfc2bc7ea2f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpResponseMessageFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpResponseMessageFactoryVtbl(
@@ -4983,6 +5164,10 @@ pub struct IHttpStreamContentFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpStreamContentFactory {
     type Vtable = IHttpStreamContentFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3e64d9d_f725_407e_942f_0eda189809f4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpStreamContentFactoryImpl {
+    fn CreateFromInputStream();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5002,6 +5187,12 @@ pub struct IHttpStringContentFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpStringContentFactory {
     type Vtable = IHttpStringContentFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46649d5b_2e93_48eb_8e61_19677878e57f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpStringContentFactoryImpl {
+    fn CreateFromString();
+    fn CreateFromStringWithEncoding();
+    fn CreateFromStringWithEncodingAndMediaType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5024,6 +5215,13 @@ pub struct IHttpTransportInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpTransportInformation {
     type Vtable = IHttpTransportInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70127198_c6a7_4ed0_833a_83fd8b8f178d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IHttpTransportInformationImpl {
+    fn ServerCertificate();
+    fn ServerCertificateErrorSeverity();
+    fn ServerCertificateErrors();
+    fn ServerIntermediateCertificates();
 }
 #[repr(C)]
 #[doc(hidden)]

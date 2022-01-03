@@ -293,6 +293,21 @@ unsafe impl ::windows::core::Interface for IClosedCaptionPropertiesStatics {
     type Vtable = IClosedCaptionPropertiesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10aa1f84_cc30_4141_b503_5272289e0c20);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IClosedCaptionPropertiesStaticsImpl {
+    fn FontColor();
+    fn ComputedFontColor();
+    fn FontOpacity();
+    fn FontSize();
+    fn FontStyle();
+    fn FontEffect();
+    fn BackgroundColor();
+    fn ComputedBackgroundColor();
+    fn BackgroundOpacity();
+    fn RegionColor();
+    fn ComputedRegionColor();
+    fn RegionOpacity();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClosedCaptionPropertiesStaticsVtbl(

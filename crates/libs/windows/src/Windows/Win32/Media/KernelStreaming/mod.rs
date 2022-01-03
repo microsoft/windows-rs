@@ -635,6 +635,10 @@ unsafe impl ::windows::core::Interface for IKsAggregateControl {
     type Vtable = IKsAggregateControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f40eac0_3947_11d2_874e_00a0c9223196);
 }
+pub trait IKsAggregateControlImpl {
+    fn KsAddAggregate();
+    fn KsRemoveAggregate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsAggregateControlVtbl(
@@ -705,6 +709,11 @@ unsafe impl ::windows::core::Interface for IKsControl {
     type Vtable = IKsControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28f54685_06fd_11d2_b27a_00a0c9223196);
 }
+pub trait IKsControlImpl {
+    fn KsProperty();
+    fn KsMethod();
+    fn KsEvent();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsControlVtbl(
@@ -770,6 +779,10 @@ unsafe impl ::windows::core::Interface for IKsFormatSupport {
     type Vtable = IKsFormatSupportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb4a69d_bb6f_4d2b_95b7_452d2c155db5);
 }
+pub trait IKsFormatSupportImpl {
+    fn IsFormatSupported();
+    fn GetDevicePreferredFormat();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsFormatSupportVtbl(
@@ -830,6 +843,9 @@ unsafe impl ::windows::core::Interface for IKsJackContainerId {
     type Vtable = IKsJackContainerIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc99af463_d629_4ec4_8c00_e54d68154248);
 }
+pub trait IKsJackContainerIdImpl {
+    fn GetJackContainerId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsJackContainerIdVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjackcontainerid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT);
@@ -888,6 +904,10 @@ impl ::core::fmt::Debug for IKsJackDescription {
 unsafe impl ::windows::core::Interface for IKsJackDescription {
     type Vtable = IKsJackDescriptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4509f757_2d46_4637_8e62_ce7db944f57b);
+}
+pub trait IKsJackDescriptionImpl {
+    fn GetJackCount();
+    fn GetJackDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -954,6 +974,10 @@ unsafe impl ::windows::core::Interface for IKsJackDescription2 {
     type Vtable = IKsJackDescription2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x478f3a9b_e0c9_4827_9228_6f5505ffe76a);
 }
+pub trait IKsJackDescription2Impl {
+    fn GetJackCount();
+    fn GetJackDescription2();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsJackDescription2Vtbl(
@@ -1013,6 +1037,9 @@ impl ::core::fmt::Debug for IKsJackSinkInformation {
 unsafe impl ::windows::core::Interface for IKsJackSinkInformation {
     type Vtable = IKsJackSinkInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9bd72ed_290f_4581_9ff3_61027a8fe532);
+}
+pub trait IKsJackSinkInformationImpl {
+    fn GetJackSinkInformation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1083,6 +1110,11 @@ unsafe impl ::windows::core::Interface for IKsPropertySet {
     type Vtable = IKsPropertySetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31efac30_515c_11d0_a9aa_00aa0061be93);
 }
+pub trait IKsPropertySetImpl {
+    fn Set();
+    fn Get();
+    fn QuerySupported();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsPropertySetVtbl(
@@ -1141,6 +1173,9 @@ impl ::core::fmt::Debug for IKsTopology {
 unsafe impl ::windows::core::Interface for IKsTopology {
     type Vtable = IKsTopologyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28f54683_06fd_11d2_b27a_00a0c9223196);
+}
+pub trait IKsTopologyImpl {
+    fn CreateNodeInstance();
 }
 #[repr(C)]
 #[doc(hidden)]

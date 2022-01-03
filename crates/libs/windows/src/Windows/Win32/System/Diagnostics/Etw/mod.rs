@@ -3829,6 +3829,20 @@ unsafe impl ::windows::core::Interface for ITraceEvent {
     type Vtable = ITraceEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cc97f40_9028_4ff3_9b62_7d1f79ca7bcb);
 }
+pub trait ITraceEventImpl {
+    fn Clone();
+    fn GetUserContext();
+    fn GetEventRecord();
+    fn SetPayload();
+    fn SetEventDescriptor();
+    fn SetProcessId();
+    fn SetProcessorIndex();
+    fn SetThreadId();
+    fn SetThreadTimes();
+    fn SetActivityId();
+    fn SetTimeStamp();
+    fn SetProviderId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITraceEventVtbl(
@@ -3904,6 +3918,11 @@ impl ::core::fmt::Debug for ITraceEventCallback {
 unsafe impl ::windows::core::Interface for ITraceEventCallback {
     type Vtable = ITraceEventCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ed25501_593f_43e9_8f38_3ab46f5a4a52);
+}
+pub trait ITraceEventCallbackImpl {
+    fn OnBeginProcessTrace();
+    fn OnFinalizeProcessTrace();
+    fn OnEvent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4002,6 +4021,17 @@ impl ::core::fmt::Debug for ITraceRelogger {
 unsafe impl ::windows::core::Interface for ITraceRelogger {
     type Vtable = ITraceReloggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf754ad43_3bcc_4286_8009_9c5da214e84e);
+}
+pub trait ITraceReloggerImpl {
+    fn AddLogfileTraceStream();
+    fn AddRealtimeTraceStream();
+    fn RegisterCallback();
+    fn Inject();
+    fn CreateEventInstance();
+    fn ProcessTrace();
+    fn SetOutputFilename();
+    fn SetCompressionMode();
+    fn Cancel();
 }
 #[repr(C)]
 #[doc(hidden)]

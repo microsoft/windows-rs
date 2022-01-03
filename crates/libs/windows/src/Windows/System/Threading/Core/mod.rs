@@ -6,6 +6,10 @@ unsafe impl ::windows::core::Interface for IPreallocatedWorkItem {
     type Vtable = IPreallocatedWorkItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6daa9fc_bc5b_401a_a8b2_6e754d14daa6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPreallocatedWorkItemImpl {
+    fn RunAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPreallocatedWorkItemVtbl(
@@ -24,6 +28,12 @@ pub struct IPreallocatedWorkItemFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPreallocatedWorkItemFactory {
     type Vtable = IPreallocatedWorkItemFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3d32b45_dfea_469b_82c5_f6e3cefdeafb);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPreallocatedWorkItemFactoryImpl {
+    fn CreateWorkItem();
+    fn CreateWorkItemWithPriority();
+    fn CreateWorkItemWithPriorityAndOptions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -48,6 +58,11 @@ unsafe impl ::windows::core::Interface for ISignalNotifier {
     type Vtable = ISignalNotifierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14285e06_63a7_4713_b6d9_62f64b56fb8b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISignalNotifierImpl {
+    fn Enable();
+    fn Terminate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISignalNotifierVtbl(
@@ -66,6 +81,13 @@ pub struct ISignalNotifierStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISignalNotifierStatics {
     type Vtable = ISignalNotifierStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c4e4566_8400_46d3_a115_7d0c0dfc9f62);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISignalNotifierStaticsImpl {
+    fn AttachToEvent();
+    fn AttachToEventWithTimeout();
+    fn AttachToSemaphore();
+    fn AttachToSemaphoreWithTimeout();
 }
 #[repr(C)]
 #[doc(hidden)]

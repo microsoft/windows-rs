@@ -8576,6 +8576,22 @@ unsafe impl ::windows::core::Interface for IADs {
     type Vtable = IADsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd8256d0_fd15_11ce_abc4_02608c9e7553);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsImpl: IDispatchImpl {
+    fn Name();
+    fn Class();
+    fn GUID();
+    fn ADsPath();
+    fn Parent();
+    fn Schema();
+    fn GetInfo();
+    fn SetInfo();
+    fn Get();
+    fn Put();
+    fn GetEx();
+    fn PutEx();
+    fn GetInfoEx();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsVtbl(
@@ -8781,6 +8797,22 @@ unsafe impl ::windows::core::Interface for IADsADSystemInfo {
     type Vtable = IADsADSystemInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bb11929_afd1_11d2_9cb9_0000f87a369e);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsADSystemInfoImpl: IDispatchImpl {
+    fn UserName();
+    fn ComputerName();
+    fn SiteName();
+    fn DomainShortName();
+    fn DomainDNSName();
+    fn ForestDNSName();
+    fn PDCRoleOwner();
+    fn SchemaRoleOwner();
+    fn IsNativeMode();
+    fn GetAnyDCName();
+    fn GetDCSiteName();
+    fn RefreshSchemaCache();
+    fn GetTrees();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsADSystemInfoVtbl(
@@ -8980,6 +9012,23 @@ unsafe impl ::windows::core::Interface for IADsAccessControlEntry {
     type Vtable = IADsAccessControlEntryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4f3a14c_9bdd_11d0_852c_00c04fd8d503);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsAccessControlEntryImpl: IDispatchImpl {
+    fn AccessMask();
+    fn SetAccessMask();
+    fn AceType();
+    fn SetAceType();
+    fn AceFlags();
+    fn SetAceFlags();
+    fn Flags();
+    fn SetFlags();
+    fn ObjectType();
+    fn SetObjectType();
+    fn InheritedObjectType();
+    fn SetInheritedObjectType();
+    fn Trustee();
+    fn SetTrustee();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsAccessControlEntryVtbl(
@@ -9145,6 +9194,17 @@ unsafe impl ::windows::core::Interface for IADsAccessControlList {
     type Vtable = IADsAccessControlListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7ee91cc_9bdd_11d0_852c_00c04fd8d503);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsAccessControlListImpl: IDispatchImpl {
+    fn AclRevision();
+    fn SetAclRevision();
+    fn AceCount();
+    fn SetAceCount();
+    fn AddAce();
+    fn RemoveAce();
+    fn CopyAccessList();
+    fn _NewEnum();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsAccessControlListVtbl(
@@ -9299,6 +9359,16 @@ unsafe impl ::windows::core::Interface for IADsAcl {
     type Vtable = IADsAclVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8452d3ab_0869_11d1_a377_00c04fb950dc);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsAclImpl: IDispatchImpl {
+    fn ProtectedAttrName();
+    fn SetProtectedAttrName();
+    fn SubjectName();
+    fn SetSubjectName();
+    fn Privileges();
+    fn SetPrivileges();
+    fn CopyAcl();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsAclVtbl(
@@ -9387,6 +9457,12 @@ unsafe impl ::windows::core::Interface for IADsAggregatee {
     type Vtable = IADsAggregateeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1346ce8c_9039_11d0_8528_00c04fd8d503);
 }
+pub trait IADsAggregateeImpl {
+    fn ConnectAsAggregatee();
+    fn DisconnectAsAggregatee();
+    fn RelinquishInterface();
+    fn RestoreInterface();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsAggregateeVtbl(
@@ -9450,6 +9526,10 @@ impl ::core::fmt::Debug for IADsAggregator {
 unsafe impl ::windows::core::Interface for IADsAggregator {
     type Vtable = IADsAggregatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52db5fb0_941f_11d0_8529_00c04fd8d503);
+}
+pub trait IADsAggregatorImpl {
+    fn ConnectAsAggregator();
+    fn DisconnectAsAggregator();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9570,6 +9650,13 @@ impl ::core::fmt::Debug for IADsBackLink {
 unsafe impl ::windows::core::Interface for IADsBackLink {
     type Vtable = IADsBackLinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd1302bd_4080_11d1_a3ac_00c04fb950dc);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsBackLinkImpl: IDispatchImpl {
+    fn RemoteID();
+    fn SetRemoteID();
+    fn ObjectName();
+    fn SetObjectName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9693,6 +9780,11 @@ impl ::core::fmt::Debug for IADsCaseIgnoreList {
 unsafe impl ::windows::core::Interface for IADsCaseIgnoreList {
     type Vtable = IADsCaseIgnoreListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b66b533_4680_11d1_a3b4_00c04fb950dc);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsCaseIgnoreListImpl: IDispatchImpl {
+    fn CaseIgnoreList();
+    fn SetCaseIgnoreList();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10052,6 +10144,39 @@ unsafe impl ::windows::core::Interface for IADsClass {
     type Vtable = IADsClassVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8f93dd0_4ae0_11cf_9e73_00aa004a5691);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsClassImpl: IADsImpl + IDispatchImpl {
+    fn PrimaryInterface();
+    fn CLSID();
+    fn SetCLSID();
+    fn OID();
+    fn SetOID();
+    fn Abstract();
+    fn SetAbstract();
+    fn Auxiliary();
+    fn SetAuxiliary();
+    fn MandatoryProperties();
+    fn SetMandatoryProperties();
+    fn OptionalProperties();
+    fn SetOptionalProperties();
+    fn NamingProperties();
+    fn SetNamingProperties();
+    fn DerivedFrom();
+    fn SetDerivedFrom();
+    fn AuxDerivedFrom();
+    fn SetAuxDerivedFrom();
+    fn PossibleSuperiors();
+    fn SetPossibleSuperiors();
+    fn Containment();
+    fn SetContainment();
+    fn Container();
+    fn SetContainer();
+    fn HelpFileName();
+    fn SetHelpFileName();
+    fn HelpFileContext();
+    fn SetHelpFileContext();
+    fn Qualifiers();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsClassVtbl(
@@ -10253,6 +10378,13 @@ impl ::core::fmt::Debug for IADsCollection {
 unsafe impl ::windows::core::Interface for IADsCollection {
     type Vtable = IADsCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72b945e0_253b_11cf_a988_00aa006bc149);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsCollectionImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Add();
+    fn Remove();
+    fn GetObject();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10635,6 +10767,41 @@ unsafe impl ::windows::core::Interface for IADsComputer {
     type Vtable = IADsComputerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefe3cc70_1d9f_11cf_b1f3_02608c9e7553);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsComputerImpl: IADsImpl + IDispatchImpl {
+    fn ComputerID();
+    fn Site();
+    fn Description();
+    fn SetDescription();
+    fn Location();
+    fn SetLocation();
+    fn PrimaryUser();
+    fn SetPrimaryUser();
+    fn Owner();
+    fn SetOwner();
+    fn Division();
+    fn SetDivision();
+    fn Department();
+    fn SetDepartment();
+    fn Role();
+    fn SetRole();
+    fn OperatingSystem();
+    fn SetOperatingSystem();
+    fn OperatingSystemVersion();
+    fn SetOperatingSystemVersion();
+    fn Model();
+    fn SetModel();
+    fn Processor();
+    fn SetProcessor();
+    fn ProcessorCount();
+    fn SetProcessorCount();
+    fn MemorySize();
+    fn SetMemorySize();
+    fn StorageCapacity();
+    fn SetStorageCapacity();
+    fn NetAddresses();
+    fn SetNetAddresses();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsComputerVtbl(
@@ -10930,6 +11097,11 @@ unsafe impl ::windows::core::Interface for IADsComputerOperations {
     type Vtable = IADsComputerOperationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef497680_1d9f_11cf_b1f3_02608c9e7553);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsComputerOperationsImpl: IADsImpl + IDispatchImpl {
+    fn Status();
+    fn Shutdown();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsComputerOperationsVtbl(
@@ -11124,6 +11296,20 @@ unsafe impl ::windows::core::Interface for IADsContainer {
     type Vtable = IADsContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x001677d0_fd16_11ce_abc4_02608c9e7553);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsContainerImpl: IDispatchImpl {
+    fn Count();
+    fn _NewEnum();
+    fn Filter();
+    fn SetFilter();
+    fn Hints();
+    fn SetHints();
+    fn GetObject();
+    fn Create();
+    fn Delete();
+    fn CopyHere();
+    fn MoveHere();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsContainerVtbl(
@@ -11272,6 +11458,13 @@ unsafe impl ::windows::core::Interface for IADsDNWithBinary {
     type Vtable = IADsDNWithBinaryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e99c0a2_f935_11d2_ba96_00c04fb6d0d1);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsDNWithBinaryImpl: IDispatchImpl {
+    fn BinaryValue();
+    fn SetBinaryValue();
+    fn DNString();
+    fn SetDNString();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsDNWithBinaryVtbl(
@@ -11408,6 +11601,13 @@ unsafe impl ::windows::core::Interface for IADsDNWithString {
     type Vtable = IADsDNWithStringVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x370df02e_f934_11d2_ba96_00c04fb6d0d1);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsDNWithStringImpl: IDispatchImpl {
+    fn StringValue();
+    fn SetStringValue();
+    fn DNString();
+    fn SetDNString();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsDNWithStringVtbl(
@@ -11525,6 +11725,10 @@ impl ::core::fmt::Debug for IADsDeleteOps {
 unsafe impl ::windows::core::Interface for IADsDeleteOps {
     type Vtable = IADsDeleteOpsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2bd0902_8878_11d1_8c21_00c04fd8d503);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsDeleteOpsImpl: IDispatchImpl {
+    fn DeleteObject();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11801,6 +12005,26 @@ unsafe impl ::windows::core::Interface for IADsDomain {
     type Vtable = IADsDomainVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00e4c220_fd16_11ce_abc4_02608c9e7553);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsDomainImpl: IADsImpl + IDispatchImpl {
+    fn IsWorkgroup();
+    fn MinPasswordLength();
+    fn SetMinPasswordLength();
+    fn MinPasswordAge();
+    fn SetMinPasswordAge();
+    fn MaxPasswordAge();
+    fn SetMaxPasswordAge();
+    fn MaxBadPasswordsAllowed();
+    fn SetMaxBadPasswordsAllowed();
+    fn PasswordHistoryLength();
+    fn SetPasswordHistoryLength();
+    fn PasswordAttributes();
+    fn SetPasswordAttributes();
+    fn AutoUnlockInterval();
+    fn SetAutoUnlockInterval();
+    fn LockoutObservationInterval();
+    fn SetLockoutObservationInterval();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsDomainVtbl(
@@ -11968,6 +12192,13 @@ unsafe impl ::windows::core::Interface for IADsEmail {
     type Vtable = IADsEmailVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97af011a_478e_11d1_a3b4_00c04fb950dc);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsEmailImpl: IDispatchImpl {
+    fn Type();
+    fn SetType();
+    fn Address();
+    fn SetAddress();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsEmailVtbl(
@@ -12048,6 +12279,11 @@ impl ::core::fmt::Debug for IADsExtension {
 unsafe impl ::windows::core::Interface for IADsExtension {
     type Vtable = IADsExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d35553c_d2b0_11d1_b17b_0000f87593a0);
+}
+pub trait IADsExtensionImpl {
+    fn Operate();
+    fn PrivateGetIDsOfNames();
+    fn PrivateInvoke();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12173,6 +12409,13 @@ impl ::core::fmt::Debug for IADsFaxNumber {
 unsafe impl ::windows::core::Interface for IADsFaxNumber {
     type Vtable = IADsFaxNumberVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa910dea9_4680_11d1_a3b4_00c04fb950dc);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsFaxNumberImpl: IDispatchImpl {
+    fn TelephoneNumber();
+    fn SetTelephoneNumber();
+    fn Parameters();
+    fn SetParameters();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12545,6 +12788,13 @@ unsafe impl ::windows::core::Interface for IADsFileService {
     type Vtable = IADsFileServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa89d1900_31ca_11cf_a98a_00aa006bc149);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsFileServiceImpl: IADsServiceImpl + IADsImpl + IDispatchImpl {
+    fn Description();
+    fn SetDescription();
+    fn MaxUserCount();
+    fn SetMaxUserCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsFileServiceVtbl(
@@ -12870,6 +13120,11 @@ unsafe impl ::windows::core::Interface for IADsFileServiceOperations {
     type Vtable = IADsFileServiceOperationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa02ded10_31ca_11cf_a98a_00aa006bc149);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsFileServiceOperationsImpl: IADsServiceOperationsImpl + IADsImpl + IDispatchImpl {
+    fn Sessions();
+    fn Resources();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsFileServiceOperationsVtbl(
@@ -13147,6 +13402,18 @@ unsafe impl ::windows::core::Interface for IADsFileShare {
     type Vtable = IADsFileShareVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb6dcaf0_4b83_11cf_a995_00aa006bc149);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsFileShareImpl: IADsImpl + IDispatchImpl {
+    fn CurrentUserCount();
+    fn Description();
+    fn SetDescription();
+    fn HostComputer();
+    fn SetHostComputer();
+    fn Path();
+    fn SetPath();
+    fn MaxUserCount();
+    fn SetMaxUserCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsFileShareVtbl(
@@ -13415,6 +13682,15 @@ unsafe impl ::windows::core::Interface for IADsGroup {
     type Vtable = IADsGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27636b00_410f_11cf_b1ff_02608c9e7553);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsGroupImpl: IADsImpl + IDispatchImpl {
+    fn Description();
+    fn SetDescription();
+    fn Members();
+    fn IsMember();
+    fn Add();
+    fn Remove();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsGroupVtbl(
@@ -13576,6 +13852,13 @@ unsafe impl ::windows::core::Interface for IADsHold {
     type Vtable = IADsHoldVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3eb3b37_4080_11d1_a3ac_00c04fb950dc);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsHoldImpl: IDispatchImpl {
+    fn ObjectName();
+    fn SetObjectName();
+    fn Amount();
+    fn SetAmount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsHoldVtbl(
@@ -13705,6 +13988,13 @@ impl ::core::fmt::Debug for IADsLargeInteger {
 unsafe impl ::windows::core::Interface for IADsLargeInteger {
     type Vtable = IADsLargeIntegerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9068270b_0939_11d1_8be1_00c04fd8d503);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsLargeIntegerImpl: IDispatchImpl {
+    fn HighPart();
+    fn SetHighPart();
+    fn LowPart();
+    fn SetLowPart();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13951,6 +14241,17 @@ unsafe impl ::windows::core::Interface for IADsLocality {
     type Vtable = IADsLocalityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa05e03a2_effe_11cf_8abc_00c04fd8d503);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsLocalityImpl: IADsImpl + IDispatchImpl {
+    fn Description();
+    fn SetDescription();
+    fn LocalityName();
+    fn SetLocalityName();
+    fn PostalAddress();
+    fn SetPostalAddress();
+    fn SeeAlso();
+    fn SetSeeAlso();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsLocalityVtbl(
@@ -14118,6 +14419,13 @@ unsafe impl ::windows::core::Interface for IADsMembers {
     type Vtable = IADsMembersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x451a0030_72ec_11cf_b03b_00aa006e0975);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsMembersImpl: IDispatchImpl {
+    fn Count();
+    fn _NewEnum();
+    fn Filter();
+    fn SetFilter();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsMembersVtbl(
@@ -14265,6 +14573,16 @@ impl ::core::fmt::Debug for IADsNameTranslate {
 unsafe impl ::windows::core::Interface for IADsNameTranslate {
     type Vtable = IADsNameTranslateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1b272a3_3625_11d1_a3a4_00c04fb950dc);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsNameTranslateImpl: IDispatchImpl {
+    fn SetChaseReferral();
+    fn Init();
+    fn InitEx();
+    fn Set();
+    fn Get();
+    fn SetEx();
+    fn GetEx();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14487,6 +14805,11 @@ unsafe impl ::windows::core::Interface for IADsNamespaces {
     type Vtable = IADsNamespacesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28b96ba0_b330_11cf_a9ad_00aa006bc149);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsNamespacesImpl: IADsImpl + IDispatchImpl {
+    fn DefaultContainer();
+    fn SetDefaultContainer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsNamespacesVtbl(
@@ -14640,6 +14963,13 @@ impl ::core::fmt::Debug for IADsNetAddress {
 unsafe impl ::windows::core::Interface for IADsNetAddress {
     type Vtable = IADsNetAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb21a50a9_4080_11d1_a3ac_00c04fb950dc);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsNetAddressImpl: IDispatchImpl {
+    fn AddressType();
+    fn SetAddressType();
+    fn Address();
+    fn SetAddress();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14909,6 +15239,21 @@ impl ::core::fmt::Debug for IADsO {
 unsafe impl ::windows::core::Interface for IADsO {
     type Vtable = IADsOVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1cd2dc6_effe_11cf_8abc_00c04fd8d503);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsOImpl: IADsImpl + IDispatchImpl {
+    fn Description();
+    fn SetDescription();
+    fn LocalityName();
+    fn SetLocalityName();
+    fn PostalAddress();
+    fn SetPostalAddress();
+    fn TelephoneNumber();
+    fn SetTelephoneNumber();
+    fn FaxNumber();
+    fn SetFaxNumber();
+    fn SeeAlso();
+    fn SetSeeAlso();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15232,6 +15577,23 @@ unsafe impl ::windows::core::Interface for IADsOU {
     type Vtable = IADsOUVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2f733b8_effe_11cf_8abc_00c04fd8d503);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsOUImpl: IADsImpl + IDispatchImpl {
+    fn Description();
+    fn SetDescription();
+    fn LocalityName();
+    fn SetLocalityName();
+    fn PostalAddress();
+    fn SetPostalAddress();
+    fn TelephoneNumber();
+    fn SetTelephoneNumber();
+    fn FaxNumber();
+    fn SetFaxNumber();
+    fn SeeAlso();
+    fn SetSeeAlso();
+    fn BusinessCategory();
+    fn SetBusinessCategory();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsOUVtbl(
@@ -15401,6 +15763,11 @@ unsafe impl ::windows::core::Interface for IADsObjectOptions {
     type Vtable = IADsObjectOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46f14fda_232b_11d1_a808_00c04fd8d5a8);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsObjectOptionsImpl: IDispatchImpl {
+    fn GetOption();
+    fn SetOption();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsObjectOptionsVtbl(
@@ -15522,6 +15889,11 @@ unsafe impl ::windows::core::Interface for IADsOctetList {
     type Vtable = IADsOctetListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b28b80f_4680_11d1_a3b4_00c04fb950dc);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsOctetListImpl: IDispatchImpl {
+    fn OctetList();
+    fn SetOctetList();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsOctetListVtbl(
@@ -15637,6 +16009,10 @@ impl ::core::fmt::Debug for IADsOpenDSObject {
 unsafe impl ::windows::core::Interface for IADsOpenDSObject {
     type Vtable = IADsOpenDSObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddf2891e_0f9c_11d0_8ad4_00c04fd8d503);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsOpenDSObjectImpl: IDispatchImpl {
+    fn OpenDSObject();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15776,6 +16152,15 @@ impl ::core::fmt::Debug for IADsPath {
 unsafe impl ::windows::core::Interface for IADsPath {
     type Vtable = IADsPathVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb287fcd5_4080_11d1_a3ac_00c04fb950dc);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsPathImpl: IDispatchImpl {
+    fn Type();
+    fn SetType();
+    fn VolumeName();
+    fn SetVolumeName();
+    fn Path();
+    fn SetPath();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15949,6 +16334,20 @@ unsafe impl ::windows::core::Interface for IADsPathname {
     type Vtable = IADsPathnameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd592aed4_f420_11d0_a36e_00c04fb950dc);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsPathnameImpl: IDispatchImpl {
+    fn Set();
+    fn SetDisplayType();
+    fn Retrieve();
+    fn GetNumElements();
+    fn GetElement();
+    fn AddLeafElement();
+    fn RemoveLeafElement();
+    fn CopyPath();
+    fn GetEscapedElement();
+    fn EscapedMode();
+    fn SetEscapedMode();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsPathnameVtbl(
@@ -16082,6 +16481,11 @@ impl ::core::fmt::Debug for IADsPostalAddress {
 unsafe impl ::windows::core::Interface for IADsPostalAddress {
     type Vtable = IADsPostalAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7adecf29_4680_11d1_a3b4_00c04fb950dc);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsPostalAddressImpl: IDispatchImpl {
+    fn PostalAddress();
+    fn SetPostalAddress();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16377,6 +16781,27 @@ unsafe impl ::windows::core::Interface for IADsPrintJob {
     type Vtable = IADsPrintJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32fb6780_1ed0_11cf_a988_00aa006bc149);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsPrintJobImpl: IADsImpl + IDispatchImpl {
+    fn HostPrintQueue();
+    fn User();
+    fn UserPath();
+    fn TimeSubmitted();
+    fn TotalPages();
+    fn Size();
+    fn Description();
+    fn SetDescription();
+    fn Priority();
+    fn SetPriority();
+    fn StartTime();
+    fn SetStartTime();
+    fn UntilTime();
+    fn SetUntilTime();
+    fn Notify();
+    fn SetNotify();
+    fn NotifyPath();
+    fn SetNotifyPath();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsPrintJobVtbl(
@@ -16656,6 +17081,16 @@ impl ::core::fmt::Debug for IADsPrintJobOperations {
 unsafe impl ::windows::core::Interface for IADsPrintJobOperations {
     type Vtable = IADsPrintJobOperationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a52db30_1ecf_11cf_a988_00aa006bc149);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsPrintJobOperationsImpl: IADsImpl + IDispatchImpl {
+    fn Status();
+    fn TimeElapsed();
+    fn PagesPrinted();
+    fn Position();
+    fn SetPosition();
+    fn Pause();
+    fn Resume();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17020,6 +17455,35 @@ unsafe impl ::windows::core::Interface for IADsPrintQueue {
     type Vtable = IADsPrintQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb15160d0_1226_11cf_a985_00aa006bc149);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsPrintQueueImpl: IADsImpl + IDispatchImpl {
+    fn PrinterPath();
+    fn SetPrinterPath();
+    fn Model();
+    fn SetModel();
+    fn Datatype();
+    fn SetDatatype();
+    fn PrintProcessor();
+    fn SetPrintProcessor();
+    fn Description();
+    fn SetDescription();
+    fn Location();
+    fn SetLocation();
+    fn StartTime();
+    fn SetStartTime();
+    fn UntilTime();
+    fn SetUntilTime();
+    fn DefaultJobPriority();
+    fn SetDefaultJobPriority();
+    fn Priority();
+    fn SetPriority();
+    fn BannerPage();
+    fn SetBannerPage();
+    fn PrintDevices();
+    fn SetPrintDevices();
+    fn NetAddresses();
+    fn SetNetAddresses();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsPrintQueueVtbl(
@@ -17307,6 +17771,14 @@ unsafe impl ::windows::core::Interface for IADsPrintQueueOperations {
     type Vtable = IADsPrintQueueOperationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x124be5c0_156e_11cf_a986_00aa006bc149);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsPrintQueueOperationsImpl: IADsImpl + IDispatchImpl {
+    fn Status();
+    fn PrintJobs();
+    fn Pause();
+    fn Resume();
+    fn Purge();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsPrintQueueOperationsVtbl(
@@ -17587,6 +18059,20 @@ unsafe impl ::windows::core::Interface for IADsProperty {
     type Vtable = IADsPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8f93dd3_4ae0_11cf_9e73_00aa004a5691);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsPropertyImpl: IADsImpl + IDispatchImpl {
+    fn OID();
+    fn SetOID();
+    fn Syntax();
+    fn SetSyntax();
+    fn MaxRange();
+    fn SetMaxRange();
+    fn MinRange();
+    fn SetMinRange();
+    fn MultiValued();
+    fn SetMultiValued();
+    fn Qualifiers();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsPropertyVtbl(
@@ -17776,6 +18262,18 @@ unsafe impl ::windows::core::Interface for IADsPropertyEntry {
     type Vtable = IADsPropertyEntryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05792c8e_941f_11d0_8529_00c04fd8d503);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsPropertyEntryImpl: IDispatchImpl {
+    fn Clear();
+    fn Name();
+    fn SetName();
+    fn ADsType();
+    fn SetADsType();
+    fn ControlCode();
+    fn SetControlCode();
+    fn Values();
+    fn SetValues();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsPropertyEntryVtbl(
@@ -17938,6 +18436,18 @@ impl ::core::fmt::Debug for IADsPropertyList {
 unsafe impl ::windows::core::Interface for IADsPropertyList {
     type Vtable = IADsPropertyListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6f602b6_8f69_11d0_8528_00c04fd8d503);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsPropertyListImpl: IDispatchImpl {
+    fn PropertyCount();
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Item();
+    fn GetPropertyItem();
+    fn PutPropertyItem();
+    fn ResetPropertyItem();
+    fn PurgePropertyList();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18187,6 +18697,34 @@ unsafe impl ::windows::core::Interface for IADsPropertyValue {
     type Vtable = IADsPropertyValueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79fa9ad0_a97c_11d0_8534_00c04fd8d503);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsPropertyValueImpl: IDispatchImpl {
+    fn Clear();
+    fn ADsType();
+    fn SetADsType();
+    fn DNString();
+    fn SetDNString();
+    fn CaseExactString();
+    fn SetCaseExactString();
+    fn CaseIgnoreString();
+    fn SetCaseIgnoreString();
+    fn PrintableString();
+    fn SetPrintableString();
+    fn NumericString();
+    fn SetNumericString();
+    fn Boolean();
+    fn SetBoolean();
+    fn Integer();
+    fn SetInteger();
+    fn OctetString();
+    fn SetOctetString();
+    fn SecurityDescriptor();
+    fn SetSecurityDescriptor();
+    fn LargeInteger();
+    fn SetLargeInteger();
+    fn UTCTime();
+    fn SetUTCTime();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsPropertyValueVtbl(
@@ -18343,6 +18881,11 @@ impl ::core::fmt::Debug for IADsPropertyValue2 {
 unsafe impl ::windows::core::Interface for IADsPropertyValue2 {
     type Vtable = IADsPropertyValue2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x306e831c_5bc7_11d1_a3b8_00c04fb950dc);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsPropertyValue2Impl: IDispatchImpl {
+    fn GetObjectProperty();
+    fn PutObjectProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18502,6 +19045,19 @@ impl ::core::fmt::Debug for IADsReplicaPointer {
 unsafe impl ::windows::core::Interface for IADsReplicaPointer {
     type Vtable = IADsReplicaPointerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf60fb803_4080_11d1_a3ac_00c04fb950dc);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsReplicaPointerImpl: IDispatchImpl {
+    fn ServerName();
+    fn SetServerName();
+    fn ReplicaType();
+    fn SetReplicaType();
+    fn ReplicaNumber();
+    fn SetReplicaNumber();
+    fn Count();
+    fn SetCount();
+    fn ReplicaAddressHints();
+    fn SetReplicaAddressHints();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18736,6 +19292,13 @@ impl ::core::fmt::Debug for IADsResource {
 unsafe impl ::windows::core::Interface for IADsResource {
     type Vtable = IADsResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34a05b20_4aab_11cf_ae2c_00aa006ebfb9);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsResourceImpl: IADsImpl + IDispatchImpl {
+    fn User();
+    fn UserPath();
+    fn Path();
+    fn LockCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18978,6 +19541,30 @@ unsafe impl ::windows::core::Interface for IADsSecurityDescriptor {
     type Vtable = IADsSecurityDescriptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8c787ca_9bdd_11d0_852c_00c04fd8d503);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsSecurityDescriptorImpl: IDispatchImpl {
+    fn Revision();
+    fn SetRevision();
+    fn Control();
+    fn SetControl();
+    fn Owner();
+    fn SetOwner();
+    fn OwnerDefaulted();
+    fn SetOwnerDefaulted();
+    fn Group();
+    fn SetGroup();
+    fn GroupDefaulted();
+    fn SetGroupDefaulted();
+    fn DiscretionaryAcl();
+    fn SetDiscretionaryAcl();
+    fn DaclDefaulted();
+    fn SetDaclDefaulted();
+    fn SystemAcl();
+    fn SetSystemAcl();
+    fn SaclDefaulted();
+    fn SetSaclDefaulted();
+    fn CopySecurityDescriptor();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsSecurityDescriptorVtbl(
@@ -19139,6 +19726,14 @@ impl ::core::fmt::Debug for IADsSecurityUtility {
 unsafe impl ::windows::core::Interface for IADsSecurityUtility {
     type Vtable = IADsSecurityUtilityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa63251b2_5f21_474b_ab52_4a8efad10895);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsSecurityUtilityImpl: IDispatchImpl {
+    fn GetSecurityDescriptor();
+    fn SetSecurityDescriptor();
+    fn ConvertSecurityDescriptor();
+    fn SecurityMask();
+    fn SetSecurityMask();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19471,6 +20066,33 @@ unsafe impl ::windows::core::Interface for IADsService {
     type Vtable = IADsServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68af66e0_31ca_11cf_a98a_00aa006bc149);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsServiceImpl: IADsImpl + IDispatchImpl {
+    fn HostComputer();
+    fn SetHostComputer();
+    fn DisplayName();
+    fn SetDisplayName();
+    fn Version();
+    fn SetVersion();
+    fn ServiceType();
+    fn SetServiceType();
+    fn StartType();
+    fn SetStartType();
+    fn Path();
+    fn SetPath();
+    fn StartupParameters();
+    fn SetStartupParameters();
+    fn ErrorControl();
+    fn SetErrorControl();
+    fn LoadOrderGroup();
+    fn SetLoadOrderGroup();
+    fn ServiceAccountName();
+    fn SetServiceAccountName();
+    fn ServiceAccountPath();
+    fn SetServiceAccountPath();
+    fn Dependencies();
+    fn SetDependencies();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsServiceVtbl(
@@ -19760,6 +20382,15 @@ unsafe impl ::windows::core::Interface for IADsServiceOperations {
     type Vtable = IADsServiceOperationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d7b33f0_31ca_11cf_a98a_00aa006bc149);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsServiceOperationsImpl: IADsImpl + IDispatchImpl {
+    fn Status();
+    fn Start();
+    fn Stop();
+    fn Pause();
+    fn Continue();
+    fn SetPassword();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsServiceOperationsVtbl(
@@ -20022,6 +20653,15 @@ unsafe impl ::windows::core::Interface for IADsSession {
     type Vtable = IADsSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x398b7da0_4aab_11cf_ae2c_00aa006ebfb9);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsSessionImpl: IADsImpl + IDispatchImpl {
+    fn User();
+    fn UserPath();
+    fn Computer();
+    fn ComputerPath();
+    fn ConnectTime();
+    fn IdleTime();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsSessionVtbl(
@@ -20262,6 +20902,11 @@ unsafe impl ::windows::core::Interface for IADsSyntax {
     type Vtable = IADsSyntaxVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8f93dd2_4ae0_11cf_9e73_00aa004a5691);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsSyntaxImpl: IADsImpl + IDispatchImpl {
+    fn OleAutoDataType();
+    fn SetOleAutoDataType();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsSyntaxVtbl(
@@ -20412,6 +21057,13 @@ unsafe impl ::windows::core::Interface for IADsTimestamp {
     type Vtable = IADsTimestampVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2f5a901_4080_11d1_a3ac_00c04fb950dc);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsTimestampImpl: IDispatchImpl {
+    fn WholeSeconds();
+    fn SetWholeSeconds();
+    fn EventID();
+    fn SetEventID();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsTimestampVtbl(
@@ -20550,6 +21202,15 @@ impl ::core::fmt::Debug for IADsTypedName {
 unsafe impl ::windows::core::Interface for IADsTypedName {
     type Vtable = IADsTypedNameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb371a349_4080_11d1_a3ac_00c04fb950dc);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsTypedNameImpl: IDispatchImpl {
+    fn ObjectName();
+    fn SetObjectName();
+    fn Level();
+    fn SetLevel();
+    fn Interval();
+    fn SetInterval();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21231,6 +21892,100 @@ unsafe impl ::windows::core::Interface for IADsUser {
     type Vtable = IADsUserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e37e320_17e2_11cf_abc4_02608c9e7553);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsUserImpl: IADsImpl + IDispatchImpl {
+    fn BadLoginAddress();
+    fn BadLoginCount();
+    fn LastLogin();
+    fn LastLogoff();
+    fn LastFailedLogin();
+    fn PasswordLastChanged();
+    fn Description();
+    fn SetDescription();
+    fn Division();
+    fn SetDivision();
+    fn Department();
+    fn SetDepartment();
+    fn EmployeeID();
+    fn SetEmployeeID();
+    fn FullName();
+    fn SetFullName();
+    fn FirstName();
+    fn SetFirstName();
+    fn LastName();
+    fn SetLastName();
+    fn OtherName();
+    fn SetOtherName();
+    fn NamePrefix();
+    fn SetNamePrefix();
+    fn NameSuffix();
+    fn SetNameSuffix();
+    fn Title();
+    fn SetTitle();
+    fn Manager();
+    fn SetManager();
+    fn TelephoneHome();
+    fn SetTelephoneHome();
+    fn TelephoneMobile();
+    fn SetTelephoneMobile();
+    fn TelephoneNumber();
+    fn SetTelephoneNumber();
+    fn TelephonePager();
+    fn SetTelephonePager();
+    fn FaxNumber();
+    fn SetFaxNumber();
+    fn OfficeLocations();
+    fn SetOfficeLocations();
+    fn PostalAddresses();
+    fn SetPostalAddresses();
+    fn PostalCodes();
+    fn SetPostalCodes();
+    fn SeeAlso();
+    fn SetSeeAlso();
+    fn AccountDisabled();
+    fn SetAccountDisabled();
+    fn AccountExpirationDate();
+    fn SetAccountExpirationDate();
+    fn GraceLoginsAllowed();
+    fn SetGraceLoginsAllowed();
+    fn GraceLoginsRemaining();
+    fn SetGraceLoginsRemaining();
+    fn IsAccountLocked();
+    fn SetIsAccountLocked();
+    fn LoginHours();
+    fn SetLoginHours();
+    fn LoginWorkstations();
+    fn SetLoginWorkstations();
+    fn MaxLogins();
+    fn SetMaxLogins();
+    fn MaxStorage();
+    fn SetMaxStorage();
+    fn PasswordExpirationDate();
+    fn SetPasswordExpirationDate();
+    fn PasswordMinimumLength();
+    fn SetPasswordMinimumLength();
+    fn PasswordRequired();
+    fn SetPasswordRequired();
+    fn RequireUniquePassword();
+    fn SetRequireUniquePassword();
+    fn EmailAddress();
+    fn SetEmailAddress();
+    fn HomeDirectory();
+    fn SetHomeDirectory();
+    fn Languages();
+    fn SetLanguages();
+    fn Profile();
+    fn SetProfile();
+    fn LoginScript();
+    fn SetLoginScript();
+    fn Picture();
+    fn SetPicture();
+    fn HomePage();
+    fn SetHomePage();
+    fn Groups();
+    fn SetPassword();
+    fn ChangePassword();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsUserVtbl(
@@ -21539,6 +22294,13 @@ unsafe impl ::windows::core::Interface for IADsWinNTSystemInfo {
     type Vtable = IADsWinNTSystemInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c6d65dc_afd1_11d2_9cb9_0000f87a369e);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IADsWinNTSystemInfoImpl: IDispatchImpl {
+    fn UserName();
+    fn ComputerName();
+    fn DomainName();
+    fn PDC();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsWinNTSystemInfoVtbl(
@@ -21611,6 +22373,9 @@ impl ::core::fmt::Debug for ICommonQuery {
 unsafe impl ::windows::core::Interface for ICommonQuery {
     type Vtable = ICommonQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab50dec0_6f1d_11d0_a1c4_00aa00c16e65);
+}
+pub trait ICommonQueryImpl {
+    fn OpenQueryWindow();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21693,6 +22458,13 @@ impl ::core::fmt::Debug for IDirectoryObject {
 unsafe impl ::windows::core::Interface for IDirectoryObject {
     type Vtable = IDirectoryObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe798de2c_22e4_11d0_84fe_00c04fd8d503);
+}
+pub trait IDirectoryObjectImpl {
+    fn GetObjectInformation();
+    fn GetObjectAttributes();
+    fn SetObjectAttributes();
+    fn CreateDSObject();
+    fn DeleteDSObject();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21795,6 +22567,16 @@ impl ::core::fmt::Debug for IDirectorySchemaMgmt {
 unsafe impl ::windows::core::Interface for IDirectorySchemaMgmt {
     type Vtable = IDirectorySchemaMgmtVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75db3b9c_a4d8_11d0_a79c_00c04fd8d5a8);
+}
+pub trait IDirectorySchemaMgmtImpl {
+    fn EnumAttributes();
+    fn CreateAttributeDefinition();
+    fn WriteAttributeDefinition();
+    fn DeleteAttributeDefinition();
+    fn EnumClasses();
+    fn WriteClassDefinition();
+    fn CreateClassDefinition();
+    fn DeleteClassDefinition();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21911,6 +22693,18 @@ unsafe impl ::windows::core::Interface for IDirectorySearch {
     type Vtable = IDirectorySearchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x109ba8ec_92f0_11d0_a790_00c04fd8d5a8);
 }
+pub trait IDirectorySearchImpl {
+    fn SetSearchPreference();
+    fn ExecuteSearch();
+    fn AbandonSearch();
+    fn GetFirstRow();
+    fn GetNextRow();
+    fn GetPreviousRow();
+    fn GetNextColumnName();
+    fn GetColumn();
+    fn FreeColumn();
+    fn CloseSearchHandle();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectorySearchVtbl(
@@ -21989,6 +22783,10 @@ unsafe impl ::windows::core::Interface for IDsAdminCreateObj {
     type Vtable = IDsAdminCreateObjVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53554a38_f902_11d2_82b9_00c04f68928b);
 }
+pub trait IDsAdminCreateObjImpl {
+    fn Initialize();
+    fn CreateModal();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminCreateObjVtbl(
@@ -22053,6 +22851,10 @@ impl ::core::fmt::Debug for IDsAdminNewObj {
 unsafe impl ::windows::core::Interface for IDsAdminNewObj {
     type Vtable = IDsAdminNewObjVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2573587_e6fc_11d2_82af_00c04f68928b);
+}
+pub trait IDsAdminNewObjImpl {
+    fn SetButtons();
+    fn GetPageCounts();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22138,6 +22940,14 @@ unsafe impl ::windows::core::Interface for IDsAdminNewObjExt {
     type Vtable = IDsAdminNewObjExtVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6088eae2_e7bf_11d2_82af_00c04f68928b);
 }
+pub trait IDsAdminNewObjExtImpl {
+    fn Initialize();
+    fn AddPages();
+    fn SetObject();
+    fn WriteData();
+    fn OnError();
+    fn GetSummaryInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminNewObjExtVtbl(
@@ -22209,6 +23019,10 @@ impl ::core::fmt::Debug for IDsAdminNewObjPrimarySite {
 unsafe impl ::windows::core::Interface for IDsAdminNewObjPrimarySite {
     type Vtable = IDsAdminNewObjPrimarySiteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe2b487e_f904_11d2_82b9_00c04f68928b);
+}
+pub trait IDsAdminNewObjPrimarySiteImpl {
+    fn CreateNew();
+    fn Commit();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22282,6 +23096,12 @@ impl ::core::fmt::Debug for IDsAdminNotifyHandler {
 unsafe impl ::windows::core::Interface for IDsAdminNotifyHandler {
     type Vtable = IDsAdminNotifyHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4a2b8b3_5a18_11d2_97c1_00a0c9a06d2d);
+}
+pub trait IDsAdminNotifyHandlerImpl {
+    fn Initialize();
+    fn Begin();
+    fn Notify();
+    fn End();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22364,6 +23184,13 @@ impl ::core::fmt::Debug for IDsBrowseDomainTree {
 unsafe impl ::windows::core::Interface for IDsBrowseDomainTree {
     type Vtable = IDsBrowseDomainTreeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cabcf1e_78f5_11d2_960c_00c04fa31a86);
+}
+pub trait IDsBrowseDomainTreeImpl {
+    fn BrowseTo();
+    fn GetDomains();
+    fn FreeDomains();
+    fn FlushCachedDomains();
+    fn SetComputer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22480,6 +23307,19 @@ unsafe impl ::windows::core::Interface for IDsDisplaySpecifier {
     type Vtable = IDsDisplaySpecifierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ab4a8c0_6a0b_11d2_ad49_00c04fa31a86);
 }
+pub trait IDsDisplaySpecifierImpl {
+    fn SetServer();
+    fn SetLanguageID();
+    fn GetDisplaySpecifier();
+    fn GetIconLocation();
+    fn GetIcon();
+    fn GetFriendlyClassName();
+    fn GetFriendlyAttributeName();
+    fn IsClassContainer();
+    fn GetClassCreationInfo();
+    fn EnumClassAttributes();
+    fn GetAttributeADsType();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsDisplaySpecifierVtbl(
@@ -22563,6 +23403,10 @@ impl ::core::fmt::Debug for IDsObjectPicker {
 unsafe impl ::windows::core::Interface for IDsObjectPicker {
     type Vtable = IDsObjectPickerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c87e64e_3b7a_11d2_b9e0_00c04fd8dbf7);
+}
+pub trait IDsObjectPickerImpl {
+    fn Initialize();
+    fn InvokeDialog();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22655,6 +23499,9 @@ impl ::core::fmt::Debug for IDsObjectPickerCredentials {
 unsafe impl ::windows::core::Interface for IDsObjectPickerCredentials {
     type Vtable = IDsObjectPickerCredentialsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2d3ec9b_d041_445a_8f16_4748de8fb1cf);
+}
+pub trait IDsObjectPickerCredentialsImpl: IDsObjectPickerImpl {
+    fn SetCredentials();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22778,6 +23625,16 @@ unsafe impl ::windows::core::Interface for IPersistQuery {
     type Vtable = IPersistQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a3114b8_a62e_11d0_a6c5_00a0c906af45);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IPersistQueryImpl: IPersistImpl {
+    fn WriteString();
+    fn ReadString();
+    fn WriteInt();
+    fn ReadInt();
+    fn WriteStruct();
+    fn ReadStruct();
+    fn Clear();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPersistQueryVtbl(
@@ -22870,6 +23727,13 @@ unsafe impl ::windows::core::Interface for IPrivateDispatch {
     type Vtable = IPrivateDispatchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86ab4bbe_65f6_11d1_8c13_00c04fd8d503);
 }
+pub trait IPrivateDispatchImpl {
+    fn ADSIInitializeDispatchManager();
+    fn ADSIGetTypeInfoCount();
+    fn ADSIGetTypeInfo();
+    fn ADSIGetIDsOfNames();
+    fn ADSIInvoke();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrivateDispatchVtbl(
@@ -22937,6 +23801,10 @@ impl ::core::fmt::Debug for IPrivateUnknown {
 unsafe impl ::windows::core::Interface for IPrivateUnknown {
     type Vtable = IPrivateUnknownVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89126bab_6ead_11d1_8c18_00c04fd8d503);
+}
+pub trait IPrivateUnknownImpl {
+    fn ADSIInitializeObject();
+    fn ADSIReleaseObject();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23007,6 +23875,11 @@ impl ::core::fmt::Debug for IQueryForm {
 unsafe impl ::windows::core::Interface for IQueryForm {
     type Vtable = IQueryFormVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cfcee30_39bd_11d0_b8d1_00a024ab2dbb);
+}
+pub trait IQueryFormImpl {
+    fn Initialize();
+    fn AddForms();
+    fn AddPages();
 }
 #[repr(C)]
 #[doc(hidden)]

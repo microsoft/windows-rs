@@ -127,6 +127,8 @@ unsafe impl ::windows::core::Interface for DIFsrmClassificationEvents {
     type Vtable = DIFsrmClassificationEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26942db0_dabf_41d8_bbdd_b129a9f70424);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait DIFsrmClassificationEventsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct DIFsrmClassificationEventsVtbl(
@@ -1017,6 +1019,10 @@ unsafe impl ::windows::core::Interface for IFsrmAccessDeniedRemediationClient {
     type Vtable = IFsrmAccessDeniedRemediationClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40002314_590b_45a5_8e1b_8c05da527e52);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmAccessDeniedRemediationClientImpl: IDispatchImpl {
+    fn Show();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmAccessDeniedRemediationClientVtbl(
@@ -1147,6 +1153,14 @@ impl ::core::fmt::Debug for IFsrmAction {
 unsafe impl ::windows::core::Interface for IFsrmAction {
     type Vtable = IFsrmActionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cd6408a_ae60_463b_9ef1_e117534d69dc);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmActionImpl: IDispatchImpl {
+    fn Id();
+    fn ActionType();
+    fn RunLimitInterval();
+    fn SetRunLimitInterval();
+    fn Delete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1370,6 +1384,23 @@ impl ::core::fmt::Debug for IFsrmActionCommand {
 unsafe impl ::windows::core::Interface for IFsrmActionCommand {
     type Vtable = IFsrmActionCommandVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12937789_e247_4917_9c20_f3ee9c7ee783);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmActionCommandImpl: IFsrmActionImpl + IDispatchImpl {
+    fn ExecutablePath();
+    fn SetExecutablePath();
+    fn Arguments();
+    fn SetArguments();
+    fn Account();
+    fn SetAccount();
+    fn WorkingDirectory();
+    fn SetWorkingDirectory();
+    fn MonitorCommand();
+    fn SetMonitorCommand();
+    fn KillTimeOut();
+    fn SetKillTimeOut();
+    fn LogResult();
+    fn SetLogResult();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1621,6 +1652,23 @@ impl ::core::fmt::Debug for IFsrmActionEmail {
 unsafe impl ::windows::core::Interface for IFsrmActionEmail {
     type Vtable = IFsrmActionEmailVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd646567d_26ae_4caa_9f84_4e0aad207fca);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmActionEmailImpl: IFsrmActionImpl + IDispatchImpl {
+    fn MailFrom();
+    fn SetMailFrom();
+    fn MailReplyTo();
+    fn SetMailReplyTo();
+    fn MailTo();
+    fn SetMailTo();
+    fn MailCc();
+    fn SetMailCc();
+    fn MailBcc();
+    fn SetMailBcc();
+    fn MailSubject();
+    fn SetMailSubject();
+    fn MessageText();
+    fn SetMessageText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1910,6 +1958,11 @@ unsafe impl ::windows::core::Interface for IFsrmActionEmail2 {
     type Vtable = IFsrmActionEmail2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8276702f_2532_4839_89bf_4872609a2ea4);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmActionEmail2Impl: IFsrmActionEmailImpl + IFsrmActionImpl + IDispatchImpl {
+    fn AttachmentFileListSize();
+    fn SetAttachmentFileListSize();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmActionEmail2Vtbl(
@@ -2114,6 +2167,13 @@ unsafe impl ::windows::core::Interface for IFsrmActionEventLog {
     type Vtable = IFsrmActionEventLogVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c8f96c3_5d94_4f37_a4f4_f56ab463546f);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmActionEventLogImpl: IFsrmActionImpl + IDispatchImpl {
+    fn EventType();
+    fn SetEventType();
+    fn MessageText();
+    fn SetMessageText();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmActionEventLogVtbl(
@@ -2295,6 +2355,13 @@ impl ::core::fmt::Debug for IFsrmActionReport {
 unsafe impl ::windows::core::Interface for IFsrmActionReport {
     type Vtable = IFsrmActionReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dbe63c4_b340_48a0_a5b0_158e07fc567e);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmActionReportImpl: IFsrmActionImpl + IDispatchImpl {
+    fn ReportTypes();
+    fn SetReportTypes();
+    fn MailTo();
+    fn SetMailTo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2597,6 +2664,12 @@ unsafe impl ::windows::core::Interface for IFsrmAutoApplyQuota {
     type Vtable = IFsrmAutoApplyQuotaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf82e5729_6aba_4740_bfc7_c7f58f75fb7b);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmAutoApplyQuotaImpl: IFsrmQuotaObjectImpl + IFsrmQuotaBaseImpl + IFsrmObjectImpl + IDispatchImpl {
+    fn ExcludeFolders();
+    fn SetExcludeFolders();
+    fn CommitAndUpdateDerived();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmAutoApplyQuotaVtbl(
@@ -2879,6 +2952,36 @@ impl ::core::fmt::Debug for IFsrmClassificationManager {
 unsafe impl ::windows::core::Interface for IFsrmClassificationManager {
     type Vtable = IFsrmClassificationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2dc89da_ee91_48a0_85d8_cc72a56f7d04);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmClassificationManagerImpl: IDispatchImpl {
+    fn ClassificationReportFormats();
+    fn SetClassificationReportFormats();
+    fn Logging();
+    fn SetLogging();
+    fn ClassificationReportMailTo();
+    fn SetClassificationReportMailTo();
+    fn ClassificationReportEnabled();
+    fn SetClassificationReportEnabled();
+    fn ClassificationLastReportPathWithoutExtension();
+    fn ClassificationLastError();
+    fn ClassificationRunningStatus();
+    fn EnumPropertyDefinitions();
+    fn CreatePropertyDefinition();
+    fn GetPropertyDefinition();
+    fn EnumRules();
+    fn CreateRule();
+    fn GetRule();
+    fn EnumModuleDefinitions();
+    fn CreateModuleDefinition();
+    fn GetModuleDefinition();
+    fn RunClassification();
+    fn WaitForClassificationCompletion();
+    fn CancelClassification();
+    fn EnumFileProperties();
+    fn GetFileProperty();
+    fn SetFileProperty();
+    fn ClearFileProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3193,6 +3296,10 @@ unsafe impl ::windows::core::Interface for IFsrmClassificationManager2 {
     type Vtable = IFsrmClassificationManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0004c1c9_127e_4765_ba07_6a3147bca112);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmClassificationManager2Impl: IFsrmClassificationManagerImpl + IDispatchImpl {
+    fn ClassifyFiles();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmClassificationManager2Vtbl(
@@ -3500,6 +3607,15 @@ impl ::core::fmt::Debug for IFsrmClassificationRule {
 unsafe impl ::windows::core::Interface for IFsrmClassificationRule {
     type Vtable = IFsrmClassificationRuleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafc052c2_5315_45ab_841b_c6db0e120148);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmClassificationRuleImpl: IFsrmRuleImpl + IFsrmObjectImpl + IDispatchImpl {
+    fn ExecutionOption();
+    fn SetExecutionOption();
+    fn PropertyAffected();
+    fn SetPropertyAffected();
+    fn Value();
+    fn SetValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3838,6 +3954,15 @@ unsafe impl ::windows::core::Interface for IFsrmClassifierModuleDefinition {
     type Vtable = IFsrmClassifierModuleDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb36ea26_6318_4b8c_8592_f72dd602e7a5);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmClassifierModuleDefinitionImpl: IFsrmPipelineModuleDefinitionImpl + IFsrmObjectImpl + IDispatchImpl {
+    fn PropertiesAffected();
+    fn SetPropertiesAffected();
+    fn PropertiesUsed();
+    fn SetPropertiesUsed();
+    fn NeedsExplicitValue();
+    fn SetNeedsExplicitValue();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmClassifierModuleDefinitionVtbl(
@@ -4050,6 +4175,15 @@ unsafe impl ::windows::core::Interface for IFsrmClassifierModuleImplementation {
     type Vtable = IFsrmClassifierModuleImplementationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c968fc6_6edb_4051_9c18_73b7291ae106);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmClassifierModuleImplementationImpl: IFsrmPipelineModuleImplementationImpl + IDispatchImpl {
+    fn LastModified();
+    fn UseRulesAndDefinitions();
+    fn OnBeginFile();
+    fn DoesPropertyValueApply();
+    fn GetPropertyValueToApply();
+    fn OnEndFile();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmClassifierModuleImplementationVtbl(
@@ -4203,6 +4337,16 @@ impl ::core::fmt::Debug for IFsrmCollection {
 unsafe impl ::windows::core::Interface for IFsrmCollection {
     type Vtable = IFsrmCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf76fbf3b_8ddd_4b42_b05a_cb1c3ff1fee8);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmCollectionImpl: IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+    fn State();
+    fn Cancel();
+    fn WaitForCompletion();
+    fn GetById();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4418,6 +4562,10 @@ unsafe impl ::windows::core::Interface for IFsrmCommittableCollection {
     type Vtable = IFsrmCommittableCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96deb3b5_8b91_4a2a_9d93_80a35d8aa847);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmCommittableCollectionImpl: IFsrmMutableCollectionImpl + IFsrmCollectionImpl + IDispatchImpl {
+    fn Commit();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmCommittableCollectionVtbl(
@@ -4548,6 +4696,11 @@ impl ::core::fmt::Debug for IFsrmDerivedObjectsResult {
 unsafe impl ::windows::core::Interface for IFsrmDerivedObjectsResult {
     type Vtable = IFsrmDerivedObjectsResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39322a2d_38ee_4d0d_8095_421a80849a82);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmDerivedObjectsResultImpl: IDispatchImpl {
+    fn DerivedObjects();
+    fn Results();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4690,6 +4843,15 @@ unsafe impl ::windows::core::Interface for IFsrmExportImport {
     type Vtable = IFsrmExportImportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefcb0ab1_16c4_4a79_812c_725614c3306b);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmExportImportImpl: IDispatchImpl {
+    fn ExportFileGroups();
+    fn ImportFileGroups();
+    fn ExportFileScreenTemplates();
+    fn ImportFileScreenTemplates();
+    fn ExportQuotaTemplates();
+    fn ImportQuotaTemplates();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmExportImportVtbl(
@@ -4816,6 +4978,11 @@ impl ::core::fmt::Debug for IFsrmFileCondition {
 unsafe impl ::windows::core::Interface for IFsrmFileCondition {
     type Vtable = IFsrmFileConditionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70684ffc_691a_4a1a_b922_97752e138cc1);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmFileConditionImpl: IDispatchImpl {
+    fn Type();
+    fn Delete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5002,6 +5169,19 @@ impl ::core::fmt::Debug for IFsrmFileConditionProperty {
 unsafe impl ::windows::core::Interface for IFsrmFileConditionProperty {
     type Vtable = IFsrmFileConditionPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81926775_b981_4479_988f_da171d627360);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmFileConditionPropertyImpl: IFsrmFileConditionImpl + IDispatchImpl {
+    fn PropertyName();
+    fn SetPropertyName();
+    fn PropertyId();
+    fn SetPropertyId();
+    fn Operator();
+    fn SetOperator();
+    fn ValueType();
+    fn SetValueType();
+    fn Value();
+    fn SetValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5197,6 +5377,15 @@ impl ::core::fmt::Debug for IFsrmFileGroup {
 unsafe impl ::windows::core::Interface for IFsrmFileGroup {
     type Vtable = IFsrmFileGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8dd04909_0e34_4d55_afaa_89e1f1a1bbb9);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmFileGroupImpl: IFsrmObjectImpl + IDispatchImpl {
+    fn Name();
+    fn SetName();
+    fn Members();
+    fn SetMembers();
+    fn NonMembers();
+    fn SetNonMembers();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5421,6 +5610,11 @@ unsafe impl ::windows::core::Interface for IFsrmFileGroupImported {
     type Vtable = IFsrmFileGroupImportedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad55f10b_5f11_4be7_94ef_d9ee2e470ded);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmFileGroupImportedImpl: IFsrmFileGroupImpl + IFsrmObjectImpl + IDispatchImpl {
+    fn OverwriteOnCommit();
+    fn SetOverwriteOnCommit();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmFileGroupImportedVtbl(
@@ -5571,6 +5765,14 @@ impl ::core::fmt::Debug for IFsrmFileGroupManager {
 unsafe impl ::windows::core::Interface for IFsrmFileGroupManager {
     type Vtable = IFsrmFileGroupManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x426677d5_018c_485c_8a51_20b86d00bdc4);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmFileGroupManagerImpl: IDispatchImpl {
+    fn CreateFileGroup();
+    fn GetFileGroup();
+    fn EnumFileGroups();
+    fn ExportFileGroups();
+    fn ImportFileGroups();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5974,6 +6176,58 @@ unsafe impl ::windows::core::Interface for IFsrmFileManagementJob {
     type Vtable = IFsrmFileManagementJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0770687e_9f36_4d6f_8778_599d188461c9);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmFileManagementJobImpl: IFsrmObjectImpl + IDispatchImpl {
+    fn Name();
+    fn SetName();
+    fn NamespaceRoots();
+    fn SetNamespaceRoots();
+    fn Enabled();
+    fn SetEnabled();
+    fn OperationType();
+    fn SetOperationType();
+    fn ExpirationDirectory();
+    fn SetExpirationDirectory();
+    fn CustomAction();
+    fn Notifications();
+    fn Logging();
+    fn SetLogging();
+    fn ReportEnabled();
+    fn SetReportEnabled();
+    fn Formats();
+    fn SetFormats();
+    fn MailTo();
+    fn SetMailTo();
+    fn DaysSinceFileCreated();
+    fn SetDaysSinceFileCreated();
+    fn DaysSinceFileLastAccessed();
+    fn SetDaysSinceFileLastAccessed();
+    fn DaysSinceFileLastModified();
+    fn SetDaysSinceFileLastModified();
+    fn PropertyConditions();
+    fn FromDate();
+    fn SetFromDate();
+    fn Task();
+    fn SetTask();
+    fn Parameters();
+    fn SetParameters();
+    fn RunningStatus();
+    fn LastError();
+    fn LastReportPathWithoutExtension();
+    fn LastRun();
+    fn FileNamePattern();
+    fn SetFileNamePattern();
+    fn Run();
+    fn WaitForCompletion();
+    fn Cancel();
+    fn AddNotification();
+    fn DeleteNotification();
+    fn ModifyNotification();
+    fn CreateNotificationAction();
+    fn EnumNotificationActions();
+    fn CreatePropertyCondition();
+    fn CreateCustomAction();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmFileManagementJobVtbl(
@@ -6183,6 +6437,14 @@ impl ::core::fmt::Debug for IFsrmFileManagementJobManager {
 unsafe impl ::windows::core::Interface for IFsrmFileManagementJobManager {
     type Vtable = IFsrmFileManagementJobManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee321ecb_d95e_48e9_907c_c7685a013235);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmFileManagementJobManagerImpl: IDispatchImpl {
+    fn ActionVariables();
+    fn ActionVariableDescriptions();
+    fn EnumFileManagementJobs();
+    fn CreateFileManagementJob();
+    fn GetFileManagementJob();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6424,6 +6686,15 @@ unsafe impl ::windows::core::Interface for IFsrmFileScreen {
     type Vtable = IFsrmFileScreenVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f6325d3_ce88_4733_84c1_2d6aefc5ea07);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmFileScreenImpl: IFsrmFileScreenBaseImpl + IFsrmObjectImpl + IDispatchImpl {
+    fn Path();
+    fn SourceTemplateName();
+    fn MatchesSourceTemplate();
+    fn UserSid();
+    fn UserAccount();
+    fn ApplyTemplate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmFileScreenVtbl(
@@ -6626,6 +6897,15 @@ unsafe impl ::windows::core::Interface for IFsrmFileScreenBase {
     type Vtable = IFsrmFileScreenBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3637e80_5b22_4a2b_a637_bbb642b41cfc);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmFileScreenBaseImpl: IFsrmObjectImpl + IDispatchImpl {
+    fn BlockedFileGroups();
+    fn SetBlockedFileGroups();
+    fn FileScreenFlags();
+    fn SetFileScreenFlags();
+    fn CreateAction();
+    fn EnumActions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmFileScreenBaseVtbl(
@@ -6804,6 +7084,12 @@ unsafe impl ::windows::core::Interface for IFsrmFileScreenException {
     type Vtable = IFsrmFileScreenExceptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbee7ce02_df77_4515_9389_78f01c5afc1a);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmFileScreenExceptionImpl: IFsrmObjectImpl + IDispatchImpl {
+    fn Path();
+    fn AllowedFileGroups();
+    fn SetAllowedFileGroups();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmFileScreenExceptionVtbl(
@@ -6973,6 +7259,18 @@ impl ::core::fmt::Debug for IFsrmFileScreenManager {
 unsafe impl ::windows::core::Interface for IFsrmFileScreenManager {
     type Vtable = IFsrmFileScreenManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff4fa04e_5a94_4bda_a3a0_d5b4d3c52eba);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmFileScreenManagerImpl: IDispatchImpl {
+    fn ActionVariables();
+    fn ActionVariableDescriptions();
+    fn CreateFileScreen();
+    fn GetFileScreen();
+    fn EnumFileScreens();
+    fn CreateFileScreenException();
+    fn GetFileScreenException();
+    fn EnumFileScreenExceptions();
+    fn CreateFileScreenCollection();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7209,6 +7507,13 @@ impl ::core::fmt::Debug for IFsrmFileScreenTemplate {
 unsafe impl ::windows::core::Interface for IFsrmFileScreenTemplate {
     type Vtable = IFsrmFileScreenTemplateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x205bebf8_dd93_452a_95a6_32b566b35828);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmFileScreenTemplateImpl: IFsrmFileScreenBaseImpl + IFsrmObjectImpl + IDispatchImpl {
+    fn Name();
+    fn SetName();
+    fn CopyTemplate();
+    fn CommitAndUpdateDerived();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7478,6 +7783,11 @@ unsafe impl ::windows::core::Interface for IFsrmFileScreenTemplateImported {
     type Vtable = IFsrmFileScreenTemplateImportedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1010359_3e5d_4ecd_9fe4_ef48622fdf30);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmFileScreenTemplateImportedImpl: IFsrmFileScreenTemplateImpl + IFsrmFileScreenBaseImpl + IFsrmObjectImpl + IDispatchImpl {
+    fn OverwriteOnCommit();
+    fn SetOverwriteOnCommit();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmFileScreenTemplateImportedVtbl(
@@ -7633,6 +7943,14 @@ impl ::core::fmt::Debug for IFsrmFileScreenTemplateManager {
 unsafe impl ::windows::core::Interface for IFsrmFileScreenTemplateManager {
     type Vtable = IFsrmFileScreenTemplateManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfe36cba_1949_4e74_a14f_f1d580ceaf13);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmFileScreenTemplateManagerImpl: IDispatchImpl {
+    fn CreateTemplate();
+    fn GetTemplate();
+    fn EnumTemplates();
+    fn ExportTemplates();
+    fn ImportTemplates();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7822,6 +8140,13 @@ unsafe impl ::windows::core::Interface for IFsrmMutableCollection {
     type Vtable = IFsrmMutableCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bb617b8_3886_49dc_af82_a6c90fa35dda);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmMutableCollectionImpl: IFsrmCollectionImpl + IDispatchImpl {
+    fn Add();
+    fn Remove();
+    fn RemoveById();
+    fn Clone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmMutableCollectionVtbl(
@@ -7966,6 +8291,14 @@ unsafe impl ::windows::core::Interface for IFsrmObject {
     type Vtable = IFsrmObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22bcef93_4a3f_4183_89f9_2f8b8a628aee);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmObjectImpl: IDispatchImpl {
+    fn Id();
+    fn Description();
+    fn SetDescription();
+    fn Delete();
+    fn Commit();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmObjectVtbl(
@@ -8084,6 +8417,10 @@ impl ::core::fmt::Debug for IFsrmPathMapper {
 unsafe impl ::windows::core::Interface for IFsrmPathMapper {
     type Vtable = IFsrmPathMapperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f4dbfff_6920_4821_a6c3_b7e94c1fd60c);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmPathMapperImpl: IDispatchImpl {
+    fn GetSharePathsForLocalPath();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8218,6 +8555,14 @@ impl ::core::fmt::Debug for IFsrmPipelineModuleConnector {
 unsafe impl ::windows::core::Interface for IFsrmPipelineModuleConnector {
     type Vtable = IFsrmPipelineModuleConnectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc16014f3_9aa1_46b3_b0a7_ab146eb205f2);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmPipelineModuleConnectorImpl: IDispatchImpl {
+    fn ModuleImplementation();
+    fn ModuleName();
+    fn HostingUserAccount();
+    fn HostingProcessPid();
+    fn Bind();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8474,6 +8819,28 @@ unsafe impl ::windows::core::Interface for IFsrmPipelineModuleDefinition {
     type Vtable = IFsrmPipelineModuleDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x515c1277_2c81_440e_8fcf_367921ed4f59);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmPipelineModuleDefinitionImpl: IFsrmObjectImpl + IDispatchImpl {
+    fn ModuleClsid();
+    fn SetModuleClsid();
+    fn Name();
+    fn SetName();
+    fn Company();
+    fn SetCompany();
+    fn Version();
+    fn SetVersion();
+    fn ModuleType();
+    fn Enabled();
+    fn SetEnabled();
+    fn NeedsFileContent();
+    fn SetNeedsFileContent();
+    fn Account();
+    fn SetAccount();
+    fn SupportedExtensions();
+    fn SetSupportedExtensions();
+    fn Parameters();
+    fn SetParameters();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPipelineModuleDefinitionVtbl(
@@ -8627,6 +8994,11 @@ unsafe impl ::windows::core::Interface for IFsrmPipelineModuleImplementation {
     type Vtable = IFsrmPipelineModuleImplementationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7907906_2b02_4cb5_84a9_fdf54613d6cd);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmPipelineModuleImplementationImpl: IDispatchImpl {
+    fn OnLoad();
+    fn OnUnload();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPipelineModuleImplementationVtbl(
@@ -8757,6 +9129,13 @@ impl ::core::fmt::Debug for IFsrmProperty {
 unsafe impl ::windows::core::Interface for IFsrmProperty {
     type Vtable = IFsrmPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a73fee4_4102_4fcc_9ffb_38614f9ee768);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmPropertyImpl: IDispatchImpl {
+    fn Name();
+    fn Value();
+    fn Sources();
+    fn PropertyFlags();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8991,6 +9370,30 @@ impl ::core::fmt::Debug for IFsrmPropertyBag {
 unsafe impl ::windows::core::Interface for IFsrmPropertyBag {
     type Vtable = IFsrmPropertyBagVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x774589d1_d300_4f7a_9a24_f7b766800250);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmPropertyBagImpl: IDispatchImpl {
+    fn Name();
+    fn RelativePath();
+    fn VolumeName();
+    fn RelativeNamespaceRoot();
+    fn VolumeIndex();
+    fn FileId();
+    fn ParentDirectoryId();
+    fn Size();
+    fn SizeAllocated();
+    fn CreationTime();
+    fn LastAccessTime();
+    fn LastModificationTime();
+    fn Attributes();
+    fn OwnerSid();
+    fn FilePropertyNames();
+    fn Messages();
+    fn PropertyBagFlags();
+    fn GetFileProperty();
+    fn SetFileProperty();
+    fn AddMessage();
+    fn GetFileStreamInterface();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9289,6 +9692,11 @@ unsafe impl ::windows::core::Interface for IFsrmPropertyBag2 {
     type Vtable = IFsrmPropertyBag2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e46bdbd_2402_4fed_9c30_9266e6eb2cc9);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmPropertyBag2Impl: IFsrmPropertyBagImpl + IDispatchImpl {
+    fn GetFieldValue();
+    fn GetUntrustedInFileProperties();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPropertyBag2Vtbl(
@@ -9471,6 +9879,16 @@ impl ::core::fmt::Debug for IFsrmPropertyCondition {
 unsafe impl ::windows::core::Interface for IFsrmPropertyCondition {
     type Vtable = IFsrmPropertyConditionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x326af66f_2ac0_4f68_bf8c_4759f054fa29);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmPropertyConditionImpl: IDispatchImpl {
+    fn Name();
+    fn SetName();
+    fn Type();
+    fn SetType();
+    fn Value();
+    fn SetValue();
+    fn Delete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9685,6 +10103,19 @@ impl ::core::fmt::Debug for IFsrmPropertyDefinition {
 unsafe impl ::windows::core::Interface for IFsrmPropertyDefinition {
     type Vtable = IFsrmPropertyDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xede0150f_e9a3_419c_877c_01fe5d24c5d3);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmPropertyDefinitionImpl: IFsrmObjectImpl + IDispatchImpl {
+    fn Name();
+    fn SetName();
+    fn Type();
+    fn SetType();
+    fn PossibleValues();
+    fn SetPossibleValues();
+    fn ValueDescriptions();
+    fn SetValueDescriptions();
+    fn Parameters();
+    fn SetParameters();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9960,6 +10391,14 @@ unsafe impl ::windows::core::Interface for IFsrmPropertyDefinition2 {
     type Vtable = IFsrmPropertyDefinition2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47782152_d16c_4229_b4e1_0ddfe308b9f6);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmPropertyDefinition2Impl: IFsrmPropertyDefinitionImpl + IFsrmObjectImpl + IDispatchImpl {
+    fn PropertyDefinitionFlags();
+    fn DisplayName();
+    fn SetDisplayName();
+    fn AppliesTo();
+    fn ValueDefinitions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPropertyDefinition2Vtbl(
@@ -10121,6 +10560,13 @@ impl ::core::fmt::Debug for IFsrmPropertyDefinitionValue {
 unsafe impl ::windows::core::Interface for IFsrmPropertyDefinitionValue {
     type Vtable = IFsrmPropertyDefinitionValueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe946d148_bd67_4178_8e22_1c44925ed710);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmPropertyDefinitionValueImpl: IDispatchImpl {
+    fn Name();
+    fn DisplayName();
+    fn Description();
+    fn UniqueID();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10427,6 +10873,14 @@ unsafe impl ::windows::core::Interface for IFsrmQuota {
     type Vtable = IFsrmQuotaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x377f739d_9647_4b8e_97d2_5ffce6d759cd);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmQuotaImpl: IFsrmQuotaObjectImpl + IFsrmQuotaBaseImpl + IFsrmObjectImpl + IDispatchImpl {
+    fn QuotaUsed();
+    fn QuotaPeakUsage();
+    fn QuotaPeakUsageTime();
+    fn ResetPeakUsage();
+    fn RefreshUsageProperties();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmQuotaVtbl(
@@ -10663,6 +11117,19 @@ unsafe impl ::windows::core::Interface for IFsrmQuotaBase {
     type Vtable = IFsrmQuotaBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1568a795_3924_4118_b74b_68d8f0fa5daf);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmQuotaBaseImpl: IFsrmObjectImpl + IDispatchImpl {
+    fn QuotaLimit();
+    fn SetQuotaLimit();
+    fn QuotaFlags();
+    fn SetQuotaFlags();
+    fn Thresholds();
+    fn AddThreshold();
+    fn DeleteThreshold();
+    fn ModifyThreshold();
+    fn CreateThresholdAction();
+    fn EnumThresholdActions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmQuotaBaseVtbl(
@@ -10858,6 +11325,21 @@ impl ::core::fmt::Debug for IFsrmQuotaManager {
 unsafe impl ::windows::core::Interface for IFsrmQuotaManager {
     type Vtable = IFsrmQuotaManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bb68c7d_19d8_4ffb_809e_be4fc1734014);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmQuotaManagerImpl: IDispatchImpl {
+    fn ActionVariables();
+    fn ActionVariableDescriptions();
+    fn CreateQuota();
+    fn CreateAutoApplyQuota();
+    fn GetQuota();
+    fn GetAutoApplyQuota();
+    fn GetRestrictiveQuota();
+    fn EnumQuotas();
+    fn EnumAutoApplyQuotas();
+    fn EnumEffectiveQuotas();
+    fn Scan();
+    fn CreateQuotaCollection();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11083,6 +11565,10 @@ impl ::core::fmt::Debug for IFsrmQuotaManagerEx {
 unsafe impl ::windows::core::Interface for IFsrmQuotaManagerEx {
     type Vtable = IFsrmQuotaManagerExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4846cb01_d430_494f_abb4_b1054999fb09);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmQuotaManagerExImpl: IFsrmQuotaManagerImpl + IDispatchImpl {
+    fn IsAffectedByQuota();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11361,6 +11847,15 @@ unsafe impl ::windows::core::Interface for IFsrmQuotaObject {
     type Vtable = IFsrmQuotaObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42dc3511_61d5_48ae_b6dc_59fc00c0a8d6);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmQuotaObjectImpl: IFsrmQuotaBaseImpl + IFsrmObjectImpl + IDispatchImpl {
+    fn Path();
+    fn UserSid();
+    fn UserAccount();
+    fn SourceTemplateName();
+    fn MatchesSourceTemplate();
+    fn ApplyTemplate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmQuotaObjectVtbl(
@@ -11630,6 +12125,13 @@ impl ::core::fmt::Debug for IFsrmQuotaTemplate {
 unsafe impl ::windows::core::Interface for IFsrmQuotaTemplate {
     type Vtable = IFsrmQuotaTemplateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2efab31_295e_46bb_b976_e86d58b52e8b);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmQuotaTemplateImpl: IFsrmQuotaBaseImpl + IFsrmObjectImpl + IDispatchImpl {
+    fn Name();
+    fn SetName();
+    fn CopyTemplate();
+    fn CommitAndUpdateDerived();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11926,6 +12428,11 @@ unsafe impl ::windows::core::Interface for IFsrmQuotaTemplateImported {
     type Vtable = IFsrmQuotaTemplateImportedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a2bf113_a329_44cc_809a_5c00fce8da40);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmQuotaTemplateImportedImpl: IFsrmQuotaTemplateImpl + IFsrmQuotaBaseImpl + IFsrmObjectImpl + IDispatchImpl {
+    fn OverwriteOnCommit();
+    fn SetOverwriteOnCommit();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmQuotaTemplateImportedVtbl(
@@ -12089,6 +12596,14 @@ unsafe impl ::windows::core::Interface for IFsrmQuotaTemplateManager {
     type Vtable = IFsrmQuotaTemplateManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4173ac41_172d_4d52_963c_fdc7e415f717);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmQuotaTemplateManagerImpl: IDispatchImpl {
+    fn CreateTemplate();
+    fn GetTemplate();
+    fn EnumTemplates();
+    fn ExportTemplates();
+    fn ImportTemplates();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmQuotaTemplateManagerVtbl(
@@ -12250,6 +12765,18 @@ impl ::core::fmt::Debug for IFsrmReport {
 unsafe impl ::windows::core::Interface for IFsrmReport {
     type Vtable = IFsrmReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8cc81d9_46b8_4fa4_bfa5_4aa9dec9b638);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmReportImpl: IDispatchImpl {
+    fn Type();
+    fn Name();
+    fn SetName();
+    fn Description();
+    fn SetDescription();
+    fn LastGeneratedFileNamePrefix();
+    fn GetFilter();
+    fn SetFilter();
+    fn Delete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12506,6 +13033,26 @@ unsafe impl ::windows::core::Interface for IFsrmReportJob {
     type Vtable = IFsrmReportJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38e87280_715c_4c7d_a280_ea1651a19fef);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmReportJobImpl: IFsrmObjectImpl + IDispatchImpl {
+    fn Task();
+    fn SetTask();
+    fn NamespaceRoots();
+    fn SetNamespaceRoots();
+    fn Formats();
+    fn SetFormats();
+    fn MailTo();
+    fn SetMailTo();
+    fn RunningStatus();
+    fn LastRun();
+    fn LastError();
+    fn LastGeneratedInDirectory();
+    fn EnumReports();
+    fn CreateReport();
+    fn Run();
+    fn WaitForCompletion();
+    fn Cancel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmReportJobVtbl(
@@ -12700,6 +13247,19 @@ unsafe impl ::windows::core::Interface for IFsrmReportManager {
     type Vtable = IFsrmReportManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27b899fe_6ffa_4481_a184_d3daade8a02b);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmReportManagerImpl: IDispatchImpl {
+    fn EnumReportJobs();
+    fn CreateReportJob();
+    fn GetReportJob();
+    fn GetOutputDirectory();
+    fn SetOutputDirectory();
+    fn IsFilterValidForReportType();
+    fn GetDefaultFilter();
+    fn SetDefaultFilter();
+    fn GetReportSizeLimit();
+    fn SetReportSizeLimit();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmReportManagerVtbl(
@@ -12842,6 +13402,13 @@ impl ::core::fmt::Debug for IFsrmReportScheduler {
 unsafe impl ::windows::core::Interface for IFsrmReportScheduler {
     type Vtable = IFsrmReportSchedulerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6879caf9_6617_4484_8719_71c3d8645f94);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmReportSchedulerImpl: IDispatchImpl {
+    fn VerifyNamespaces();
+    fn CreateScheduleTask();
+    fn ModifyScheduleTask();
+    fn DeleteScheduleTask();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13065,6 +13632,21 @@ unsafe impl ::windows::core::Interface for IFsrmRule {
     type Vtable = IFsrmRuleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb0df960_16f5_4495_9079_3f9360d831df);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmRuleImpl: IFsrmObjectImpl + IDispatchImpl {
+    fn Name();
+    fn SetName();
+    fn RuleType();
+    fn ModuleDefinitionName();
+    fn SetModuleDefinitionName();
+    fn NamespaceRoots();
+    fn SetNamespaceRoots();
+    fn RuleFlags();
+    fn SetRuleFlags();
+    fn Parameters();
+    fn SetParameters();
+    fn LastModified();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmRuleVtbl(
@@ -13263,6 +13845,22 @@ impl ::core::fmt::Debug for IFsrmSetting {
 unsafe impl ::windows::core::Interface for IFsrmSetting {
     type Vtable = IFsrmSettingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf411d4fd_14be_4260_8c40_03b7c95e608a);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmSettingImpl: IDispatchImpl {
+    fn SmtpServer();
+    fn SetSmtpServer();
+    fn MailFrom();
+    fn SetMailFrom();
+    fn AdminEmail();
+    fn SetAdminEmail();
+    fn DisableCommandLine();
+    fn SetDisableCommandLine();
+    fn EnableScreeningAudit();
+    fn SetEnableScreeningAudit();
+    fn EmailTest();
+    fn SetActionRunLimitInterval();
+    fn GetActionRunLimitInterval();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13579,6 +14177,15 @@ unsafe impl ::windows::core::Interface for IFsrmStorageModuleDefinition {
     type Vtable = IFsrmStorageModuleDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15a81350_497d_4aba_80e9_d4dbcc5521fe);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmStorageModuleDefinitionImpl: IFsrmPipelineModuleDefinitionImpl + IFsrmObjectImpl + IDispatchImpl {
+    fn Capabilities();
+    fn SetCapabilities();
+    fn StorageType();
+    fn SetStorageType();
+    fn UpdatesFileContent();
+    fn SetUpdatesFileContent();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmStorageModuleDefinitionVtbl(
@@ -13769,6 +14376,12 @@ impl ::core::fmt::Debug for IFsrmStorageModuleImplementation {
 unsafe impl ::windows::core::Interface for IFsrmStorageModuleImplementation {
     type Vtable = IFsrmStorageModuleImplementationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0af4a0da_895a_4e50_8712_a96724bcec64);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IFsrmStorageModuleImplementationImpl: IFsrmPipelineModuleImplementationImpl + IDispatchImpl {
+    fn UseDefinitions();
+    fn LoadProperties();
+    fn SaveProperties();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -60,6 +60,10 @@ unsafe impl ::windows::core::Interface for INetworkTransportSettings {
     type Vtable = INetworkTransportSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e7abb2c_f2c1_4a61_bd35_deb7a08ab0f1);
 }
+pub trait INetworkTransportSettingsImpl {
+    fn ApplySetting();
+    fn QuerySetting();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkTransportSettingsVtbl(
@@ -123,6 +127,10 @@ impl ::core::fmt::Debug for INotificationTransportSync {
 unsafe impl ::windows::core::Interface for INotificationTransportSync {
     type Vtable = INotificationTransportSyncVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eb1402_0ab8_49c0_9e14_a1ae4ba93058);
+}
+pub trait INotificationTransportSyncImpl {
+    fn CompleteDelivery();
+    fn Flush();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -250,6 +258,10 @@ impl ::core::fmt::Debug for IRTCBuddy {
 unsafe impl ::windows::core::Interface for IRTCBuddy {
     type Vtable = IRTCBuddyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcb136c8_7b90_4e0c_befe_56edf0ba6f1c);
+}
+pub trait IRTCBuddyImpl: IRTCPresenceContactImpl {
+    fn Status();
+    fn Notes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -453,6 +465,16 @@ unsafe impl ::windows::core::Interface for IRTCBuddy2 {
     type Vtable = IRTCBuddy2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x102f9588_23e7_40e3_954d_cd7a1d5c0361);
 }
+pub trait IRTCBuddy2Impl: IRTCBuddyImpl + IRTCPresenceContactImpl {
+    fn Profile();
+    fn Refresh();
+    fn EnumerateGroups();
+    fn Groups();
+    fn PresenceProperty();
+    fn EnumeratePresenceDevices();
+    fn PresenceDevices();
+    fn SubscriptionType();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCBuddy2Vtbl(
@@ -581,6 +603,10 @@ impl ::core::fmt::Debug for IRTCBuddyEvent {
 unsafe impl ::windows::core::Interface for IRTCBuddyEvent {
     type Vtable = IRTCBuddyEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf36d755d_17e6_404e_954f_0fc07574c78d);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCBuddyEventImpl: IDispatchImpl {
+    fn Buddy();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -730,6 +756,12 @@ unsafe impl ::windows::core::Interface for IRTCBuddyEvent2 {
     type Vtable = IRTCBuddyEvent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x484a7f1e_73f0_4990_bfc2_60bc3978a720);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCBuddyEvent2Impl: IRTCBuddyEventImpl + IDispatchImpl {
+    fn EventType();
+    fn StatusCode();
+    fn StatusText();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCBuddyEvent2Vtbl(
@@ -839,6 +871,17 @@ impl ::core::fmt::Debug for IRTCBuddyGroup {
 unsafe impl ::windows::core::Interface for IRTCBuddyGroup {
     type Vtable = IRTCBuddyGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60361e68_9164_4389_a4c6_d0b3925bda5e);
+}
+pub trait IRTCBuddyGroupImpl {
+    fn Name();
+    fn SetName();
+    fn AddBuddy();
+    fn RemoveBuddy();
+    fn EnumerateBuddies();
+    fn Buddies();
+    fn Data();
+    fn SetData();
+    fn Profile();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -970,6 +1013,13 @@ impl ::core::fmt::Debug for IRTCBuddyGroupEvent {
 unsafe impl ::windows::core::Interface for IRTCBuddyGroupEvent {
     type Vtable = IRTCBuddyGroupEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a79e1d1_b736_4414_96f8_bbc7f08863e4);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCBuddyGroupEventImpl: IDispatchImpl {
+    fn EventType();
+    fn Group();
+    fn Buddy();
+    fn StatusCode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1234,6 +1284,50 @@ impl ::core::fmt::Debug for IRTCClient {
 unsafe impl ::windows::core::Interface for IRTCClient {
     type Vtable = IRTCClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07829e45_9a34_408e_a011_bddf13487cd1);
+}
+pub trait IRTCClientImpl {
+    fn Initialize();
+    fn Shutdown();
+    fn PrepareForShutdown();
+    fn SetEventFilter();
+    fn EventFilter();
+    fn SetPreferredMediaTypes();
+    fn PreferredMediaTypes();
+    fn MediaCapabilities();
+    fn CreateSession();
+    fn SetListenForIncomingSessions();
+    fn ListenForIncomingSessions();
+    fn NetworkAddresses();
+    fn SetVolume();
+    fn Volume();
+    fn SetAudioMuted();
+    fn AudioMuted();
+    fn IVideoWindow();
+    fn SetPreferredAudioDevice();
+    fn PreferredAudioDevice();
+    fn SetPreferredVolume();
+    fn PreferredVolume();
+    fn SetPreferredAEC();
+    fn PreferredAEC();
+    fn SetPreferredVideoDevice();
+    fn PreferredVideoDevice();
+    fn ActiveMedia();
+    fn SetMaxBitrate();
+    fn MaxBitrate();
+    fn SetTemporalSpatialTradeOff();
+    fn TemporalSpatialTradeOff();
+    fn NetworkQuality();
+    fn StartT120Applet();
+    fn StopT120Applets();
+    fn IsT120AppletRunning();
+    fn LocalUserURI();
+    fn SetLocalUserURI();
+    fn LocalUserName();
+    fn SetLocalUserName();
+    fn PlayRing();
+    fn SendDTMF();
+    fn InvokeTuningWizard();
+    fn IsTuned();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1620,6 +1714,21 @@ unsafe impl ::windows::core::Interface for IRTCClient2 {
     type Vtable = IRTCClient2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c91d71d_1064_42da_bfa5_572beb8eea84);
 }
+pub trait IRTCClient2Impl: IRTCClientImpl {
+    fn SetAnswerMode();
+    fn AnswerMode();
+    fn InvokeTuningWizardEx();
+    fn Version();
+    fn SetClientName();
+    fn SetClientCurVer();
+    fn InitializeEx();
+    fn CreateSessionWithDescription();
+    fn SetSessionDescriptionManager();
+    fn SetPreferredSecurityLevel();
+    fn PreferredSecurityLevel();
+    fn SetAllowedPorts();
+    fn AllowedPorts();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCClient2Vtbl(
@@ -1797,6 +1906,11 @@ unsafe impl ::windows::core::Interface for IRTCClientEvent {
     type Vtable = IRTCClientEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b493b7a_3cba_4170_9c8b_76a9dacdd644);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCClientEventImpl: IDispatchImpl {
+    fn EventType();
+    fn Client();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCClientEventVtbl(
@@ -1872,6 +1986,11 @@ impl ::core::fmt::Debug for IRTCClientPortManagement {
 unsafe impl ::windows::core::Interface for IRTCClientPortManagement {
     type Vtable = IRTCClientPortManagementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5df3f03_4bde_4417_aefe_71177bdaea66);
+}
+pub trait IRTCClientPortManagementImpl {
+    fn StartListenAddressAndPort();
+    fn StopListenAddressAndPort();
+    fn GetPortRange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2019,6 +2138,26 @@ impl ::core::fmt::Debug for IRTCClientPresence {
 unsafe impl ::windows::core::Interface for IRTCClientPresence {
     type Vtable = IRTCClientPresenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11c3cbcc_0744_42d1_968a_51aa1bb274c6);
+}
+pub trait IRTCClientPresenceImpl {
+    fn EnablePresence();
+    fn Export();
+    fn Import();
+    fn EnumerateBuddies();
+    fn Buddies();
+    fn Buddy();
+    fn AddBuddy();
+    fn RemoveBuddy();
+    fn EnumerateWatchers();
+    fn Watchers();
+    fn Watcher();
+    fn AddWatcher();
+    fn RemoveWatcher();
+    fn SetLocalPresenceInfo();
+    fn OfferWatcherMode();
+    fn SetOfferWatcherMode();
+    fn PrivacyMode();
+    fn SetPrivacyMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2287,6 +2426,23 @@ unsafe impl ::windows::core::Interface for IRTCClientPresence2 {
     type Vtable = IRTCClientPresence2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad1809e8_62f7_4783_909a_29c9d2cb1d34);
 }
+pub trait IRTCClientPresence2Impl: IRTCClientPresenceImpl {
+    fn EnablePresenceEx();
+    fn DisablePresence();
+    fn AddGroup();
+    fn RemoveGroup();
+    fn EnumerateGroups();
+    fn Groups();
+    fn Group();
+    fn AddWatcherEx();
+    fn WatcherEx();
+    fn SetPresenceProperty();
+    fn PresenceProperty();
+    fn SetPresenceData();
+    fn GetPresenceData();
+    fn GetLocalPresenceInfo();
+    fn AddBuddyEx();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCClientPresence2Vtbl(
@@ -2425,6 +2581,15 @@ unsafe impl ::windows::core::Interface for IRTCClientProvisioning {
     type Vtable = IRTCClientProvisioningVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9f5cf06_65b9_4a80_a0e6_73cae3ef3822);
 }
+pub trait IRTCClientProvisioningImpl {
+    fn CreateProfile();
+    fn EnableProfile();
+    fn DisableProfile();
+    fn EnumerateProfiles();
+    fn Profiles();
+    fn GetProfile();
+    fn SessionCapabilities();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCClientProvisioningVtbl(
@@ -2543,6 +2708,9 @@ impl ::core::fmt::Debug for IRTCClientProvisioning2 {
 unsafe impl ::windows::core::Interface for IRTCClientProvisioning2 {
     type Vtable = IRTCClientProvisioning2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa70909b5_f40e_4587_bb75_e6bc0845023e);
+}
+pub trait IRTCClientProvisioning2Impl: IRTCClientProvisioningImpl {
+    fn EnableProfileEx();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2668,6 +2836,12 @@ unsafe impl ::windows::core::Interface for IRTCCollection {
     type Vtable = IRTCCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec7c8096_b918_4044_94f1_e4fba0361d5c);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCCollectionImpl: IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCCollectionVtbl(
@@ -2778,6 +2952,8 @@ unsafe impl ::windows::core::Interface for IRTCDispatchEventNotification {
     type Vtable = IRTCDispatchEventNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x176ddfbe_fec0_4d55_bc87_84cff1ef7f91);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCDispatchEventNotificationImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCDispatchEventNotificationVtbl(
@@ -2855,6 +3031,12 @@ unsafe impl ::windows::core::Interface for IRTCEnumBuddies {
     type Vtable = IRTCEnumBuddiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7296917_5569_4b3b_b3af_98d1144b2b87);
 }
+pub trait IRTCEnumBuddiesImpl {
+    fn Next();
+    fn Reset();
+    fn Skip();
+    fn Clone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCEnumBuddiesVtbl(
@@ -2927,6 +3109,12 @@ impl ::core::fmt::Debug for IRTCEnumGroups {
 unsafe impl ::windows::core::Interface for IRTCEnumGroups {
     type Vtable = IRTCEnumGroupsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x742378d6_a141_4415_8f27_35d99076cf5d);
+}
+pub trait IRTCEnumGroupsImpl {
+    fn Next();
+    fn Reset();
+    fn Skip();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3001,6 +3189,12 @@ unsafe impl ::windows::core::Interface for IRTCEnumParticipants {
     type Vtable = IRTCEnumParticipantsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcd56f29_4a4f_41b2_ba5c_f5bccc060bf6);
 }
+pub trait IRTCEnumParticipantsImpl {
+    fn Next();
+    fn Reset();
+    fn Skip();
+    fn Clone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCEnumParticipantsVtbl(
@@ -3073,6 +3267,12 @@ impl ::core::fmt::Debug for IRTCEnumPresenceDevices {
 unsafe impl ::windows::core::Interface for IRTCEnumPresenceDevices {
     type Vtable = IRTCEnumPresenceDevicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x708c2ab7_8bf8_42f8_8c7d_635197ad5539);
+}
+pub trait IRTCEnumPresenceDevicesImpl {
+    fn Next();
+    fn Reset();
+    fn Skip();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3147,6 +3347,12 @@ unsafe impl ::windows::core::Interface for IRTCEnumProfiles {
     type Vtable = IRTCEnumProfilesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29b7c41c_ed82_4bca_84ad_39d5101b58e3);
 }
+pub trait IRTCEnumProfilesImpl {
+    fn Next();
+    fn Reset();
+    fn Skip();
+    fn Clone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCEnumProfilesVtbl(
@@ -3219,6 +3425,12 @@ impl ::core::fmt::Debug for IRTCEnumUserSearchResults {
 unsafe impl ::windows::core::Interface for IRTCEnumUserSearchResults {
     type Vtable = IRTCEnumUserSearchResultsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83d4d877_aa5d_4a5b_8d0e_002a8067e0e8);
+}
+pub trait IRTCEnumUserSearchResultsImpl {
+    fn Next();
+    fn Reset();
+    fn Skip();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3293,6 +3505,12 @@ unsafe impl ::windows::core::Interface for IRTCEnumWatchers {
     type Vtable = IRTCEnumWatchersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa87d55d7_db74_4ed1_9ca4_77a0e41b413e);
 }
+pub trait IRTCEnumWatchersImpl {
+    fn Next();
+    fn Reset();
+    fn Skip();
+    fn Clone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCEnumWatchersVtbl(
@@ -3353,6 +3571,9 @@ impl ::core::fmt::Debug for IRTCEventNotification {
 unsafe impl ::windows::core::Interface for IRTCEventNotification {
     type Vtable = IRTCEventNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13fa24c7_5748_4b21_91f5_7397609ce747);
+}
+pub trait IRTCEventNotificationImpl {
+    fn Event();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3475,6 +3696,13 @@ impl ::core::fmt::Debug for IRTCInfoEvent {
 unsafe impl ::windows::core::Interface for IRTCInfoEvent {
     type Vtable = IRTCInfoEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e1d68ae_1912_4f49_b2c3_594fadfd425f);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCInfoEventImpl: IDispatchImpl {
+    fn Session();
+    fn Participant();
+    fn Info();
+    fn InfoHeader();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3608,6 +3836,13 @@ unsafe impl ::windows::core::Interface for IRTCIntensityEvent {
     type Vtable = IRTCIntensityEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c23bf51_390c_4992_a41d_41eec05b2a4b);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCIntensityEventImpl: IDispatchImpl {
+    fn Level();
+    fn Min();
+    fn Max();
+    fn Direction();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCIntensityEventVtbl(
@@ -3732,6 +3967,12 @@ impl ::core::fmt::Debug for IRTCMediaEvent {
 unsafe impl ::windows::core::Interface for IRTCMediaEvent {
     type Vtable = IRTCMediaEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x099944fb_bcda_453e_8c41_e13da2adf7f3);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCMediaEventImpl: IDispatchImpl {
+    fn MediaType();
+    fn EventType();
+    fn EventReason();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3874,6 +4115,16 @@ impl ::core::fmt::Debug for IRTCMediaRequestEvent {
 unsafe impl ::windows::core::Interface for IRTCMediaRequestEvent {
     type Vtable = IRTCMediaRequestEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52572d15_148c_4d97_a36c_2da55c289d63);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCMediaRequestEventImpl: IDispatchImpl {
+    fn Session();
+    fn ProposedMedia();
+    fn CurrentMedia();
+    fn Accept();
+    fn RemotePreferredSecurityLevel();
+    fn Reject();
+    fn State();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4020,6 +4271,15 @@ unsafe impl ::windows::core::Interface for IRTCMessagingEvent {
     type Vtable = IRTCMessagingEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3609541_1b29_4de5_a4ad_5aebaf319512);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCMessagingEventImpl: IDispatchImpl {
+    fn Session();
+    fn Participant();
+    fn EventType();
+    fn Message();
+    fn MessageHeader();
+    fn UserStatus();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCMessagingEventVtbl(
@@ -4114,6 +4374,13 @@ impl ::core::fmt::Debug for IRTCParticipant {
 unsafe impl ::windows::core::Interface for IRTCParticipant {
     type Vtable = IRTCParticipantVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae86add5_26b1_4414_af1d_b94cd938d739);
+}
+pub trait IRTCParticipantImpl {
+    fn UserURI();
+    fn Name();
+    fn Removable();
+    fn State();
+    fn Session();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4235,6 +4502,12 @@ unsafe impl ::windows::core::Interface for IRTCParticipantStateChangeEvent {
     type Vtable = IRTCParticipantStateChangeEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09bcb597_f0fa_48f9_b420_468cea7fde04);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCParticipantStateChangeEventImpl: IDispatchImpl {
+    fn Participant();
+    fn State();
+    fn StatusCode();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCParticipantStateChangeEventVtbl(
@@ -4312,6 +4585,11 @@ impl ::core::fmt::Debug for IRTCPortManager {
 unsafe impl ::windows::core::Interface for IRTCPortManager {
     type Vtable = IRTCPortManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda77c14b_6208_43ca_8ddf_5b60a0a69fac);
+}
+pub trait IRTCPortManagerImpl {
+    fn GetMapping();
+    fn UpdateRemoteAddress();
+    fn ReleaseMapping();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4412,6 +4690,16 @@ impl ::core::fmt::Debug for IRTCPresenceContact {
 unsafe impl ::windows::core::Interface for IRTCPresenceContact {
     type Vtable = IRTCPresenceContactVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b22f92c_cd90_42db_a733_212205c3e3df);
+}
+pub trait IRTCPresenceContactImpl {
+    fn PresentityURI();
+    fn SetPresentityURI();
+    fn Name();
+    fn SetName();
+    fn Data();
+    fn SetData();
+    fn Persistent();
+    fn SetPersistent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4541,6 +4829,12 @@ unsafe impl ::windows::core::Interface for IRTCPresenceDataEvent {
     type Vtable = IRTCPresenceDataEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38f0e78c_8b87_4c04_a82d_aedd83c909bb);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCPresenceDataEventImpl: IDispatchImpl {
+    fn StatusCode();
+    fn StatusText();
+    fn GetPresenceData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCPresenceDataEventVtbl(
@@ -4627,6 +4921,12 @@ impl ::core::fmt::Debug for IRTCPresenceDevice {
 unsafe impl ::windows::core::Interface for IRTCPresenceDevice {
     type Vtable = IRTCPresenceDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc6a90dd_ad9a_48da_9b0c_2515e38521ad);
+}
+pub trait IRTCPresenceDeviceImpl {
+    fn Status();
+    fn Notes();
+    fn PresenceProperty();
+    fn GetPresenceData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4755,6 +5055,13 @@ unsafe impl ::windows::core::Interface for IRTCPresencePropertyEvent {
     type Vtable = IRTCPresencePropertyEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf777f570_a820_49d5_86bd_e099493f1518);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCPresencePropertyEventImpl: IDispatchImpl {
+    fn StatusCode();
+    fn StatusText();
+    fn PresenceProperty();
+    fn Value();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCPresencePropertyEventVtbl(
@@ -4882,6 +5189,12 @@ impl ::core::fmt::Debug for IRTCPresenceStatusEvent {
 unsafe impl ::windows::core::Interface for IRTCPresenceStatusEvent {
     type Vtable = IRTCPresenceStatusEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78673f32_4a0f_462c_89aa_ee7706707678);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCPresenceStatusEventImpl: IDispatchImpl {
+    fn StatusCode();
+    fn StatusText();
+    fn GetLocalPresenceInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5051,6 +5364,26 @@ impl ::core::fmt::Debug for IRTCProfile {
 unsafe impl ::windows::core::Interface for IRTCProfile {
     type Vtable = IRTCProfileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07eca9e_4062_4dd4_9e7d_722a49ba7303);
+}
+pub trait IRTCProfileImpl {
+    fn Key();
+    fn Name();
+    fn XML();
+    fn ProviderName();
+    fn ProviderURI();
+    fn ProviderData();
+    fn ClientName();
+    fn ClientBanner();
+    fn ClientMinVer();
+    fn ClientCurVer();
+    fn ClientUpdateURI();
+    fn ClientData();
+    fn UserURI();
+    fn UserName();
+    fn UserAccount();
+    fn SetCredentials();
+    fn SessionCapabilities();
+    fn State();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5281,6 +5614,12 @@ unsafe impl ::windows::core::Interface for IRTCProfile2 {
     type Vtable = IRTCProfile2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b81f84e_bdc7_4184_9154_3cb2dd7917fb);
 }
+pub trait IRTCProfile2Impl: IRTCProfileImpl {
+    fn Realm();
+    fn SetRealm();
+    fn AllowedAuth();
+    fn SetAllowedAuth();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCProfile2Vtbl(
@@ -5433,6 +5772,12 @@ unsafe impl ::windows::core::Interface for IRTCProfileEvent {
     type Vtable = IRTCProfileEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6d5ab3b_770e_43e8_800a_79b062395fca);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCProfileEventImpl: IDispatchImpl {
+    fn Profile();
+    fn Cookie();
+    fn StatusCode();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCProfileEventVtbl(
@@ -5582,6 +5927,10 @@ unsafe impl ::windows::core::Interface for IRTCProfileEvent2 {
     type Vtable = IRTCProfileEvent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62e56edc_03fa_4121_94fb_23493fd0ae64);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCProfileEvent2Impl: IRTCProfileEventImpl + IDispatchImpl {
+    fn EventType();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCProfileEvent2Vtbl(
@@ -5715,6 +6064,14 @@ impl ::core::fmt::Debug for IRTCReInviteEvent {
 unsafe impl ::windows::core::Interface for IRTCReInviteEvent {
     type Vtable = IRTCReInviteEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11558d84_204c_43e7_99b0_2034e9417f7d);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCReInviteEventImpl: IDispatchImpl {
+    fn Session();
+    fn Accept();
+    fn Reject();
+    fn State();
+    fn GetRemoteSessionDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5850,6 +6207,13 @@ unsafe impl ::windows::core::Interface for IRTCRegistrationStateChangeEvent {
     type Vtable = IRTCRegistrationStateChangeEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62d0991b_50ab_4f02_b948_ca94f26f8f95);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCRegistrationStateChangeEventImpl: IDispatchImpl {
+    fn Profile();
+    fn State();
+    fn StatusCode();
+    fn StatusText();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCRegistrationStateChangeEventVtbl(
@@ -5981,6 +6345,13 @@ impl ::core::fmt::Debug for IRTCRoamingEvent {
 unsafe impl ::windows::core::Interface for IRTCRoamingEvent {
     type Vtable = IRTCRoamingEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79960a6b_0cb1_4dc8_a805_7318e99902e8);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCRoamingEventImpl: IDispatchImpl {
+    fn EventType();
+    fn Profile();
+    fn StatusCode();
+    fn StatusText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6142,6 +6513,28 @@ impl ::core::fmt::Debug for IRTCSession {
 unsafe impl ::windows::core::Interface for IRTCSession {
     type Vtable = IRTCSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x387c8086_99be_42fb_9973_7c0fc0ca9fa8);
+}
+pub trait IRTCSessionImpl {
+    fn Client();
+    fn State();
+    fn Type();
+    fn Profile();
+    fn Participants();
+    fn Answer();
+    fn Terminate();
+    fn Redirect();
+    fn AddParticipant();
+    fn RemoveParticipant();
+    fn EnumerateParticipants();
+    fn CanAddParticipants();
+    fn RedirectedUserURI();
+    fn RedirectedUserName();
+    fn NextRedirectedUser();
+    fn SendMessage();
+    fn SendMessageStatus();
+    fn AddStream();
+    fn RemoveStream();
+    fn SetEncryptionKey();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6366,6 +6759,14 @@ unsafe impl ::windows::core::Interface for IRTCSession2 {
     type Vtable = IRTCSession2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17d7cdfc_b007_484c_99d2_86a8a820991d);
 }
+pub trait IRTCSession2Impl: IRTCSessionImpl {
+    fn SendInfo();
+    fn SetPreferredSecurityLevel();
+    fn PreferredSecurityLevel();
+    fn IsSecurityEnabled();
+    fn AnswerWithSessionDescription();
+    fn ReInviteWithSessionDescription();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSession2Vtbl(
@@ -6498,6 +6899,17 @@ unsafe impl ::windows::core::Interface for IRTCSessionCallControl {
     type Vtable = IRTCSessionCallControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9a50d94_190b_4f82_9530_3b8ebf60758a);
 }
+pub trait IRTCSessionCallControlImpl {
+    fn Hold();
+    fn UnHold();
+    fn Forward();
+    fn Refer();
+    fn SetReferredByURI();
+    fn ReferredByURI();
+    fn SetReferCookie();
+    fn ReferCookie();
+    fn IsReferred();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSessionCallControlVtbl(
@@ -6569,6 +6981,9 @@ impl ::core::fmt::Debug for IRTCSessionDescriptionManager {
 unsafe impl ::windows::core::Interface for IRTCSessionDescriptionManager {
     type Vtable = IRTCSessionDescriptionManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba7f518e_d336_4070_93a6_865395c843f9);
+}
+pub trait IRTCSessionDescriptionManagerImpl {
+    fn EvaluateSessionDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6690,6 +7105,13 @@ impl ::core::fmt::Debug for IRTCSessionOperationCompleteEvent {
 unsafe impl ::windows::core::Interface for IRTCSessionOperationCompleteEvent {
     type Vtable = IRTCSessionOperationCompleteEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6bff4c0_f7c8_4d3c_9a41_3550f78a95b0);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCSessionOperationCompleteEventImpl: IDispatchImpl {
+    fn Session();
+    fn Cookie();
+    fn StatusCode();
+    fn StatusText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6853,6 +7275,11 @@ unsafe impl ::windows::core::Interface for IRTCSessionOperationCompleteEvent2 {
     type Vtable = IRTCSessionOperationCompleteEvent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6fc2a9b_d5bc_4241_b436_1b8460c13832);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCSessionOperationCompleteEvent2Impl: IRTCSessionOperationCompleteEventImpl + IDispatchImpl {
+    fn Participant();
+    fn GetRemoteSessionDescription();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSessionOperationCompleteEvent2Vtbl(
@@ -6924,6 +7351,9 @@ impl ::core::fmt::Debug for IRTCSessionPortManagement {
 unsafe impl ::windows::core::Interface for IRTCSessionPortManagement {
     type Vtable = IRTCSessionPortManagementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa072f1d6_0286_4e1f_85f2_17a2948456ec);
+}
+pub trait IRTCSessionPortManagementImpl {
+    fn SetPortManager();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7039,6 +7469,13 @@ impl ::core::fmt::Debug for IRTCSessionReferStatusEvent {
 unsafe impl ::windows::core::Interface for IRTCSessionReferStatusEvent {
     type Vtable = IRTCSessionReferStatusEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d8fc2cd_5d76_44ab_bb68_2a80353b34a2);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCSessionReferStatusEventImpl: IDispatchImpl {
+    fn Session();
+    fn ReferStatus();
+    fn StatusCode();
+    fn StatusText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7186,6 +7623,16 @@ unsafe impl ::windows::core::Interface for IRTCSessionReferredEvent {
     type Vtable = IRTCSessionReferredEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x176a6828_4fcc_4f28_a862_04597a6cf1c4);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCSessionReferredEventImpl: IDispatchImpl {
+    fn Session();
+    fn ReferredByURI();
+    fn ReferToURI();
+    fn ReferCookie();
+    fn Accept();
+    fn Reject();
+    fn SetReferredSessionState();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSessionReferredEventVtbl(
@@ -7322,6 +7769,13 @@ impl ::core::fmt::Debug for IRTCSessionStateChangeEvent {
 unsafe impl ::windows::core::Interface for IRTCSessionStateChangeEvent {
     type Vtable = IRTCSessionStateChangeEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5bad703_5952_48b3_9321_7f4500521506);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCSessionStateChangeEventImpl: IDispatchImpl {
+    fn Session();
+    fn State();
+    fn StatusCode();
+    fn StatusText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7495,6 +7949,13 @@ unsafe impl ::windows::core::Interface for IRTCSessionStateChangeEvent2 {
     type Vtable = IRTCSessionStateChangeEvent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f933171_6f95_4880_80d9_2ec8d495d261);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCSessionStateChangeEvent2Impl: IRTCSessionStateChangeEventImpl + IDispatchImpl {
+    fn MediaTypes();
+    fn RemotePreferredSecurityLevel();
+    fn IsForked();
+    fn GetRemoteSessionDescription();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSessionStateChangeEvent2Vtbl(
@@ -7573,6 +8034,10 @@ impl ::core::fmt::Debug for IRTCUserSearch {
 unsafe impl ::windows::core::Interface for IRTCUserSearch {
     type Vtable = IRTCUserSearchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb619882b_860c_4db4_be1b_693b6505bbe5);
+}
+pub trait IRTCUserSearchImpl {
+    fn CreateQuery();
+    fn ExecuteSearch();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7665,6 +8130,15 @@ unsafe impl ::windows::core::Interface for IRTCUserSearchQuery {
     type Vtable = IRTCUserSearchQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x288300f5_d23a_4365_9a73_9985c98c2881);
 }
+pub trait IRTCUserSearchQueryImpl {
+    fn SetSearchTerm();
+    fn SearchTerm();
+    fn SearchTerms();
+    fn SetSearchPreference();
+    fn SearchPreference();
+    fn SetSearchDomain();
+    fn SearchDomain();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCUserSearchQueryVtbl(
@@ -7734,6 +8208,9 @@ impl ::core::fmt::Debug for IRTCUserSearchResult {
 unsafe impl ::windows::core::Interface for IRTCUserSearchResult {
     type Vtable = IRTCUserSearchResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x851278b2_9592_480f_8db5_2de86b26b54d);
+}
+pub trait IRTCUserSearchResultImpl {
+    fn Value();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7869,6 +8346,16 @@ impl ::core::fmt::Debug for IRTCUserSearchResultsEvent {
 unsafe impl ::windows::core::Interface for IRTCUserSearchResultsEvent {
     type Vtable = IRTCUserSearchResultsEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8c8c3cd_7fac_4088_81c5_c24cbc0938e3);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCUserSearchResultsEventImpl: IDispatchImpl {
+    fn EnumerateResults();
+    fn Results();
+    fn Profile();
+    fn Query();
+    fn Cookie();
+    fn StatusCode();
+    fn MoreAvailable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8007,6 +8494,10 @@ impl ::core::fmt::Debug for IRTCWatcher {
 unsafe impl ::windows::core::Interface for IRTCWatcher {
     type Vtable = IRTCWatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7cedad8_346b_4d1b_ac02_a2088df9be4f);
+}
+pub trait IRTCWatcherImpl: IRTCPresenceContactImpl {
+    fn State();
+    fn SetState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8177,6 +8668,10 @@ unsafe impl ::windows::core::Interface for IRTCWatcher2 {
     type Vtable = IRTCWatcher2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4d9967f_d011_4b1d_91e3_aba78f96393d);
 }
+pub trait IRTCWatcher2Impl: IRTCWatcherImpl + IRTCPresenceContactImpl {
+    fn Profile();
+    fn Scope();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCWatcher2Vtbl(
@@ -8297,6 +8792,10 @@ impl ::core::fmt::Debug for IRTCWatcherEvent {
 unsafe impl ::windows::core::Interface for IRTCWatcherEvent {
     type Vtable = IRTCWatcherEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf30d7261_587a_424f_822c_312788f43548);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCWatcherEventImpl: IDispatchImpl {
+    fn Watcher();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8440,6 +8939,11 @@ unsafe impl ::windows::core::Interface for IRTCWatcherEvent2 {
     type Vtable = IRTCWatcherEvent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe52891e8_188c_49af_b005_98ed13f83f9c);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRTCWatcherEvent2Impl: IRTCWatcherEventImpl + IDispatchImpl {
+    fn EventType();
+    fn StatusCode();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCWatcherEvent2Vtbl(
@@ -8512,6 +9016,10 @@ impl ::core::fmt::Debug for ITransportSettingsInternal {
 unsafe impl ::windows::core::Interface for ITransportSettingsInternal {
     type Vtable = ITransportSettingsInternalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5123e076_29e3_4bfd_84fe_0192d411e3e8);
+}
+pub trait ITransportSettingsInternalImpl {
+    fn ApplySetting();
+    fn QuerySetting();
 }
 #[repr(C)]
 #[doc(hidden)]

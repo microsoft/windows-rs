@@ -190,6 +190,12 @@ unsafe impl ::windows::core::Interface for IAccClientDocMgr {
     type Vtable = IAccClientDocMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c896039_7b6d_49e6_a8c1_45116a98292b);
 }
+pub trait IAccClientDocMgrImpl {
+    fn GetDocuments();
+    fn LookupByHWND();
+    fn LookupByPoint();
+    fn GetFocused();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccClientDocMgrVtbl(
@@ -276,6 +282,13 @@ unsafe impl ::windows::core::Interface for IAccDictionary {
     type Vtable = IAccDictionaryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dc4cb5f_d737_474d_ade9_5ccfc9bc1cc9);
 }
+pub trait IAccDictionaryImpl {
+    fn GetLocalizedString();
+    fn GetParentTerm();
+    fn GetMnemonicString();
+    fn LookupMnemonicTerm();
+    fn ConvertValueToString();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccDictionaryVtbl(
@@ -348,6 +361,11 @@ impl ::core::fmt::Debug for IAccServerDocMgr {
 unsafe impl ::windows::core::Interface for IAccServerDocMgr {
     type Vtable = IAccServerDocMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad7c73cf_6dd5_4855_abc2_b04bad5b9153);
+}
+pub trait IAccServerDocMgrImpl {
+    fn NewDocument();
+    fn RevokeDocument();
+    fn OnDocumentFocus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -438,6 +456,15 @@ impl ::core::fmt::Debug for IAccStore {
 unsafe impl ::windows::core::Interface for IAccStore {
     type Vtable = IAccStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2cd4a63_2b72_4d48_b739_95e4765195ba);
+}
+pub trait IAccStoreImpl {
+    fn Register();
+    fn Unregister();
+    fn GetDocuments();
+    fn LookupByHWND();
+    fn LookupByPoint();
+    fn OnDocumentFocus();
+    fn GetFocused();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -553,6 +580,19 @@ unsafe impl ::windows::core::Interface for IAnchor {
     type Vtable = IAnchorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0feb7e34_5a60_4356_8ef7_abdec2ff7cf8);
 }
+pub trait IAnchorImpl {
+    fn SetGravity();
+    fn GetGravity();
+    fn IsEqual();
+    fn Compare();
+    fn Shift();
+    fn ShiftTo();
+    fn ShiftRegion();
+    fn SetChangeHistoryMask();
+    fn GetChangeHistory();
+    fn ClearChangeHistory();
+    fn Clone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnchorVtbl(
@@ -623,6 +663,9 @@ unsafe impl ::windows::core::Interface for IClonableWrapper {
     type Vtable = IClonableWrapperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb33e75ff_e84c_4dca_a25c_33b8dc003374);
 }
+pub trait IClonableWrapperImpl {
+    fn CloneNewWrapper();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClonableWrapperVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
@@ -675,6 +718,9 @@ impl ::core::fmt::Debug for ICoCreateLocally {
 unsafe impl ::windows::core::Interface for ICoCreateLocally {
     type Vtable = ICoCreateLocallyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03de00aa_f272_41e3_99cb_03c5e8114ea0);
+}
+pub trait ICoCreateLocallyImpl {
+    fn CoCreateLocally();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -734,6 +780,9 @@ impl ::core::fmt::Debug for ICoCreatedLocally {
 unsafe impl ::windows::core::Interface for ICoCreatedLocally {
     type Vtable = ICoCreatedLocallyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a53eb6c_1908_4742_8cff_2cee2e93f94c);
+}
+pub trait ICoCreatedLocallyImpl {
+    fn LocalInit();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -797,6 +846,10 @@ impl ::core::fmt::Debug for IDocWrap {
 unsafe impl ::windows::core::Interface for IDocWrap {
     type Vtable = IDocWrapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcd285fe_0be0_43bd_99c9_aaaec513c555);
+}
+pub trait IDocWrapImpl {
+    fn SetDoc();
+    fn GetWrappedDoc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -868,6 +921,12 @@ impl ::core::fmt::Debug for IEnumITfCompositionView {
 unsafe impl ::windows::core::Interface for IEnumITfCompositionView {
     type Vtable = IEnumITfCompositionViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5efd22ba_7838_46cb_88e2_cadb14124f8f);
+}
+pub trait IEnumITfCompositionViewImpl {
+    fn Clone();
+    fn Next();
+    fn Reset();
+    fn Skip();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -942,6 +1001,12 @@ unsafe impl ::windows::core::Interface for IEnumSpeechCommands {
     type Vtable = IEnumSpeechCommandsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c5dac4f_083c_4b85_a4c9_71746048adca);
 }
+pub trait IEnumSpeechCommandsImpl {
+    fn Clone();
+    fn Next();
+    fn Reset();
+    fn Skip();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumSpeechCommandsVtbl(
@@ -1014,6 +1079,12 @@ impl ::core::fmt::Debug for IEnumTfCandidates {
 unsafe impl ::windows::core::Interface for IEnumTfCandidates {
     type Vtable = IEnumTfCandidatesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdefb1926_6c80_4ce8_87d4_d6b72b812bde);
+}
+pub trait IEnumTfCandidatesImpl {
+    fn Clone();
+    fn Next();
+    fn Reset();
+    fn Skip();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1088,6 +1159,12 @@ unsafe impl ::windows::core::Interface for IEnumTfContextViews {
     type Vtable = IEnumTfContextViewsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0c0f8dd_cf38_44e1_bb0f_68cf0d551c78);
 }
+pub trait IEnumTfContextViewsImpl {
+    fn Clone();
+    fn Next();
+    fn Reset();
+    fn Skip();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfContextViewsVtbl(
@@ -1160,6 +1237,12 @@ impl ::core::fmt::Debug for IEnumTfContexts {
 unsafe impl ::windows::core::Interface for IEnumTfContexts {
     type Vtable = IEnumTfContextsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f1a7ea6_1654_4502_a86e_b2902344d507);
+}
+pub trait IEnumTfContextsImpl {
+    fn Clone();
+    fn Next();
+    fn Reset();
+    fn Skip();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1234,6 +1317,12 @@ unsafe impl ::windows::core::Interface for IEnumTfDisplayAttributeInfo {
     type Vtable = IEnumTfDisplayAttributeInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cef04d7_cb75_4e80_a7ab_5f5bc7d332de);
 }
+pub trait IEnumTfDisplayAttributeInfoImpl {
+    fn Clone();
+    fn Next();
+    fn Reset();
+    fn Skip();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfDisplayAttributeInfoVtbl(
@@ -1306,6 +1395,12 @@ impl ::core::fmt::Debug for IEnumTfDocumentMgrs {
 unsafe impl ::windows::core::Interface for IEnumTfDocumentMgrs {
     type Vtable = IEnumTfDocumentMgrsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa80e808_2021_11d2_93e0_0060b067b86e);
+}
+pub trait IEnumTfDocumentMgrsImpl {
+    fn Clone();
+    fn Next();
+    fn Reset();
+    fn Skip();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1380,6 +1475,12 @@ unsafe impl ::windows::core::Interface for IEnumTfFunctionProviders {
     type Vtable = IEnumTfFunctionProvidersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4b24db0_0990_11d3_8df0_00105a2799b5);
 }
+pub trait IEnumTfFunctionProvidersImpl {
+    fn Clone();
+    fn Next();
+    fn Reset();
+    fn Skip();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfFunctionProvidersVtbl(
@@ -1452,6 +1553,12 @@ impl ::core::fmt::Debug for IEnumTfInputProcessorProfiles {
 unsafe impl ::windows::core::Interface for IEnumTfInputProcessorProfiles {
     type Vtable = IEnumTfInputProcessorProfilesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71c6e74d_0f28_11d8_a82a_00065b84435c);
+}
+pub trait IEnumTfInputProcessorProfilesImpl {
+    fn Clone();
+    fn Next();
+    fn Reset();
+    fn Skip();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1526,6 +1633,12 @@ unsafe impl ::windows::core::Interface for IEnumTfLangBarItems {
     type Vtable = IEnumTfLangBarItemsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x583f34d0_de25_11d2_afdd_00105a2799b5);
 }
+pub trait IEnumTfLangBarItemsImpl {
+    fn Clone();
+    fn Next();
+    fn Reset();
+    fn Skip();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfLangBarItemsVtbl(
@@ -1599,6 +1712,12 @@ impl ::core::fmt::Debug for IEnumTfLanguageProfiles {
 unsafe impl ::windows::core::Interface for IEnumTfLanguageProfiles {
     type Vtable = IEnumTfLanguageProfilesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d61bf11_ac5f_42c8_a4cb_931bcc28c744);
+}
+pub trait IEnumTfLanguageProfilesImpl {
+    fn Clone();
+    fn Next();
+    fn Reset();
+    fn Skip();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1675,6 +1794,12 @@ unsafe impl ::windows::core::Interface for IEnumTfLatticeElements {
     type Vtable = IEnumTfLatticeElementsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56988052_47da_4a05_911a_e3d941f17145);
 }
+pub trait IEnumTfLatticeElementsImpl {
+    fn Clone();
+    fn Next();
+    fn Reset();
+    fn Skip();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfLatticeElementsVtbl(
@@ -1748,6 +1873,12 @@ impl ::core::fmt::Debug for IEnumTfProperties {
 unsafe impl ::windows::core::Interface for IEnumTfProperties {
     type Vtable = IEnumTfPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19188cb0_aca9_11d2_afc5_00105a2799b5);
+}
+pub trait IEnumTfPropertiesImpl {
+    fn Clone();
+    fn Next();
+    fn Reset();
+    fn Skip();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1823,6 +1954,12 @@ unsafe impl ::windows::core::Interface for IEnumTfPropertyValue {
     type Vtable = IEnumTfPropertyValueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ed8981b_7c10_4d7d_9fb3_ab72e9c75f72);
 }
+pub trait IEnumTfPropertyValueImpl {
+    fn Clone();
+    fn Next();
+    fn Reset();
+    fn Skip();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfPropertyValueVtbl(
@@ -1897,6 +2034,12 @@ unsafe impl ::windows::core::Interface for IEnumTfRanges {
     type Vtable = IEnumTfRangesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf99d3f40_8e32_11d2_bf46_00105a2799b5);
 }
+pub trait IEnumTfRangesImpl {
+    fn Clone();
+    fn Next();
+    fn Reset();
+    fn Skip();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfRangesVtbl(
@@ -1970,6 +2113,12 @@ unsafe impl ::windows::core::Interface for IEnumTfUIElements {
     type Vtable = IEnumTfUIElementsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x887aa91e_acba_4931_84da_3c5208cf543f);
 }
+pub trait IEnumTfUIElementsImpl {
+    fn Clone();
+    fn Next();
+    fn Reset();
+    fn Skip();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfUIElementsVtbl(
@@ -2029,6 +2178,9 @@ impl ::core::fmt::Debug for IInternalDocWrap {
 unsafe impl ::windows::core::Interface for IInternalDocWrap {
     type Vtable = IInternalDocWrapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1aa6466_9db4_40ba_be03_77c38e8e60b2);
+}
+pub trait IInternalDocWrapImpl {
+    fn NotifyRevoke();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2099,6 +2251,10 @@ impl ::core::fmt::Debug for ISpeechCommandProvider {
 unsafe impl ::windows::core::Interface for ISpeechCommandProvider {
     type Vtable = ISpeechCommandProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38e09d4c_586d_435a_b592_c8a86691dec6);
+}
+pub trait ISpeechCommandProviderImpl {
+    fn EnumSpeechCommands();
+    fn ProcessCommand();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2285,6 +2441,34 @@ impl ::core::fmt::Debug for ITextStoreACP {
 unsafe impl ::windows::core::Interface for ITextStoreACP {
     type Vtable = ITextStoreACPVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28888fe3_c2a0_483a_a3ea_8cb1ce51ff3d);
+}
+pub trait ITextStoreACPImpl {
+    fn AdviseSink();
+    fn UnadviseSink();
+    fn RequestLock();
+    fn GetStatus();
+    fn QueryInsert();
+    fn GetSelection();
+    fn SetSelection();
+    fn GetText();
+    fn SetText();
+    fn GetFormattedText();
+    fn GetEmbedded();
+    fn QueryInsertEmbedded();
+    fn InsertEmbedded();
+    fn InsertTextAtSelection();
+    fn InsertEmbeddedAtSelection();
+    fn RequestSupportedAttrs();
+    fn RequestAttrsAtPosition();
+    fn RequestAttrsTransitioningAtPosition();
+    fn FindNextAttrTransition();
+    fn RetrieveRequestedAttrs();
+    fn GetEndACP();
+    fn GetActiveView();
+    fn GetACPFromPoint();
+    fn GetTextExt();
+    fn GetScreenExt();
+    fn GetWnd();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2504,6 +2688,33 @@ unsafe impl ::windows::core::Interface for ITextStoreACP2 {
     type Vtable = ITextStoreACP2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf86ad89f_5fe4_4b8d_bb9f_ef3797a84f1f);
 }
+pub trait ITextStoreACP2Impl {
+    fn AdviseSink();
+    fn UnadviseSink();
+    fn RequestLock();
+    fn GetStatus();
+    fn QueryInsert();
+    fn GetSelection();
+    fn SetSelection();
+    fn GetText();
+    fn SetText();
+    fn GetFormattedText();
+    fn GetEmbedded();
+    fn QueryInsertEmbedded();
+    fn InsertEmbedded();
+    fn InsertTextAtSelection();
+    fn InsertEmbeddedAtSelection();
+    fn RequestSupportedAttrs();
+    fn RequestAttrsAtPosition();
+    fn RequestAttrsTransitioningAtPosition();
+    fn FindNextAttrTransition();
+    fn RetrieveRequestedAttrs();
+    fn GetEndACP();
+    fn GetActiveView();
+    fn GetACPFromPoint();
+    fn GetTextExt();
+    fn GetScreenExt();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextStoreACP2Vtbl(
@@ -2600,6 +2811,9 @@ unsafe impl ::windows::core::Interface for ITextStoreACPEx {
     type Vtable = ITextStoreACPExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2de3bc2_3d8e_11d3_81a9_f753fbe61a00);
 }
+pub trait ITextStoreACPExImpl {
+    fn ScrollToRect();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextStoreACPExVtbl(
@@ -2672,6 +2886,12 @@ impl ::core::fmt::Debug for ITextStoreACPServices {
 unsafe impl ::windows::core::Interface for ITextStoreACPServices {
     type Vtable = ITextStoreACPServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa80e901_2021_11d2_93e0_0060b067b86e);
+}
+pub trait ITextStoreACPServicesImpl {
+    fn Serialize();
+    fn Unserialize();
+    fn ForceLoadProperty();
+    fn CreateRange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2762,6 +2982,16 @@ impl ::core::fmt::Debug for ITextStoreACPSink {
 unsafe impl ::windows::core::Interface for ITextStoreACPSink {
     type Vtable = ITextStoreACPSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22d44c94_a419_4542_a272_ae26093ececf);
+}
+pub trait ITextStoreACPSinkImpl {
+    fn OnTextChange();
+    fn OnSelectionChange();
+    fn OnLayoutChange();
+    fn OnStatusChange();
+    fn OnAttrsChange();
+    fn OnLockGranted();
+    fn OnStartEditTransaction();
+    fn OnEndEditTransaction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2878,6 +3108,9 @@ impl ::core::fmt::Debug for ITextStoreACPSinkEx {
 unsafe impl ::windows::core::Interface for ITextStoreACPSinkEx {
     type Vtable = ITextStoreACPSinkExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bdf9464_41e2_43e3_950c_a6865ba25cd4);
+}
+pub trait ITextStoreACPSinkExImpl: ITextStoreACPSinkImpl {
+    fn OnDisconnect();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3074,6 +3307,35 @@ unsafe impl ::windows::core::Interface for ITextStoreAnchor {
     type Vtable = ITextStoreAnchorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b2077b0_5f18_4dec_bee9_3cc722f5dfe0);
 }
+pub trait ITextStoreAnchorImpl {
+    fn AdviseSink();
+    fn UnadviseSink();
+    fn RequestLock();
+    fn GetStatus();
+    fn QueryInsert();
+    fn GetSelection();
+    fn SetSelection();
+    fn GetText();
+    fn SetText();
+    fn GetFormattedText();
+    fn GetEmbedded();
+    fn InsertEmbedded();
+    fn RequestSupportedAttrs();
+    fn RequestAttrsAtPosition();
+    fn RequestAttrsTransitioningAtPosition();
+    fn FindNextAttrTransition();
+    fn RetrieveRequestedAttrs();
+    fn GetStart();
+    fn GetEnd();
+    fn GetActiveView();
+    fn GetAnchorFromPoint();
+    fn GetTextExt();
+    fn GetScreenExt();
+    fn GetWnd();
+    fn QueryInsertEmbedded();
+    fn InsertTextAtSelection();
+    fn InsertEmbeddedAtSelection();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextStoreAnchorVtbl(
@@ -3173,6 +3435,9 @@ unsafe impl ::windows::core::Interface for ITextStoreAnchorEx {
     type Vtable = ITextStoreAnchorExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2de3bc1_3d8e_11d3_81a9_f753fbe61a00);
 }
+pub trait ITextStoreAnchorExImpl {
+    fn ScrollToRect();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextStoreAnchorExVtbl(
@@ -3258,6 +3523,16 @@ impl ::core::fmt::Debug for ITextStoreAnchorSink {
 unsafe impl ::windows::core::Interface for ITextStoreAnchorSink {
     type Vtable = ITextStoreAnchorSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa80e905_2021_11d2_93e0_0060b067b86e);
+}
+pub trait ITextStoreAnchorSinkImpl {
+    fn OnTextChange();
+    fn OnSelectionChange();
+    fn OnLayoutChange();
+    fn OnStatusChange();
+    fn OnAttrsChange();
+    fn OnLockGranted();
+    fn OnStartEditTransaction();
+    fn OnEndEditTransaction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3375,6 +3650,9 @@ unsafe impl ::windows::core::Interface for ITextStoreSinkAnchorEx {
     type Vtable = ITextStoreSinkAnchorExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25642426_028d_4474_977b_111bb114fe3e);
 }
+pub trait ITextStoreSinkAnchorExImpl: ITextStoreAnchorSinkImpl {
+    fn OnDisconnect();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextStoreSinkAnchorExVtbl(
@@ -3440,6 +3718,9 @@ impl ::core::fmt::Debug for ITfActiveLanguageProfileNotifySink {
 unsafe impl ::windows::core::Interface for ITfActiveLanguageProfileNotifySink {
     type Vtable = ITfActiveLanguageProfileNotifySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb246cb75_a93e_4652_bf8c_b3fe0cfd7e57);
+}
+pub trait ITfActiveLanguageProfileNotifySinkImpl {
+    fn OnActivated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3513,6 +3794,12 @@ impl ::core::fmt::Debug for ITfCandidateList {
 unsafe impl ::windows::core::Interface for ITfCandidateList {
     type Vtable = ITfCandidateListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3ad50fb_9bdb_49e3_a843_6c76520fbf5d);
+}
+pub trait ITfCandidateListImpl {
+    fn EnumCandidates();
+    fn GetCandidate();
+    fn GetCandidateNum();
+    fn SetResult();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3650,6 +3937,16 @@ impl ::core::fmt::Debug for ITfCandidateListUIElement {
 unsafe impl ::windows::core::Interface for ITfCandidateListUIElement {
     type Vtable = ITfCandidateListUIElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea1ea138_19df_11d7_a6d2_00065b84435c);
+}
+pub trait ITfCandidateListUIElementImpl: ITfUIElementImpl {
+    fn GetUpdatedFlags();
+    fn GetDocumentMgr();
+    fn GetCount();
+    fn GetSelection();
+    fn GetString();
+    fn GetPageIndex();
+    fn SetPageIndex();
+    fn GetCurrentPage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3832,6 +4129,11 @@ unsafe impl ::windows::core::Interface for ITfCandidateListUIElementBehavior {
     type Vtable = ITfCandidateListUIElementBehaviorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85fad185_58ce_497a_9460_355366b64b9a);
 }
+pub trait ITfCandidateListUIElementBehaviorImpl: ITfCandidateListUIElementImpl + ITfUIElementImpl {
+    fn SetSelection();
+    fn Finalize();
+    fn Abort();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfCandidateListUIElementBehaviorVtbl(
@@ -3913,6 +4215,10 @@ impl ::core::fmt::Debug for ITfCandidateString {
 unsafe impl ::windows::core::Interface for ITfCandidateString {
     type Vtable = ITfCandidateStringVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x581f317e_fd9d_443f_b972_ed00467c5d40);
+}
+pub trait ITfCandidateStringImpl {
+    fn GetString();
+    fn GetIndex();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4037,6 +4343,22 @@ unsafe impl ::windows::core::Interface for ITfCategoryMgr {
     type Vtable = ITfCategoryMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3acefb5_f69d_4905_938f_fcadcf4be830);
 }
+pub trait ITfCategoryMgrImpl {
+    fn RegisterCategory();
+    fn UnregisterCategory();
+    fn EnumCategoriesInItem();
+    fn EnumItemsInCategory();
+    fn FindClosestCategory();
+    fn RegisterGUIDDescription();
+    fn UnregisterGUIDDescription();
+    fn GetGUIDDescription();
+    fn RegisterGUIDDWORD();
+    fn UnregisterGUIDDWORD();
+    fn GetGUIDDWORD();
+    fn RegisterGUID();
+    fn GetGUID();
+    fn IsEqualTfGuidAtom();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfCategoryMgrVtbl(
@@ -4116,6 +4438,10 @@ unsafe impl ::windows::core::Interface for ITfCleanupContextDurationSink {
     type Vtable = ITfCleanupContextDurationSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45c35144_154e_4797_bed8_d33ae7bf8794);
 }
+pub trait ITfCleanupContextDurationSinkImpl {
+    fn OnStartCleanupContext();
+    fn OnEndCleanupContext();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfCleanupContextDurationSinkVtbl(
@@ -4174,6 +4500,9 @@ unsafe impl ::windows::core::Interface for ITfCleanupContextSink {
     type Vtable = ITfCleanupContextSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01689689_7acb_4e9b_ab7c_7ea46b12b522);
 }
+pub trait ITfCleanupContextSinkImpl {
+    fn OnCleanupContext();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfCleanupContextSinkVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ecwrite: u32, pic: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -4226,6 +4555,9 @@ impl ::core::fmt::Debug for ITfClientId {
 unsafe impl ::windows::core::Interface for ITfClientId {
     type Vtable = ITfClientIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd60a7b49_1b9f_4be2_b702_47e9dc05dec3);
+}
+pub trait ITfClientIdImpl {
+    fn GetClientId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4286,6 +4618,10 @@ unsafe impl ::windows::core::Interface for ITfCompartment {
     type Vtable = ITfCompartmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb08f7a9_607a_4384_8623_056892b64371);
 }
+pub trait ITfCompartmentImpl {
+    fn SetValue();
+    fn GetValue();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfCompartmentVtbl(
@@ -4345,6 +4681,9 @@ impl ::core::fmt::Debug for ITfCompartmentEventSink {
 unsafe impl ::windows::core::Interface for ITfCompartmentEventSink {
     type Vtable = ITfCompartmentEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x743abd5f_f26d_48df_8cc5_238492419b64);
+}
+pub trait ITfCompartmentEventSinkImpl {
+    fn OnChange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4408,6 +4747,11 @@ impl ::core::fmt::Debug for ITfCompartmentMgr {
 unsafe impl ::windows::core::Interface for ITfCompartmentMgr {
     type Vtable = ITfCompartmentMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7dcf57ac_18ad_438b_824d_979bffb74b7c);
+}
+pub trait ITfCompartmentMgrImpl {
+    fn GetCompartment();
+    fn ClearCompartment();
+    fn EnumCompartments();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4482,6 +4826,12 @@ unsafe impl ::windows::core::Interface for ITfComposition {
     type Vtable = ITfCompositionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20168d64_5a8f_4a5a_b7bd_cfa29f4d0fd9);
 }
+pub trait ITfCompositionImpl {
+    fn GetRange();
+    fn ShiftStart();
+    fn ShiftEnd();
+    fn EndComposition();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfCompositionVtbl(
@@ -4542,6 +4892,9 @@ unsafe impl ::windows::core::Interface for ITfCompositionSink {
     type Vtable = ITfCompositionSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa781718c_579a_4b15_a280_32b8577acc5e);
 }
+pub trait ITfCompositionSinkImpl {
+    fn OnCompositionTerminated();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfCompositionSinkVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ecwrite: u32, pcomposition: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -4599,6 +4952,10 @@ impl ::core::fmt::Debug for ITfCompositionView {
 unsafe impl ::windows::core::Interface for ITfCompositionView {
     type Vtable = ITfCompositionViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7540241_f9a1_4364_befc_dbcd2c4395b7);
+}
+pub trait ITfCompositionViewImpl {
+    fn GetOwnerClsid();
+    fn GetRange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4661,6 +5018,10 @@ impl ::core::fmt::Debug for ITfConfigureSystemKeystrokeFeed {
 unsafe impl ::windows::core::Interface for ITfConfigureSystemKeystrokeFeed {
     type Vtable = ITfConfigureSystemKeystrokeFeedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d2c969a_bc9c_437c_84ee_951c49b1a764);
+}
+pub trait ITfConfigureSystemKeystrokeFeedImpl {
+    fn DisableSystemKeystrokeFeed();
+    fn EnableSystemKeystrokeFeed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4792,6 +5153,23 @@ unsafe impl ::windows::core::Interface for ITfContext {
     type Vtable = ITfContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa80e7fd_2021_11d2_93e0_0060b067b86e);
 }
+pub trait ITfContextImpl {
+    fn RequestEditSession();
+    fn InWriteSession();
+    fn GetSelection();
+    fn SetSelection();
+    fn GetStart();
+    fn GetEnd();
+    fn GetActiveView();
+    fn EnumViews();
+    fn GetStatus();
+    fn GetProperty();
+    fn GetAppProperty();
+    fn TrackProperties();
+    fn EnumProperties();
+    fn GetDocumentMgr();
+    fn CreateRangeBackup();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfContextVtbl(
@@ -4882,6 +5260,12 @@ unsafe impl ::windows::core::Interface for ITfContextComposition {
     type Vtable = ITfContextCompositionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd40c8aae_ac92_4fc7_9a11_0ee0e23aa39b);
 }
+pub trait ITfContextCompositionImpl {
+    fn StartComposition();
+    fn EnumCompositions();
+    fn FindComposition();
+    fn TakeOwnership();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfContextCompositionVtbl(
@@ -4961,6 +5345,12 @@ impl ::core::fmt::Debug for ITfContextKeyEventSink {
 unsafe impl ::windows::core::Interface for ITfContextKeyEventSink {
     type Vtable = ITfContextKeyEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0552ba5d_c835_4934_bf50_846aaa67432f);
+}
+pub trait ITfContextKeyEventSinkImpl {
+    fn OnKeyDown();
+    fn OnKeyUp();
+    fn OnTestKeyDown();
+    fn OnTestKeyUp();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5055,6 +5445,14 @@ impl ::core::fmt::Debug for ITfContextOwner {
 unsafe impl ::windows::core::Interface for ITfContextOwner {
     type Vtable = ITfContextOwnerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa80e80c_2021_11d2_93e0_0060b067b86e);
+}
+pub trait ITfContextOwnerImpl {
+    fn GetACPFromPoint();
+    fn GetTextExt();
+    fn GetScreenExt();
+    fn GetStatus();
+    fn GetWnd();
+    fn GetAttribute();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5163,6 +5561,9 @@ unsafe impl ::windows::core::Interface for ITfContextOwnerCompositionServices {
     type Vtable = ITfContextOwnerCompositionServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86462810_593b_4916_9764_19c08e9ce110);
 }
+pub trait ITfContextOwnerCompositionServicesImpl: ITfContextCompositionImpl {
+    fn TerminateComposition();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfContextOwnerCompositionServicesVtbl(
@@ -5233,6 +5634,11 @@ impl ::core::fmt::Debug for ITfContextOwnerCompositionSink {
 unsafe impl ::windows::core::Interface for ITfContextOwnerCompositionSink {
     type Vtable = ITfContextOwnerCompositionSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f20aa40_b57a_4f34_96ab_3576f377cc79);
+}
+pub trait ITfContextOwnerCompositionSinkImpl {
+    fn OnStartComposition();
+    fn OnUpdateComposition();
+    fn OnEndComposition();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5321,6 +5727,15 @@ unsafe impl ::windows::core::Interface for ITfContextOwnerServices {
     type Vtable = ITfContextOwnerServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb23eb630_3e1c_11d3_a745_0050040ab407);
 }
+pub trait ITfContextOwnerServicesImpl {
+    fn OnLayoutChange();
+    fn OnStatusChange();
+    fn OnAttributeChange();
+    fn Serialize();
+    fn Unserialize();
+    fn ForceLoadProperty();
+    fn CreateRange();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfContextOwnerServicesVtbl(
@@ -5405,6 +5820,12 @@ unsafe impl ::windows::core::Interface for ITfContextView {
     type Vtable = ITfContextViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2433bf8e_0f9b_435c_ba2c_180611978c30);
 }
+pub trait ITfContextViewImpl {
+    fn GetRangeFromPoint();
+    fn GetTextExt();
+    fn GetScreenExt();
+    fn GetWnd();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfContextViewVtbl(
@@ -5476,6 +5897,10 @@ impl ::core::fmt::Debug for ITfCreatePropertyStore {
 unsafe impl ::windows::core::Interface for ITfCreatePropertyStore {
     type Vtable = ITfCreatePropertyStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2463fbf0_b0af_11d2_afc5_00105a2799b5);
+}
+pub trait ITfCreatePropertyStoreImpl {
+    fn IsStoreSerializable();
+    fn CreatePropertyStore();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5559,6 +5984,13 @@ unsafe impl ::windows::core::Interface for ITfDisplayAttributeInfo {
     type Vtable = ITfDisplayAttributeInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70528852_2f26_4aea_8c96_215150578932);
 }
+pub trait ITfDisplayAttributeInfoImpl {
+    fn GetGUID();
+    fn GetDescription();
+    fn GetAttributeInfo();
+    fn SetAttributeInfo();
+    fn Reset();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfDisplayAttributeInfoVtbl(
@@ -5632,6 +6064,11 @@ unsafe impl ::windows::core::Interface for ITfDisplayAttributeMgr {
     type Vtable = ITfDisplayAttributeMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ded7393_5db1_475c_9e71_a39111b0ff67);
 }
+pub trait ITfDisplayAttributeMgrImpl {
+    fn OnUpdateInfo();
+    fn EnumDisplayAttributeInfo();
+    fn GetDisplayAttributeInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfDisplayAttributeMgrVtbl(
@@ -5691,6 +6128,9 @@ unsafe impl ::windows::core::Interface for ITfDisplayAttributeNotifySink {
     type Vtable = ITfDisplayAttributeNotifySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad56f402_e162_4f25_908f_7d577cf9bda9);
 }
+pub trait ITfDisplayAttributeNotifySinkImpl {
+    fn OnUpdateInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfDisplayAttributeNotifySinkVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
@@ -5748,6 +6188,10 @@ impl ::core::fmt::Debug for ITfDisplayAttributeProvider {
 unsafe impl ::windows::core::Interface for ITfDisplayAttributeProvider {
     type Vtable = ITfDisplayAttributeProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfee47777_163c_4769_996a_6e9c50ad8f54);
+}
+pub trait ITfDisplayAttributeProviderImpl {
+    fn EnumDisplayAttributeInfo();
+    fn GetDisplayAttributeInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5830,6 +6274,14 @@ unsafe impl ::windows::core::Interface for ITfDocumentMgr {
     type Vtable = ITfDocumentMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa80e7f4_2021_11d2_93e0_0060b067b86e);
 }
+pub trait ITfDocumentMgrImpl {
+    fn CreateContext();
+    fn Push();
+    fn Pop();
+    fn GetTop();
+    fn GetBase();
+    fn EnumContexts();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfDocumentMgrVtbl(
@@ -5899,6 +6351,10 @@ unsafe impl ::windows::core::Interface for ITfEditRecord {
     type Vtable = ITfEditRecordVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42d4d099_7c1a_4a89_b836_6c6f22160df0);
 }
+pub trait ITfEditRecordImpl {
+    fn GetSelectionStatus();
+    fn GetTextAndPropertyUpdates();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfEditRecordVtbl(
@@ -5958,6 +6414,9 @@ unsafe impl ::windows::core::Interface for ITfEditSession {
     type Vtable = ITfEditSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa80e803_2021_11d2_93e0_0060b067b86e);
 }
+pub trait ITfEditSessionImpl {
+    fn DoEditSession();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfEditSessionVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ec: u32) -> ::windows::core::HRESULT);
@@ -6013,6 +6472,10 @@ impl ::core::fmt::Debug for ITfEditTransactionSink {
 unsafe impl ::windows::core::Interface for ITfEditTransactionSink {
     type Vtable = ITfEditTransactionSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x708fbf70_b520_416b_b06c_2c41ab44f8ba);
+}
+pub trait ITfEditTransactionSinkImpl {
+    fn OnStartEditTransaction();
+    fn OnEndEditTransaction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6103,6 +6566,10 @@ unsafe impl ::windows::core::Interface for ITfFnAdviseText {
     type Vtable = ITfFnAdviseTextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3527268b_7d53_4dd9_92b7_7296ae461249);
 }
+pub trait ITfFnAdviseTextImpl: ITfFunctionImpl {
+    fn OnTextUpdate();
+    fn OnLatticeUpdate();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfFnAdviseTextVtbl(
@@ -6164,6 +6631,9 @@ impl ::core::fmt::Debug for ITfFnBalloon {
 unsafe impl ::windows::core::Interface for ITfFnBalloon {
     type Vtable = ITfFnBalloonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bab89e4_5fbe_45f4_a5bc_dca36ad225a8);
+}
+pub trait ITfFnBalloonImpl {
+    fn UpdateBalloon();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6249,6 +6719,9 @@ impl ::core::fmt::Debug for ITfFnConfigure {
 unsafe impl ::windows::core::Interface for ITfFnConfigure {
     type Vtable = ITfFnConfigureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88f567c6_1757_49f8_a1b2_89234c1eeff9);
+}
+pub trait ITfFnConfigureImpl: ITfFunctionImpl {
+    fn Show();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6337,6 +6810,9 @@ unsafe impl ::windows::core::Interface for ITfFnConfigureRegisterEudc {
     type Vtable = ITfFnConfigureRegisterEudcVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5e26ff5_d7ad_4304_913f_21a2ed95a1b0);
 }
+pub trait ITfFnConfigureRegisterEudcImpl: ITfFunctionImpl {
+    fn Show();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfFnConfigureRegisterEudcVtbl(
@@ -6424,6 +6900,9 @@ unsafe impl ::windows::core::Interface for ITfFnConfigureRegisterWord {
     type Vtable = ITfFnConfigureRegisterWordVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb95808a_6d8f_4bca_8400_5390b586aedf);
 }
+pub trait ITfFnConfigureRegisterWordImpl: ITfFunctionImpl {
+    fn Show();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfFnConfigureRegisterWordVtbl(
@@ -6509,6 +6988,9 @@ impl ::core::fmt::Debug for ITfFnCustomSpeechCommand {
 unsafe impl ::windows::core::Interface for ITfFnCustomSpeechCommand {
     type Vtable = ITfFnCustomSpeechCommandVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfca6c349_a12f_43a3_8dd6_5a5a4282577b);
+}
+pub trait ITfFnCustomSpeechCommandImpl: ITfFunctionImpl {
+    fn SetSpeechCommandProvider();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6596,6 +7078,9 @@ unsafe impl ::windows::core::Interface for ITfFnGetLinguisticAlternates {
     type Vtable = ITfFnGetLinguisticAlternatesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea163ce2_7a65_4506_82a3_c528215da64e);
 }
+pub trait ITfFnGetLinguisticAlternatesImpl: ITfFunctionImpl {
+    fn GetAlternates();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfFnGetLinguisticAlternatesVtbl(
@@ -6680,6 +7165,9 @@ impl ::core::fmt::Debug for ITfFnGetPreferredTouchKeyboardLayout {
 unsafe impl ::windows::core::Interface for ITfFnGetPreferredTouchKeyboardLayout {
     type Vtable = ITfFnGetPreferredTouchKeyboardLayoutVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f309a41_590a_4acc_a97f_d8efff13fdfc);
+}
+pub trait ITfFnGetPreferredTouchKeyboardLayoutImpl: ITfFunctionImpl {
+    fn GetLayout();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6766,6 +7254,9 @@ impl ::core::fmt::Debug for ITfFnGetSAPIObject {
 unsafe impl ::windows::core::Interface for ITfFnGetSAPIObject {
     type Vtable = ITfFnGetSAPIObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c0ab7ea_167d_4f59_bfb5_4693755e90ca);
+}
+pub trait ITfFnGetSAPIObjectImpl: ITfFunctionImpl {
+    fn Get();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6907,6 +7398,9 @@ unsafe impl ::windows::core::Interface for ITfFnLMInternal {
     type Vtable = ITfFnLMInternalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b825b1_ac9a_4f7b_b5ad_c7168f1ee445);
 }
+pub trait ITfFnLMInternalImpl: ITfFnLMProcessorImpl + ITfFunctionImpl {
+    fn ProcessLattice();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfFnLMInternalVtbl(
@@ -7034,6 +7528,15 @@ unsafe impl ::windows::core::Interface for ITfFnLMProcessor {
     type Vtable = ITfFnLMProcessorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7afbf8e7_ac4b_4082_b058_890899d3a010);
 }
+pub trait ITfFnLMProcessorImpl: ITfFunctionImpl {
+    fn QueryRange();
+    fn QueryLangID();
+    fn GetReconversion();
+    fn Reconvert();
+    fn QueryKey();
+    fn InvokeKey();
+    fn InvokeFunc();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfFnLMProcessorVtbl(
@@ -7135,6 +7638,10 @@ unsafe impl ::windows::core::Interface for ITfFnLangProfileUtil {
     type Vtable = ITfFnLangProfileUtilVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa87a8574_a6c1_4e15_99f0_3d3965f548eb);
 }
+pub trait ITfFnLangProfileUtilImpl: ITfFunctionImpl {
+    fn RegisterActiveProfiles();
+    fn IsProfileAvailableForLang();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfFnLangProfileUtilVtbl(
@@ -7227,6 +7734,10 @@ unsafe impl ::windows::core::Interface for ITfFnPlayBack {
     type Vtable = ITfFnPlayBackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3a416a4_0f64_11d3_b5b7_00c04fc324a1);
 }
+pub trait ITfFnPlayBackImpl: ITfFunctionImpl {
+    fn QueryRange();
+    fn Play();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfFnPlayBackVtbl(
@@ -7318,6 +7829,10 @@ impl ::core::fmt::Debug for ITfFnPropertyUIStatus {
 unsafe impl ::windows::core::Interface for ITfFnPropertyUIStatus {
     type Vtable = ITfFnPropertyUIStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2338ac6e_2b9d_44c0_a75e_ee64f256b3bd);
+}
+pub trait ITfFnPropertyUIStatusImpl: ITfFunctionImpl {
+    fn GetStatus();
+    fn SetStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7415,6 +7930,11 @@ unsafe impl ::windows::core::Interface for ITfFnReconversion {
     type Vtable = ITfFnReconversionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cea93c0_0a58_11d3_8df0_00105a2799b5);
 }
+pub trait ITfFnReconversionImpl: ITfFunctionImpl {
+    fn QueryRange();
+    fn GetReconversion();
+    fn Reconvert();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfFnReconversionVtbl(
@@ -7510,6 +8030,10 @@ unsafe impl ::windows::core::Interface for ITfFnSearchCandidateProvider {
     type Vtable = ITfFnSearchCandidateProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87a2ad8f_f27b_4920_8501_67602280175d);
 }
+pub trait ITfFnSearchCandidateProviderImpl: ITfFunctionImpl {
+    fn GetSearchCandidates();
+    fn SetResult();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfFnSearchCandidateProviderVtbl(
@@ -7599,6 +8123,9 @@ unsafe impl ::windows::core::Interface for ITfFnShowHelp {
     type Vtable = ITfFnShowHelpVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ab1d30c_094d_4c29_8ea5_0bf59be87bf3);
 }
+pub trait ITfFnShowHelpImpl: ITfFunctionImpl {
+    fn Show();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfFnShowHelpVtbl(
@@ -7660,6 +8187,9 @@ impl ::core::fmt::Debug for ITfFunction {
 unsafe impl ::windows::core::Interface for ITfFunction {
     type Vtable = ITfFunctionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb593490_098f_11d3_8df0_00105a2799b5);
+}
+pub trait ITfFunctionImpl {
+    fn GetDisplayName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7731,6 +8261,11 @@ unsafe impl ::windows::core::Interface for ITfFunctionProvider {
     type Vtable = ITfFunctionProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x101d6610_0990_11d3_8df0_00105a2799b5);
 }
+pub trait ITfFunctionProviderImpl {
+    fn GetType();
+    fn GetDescription();
+    fn GetFunction();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfFunctionProviderVtbl(
@@ -7790,6 +8325,9 @@ impl ::core::fmt::Debug for ITfInputProcessorProfileActivationSink {
 unsafe impl ::windows::core::Interface for ITfInputProcessorProfileActivationSink {
     type Vtable = ITfInputProcessorProfileActivationSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71c6e74e_0f28_11d8_a82a_00065b84435c);
+}
+pub trait ITfInputProcessorProfileActivationSinkImpl {
+    fn OnActivated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7880,6 +8418,16 @@ unsafe impl ::windows::core::Interface for ITfInputProcessorProfileMgr {
     type Vtable = ITfInputProcessorProfileMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71c6e74c_0f28_11d8_a82a_00065b84435c);
 }
+pub trait ITfInputProcessorProfileMgrImpl {
+    fn ActivateProfile();
+    fn DeactivateProfile();
+    fn GetProfile();
+    fn EnumProfiles();
+    fn ReleaseInputProcessor();
+    fn RegisterProfile();
+    fn UnregisterProfile();
+    fn GetActiveProfile();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfInputProcessorProfileMgrVtbl(
@@ -7945,6 +8493,9 @@ impl ::core::fmt::Debug for ITfInputProcessorProfileSubstituteLayout {
 unsafe impl ::windows::core::Interface for ITfInputProcessorProfileSubstituteLayout {
     type Vtable = ITfInputProcessorProfileSubstituteLayoutVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fd67194_1002_4513_bff2_c0ddf6258552);
+}
+pub trait ITfInputProcessorProfileSubstituteLayoutImpl {
+    fn GetSubstituteKeyboardLayout();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8081,6 +8632,26 @@ impl ::core::fmt::Debug for ITfInputProcessorProfiles {
 unsafe impl ::windows::core::Interface for ITfInputProcessorProfiles {
     type Vtable = ITfInputProcessorProfilesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f02b6c5_7842_4ee6_8a0b_9a24183a95ca);
+}
+pub trait ITfInputProcessorProfilesImpl {
+    fn Register();
+    fn Unregister();
+    fn AddLanguageProfile();
+    fn RemoveLanguageProfile();
+    fn EnumInputProcessorInfo();
+    fn GetDefaultLanguageProfile();
+    fn SetDefaultLanguageProfile();
+    fn ActivateLanguageProfile();
+    fn GetActiveLanguageProfile();
+    fn GetLanguageProfileDescription();
+    fn GetCurrentLanguage();
+    fn ChangeCurrentLanguage();
+    fn GetLanguageList();
+    fn EnumLanguageProfiles();
+    fn EnableLanguageProfile();
+    fn IsEnabledLanguageProfile();
+    fn EnableLanguageProfileByDefault();
+    fn SubstituteKeyboardLayout();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8266,6 +8837,9 @@ unsafe impl ::windows::core::Interface for ITfInputProcessorProfilesEx {
     type Vtable = ITfInputProcessorProfilesExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x892f230f_fe00_4a41_a98e_fcd6de0d35ef);
 }
+pub trait ITfInputProcessorProfilesExImpl: ITfInputProcessorProfilesImpl {
+    fn SetLanguageProfileDisplayName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfInputProcessorProfilesExVtbl(
@@ -8370,6 +8944,13 @@ impl ::core::fmt::Debug for ITfInputScope {
 unsafe impl ::windows::core::Interface for ITfInputScope {
     type Vtable = ITfInputScopeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfde1eaee_6924_4cdf_91e7_da38cff5559d);
+}
+pub trait ITfInputScopeImpl {
+    fn GetInputScopes();
+    fn GetPhrase();
+    fn GetRegularExpression();
+    fn GetSRGS();
+    fn GetXML();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8485,6 +9066,9 @@ unsafe impl ::windows::core::Interface for ITfInputScope2 {
     type Vtable = ITfInputScope2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5731eaa0_6bc2_4681_a532_92fbb74d7c41);
 }
+pub trait ITfInputScope2Impl: ITfInputScopeImpl {
+    fn EnumWordList();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfInputScope2Vtbl(
@@ -8559,6 +9143,10 @@ impl ::core::fmt::Debug for ITfInsertAtSelection {
 unsafe impl ::windows::core::Interface for ITfInsertAtSelection {
     type Vtable = ITfInsertAtSelectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55ce16ba_3014_41c1_9ceb_fade1446ac6c);
+}
+pub trait ITfInsertAtSelectionImpl {
+    fn InsertTextAtSelection();
+    fn InsertEmbeddedAtSelection();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8640,6 +9228,13 @@ impl ::core::fmt::Debug for ITfIntegratableCandidateListUIElement {
 unsafe impl ::windows::core::Interface for ITfIntegratableCandidateListUIElement {
     type Vtable = ITfIntegratableCandidateListUIElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7a6f54f_b180_416f_b2bf_7bf2e4683d7b);
+}
+pub trait ITfIntegratableCandidateListUIElementImpl {
+    fn SetIntegrationStyle();
+    fn GetSelectionStyle();
+    fn OnKeyDown();
+    fn ShowCandidateNumbers();
+    fn FinalizeExactCompositionString();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8735,6 +9330,14 @@ unsafe impl ::windows::core::Interface for ITfKeyEventSink {
     type Vtable = ITfKeyEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa80e7f5_2021_11d2_93e0_0060b067b86e);
 }
+pub trait ITfKeyEventSinkImpl {
+    fn OnSetFocus();
+    fn OnTestKeyDown();
+    fn OnTestKeyUp();
+    fn OnKeyDown();
+    fn OnKeyUp();
+    fn OnPreservedKey();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfKeyEventSinkVtbl(
@@ -8808,6 +9411,10 @@ impl ::core::fmt::Debug for ITfKeyTraceEventSink {
 unsafe impl ::windows::core::Interface for ITfKeyTraceEventSink {
     type Vtable = ITfKeyTraceEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cd4c13b_1c36_4191_a70a_7f3e611f367d);
+}
+pub trait ITfKeyTraceEventSinkImpl {
+    fn OnKeyTraceDown();
+    fn OnKeyTraceUp();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8940,6 +9547,22 @@ unsafe impl ::windows::core::Interface for ITfKeystrokeMgr {
     type Vtable = ITfKeystrokeMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa80e7f0_2021_11d2_93e0_0060b067b86e);
 }
+pub trait ITfKeystrokeMgrImpl {
+    fn AdviseKeyEventSink();
+    fn UnadviseKeyEventSink();
+    fn GetForeground();
+    fn TestKeyDown();
+    fn TestKeyUp();
+    fn KeyDown();
+    fn KeyUp();
+    fn GetPreservedKey();
+    fn IsPreservedKey();
+    fn PreserveKey();
+    fn UnpreserveKey();
+    fn SetPreservedKeyDescription();
+    fn GetPreservedKeyDescription();
+    fn SimulatePreservedKey();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfKeystrokeMgrVtbl(
@@ -9027,6 +9650,10 @@ unsafe impl ::windows::core::Interface for ITfLMLattice {
     type Vtable = ITfLMLatticeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4236675_a5bf_4570_9d42_5d6d7b02d59b);
 }
+pub trait ITfLMLatticeImpl {
+    fn QueryType();
+    fn EnumLatticeElements();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfLMLatticeVtbl(
@@ -9109,6 +9736,14 @@ unsafe impl ::windows::core::Interface for ITfLangBarEventSink {
     type Vtable = ITfLangBarEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18a4e900_e0ae_11d2_afdd_00105a2799b5);
 }
+pub trait ITfLangBarEventSinkImpl {
+    fn OnSetFocus();
+    fn OnThreadTerminate();
+    fn OnThreadItemChange();
+    fn OnModalInput();
+    fn ShowFloating();
+    fn GetItemFloatingRect();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfLangBarEventSinkVtbl(
@@ -9189,6 +9824,12 @@ impl ::core::fmt::Debug for ITfLangBarItem {
 unsafe impl ::windows::core::Interface for ITfLangBarItem {
     type Vtable = ITfLangBarItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73540d69_edeb_4ee9_96c9_23aa30b25916);
+}
+pub trait ITfLangBarItemImpl {
+    fn GetInfo();
+    fn GetStatus();
+    fn Show();
+    fn GetTooltipString();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9305,6 +9946,11 @@ impl ::core::fmt::Debug for ITfLangBarItemBalloon {
 unsafe impl ::windows::core::Interface for ITfLangBarItemBalloon {
     type Vtable = ITfLangBarItemBalloonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01c2d285_d3c7_4b7b_b5b5_d97411d0c283);
+}
+pub trait ITfLangBarItemBalloonImpl: ITfLangBarItemImpl {
+    fn OnClick();
+    fn GetPreferredSize();
+    fn GetBalloonInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9426,6 +10072,11 @@ impl ::core::fmt::Debug for ITfLangBarItemBitmap {
 unsafe impl ::windows::core::Interface for ITfLangBarItemBitmap {
     type Vtable = ITfLangBarItemBitmapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73830352_d722_4179_ada5_f045c98df355);
+}
+pub trait ITfLangBarItemBitmapImpl: ITfLangBarItemImpl {
+    fn OnClick();
+    fn GetPreferredSize();
+    fn DrawBitmap();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9562,6 +10213,14 @@ unsafe impl ::windows::core::Interface for ITfLangBarItemBitmapButton {
     type Vtable = ITfLangBarItemBitmapButtonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa26a0525_3fae_4fa0_89ee_88a964f9f1b5);
 }
+pub trait ITfLangBarItemBitmapButtonImpl: ITfLangBarItemImpl {
+    fn OnClick();
+    fn InitMenu();
+    fn OnMenuSelect();
+    fn GetPreferredSize();
+    fn DrawBitmap();
+    fn GetText();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfLangBarItemBitmapButtonVtbl(
@@ -9696,6 +10355,13 @@ unsafe impl ::windows::core::Interface for ITfLangBarItemButton {
     type Vtable = ITfLangBarItemButtonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28c7f1d0_de25_11d2_afdd_00105a2799b5);
 }
+pub trait ITfLangBarItemButtonImpl: ITfLangBarItemImpl {
+    fn OnClick();
+    fn InitMenu();
+    fn OnMenuSelect();
+    fn GetIcon();
+    fn GetText();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfLangBarItemButtonVtbl(
@@ -9815,6 +10481,20 @@ unsafe impl ::windows::core::Interface for ITfLangBarItemMgr {
     type Vtable = ITfLangBarItemMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba468c55_9956_4fb1_a59d_52a7dd7cc6aa);
 }
+pub trait ITfLangBarItemMgrImpl {
+    fn EnumItems();
+    fn GetItem();
+    fn AddItem();
+    fn RemoveItem();
+    fn AdviseItemSink();
+    fn UnadviseItemSink();
+    fn GetItemFloatingRect();
+    fn GetItemsStatus();
+    fn GetItemNum();
+    fn GetItems();
+    fn AdviseItemsSink();
+    fn UnadviseItemsSink();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfLangBarItemMgrVtbl(
@@ -9883,6 +10563,9 @@ impl ::core::fmt::Debug for ITfLangBarItemSink {
 unsafe impl ::windows::core::Interface for ITfLangBarItemSink {
     type Vtable = ITfLangBarItemSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57dbe1a0_de25_11d2_afdd_00105a2799b5);
+}
+pub trait ITfLangBarItemSinkImpl {
+    fn OnUpdate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9972,6 +10655,17 @@ unsafe impl ::windows::core::Interface for ITfLangBarMgr {
     type Vtable = ITfLangBarMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87955690_e627_11d2_8ddb_00105a2799b5);
 }
+pub trait ITfLangBarMgrImpl {
+    fn AdviseEventSink();
+    fn UnadviseEventSink();
+    fn GetThreadMarshalInterface();
+    fn GetThreadLangBarItemMgr();
+    fn GetInputProcessorProfiles();
+    fn RestoreLastFocus();
+    fn SetModalInput();
+    fn ShowFloating();
+    fn GetShowFloatingStatus();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfLangBarMgrVtbl(
@@ -10045,6 +10739,10 @@ unsafe impl ::windows::core::Interface for ITfLanguageProfileNotifySink {
     type Vtable = ITfLanguageProfileNotifySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43c9fe15_f494_4c17_9de2_b8a4ac350aa8);
 }
+pub trait ITfLanguageProfileNotifySinkImpl {
+    fn OnLanguageChange();
+    fn OnLanguageChanged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfLanguageProfileNotifySinkVtbl(
@@ -10108,6 +10806,10 @@ unsafe impl ::windows::core::Interface for ITfMSAAControl {
     type Vtable = ITfMSAAControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5f8fb3b_393f_4f7c_84cb_504924c2705a);
 }
+pub trait ITfMSAAControlImpl {
+    fn SystemEnableMSAA();
+    fn SystemDisableMSAA();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfMSAAControlVtbl(
@@ -10166,6 +10868,9 @@ impl ::core::fmt::Debug for ITfMenu {
 unsafe impl ::windows::core::Interface for ITfMenu {
     type Vtable = ITfMenuVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f8a98e4_aaa0_4f15_8c5b_07e0df0a3dd8);
+}
+pub trait ITfMenuImpl {
+    fn AddMenuItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10241,6 +10946,12 @@ unsafe impl ::windows::core::Interface for ITfMessagePump {
     type Vtable = ITfMessagePumpVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f1b8ad8_0b6b_4874_90c5_bd76011e8f7c);
 }
+pub trait ITfMessagePumpImpl {
+    fn PeekMessageA();
+    fn GetMessageA();
+    fn PeekMessageW();
+    fn GetMessageW();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfMessagePumpVtbl(
@@ -10307,6 +11018,9 @@ unsafe impl ::windows::core::Interface for ITfMouseSink {
     type Vtable = ITfMouseSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1adaaa2_3a24_449d_ac96_5183e7f5c217);
 }
+pub trait ITfMouseSinkImpl {
+    fn OnMouseEvent();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfMouseSinkVtbl(
@@ -10369,6 +11083,10 @@ impl ::core::fmt::Debug for ITfMouseTracker {
 unsafe impl ::windows::core::Interface for ITfMouseTracker {
     type Vtable = ITfMouseTrackerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09d146cd_a544_4132_925b_7afa8ef322d0);
+}
+pub trait ITfMouseTrackerImpl {
+    fn AdviseMouseSink();
+    fn UnadviseMouseSink();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10433,6 +11151,10 @@ unsafe impl ::windows::core::Interface for ITfMouseTrackerACP {
     type Vtable = ITfMouseTrackerACPVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bdd78e2_c16e_47fd_b883_ce6facc1a208);
 }
+pub trait ITfMouseTrackerACPImpl {
+    fn AdviseMouseSink();
+    fn UnadviseMouseSink();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfMouseTrackerACPVtbl(
@@ -10493,6 +11215,9 @@ unsafe impl ::windows::core::Interface for ITfPersistentPropertyLoaderACP {
     type Vtable = ITfPersistentPropertyLoaderACPVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ef89150_0807_11d3_8df0_00105a2799b5);
 }
+pub trait ITfPersistentPropertyLoaderACPImpl {
+    fn LoadProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfPersistentPropertyLoaderACPVtbl(
@@ -10550,6 +11275,9 @@ impl ::core::fmt::Debug for ITfPreservedKeyNotifySink {
 unsafe impl ::windows::core::Interface for ITfPreservedKeyNotifySink {
     type Vtable = ITfPreservedKeyNotifySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f77c993_d2b1_446e_853e_5912efc8a286);
+}
+pub trait ITfPreservedKeyNotifySinkImpl {
+    fn OnUpdated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10655,6 +11383,12 @@ impl ::core::fmt::Debug for ITfProperty {
 unsafe impl ::windows::core::Interface for ITfProperty {
     type Vtable = ITfPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2449660_9542_11d2_bf46_00105a2799b5);
+}
+pub trait ITfPropertyImpl: ITfReadOnlyPropertyImpl {
+    fn FindRange();
+    fn SetValueStore();
+    fn SetValue();
+    fn Clear();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10767,6 +11501,17 @@ unsafe impl ::windows::core::Interface for ITfPropertyStore {
     type Vtable = ITfPropertyStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6834b120_88cb_11d2_bf45_00105a2799b5);
 }
+pub trait ITfPropertyStoreImpl {
+    fn GetType();
+    fn GetDataType();
+    fn GetData();
+    fn OnTextUpdated();
+    fn Shrink();
+    fn Divide();
+    fn Clone();
+    fn GetPropertyRangeCreator();
+    fn Serialize();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfPropertyStoreVtbl(
@@ -10837,6 +11582,9 @@ impl ::core::fmt::Debug for ITfQueryEmbedded {
 unsafe impl ::windows::core::Interface for ITfQueryEmbedded {
     type Vtable = ITfQueryEmbeddedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fab9bdb_d250_4169_84e5_6be118fdd7a8);
+}
+pub trait ITfQueryEmbeddedImpl {
+    fn QueryInsertEmbedded();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11001,6 +11749,30 @@ impl ::core::fmt::Debug for ITfRange {
 unsafe impl ::windows::core::Interface for ITfRange {
     type Vtable = ITfRangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa80e7ff_2021_11d2_93e0_0060b067b86e);
+}
+pub trait ITfRangeImpl {
+    fn GetText();
+    fn SetText();
+    fn GetFormattedText();
+    fn GetEmbedded();
+    fn InsertEmbedded();
+    fn ShiftStart();
+    fn ShiftEnd();
+    fn ShiftStartToRange();
+    fn ShiftEndToRange();
+    fn ShiftStartRegion();
+    fn ShiftEndRegion();
+    fn IsEmpty();
+    fn Collapse();
+    fn IsEqualStart();
+    fn IsEqualEnd();
+    fn CompareStart();
+    fn CompareEnd();
+    fn AdjustForInsert();
+    fn GetGravity();
+    fn SetGravity();
+    fn Clone();
+    fn GetContext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11224,6 +11996,10 @@ unsafe impl ::windows::core::Interface for ITfRangeACP {
     type Vtable = ITfRangeACPVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x057a6296_029b_4154_b79a_0d461d4ea94c);
 }
+pub trait ITfRangeACPImpl: ITfRangeImpl {
+    fn GetExtent();
+    fn SetExtent();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfRangeACPVtbl(
@@ -11314,6 +12090,9 @@ unsafe impl ::windows::core::Interface for ITfRangeBackup {
     type Vtable = ITfRangeBackupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x463a506d_6992_49d2_9b88_93d55e70bb16);
 }
+pub trait ITfRangeBackupImpl {
+    fn Restore();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfRangeBackupVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ec: u32, prange: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -11381,6 +12160,12 @@ impl ::core::fmt::Debug for ITfReadOnlyProperty {
 unsafe impl ::windows::core::Interface for ITfReadOnlyProperty {
     type Vtable = ITfReadOnlyPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17d49a3d_f8b8_4b2f_b254_52319dd64c53);
+}
+pub trait ITfReadOnlyPropertyImpl {
+    fn GetType();
+    fn EnumRanges();
+    fn GetValue();
+    fn GetContext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11513,6 +12298,14 @@ unsafe impl ::windows::core::Interface for ITfReadingInformationUIElement {
     type Vtable = ITfReadingInformationUIElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea1ea139_19df_11d7_a6d2_00065b84435c);
 }
+pub trait ITfReadingInformationUIElementImpl: ITfUIElementImpl {
+    fn GetUpdatedFlags();
+    fn GetContext();
+    fn GetString();
+    fn GetMaxReadingStringLength();
+    fn GetErrorIndex();
+    fn IsVerticalOrderPreferred();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfReadingInformationUIElementVtbl(
@@ -11586,6 +12379,9 @@ unsafe impl ::windows::core::Interface for ITfReverseConversion {
     type Vtable = ITfReverseConversionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa415e162_157d_417d_8a8c_0ab26c7d2781);
 }
+pub trait ITfReverseConversionImpl {
+    fn DoReverseConversion();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfReverseConversionVtbl(
@@ -11651,6 +12447,10 @@ unsafe impl ::windows::core::Interface for ITfReverseConversionList {
     type Vtable = ITfReverseConversionListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x151d69f0_86f4_4674_b721_56911e797f47);
 }
+pub trait ITfReverseConversionListImpl {
+    fn GetLength();
+    fn GetString();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfReverseConversionListVtbl(
@@ -11710,6 +12510,9 @@ impl ::core::fmt::Debug for ITfReverseConversionMgr {
 unsafe impl ::windows::core::Interface for ITfReverseConversionMgr {
     type Vtable = ITfReverseConversionMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb643c236_c493_41b6_abb3_692412775cc4);
+}
+pub trait ITfReverseConversionMgrImpl {
+    fn GetReverseConversion();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11773,6 +12576,10 @@ unsafe impl ::windows::core::Interface for ITfSource {
     type Vtable = ITfSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ea48a35_60ae_446f_8fd6_e6a8d82459f7);
 }
+pub trait ITfSourceImpl {
+    fn AdviseSink();
+    fn UnadviseSink();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfSourceVtbl(
@@ -11834,6 +12641,10 @@ impl ::core::fmt::Debug for ITfSourceSingle {
 unsafe impl ::windows::core::Interface for ITfSourceSingle {
     type Vtable = ITfSourceSingleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73131f9c_56a9_49dd_b0ee_d046633f7528);
+}
+pub trait ITfSourceSingleImpl {
+    fn AdviseSingleSink();
+    fn UnadviseSingleSink();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11903,6 +12714,11 @@ unsafe impl ::windows::core::Interface for ITfSpeechUIServer {
     type Vtable = ITfSpeechUIServerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90e9a944_9244_489f_a78f_de67afc013a7);
 }
+pub trait ITfSpeechUIServerImpl {
+    fn Initialize();
+    fn ShowUI();
+    fn UpdateBalloon();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfSpeechUIServerVtbl(
@@ -11964,6 +12780,9 @@ unsafe impl ::windows::core::Interface for ITfStatusSink {
     type Vtable = ITfStatusSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b7d8d73_b267_4f69_b32e_1ca321ce4f45);
 }
+pub trait ITfStatusSinkImpl {
+    fn OnStatusChange();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfStatusSinkVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pic: ::windows::core::RawPtr, dwflags: u32) -> ::windows::core::HRESULT);
@@ -12020,6 +12839,10 @@ impl ::core::fmt::Debug for ITfSystemDeviceTypeLangBarItem {
 unsafe impl ::windows::core::Interface for ITfSystemDeviceTypeLangBarItem {
     type Vtable = ITfSystemDeviceTypeLangBarItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45672eb9_9059_46a2_838d_4530355f6a77);
+}
+pub trait ITfSystemDeviceTypeLangBarItemImpl {
+    fn SetIconMode();
+    fn GetIconMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12085,6 +12908,10 @@ unsafe impl ::windows::core::Interface for ITfSystemLangBarItem {
     type Vtable = ITfSystemLangBarItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e13e9ec_6b33_4d4a_b5eb_8a92f029f356);
 }
+pub trait ITfSystemLangBarItemImpl {
+    fn SetIcon();
+    fn SetTooltipString();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfSystemLangBarItemVtbl(
@@ -12148,6 +12975,10 @@ impl ::core::fmt::Debug for ITfSystemLangBarItemSink {
 unsafe impl ::windows::core::Interface for ITfSystemLangBarItemSink {
     type Vtable = ITfSystemLangBarItemSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1449d9ab_13cf_4687_aa3e_8d8b18574396);
+}
+pub trait ITfSystemLangBarItemSinkImpl {
+    fn InitMenu();
+    fn OnMenuSelect();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12214,6 +13045,10 @@ unsafe impl ::windows::core::Interface for ITfSystemLangBarItemText {
     type Vtable = ITfSystemLangBarItemTextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c4ce0e5_ba49_4b52_ac6b_3b397b4f701f);
 }
+pub trait ITfSystemLangBarItemTextImpl {
+    fn SetItemText();
+    fn GetItemText();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfSystemLangBarItemTextVtbl(
@@ -12274,6 +13109,9 @@ unsafe impl ::windows::core::Interface for ITfTextEditSink {
     type Vtable = ITfTextEditSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8127d409_ccd3_4683_967a_b43d5b482bf7);
 }
+pub trait ITfTextEditSinkImpl {
+    fn OnEndEdit();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfTextEditSinkVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pic: ::windows::core::RawPtr, ecreadonly: u32, peditrecord: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -12329,6 +13167,10 @@ impl ::core::fmt::Debug for ITfTextInputProcessor {
 unsafe impl ::windows::core::Interface for ITfTextInputProcessor {
     type Vtable = ITfTextInputProcessorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa80e7f7_2021_11d2_93e0_0060b067b86e);
+}
+pub trait ITfTextInputProcessorImpl {
+    fn Activate();
+    fn Deactivate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12416,6 +13258,9 @@ unsafe impl ::windows::core::Interface for ITfTextInputProcessorEx {
     type Vtable = ITfTextInputProcessorExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e4e2102_f9cd_433d_b496_303ce03a6507);
 }
+pub trait ITfTextInputProcessorExImpl: ITfTextInputProcessorImpl {
+    fn ActivateEx();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfTextInputProcessorExVtbl(
@@ -12475,6 +13320,9 @@ unsafe impl ::windows::core::Interface for ITfTextLayoutSink {
     type Vtable = ITfTextLayoutSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2af2d06a_dd5b_4927_a0b4_54f19c91fade);
 }
+pub trait ITfTextLayoutSinkImpl {
+    fn OnLayoutChange();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfTextLayoutSinkVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pic: ::windows::core::RawPtr, lcode: TfLayoutCode, pview: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -12530,6 +13378,10 @@ impl ::core::fmt::Debug for ITfThreadFocusSink {
 unsafe impl ::windows::core::Interface for ITfThreadFocusSink {
     type Vtable = ITfThreadFocusSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0f1db0c_3a20_405c_a303_96b6010a885f);
+}
+pub trait ITfThreadFocusSinkImpl {
+    fn OnSetThreadFocus();
+    fn OnKillThreadFocus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12639,6 +13491,19 @@ impl ::core::fmt::Debug for ITfThreadMgr {
 unsafe impl ::windows::core::Interface for ITfThreadMgr {
     type Vtable = ITfThreadMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa80e801_2021_11d2_93e0_0060b067b86e);
+}
+pub trait ITfThreadMgrImpl {
+    fn Activate();
+    fn Deactivate();
+    fn CreateDocumentMgr();
+    fn EnumDocumentMgrs();
+    fn GetFocus();
+    fn SetFocus();
+    fn AssociateFocus();
+    fn IsThreadFocus();
+    fn GetFunctionProvider();
+    fn EnumFunctionProviders();
+    fn GetGlobalCompartment();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12771,6 +13636,22 @@ unsafe impl ::windows::core::Interface for ITfThreadMgr2 {
     type Vtable = ITfThreadMgr2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ab198ef_6477_4ee8_8812_6780edb82d5e);
 }
+pub trait ITfThreadMgr2Impl {
+    fn Activate();
+    fn Deactivate();
+    fn CreateDocumentMgr();
+    fn EnumDocumentMgrs();
+    fn GetFocus();
+    fn SetFocus();
+    fn IsThreadFocus();
+    fn GetFunctionProvider();
+    fn EnumFunctionProviders();
+    fn GetGlobalCompartment();
+    fn ActivateEx();
+    fn GetActiveFlags();
+    fn SuspendKeystrokeHandling();
+    fn ResumeKeystrokeHandling();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfThreadMgr2Vtbl(
@@ -12857,6 +13738,13 @@ impl ::core::fmt::Debug for ITfThreadMgrEventSink {
 unsafe impl ::windows::core::Interface for ITfThreadMgrEventSink {
     type Vtable = ITfThreadMgrEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa80e80e_2021_11d2_93e0_0060b067b86e);
+}
+pub trait ITfThreadMgrEventSinkImpl {
+    fn OnInitDocumentMgr();
+    fn OnUninitDocumentMgr();
+    fn OnSetFocus();
+    fn OnPushContext();
+    fn OnPopContext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12999,6 +13887,10 @@ unsafe impl ::windows::core::Interface for ITfThreadMgrEx {
     type Vtable = ITfThreadMgrExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e90ade3_7594_4cb0_bb58_69628f5f458c);
 }
+pub trait ITfThreadMgrExImpl: ITfThreadMgrImpl {
+    fn ActivateEx();
+    fn GetActiveFlags();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfThreadMgrExVtbl(
@@ -13114,6 +14006,9 @@ unsafe impl ::windows::core::Interface for ITfToolTipUIElement {
     type Vtable = ITfToolTipUIElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52b18b5c_555d_46b2_b00a_fa680144fbdb);
 }
+pub trait ITfToolTipUIElementImpl: ITfUIElementImpl {
+    fn GetString();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfToolTipUIElementVtbl(
@@ -13180,6 +14075,9 @@ impl ::core::fmt::Debug for ITfTransitoryExtensionSink {
 unsafe impl ::windows::core::Interface for ITfTransitoryExtensionSink {
     type Vtable = ITfTransitoryExtensionSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa615096f_1c57_4813_8a15_55ee6e5a839c);
+}
+pub trait ITfTransitoryExtensionSinkImpl {
+    fn OnTransitoryExtensionUpdated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13282,6 +14180,9 @@ unsafe impl ::windows::core::Interface for ITfTransitoryExtensionUIElement {
     type Vtable = ITfTransitoryExtensionUIElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x858f956a_972f_42a2_a2f2_0321e1abe209);
 }
+pub trait ITfTransitoryExtensionUIElementImpl: ITfUIElementImpl {
+    fn GetDocumentMgr();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfTransitoryExtensionUIElementVtbl(
@@ -13363,6 +14264,12 @@ impl ::core::fmt::Debug for ITfUIElement {
 unsafe impl ::windows::core::Interface for ITfUIElement {
     type Vtable = ITfUIElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea1ea137_19df_11d7_a6d2_00065b84435c);
+}
+pub trait ITfUIElementImpl {
+    fn GetDescription();
+    fn GetGUID();
+    fn Show();
+    fn IsShown();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13446,6 +14353,13 @@ unsafe impl ::windows::core::Interface for ITfUIElementMgr {
     type Vtable = ITfUIElementMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea1ea135_19df_11d7_a6d2_00065b84435c);
 }
+pub trait ITfUIElementMgrImpl {
+    fn BeginUIElement();
+    fn UpdateUIElement();
+    fn EndUIElement();
+    fn GetUIElement();
+    fn EnumUIElements();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfUIElementMgrVtbl(
@@ -13516,6 +14430,11 @@ impl ::core::fmt::Debug for ITfUIElementSink {
 unsafe impl ::windows::core::Interface for ITfUIElementSink {
     type Vtable = ITfUIElementSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea1ea136_19df_11d7_a6d2_00065b84435c);
+}
+pub trait ITfUIElementSinkImpl {
+    fn BeginUIElement();
+    fn UpdateUIElement();
+    fn EndUIElement();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13600,6 +14519,14 @@ impl ::core::fmt::Debug for IUIManagerEventSink {
 unsafe impl ::windows::core::Interface for IUIManagerEventSink {
     type Vtable = IUIManagerEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd91d690_a7e8_4265_9b38_8bb3bbaba7de);
+}
+pub trait IUIManagerEventSinkImpl {
+    fn OnWindowOpening();
+    fn OnWindowOpened();
+    fn OnWindowUpdating();
+    fn OnWindowUpdated();
+    fn OnWindowClosing();
+    fn OnWindowClosed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13688,6 +14615,13 @@ impl ::core::fmt::Debug for IVersionInfo {
 unsafe impl ::windows::core::Interface for IVersionInfo {
     type Vtable = IVersionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x401518ec_db00_4611_9b29_2a0e4b9afa85);
+}
+pub trait IVersionInfoImpl {
+    fn GetSubcomponentCount();
+    fn GetImplementationID();
+    fn GetBuildVersion();
+    fn GetComponentDescription();
+    fn GetInstanceDescription();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -461,6 +461,16 @@ unsafe impl ::windows::core::Interface for IContentIndexer {
     type Vtable = IContentIndexerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1767f8d_f698_4982_b05f_3a6e8cab01a2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IContentIndexerImpl {
+    fn AddAsync();
+    fn UpdateAsync();
+    fn DeleteAsync();
+    fn DeleteMultipleAsync();
+    fn DeleteAllAsync();
+    fn RetrievePropertiesAsync();
+    fn Revision();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentIndexerVtbl(
@@ -491,6 +501,15 @@ unsafe impl ::windows::core::Interface for IContentIndexerQuery {
     type Vtable = IContentIndexerQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70e3b0f8_4bfc_428a_8889_cc51da9a7b9d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IContentIndexerQueryImpl {
+    fn GetCountAsync();
+    fn GetPropertiesAsync();
+    fn GetPropertiesRangeAsync();
+    fn GetAsync();
+    fn GetRangeAsync();
+    fn QueryFolder();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentIndexerQueryVtbl(
@@ -519,6 +538,12 @@ unsafe impl ::windows::core::Interface for IContentIndexerQueryOperations {
     type Vtable = IContentIndexerQueryOperationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28823e10_4786_42f1_9730_792b3566b150);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IContentIndexerQueryOperationsImpl {
+    fn CreateQueryWithSortOrderAndLanguage();
+    fn CreateQueryWithSortOrder();
+    fn CreateQuery();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentIndexerQueryOperationsVtbl(
@@ -541,6 +566,11 @@ pub struct IContentIndexerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContentIndexerStatics {
     type Vtable = IContentIndexerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c488375_b37e_4c60_9ba8_b760fda3e59d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IContentIndexerStaticsImpl {
+    fn GetIndexerWithName();
+    fn GetIndexer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -672,6 +702,15 @@ unsafe impl ::windows::core::Interface for IIndexableContent {
     type Vtable = IIndexableContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccf1a05f_d4b5_483a_b06e_e0db1ec420e4);
 }
+pub trait IIndexableContentImpl {
+    fn Id();
+    fn SetId();
+    fn Properties();
+    fn Stream();
+    fn SetStream();
+    fn StreamContentType();
+    fn SetStreamContentType();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIndexableContentVtbl(
@@ -698,6 +737,27 @@ pub struct IQueryOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IQueryOptions {
     type Vtable = IQueryOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e5e46ee_0f45_4838_a8e9_d0479d446c30);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IQueryOptionsImpl {
+    fn FileTypeFilter();
+    fn FolderDepth();
+    fn SetFolderDepth();
+    fn ApplicationSearchFilter();
+    fn SetApplicationSearchFilter();
+    fn UserSearchFilter();
+    fn SetUserSearchFilter();
+    fn Language();
+    fn SetLanguage();
+    fn IndexerOption();
+    fn SetIndexerOption();
+    fn SortOrder();
+    fn GroupPropertyName();
+    fn DateStackOption();
+    fn SaveToString();
+    fn LoadFromString();
+    fn SetThumbnailPrefetch();
+    fn SetPropertyPrefetch();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -738,6 +798,11 @@ unsafe impl ::windows::core::Interface for IQueryOptionsFactory {
     type Vtable = IQueryOptionsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x032e1f8c_a9c1_4e71_8011_0dee9d4811a3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IQueryOptionsFactoryImpl {
+    fn CreateCommonFileQuery();
+    fn CreateCommonFolderQuery();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQueryOptionsFactoryVtbl(
@@ -758,6 +823,10 @@ unsafe impl ::windows::core::Interface for IQueryOptionsWithProviderFilter {
     type Vtable = IQueryOptionsWithProviderFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b9d1026_15c4_44dd_b89a_47a59b7d7c4f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IQueryOptionsWithProviderFilterImpl {
+    fn StorageProviderIdFilter();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQueryOptionsWithProviderFilterVtbl(
@@ -776,6 +845,11 @@ pub struct IStorageFileQueryResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageFileQueryResult {
     type Vtable = IStorageFileQueryResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52fda447_2baa_412c_b29f_d4b1778efa1e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageFileQueryResultImpl: IStorageQueryResultBaseImpl {
+    fn GetFilesAsync();
+    fn GetFilesAsyncDefaultStartAndCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -797,6 +871,10 @@ pub struct IStorageFileQueryResult2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageFileQueryResult2 {
     type Vtable = IStorageFileQueryResult2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e5db9dd_7141_46c4_8be3_e9dc9e27275c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageFileQueryResult2Impl: IStorageQueryResultBaseImpl {
+    fn GetMatchingPropertiesWithRanges();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1020,6 +1098,25 @@ unsafe impl ::windows::core::Interface for IStorageFolderQueryOperations {
     type Vtable = IStorageFolderQueryOperationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb43ccc9_446b_4a4f_be97_757771be5203);
 }
+pub trait IStorageFolderQueryOperationsImpl {
+    fn GetIndexedStateAsync();
+    fn CreateFileQueryOverloadDefault();
+    fn CreateFileQuery();
+    fn CreateFileQueryWithOptions();
+    fn CreateFolderQueryOverloadDefault();
+    fn CreateFolderQuery();
+    fn CreateFolderQueryWithOptions();
+    fn CreateItemQuery();
+    fn CreateItemQueryWithOptions();
+    fn GetFilesAsync();
+    fn GetFilesAsyncOverloadDefaultStartAndCount();
+    fn GetFoldersAsync();
+    fn GetFoldersAsyncOverloadDefaultStartAndCount();
+    fn GetItemsAsync();
+    fn AreQueryOptionsSupported();
+    fn IsCommonFolderQuerySupported();
+    fn IsCommonFileQuerySupported();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageFolderQueryOperationsVtbl(
@@ -1060,6 +1157,11 @@ unsafe impl ::windows::core::Interface for IStorageFolderQueryResult {
     type Vtable = IStorageFolderQueryResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6654c911_7d66_46fa_aecf_e4a4baa93ab8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageFolderQueryResultImpl: IStorageQueryResultBaseImpl {
+    fn GetFoldersAsync();
+    fn GetFoldersAsyncDefaultStartAndCount();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageFolderQueryResultVtbl(
@@ -1080,6 +1182,11 @@ pub struct IStorageItemQueryResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageItemQueryResult {
     type Vtable = IStorageItemQueryResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8948079_9d58_47b8_b2b2_41b07f4795f9);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageItemQueryResultImpl: IStorageQueryResultBaseImpl {
+    fn GetItemsAsync();
+    fn GetItemsAsyncDefaultStartAndCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1102,6 +1209,11 @@ unsafe impl ::windows::core::Interface for IStorageLibraryChangeTrackerTriggerDe
     type Vtable = IStorageLibraryChangeTrackerTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dc7a369_b7a3_4df2_9d61_eba85a0343d2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageLibraryChangeTrackerTriggerDetailsImpl {
+    fn Folder();
+    fn ChangeTracker();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageLibraryChangeTrackerTriggerDetailsVtbl(
@@ -1120,6 +1232,11 @@ pub struct IStorageLibraryContentChangedTriggerDetails(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for IStorageLibraryContentChangedTriggerDetails {
     type Vtable = IStorageLibraryContentChangedTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a371977_abbf_4e1d_8aa5_6385d8884799);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageLibraryContentChangedTriggerDetailsImpl {
+    fn Folder();
+    fn CreateModifiedSinceQuery();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1271,6 +1388,17 @@ unsafe impl ::windows::core::Interface for IStorageQueryResultBase {
     type Vtable = IStorageQueryResultBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc297d70d_7353_47ab_ba58_8c61425dc54b);
 }
+pub trait IStorageQueryResultBaseImpl {
+    fn GetItemCountAsync();
+    fn Folder();
+    fn ContentsChanged();
+    fn RemoveContentsChanged();
+    fn OptionsChanged();
+    fn RemoveOptionsChanged();
+    fn FindStartIndexAsync();
+    fn GetCurrentQueryOptions();
+    fn ApplyNewQueryOptions();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageQueryResultBaseVtbl(
@@ -1302,6 +1430,13 @@ pub struct IValueAndLanguage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IValueAndLanguage {
     type Vtable = IValueAndLanguageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9914881_a1ee_4bc4_92a5_466968e30436);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IValueAndLanguageImpl {
+    fn Language();
+    fn SetLanguage();
+    fn Value();
+    fn SetValue();
 }
 #[repr(C)]
 #[doc(hidden)]

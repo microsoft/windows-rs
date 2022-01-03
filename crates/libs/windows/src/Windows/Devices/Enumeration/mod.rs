@@ -3331,6 +3331,10 @@ unsafe impl ::windows::core::Interface for IDeviceAccessChangedEventArgs {
     type Vtable = IDeviceAccessChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdeda0bcc_4f9d_4f58_9dba_a9bc800408d5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceAccessChangedEventArgsImpl {
+    fn Status();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceAccessChangedEventArgsVtbl(
@@ -3349,6 +3353,10 @@ unsafe impl ::windows::core::Interface for IDeviceAccessChangedEventArgs2 {
     type Vtable = IDeviceAccessChangedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82523262_934b_4b30_a178_adc39f2f2be3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceAccessChangedEventArgs2Impl: IDeviceAccessChangedEventArgsImpl {
+    fn Id();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceAccessChangedEventArgs2Vtbl(
@@ -3366,6 +3374,12 @@ pub struct IDeviceAccessInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceAccessInformation {
     type Vtable = IDeviceAccessInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0baa9a73_6de5_4915_8ddd_9a0554a6f545);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceAccessInformationImpl {
+    fn AccessChanged();
+    fn RemoveAccessChanged();
+    fn CurrentStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3389,6 +3403,12 @@ unsafe impl ::windows::core::Interface for IDeviceAccessInformationStatics {
     type Vtable = IDeviceAccessInformationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x574bd3d3_5f30_45cd_8a94_724fe5973084);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceAccessInformationStaticsImpl {
+    fn CreateFromId();
+    fn CreateFromDeviceClassId();
+    fn CreateFromDeviceClass();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceAccessInformationStaticsVtbl(
@@ -3409,6 +3429,10 @@ unsafe impl ::windows::core::Interface for IDeviceConnectionChangeTriggerDetails
     type Vtable = IDeviceConnectionChangeTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8578c0c_bbc1_484b_bffa_7b31dcc200b2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceConnectionChangeTriggerDetailsImpl {
+    fn DeviceId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceConnectionChangeTriggerDetailsVtbl(
@@ -3427,6 +3451,10 @@ unsafe impl ::windows::core::Interface for IDeviceDisconnectButtonClickedEventAr
     type Vtable = IDeviceDisconnectButtonClickedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e44b56d_f902_4a00_b536_f37992e6a2a7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceDisconnectButtonClickedEventArgsImpl {
+    fn Device();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceDisconnectButtonClickedEventArgsVtbl(
@@ -3444,6 +3472,18 @@ pub struct IDeviceInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceInformation {
     type Vtable = IDeviceInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaba0fb95_4398_489d_8e44_e6130927011f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceInformationImpl {
+    fn Id();
+    fn Name();
+    fn IsEnabled();
+    fn IsDefault();
+    fn EnclosureLocation();
+    fn Properties();
+    fn Update();
+    fn GetThumbnailAsync();
+    fn GetGlyphThumbnailAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3474,6 +3514,11 @@ unsafe impl ::windows::core::Interface for IDeviceInformation2 {
     type Vtable = IDeviceInformation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf156a638_7997_48d9_a10c_269d46533f48);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceInformation2Impl {
+    fn Kind();
+    fn Pairing();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceInformation2Vtbl(
@@ -3492,6 +3537,14 @@ pub struct IDeviceInformationCustomPairing(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceInformationCustomPairing {
     type Vtable = IDeviceInformationCustomPairingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85138c02_4ee6_4914_8370_107a39144c0e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceInformationCustomPairingImpl {
+    fn PairAsync();
+    fn PairWithProtectionLevelAsync();
+    fn PairWithProtectionLevelAndSettingsAsync();
+    fn PairingRequested();
+    fn RemovePairingRequested();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3520,6 +3573,13 @@ unsafe impl ::windows::core::Interface for IDeviceInformationPairing {
     type Vtable = IDeviceInformationPairingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c4769f5_f684_40d5_8469_e8dbaab70485);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceInformationPairingImpl {
+    fn IsPaired();
+    fn CanPair();
+    fn PairAsync();
+    fn PairWithProtectionLevelAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceInformationPairingVtbl(
@@ -3542,6 +3602,13 @@ pub struct IDeviceInformationPairing2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceInformationPairing2 {
     type Vtable = IDeviceInformationPairing2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf68612fd_0aee_4328_85cc_1c742bb1790d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceInformationPairing2Impl {
+    fn ProtectionLevel();
+    fn Custom();
+    fn PairWithProtectionLevelAndSettingsAsync();
+    fn UnpairAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3566,6 +3633,10 @@ unsafe impl ::windows::core::Interface for IDeviceInformationPairingStatics {
     type Vtable = IDeviceInformationPairingStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe915c408_36d4_49a1_bf13_514173799b6b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceInformationPairingStaticsImpl {
+    fn TryRegisterForAllInboundPairingRequests();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceInformationPairingStaticsVtbl(
@@ -3584,6 +3655,10 @@ unsafe impl ::windows::core::Interface for IDeviceInformationPairingStatics2 {
     type Vtable = IDeviceInformationPairingStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04de5372_b7b7_476b_a74f_c5836a704d98);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceInformationPairingStatics2Impl {
+    fn TryRegisterForAllInboundPairingRequestsWithProtectionLevel();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceInformationPairingStatics2Vtbl(
@@ -3601,6 +3676,19 @@ pub struct IDeviceInformationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceInformationStatics {
     type Vtable = IDeviceInformationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc17f100e_3a46_4a78_8013_769dc9b97390);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceInformationStaticsImpl {
+    fn CreateFromIdAsync();
+    fn CreateFromIdAsyncAdditionalProperties();
+    fn FindAllAsync();
+    fn FindAllAsyncDeviceClass();
+    fn FindAllAsyncAqsFilter();
+    fn FindAllAsyncAqsFilterAndAdditionalProperties();
+    fn CreateWatcher();
+    fn CreateWatcherDeviceClass();
+    fn CreateWatcherAqsFilter();
+    fn CreateWatcherAqsFilterAndAdditionalProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3636,6 +3724,13 @@ unsafe impl ::windows::core::Interface for IDeviceInformationStatics2 {
     type Vtable = IDeviceInformationStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x493b4f34_a84f_45fd_9167_15d1cb1bd1f9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceInformationStatics2Impl {
+    fn GetAqsFilterFromDeviceClass();
+    fn CreateFromIdAsyncWithKindAndAdditionalProperties();
+    fn FindAllAsyncWithKindAqsFilterAndAdditionalProperties();
+    fn CreateWatcherWithKindAqsFilterAndAdditionalProperties();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceInformationStatics2Vtbl(
@@ -3660,6 +3755,11 @@ unsafe impl ::windows::core::Interface for IDeviceInformationUpdate {
     type Vtable = IDeviceInformationUpdateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f315305_d972_44b7_a37e_9e822c78213b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceInformationUpdateImpl {
+    fn Id();
+    fn Properties();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceInformationUpdateVtbl(
@@ -3680,6 +3780,10 @@ unsafe impl ::windows::core::Interface for IDeviceInformationUpdate2 {
     type Vtable = IDeviceInformationUpdate2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d9d148c_a873_485e_baa6_aa620788e3cc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceInformationUpdate2Impl {
+    fn Kind();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceInformationUpdate2Vtbl(
@@ -3697,6 +3801,15 @@ pub struct IDevicePairingRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDevicePairingRequestedEventArgs {
     type Vtable = IDevicePairingRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf717fc56_de6b_487f_8376_0180aca69963);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDevicePairingRequestedEventArgsImpl {
+    fn DeviceInformation();
+    fn PairingKind();
+    fn Pin();
+    fn Accept();
+    fn AcceptWithPin();
+    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3722,6 +3835,10 @@ unsafe impl ::windows::core::Interface for IDevicePairingRequestedEventArgs2 {
     type Vtable = IDevicePairingRequestedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc83752d9_e4d3_4db0_a360_a105e437dbdc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDevicePairingRequestedEventArgs2Impl {
+    fn AcceptWithPasswordCredential();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDevicePairingRequestedEventArgs2Vtbl(
@@ -3740,6 +3857,11 @@ pub struct IDevicePairingResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDevicePairingResult {
     type Vtable = IDevicePairingResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x072b02bf_dd95_4025_9b37_de51adba37b7);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDevicePairingResultImpl {
+    fn Status();
+    fn ProtectionLevelUsed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3820,6 +3942,7 @@ unsafe impl ::windows::core::Interface for IDevicePairingSettings {
     type Vtable = IDevicePairingSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x482cb27c_83bb_420e_be51_6602b222de54);
 }
+pub trait IDevicePairingSettingsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDevicePairingSettingsVtbl(
@@ -3836,6 +3959,24 @@ pub struct IDevicePicker(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDevicePicker {
     type Vtable = IDevicePickerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84997aa2_034a_4440_8813_7d0bd479bf5a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDevicePickerImpl {
+    fn Filter();
+    fn Appearance();
+    fn RequestedProperties();
+    fn DeviceSelected();
+    fn RemoveDeviceSelected();
+    fn DisconnectButtonClicked();
+    fn RemoveDisconnectButtonClicked();
+    fn DevicePickerDismissed();
+    fn RemoveDevicePickerDismissed();
+    fn Show();
+    fn ShowWithPlacement();
+    fn PickSingleDeviceAsync();
+    fn PickSingleDeviceAsyncWithPlacement();
+    fn Hide();
+    fn SetDisplayStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3880,6 +4021,23 @@ unsafe impl ::windows::core::Interface for IDevicePickerAppearance {
     type Vtable = IDevicePickerAppearanceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe69a12c6_e627_4ed8_9b6c_460af445e56d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDevicePickerAppearanceImpl {
+    fn Title();
+    fn SetTitle();
+    fn ForegroundColor();
+    fn SetForegroundColor();
+    fn BackgroundColor();
+    fn SetBackgroundColor();
+    fn AccentColor();
+    fn SetAccentColor();
+    fn SelectedForegroundColor();
+    fn SetSelectedForegroundColor();
+    fn SelectedBackgroundColor();
+    fn SetSelectedBackgroundColor();
+    fn SelectedAccentColor();
+    fn SetSelectedAccentColor();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDevicePickerAppearanceVtbl(
@@ -3923,6 +4081,11 @@ unsafe impl ::windows::core::Interface for IDevicePickerFilter {
     type Vtable = IDevicePickerFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91db92a2_57cb_48f1_9b59_a59b7a1f02a2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDevicePickerFilterImpl {
+    fn SupportedDeviceClasses();
+    fn SupportedDeviceSelectors();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDevicePickerFilterVtbl(
@@ -3944,6 +4107,10 @@ unsafe impl ::windows::core::Interface for IDeviceSelectedEventArgs {
     type Vtable = IDeviceSelectedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x269edade_1d2f_4940_8402_4156b81d3c77);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceSelectedEventArgsImpl {
+    fn SelectedDevice();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceSelectedEventArgsVtbl(
@@ -3962,6 +4129,10 @@ unsafe impl ::windows::core::Interface for IDeviceUnpairingResult {
     type Vtable = IDeviceUnpairingResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66f44ad3_79d9_444b_92cf_a92ef72571c7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceUnpairingResultImpl {
+    fn Status();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceUnpairingResultVtbl(
@@ -3979,6 +4150,22 @@ pub struct IDeviceWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceWatcher {
     type Vtable = IDeviceWatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9eab97d_8f6b_4f96_a9f4_abc814e22271);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceWatcherImpl {
+    fn Added();
+    fn RemoveAdded();
+    fn Updated();
+    fn RemoveUpdated();
+    fn Removed();
+    fn RemoveRemoved();
+    fn EnumerationCompleted();
+    fn RemoveEnumerationCompleted();
+    fn Stopped();
+    fn RemoveStopped();
+    fn Status();
+    fn Start();
+    fn Stop();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4020,6 +4207,10 @@ unsafe impl ::windows::core::Interface for IDeviceWatcher2 {
     type Vtable = IDeviceWatcher2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff08456e_ed14_49e9_9a69_8117c54ae971);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceWatcher2Impl {
+    fn GetBackgroundTrigger();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceWatcher2Vtbl(
@@ -4038,6 +4229,12 @@ pub struct IDeviceWatcherEvent(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceWatcherEvent {
     type Vtable = IDeviceWatcherEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74aa9c0b_1dbd_47fd_b635_3cc556d0ff8b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceWatcherEventImpl {
+    fn Kind();
+    fn DeviceInformation();
+    fn DeviceInformationUpdate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4059,6 +4256,10 @@ unsafe impl ::windows::core::Interface for IDeviceWatcherTriggerDetails {
     type Vtable = IDeviceWatcherTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38808119_4cb7_4e57_a56d_776d07cbfef9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDeviceWatcherTriggerDetailsImpl {
+    fn DeviceWatcherEvents();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceWatcherTriggerDetailsVtbl(
@@ -4077,6 +4278,12 @@ pub struct IEnclosureLocation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEnclosureLocation {
     type Vtable = IEnclosureLocationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42340a27_5810_459c_aabb_c65e1f813ecf);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEnclosureLocationImpl {
+    fn InDock();
+    fn InLid();
+    fn Panel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4097,6 +4304,10 @@ pub struct IEnclosureLocation2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEnclosureLocation2 {
     type Vtable = IEnclosureLocation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2885995b_e07d_485d_8a9e_bdf29aef4f66);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEnclosureLocation2Impl: IEnclosureLocationImpl {
+    fn RotationAngleInDegreesClockwise();
 }
 #[repr(C)]
 #[doc(hidden)]

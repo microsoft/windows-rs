@@ -245,6 +245,10 @@ unsafe impl ::windows::core::Interface for IAccessibleWinSAT {
     type Vtable = IAccessibleWinSATVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30e6018a_94a8_4ff8_a69a_71b67413f07b);
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
+pub trait IAccessibleWinSATImpl: IAccessibleImpl + IDispatchImpl {
+    fn SetAccessiblityData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessibleWinSATVtbl(
@@ -362,6 +366,11 @@ impl ::core::fmt::Debug for IInitiateWinSATAssessment {
 unsafe impl ::windows::core::Interface for IInitiateWinSATAssessment {
     type Vtable = IInitiateWinSATAssessmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd983fc50_f5bf_49d5_b5ed_cccb18aa7fc1);
+}
+pub trait IInitiateWinSATAssessmentImpl {
+    fn InitiateAssessment();
+    fn InitiateFormalAssessment();
+    fn CancelAssessment();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -482,6 +491,12 @@ impl ::core::fmt::Debug for IProvideWinSATAssessmentInfo {
 unsafe impl ::windows::core::Interface for IProvideWinSATAssessmentInfo {
     type Vtable = IProvideWinSATAssessmentInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cd1c380_52d3_4678_ac6f_e929e480be9e);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IProvideWinSATAssessmentInfoImpl: IDispatchImpl {
+    fn Score();
+    fn Title();
+    fn Description();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -621,6 +636,14 @@ unsafe impl ::windows::core::Interface for IProvideWinSATResultsInfo {
     type Vtable = IProvideWinSATResultsInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8334d5d_568e_4075_875f_9df341506640);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IProvideWinSATResultsInfoImpl: IDispatchImpl {
+    fn GetAssessmentInfo();
+    fn AssessmentState();
+    fn AssessmentDateTime();
+    fn SystemRating();
+    fn RatingStateDesc();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvideWinSATResultsInfoVtbl(
@@ -693,6 +716,9 @@ impl ::core::fmt::Debug for IProvideWinSATVisuals {
 unsafe impl ::windows::core::Interface for IProvideWinSATVisuals {
     type Vtable = IProvideWinSATVisualsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9f4ade0_871a_42a3_b813_3078d25162c9);
+}
+pub trait IProvideWinSATVisualsImpl {
+    fn Bitmap();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -800,6 +826,10 @@ unsafe impl ::windows::core::Interface for IQueryAllWinSATAssessments {
     type Vtable = IQueryAllWinSATAssessmentsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b89ed1d_6398_4fea_87fc_567d8d19176f);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IQueryAllWinSATAssessmentsImpl: IDispatchImpl {
+    fn AllXML();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQueryAllWinSATAssessmentsVtbl(
@@ -866,6 +896,9 @@ impl ::core::fmt::Debug for IQueryOEMWinSATCustomization {
 unsafe impl ::windows::core::Interface for IQueryOEMWinSATCustomization {
     type Vtable = IQueryOEMWinSATCustomizationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc9a6a9f_ad4e_420e_9953_b34671e9df22);
+}
+pub trait IQueryOEMWinSATCustomizationImpl {
+    fn GetOEMPrePopulationInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -972,6 +1005,11 @@ unsafe impl ::windows::core::Interface for IQueryRecentWinSATAssessment {
     type Vtable = IQueryRecentWinSATAssessmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8ad5d1f_3b47_4bdc_9375_7c6b1da4eca7);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IQueryRecentWinSATAssessmentImpl: IDispatchImpl {
+    fn XML();
+    fn Info();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQueryRecentWinSATAssessmentVtbl(
@@ -1044,6 +1082,10 @@ impl ::core::fmt::Debug for IWinSATInitiateEvents {
 unsafe impl ::windows::core::Interface for IWinSATInitiateEvents {
     type Vtable = IWinSATInitiateEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x262a1918_ba0d_41d5_92c2_fab4633ee74f);
+}
+pub trait IWinSATInitiateEventsImpl {
+    fn WinSATComplete();
+    fn WinSATUpdate();
 }
 #[repr(C)]
 #[doc(hidden)]

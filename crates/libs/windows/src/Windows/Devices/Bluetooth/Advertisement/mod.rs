@@ -1777,6 +1777,18 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisement {
     type Vtable = IBluetoothLEAdvertisementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x066fb2b7_33d1_4e7d_8367_cf81d0f79653);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBluetoothLEAdvertisementImpl {
+    fn Flags();
+    fn SetFlags();
+    fn LocalName();
+    fn SetLocalName();
+    fn ServiceUuids();
+    fn ManufacturerData();
+    fn DataSections();
+    fn GetManufacturerDataByCompanyId();
+    fn GetSectionsByType();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementVtbl(
@@ -1810,6 +1822,15 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementBytePattern 
     type Vtable = IBluetoothLEAdvertisementBytePatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbfad7f2_b9c5_4a08_bc51_502f8ef68a79);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBluetoothLEAdvertisementBytePatternImpl {
+    fn DataType();
+    fn SetDataType();
+    fn Offset();
+    fn SetOffset();
+    fn Data();
+    fn SetData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementBytePatternVtbl(
@@ -1835,6 +1856,10 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementBytePatternF
     type Vtable = IBluetoothLEAdvertisementBytePatternFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2e24d73_fd5c_4ec3_be2a_9ca6fa11b7bd);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBluetoothLEAdvertisementBytePatternFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementBytePatternFactoryVtbl(
@@ -1853,6 +1878,13 @@ pub struct IBluetoothLEAdvertisementDataSection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementDataSection {
     type Vtable = IBluetoothLEAdvertisementDataSectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7213314_3a43_40f9_b6f0_92bfefc34ae3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBluetoothLEAdvertisementDataSectionImpl {
+    fn DataType();
+    fn SetDataType();
+    fn Data();
+    fn SetData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1877,6 +1909,10 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementDataSectionF
     type Vtable = IBluetoothLEAdvertisementDataSectionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7a40942_a845_4045_bf7e_3e9971db8a6b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBluetoothLEAdvertisementDataSectionFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementDataSectionFactoryVtbl(
@@ -1895,6 +1931,31 @@ pub struct IBluetoothLEAdvertisementDataTypesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementDataTypesStatics {
     type Vtable = IBluetoothLEAdvertisementDataTypesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bb6472f_0606_434b_a76e_74159f0684d3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBluetoothLEAdvertisementDataTypesStaticsImpl {
+    fn Flags();
+    fn IncompleteService16BitUuids();
+    fn CompleteService16BitUuids();
+    fn IncompleteService32BitUuids();
+    fn CompleteService32BitUuids();
+    fn IncompleteService128BitUuids();
+    fn CompleteService128BitUuids();
+    fn ShortenedLocalName();
+    fn CompleteLocalName();
+    fn TxPowerLevel();
+    fn SlaveConnectionIntervalRange();
+    fn ServiceSolicitation16BitUuids();
+    fn ServiceSolicitation32BitUuids();
+    fn ServiceSolicitation128BitUuids();
+    fn ServiceData16BitUuids();
+    fn ServiceData32BitUuids();
+    fn ServiceData128BitUuids();
+    fn PublicTargetAddress();
+    fn RandomTargetAddress();
+    fn Appearance();
+    fn AdvertisingInterval();
+    fn ManufacturerSpecificData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1935,6 +1996,12 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementFilter {
     type Vtable = IBluetoothLEAdvertisementFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x131eb0d3_d04e_47b1_837e_49405bf6f80f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBluetoothLEAdvertisementFilterImpl {
+    fn Advertisement();
+    fn SetAdvertisement();
+    fn BytePatterns();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementFilterVtbl(
@@ -1955,6 +2022,15 @@ pub struct IBluetoothLEAdvertisementPublisher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementPublisher {
     type Vtable = IBluetoothLEAdvertisementPublisherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcde820f9_d9fa_43d6_a264_ddd8b7da8b78);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBluetoothLEAdvertisementPublisherImpl {
+    fn Status();
+    fn Advertisement();
+    fn Start();
+    fn Stop();
+    fn StatusChanged();
+    fn RemoveStatusChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1980,6 +2056,17 @@ pub struct IBluetoothLEAdvertisementPublisher2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementPublisher2 {
     type Vtable = IBluetoothLEAdvertisementPublisher2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbdb545e_56f1_510f_a434_217fbd9e7bd2);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBluetoothLEAdvertisementPublisher2Impl {
+    fn PreferredTransmitPowerLevelInDBm();
+    fn SetPreferredTransmitPowerLevelInDBm();
+    fn UseExtendedAdvertisement();
+    fn SetUseExtendedAdvertisement();
+    fn IsAnonymous();
+    fn SetIsAnonymous();
+    fn IncludeTransmitPowerLevel();
+    fn SetIncludeTransmitPowerLevel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2008,6 +2095,10 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementPublisherFac
     type Vtable = IBluetoothLEAdvertisementPublisherFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c5f065e_b863_4981_a1af_1c544d8b0c0d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBluetoothLEAdvertisementPublisherFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherFactoryVtbl(
@@ -2025,6 +2116,11 @@ pub struct IBluetoothLEAdvertisementPublisherStatusChangedEventArgs(::windows::c
 unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementPublisherStatusChangedEventArgs {
     type Vtable = IBluetoothLEAdvertisementPublisherStatusChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09c2bd9f_2dff_4b23_86ee_0d14fb94aeae);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBluetoothLEAdvertisementPublisherStatusChangedEventArgsImpl {
+    fn Status();
+    fn Error();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2045,6 +2141,10 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementPublisherSta
     type Vtable = IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f62790e_dc88_5c8b_b34e_10b321850f88);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2Impl {
+    fn SelectedTransmitPowerLevelInDBm();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2Vtbl(
@@ -2063,6 +2163,14 @@ pub struct IBluetoothLEAdvertisementReceivedEventArgs(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementReceivedEventArgs {
     type Vtable = IBluetoothLEAdvertisementReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27987ddf_e596_41be_8d43_9e6731d4a913);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBluetoothLEAdvertisementReceivedEventArgsImpl {
+    fn RawSignalStrengthInDBm();
+    fn BluetoothAddress();
+    fn AdvertisementType();
+    fn Timestamp();
+    fn Advertisement();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2086,6 +2194,16 @@ pub struct IBluetoothLEAdvertisementReceivedEventArgs2(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementReceivedEventArgs2 {
     type Vtable = IBluetoothLEAdvertisementReceivedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12d9c87b_0399_5f0e_a348_53b02b6b162e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBluetoothLEAdvertisementReceivedEventArgs2Impl {
+    fn BluetoothAddressType();
+    fn TransmitPowerLevelInDBm();
+    fn IsAnonymous();
+    fn IsConnectable();
+    fn IsScannable();
+    fn IsDirected();
+    fn IsScanResponse();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2111,6 +2229,26 @@ pub struct IBluetoothLEAdvertisementWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementWatcher {
     type Vtable = IBluetoothLEAdvertisementWatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6ac336f_f3d3_4297_8d6c_c81ea6623f40);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBluetoothLEAdvertisementWatcherImpl {
+    fn MinSamplingInterval();
+    fn MaxSamplingInterval();
+    fn MinOutOfRangeTimeout();
+    fn MaxOutOfRangeTimeout();
+    fn Status();
+    fn ScanningMode();
+    fn SetScanningMode();
+    fn SignalStrengthFilter();
+    fn SetSignalStrengthFilter();
+    fn AdvertisementFilter();
+    fn SetAdvertisementFilter();
+    fn Start();
+    fn Stop();
+    fn Received();
+    fn RemoveReceived();
+    fn Stopped();
+    fn RemoveStopped();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2154,6 +2292,11 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementWatcher2 {
     type Vtable = IBluetoothLEAdvertisementWatcher2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01bf26bc_b164_5805_90a3_e8a7997ff225);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBluetoothLEAdvertisementWatcher2Impl {
+    fn AllowExtendedAdvertisements();
+    fn SetAllowExtendedAdvertisements();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcher2Vtbl(
@@ -2173,6 +2316,10 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementWatcherFacto
     type Vtable = IBluetoothLEAdvertisementWatcherFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9aaf2d56_39ac_453e_b32a_85c657e017f1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBluetoothLEAdvertisementWatcherFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcherFactoryVtbl(
@@ -2191,6 +2338,10 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementWatcherStopp
     type Vtable = IBluetoothLEAdvertisementWatcherStoppedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd40f84d_e7b9_43e3_9c04_0685d085fd8c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBluetoothLEAdvertisementWatcherStoppedEventArgsImpl {
+    fn Error();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcherStoppedEventArgsVtbl(
@@ -2208,6 +2359,13 @@ pub struct IBluetoothLEManufacturerData(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothLEManufacturerData {
     type Vtable = IBluetoothLEManufacturerDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x912dba18_6963_4533_b061_4694dafb34e5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBluetoothLEManufacturerDataImpl {
+    fn CompanyId();
+    fn SetCompanyId();
+    fn Data();
+    fn SetData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2231,6 +2389,10 @@ pub struct IBluetoothLEManufacturerDataFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothLEManufacturerDataFactory {
     type Vtable = IBluetoothLEManufacturerDataFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc09b39f8_319a_441e_8de5_66a81e877a6c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBluetoothLEManufacturerDataFactoryImpl {
+    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]

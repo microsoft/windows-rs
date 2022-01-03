@@ -1981,6 +1981,17 @@ unsafe impl ::windows::core::Interface for IDirectMusic {
     type Vtable = IDirectMusicVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6536115a_7b2d_11d2_ba18_0000f875ac12);
 }
+pub trait IDirectMusicImpl {
+    fn EnumPort();
+    fn CreateMusicBuffer();
+    fn CreatePort();
+    fn EnumMasterClock();
+    fn GetMasterClock();
+    fn SetMasterClock();
+    fn Activate();
+    fn GetDefaultPort();
+    fn SetDirectSound();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicVtbl(
@@ -2108,6 +2119,9 @@ unsafe impl ::windows::core::Interface for IDirectMusic8 {
     type Vtable = IDirectMusic8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d3629f7_813d_4939_8508_f05c6b75fd97);
 }
+pub trait IDirectMusic8Impl: IDirectMusicImpl {
+    fn SetExternalMasterClock();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusic8Vtbl(
@@ -2225,6 +2239,21 @@ unsafe impl ::windows::core::Interface for IDirectMusicBuffer {
     type Vtable = IDirectMusicBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac2878_b39b_11d1_8704_00600893b1bd);
 }
+pub trait IDirectMusicBufferImpl {
+    fn Flush();
+    fn TotalTime();
+    fn PackStructured();
+    fn PackUnstructured();
+    fn ResetReadPtr();
+    fn GetNextEvent();
+    fn GetRawBufferPtr();
+    fn GetStartTime();
+    fn GetUsedBytes();
+    fn GetMaxBytes();
+    fn GetBufferFormat();
+    fn SetStartTime();
+    fn SetUsedBytes();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicBufferVtbl(
@@ -2300,6 +2329,10 @@ unsafe impl ::windows::core::Interface for IDirectMusicCollection {
     type Vtable = IDirectMusicCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac287c_b39b_11d1_8704_00600893b1bd);
 }
+pub trait IDirectMusicCollectionImpl {
+    fn GetInstrument();
+    fn EnumInstrument();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicCollectionVtbl(
@@ -2359,6 +2392,9 @@ unsafe impl ::windows::core::Interface for IDirectMusicDownload {
     type Vtable = IDirectMusicDownloadVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac287b_b39b_11d1_8704_00600893b1bd);
 }
+pub trait IDirectMusicDownloadImpl {
+    fn GetBuffer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicDownloadVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppvbuffer: *mut *mut ::core::ffi::c_void, pdwsize: *mut u32) -> ::windows::core::HRESULT);
@@ -2406,6 +2442,7 @@ unsafe impl ::windows::core::Interface for IDirectMusicDownloadedInstrument {
     type Vtable = IDirectMusicDownloadedInstrumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac287e_b39b_11d1_8704_00600893b1bd);
 }
+pub trait IDirectMusicDownloadedInstrumentImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicDownloadedInstrumentVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
@@ -2461,6 +2498,10 @@ impl ::core::fmt::Debug for IDirectMusicInstrument {
 unsafe impl ::windows::core::Interface for IDirectMusicInstrument {
     type Vtable = IDirectMusicInstrumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac287d_b39b_11d1_8704_00600893b1bd);
+}
+pub trait IDirectMusicInstrumentImpl {
+    fn GetPatch();
+    fn SetPatch();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2589,6 +2630,25 @@ unsafe impl ::windows::core::Interface for IDirectMusicPort {
     type Vtable = IDirectMusicPortVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08f2d8c9_37c2_11d2_b9f9_0000f875ac12);
 }
+pub trait IDirectMusicPortImpl {
+    fn PlayBuffer();
+    fn SetReadNotificationHandle();
+    fn Read();
+    fn DownloadInstrument();
+    fn UnloadInstrument();
+    fn GetLatencyClock();
+    fn GetRunningStats();
+    fn Compact();
+    fn GetCaps();
+    fn DeviceIoControl();
+    fn SetNumChannelGroups();
+    fn GetNumChannelGroups();
+    fn Activate();
+    fn SetChannelPriority();
+    fn GetChannelPriority();
+    fn SetDirectSound();
+    fn GetFormat();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicPortVtbl(
@@ -2687,6 +2747,14 @@ impl ::core::fmt::Debug for IDirectMusicPortDownload {
 unsafe impl ::windows::core::Interface for IDirectMusicPortDownload {
     type Vtable = IDirectMusicPortDownloadVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac287a_b39b_11d1_8704_00600893b1bd);
+}
+pub trait IDirectMusicPortDownloadImpl {
+    fn GetBuffer();
+    fn AllocateBuffer();
+    fn GetDLId();
+    fn GetAppend();
+    fn Download();
+    fn Unload();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2818,6 +2886,25 @@ impl ::core::fmt::Debug for IDirectMusicSynth {
 unsafe impl ::windows::core::Interface for IDirectMusicSynth {
     type Vtable = IDirectMusicSynthVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09823661_5c85_11d2_afa6_00aa0024d8b6);
+}
+pub trait IDirectMusicSynthImpl {
+    fn Open();
+    fn Close();
+    fn SetNumChannelGroups();
+    fn Download();
+    fn Unload();
+    fn PlayBuffer();
+    fn GetRunningStats();
+    fn GetPortCaps();
+    fn SetMasterClock();
+    fn GetLatencyClock();
+    fn Activate();
+    fn SetSynthSink();
+    fn Render();
+    fn SetChannelPriority();
+    fn GetChannelPriority();
+    fn GetFormat();
+    fn GetAppend();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3006,6 +3093,13 @@ unsafe impl ::windows::core::Interface for IDirectMusicSynth8 {
     type Vtable = IDirectMusicSynth8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53cab625_2711_4c9f_9de7_1b7f925f6fc8);
 }
+pub trait IDirectMusicSynth8Impl: IDirectMusicSynthImpl {
+    fn PlayVoice();
+    fn StopVoice();
+    fn GetVoiceState();
+    fn Refresh();
+    fn AssignChannelToBuses();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicSynth8Vtbl(
@@ -3120,6 +3214,16 @@ unsafe impl ::windows::core::Interface for IDirectMusicSynthSink {
     type Vtable = IDirectMusicSynthSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09823663_5c85_11d2_afa6_00aa0024d8b6);
 }
+pub trait IDirectMusicSynthSinkImpl {
+    fn Init();
+    fn SetMasterClock();
+    fn GetLatencyClock();
+    fn Activate();
+    fn SampleToRefTime();
+    fn RefTimeToSample();
+    fn SetDirectSound();
+    fn GetDesiredBufferSize();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicSynthSinkVtbl(
@@ -3185,6 +3289,9 @@ impl ::core::fmt::Debug for IDirectMusicThru {
 unsafe impl ::windows::core::Interface for IDirectMusicThru {
     type Vtable = IDirectMusicThruVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xced153e7_3606_11d2_b9f9_0000f875ac12);
+}
+pub trait IDirectMusicThruImpl {
+    fn ThruChannel();
 }
 #[repr(C)]
 #[doc(hidden)]

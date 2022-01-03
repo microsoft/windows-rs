@@ -6,6 +6,12 @@ unsafe impl ::windows::core::Interface for IPowerManagerStatics {
     type Vtable = IPowerManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25de8fd0_1c5b_11e1_bddb_0800200c9a66);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPowerManagerStaticsImpl {
+    fn PowerSavingMode();
+    fn PowerSavingModeChanged();
+    fn RemovePowerSavingModeChanged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPowerManagerStaticsVtbl(
@@ -27,6 +33,10 @@ pub struct IPowerManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPowerManagerStatics2 {
     type Vtable = IPowerManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x596236cf_1918_4551_a466_c51aae373bf8);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPowerManagerStatics2Impl {
+    fn PowerSavingModeEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]

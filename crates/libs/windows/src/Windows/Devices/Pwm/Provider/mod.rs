@@ -132,6 +132,18 @@ unsafe impl ::windows::core::Interface for IPwmControllerProvider {
     type Vtable = IPwmControllerProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1300593b_e2e3_40a4_b7d9_48dff0377a52);
 }
+pub trait IPwmControllerProviderImpl {
+    fn PinCount();
+    fn ActualFrequency();
+    fn SetDesiredFrequency();
+    fn MaxFrequency();
+    fn MinFrequency();
+    fn AcquirePin();
+    fn ReleasePin();
+    fn EnablePin();
+    fn DisablePin();
+    fn SetPulseParameters();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPwmControllerProviderVtbl(
@@ -228,6 +240,9 @@ unsafe impl ::windows::core::RuntimeType for IPwmProvider {
 unsafe impl ::windows::core::Interface for IPwmProvider {
     type Vtable = IPwmProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3301228_52f1_47b0_9349_66ba43d25902);
+}
+pub trait IPwmProviderImpl {
+    fn GetControllers();
 }
 #[repr(C)]
 #[doc(hidden)]

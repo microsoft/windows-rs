@@ -350,6 +350,10 @@ unsafe impl ::windows::core::Interface for IExtendedExecutionForegroundRevokedEv
     type Vtable = IExtendedExecutionForegroundRevokedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb07cd940_9557_aea4_2c99_bdd56d9be461);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IExtendedExecutionForegroundRevokedEventArgsImpl {
+    fn Reason();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExtendedExecutionForegroundRevokedEventArgsVtbl(
@@ -367,6 +371,16 @@ pub struct IExtendedExecutionForegroundSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IExtendedExecutionForegroundSession {
     type Vtable = IExtendedExecutionForegroundSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbf440e1_9d10_4201_b01e_c83275296f2e);
+}
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IExtendedExecutionForegroundSessionImpl: IClosableImpl {
+    fn Description();
+    fn SetDescription();
+    fn Revoked();
+    fn RemoveRevoked();
+    fn RequestExtensionAsync();
+    fn Reason();
+    fn SetReason();
 }
 #[repr(C)]
 #[doc(hidden)]

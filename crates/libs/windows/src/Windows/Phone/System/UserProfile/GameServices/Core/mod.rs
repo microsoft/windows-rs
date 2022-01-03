@@ -238,6 +238,17 @@ unsafe impl ::windows::core::Interface for IGameService {
     type Vtable = IGameServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e2d5098_48a9_4efc_afd6_8e6da09003fb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGameServiceImpl {
+    fn ServiceUri();
+    fn GetGamerProfileAsync();
+    fn GetInstalledGameItemsAsync();
+    fn GetPartnerTokenAsync();
+    fn GetPrivilegesAsync();
+    fn GrantAchievement();
+    fn GrantAvatarAward();
+    fn PostResult();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameServiceVtbl(
@@ -269,6 +280,11 @@ unsafe impl ::windows::core::Interface for IGameService2 {
     type Vtable = IGameService2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2364ef6_ea17_4be5_8d8a_c860885e051f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGameService2Impl {
+    fn NotifyPartnerTokenExpired();
+    fn GetAuthenticationStatus();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameService2Vtbl(
@@ -288,6 +304,10 @@ pub struct IGameServicePropertyCollection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameServicePropertyCollection {
     type Vtable = IGameServicePropertyCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07e57fc8_debb_4609_9cc8_529d16bc2bd9);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGameServicePropertyCollectionImpl {
+    fn GetPropertyAsync();
 }
 #[repr(C)]
 #[doc(hidden)]

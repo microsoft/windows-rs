@@ -6,6 +6,14 @@ unsafe impl ::windows::core::Interface for IKnownSimpleHapticsControllerWaveform
     type Vtable = IKnownSimpleHapticsControllerWaveformsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef7_4cee_11e6_b535_001bdc06ab3b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IKnownSimpleHapticsControllerWaveformsStaticsImpl {
+    fn Click();
+    fn BuzzContinuous();
+    fn RumbleContinuous();
+    fn Press();
+    fn Release();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownSimpleHapticsControllerWaveformsStaticsVtbl(
@@ -27,6 +35,19 @@ pub struct IKnownSimpleHapticsControllerWaveformsStatics2(::windows::core::IUnkn
 unsafe impl ::windows::core::Interface for IKnownSimpleHapticsControllerWaveformsStatics2 {
     type Vtable = IKnownSimpleHapticsControllerWaveformsStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7d24c27_b79d_510a_bf79_ff6d49173e1d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IKnownSimpleHapticsControllerWaveformsStatics2Impl {
+    fn BrushContinuous();
+    fn ChiselMarkerContinuous();
+    fn EraserContinuous();
+    fn Error();
+    fn GalaxyPenContinuous();
+    fn Hover();
+    fn InkContinuous();
+    fn MarkerContinuous();
+    fn PencilContinuous();
+    fn Success();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -54,6 +75,20 @@ pub struct ISimpleHapticsController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISimpleHapticsController {
     type Vtable = ISimpleHapticsControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef9_4cee_11e6_b535_001bdc06ab3b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISimpleHapticsControllerImpl {
+    fn Id();
+    fn SupportedFeedback();
+    fn IsIntensitySupported();
+    fn IsPlayCountSupported();
+    fn IsPlayDurationSupported();
+    fn IsReplayPauseIntervalSupported();
+    fn StopFeedback();
+    fn SendHapticFeedback();
+    fn SendHapticFeedbackWithIntensity();
+    fn SendHapticFeedbackForDuration();
+    fn SendHapticFeedbackForPlayCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -86,6 +121,11 @@ unsafe impl ::windows::core::Interface for ISimpleHapticsControllerFeedback {
     type Vtable = ISimpleHapticsControllerFeedbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef8_4cee_11e6_b535_001bdc06ab3b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISimpleHapticsControllerFeedbackImpl {
+    fn Waveform();
+    fn Duration();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimpleHapticsControllerFeedbackVtbl(
@@ -106,6 +146,11 @@ unsafe impl ::windows::core::Interface for IVibrationDevice {
     type Vtable = IVibrationDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40f21a3e_8844_47ff_b312_06185a3844da);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IVibrationDeviceImpl {
+    fn Id();
+    fn SimpleHapticsController();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVibrationDeviceVtbl(
@@ -124,6 +169,14 @@ pub struct IVibrationDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVibrationDeviceStatics {
     type Vtable = IVibrationDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53e2eded_2290_4ac9_8eb3_1a84122eb71c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IVibrationDeviceStaticsImpl {
+    fn RequestAccessAsync();
+    fn GetDeviceSelector();
+    fn FromIdAsync();
+    fn GetDefaultAsync();
+    fn FindAllAsync();
 }
 #[repr(C)]
 #[doc(hidden)]

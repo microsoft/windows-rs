@@ -75,6 +75,10 @@ unsafe impl ::windows::core::Interface for IContentPrefetcherTaskTrigger {
     type Vtable = IContentPrefetcherTaskTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b35a14a_6094_4799_a60e_e474e15d4dc9);
 }
+pub trait IContentPrefetcherTaskTriggerImpl {
+    fn TriggerContentPrefetcherTask();
+    fn IsRegisteredForContentPrefetch();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentPrefetcherTaskTriggerVtbl(

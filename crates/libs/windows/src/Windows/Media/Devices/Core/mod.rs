@@ -1639,6 +1639,19 @@ unsafe impl ::windows::core::Interface for ICameraIntrinsics {
     type Vtable = ICameraIntrinsicsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0aa6ed32_6589_49da_afde_594270ca0aac);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICameraIntrinsicsImpl {
+    fn FocalLength();
+    fn PrincipalPoint();
+    fn RadialDistortion();
+    fn TangentialDistortion();
+    fn ImageWidth();
+    fn ImageHeight();
+    fn ProjectOntoFrame();
+    fn UnprojectAtUnitDepth();
+    fn ProjectManyOntoFrame();
+    fn UnprojectPixelsAtUnitDepth();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraIntrinsicsVtbl(
@@ -1674,6 +1687,14 @@ unsafe impl ::windows::core::Interface for ICameraIntrinsics2 {
     type Vtable = ICameraIntrinsics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cdaa447_0798_4b4d_839f_c5ec414db27a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICameraIntrinsics2Impl {
+    fn UndistortedProjectionTransform();
+    fn DistortPoint();
+    fn DistortPoints();
+    fn UndistortPoint();
+    fn UndistortPoints();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraIntrinsics2Vtbl(
@@ -1701,6 +1722,10 @@ unsafe impl ::windows::core::Interface for ICameraIntrinsicsFactory {
     type Vtable = ICameraIntrinsicsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0ddc486_2132_4a34_a659_9bfe2a055712);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICameraIntrinsicsFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraIntrinsicsFactoryVtbl(
@@ -1719,6 +1744,13 @@ pub struct IDepthCorrelatedCoordinateMapper(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDepthCorrelatedCoordinateMapper {
     type Vtable = IDepthCorrelatedCoordinateMapperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf95d89fb_8af0_4cb0_926d_696866e5046a);
+}
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait IDepthCorrelatedCoordinateMapperImpl: IClosableImpl {
+    fn UnprojectPoint();
+    fn UnprojectPoints();
+    fn MapPoint();
+    fn MapPoints();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1745,6 +1777,14 @@ unsafe impl ::windows::core::Interface for IFrameControlCapabilities {
     type Vtable = IFrameControlCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8ffae60_4e9e_4377_a789_e24c4ae7e544);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFrameControlCapabilitiesImpl {
+    fn Exposure();
+    fn ExposureCompensation();
+    fn IsoSpeed();
+    fn Focus();
+    fn PhotoConfirmationSupported();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameControlCapabilitiesVtbl(
@@ -1767,6 +1807,10 @@ unsafe impl ::windows::core::Interface for IFrameControlCapabilities2 {
     type Vtable = IFrameControlCapabilities2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce9b0464_4730_440f_bd3e_efe8a8f230a8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFrameControlCapabilities2Impl {
+    fn Flash();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameControlCapabilities2Vtbl(
@@ -1784,6 +1828,15 @@ pub struct IFrameController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameController {
     type Vtable = IFrameControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc16459d9_baef_4052_9177_48aff2af7522);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IFrameControllerImpl {
+    fn ExposureControl();
+    fn ExposureCompensationControl();
+    fn IsoSpeedControl();
+    fn FocusControl();
+    fn PhotoConfirmationEnabled();
+    fn SetPhotoConfirmationEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1810,6 +1863,10 @@ unsafe impl ::windows::core::Interface for IFrameController2 {
     type Vtable = IFrameController2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00d3bc75_d87c_485b_8a09_5c358568b427);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFrameController2Impl {
+    fn FlashControl();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameController2Vtbl(
@@ -1827,6 +1884,13 @@ pub struct IFrameExposureCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameExposureCapabilities {
     type Vtable = IFrameExposureCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdbe9ce3_3985_4e72_97c2_0590d61307a1);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IFrameExposureCapabilitiesImpl {
+    fn Supported();
+    fn Min();
+    fn Max();
+    fn Step();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1852,6 +1916,13 @@ unsafe impl ::windows::core::Interface for IFrameExposureCompensationCapabilitie
     type Vtable = IFrameExposureCompensationCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb988a823_8065_41ee_b04f_722265954500);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFrameExposureCompensationCapabilitiesImpl {
+    fn Supported();
+    fn Min();
+    fn Max();
+    fn Step();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameExposureCompensationCapabilitiesVtbl(
@@ -1873,6 +1944,11 @@ unsafe impl ::windows::core::Interface for IFrameExposureCompensationControl {
     type Vtable = IFrameExposureCompensationControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe95896c9_f7f9_48ca_8591_a26531cb1578);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFrameExposureCompensationControlImpl {
+    fn Value();
+    fn SetValue();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameExposureCompensationControlVtbl(
@@ -1893,6 +1969,13 @@ pub struct IFrameExposureControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameExposureControl {
     type Vtable = IFrameExposureControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1605a61_ffaf_4752_b621_f5b6f117f432);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IFrameExposureControlImpl {
+    fn Auto();
+    fn SetAuto();
+    fn Value();
+    fn SetValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1917,6 +2000,12 @@ unsafe impl ::windows::core::Interface for IFrameFlashCapabilities {
     type Vtable = IFrameFlashCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb9341a2_5ebe_4f62_8223_0e2b05bfbbd0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFrameFlashCapabilitiesImpl {
+    fn Supported();
+    fn RedEyeReductionSupported();
+    fn PowerSupported();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameFlashCapabilitiesVtbl(
@@ -1936,6 +2025,17 @@ pub struct IFrameFlashControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameFlashControl {
     type Vtable = IFrameFlashControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75d5f6c7_bd45_4fab_9375_45ac04b332c2);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IFrameFlashControlImpl {
+    fn Mode();
+    fn SetMode();
+    fn Auto();
+    fn SetAuto();
+    fn RedEyeReduction();
+    fn SetRedEyeReduction();
+    fn PowerPercent();
+    fn SetPowerPercent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1962,6 +2062,13 @@ unsafe impl ::windows::core::Interface for IFrameFocusCapabilities {
     type Vtable = IFrameFocusCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b25cd58_01c0_4065_9c40_c1a721425c1a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFrameFocusCapabilitiesImpl {
+    fn Supported();
+    fn Min();
+    fn Max();
+    fn Step();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameFocusCapabilitiesVtbl(
@@ -1982,6 +2089,11 @@ pub struct IFrameFocusControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameFocusControl {
     type Vtable = IFrameFocusControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x272df1d0_d912_4214_a67b_e38a8d48d8c6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IFrameFocusControlImpl {
+    fn Value();
+    fn SetValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2004,6 +2116,13 @@ unsafe impl ::windows::core::Interface for IFrameIsoSpeedCapabilities {
     type Vtable = IFrameIsoSpeedCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16bdff61_6df6_4ac9_b92a_9f6ecd1ad2fa);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFrameIsoSpeedCapabilitiesImpl {
+    fn Supported();
+    fn Min();
+    fn Max();
+    fn Step();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameIsoSpeedCapabilitiesVtbl(
@@ -2024,6 +2143,13 @@ pub struct IFrameIsoSpeedControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameIsoSpeedControl {
     type Vtable = IFrameIsoSpeedControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a03efed_786a_4c75_a557_7ab9a85f588c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IFrameIsoSpeedControlImpl {
+    fn Auto();
+    fn SetAuto();
+    fn Value();
+    fn SetValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2047,6 +2173,17 @@ pub struct IVariablePhotoSequenceController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVariablePhotoSequenceController {
     type Vtable = IVariablePhotoSequenceControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fbff880_ed8c_43fd_a7c3_b35809e4229a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IVariablePhotoSequenceControllerImpl {
+    fn Supported();
+    fn MaxPhotosPerSecond();
+    fn PhotosPerSecondLimit();
+    fn SetPhotosPerSecondLimit();
+    fn GetHighestConcurrentFrameRate();
+    fn GetCurrentFrameRate();
+    fn FrameCapabilities();
+    fn DesiredFrameControllers();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -108,6 +108,12 @@ unsafe impl ::windows::core::Interface for IHolographicKeyboard {
     type Vtable = IHolographicKeyboardVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07dd0893_aa21_5e6f_a91b_11b2b3fd7be3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IHolographicKeyboardImpl {
+    fn SetPlacementOverride();
+    fn SetPlacementOverrideWithMaxSize();
+    fn ResetPlacementOverride();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicKeyboardVtbl(
@@ -129,6 +135,10 @@ pub struct IHolographicKeyboardStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHolographicKeyboardStatics {
     type Vtable = IHolographicKeyboardStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb676c624_63d7_58cf_b06b_08baa032a23f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IHolographicKeyboardStaticsImpl {
+    fn GetDefault();
 }
 #[repr(C)]
 #[doc(hidden)]

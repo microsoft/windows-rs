@@ -216,6 +216,18 @@ unsafe impl ::windows::core::Interface for AsyncIAdviseSink {
     type Vtable = AsyncIAdviseSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000150_0000_0000_c000_000000000046);
 }
+pub trait AsyncIAdviseSinkImpl {
+    fn Begin_OnDataChange();
+    fn Finish_OnDataChange();
+    fn Begin_OnViewChange();
+    fn Finish_OnViewChange();
+    fn Begin_OnRename();
+    fn Finish_OnRename();
+    fn Begin_OnSave();
+    fn Finish_OnSave();
+    fn Begin_OnClose();
+    fn Finish_OnClose();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIAdviseSinkVtbl(
@@ -348,6 +360,10 @@ unsafe impl ::windows::core::Interface for AsyncIAdviseSink2 {
     type Vtable = AsyncIAdviseSink2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000151_0000_0000_c000_000000000046);
 }
+pub trait AsyncIAdviseSink2Impl: AsyncIAdviseSinkImpl {
+    fn Begin_OnLinkSrcChange();
+    fn Finish_OnLinkSrcChange();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIAdviseSink2Vtbl(
@@ -421,6 +437,10 @@ unsafe impl ::windows::core::Interface for AsyncIMultiQI {
     type Vtable = AsyncIMultiQIVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x000e0020_0000_0000_c000_000000000046);
 }
+pub trait AsyncIMultiQIImpl {
+    fn Begin_QueryMultipleInterfaces();
+    fn Finish_QueryMultipleInterfaces();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIMultiQIVtbl(
@@ -490,6 +510,12 @@ impl ::core::fmt::Debug for AsyncIPipeByte {
 unsafe impl ::windows::core::Interface for AsyncIPipeByte {
     type Vtable = AsyncIPipeByteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb2f3acb_2f86_11d1_8e04_00c04fb9989a);
+}
+pub trait AsyncIPipeByteImpl {
+    fn Begin_Pull();
+    fn Finish_Pull();
+    fn Begin_Push();
+    fn Finish_Push();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -563,6 +589,12 @@ unsafe impl ::windows::core::Interface for AsyncIPipeDouble {
     type Vtable = AsyncIPipeDoubleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb2f3acf_2f86_11d1_8e04_00c04fb9989a);
 }
+pub trait AsyncIPipeDoubleImpl {
+    fn Begin_Pull();
+    fn Finish_Pull();
+    fn Begin_Push();
+    fn Finish_Push();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIPipeDoubleVtbl(
@@ -634,6 +666,12 @@ impl ::core::fmt::Debug for AsyncIPipeLong {
 unsafe impl ::windows::core::Interface for AsyncIPipeLong {
     type Vtable = AsyncIPipeLongVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb2f3acd_2f86_11d1_8e04_00c04fb9989a);
+}
+pub trait AsyncIPipeLongImpl {
+    fn Begin_Pull();
+    fn Finish_Pull();
+    fn Begin_Push();
+    fn Finish_Push();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -714,6 +752,14 @@ impl ::core::fmt::Debug for AsyncIUnknown {
 unsafe impl ::windows::core::Interface for AsyncIUnknown {
     type Vtable = AsyncIUnknownVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x000e0000_0000_0000_c000_000000000046);
+}
+pub trait AsyncIUnknownImpl {
+    fn Begin_QueryInterface();
+    fn Finish_QueryInterface();
+    fn Begin_AddRef();
+    fn Finish_AddRef();
+    fn Begin_Release();
+    fn Finish_Release();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3815,6 +3861,9 @@ unsafe impl ::windows::core::Interface for IActivationFilter {
     type Vtable = IActivationFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000017_0000_0000_c000_000000000046);
 }
+pub trait IActivationFilterImpl {
+    fn HandleActivation();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivationFilterVtbl(
@@ -3875,6 +3924,10 @@ impl ::core::fmt::Debug for IAddrExclusionControl {
 unsafe impl ::windows::core::Interface for IAddrExclusionControl {
     type Vtable = IAddrExclusionControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000148_0000_0000_c000_000000000046);
+}
+pub trait IAddrExclusionControlImpl {
+    fn GetCurrentAddrExclusionList();
+    fn UpdateAddrExclusionList();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3937,6 +3990,10 @@ impl ::core::fmt::Debug for IAddrTrackingControl {
 unsafe impl ::windows::core::Interface for IAddrTrackingControl {
     type Vtable = IAddrTrackingControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000147_0000_0000_c000_000000000046);
+}
+pub trait IAddrTrackingControlImpl {
+    fn EnableCOMDynamicAddrTracking();
+    fn DisableCOMDynamicAddrTracking();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4012,6 +4069,13 @@ impl ::core::fmt::Debug for IAdviseSink {
 unsafe impl ::windows::core::Interface for IAdviseSink {
     type Vtable = IAdviseSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000010f_0000_0000_c000_000000000046);
+}
+pub trait IAdviseSinkImpl {
+    fn OnDataChange();
+    fn OnViewChange();
+    fn OnRename();
+    fn OnSave();
+    fn OnClose();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4116,6 +4180,9 @@ unsafe impl ::windows::core::Interface for IAdviseSink2 {
     type Vtable = IAdviseSink2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000125_0000_0000_c000_000000000046);
 }
+pub trait IAdviseSink2Impl: IAdviseSinkImpl {
+    fn OnLinkSrcChange();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdviseSink2Vtbl(
@@ -4174,6 +4241,7 @@ unsafe impl ::windows::core::Interface for IAgileObject {
     type Vtable = IAgileObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94ea2b94_e9cc_49e0_c0ff_ee64ca8f5b90);
 }
+pub trait IAgileObjectImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAgileObjectVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
@@ -4234,6 +4302,11 @@ impl ::core::fmt::Debug for IAsyncManager {
 unsafe impl ::windows::core::Interface for IAsyncManager {
     type Vtable = IAsyncManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000002a_0000_0000_c000_000000000046);
+}
+pub trait IAsyncManagerImpl {
+    fn CompleteCall();
+    fn GetCallContext();
+    fn GetState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4367,6 +4440,11 @@ unsafe impl ::windows::core::Interface for IAsyncRpcChannelBuffer {
     type Vtable = IAsyncRpcChannelBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5029fb6_3c34_11d1_9c99_00c04fb998aa);
 }
+pub trait IAsyncRpcChannelBufferImpl: IRpcChannelBuffer2Impl + IRpcChannelBufferImpl {
+    fn Send();
+    fn Receive();
+    fn GetDestCtxEx();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsyncRpcChannelBufferVtbl(
@@ -4432,6 +4510,9 @@ impl ::core::fmt::Debug for IAuthenticate {
 unsafe impl ::windows::core::Interface for IAuthenticate {
     type Vtable = IAuthenticateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9d0_baf9_11ce_8c82_00aa004ba90b);
+}
+pub trait IAuthenticateImpl {
+    fn Authenticate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4516,6 +4597,9 @@ impl ::core::fmt::Debug for IAuthenticateEx {
 unsafe impl ::windows::core::Interface for IAuthenticateEx {
     type Vtable = IAuthenticateExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ad1edaf_d83d_48b5_9adf_03dbe19f53bd);
+}
+pub trait IAuthenticateExImpl: IAuthenticateImpl {
+    fn AuthenticateEx();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4619,6 +4703,18 @@ unsafe impl ::windows::core::Interface for IBindCtx {
     type Vtable = IBindCtxVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000e_0000_0000_c000_000000000046);
 }
+pub trait IBindCtxImpl {
+    fn RegisterObjectBound();
+    fn RevokeObjectBound();
+    fn ReleaseBoundObjects();
+    fn SetBindOptions();
+    fn GetBindOptions();
+    fn GetRunningObjectTable();
+    fn RegisterObjectParam();
+    fn GetObjectParam();
+    fn EnumObjectParam();
+    fn RevokeObjectParam();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindCtxVtbl(
@@ -4696,6 +4792,11 @@ impl ::core::fmt::Debug for IBindHost {
 unsafe impl ::windows::core::Interface for IBindHost {
     type Vtable = IBindHostVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc4801a1_2ba9_11cf_a229_00aa003d7352);
+}
+pub trait IBindHostImpl {
+    fn CreateMoniker();
+    fn MonikerBindToStorage();
+    fn MonikerBindToObject();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4789,6 +4890,16 @@ impl ::core::fmt::Debug for IBindStatusCallback {
 unsafe impl ::windows::core::Interface for IBindStatusCallback {
     type Vtable = IBindStatusCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9c1_baf9_11ce_8c82_00aa004ba90b);
+}
+pub trait IBindStatusCallbackImpl {
+    fn OnStartBinding();
+    fn GetPriority();
+    fn OnLowResource();
+    fn OnProgress();
+    fn OnStopBinding();
+    fn GetBindInfo();
+    fn OnDataAvailable();
+    fn OnObjectAvailable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4916,6 +5027,9 @@ unsafe impl ::windows::core::Interface for IBindStatusCallbackEx {
     type Vtable = IBindStatusCallbackExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaaa74ef9_8ee7_4659_88d9_f8c504da73cc);
 }
+pub trait IBindStatusCallbackExImpl: IBindStatusCallbackImpl {
+    fn GetBindInfoEx();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindStatusCallbackExVtbl(
@@ -5008,6 +5122,14 @@ unsafe impl ::windows::core::Interface for IBinding {
     type Vtable = IBindingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9c0_baf9_11ce_8c82_00aa004ba90b);
 }
+pub trait IBindingImpl {
+    fn Abort();
+    fn Suspend();
+    fn Resume();
+    fn SetPriority();
+    fn GetPriority();
+    fn GetBindResult();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindingVtbl(
@@ -5075,6 +5197,10 @@ unsafe impl ::windows::core::Interface for IBlockingLock {
     type Vtable = IBlockingLockVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30f3d47a_6447_11d1_8e3c_00c04fb9386d);
 }
+pub trait IBlockingLockImpl {
+    fn Lock();
+    fn Unlock();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBlockingLockVtbl(
@@ -5133,6 +5259,9 @@ impl ::core::fmt::Debug for ICallFactory {
 unsafe impl ::windows::core::Interface for ICallFactory {
     type Vtable = ICallFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c733a30_2a1c_11ce_ade5_00aa0044773d);
+}
+pub trait ICallFactoryImpl {
+    fn CreateCall();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5194,6 +5323,10 @@ impl ::core::fmt::Debug for ICancelMethodCalls {
 unsafe impl ::windows::core::Interface for ICancelMethodCalls {
     type Vtable = ICancelMethodCallsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000029_0000_0000_c000_000000000046);
+}
+pub trait ICancelMethodCallsImpl {
+    fn Cancel();
+    fn TestCancel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5279,6 +5412,14 @@ unsafe impl ::windows::core::Interface for ICatInformation {
     type Vtable = ICatInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0002e013_0000_0000_c000_000000000046);
 }
+pub trait ICatInformationImpl {
+    fn EnumCategories();
+    fn GetCategoryDesc();
+    fn EnumClassesOfCategories();
+    fn IsClassOfCategories();
+    fn EnumImplCategoriesOfClass();
+    fn EnumReqCategoriesOfClass();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICatInformationVtbl(
@@ -5362,6 +5503,14 @@ unsafe impl ::windows::core::Interface for ICatRegister {
     type Vtable = ICatRegisterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0002e012_0000_0000_c000_000000000046);
 }
+pub trait ICatRegisterImpl {
+    fn RegisterCategories();
+    fn UnRegisterCategories();
+    fn RegisterClassImplCategories();
+    fn UnRegisterClassImplCategories();
+    fn RegisterClassReqCategories();
+    fn UnRegisterClassReqCategories();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICatRegisterVtbl(
@@ -5444,6 +5593,14 @@ unsafe impl ::windows::core::Interface for IChannelHook {
     type Vtable = IChannelHookVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1008c4a0_7613_11cf_9af1_0020af6e72f4);
 }
+pub trait IChannelHookImpl {
+    fn ClientGetSize();
+    fn ClientFillBuffer();
+    fn ClientNotify();
+    fn ServerNotify();
+    fn ServerGetSize();
+    fn ServerFillBuffer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChannelHookVtbl(
@@ -5507,6 +5664,9 @@ unsafe impl ::windows::core::Interface for IClassActivator {
     type Vtable = IClassActivatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000140_0000_0000_c000_000000000046);
 }
+pub trait IClassActivatorImpl {
+    fn GetClassObject();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClassActivatorVtbl(
@@ -5569,6 +5729,10 @@ impl ::core::fmt::Debug for IClassFactory {
 unsafe impl ::windows::core::Interface for IClassFactory {
     type Vtable = IClassFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000001_0000_0000_c000_000000000046);
+}
+pub trait IClassFactoryImpl {
+    fn CreateInstance();
+    fn LockServer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5638,6 +5802,11 @@ impl ::core::fmt::Debug for IClientSecurity {
 unsafe impl ::windows::core::Interface for IClientSecurity {
     type Vtable = IClientSecurityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000013d_0000_0000_c000_000000000046);
+}
+pub trait IClientSecurityImpl {
+    fn QueryBlanket();
+    fn SetBlanket();
+    fn CopyProxy();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5713,6 +5882,12 @@ impl ::core::fmt::Debug for IComThreadingInfo {
 unsafe impl ::windows::core::Interface for IComThreadingInfo {
     type Vtable = IComThreadingInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x000001ce_0000_0000_c000_000000000046);
+}
+pub trait IComThreadingInfoImpl {
+    fn GetCurrentApartmentType();
+    fn GetCurrentThreadType();
+    fn GetCurrentLogicalThreadId();
+    fn SetCurrentLogicalThreadId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5794,6 +5969,13 @@ unsafe impl ::windows::core::Interface for IConnectionPoint {
     type Vtable = IConnectionPointVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb196b286_bab4_101a_b69c_00aa00341d07);
 }
+pub trait IConnectionPointImpl {
+    fn GetConnectionInterface();
+    fn GetConnectionPointContainer();
+    fn Advise();
+    fn Unadvise();
+    fn EnumConnections();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectionPointVtbl(
@@ -5861,6 +6043,10 @@ unsafe impl ::windows::core::Interface for IConnectionPointContainer {
     type Vtable = IConnectionPointContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb196b284_bab4_101a_b69c_00aa00341d07);
 }
+pub trait IConnectionPointContainerImpl {
+    fn EnumConnectionPoints();
+    fn FindConnectionPoint();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectionPointContainerVtbl(
@@ -5920,6 +6106,9 @@ impl ::core::fmt::Debug for IContextCallback {
 unsafe impl ::windows::core::Interface for IContextCallback {
     type Vtable = IContextCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x000001da_0000_0000_c000_000000000046);
+}
+pub trait IContextCallbackImpl {
+    fn ContextCallback();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6023,6 +6212,12 @@ unsafe impl ::windows::core::Interface for IDataAdviseHolder {
     type Vtable = IDataAdviseHolderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000110_0000_0000_c000_000000000046);
 }
+pub trait IDataAdviseHolderImpl {
+    fn Advise();
+    fn Unadvise();
+    fn EnumAdvise();
+    fn SendOnDataChange();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataAdviseHolderVtbl(
@@ -6123,6 +6318,17 @@ unsafe impl ::windows::core::Interface for IDataObject {
     type Vtable = IDataObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000010e_0000_0000_c000_000000000046);
 }
+pub trait IDataObjectImpl {
+    fn GetData();
+    fn GetDataHere();
+    fn QueryGetData();
+    fn GetCanonicalFormatEtc();
+    fn SetData();
+    fn EnumFormatEtc();
+    fn DAdvise();
+    fn DUnadvise();
+    fn EnumDAdvise();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataObjectVtbl(
@@ -6207,6 +6413,12 @@ unsafe impl ::windows::core::Interface for IDispatch {
     type Vtable = IDispatchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020400_0000_0000_c000_000000000046);
 }
+pub trait IDispatchImpl {
+    fn GetTypeInfoCount();
+    fn GetTypeInfo();
+    fn GetIDsOfNames();
+    fn Invoke();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDispatchVtbl(
@@ -6282,6 +6494,12 @@ unsafe impl ::windows::core::Interface for IEnumCATEGORYINFO {
     type Vtable = IEnumCATEGORYINFOVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0002e011_0000_0000_c000_000000000046);
 }
+pub trait IEnumCATEGORYINFOImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumCATEGORYINFOVtbl(
@@ -6355,6 +6573,12 @@ unsafe impl ::windows::core::Interface for IEnumConnectionPoints {
     type Vtable = IEnumConnectionPointsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb196b285_bab4_101a_b69c_00aa00341d07);
 }
+pub trait IEnumConnectionPointsImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumConnectionPointsVtbl(
@@ -6427,6 +6651,12 @@ impl ::core::fmt::Debug for IEnumConnections {
 unsafe impl ::windows::core::Interface for IEnumConnections {
     type Vtable = IEnumConnectionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb196b287_bab4_101a_b69c_00aa00341d07);
+}
+pub trait IEnumConnectionsImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6503,6 +6733,12 @@ unsafe impl ::windows::core::Interface for IEnumFORMATETC {
     type Vtable = IEnumFORMATETCVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000103_0000_0000_c000_000000000046);
 }
+pub trait IEnumFORMATETCImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumFORMATETCVtbl(
@@ -6575,6 +6811,12 @@ impl ::core::fmt::Debug for IEnumGUID {
 unsafe impl ::windows::core::Interface for IEnumGUID {
     type Vtable = IEnumGUIDVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0002e000_0000_0000_c000_000000000046);
+}
+pub trait IEnumGUIDImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6649,6 +6891,12 @@ unsafe impl ::windows::core::Interface for IEnumMoniker {
     type Vtable = IEnumMonikerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000102_0000_0000_c000_000000000046);
 }
+pub trait IEnumMonikerImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumMonikerVtbl(
@@ -6721,6 +6969,12 @@ impl ::core::fmt::Debug for IEnumSTATDATA {
 unsafe impl ::windows::core::Interface for IEnumSTATDATA {
     type Vtable = IEnumSTATDATAVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000105_0000_0000_c000_000000000046);
+}
+pub trait IEnumSTATDATAImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6796,6 +7050,12 @@ unsafe impl ::windows::core::Interface for IEnumString {
     type Vtable = IEnumStringVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000101_0000_0000_c000_000000000046);
 }
+pub trait IEnumStringImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumStringVtbl(
@@ -6869,6 +7129,12 @@ impl ::core::fmt::Debug for IEnumUnknown {
 unsafe impl ::windows::core::Interface for IEnumUnknown {
     type Vtable = IEnumUnknownVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000100_0000_0000_c000_000000000046);
+}
+pub trait IEnumUnknownImpl {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6954,6 +7220,13 @@ unsafe impl ::windows::core::Interface for IErrorInfo {
     type Vtable = IErrorInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cf2b120_547d_101b_8e65_08002b2bd119);
 }
+pub trait IErrorInfoImpl {
+    fn GetGUID();
+    fn GetSource();
+    fn GetDescription();
+    fn GetHelpFile();
+    fn GetHelpContext();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IErrorInfoVtbl(
@@ -7019,6 +7292,9 @@ unsafe impl ::windows::core::Interface for IErrorLog {
     type Vtable = IErrorLogVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3127ca40_446e_11ce_8135_00aa004bb851);
 }
+pub trait IErrorLogImpl {
+    fn AddError();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IErrorLogVtbl(
@@ -7082,6 +7358,10 @@ unsafe impl ::windows::core::Interface for IExternalConnection {
     type Vtable = IExternalConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000019_0000_0000_c000_000000000046);
 }
+pub trait IExternalConnectionImpl {
+    fn AddConnection();
+    fn ReleaseConnection();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExternalConnectionVtbl(
@@ -7136,6 +7416,7 @@ unsafe impl ::windows::core::Interface for IFastRundown {
     type Vtable = IFastRundownVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000040_0000_0000_c000_000000000046);
 }
+pub trait IFastRundownImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFastRundownVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
@@ -7187,6 +7468,9 @@ impl ::core::fmt::Debug for IForegroundTransfer {
 unsafe impl ::windows::core::Interface for IForegroundTransfer {
     type Vtable = IForegroundTransferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000145_0000_0000_c000_000000000046);
+}
+pub trait IForegroundTransferImpl {
+    fn AllowForegroundTransfer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7248,6 +7532,11 @@ impl ::core::fmt::Debug for IGlobalInterfaceTable {
 unsafe impl ::windows::core::Interface for IGlobalInterfaceTable {
     type Vtable = IGlobalInterfaceTableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000146_0000_0000_c000_000000000046);
+}
+pub trait IGlobalInterfaceTableImpl {
+    fn RegisterInterfaceInGlobal();
+    fn RevokeInterfaceFromGlobal();
+    fn GetInterfaceFromGlobal();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7312,6 +7601,10 @@ impl ::core::fmt::Debug for IGlobalOptions {
 unsafe impl ::windows::core::Interface for IGlobalOptions {
     type Vtable = IGlobalOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000015b_0000_0000_c000_000000000046);
+}
+pub trait IGlobalOptionsImpl {
+    fn Set();
+    fn Query();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7399,6 +7692,12 @@ unsafe impl ::windows::core::Interface for IInitializeSpy {
     type Vtable = IInitializeSpyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000034_0000_0000_c000_000000000046);
 }
+pub trait IInitializeSpyImpl {
+    fn PreInitialize();
+    fn PostInitialize();
+    fn PreUninitialize();
+    fn PostUninitialize();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInitializeSpyVtbl(
@@ -7458,6 +7757,9 @@ impl ::core::fmt::Debug for IInternalUnknown {
 unsafe impl ::windows::core::Interface for IInternalUnknown {
     type Vtable = IInternalUnknownVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000021_0000_0000_c000_000000000046);
+}
+pub trait IInternalUnknownImpl {
+    fn QueryInternalInterface();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7522,6 +7824,11 @@ impl ::core::fmt::Debug for IMachineGlobalObjectTable {
 unsafe impl ::windows::core::Interface for IMachineGlobalObjectTable {
     type Vtable = IMachineGlobalObjectTableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26d709ac_f70b_4421_a96f_d2878fafb00d);
+}
+pub trait IMachineGlobalObjectTableImpl {
+    fn RegisterObject();
+    fn GetObject();
+    fn RevokeObject();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7603,6 +7910,14 @@ impl ::core::fmt::Debug for IMalloc {
 unsafe impl ::windows::core::Interface for IMalloc {
     type Vtable = IMallocVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000002_0000_0000_c000_000000000046);
+}
+pub trait IMallocImpl {
+    fn Alloc();
+    fn Realloc();
+    fn Free();
+    fn GetSize();
+    fn DidAlloc();
+    fn HeapMinimize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7717,6 +8032,20 @@ impl ::core::fmt::Debug for IMallocSpy {
 unsafe impl ::windows::core::Interface for IMallocSpy {
     type Vtable = IMallocSpyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000001d_0000_0000_c000_000000000046);
+}
+pub trait IMallocSpyImpl {
+    fn PreAlloc();
+    fn PostAlloc();
+    fn PreFree();
+    fn PostFree();
+    fn PreRealloc();
+    fn PostRealloc();
+    fn PreGetSize();
+    fn PostGetSize();
+    fn PreDidAlloc();
+    fn PostDidAlloc();
+    fn PreHeapMinimize();
+    fn PostHeapMinimize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7927,6 +8256,23 @@ unsafe impl ::windows::core::Interface for IMoniker {
     type Vtable = IMonikerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000f_0000_0000_c000_000000000046);
 }
+pub trait IMonikerImpl: IPersistStreamImpl + IPersistImpl {
+    fn BindToObject();
+    fn BindToStorage();
+    fn Reduce();
+    fn ComposeWith();
+    fn Enum();
+    fn IsEqual();
+    fn Hash();
+    fn IsRunning();
+    fn GetTimeOfLastChange();
+    fn Inverse();
+    fn CommonPrefixWith();
+    fn RelativePathTo();
+    fn GetDisplayName();
+    fn ParseDisplayName();
+    fn IsSystemMoniker();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMonikerVtbl(
@@ -8008,6 +8354,9 @@ impl ::core::fmt::Debug for IMultiQI {
 unsafe impl ::windows::core::Interface for IMultiQI {
     type Vtable = IMultiQIVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000020_0000_0000_c000_000000000046);
+}
+pub trait IMultiQIImpl {
+    fn QueryMultipleInterfaces();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8097,6 +8446,7 @@ unsafe impl ::windows::core::Interface for INoMarshal {
     type Vtable = INoMarshalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecc8691b_c1db_4dc0_855e_65f6c551af49);
 }
+pub trait INoMarshalImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INoMarshalVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
@@ -8156,6 +8506,10 @@ impl ::core::fmt::Debug for IOplockStorage {
 unsafe impl ::windows::core::Interface for IOplockStorage {
     type Vtable = IOplockStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d19c834_8879_11d1_83e9_00c04fc2c6d4);
+}
+pub trait IOplockStorageImpl {
+    fn CreateStorageEx();
+    fn OpenStorageEx();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8222,6 +8576,10 @@ unsafe impl ::windows::core::Interface for IPSFactoryBuffer {
     type Vtable = IPSFactoryBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5f569d0_593b_101a_b569_08002b2dbf7a);
 }
+pub trait IPSFactoryBufferImpl {
+    fn CreateProxy();
+    fn CreateStub();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPSFactoryBufferVtbl(
@@ -8280,6 +8638,9 @@ impl ::core::fmt::Debug for IPersist {
 unsafe impl ::windows::core::Interface for IPersist {
     type Vtable = IPersistVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000010c_0000_0000_c000_000000000046);
+}
+pub trait IPersistImpl {
+    fn GetClassID();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8378,6 +8739,13 @@ impl ::core::fmt::Debug for IPersistFile {
 unsafe impl ::windows::core::Interface for IPersistFile {
     type Vtable = IPersistFileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000010b_0000_0000_c000_000000000046);
+}
+pub trait IPersistFileImpl: IPersistImpl {
+    fn IsDirty();
+    fn Load();
+    fn Save();
+    fn SaveCompleted();
+    fn GetCurFile();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8488,6 +8856,13 @@ unsafe impl ::windows::core::Interface for IPersistMemory {
     type Vtable = IPersistMemoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd1ae5e0_a6ae_11ce_bd37_504200c10000);
 }
+pub trait IPersistMemoryImpl: IPersistImpl {
+    fn IsDirty();
+    fn Load();
+    fn Save();
+    fn GetSizeMax();
+    fn InitNew();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPersistMemoryVtbl(
@@ -8589,6 +8964,12 @@ impl ::core::fmt::Debug for IPersistStream {
 unsafe impl ::windows::core::Interface for IPersistStream {
     type Vtable = IPersistStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000109_0000_0000_c000_000000000046);
+}
+pub trait IPersistStreamImpl: IPersistImpl {
+    fn IsDirty();
+    fn Load();
+    fn Save();
+    fn GetSizeMax();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8695,6 +9076,13 @@ unsafe impl ::windows::core::Interface for IPersistStreamInit {
     type Vtable = IPersistStreamInitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fd52380_4e07_101b_ae2d_08002b2ec713);
 }
+pub trait IPersistStreamInitImpl: IPersistImpl {
+    fn IsDirty();
+    fn Load();
+    fn Save();
+    fn GetSizeMax();
+    fn InitNew();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPersistStreamInitVtbl(
@@ -8762,6 +9150,10 @@ unsafe impl ::windows::core::Interface for IPipeByte {
     type Vtable = IPipeByteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb2f3aca_2f86_11d1_8e04_00c04fb9989a);
 }
+pub trait IPipeByteImpl {
+    fn Pull();
+    fn Push();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPipeByteVtbl(
@@ -8823,6 +9215,10 @@ impl ::core::fmt::Debug for IPipeDouble {
 unsafe impl ::windows::core::Interface for IPipeDouble {
     type Vtable = IPipeDoubleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb2f3ace_2f86_11d1_8e04_00c04fb9989a);
+}
+pub trait IPipeDoubleImpl {
+    fn Pull();
+    fn Push();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8886,6 +9282,10 @@ unsafe impl ::windows::core::Interface for IPipeLong {
     type Vtable = IPipeLongVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb2f3acc_2f86_11d1_8e04_00c04fb9989a);
 }
+pub trait IPipeLongImpl {
+    fn Pull();
+    fn Push();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPipeLongVtbl(
@@ -8944,6 +9344,9 @@ unsafe impl ::windows::core::Interface for IProcessInitControl {
     type Vtable = IProcessInitControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72380d55_8d2b_43a3_8513_2b6ef31434e9);
 }
+pub trait IProcessInitControlImpl {
+    fn ResetInitializerTimeout();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessInitControlVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsecondsremaining: u32) -> ::windows::core::HRESULT);
@@ -9000,6 +9403,10 @@ unsafe impl ::windows::core::Interface for IProcessLock {
     type Vtable = IProcessLockVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x000001d5_0000_0000_c000_000000000046);
 }
+pub trait IProcessLockImpl {
+    fn AddRefOnProcess();
+    fn ReleaseRefOnProcess();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessLockVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
@@ -9052,6 +9459,9 @@ impl ::core::fmt::Debug for IProgressNotify {
 unsafe impl ::windows::core::Interface for IProgressNotify {
     type Vtable = IProgressNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9d758a0_4617_11cf_95fc_00aa00680db4);
+}
+pub trait IProgressNotifyImpl {
+    fn OnProgress();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9111,6 +9521,9 @@ unsafe impl ::windows::core::Interface for IROTData {
     type Vtable = IROTDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf29f6bc0_5021_11ce_aa15_00006901293f);
 }
+pub trait IROTDataImpl {
+    fn GetComparisonData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IROTDataVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbdata: *mut u8, cbmax: u32, pcbdata: *mut u32) -> ::windows::core::HRESULT);
@@ -9162,6 +9575,9 @@ impl ::core::fmt::Debug for IReleaseMarshalBuffers {
 unsafe impl ::windows::core::Interface for IReleaseMarshalBuffers {
     type Vtable = IReleaseMarshalBuffersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb0cb9e8_7996_11d2_872e_0000f8080859);
+}
+pub trait IReleaseMarshalBuffersImpl {
+    fn ReleaseMarshalBuffer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9230,6 +9646,13 @@ impl ::core::fmt::Debug for IRpcChannelBuffer {
 unsafe impl ::windows::core::Interface for IRpcChannelBuffer {
     type Vtable = IRpcChannelBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5f56b60_593b_101a_b569_08002b2dbf7a);
+}
+pub trait IRpcChannelBufferImpl {
+    fn GetBuffer();
+    fn SendReceive();
+    fn FreeBuffer();
+    fn GetDestCtx();
+    fn IsConnected();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9332,6 +9755,9 @@ impl ::core::fmt::Debug for IRpcChannelBuffer2 {
 unsafe impl ::windows::core::Interface for IRpcChannelBuffer2 {
     type Vtable = IRpcChannelBuffer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x594f31d0_7f19_11d0_b194_00a0c90dc8bf);
+}
+pub trait IRpcChannelBuffer2Impl: IRpcChannelBufferImpl {
+    fn GetProtocolVersion();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9485,6 +9911,15 @@ unsafe impl ::windows::core::Interface for IRpcChannelBuffer3 {
     type Vtable = IRpcChannelBuffer3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25b15600_0115_11d0_bf0d_00aa00b8dfd2);
 }
+pub trait IRpcChannelBuffer3Impl: IRpcChannelBuffer2Impl + IRpcChannelBufferImpl {
+    fn Send();
+    fn Receive();
+    fn Cancel();
+    fn GetCallContext();
+    fn GetDestCtxEx();
+    fn GetState();
+    fn RegisterAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRpcChannelBuffer3Vtbl(
@@ -9560,6 +9995,10 @@ unsafe impl ::windows::core::Interface for IRpcHelper {
     type Vtable = IRpcHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000149_0000_0000_c000_000000000046);
 }
+pub trait IRpcHelperImpl {
+    fn GetDCOMProtocolVersion();
+    fn GetIIDFromOBJREF();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRpcHelperVtbl(
@@ -9623,6 +10062,10 @@ unsafe impl ::windows::core::Interface for IRpcOptions {
     type Vtable = IRpcOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000144_0000_0000_c000_000000000046);
 }
+pub trait IRpcOptionsImpl {
+    fn Set();
+    fn Query();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRpcOptionsVtbl(
@@ -9684,6 +10127,10 @@ impl ::core::fmt::Debug for IRpcProxyBuffer {
 unsafe impl ::windows::core::Interface for IRpcProxyBuffer {
     type Vtable = IRpcProxyBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5f56a34_593b_101a_b569_08002b2dbf7a);
+}
+pub trait IRpcProxyBufferImpl {
+    fn Connect();
+    fn Disconnect();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9767,6 +10214,15 @@ unsafe impl ::windows::core::Interface for IRpcStubBuffer {
     type Vtable = IRpcStubBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5f56afc_593b_101a_b569_08002b2dbf7a);
 }
+pub trait IRpcStubBufferImpl {
+    fn Connect();
+    fn Disconnect();
+    fn Invoke();
+    fn IsIIDSupported();
+    fn CountRefs();
+    fn DebugServerQueryInterface();
+    fn DebugServerRelease();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRpcStubBufferVtbl(
@@ -9829,6 +10285,9 @@ impl ::core::fmt::Debug for IRpcSyntaxNegotiate {
 unsafe impl ::windows::core::Interface for IRpcSyntaxNegotiate {
     type Vtable = IRpcSyntaxNegotiateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58a08519_24c8_4935_b482_3fd823333a4f);
+}
+pub trait IRpcSyntaxNegotiateImpl {
+    fn NegotiateSyntax();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9901,6 +10360,13 @@ impl ::core::fmt::Debug for IRunnableObject {
 unsafe impl ::windows::core::Interface for IRunnableObject {
     type Vtable = IRunnableObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000126_0000_0000_c000_000000000046);
+}
+pub trait IRunnableObjectImpl {
+    fn GetRunningClass();
+    fn Run();
+    fn IsRunning();
+    fn LockRunning();
+    fn SetContainedObject();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9996,6 +10462,15 @@ unsafe impl ::windows::core::Interface for IRunningObjectTable {
     type Vtable = IRunningObjectTableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000010_0000_0000_c000_000000000046);
 }
+pub trait IRunningObjectTableImpl {
+    fn Register();
+    fn Revoke();
+    fn IsRunning();
+    fn GetObject();
+    fn NoteChangeTime();
+    fn GetTimeOfLastChange();
+    fn EnumRunning();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRunningObjectTableVtbl(
@@ -10065,6 +10540,10 @@ impl ::core::fmt::Debug for ISequentialStream {
 unsafe impl ::windows::core::Interface for ISequentialStream {
     type Vtable = ISequentialStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c733a30_2a1c_11ce_ade5_00aa0044773d);
+}
+pub trait ISequentialStreamImpl {
+    fn Read();
+    fn Write();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10137,6 +10616,12 @@ unsafe impl ::windows::core::Interface for IServerSecurity {
     type Vtable = IServerSecurityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000013e_0000_0000_c000_000000000046);
 }
+pub trait IServerSecurityImpl {
+    fn QueryBlanket();
+    fn ImpersonateClient();
+    fn RevertToSelf();
+    fn IsImpersonating();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IServerSecurityVtbl(
@@ -10198,6 +10683,9 @@ unsafe impl ::windows::core::Interface for IServiceProvider {
     type Vtable = IServiceProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d5140c1_7436_11ce_8034_00aa006009fa);
 }
+pub trait IServiceProviderImpl {
+    fn QueryService();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IServiceProviderVtbl(
@@ -10254,6 +10742,9 @@ impl ::core::fmt::Debug for IStdMarshalInfo {
 unsafe impl ::windows::core::Interface for IStdMarshalInfo {
     type Vtable = IStdMarshalInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000018_0000_0000_c000_000000000046);
+}
+pub trait IStdMarshalInfoImpl {
+    fn GetClassForHandler();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10377,6 +10868,17 @@ unsafe impl ::windows::core::Interface for IStream {
     type Vtable = IStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000c_0000_0000_c000_000000000046);
 }
+pub trait IStreamImpl: ISequentialStreamImpl {
+    fn Seek();
+    fn SetSize();
+    fn CopyTo();
+    fn Commit();
+    fn Revert();
+    fn LockRegion();
+    fn UnlockRegion();
+    fn Stat();
+    fn Clone();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStreamVtbl(
@@ -10446,6 +10948,9 @@ unsafe impl ::windows::core::Interface for ISupportErrorInfo {
     type Vtable = ISupportErrorInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf0b3d60_548f_101b_8e65_08002b2bd119);
 }
+pub trait ISupportErrorInfoImpl {
+    fn InterfaceSupportsErrorInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISupportErrorInfoVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID) -> ::windows::core::HRESULT);
@@ -10501,6 +11006,10 @@ impl ::core::fmt::Debug for ISurrogate {
 unsafe impl ::windows::core::Interface for ISurrogate {
     type Vtable = ISurrogateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000022_0000_0000_c000_000000000046);
+}
+pub trait ISurrogateImpl {
+    fn LoadDllServer();
+    fn FreeSurrogate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10578,6 +11087,13 @@ unsafe impl ::windows::core::Interface for ISurrogateService {
     type Vtable = ISurrogateServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x000001d4_0000_0000_c000_000000000046);
 }
+pub trait ISurrogateServiceImpl {
+    fn Init();
+    fn ApplicationLaunch();
+    fn ApplicationFree();
+    fn CatalogRefresh();
+    fn ProcessShutdown();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISurrogateServiceVtbl(
@@ -10648,6 +11164,11 @@ unsafe impl ::windows::core::Interface for ISynchronize {
     type Vtable = ISynchronizeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000030_0000_0000_c000_000000000046);
 }
+pub trait ISynchronizeImpl {
+    fn Wait();
+    fn Signal();
+    fn Reset();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISynchronizeVtbl(
@@ -10711,6 +11232,10 @@ impl ::core::fmt::Debug for ISynchronizeContainer {
 unsafe impl ::windows::core::Interface for ISynchronizeContainer {
     type Vtable = ISynchronizeContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000033_0000_0000_c000_000000000046);
+}
+pub trait ISynchronizeContainerImpl {
+    fn AddSynchronize();
+    fn WaitMultiple();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10797,6 +11322,9 @@ unsafe impl ::windows::core::Interface for ISynchronizeEvent {
     type Vtable = ISynchronizeEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000032_0000_0000_c000_000000000046);
 }
+pub trait ISynchronizeEventImpl: ISynchronizeHandleImpl {
+    fn SetEventHandle();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISynchronizeEventVtbl(
@@ -10858,6 +11386,9 @@ impl ::core::fmt::Debug for ISynchronizeHandle {
 unsafe impl ::windows::core::Interface for ISynchronizeHandle {
     type Vtable = ISynchronizeHandleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000031_0000_0000_c000_000000000046);
+}
+pub trait ISynchronizeHandleImpl {
+    fn GetHandle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10949,6 +11480,9 @@ unsafe impl ::windows::core::Interface for ISynchronizeMutex {
     type Vtable = ISynchronizeMutexVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000025_0000_0000_c000_000000000046);
 }
+pub trait ISynchronizeMutexImpl: ISynchronizeImpl {
+    fn ReleaseMutex();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISynchronizeMutexVtbl(
@@ -11009,6 +11543,9 @@ unsafe impl ::windows::core::Interface for ITimeAndNoticeControl {
     type Vtable = ITimeAndNoticeControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc0bf6ae_8878_11d1_83e9_00c04fc2c6d4);
 }
+pub trait ITimeAndNoticeControlImpl {
+    fn SuppressChanges();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimeAndNoticeControlVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, res1: u32, res2: u32) -> ::windows::core::HRESULT);
@@ -11066,6 +11603,10 @@ impl ::core::fmt::Debug for ITypeComp {
 unsafe impl ::windows::core::Interface for ITypeComp {
     type Vtable = ITypeCompVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020403_0000_0000_c000_000000000046);
+}
+pub trait ITypeCompImpl {
+    fn Bind();
+    fn BindType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11219,6 +11760,27 @@ impl ::core::fmt::Debug for ITypeInfo {
 unsafe impl ::windows::core::Interface for ITypeInfo {
     type Vtable = ITypeInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020401_0000_0000_c000_000000000046);
+}
+pub trait ITypeInfoImpl {
+    fn GetTypeAttr();
+    fn GetTypeComp();
+    fn GetFuncDesc();
+    fn GetVarDesc();
+    fn GetNames();
+    fn GetRefTypeOfImplType();
+    fn GetImplTypeFlags();
+    fn GetIDsOfNames();
+    fn Invoke();
+    fn GetDocumentation();
+    fn GetDllEntry();
+    fn GetRefTypeInfo();
+    fn AddressOfMember();
+    fn CreateInstance();
+    fn GetMops();
+    fn GetContainingTypeLib();
+    fn ReleaseTypeAttr();
+    fn ReleaseFuncDesc();
+    fn ReleaseVarDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11505,6 +12067,23 @@ unsafe impl ::windows::core::Interface for ITypeInfo2 {
     type Vtable = ITypeInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020412_0000_0000_c000_000000000046);
 }
+pub trait ITypeInfo2Impl: ITypeInfoImpl {
+    fn GetTypeKind();
+    fn GetTypeFlags();
+    fn GetFuncIndexOfMemId();
+    fn GetVarIndexOfMemId();
+    fn GetCustData();
+    fn GetFuncCustData();
+    fn GetParamCustData();
+    fn GetVarCustData();
+    fn GetImplTypeCustData();
+    fn GetDocumentation2();
+    fn GetAllCustData();
+    fn GetAllFuncCustData();
+    fn GetAllParamCustData();
+    fn GetAllVarCustData();
+    fn GetAllImplTypeCustData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITypeInfo2Vtbl(
@@ -11662,6 +12241,18 @@ unsafe impl ::windows::core::Interface for ITypeLib {
     type Vtable = ITypeLibVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020402_0000_0000_c000_000000000046);
 }
+pub trait ITypeLibImpl {
+    fn GetTypeInfoCount();
+    fn GetTypeInfo();
+    fn GetTypeInfoType();
+    fn GetTypeInfoOfGuid();
+    fn GetLibAttr();
+    fn GetTypeComp();
+    fn GetDocumentation();
+    fn IsName();
+    fn FindName();
+    fn ReleaseTLibAttr();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITypeLibVtbl(
@@ -11816,6 +12407,12 @@ unsafe impl ::windows::core::Interface for ITypeLib2 {
     type Vtable = ITypeLib2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020411_0000_0000_c000_000000000046);
 }
+pub trait ITypeLib2Impl: ITypeLibImpl {
+    fn GetCustData();
+    fn GetLibStatistics();
+    fn GetDocumentation2();
+    fn GetAllCustData();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITypeLib2Vtbl(
@@ -11933,6 +12530,16 @@ unsafe impl ::windows::core::Interface for ITypeLibRegistration {
     type Vtable = ITypeLibRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76a3e735_02df_4a12_98eb_043ad3600af3);
 }
+pub trait ITypeLibRegistrationImpl {
+    fn GetGuid();
+    fn GetVersion();
+    fn GetLcid();
+    fn GetWin32Path();
+    fn GetWin64Path();
+    fn GetDisplayName();
+    fn GetFlags();
+    fn GetHelpDir();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITypeLibRegistrationVtbl(
@@ -12002,6 +12609,9 @@ impl ::core::fmt::Debug for ITypeLibRegistrationReader {
 unsafe impl ::windows::core::Interface for ITypeLibRegistrationReader {
     type Vtable = ITypeLibRegistrationReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed6a8a2a_b160_4e77_8f73_aa7435cd5c27);
+}
+pub trait ITypeLibRegistrationReaderImpl {
+    fn EnumTypeLibRegistrations();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12190,6 +12800,33 @@ impl ::core::fmt::Debug for IUri {
 unsafe impl ::windows::core::Interface for IUri {
     type Vtable = IUriVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa39ee748_6a27_4817_a6f2_13914bef5890);
+}
+pub trait IUriImpl {
+    fn GetPropertyBSTR();
+    fn GetPropertyLength();
+    fn GetPropertyDWORD();
+    fn HasProperty();
+    fn GetAbsoluteUri();
+    fn GetAuthority();
+    fn GetDisplayUri();
+    fn GetDomain();
+    fn GetExtension();
+    fn GetFragment();
+    fn GetHost();
+    fn GetPassword();
+    fn GetPath();
+    fn GetPathAndQuery();
+    fn GetQuery();
+    fn GetRawUri();
+    fn GetSchemeName();
+    fn GetUserInfo();
+    fn GetUserName();
+    fn GetHostType();
+    fn GetPort();
+    fn GetScheme();
+    fn GetZone();
+    fn GetProperties();
+    fn IsEqual();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12400,6 +13037,31 @@ unsafe impl ::windows::core::Interface for IUriBuilder {
     type Vtable = IUriBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4221b2e1_8955_46c0_bd5b_de9897565de7);
 }
+pub trait IUriBuilderImpl {
+    fn CreateUriSimple();
+    fn CreateUri();
+    fn CreateUriWithFlags();
+    fn GetIUri();
+    fn SetIUri();
+    fn GetFragment();
+    fn GetHost();
+    fn GetPassword();
+    fn GetPath();
+    fn GetPort();
+    fn GetQuery();
+    fn GetSchemeName();
+    fn GetUserName();
+    fn SetFragment();
+    fn SetHost();
+    fn SetPassword();
+    fn SetPath();
+    fn SetPort();
+    fn SetQuery();
+    fn SetSchemeName();
+    fn SetUserName();
+    fn RemoveProperties();
+    fn HasBeenModified();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUriBuilderVtbl(
@@ -12497,6 +13159,9 @@ unsafe impl ::windows::core::Interface for IUrlMon {
     type Vtable = IUrlMonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000026_0000_0000_c000_000000000046);
 }
+pub trait IUrlMonImpl {
+    fn AsyncGetClassBits();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUrlMonVtbl(
@@ -12559,6 +13224,10 @@ impl ::core::fmt::Debug for IWaitMultiple {
 unsafe impl ::windows::core::Interface for IWaitMultiple {
     type Vtable = IWaitMultipleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000002b_0000_0000_c000_000000000046);
+}
+pub trait IWaitMultipleImpl {
+    fn WaitMultiple();
+    fn AddSynchronize();
 }
 #[repr(C)]
 #[doc(hidden)]

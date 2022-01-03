@@ -55,6 +55,12 @@ unsafe impl ::windows::core::Interface for ITwoPanelHingedDevicePosturePreview {
     type Vtable = ITwoPanelHingedDevicePosturePreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72245c31_4b39_42a6_8e73_7235ade16853);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait ITwoPanelHingedDevicePosturePreviewImpl {
+    fn GetCurrentPostureAsync();
+    fn PostureChanged();
+    fn RemovePostureChanged();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -80,6 +86,15 @@ pub struct ITwoPanelHingedDevicePosturePreviewReading(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for ITwoPanelHingedDevicePosturePreviewReading {
     type Vtable = ITwoPanelHingedDevicePosturePreviewReadingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0251452_4ad6_4b38_8426_c59a15493a7d);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait ITwoPanelHingedDevicePosturePreviewReadingImpl {
+    fn Timestamp();
+    fn HingeState();
+    fn Panel1Orientation();
+    fn Panel1Id();
+    fn Panel2Orientation();
+    fn Panel2Id();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -113,6 +128,10 @@ unsafe impl ::windows::core::Interface for ITwoPanelHingedDevicePosturePreviewRe
     type Vtable = ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d2d1bc6_02ce_474a_a556_a75b1cf93a03);
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgsImpl {
+    fn Reading();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -134,6 +153,10 @@ pub struct ITwoPanelHingedDevicePosturePreviewStatics(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for ITwoPanelHingedDevicePosturePreviewStatics {
     type Vtable = ITwoPanelHingedDevicePosturePreviewStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c4733d2_57e0_4180_bd5e_f31a2138423e);
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+pub trait ITwoPanelHingedDevicePosturePreviewStaticsImpl {
+    fn GetDefaultAsync();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]

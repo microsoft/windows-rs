@@ -560,6 +560,15 @@ unsafe impl ::windows::core::Interface for II2cConnectionSettings {
     type Vtable = II2cConnectionSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2db1307_ab6f_4639_a767_54536dc3460f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait II2cConnectionSettingsImpl {
+    fn SlaveAddress();
+    fn SetSlaveAddress();
+    fn BusSpeed();
+    fn SetBusSpeed();
+    fn SharingMode();
+    fn SetSharingMode();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct II2cConnectionSettingsVtbl(
@@ -583,6 +592,10 @@ unsafe impl ::windows::core::Interface for II2cConnectionSettingsFactory {
     type Vtable = II2cConnectionSettingsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81b586b3_9693_41b1_a243_ded4f6e66926);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait II2cConnectionSettingsFactoryImpl {
+    fn Create();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct II2cConnectionSettingsFactoryVtbl(
@@ -601,6 +614,10 @@ unsafe impl ::windows::core::Interface for II2cController {
     type Vtable = II2cControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc48ab1b2_87a0_4166_8e3e_b4b8f97cd729);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait II2cControllerImpl {
+    fn GetDevice();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct II2cControllerVtbl(
@@ -618,6 +635,11 @@ pub struct II2cControllerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for II2cControllerStatics {
     type Vtable = II2cControllerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40fc0365_5f05_4e7e_84bd_100db8e0aec5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait II2cControllerStaticsImpl {
+    fn GetControllersAsync();
+    fn GetDefaultAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -639,6 +661,17 @@ pub struct II2cDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for II2cDevice {
     type Vtable = II2cDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8636c136_b9c5_4f70_9449_cc46dc6f57eb);
+}
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+pub trait II2cDeviceImpl: IClosableImpl {
+    fn DeviceId();
+    fn ConnectionSettings();
+    fn Write();
+    fn WritePartial();
+    fn Read();
+    fn ReadPartial();
+    fn WriteRead();
+    fn WriteReadPartial();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -750,6 +783,11 @@ unsafe impl ::windows::core::RuntimeType for II2cDeviceStatics {
 unsafe impl ::windows::core::Interface for II2cDeviceStatics {
     type Vtable = II2cDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91a33be3_7334_4512_96bc_fbae9459f5f6);
+}
+pub trait II2cDeviceStaticsImpl {
+    fn GetDeviceSelector();
+    fn GetDeviceSelectorFromFriendlyName();
+    fn FromIdAsync();
 }
 #[repr(C)]
 #[doc(hidden)]

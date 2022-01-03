@@ -2942,6 +2942,11 @@ unsafe impl ::windows::core::Interface for IAppActivationResult {
     type Vtable = IAppActivationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b528900_f46e_4eb0_aa6c_38af557cf9ed);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppActivationResultImpl {
+    fn ExtendedError();
+    fn AppResourceGroupInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppActivationResultVtbl(
@@ -2961,6 +2966,10 @@ unsafe impl ::windows::core::Interface for IAppDiagnosticInfo {
     type Vtable = IAppDiagnosticInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe348a69a_8889_4ca3_be07_d5ffff5f0804);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppDiagnosticInfoImpl {
+    fn AppInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppDiagnosticInfoVtbl(
@@ -2979,6 +2988,11 @@ pub struct IAppDiagnosticInfo2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppDiagnosticInfo2 {
     type Vtable = IAppDiagnosticInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf46fbd7_191a_446c_9473_8fbc2374a354);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppDiagnosticInfo2Impl {
+    fn GetResourceGroups();
+    fn CreateResourceGroupWatcher();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3000,6 +3014,10 @@ unsafe impl ::windows::core::Interface for IAppDiagnosticInfo3 {
     type Vtable = IAppDiagnosticInfo3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc895c63d_dd61_4c65_babd_81a10b4f9815);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppDiagnosticInfo3Impl {
+    fn LaunchAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppDiagnosticInfo3Vtbl(
@@ -3019,6 +3037,10 @@ unsafe impl ::windows::core::Interface for IAppDiagnosticInfoStatics {
     type Vtable = IAppDiagnosticInfoStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce6925bf_10ca_40c8_a9ca_c5c96501866e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppDiagnosticInfoStaticsImpl {
+    fn RequestInfoAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppDiagnosticInfoStaticsVtbl(
@@ -3037,6 +3059,14 @@ pub struct IAppDiagnosticInfoStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppDiagnosticInfoStatics2 {
     type Vtable = IAppDiagnosticInfoStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05b24b86_1000_4c90_bb9f_7235071c50fe);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppDiagnosticInfoStatics2Impl {
+    fn CreateWatcher();
+    fn RequestAccessAsync();
+    fn RequestInfoForPackageAsync();
+    fn RequestInfoForAppAsync();
+    fn RequestInfoForAppUserModelId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3063,6 +3093,20 @@ pub struct IAppDiagnosticInfoWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppDiagnosticInfoWatcher {
     type Vtable = IAppDiagnosticInfoWatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75575070_01d3_489a_9325_52f9cc6ede0a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppDiagnosticInfoWatcherImpl {
+    fn Added();
+    fn RemoveAdded();
+    fn Removed();
+    fn RemoveRemoved();
+    fn EnumerationCompleted();
+    fn RemoveEnumerationCompleted();
+    fn Stopped();
+    fn RemoveStopped();
+    fn Status();
+    fn Start();
+    fn Stop();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3100,6 +3144,10 @@ unsafe impl ::windows::core::Interface for IAppDiagnosticInfoWatcherEventArgs {
     type Vtable = IAppDiagnosticInfoWatcherEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7017c716_e1da_4c65_99df_046dff5be71a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppDiagnosticInfoWatcherEventArgsImpl {
+    fn AppDiagnosticInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppDiagnosticInfoWatcherEventArgsVtbl(
@@ -3118,6 +3166,10 @@ unsafe impl ::windows::core::Interface for IAppExecutionStateChangeResult {
     type Vtable = IAppExecutionStateChangeResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f039bf0_f91b_4df8_ae77_3033ccb69114);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppExecutionStateChangeResultImpl {
+    fn ExtendedError();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppExecutionStateChangeResultVtbl(
@@ -3135,6 +3187,13 @@ pub struct IAppMemoryReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppMemoryReport {
     type Vtable = IAppMemoryReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d65339b_4d6f_45bc_9c5e_e49b3ff2758d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppMemoryReportImpl {
+    fn PrivateCommitUsage();
+    fn PeakPrivateCommitUsage();
+    fn TotalCommitUsage();
+    fn TotalCommitLimit();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3157,6 +3216,10 @@ unsafe impl ::windows::core::Interface for IAppMemoryReport2 {
     type Vtable = IAppMemoryReport2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f7f3738_51b7_42dc_b7ed_79ba46d28857);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppMemoryReport2Impl {
+    fn ExpectedTotalCommitLimit();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppMemoryReport2Vtbl(
@@ -3174,6 +3237,11 @@ pub struct IAppMemoryUsageLimitChangingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppMemoryUsageLimitChangingEventArgs {
     type Vtable = IAppMemoryUsageLimitChangingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79f86664_feca_4da5_9e40_2bc63efdc979);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppMemoryUsageLimitChangingEventArgsImpl {
+    fn OldLimit();
+    fn NewLimit();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3193,6 +3261,13 @@ pub struct IAppResourceGroupBackgroundTaskReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppResourceGroupBackgroundTaskReport {
     type Vtable = IAppResourceGroupBackgroundTaskReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2566e74e_b05d_40c2_9dc1_1a4f039ea120);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppResourceGroupBackgroundTaskReportImpl {
+    fn TaskId();
+    fn Name();
+    fn Trigger();
+    fn EntryPoint();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3214,6 +3289,15 @@ pub struct IAppResourceGroupInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppResourceGroupInfo {
     type Vtable = IAppResourceGroupInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb913f77a_e807_49f4_845e_7b8bdcfe8ee7);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppResourceGroupInfoImpl {
+    fn InstanceId();
+    fn IsShared();
+    fn GetBackgroundTaskReports();
+    fn GetMemoryReport();
+    fn GetProcessDiagnosticInfos();
+    fn GetStateReport();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3240,6 +3324,12 @@ unsafe impl ::windows::core::Interface for IAppResourceGroupInfo2 {
     type Vtable = IAppResourceGroupInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee9b236d_d305_4d6b_92f7_6afdad72dedc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppResourceGroupInfo2Impl {
+    fn StartSuspendAsync();
+    fn StartResumeAsync();
+    fn StartTerminateAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppResourceGroupInfo2Vtbl(
@@ -3262,6 +3352,22 @@ pub struct IAppResourceGroupInfoWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppResourceGroupInfoWatcher {
     type Vtable = IAppResourceGroupInfoWatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9b0a0fd_6e5a_4c72_8b17_09fec4a212bd);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppResourceGroupInfoWatcherImpl {
+    fn Added();
+    fn RemoveAdded();
+    fn Removed();
+    fn RemoveRemoved();
+    fn EnumerationCompleted();
+    fn RemoveEnumerationCompleted();
+    fn Stopped();
+    fn RemoveStopped();
+    fn ExecutionStateChanged();
+    fn RemoveExecutionStateChanged();
+    fn Status();
+    fn Start();
+    fn Stop();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3303,6 +3409,11 @@ unsafe impl ::windows::core::Interface for IAppResourceGroupInfoWatcherEventArgs
     type Vtable = IAppResourceGroupInfoWatcherEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a787637_6302_4d2f_bf89_1c12d0b2a6b9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppResourceGroupInfoWatcherEventArgsImpl {
+    fn AppDiagnosticInfos();
+    fn AppResourceGroupInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppResourceGroupInfoWatcherEventArgsVtbl(
@@ -3323,6 +3434,11 @@ unsafe impl ::windows::core::Interface for IAppResourceGroupInfoWatcherExecution
     type Vtable = IAppResourceGroupInfoWatcherExecutionStateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bdbedd7_fee6_4fd4_98dd_e92a2cc299f3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppResourceGroupInfoWatcherExecutionStateChangedEventArgsImpl {
+    fn AppDiagnosticInfos();
+    fn AppResourceGroupInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppResourceGroupInfoWatcherExecutionStateChangedEventArgsVtbl(
@@ -3342,6 +3458,13 @@ pub struct IAppResourceGroupMemoryReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppResourceGroupMemoryReport {
     type Vtable = IAppResourceGroupMemoryReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c8c06b1_7db1_4c51_a225_7fae2d49e431);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppResourceGroupMemoryReportImpl {
+    fn CommitUsageLimit();
+    fn CommitUsageLevel();
+    fn PrivateCommitUsage();
+    fn TotalCommitUsage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3364,6 +3487,11 @@ unsafe impl ::windows::core::Interface for IAppResourceGroupStateReport {
     type Vtable = IAppResourceGroupStateReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52849f18_2f70_4236_ab40_d04db0c7b931);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppResourceGroupStateReportImpl {
+    fn ExecutionState();
+    fn EnergyQuotaState();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppResourceGroupStateReportVtbl(
@@ -3382,6 +3510,11 @@ pub struct IAppUriHandlerHost(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppUriHandlerHost {
     type Vtable = IAppUriHandlerHostVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d50cac5_92d2_5409_b56f_7f73e10ea4c3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppUriHandlerHostImpl {
+    fn Name();
+    fn SetName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3402,6 +3535,11 @@ unsafe impl ::windows::core::Interface for IAppUriHandlerHost2 {
     type Vtable = IAppUriHandlerHost2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a0bee95_29e4_51bf_8095_a3c068e3c72a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppUriHandlerHost2Impl {
+    fn IsEnabled();
+    fn SetIsEnabled();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppUriHandlerHost2Vtbl(
@@ -3421,6 +3559,10 @@ unsafe impl ::windows::core::Interface for IAppUriHandlerHostFactory {
     type Vtable = IAppUriHandlerHostFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x257c3c96_ce04_5f98_96bb_3ebd3e9275bb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppUriHandlerHostFactoryImpl {
+    fn CreateInstance();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppUriHandlerHostFactoryVtbl(
@@ -3438,6 +3580,13 @@ pub struct IAppUriHandlerRegistration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppUriHandlerRegistration {
     type Vtable = IAppUriHandlerRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f73aeb1_4569_5c3f_9ba0_99123eea32c3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppUriHandlerRegistrationImpl {
+    fn Name();
+    fn User();
+    fn GetAppAddedHostsAsync();
+    fn SetAppAddedHostsAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3462,6 +3611,12 @@ unsafe impl ::windows::core::Interface for IAppUriHandlerRegistration2 {
     type Vtable = IAppUriHandlerRegistration2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd54dac97_cb39_5f1f_883e_01853730bd6d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppUriHandlerRegistration2Impl {
+    fn GetAllHosts();
+    fn UpdateHosts();
+    fn PackageFamilyName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppUriHandlerRegistration2Vtbl(
@@ -3484,6 +3639,11 @@ unsafe impl ::windows::core::Interface for IAppUriHandlerRegistrationManager {
     type Vtable = IAppUriHandlerRegistrationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe62c9a52_ac94_5750_ac1b_6cfb6f250263);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppUriHandlerRegistrationManagerImpl {
+    fn User();
+    fn TryGetRegistration();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppUriHandlerRegistrationManagerVtbl(
@@ -3503,6 +3663,10 @@ unsafe impl ::windows::core::Interface for IAppUriHandlerRegistrationManager2 {
     type Vtable = IAppUriHandlerRegistrationManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbddfcaf1_b51a_5e69_aefd_7088d9f2b123);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppUriHandlerRegistrationManager2Impl {
+    fn PackageFamilyName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppUriHandlerRegistrationManager2Vtbl(
@@ -3520,6 +3684,11 @@ pub struct IAppUriHandlerRegistrationManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppUriHandlerRegistrationManagerStatics {
     type Vtable = IAppUriHandlerRegistrationManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5cedd9f_5729_5b76_a1d4_0285f295c124);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppUriHandlerRegistrationManagerStaticsImpl {
+    fn GetDefault();
+    fn GetForUser();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3540,6 +3709,11 @@ unsafe impl ::windows::core::Interface for IAppUriHandlerRegistrationManagerStat
     type Vtable = IAppUriHandlerRegistrationManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14f78379_6890_5080_90a7_98824a7f079e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAppUriHandlerRegistrationManagerStatics2Impl {
+    fn GetForPackage();
+    fn GetForPackageForUser();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppUriHandlerRegistrationManagerStatics2Vtbl(
@@ -3559,6 +3733,10 @@ unsafe impl ::windows::core::Interface for IDateTimeSettingsStatics {
     type Vtable = IDateTimeSettingsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d2150d1_47ee_48ab_a52b_9f1954278d82);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDateTimeSettingsStaticsImpl {
+    fn SetSystemDateTime();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDateTimeSettingsStaticsVtbl(
@@ -3577,6 +3755,16 @@ pub struct IDispatcherQueue(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDispatcherQueue {
     type Vtable = IDispatcherQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x603e88e4_a338_4ffe_a457_a5cfb9ceb899);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDispatcherQueueImpl {
+    fn CreateTimer();
+    fn TryEnqueue();
+    fn TryEnqueueWithPriority();
+    fn ShutdownStarting();
+    fn RemoveShutdownStarting();
+    fn ShutdownCompleted();
+    fn RemoveShutdownCompleted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3606,6 +3794,10 @@ unsafe impl ::windows::core::Interface for IDispatcherQueue2 {
     type Vtable = IDispatcherQueue2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc822c647_30ef_506e_bd1e_a647ae6675ff);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDispatcherQueue2Impl {
+    fn HasThreadAccess();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDispatcherQueue2Vtbl(
@@ -3623,6 +3815,11 @@ pub struct IDispatcherQueueController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDispatcherQueueController {
     type Vtable = IDispatcherQueueControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22f34e66_50db_4e36_a98d_61c01b384d20);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDispatcherQueueControllerImpl {
+    fn DispatcherQueue();
+    fn ShutdownQueueAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3644,6 +3841,10 @@ unsafe impl ::windows::core::Interface for IDispatcherQueueControllerStatics {
     type Vtable = IDispatcherQueueControllerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a6c98e0_5198_49a2_a313_3f70d1f13c27);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDispatcherQueueControllerStaticsImpl {
+    fn CreateOnDedicatedThread();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDispatcherQueueControllerStaticsVtbl(
@@ -3661,6 +3862,10 @@ pub struct IDispatcherQueueShutdownStartingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDispatcherQueueShutdownStartingEventArgs {
     type Vtable = IDispatcherQueueShutdownStartingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4724c4c_ff97_40c0_a226_cc0aaa545e89);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDispatcherQueueShutdownStartingEventArgsImpl {
+    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3681,6 +3886,10 @@ unsafe impl ::windows::core::Interface for IDispatcherQueueStatics {
     type Vtable = IDispatcherQueueStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa96d83d7_9371_4517_9245_d0824ac12c74);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDispatcherQueueStaticsImpl {
+    fn GetForCurrentThread();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDispatcherQueueStaticsVtbl(
@@ -3698,6 +3907,18 @@ pub struct IDispatcherQueueTimer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDispatcherQueueTimer {
     type Vtable = IDispatcherQueueTimerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5feabb1d_a31c_4727_b1ac_37454649d56a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDispatcherQueueTimerImpl {
+    fn Interval();
+    fn SetInterval();
+    fn IsRunning();
+    fn IsRepeating();
+    fn SetIsRepeating();
+    fn Start();
+    fn Stop();
+    fn Tick();
+    fn RemoveTick();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3729,6 +3950,10 @@ unsafe impl ::windows::core::Interface for IFolderLauncherOptions {
     type Vtable = IFolderLauncherOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb91c27d_6b87_432a_bd04_776c6f5fb2ab);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFolderLauncherOptionsImpl {
+    fn ItemsToSelect();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFolderLauncherOptionsVtbl(
@@ -3747,6 +3972,18 @@ pub struct IKnownUserPropertiesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKnownUserPropertiesStatics {
     type Vtable = IKnownUserPropertiesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7755911a_70c5_48e5_b637_5ba3441e4ee4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IKnownUserPropertiesStaticsImpl {
+    fn DisplayName();
+    fn FirstName();
+    fn LastName();
+    fn ProviderName();
+    fn AccountName();
+    fn GuestHost();
+    fn PrincipalName();
+    fn DomainName();
+    fn SessionInitiationProtocolUri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3774,6 +4011,10 @@ unsafe impl ::windows::core::Interface for IKnownUserPropertiesStatics2 {
     type Vtable = IKnownUserPropertiesStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b450782_f620_577e_b1b3_dd56644d79b1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IKnownUserPropertiesStatics2Impl {
+    fn AgeEnforcementRegion();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownUserPropertiesStatics2Vtbl(
@@ -3791,6 +4032,11 @@ pub struct ILaunchUriResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILaunchUriResult {
     type Vtable = ILaunchUriResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec27a8df_f6d5_45ca_913a_70a40c5c8221);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILaunchUriResultImpl {
+    fn Status();
+    fn Result();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3811,6 +4057,22 @@ pub struct ILauncherOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILauncherOptions {
     type Vtable = ILauncherOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbafa21d8_b071_4cd8_853e_341203e557d3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILauncherOptionsImpl {
+    fn TreatAsUntrusted();
+    fn SetTreatAsUntrusted();
+    fn DisplayApplicationPicker();
+    fn SetDisplayApplicationPicker();
+    fn UI();
+    fn PreferredApplicationPackageFamilyName();
+    fn SetPreferredApplicationPackageFamilyName();
+    fn PreferredApplicationDisplayName();
+    fn SetPreferredApplicationDisplayName();
+    fn FallbackUri();
+    fn SetFallbackUri();
+    fn ContentType();
+    fn SetContentType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3844,6 +4106,13 @@ unsafe impl ::windows::core::Interface for ILauncherOptions2 {
     type Vtable = ILauncherOptions2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ba08eb4_6e40_4dce_a1a3_2f53950afb49);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILauncherOptions2Impl {
+    fn TargetApplicationPackageFamilyName();
+    fn SetTargetApplicationPackageFamilyName();
+    fn NeighboringFilesQuery();
+    fn SetNeighboringFilesQuery();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILauncherOptions2Vtbl(
@@ -3867,6 +4136,11 @@ unsafe impl ::windows::core::Interface for ILauncherOptions3 {
     type Vtable = ILauncherOptions3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0770655_4b63_4e3a_9107_4e687841923a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILauncherOptions3Impl {
+    fn IgnoreAppUriHandlers();
+    fn SetIgnoreAppUriHandlers();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILauncherOptions3Vtbl(
@@ -3886,6 +4160,11 @@ unsafe impl ::windows::core::Interface for ILauncherOptions4 {
     type Vtable = ILauncherOptions4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef6fd10e_e6fb_4814_a44e_57e8b9d9a01b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILauncherOptions4Impl {
+    fn LimitPickerToCurrentAppAndAppUriHandlers();
+    fn SetLimitPickerToCurrentAppAndAppUriHandlers();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILauncherOptions4Vtbl(
@@ -3904,6 +4183,13 @@ pub struct ILauncherStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILauncherStatics {
     type Vtable = ILauncherStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x277151c3_9e3e_42f6_91a4_5dfdeb232451);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILauncherStaticsImpl {
+    fn LaunchFileAsync();
+    fn LaunchFileWithOptionsAsync();
+    fn LaunchUriAsync();
+    fn LaunchUriWithOptionsAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3929,6 +4215,19 @@ pub struct ILauncherStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILauncherStatics2 {
     type Vtable = ILauncherStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59ba2fbb_24cb_4c02_a4c4_8294569d54f1);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILauncherStatics2Impl {
+    fn LaunchUriForResultsAsync();
+    fn LaunchUriForResultsWithDataAsync();
+    fn LaunchUriWithDataAsync();
+    fn QueryUriSupportAsync();
+    fn QueryUriSupportWithPackageFamilyNameAsync();
+    fn QueryFileSupportAsync();
+    fn QueryFileSupportWithPackageFamilyNameAsync();
+    fn FindUriSchemeHandlersAsync();
+    fn FindUriSchemeHandlersWithLaunchUriTypeAsync();
+    fn FindFileHandlersAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3967,6 +4266,11 @@ unsafe impl ::windows::core::Interface for ILauncherStatics3 {
     type Vtable = ILauncherStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x234261a8_9db3_4683_aa42_dc6f51d33847);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILauncherStatics3Impl {
+    fn LaunchFolderAsync();
+    fn LaunchFolderWithOptionsAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILauncherStatics3Vtbl(
@@ -3987,6 +4291,17 @@ pub struct ILauncherStatics4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILauncherStatics4 {
     type Vtable = ILauncherStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9ec819f_b5a5_41c6_b3b3_dd1b3178bcf2);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILauncherStatics4Impl {
+    fn QueryAppUriSupportAsync();
+    fn QueryAppUriSupportWithPackageFamilyNameAsync();
+    fn FindAppUriHandlersAsync();
+    fn LaunchUriForUserAsync();
+    fn LaunchUriWithOptionsForUserAsync();
+    fn LaunchUriWithDataForUserAsync();
+    fn LaunchUriForResultsForUserAsync();
+    fn LaunchUriForResultsWithDataForUserAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4021,6 +4336,13 @@ unsafe impl ::windows::core::Interface for ILauncherStatics5 {
     type Vtable = ILauncherStatics5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b24ef84_d895_5fea_9153_1ac49aed9ba9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILauncherStatics5Impl {
+    fn LaunchFolderPathAsync();
+    fn LaunchFolderPathWithOptionsAsync();
+    fn LaunchFolderPathForUserAsync();
+    fn LaunchFolderPathWithOptionsForUserAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILauncherStatics5Vtbl(
@@ -4045,6 +4367,15 @@ pub struct ILauncherUIOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILauncherUIOptions {
     type Vtable = ILauncherUIOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b25da6e_8aa6_41e9_8251_4165f5985f49);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ILauncherUIOptionsImpl {
+    fn InvocationPoint();
+    fn SetInvocationPoint();
+    fn SelectionRect();
+    fn SetSelectionRect();
+    fn PreferredPlacement();
+    fn SetPreferredPlacement();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4151,6 +4482,10 @@ unsafe impl ::windows::core::Interface for ILauncherViewOptions {
     type Vtable = ILauncherViewOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a9b29f1_7ca7_49de_9bd3_3c5b7184f616);
 }
+pub trait ILauncherViewOptionsImpl {
+    fn DesiredRemainingView();
+    fn SetDesiredRemainingView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILauncherViewOptionsVtbl(
@@ -4171,6 +4506,18 @@ pub struct IMemoryManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMemoryManagerStatics {
     type Vtable = IMemoryManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c6c279c_d7ca_4779_9188_4057219ce64c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IMemoryManagerStaticsImpl {
+    fn AppMemoryUsage();
+    fn AppMemoryUsageLimit();
+    fn AppMemoryUsageLevel();
+    fn AppMemoryUsageIncreased();
+    fn RemoveAppMemoryUsageIncreased();
+    fn AppMemoryUsageDecreased();
+    fn RemoveAppMemoryUsageDecreased();
+    fn AppMemoryUsageLimitChanging();
+    fn RemoveAppMemoryUsageLimitChanging();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4204,6 +4551,11 @@ unsafe impl ::windows::core::Interface for IMemoryManagerStatics2 {
     type Vtable = IMemoryManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eee351f_6d62_423f_9479_b01f9c9f7669);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMemoryManagerStatics2Impl {
+    fn GetAppMemoryReport();
+    fn GetProcessMemoryReport();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMemoryManagerStatics2Vtbl(
@@ -4223,6 +4575,10 @@ unsafe impl ::windows::core::Interface for IMemoryManagerStatics3 {
     type Vtable = IMemoryManagerStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x149b59ce_92ad_4e35_89eb_50dfb4c0d91c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMemoryManagerStatics3Impl {
+    fn TrySetAppMemoryUsageLimit();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMemoryManagerStatics3Vtbl(
@@ -4241,6 +4597,10 @@ unsafe impl ::windows::core::Interface for IMemoryManagerStatics4 {
     type Vtable = IMemoryManagerStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5a94828_e84e_4886_8a0d_44b3190e3b72);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IMemoryManagerStatics4Impl {
+    fn ExpectedAppMemoryUsageLimit();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMemoryManagerStatics4Vtbl(
@@ -4258,6 +4618,17 @@ pub struct IProcessLauncherOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProcessLauncherOptions {
     type Vtable = IProcessLauncherOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3080b9cf_f444_4a83_beaf_a549a0f3229c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IProcessLauncherOptionsImpl {
+    fn StandardInput();
+    fn SetStandardInput();
+    fn StandardOutput();
+    fn SetStandardOutput();
+    fn StandardError();
+    fn SetStandardError();
+    fn WorkingDirectory();
+    fn SetWorkingDirectory();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4290,6 +4661,10 @@ unsafe impl ::windows::core::Interface for IProcessLauncherResult {
     type Vtable = IProcessLauncherResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x544c8934_86d8_4991_8e75_ece8a43b6b6d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IProcessLauncherResultImpl {
+    fn ExitCode();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessLauncherResultVtbl(
@@ -4307,6 +4682,11 @@ pub struct IProcessLauncherStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProcessLauncherStatics {
     type Vtable = IProcessLauncherStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33ab66e7_2d0e_448b_a6a0_c13c3836d09c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IProcessLauncherStaticsImpl {
+    fn RunToCompletionAsync();
+    fn RunToCompletionAsyncWithOptions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4329,6 +4709,11 @@ unsafe impl ::windows::core::Interface for IProcessMemoryReport {
     type Vtable = IProcessMemoryReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x087305a8_9b70_4782_8741_3a982b6ce5e4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IProcessMemoryReportImpl {
+    fn PrivateWorkingSetUsage();
+    fn TotalWorkingSetUsage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessMemoryReportVtbl(
@@ -4348,6 +4733,10 @@ unsafe impl ::windows::core::Interface for IProtocolForResultsOperation {
     type Vtable = IProtocolForResultsOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd581293a_6de9_4d28_9378_f86782e182bb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IProtocolForResultsOperationImpl {
+    fn ReportCompleted();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtocolForResultsOperationVtbl(
@@ -4366,6 +4755,12 @@ pub struct IRemoteLauncherOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteLauncherOptions {
     type Vtable = IRemoteLauncherOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e3a2788_2891_4cdf_a2d6_9dff7d02e693);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteLauncherOptionsImpl {
+    fn FallbackUri();
+    fn SetFallbackUri();
+    fn PreferredAppIds();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4390,6 +4785,12 @@ unsafe impl ::windows::core::Interface for IRemoteLauncherStatics {
     type Vtable = IRemoteLauncherStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7db7a93_a30c_48b7_9f21_051026a4e517);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRemoteLauncherStaticsImpl {
+    fn LaunchUriAsync();
+    fn LaunchUriWithOptionsAsync();
+    fn LaunchUriWithDataAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteLauncherStaticsVtbl(
@@ -4413,6 +4814,11 @@ unsafe impl ::windows::core::Interface for IShutdownManagerStatics {
     type Vtable = IShutdownManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72e247ed_dd5b_4d6c_b1d0_c57a7bbb5f94);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IShutdownManagerStaticsImpl {
+    fn BeginShutdown();
+    fn CancelShutdown();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShutdownManagerStaticsVtbl(
@@ -4432,6 +4838,12 @@ pub struct IShutdownManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShutdownManagerStatics2 {
     type Vtable = IShutdownManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f69a02f_9c34_43c7_a8c3_70b30a7f7504);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IShutdownManagerStatics2Impl: IShutdownManagerStaticsImpl {
+    fn IsPowerStateSupported();
+    fn EnterPowerState();
+    fn EnterPowerStateWithTimeSpan();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4453,6 +4865,13 @@ pub struct ITimeZoneSettingsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITimeZoneSettingsStatics {
     type Vtable = ITimeZoneSettingsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b3b2bea_a101_41ae_9fbd_028728bab73d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITimeZoneSettingsStaticsImpl {
+    fn CurrentTimeZoneDisplayName();
+    fn SupportedTimeZoneDisplayNames();
+    fn CanChangeTimeZone();
+    fn ChangeTimeZoneByDisplayName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4476,6 +4895,10 @@ unsafe impl ::windows::core::Interface for ITimeZoneSettingsStatics2 {
     type Vtable = ITimeZoneSettingsStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x555c0db8_39a8_49fa_b4f6_a2c7fc2842ec);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITimeZoneSettingsStatics2Impl {
+    fn AutoUpdateTimeZoneAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimeZoneSettingsStatics2Vtbl(
@@ -4494,6 +4917,15 @@ pub struct IUser(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUser {
     type Vtable = IUserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf9a26c6_e746_4bcd_b5d4_120103c4209b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserImpl {
+    fn NonRoamableId();
+    fn AuthenticationStatus();
+    fn Type();
+    fn GetPropertyAsync();
+    fn GetPropertiesAsync();
+    fn GetPictureAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4521,6 +4953,10 @@ unsafe impl ::windows::core::Interface for IUser2 {
     type Vtable = IUser2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98ba5628_a6e3_518e_89d9_d3b2b1991a10);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUser2Impl {
+    fn CheckUserAgeConsentGroupAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUser2Vtbl(
@@ -4540,6 +4976,10 @@ unsafe impl ::windows::core::Interface for IUserAuthenticationStatusChangeDeferr
     type Vtable = IUserAuthenticationStatusChangeDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88b59568_bb30_42fb_a270_e9902e40efa7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserAuthenticationStatusChangeDeferralImpl {
+    fn Complete();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserAuthenticationStatusChangeDeferralVtbl(
@@ -4557,6 +4997,13 @@ pub struct IUserAuthenticationStatusChangingEventArgs(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IUserAuthenticationStatusChangingEventArgs {
     type Vtable = IUserAuthenticationStatusChangingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c030f28_a711_4c1e_ab48_04179c15938f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserAuthenticationStatusChangingEventArgsImpl {
+    fn GetDeferral();
+    fn User();
+    fn NewStatus();
+    fn CurrentStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4579,6 +5026,10 @@ unsafe impl ::windows::core::Interface for IUserChangedEventArgs {
     type Vtable = IUserChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x086459dc_18c6_48db_bc99_724fb9203ccc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserChangedEventArgsImpl {
+    fn User();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserChangedEventArgsVtbl(
@@ -4596,6 +5047,10 @@ pub struct IUserChangedEventArgs2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserChangedEventArgs2 {
     type Vtable = IUserChangedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b2ccb44_6f01_560c_97ad_fc7f32ec581f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserChangedEventArgs2Impl {
+    fn ChangedPropertyKinds();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4616,6 +5071,12 @@ unsafe impl ::windows::core::Interface for IUserDeviceAssociationChangedEventArg
     type Vtable = IUserDeviceAssociationChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd1f6f6c_bb5d_4d7b_a5f0_c8cd11a38d42);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDeviceAssociationChangedEventArgsImpl {
+    fn DeviceId();
+    fn NewUser();
+    fn OldUser();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDeviceAssociationChangedEventArgsVtbl(
@@ -4635,6 +5096,12 @@ pub struct IUserDeviceAssociationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDeviceAssociationStatics {
     type Vtable = IUserDeviceAssociationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e491e14_f85a_4c07_8da9_7fe3d0542343);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserDeviceAssociationStaticsImpl {
+    fn FindUserFromDeviceId();
+    fn UserDeviceAssociationChanged();
+    fn RemoveUserDeviceAssociationChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4657,6 +5124,14 @@ pub struct IUserPicker(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserPicker {
     type Vtable = IUserPickerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d548008_f1e3_4a6c_8ddc_a9bb0f488aed);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserPickerImpl {
+    fn AllowGuestAccounts();
+    fn SetAllowGuestAccounts();
+    fn SuggestedSelectedUser();
+    fn SetSuggestedSelectedUser();
+    fn PickSingleUserAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4681,6 +5156,10 @@ unsafe impl ::windows::core::Interface for IUserPickerStatics {
     type Vtable = IUserPickerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde3290dc_7e73_4df6_a1ae_4d7eca82b40d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserPickerStaticsImpl {
+    fn IsSupported();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserPickerStaticsVtbl(
@@ -4698,6 +5177,14 @@ pub struct IUserStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserStatics {
     type Vtable = IUserStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x155eb23b_242a_45e0_a2e9_3171fc6a7fdd);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserStaticsImpl {
+    fn CreateWatcher();
+    fn FindAllAsync();
+    fn FindAllAsyncByType();
+    fn FindAllAsyncByTypeAndStatus();
+    fn GetFromId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4724,6 +5211,10 @@ unsafe impl ::windows::core::Interface for IUserStatics2 {
     type Vtable = IUserStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74a37e11_2eb5_4487_b0d5_2c6790e013e9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserStatics2Impl {
+    fn GetDefault();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserStatics2Vtbl(
@@ -4741,6 +5232,26 @@ pub struct IUserWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserWatcher {
     type Vtable = IUserWatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x155eb23b_242a_45e0_a2e9_3171fc6a7fbb);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IUserWatcherImpl {
+    fn Status();
+    fn Start();
+    fn Stop();
+    fn Added();
+    fn RemoveAdded();
+    fn Removed();
+    fn RemoveRemoved();
+    fn Updated();
+    fn RemoveUpdated();
+    fn AuthenticationStatusChanged();
+    fn RemoveAuthenticationStatusChanged();
+    fn AuthenticationStatusChanging();
+    fn RemoveAuthenticationStatusChanging();
+    fn EnumerationCompleted();
+    fn RemoveEnumerationCompleted();
+    fn Stopped();
+    fn RemoveStopped();
 }
 #[repr(C)]
 #[doc(hidden)]

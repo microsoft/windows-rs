@@ -307,6 +307,10 @@ unsafe impl ::windows::core::Interface for IItemRemovedEventArgs {
     type Vtable = IItemRemovedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59677e5c_55be_4c66_ba66_5eaea79d2631);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IItemRemovedEventArgsImpl {
+    fn RemovedEntry();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IItemRemovedEventArgsVtbl(
@@ -324,6 +328,11 @@ pub struct IStorageApplicationPermissionsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageApplicationPermissionsStatics {
     type Vtable = IStorageApplicationPermissionsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4391dfaa_d033_48f9_8060_3ec847d2e3f1);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageApplicationPermissionsStaticsImpl {
+    fn FutureAccessList();
+    fn MostRecentlyUsedList();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -343,6 +352,11 @@ pub struct IStorageApplicationPermissionsStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageApplicationPermissionsStatics2 {
     type Vtable = IStorageApplicationPermissionsStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x072716ec_aa05_4294_9a11_1a3d04519ad0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageApplicationPermissionsStatics2Impl {
+    fn GetFutureAccessListForUser();
+    fn GetMostRecentlyUsedListForUser();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -549,6 +563,24 @@ unsafe impl ::windows::core::Interface for IStorageItemAccessList {
     type Vtable = IStorageItemAccessListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2caff6ad_de90_47f5_b2c3_dd36c9fdd453);
 }
+pub trait IStorageItemAccessListImpl {
+    fn AddOverloadDefaultMetadata();
+    fn Add();
+    fn AddOrReplaceOverloadDefaultMetadata();
+    fn AddOrReplace();
+    fn GetItemAsync();
+    fn GetFileAsync();
+    fn GetFolderAsync();
+    fn GetItemWithOptionsAsync();
+    fn GetFileWithOptionsAsync();
+    fn GetFolderWithOptionsAsync();
+    fn Remove();
+    fn ContainsItem();
+    fn Clear();
+    fn CheckAccess();
+    fn Entries();
+    fn MaximumItemsAllowed();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageItemAccessListVtbl(
@@ -589,6 +621,11 @@ unsafe impl ::windows::core::Interface for IStorageItemMostRecentlyUsedList {
     type Vtable = IStorageItemMostRecentlyUsedListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x016239d5_510d_411e_8cf1_c3d1effa4c33);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageItemMostRecentlyUsedListImpl: IStorageItemAccessListImpl {
+    fn ItemRemoved();
+    fn RemoveItemRemoved();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageItemMostRecentlyUsedListVtbl(
@@ -609,6 +646,11 @@ pub struct IStorageItemMostRecentlyUsedList2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageItemMostRecentlyUsedList2 {
     type Vtable = IStorageItemMostRecentlyUsedList2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda481ea0_ed8d_4731_a1db_e44ee2204093);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStorageItemMostRecentlyUsedList2Impl: IStorageItemAccessListImpl + IStorageItemMostRecentlyUsedListImpl {
+    fn AddWithMetadataAndVisibility();
+    fn AddOrReplaceWithMetadataAndVisibility();
 }
 #[repr(C)]
 #[doc(hidden)]

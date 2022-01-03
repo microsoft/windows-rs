@@ -68,6 +68,9 @@ unsafe impl ::windows::core::Interface for IDDEInitializer {
     type Vtable = IDDEInitializerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30dc931f_33fc_4ffd_a168_942258cf3ca4);
 }
+pub trait IDDEInitializerImpl {
+    fn Initialize();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDDEInitializerVtbl(

@@ -393,6 +393,11 @@ unsafe impl ::windows::core::Interface for ICompressor {
     type Vtable = ICompressorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ac3645a_57ac_4ee1_b702_84d39d5424e0);
 }
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
+pub trait ICompressorImpl: IClosableImpl + IOutputStreamImpl {
+    fn FinishAsync();
+    fn DetachStream();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompressorVtbl(
@@ -413,6 +418,11 @@ pub struct ICompressorFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompressorFactory {
     type Vtable = ICompressorFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f3d96a4_2cfb_442c_a8ba_d7d11b039da0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICompressorFactoryImpl {
+    fn CreateCompressor();
+    fn CreateCompressorEx();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -435,6 +445,10 @@ unsafe impl ::windows::core::Interface for IDecompressor {
     type Vtable = IDecompressorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb883fe46_d68a_4c8b_ada0_4ee813fc5283);
 }
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
+pub trait IDecompressorImpl: IClosableImpl + IInputStreamImpl {
+    fn DetachStream();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDecompressorVtbl(
@@ -453,6 +467,10 @@ pub struct IDecompressorFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDecompressorFactory {
     type Vtable = IDecompressorFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5337e252_1da2_42e1_8834_0379d28d742f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDecompressorFactoryImpl {
+    fn CreateDecompressor();
 }
 #[repr(C)]
 #[doc(hidden)]

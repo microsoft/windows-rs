@@ -84,6 +84,9 @@ unsafe impl ::windows::core::Interface for IUriToStreamResolver {
     type Vtable = IUriToStreamResolverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0aba86a_9aeb_4d3a_9590_003e3ca7e290);
 }
+pub trait IUriToStreamResolverImpl {
+    fn UriToStreamAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUriToStreamResolverVtbl(
@@ -102,6 +105,10 @@ pub struct IWebErrorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebErrorStatics {
     type Vtable = IWebErrorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe616766_bf27_4064_87b7_6563bb11ce2e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWebErrorStaticsImpl {
+    fn GetStatus();
 }
 #[repr(C)]
 #[doc(hidden)]

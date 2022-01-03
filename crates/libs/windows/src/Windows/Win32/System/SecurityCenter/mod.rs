@@ -95,6 +95,10 @@ unsafe impl ::windows::core::Interface for IWSCDefaultProduct {
     type Vtable = IWSCDefaultProductVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0476d69c_f21a_11e5_9ce9_5e5517507c66);
 }
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWSCDefaultProductImpl: IDispatchImpl {
+    fn SetDefaultProduct();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSCDefaultProductVtbl(
@@ -216,6 +220,12 @@ impl ::core::fmt::Debug for IWSCProductList {
 unsafe impl ::windows::core::Interface for IWSCProductList {
     type Vtable = IWSCProductListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x722a338c_6e8e_4e72_ac27_1417fb0c81c2);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWSCProductListImpl: IDispatchImpl {
+    fn Initialize();
+    fn Count();
+    fn Item();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -365,6 +375,16 @@ impl ::core::fmt::Debug for IWscProduct {
 unsafe impl ::windows::core::Interface for IWscProduct {
     type Vtable = IWscProductVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c38232e_3a45_4a27_92b0_1a16a975f669);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWscProductImpl: IDispatchImpl {
+    fn ProductName();
+    fn ProductState();
+    fn SignatureStatus();
+    fn RemediationPath();
+    fn ProductStateTimestamp();
+    fn ProductGuid();
+    fn ProductIsDefault();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -573,6 +593,15 @@ impl ::core::fmt::Debug for IWscProduct2 {
 unsafe impl ::windows::core::Interface for IWscProduct2 {
     type Vtable = IWscProduct2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf896ca54_fe09_4403_86d4_23cb488d81d8);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWscProduct2Impl: IWscProductImpl + IDispatchImpl {
+    fn AntivirusScanSubstatus();
+    fn AntivirusSettingsSubstatus();
+    fn AntivirusProtectionUpdateSubstatus();
+    fn FirewallDomainProfileSubstatus();
+    fn FirewallPrivateProfileSubstatus();
+    fn FirewallPublicProfileSubstatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -812,6 +841,10 @@ impl ::core::fmt::Debug for IWscProduct3 {
 unsafe impl ::windows::core::Interface for IWscProduct3 {
     type Vtable = IWscProduct3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55536524_d1d1_4726_8c7c_04996a1904e7);
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IWscProduct3Impl: IWscProduct2Impl + IWscProductImpl + IDispatchImpl {
+    fn AntivirusDaysUntilExpired();
 }
 #[repr(C)]
 #[doc(hidden)]

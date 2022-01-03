@@ -134,6 +134,18 @@ unsafe impl ::windows::core::Interface for IChannelCredentials {
     type Vtable = IChannelCredentialsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x181b448c_c17c_4b17_ac6d_06699b93198f);
 }
+pub trait IChannelCredentialsImpl: IDispatchImpl {
+    fn SetWindowsCredential();
+    fn SetUserNameCredential();
+    fn SetClientCertificateFromStore();
+    fn SetClientCertificateFromStoreByName();
+    fn SetClientCertificateFromFile();
+    fn SetDefaultServiceCertificateFromStore();
+    fn SetDefaultServiceCertificateFromStoreByName();
+    fn SetDefaultServiceCertificateFromFile();
+    fn SetServiceCertificateAuthentication();
+    fn SetIssuedToken();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChannelCredentialsVtbl(

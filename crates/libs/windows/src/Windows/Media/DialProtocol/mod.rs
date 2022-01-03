@@ -1017,6 +1017,13 @@ unsafe impl ::windows::core::Interface for IDialApp {
     type Vtable = IDialAppVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x555ffbd3_45b7_49f3_bbd7_302db6084646);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDialAppImpl {
+    fn AppName();
+    fn RequestLaunchAsync();
+    fn StopAsync();
+    fn GetAppStateAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialAppVtbl(
@@ -1041,6 +1048,11 @@ unsafe impl ::windows::core::Interface for IDialAppStateDetails {
     type Vtable = IDialAppStateDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddc4a4a1_f5de_400d_bea4_8c8466bb2961);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDialAppStateDetailsImpl {
+    fn State();
+    fn FullXml();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialAppStateDetailsVtbl(
@@ -1059,6 +1071,11 @@ pub struct IDialDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDialDevice {
     type Vtable = IDialDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfff0edaf_759f_41d2_a20a_7f29ce0b3784);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDialDeviceImpl {
+    fn Id();
+    fn GetDialApp();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1079,6 +1096,11 @@ unsafe impl ::windows::core::Interface for IDialDevice2 {
     type Vtable = IDialDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbab7f3d5_5bfb_4eba_8b32_b57c5c5ee5c9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDialDevice2Impl {
+    fn FriendlyName();
+    fn Thumbnail();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialDevice2Vtbl(
@@ -1098,6 +1120,23 @@ pub struct IDialDevicePicker(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDialDevicePicker {
     type Vtable = IDialDevicePickerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba7e520a_ff59_4f4b_bdac_d89f495ad6e1);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDialDevicePickerImpl {
+    fn Filter();
+    fn Appearance();
+    fn DialDeviceSelected();
+    fn RemoveDialDeviceSelected();
+    fn DisconnectButtonClicked();
+    fn RemoveDisconnectButtonClicked();
+    fn DialDevicePickerDismissed();
+    fn RemoveDialDevicePickerDismissed();
+    fn Show();
+    fn ShowWithPlacement();
+    fn PickSingleDialDeviceAsync();
+    fn PickSingleDialDeviceAsyncWithPlacement();
+    fn Hide();
+    fn SetDisplayStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1141,6 +1180,10 @@ unsafe impl ::windows::core::Interface for IDialDevicePickerFilter {
     type Vtable = IDialDevicePickerFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc17c93ba_86c0_485d_b8d6_0f9a8f641590);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDialDevicePickerFilterImpl {
+    fn SupportedAppNames();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialDevicePickerFilterVtbl(
@@ -1160,6 +1203,10 @@ unsafe impl ::windows::core::Interface for IDialDeviceSelectedEventArgs {
     type Vtable = IDialDeviceSelectedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x480b92ad_ac76_47eb_9c06_a19304da0247);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDialDeviceSelectedEventArgsImpl {
+    fn SelectedDialDevice();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialDeviceSelectedEventArgsVtbl(
@@ -1177,6 +1224,12 @@ pub struct IDialDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDialDeviceStatics {
     type Vtable = IDialDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa69cc95_01f8_4758_8461_2bbd1cdc3cf3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDialDeviceStaticsImpl {
+    fn GetDeviceSelector();
+    fn FromIdAsync();
+    fn DeviceInfoSupportsDialAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1200,6 +1253,10 @@ unsafe impl ::windows::core::Interface for IDialDisconnectButtonClickedEventArgs
     type Vtable = IDialDisconnectButtonClickedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52765152_9c81_4e55_adc2_0ebe99cde3b6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDialDisconnectButtonClickedEventArgsImpl {
+    fn Device();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialDisconnectButtonClickedEventArgsVtbl(
@@ -1217,6 +1274,11 @@ pub struct IDialReceiverApp(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDialReceiverApp {
     type Vtable = IDialReceiverAppVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd3e7c57_5045_470e_b304_4dd9b13e7d11);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDialReceiverAppImpl {
+    fn GetAdditionalDataAsync();
+    fn SetAdditionalDataAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1239,6 +1301,10 @@ unsafe impl ::windows::core::Interface for IDialReceiverApp2 {
     type Vtable = IDialReceiverApp2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x530c5805_9130_42ac_a504_1977dcb2ea8a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDialReceiverApp2Impl {
+    fn GetUniqueDeviceNameAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialReceiverApp2Vtbl(
@@ -1257,6 +1323,10 @@ pub struct IDialReceiverAppStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDialReceiverAppStatics {
     type Vtable = IDialReceiverAppStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53183a3c_4c36_4d02_b28a_f2a9da38ec52);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDialReceiverAppStaticsImpl {
+    fn Current();
 }
 #[repr(C)]
 #[doc(hidden)]

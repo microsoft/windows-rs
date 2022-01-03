@@ -287,6 +287,9 @@ unsafe impl ::windows::core::Interface for IDxcAssembler {
     type Vtable = IDxcAssemblerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x091f7a26_1c1f_4948_904b_e6e3a8a771d5);
 }
+pub trait IDxcAssemblerImpl {
+    fn AssembleToContainer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDxcAssemblerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshader: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -342,6 +345,10 @@ impl ::core::fmt::Debug for IDxcBlob {
 unsafe impl ::windows::core::Interface for IDxcBlob {
     type Vtable = IDxcBlobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
+}
+pub trait IDxcBlobImpl {
+    fn GetBufferPointer();
+    fn GetBufferSize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -423,6 +430,9 @@ impl ::core::fmt::Debug for IDxcBlobEncoding {
 unsafe impl ::windows::core::Interface for IDxcBlobEncoding {
     type Vtable = IDxcBlobEncodingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7241d424_2646_4191_97c0_98e96e42fc68);
+}
+pub trait IDxcBlobEncodingImpl: IDxcBlobImpl {
+    fn GetEncoding();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -541,6 +551,10 @@ impl ::core::fmt::Debug for IDxcBlobUtf16 {
 unsafe impl ::windows::core::Interface for IDxcBlobUtf16 {
     type Vtable = IDxcBlobUtf16Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3f84eab_0faa_497e_a39c_ee6ed60b2d84);
+}
+pub trait IDxcBlobUtf16Impl: IDxcBlobEncodingImpl + IDxcBlobImpl {
+    fn GetStringPointer();
+    fn GetStringLength();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -663,6 +677,10 @@ unsafe impl ::windows::core::Interface for IDxcBlobUtf8 {
     type Vtable = IDxcBlobUtf8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3da636c9_ba71_4024_a301_30cbf125305b);
 }
+pub trait IDxcBlobUtf8Impl: IDxcBlobEncodingImpl + IDxcBlobImpl {
+    fn GetStringPointer();
+    fn GetStringLength();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDxcBlobUtf8Vtbl(
@@ -738,6 +756,11 @@ impl ::core::fmt::Debug for IDxcCompiler {
 unsafe impl ::windows::core::Interface for IDxcCompiler {
     type Vtable = IDxcCompilerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c210bf3_011f_4422_8d70_6f9acb8db617);
+}
+pub trait IDxcCompilerImpl {
+    fn Compile();
+    fn Preprocess();
+    fn Disassemble();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -852,6 +875,9 @@ unsafe impl ::windows::core::Interface for IDxcCompiler2 {
     type Vtable = IDxcCompiler2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa005a9d9_b8bb_4594_b5c9_0e633bec4d37);
 }
+pub trait IDxcCompiler2Impl: IDxcCompilerImpl {
+    fn CompileWithDebug();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDxcCompiler2Vtbl(
@@ -919,6 +945,10 @@ impl ::core::fmt::Debug for IDxcCompiler3 {
 unsafe impl ::windows::core::Interface for IDxcCompiler3 {
     type Vtable = IDxcCompiler3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x228b4687_5a6a_4730_900c_9702b2203f54);
+}
+pub trait IDxcCompiler3Impl {
+    fn Compile();
+    fn Disassemble();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -999,6 +1029,13 @@ unsafe impl ::windows::core::Interface for IDxcCompilerArgs {
     type Vtable = IDxcCompilerArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73effe2a_70dc_45f8_9690_eff64c02429d);
 }
+pub trait IDxcCompilerArgsImpl {
+    fn GetArguments();
+    fn GetCount();
+    fn AddArguments();
+    fn AddArgumentsUTF8();
+    fn AddDefines();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDxcCompilerArgsVtbl(
@@ -1076,6 +1113,12 @@ impl ::core::fmt::Debug for IDxcContainerBuilder {
 unsafe impl ::windows::core::Interface for IDxcContainerBuilder {
     type Vtable = IDxcContainerBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x334b1f50_2292_4b35_99a1_25588d8c17fe);
+}
+pub trait IDxcContainerBuilderImpl {
+    fn Load();
+    fn AddPart();
+    fn RemovePart();
+    fn SerializeContainer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1161,6 +1204,14 @@ unsafe impl ::windows::core::Interface for IDxcContainerReflection {
     type Vtable = IDxcContainerReflectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2c21b26_8350_4bdc_976a_331ce6f4c54c);
 }
+pub trait IDxcContainerReflectionImpl {
+    fn Load();
+    fn GetPartCount();
+    fn GetPartKind();
+    fn GetPartContent();
+    fn FindFirstPartKind();
+    fn GetPartReflection();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDxcContainerReflectionVtbl(
@@ -1227,6 +1278,10 @@ unsafe impl ::windows::core::Interface for IDxcExtraOutputs {
     type Vtable = IDxcExtraOutputsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x319b37a2_a5c2_494a_a5de_4801b2faf989);
 }
+pub trait IDxcExtraOutputsImpl {
+    fn GetOutputCount();
+    fn GetOutput();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDxcExtraOutputsVtbl(
@@ -1286,6 +1341,9 @@ impl ::core::fmt::Debug for IDxcIncludeHandler {
 unsafe impl ::windows::core::Interface for IDxcIncludeHandler {
     type Vtable = IDxcIncludeHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f61fc7d_950d_467f_b3e3_3c02fb49187c);
+}
+pub trait IDxcIncludeHandlerImpl {
+    fn LoadSource();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1394,6 +1452,18 @@ unsafe impl ::windows::core::Interface for IDxcLibrary {
     type Vtable = IDxcLibraryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5204dc7_d18c_4c3c_bdfb_851673980fe7);
 }
+pub trait IDxcLibraryImpl {
+    fn SetMalloc();
+    fn CreateBlobFromBlob();
+    fn CreateBlobFromFile();
+    fn CreateBlobWithEncodingFromPinned();
+    fn CreateBlobWithEncodingOnHeapCopy();
+    fn CreateBlobWithEncodingOnMalloc();
+    fn CreateIncludeHandler();
+    fn CreateStreamFromBlobReadOnly();
+    fn GetBlobAsUtf8();
+    fn GetBlobAsUtf16();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDxcLibraryVtbl(
@@ -1471,6 +1541,10 @@ unsafe impl ::windows::core::Interface for IDxcLinker {
     type Vtable = IDxcLinkerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1b5be2a_62dd_4327_a1c2_42ac1e1e78e6);
 }
+pub trait IDxcLinkerImpl {
+    fn RegisterLibrary();
+    fn Link();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDxcLinkerVtbl(
@@ -1542,6 +1616,11 @@ unsafe impl ::windows::core::Interface for IDxcOperationResult {
     type Vtable = IDxcOperationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcedb484a_d4e9_445a_b991_ca21ca157dc2);
 }
+pub trait IDxcOperationResultImpl {
+    fn GetStatus();
+    fn GetResult();
+    fn GetErrorBuffer();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDxcOperationResultVtbl(
@@ -1611,6 +1690,11 @@ impl ::core::fmt::Debug for IDxcOptimizer {
 unsafe impl ::windows::core::Interface for IDxcOptimizer {
     type Vtable = IDxcOptimizerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25740e2e_9cba_401b_9119_4fb42f39f270);
+}
+pub trait IDxcOptimizerImpl {
+    fn GetAvailablePassCount();
+    fn GetAvailablePass();
+    fn RunOptimizer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1696,6 +1780,13 @@ impl ::core::fmt::Debug for IDxcOptimizerPass {
 unsafe impl ::windows::core::Interface for IDxcOptimizerPass {
     type Vtable = IDxcOptimizerPassVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae2cd79f_cc22_453f_9b6b_b124e7a5204c);
+}
+pub trait IDxcOptimizerPassImpl {
+    fn GetOptionName();
+    fn GetDescription();
+    fn GetOptionArgCount();
+    fn GetOptionArgName();
+    fn GetOptionArgDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1884,6 +1975,32 @@ unsafe impl ::windows::core::Interface for IDxcPdbUtils {
     type Vtable = IDxcPdbUtilsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6c9647e_9d6a_4c3b_b94c_524b5a6c343d);
 }
+pub trait IDxcPdbUtilsImpl {
+    fn Load();
+    fn GetSourceCount();
+    fn GetSource();
+    fn GetSourceName();
+    fn GetFlagCount();
+    fn GetFlag();
+    fn GetArgCount();
+    fn GetArg();
+    fn GetArgPairCount();
+    fn GetArgPair();
+    fn GetDefineCount();
+    fn GetDefine();
+    fn GetTargetProfile();
+    fn GetEntryPoint();
+    fn GetMainFileName();
+    fn GetHash();
+    fn GetName();
+    fn IsFullPDB();
+    fn GetFullPDB();
+    fn GetVersionInfo();
+    fn SetCompiler();
+    fn CompileForFullPDB();
+    fn OverrideArgs();
+    fn OverrideRootSignature();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDxcPdbUtilsVtbl(
@@ -2028,6 +2145,13 @@ unsafe impl ::windows::core::Interface for IDxcResult {
     type Vtable = IDxcResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58346cda_dde7_4497_9461_6f87af5e0659);
 }
+pub trait IDxcResultImpl: IDxcOperationResultImpl {
+    fn HasOutput();
+    fn GetOutput();
+    fn GetNumOutputs();
+    fn GetOutputByIndex();
+    fn PrimaryOutput();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDxcResultVtbl(
@@ -2155,6 +2279,21 @@ unsafe impl ::windows::core::Interface for IDxcUtils {
     type Vtable = IDxcUtilsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4605c4cb_2019_492a_ada4_65f20bb7d67f);
 }
+pub trait IDxcUtilsImpl {
+    fn CreateBlobFromBlob();
+    fn CreateBlobFromPinned();
+    fn MoveToBlob();
+    fn CreateBlob();
+    fn LoadFile();
+    fn CreateReadOnlyStreamFromBlob();
+    fn CreateDefaultIncludeHandler();
+    fn GetBlobAsUtf8();
+    fn GetBlobAsUtf16();
+    fn GetDxilContainerPart();
+    fn CreateReflection();
+    fn BuildArguments();
+    fn GetPDBContents();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDxcUtilsVtbl(
@@ -2228,6 +2367,9 @@ impl ::core::fmt::Debug for IDxcValidator {
 unsafe impl ::windows::core::Interface for IDxcValidator {
     type Vtable = IDxcValidatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6e82bd2_1fd7_4826_9811_2857e797f49a);
+}
+pub trait IDxcValidatorImpl {
+    fn Validate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2307,6 +2449,9 @@ unsafe impl ::windows::core::Interface for IDxcValidator2 {
     type Vtable = IDxcValidator2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x458e1fd1_b1b2_4750_a6e1_9c10f03bed92);
 }
+pub trait IDxcValidator2Impl: IDxcValidatorImpl {
+    fn ValidateWithDebug();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDxcValidator2Vtbl(
@@ -2369,6 +2514,10 @@ impl ::core::fmt::Debug for IDxcVersionInfo {
 unsafe impl ::windows::core::Interface for IDxcVersionInfo {
     type Vtable = IDxcVersionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb04f5b50_2059_4f12_a8ff_a1e0cde1cc7e);
+}
+pub trait IDxcVersionInfoImpl {
+    fn GetVersion();
+    fn GetFlags();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2457,6 +2606,9 @@ unsafe impl ::windows::core::Interface for IDxcVersionInfo2 {
     type Vtable = IDxcVersionInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6904c4_42f0_4b62_9c46_983af7da7c83);
 }
+pub trait IDxcVersionInfo2Impl: IDxcVersionInfoImpl {
+    fn GetCommitInfo();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDxcVersionInfo2Vtbl(
@@ -2516,6 +2668,9 @@ impl ::core::fmt::Debug for IDxcVersionInfo3 {
 unsafe impl ::windows::core::Interface for IDxcVersionInfo3 {
     type Vtable = IDxcVersionInfo3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e13e843_9d25_473c_9ad2_03b2d0b44b1e);
+}
+pub trait IDxcVersionInfo3Impl {
+    fn GetCustomVersionString();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -6858,6 +6858,8 @@ unsafe impl ::windows::core::Interface for IAddDeleteThemeTransition {
     type Vtable = IAddDeleteThemeTransitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadec852e_4424_4dab_99c1_3a04e36a3c48);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IAddDeleteThemeTransitionImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAddDeleteThemeTransitionVtbl(
@@ -6874,6 +6876,11 @@ pub struct IBackEase(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackEase {
     type Vtable = IBackEaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe47796e7_f805_4a8f_81c9_38e6472caa94);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBackEaseImpl {
+    fn Amplitude();
+    fn SetAmplitude();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6894,6 +6901,10 @@ unsafe impl ::windows::core::Interface for IBackEaseStatics {
     type Vtable = IBackEaseStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c70a2ff_a0a0_4786_926c_22321f8f25b7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBackEaseStaticsImpl {
+    fn AmplitudeProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackEaseStaticsVtbl(
@@ -6912,6 +6923,8 @@ unsafe impl ::windows::core::Interface for IBasicConnectedAnimationConfiguration
     type Vtable = IBasicConnectedAnimationConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe675f9b5_a4d6_5353_83e6_c89e7cf8d456);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBasicConnectedAnimationConfigurationImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBasicConnectedAnimationConfigurationVtbl(
@@ -6928,6 +6941,10 @@ pub struct IBasicConnectedAnimationConfigurationFactory(::windows::core::IUnknow
 unsafe impl ::windows::core::Interface for IBasicConnectedAnimationConfigurationFactory {
     type Vtable = IBasicConnectedAnimationConfigurationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95e6844a_4377_503c_bee2_11dfcd5570e6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBasicConnectedAnimationConfigurationFactoryImpl {
+    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6946,6 +6963,11 @@ pub struct IBeginStoryboard(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBeginStoryboard {
     type Vtable = IBeginStoryboardVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64189fcd_49ec_4e52_a6f6_55324c921053);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBeginStoryboardImpl {
+    fn Storyboard();
+    fn SetStoryboard();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6966,6 +6988,10 @@ unsafe impl ::windows::core::Interface for IBeginStoryboardStatics {
     type Vtable = IBeginStoryboardStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12cff18c_aa91_4c4a_b82f_df34fc57f94b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBeginStoryboardStaticsImpl {
+    fn StoryboardProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBeginStoryboardStaticsVtbl(
@@ -6983,6 +7009,13 @@ pub struct IBounceEase(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBounceEase {
     type Vtable = IBounceEaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bf1464e_fc71_47ed_85a1_3ba9577718b4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBounceEaseImpl {
+    fn Bounces();
+    fn SetBounces();
+    fn Bounciness();
+    fn SetBounciness();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7005,6 +7038,11 @@ unsafe impl ::windows::core::Interface for IBounceEaseStatics {
     type Vtable = IBounceEaseStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0701da2_4f73_41c9_b2cb_2ea3105107ff);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBounceEaseStaticsImpl {
+    fn BouncesProperty();
+    fn BouncinessProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBounceEaseStaticsVtbl(
@@ -7024,6 +7062,8 @@ unsafe impl ::windows::core::Interface for ICircleEase {
     type Vtable = ICircleEaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53a3bdb2_9177_4e6e_a043_5082d889ab1f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICircleEaseImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICircleEaseVtbl(
@@ -7040,6 +7080,19 @@ pub struct IColorAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorAnimation {
     type Vtable = IColorAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8ae8a15_0f63_4694_9467_bdafac1253ea);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IColorAnimationImpl {
+    fn From();
+    fn SetFrom();
+    fn To();
+    fn SetTo();
+    fn By();
+    fn SetBy();
+    fn EasingFunction();
+    fn SetEasingFunction();
+    fn EnableDependentAnimation();
+    fn SetEnableDependentAnimation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7074,6 +7127,14 @@ unsafe impl ::windows::core::Interface for IColorAnimationStatics {
     type Vtable = IColorAnimationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55eaf6e2_87e3_4f48_958f_855b2f9ea9ec);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IColorAnimationStaticsImpl {
+    fn FromProperty();
+    fn ToProperty();
+    fn ByProperty();
+    fn EasingFunctionProperty();
+    fn EnableDependentAnimationProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorAnimationStaticsVtbl(
@@ -7096,6 +7157,12 @@ unsafe impl ::windows::core::Interface for IColorAnimationUsingKeyFrames {
     type Vtable = IColorAnimationUsingKeyFramesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5c82640_13c3_42aa_9ae2_7e6b51c92f95);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IColorAnimationUsingKeyFramesImpl {
+    fn KeyFrames();
+    fn EnableDependentAnimation();
+    fn SetEnableDependentAnimation();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorAnimationUsingKeyFramesVtbl(
@@ -7117,6 +7184,10 @@ unsafe impl ::windows::core::Interface for IColorAnimationUsingKeyFramesStatics 
     type Vtable = IColorAnimationUsingKeyFramesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4723cdc_96e9_48f9_8d92_9b648b2f1cc6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IColorAnimationUsingKeyFramesStaticsImpl {
+    fn EnableDependentAnimationProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorAnimationUsingKeyFramesStaticsVtbl(
@@ -7134,6 +7205,13 @@ pub struct IColorKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorKeyFrame {
     type Vtable = IColorKeyFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb51d82d9_0910_4589_a284_b0c9205858e9);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IColorKeyFrameImpl {
+    fn Value();
+    fn SetValue();
+    fn KeyTime();
+    fn SetKeyTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7158,6 +7236,10 @@ unsafe impl ::windows::core::Interface for IColorKeyFrameFactory {
     type Vtable = IColorKeyFrameFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x769bd88a_9cfb_4a7d_96c4_a1e7de6fdb4b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IColorKeyFrameFactoryImpl {
+    fn CreateInstance();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorKeyFrameFactoryVtbl(
@@ -7175,6 +7257,11 @@ pub struct IColorKeyFrameStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorKeyFrameStatics {
     type Vtable = IColorKeyFrameStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc043ae99_210c_430f_9da5_df1082692055);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IColorKeyFrameStaticsImpl {
+    fn ValueProperty();
+    fn KeyTimeProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7195,6 +7282,11 @@ unsafe impl ::windows::core::Interface for ICommonNavigationTransitionInfo {
     type Vtable = ICommonNavigationTransitionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50345692_a555_4624_a361_0a91c1706473);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICommonNavigationTransitionInfoImpl {
+    fn IsStaggeringEnabled();
+    fn SetIsStaggeringEnabled();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommonNavigationTransitionInfoVtbl(
@@ -7213,6 +7305,13 @@ pub struct ICommonNavigationTransitionInfoStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICommonNavigationTransitionInfoStatics {
     type Vtable = ICommonNavigationTransitionInfoStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e3efe33_50be_4443_883c_e5627201c2e5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICommonNavigationTransitionInfoStaticsImpl {
+    fn IsStaggeringEnabledProperty();
+    fn IsStaggerElementProperty();
+    fn GetIsStaggerElement();
+    fn SetIsStaggerElement();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7234,6 +7333,13 @@ pub struct IConnectedAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConnectedAnimation {
     type Vtable = IConnectedAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3518628c_f387_4c25_ac98_44e86c3cadf0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IConnectedAnimationImpl {
+    fn Completed();
+    fn RemoveCompleted();
+    fn TryStart();
+    fn Cancel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7258,6 +7364,13 @@ unsafe impl ::windows::core::Interface for IConnectedAnimation2 {
     type Vtable = IConnectedAnimation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d2f8e5c_584b_4ddd_b668_973891431459);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IConnectedAnimation2Impl {
+    fn IsScaleAnimationEnabled();
+    fn SetIsScaleAnimationEnabled();
+    fn TryStartWithCoordinatedElements();
+    fn SetAnimationComponent();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectedAnimation2Vtbl(
@@ -7281,6 +7394,11 @@ unsafe impl ::windows::core::Interface for IConnectedAnimation3 {
     type Vtable = IConnectedAnimation3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e3040c6_0430_59c0_a80c_cceed2e778dd);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IConnectedAnimation3Impl {
+    fn Configuration();
+    fn SetConfiguration();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectedAnimation3Vtbl(
@@ -7300,6 +7418,8 @@ unsafe impl ::windows::core::Interface for IConnectedAnimationConfiguration {
     type Vtable = IConnectedAnimationConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00218aae_cd8c_5651_92a0_c1db95c03998);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IConnectedAnimationConfigurationImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectedAnimationConfigurationVtbl(
@@ -7317,6 +7437,8 @@ unsafe impl ::windows::core::Interface for IConnectedAnimationConfigurationFacto
     type Vtable = IConnectedAnimationConfigurationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30f9b84b_dd7e_593e_bf75_e959dc0ec52a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IConnectedAnimationConfigurationFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectedAnimationConfigurationFactoryVtbl(
@@ -7333,6 +7455,15 @@ pub struct IConnectedAnimationService(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConnectedAnimationService {
     type Vtable = IConnectedAnimationServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c6875c9_19bb_4d47_b9aa_66c802dcb9ff);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IConnectedAnimationServiceImpl {
+    fn DefaultDuration();
+    fn SetDefaultDuration();
+    fn DefaultEasingFunction();
+    fn SetDefaultEasingFunction();
+    fn PrepareToAnimate();
+    fn GetAnimation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7361,6 +7492,10 @@ unsafe impl ::windows::core::Interface for IConnectedAnimationServiceStatics {
     type Vtable = IConnectedAnimationServiceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7078ea5_d688_40e8_8f90_96a6279273d2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IConnectedAnimationServiceStaticsImpl {
+    fn GetForCurrentView();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectedAnimationServiceStaticsVtbl(
@@ -7378,6 +7513,13 @@ pub struct IContentThemeTransition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContentThemeTransition {
     type Vtable = IContentThemeTransitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf66fc5c3_5915_437d_8e3b_adf8e7f0ab57);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IContentThemeTransitionImpl {
+    fn HorizontalOffset();
+    fn SetHorizontalOffset();
+    fn VerticalOffset();
+    fn SetVerticalOffset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7400,6 +7542,11 @@ unsafe impl ::windows::core::Interface for IContentThemeTransitionStatics {
     type Vtable = IContentThemeTransitionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e8ee385_9a42_4459_afa9_337dc41e1587);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IContentThemeTransitionStaticsImpl {
+    fn HorizontalOffsetProperty();
+    fn VerticalOffsetProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentThemeTransitionStaticsVtbl(
@@ -7419,6 +7566,11 @@ unsafe impl ::windows::core::Interface for IContinuumNavigationTransitionInfo {
     type Vtable = IContinuumNavigationTransitionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4be1dbad_8ba6_4004_8438_8a9017978543);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IContinuumNavigationTransitionInfoImpl {
+    fn ExitElement();
+    fn SetExitElement();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContinuumNavigationTransitionInfoVtbl(
@@ -7437,6 +7589,19 @@ pub struct IContinuumNavigationTransitionInfoStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContinuumNavigationTransitionInfoStatics {
     type Vtable = IContinuumNavigationTransitionInfoStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e25dd53_b18f_4bf1_b3bc_92f516f29903);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IContinuumNavigationTransitionInfoStaticsImpl {
+    fn ExitElementProperty();
+    fn IsEntranceElementProperty();
+    fn GetIsEntranceElement();
+    fn SetIsEntranceElement();
+    fn IsExitElementProperty();
+    fn GetIsExitElement();
+    fn SetIsExitElement();
+    fn ExitElementContainerProperty();
+    fn GetExitElementContainer();
+    fn SetExitElementContainer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7467,6 +7632,8 @@ unsafe impl ::windows::core::Interface for ICubicEase {
     type Vtable = ICubicEaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b94fc76_dad7_4354_b1a2_7969fbf6a70d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICubicEaseImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICubicEaseVtbl(
@@ -7484,6 +7651,8 @@ unsafe impl ::windows::core::Interface for IDirectConnectedAnimationConfiguratio
     type Vtable = IDirectConnectedAnimationConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee5d736f_5738_5d86_b770_151948cf365e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDirectConnectedAnimationConfigurationImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectConnectedAnimationConfigurationVtbl(
@@ -7500,6 +7669,10 @@ pub struct IDirectConnectedAnimationConfigurationFactory(::windows::core::IUnkno
 unsafe impl ::windows::core::Interface for IDirectConnectedAnimationConfigurationFactory {
     type Vtable = IDirectConnectedAnimationConfigurationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x059263e9_d2b3_5a77_9cf4_e26d8b542608);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDirectConnectedAnimationConfigurationFactoryImpl {
+    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7519,6 +7692,8 @@ unsafe impl ::windows::core::Interface for IDiscreteColorKeyFrame {
     type Vtable = IDiscreteColorKeyFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x230c08f4_e062_4cb1_8e2a_14093d73ed8c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDiscreteColorKeyFrameImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscreteColorKeyFrameVtbl(
@@ -7536,6 +7711,8 @@ unsafe impl ::windows::core::Interface for IDiscreteDoubleKeyFrame {
     type Vtable = IDiscreteDoubleKeyFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5f51f3a_ad11_49ce_8e1c_08fdf1447446);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDiscreteDoubleKeyFrameImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscreteDoubleKeyFrameVtbl(
@@ -7553,6 +7730,8 @@ unsafe impl ::windows::core::Interface for IDiscreteObjectKeyFrame {
     type Vtable = IDiscreteObjectKeyFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7dcde89_f12d_4a9c_8199_e7a9ece3a473);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDiscreteObjectKeyFrameImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscreteObjectKeyFrameVtbl(
@@ -7570,6 +7749,8 @@ unsafe impl ::windows::core::Interface for IDiscretePointKeyFrame {
     type Vtable = IDiscretePointKeyFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0a9070d_4c42_4a90_983a_75f5a83a2fbe);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDiscretePointKeyFrameImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscretePointKeyFrameVtbl(
@@ -7586,6 +7767,19 @@ pub struct IDoubleAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDoubleAnimation {
     type Vtable = IDoubleAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e9f3d59_0f07_4bc9_977d_03763ff8154f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDoubleAnimationImpl {
+    fn From();
+    fn SetFrom();
+    fn To();
+    fn SetTo();
+    fn By();
+    fn SetBy();
+    fn EasingFunction();
+    fn SetEasingFunction();
+    fn EnableDependentAnimation();
+    fn SetEnableDependentAnimation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7620,6 +7814,14 @@ unsafe impl ::windows::core::Interface for IDoubleAnimationStatics {
     type Vtable = IDoubleAnimationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe27a935d_f111_43b7_b824_832b58d7786b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDoubleAnimationStaticsImpl {
+    fn FromProperty();
+    fn ToProperty();
+    fn ByProperty();
+    fn EasingFunctionProperty();
+    fn EnableDependentAnimationProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDoubleAnimationStaticsVtbl(
@@ -7642,6 +7844,12 @@ unsafe impl ::windows::core::Interface for IDoubleAnimationUsingKeyFrames {
     type Vtable = IDoubleAnimationUsingKeyFramesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fee628f_bfee_4f75_83c2_a93b39488473);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDoubleAnimationUsingKeyFramesImpl {
+    fn KeyFrames();
+    fn EnableDependentAnimation();
+    fn SetEnableDependentAnimation();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDoubleAnimationUsingKeyFramesVtbl(
@@ -7663,6 +7871,10 @@ unsafe impl ::windows::core::Interface for IDoubleAnimationUsingKeyFramesStatics
     type Vtable = IDoubleAnimationUsingKeyFramesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x109bf2f6_c60f_49aa_abf6_f696d492116b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDoubleAnimationUsingKeyFramesStaticsImpl {
+    fn EnableDependentAnimationProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDoubleAnimationUsingKeyFramesStaticsVtbl(
@@ -7680,6 +7892,13 @@ pub struct IDoubleKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDoubleKeyFrame {
     type Vtable = IDoubleKeyFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x674456fd_e81e_4f4e_b4ad_0acfed9ecd68);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDoubleKeyFrameImpl {
+    fn Value();
+    fn SetValue();
+    fn KeyTime();
+    fn SetKeyTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7704,6 +7923,10 @@ unsafe impl ::windows::core::Interface for IDoubleKeyFrameFactory {
     type Vtable = IDoubleKeyFrameFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac97dec3_7538_40b9_b152_696f7fbf4722);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDoubleKeyFrameFactoryImpl {
+    fn CreateInstance();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDoubleKeyFrameFactoryVtbl(
@@ -7721,6 +7944,11 @@ pub struct IDoubleKeyFrameStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDoubleKeyFrameStatics {
     type Vtable = IDoubleKeyFrameStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x324641b0_7d37_427a_adeb_43f38bb61a4d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDoubleKeyFrameStaticsImpl {
+    fn ValueProperty();
+    fn KeyTimeProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7741,6 +7969,11 @@ unsafe impl ::windows::core::Interface for IDragItemThemeAnimation {
     type Vtable = IDragItemThemeAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c7d5db5_7ed6_4949_b4e6_a78c9f4f978d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDragItemThemeAnimationImpl {
+    fn TargetName();
+    fn SetTargetName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragItemThemeAnimationVtbl(
@@ -7760,6 +7993,10 @@ unsafe impl ::windows::core::Interface for IDragItemThemeAnimationStatics {
     type Vtable = IDragItemThemeAnimationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6218b9f5_013a_4fb1_86fc_92bc4e8d0241);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDragItemThemeAnimationStaticsImpl {
+    fn TargetNameProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragItemThemeAnimationStaticsVtbl(
@@ -7777,6 +8014,15 @@ pub struct IDragOverThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDragOverThemeAnimation {
     type Vtable = IDragOverThemeAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72f762f7_7e51_4a6b_b937_dc4b4c1c5458);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDragOverThemeAnimationImpl {
+    fn TargetName();
+    fn SetTargetName();
+    fn ToOffset();
+    fn SetToOffset();
+    fn Direction();
+    fn SetDirection();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7803,6 +8049,12 @@ unsafe impl ::windows::core::Interface for IDragOverThemeAnimationStatics {
     type Vtable = IDragOverThemeAnimationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x146ffe57_3c9d_41d9_a5ff_8d7239516810);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDragOverThemeAnimationStaticsImpl {
+    fn TargetNameProperty();
+    fn ToOffsetProperty();
+    fn DirectionProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragOverThemeAnimationStaticsVtbl(
@@ -7823,6 +8075,8 @@ unsafe impl ::windows::core::Interface for IDrillInNavigationTransitionInfo {
     type Vtable = IDrillInNavigationTransitionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b86201a_45d3_463b_939e_c8595f439bcc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDrillInNavigationTransitionInfoImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDrillInNavigationTransitionInfoVtbl(
@@ -7839,6 +8093,17 @@ pub struct IDrillInThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDrillInThemeAnimation {
     type Vtable = IDrillInThemeAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb090b824_f1d2_41b8_87ba_78034126594c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDrillInThemeAnimationImpl {
+    fn EntranceTargetName();
+    fn SetEntranceTargetName();
+    fn EntranceTarget();
+    fn SetEntranceTarget();
+    fn ExitTargetName();
+    fn SetExitTargetName();
+    fn ExitTarget();
+    fn SetExitTarget();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7865,6 +8130,13 @@ unsafe impl ::windows::core::Interface for IDrillInThemeAnimationStatics {
     type Vtable = IDrillInThemeAnimationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc61fe488_a17a_4b11_b53b_a4f1a07d4ba9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDrillInThemeAnimationStaticsImpl {
+    fn EntranceTargetNameProperty();
+    fn EntranceTargetProperty();
+    fn ExitTargetNameProperty();
+    fn ExitTargetProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDrillInThemeAnimationStaticsVtbl(
@@ -7885,6 +8157,17 @@ pub struct IDrillOutThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDrillOutThemeAnimation {
     type Vtable = IDrillOutThemeAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd890ccdf_06d3_4f7e_8e4a_4fb76e256139);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IDrillOutThemeAnimationImpl {
+    fn EntranceTargetName();
+    fn SetEntranceTargetName();
+    fn EntranceTarget();
+    fn SetEntranceTarget();
+    fn ExitTargetName();
+    fn SetExitTargetName();
+    fn ExitTarget();
+    fn SetExitTarget();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7911,6 +8194,13 @@ unsafe impl ::windows::core::Interface for IDrillOutThemeAnimationStatics {
     type Vtable = IDrillOutThemeAnimationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbeb5db9b_2617_4888_80dd_72fa7bb6fac3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDrillOutThemeAnimationStaticsImpl {
+    fn EntranceTargetNameProperty();
+    fn EntranceTargetProperty();
+    fn ExitTargetNameProperty();
+    fn ExitTargetProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDrillOutThemeAnimationStaticsVtbl(
@@ -7932,6 +8222,11 @@ unsafe impl ::windows::core::Interface for IDropTargetItemThemeAnimation {
     type Vtable = IDropTargetItemThemeAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1881c968_1824_462b_87e8_c357212b977b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDropTargetItemThemeAnimationImpl {
+    fn TargetName();
+    fn SetTargetName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDropTargetItemThemeAnimationVtbl(
@@ -7951,6 +8246,10 @@ unsafe impl ::windows::core::Interface for IDropTargetItemThemeAnimationStatics 
     type Vtable = IDropTargetItemThemeAnimationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae80f486_2e56_4513_bf18_d77470164ae5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IDropTargetItemThemeAnimationStaticsImpl {
+    fn TargetNameProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDropTargetItemThemeAnimationStaticsVtbl(
@@ -7968,6 +8267,11 @@ pub struct IEasingColorKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEasingColorKeyFrame {
     type Vtable = IEasingColorKeyFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc733d630_f4b9_4934_9bdd_27ac5ed1cfd8);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEasingColorKeyFrameImpl {
+    fn EasingFunction();
+    fn SetEasingFunction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7988,6 +8292,10 @@ unsafe impl ::windows::core::Interface for IEasingColorKeyFrameStatics {
     type Vtable = IEasingColorKeyFrameStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f3837fc_8e3d_4522_9b0f_003db8609851);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEasingColorKeyFrameStaticsImpl {
+    fn EasingFunctionProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasingColorKeyFrameStaticsVtbl(
@@ -8005,6 +8313,11 @@ pub struct IEasingDoubleKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEasingDoubleKeyFrame {
     type Vtable = IEasingDoubleKeyFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x965adb8d_9a54_4108_b4ff_b5a5212cb338);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEasingDoubleKeyFrameImpl {
+    fn EasingFunction();
+    fn SetEasingFunction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8025,6 +8338,10 @@ unsafe impl ::windows::core::Interface for IEasingDoubleKeyFrameStatics {
     type Vtable = IEasingDoubleKeyFrameStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8d3d845_dbae_4e5b_8b84_d9537398e5b1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEasingDoubleKeyFrameStaticsImpl {
+    fn EasingFunctionProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasingDoubleKeyFrameStaticsVtbl(
@@ -8042,6 +8359,12 @@ pub struct IEasingFunctionBase(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEasingFunctionBase {
     type Vtable = IEasingFunctionBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc108383f_2c02_4151_8ecd_68ddaa3f0d9b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEasingFunctionBaseImpl {
+    fn EasingMode();
+    fn SetEasingMode();
+    fn Ease();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8063,6 +8386,8 @@ unsafe impl ::windows::core::Interface for IEasingFunctionBaseFactory {
     type Vtable = IEasingFunctionBaseFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1830fe6a_f01b_43e0_b61f_b452a1c66fd2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEasingFunctionBaseFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasingFunctionBaseFactoryVtbl(
@@ -8079,6 +8404,10 @@ pub struct IEasingFunctionBaseStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEasingFunctionBaseStatics {
     type Vtable = IEasingFunctionBaseStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a5031aa_2c50_4a1d_bb04_d75e07b71548);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEasingFunctionBaseStaticsImpl {
+    fn EasingModeProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8097,6 +8426,11 @@ pub struct IEasingPointKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEasingPointKeyFrame {
     type Vtable = IEasingPointKeyFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3c91380_6868_4225_a70b_3981cc0b2947);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEasingPointKeyFrameImpl {
+    fn EasingFunction();
+    fn SetEasingFunction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8117,6 +8451,10 @@ unsafe impl ::windows::core::Interface for IEasingPointKeyFrameStatics {
     type Vtable = IEasingPointKeyFrameStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe22dbfc4_080c_402c_a6b5_f48d0a98116b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEasingPointKeyFrameStaticsImpl {
+    fn EasingFunctionProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasingPointKeyFrameStaticsVtbl(
@@ -8134,6 +8472,11 @@ pub struct IEdgeUIThemeTransition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEdgeUIThemeTransition {
     type Vtable = IEdgeUIThemeTransitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c86c19b_49d7_19ec_cf19_83a73c6de75e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEdgeUIThemeTransitionImpl {
+    fn Edge();
+    fn SetEdge();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8156,6 +8499,10 @@ unsafe impl ::windows::core::Interface for IEdgeUIThemeTransitionStatics {
     type Vtable = IEdgeUIThemeTransitionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16a2b13b_4705_302b_27c6_2aac92f645ac);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEdgeUIThemeTransitionStaticsImpl {
+    fn EdgeProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEdgeUIThemeTransitionStaticsVtbl(
@@ -8173,6 +8520,13 @@ pub struct IElasticEase(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IElasticEase {
     type Vtable = IElasticEaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef5ba58c_b0b6_4a6c_9ca8_fb4233f12459);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IElasticEaseImpl {
+    fn Oscillations();
+    fn SetOscillations();
+    fn Springiness();
+    fn SetSpringiness();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8195,6 +8549,11 @@ unsafe impl ::windows::core::Interface for IElasticEaseStatics {
     type Vtable = IElasticEaseStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9f566ec_fe9c_4b2b_8e52_bb785d562185);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IElasticEaseStaticsImpl {
+    fn OscillationsProperty();
+    fn SpringinessProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IElasticEaseStaticsVtbl(
@@ -8214,6 +8573,8 @@ unsafe impl ::windows::core::Interface for IEntranceNavigationTransitionInfo {
     type Vtable = IEntranceNavigationTransitionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x720a256b_1c8a_41ee_82ec_8a87c0cf47da);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEntranceNavigationTransitionInfoImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEntranceNavigationTransitionInfoVtbl(
@@ -8230,6 +8591,12 @@ pub struct IEntranceNavigationTransitionInfoStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEntranceNavigationTransitionInfoStatics {
     type Vtable = IEntranceNavigationTransitionInfoStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf948c27a_40c9_469f_8f33_bf45c8811f21);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEntranceNavigationTransitionInfoStaticsImpl {
+    fn IsTargetElementProperty();
+    fn GetIsTargetElement();
+    fn SetIsTargetElement();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8250,6 +8617,15 @@ pub struct IEntranceThemeTransition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEntranceThemeTransition {
     type Vtable = IEntranceThemeTransitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07698c09_a8e3_419a_a01d_7410a0ae8ec8);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IEntranceThemeTransitionImpl {
+    fn FromHorizontalOffset();
+    fn SetFromHorizontalOffset();
+    fn FromVerticalOffset();
+    fn SetFromVerticalOffset();
+    fn IsStaggeringEnabled();
+    fn SetIsStaggeringEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8274,6 +8650,12 @@ unsafe impl ::windows::core::Interface for IEntranceThemeTransitionStatics {
     type Vtable = IEntranceThemeTransitionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37cc0577_ff98_4aed_b86e_5ec23702f877);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IEntranceThemeTransitionStaticsImpl {
+    fn FromHorizontalOffsetProperty();
+    fn FromVerticalOffsetProperty();
+    fn IsStaggeringEnabledProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEntranceThemeTransitionStaticsVtbl(
@@ -8294,6 +8676,11 @@ unsafe impl ::windows::core::Interface for IExponentialEase {
     type Vtable = IExponentialEaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cb9e41d_f0bb_4bca_9da5_9ba3a11734c4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IExponentialEaseImpl {
+    fn Exponent();
+    fn SetExponent();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExponentialEaseVtbl(
@@ -8313,6 +8700,10 @@ unsafe impl ::windows::core::Interface for IExponentialEaseStatics {
     type Vtable = IExponentialEaseStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf37ee7e3_a761_4352_9ad6_70794567581a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IExponentialEaseStaticsImpl {
+    fn ExponentProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExponentialEaseStaticsVtbl(
@@ -8330,6 +8721,11 @@ pub struct IFadeInThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFadeInThemeAnimation {
     type Vtable = IFadeInThemeAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d4bc8f5_a918_4477_8078_554c68812ab8);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IFadeInThemeAnimationImpl {
+    fn TargetName();
+    fn SetTargetName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8350,6 +8746,10 @@ unsafe impl ::windows::core::Interface for IFadeInThemeAnimationStatics {
     type Vtable = IFadeInThemeAnimationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f0117e1_bea9_4923_b23a_0ddf4d7b8737);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFadeInThemeAnimationStaticsImpl {
+    fn TargetNameProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFadeInThemeAnimationStaticsVtbl(
@@ -8367,6 +8767,11 @@ pub struct IFadeOutThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFadeOutThemeAnimation {
     type Vtable = IFadeOutThemeAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89276ba9_ffd4_45b6_9b9a_ced48951e712);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IFadeOutThemeAnimationImpl {
+    fn TargetName();
+    fn SetTargetName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8387,6 +8792,10 @@ unsafe impl ::windows::core::Interface for IFadeOutThemeAnimationStatics {
     type Vtable = IFadeOutThemeAnimationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe17a81a_4168_4f68_a28c_e5dd98cf680f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IFadeOutThemeAnimationStaticsImpl {
+    fn TargetNameProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFadeOutThemeAnimationStaticsVtbl(
@@ -8405,6 +8814,8 @@ unsafe impl ::windows::core::Interface for IGravityConnectedAnimationConfigurati
     type Vtable = IGravityConnectedAnimationConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc751a4b7_0459_5142_b891_aeaac1d41822);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGravityConnectedAnimationConfigurationImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGravityConnectedAnimationConfigurationVtbl(
@@ -8421,6 +8832,11 @@ pub struct IGravityConnectedAnimationConfiguration2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGravityConnectedAnimationConfiguration2 {
     type Vtable = IGravityConnectedAnimationConfiguration2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62333add_aed4_5fed_95ff_d128acce8be4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGravityConnectedAnimationConfiguration2Impl {
+    fn IsShadowEnabled();
+    fn SetIsShadowEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8441,6 +8857,10 @@ unsafe impl ::windows::core::Interface for IGravityConnectedAnimationConfigurati
     type Vtable = IGravityConnectedAnimationConfigurationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe822c41f_3656_5090_92f5_c217eaacb682);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGravityConnectedAnimationConfigurationFactoryImpl {
+    fn CreateInstance();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGravityConnectedAnimationConfigurationFactoryVtbl(
@@ -8458,6 +8878,13 @@ pub struct IKeySpline(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeySpline {
     type Vtable = IKeySplineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77a163bb_d5ca_4a32_ba0b_7dff988e58a0);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IKeySplineImpl {
+    fn ControlPoint1();
+    fn SetControlPoint1();
+    fn ControlPoint2();
+    fn SetControlPoint2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8484,6 +8911,8 @@ unsafe impl ::windows::core::Interface for IKeyTimeHelper {
     type Vtable = IKeyTimeHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3643e480_4823_466a_abe5_5e79c8ed77ed);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IKeyTimeHelperImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyTimeHelperVtbl(
@@ -8500,6 +8929,10 @@ pub struct IKeyTimeHelperStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyTimeHelperStatics {
     type Vtable = IKeyTimeHelperStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fa2612c_22a9_45e9_9af7_c7416efff7a5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IKeyTimeHelperStaticsImpl {
+    fn FromTimeSpan();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8520,6 +8953,8 @@ unsafe impl ::windows::core::Interface for ILinearColorKeyFrame {
     type Vtable = ILinearColorKeyFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66fdb6ef_ac81_4611_b1d2_61f545983f03);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILinearColorKeyFrameImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILinearColorKeyFrameVtbl(
@@ -8537,6 +8972,8 @@ unsafe impl ::windows::core::Interface for ILinearDoubleKeyFrame {
     type Vtable = ILinearDoubleKeyFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8efdf265_9a7b_431d_8f0c_14c56b5ea4d9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILinearDoubleKeyFrameImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILinearDoubleKeyFrameVtbl(
@@ -8554,6 +8991,8 @@ unsafe impl ::windows::core::Interface for ILinearPointKeyFrame {
     type Vtable = ILinearPointKeyFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7c9b8ef_af24_49ee_84f1_a86600a4e319);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ILinearPointKeyFrameImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILinearPointKeyFrameVtbl(
@@ -8570,6 +9009,11 @@ pub struct INavigationThemeTransition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INavigationThemeTransition {
     type Vtable = INavigationThemeTransitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8833848c_4eb7_41f2_8799_9eef0a213b73);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INavigationThemeTransitionImpl {
+    fn DefaultNavigationTransitionInfo();
+    fn SetDefaultNavigationTransitionInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8590,6 +9034,10 @@ unsafe impl ::windows::core::Interface for INavigationThemeTransitionStatics {
     type Vtable = INavigationThemeTransitionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea2f06e0_5e60_4f8e_bcaf_431487a294ab);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INavigationThemeTransitionStaticsImpl {
+    fn DefaultNavigationTransitionInfoProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INavigationThemeTransitionStaticsVtbl(
@@ -8608,6 +9056,8 @@ unsafe impl ::windows::core::Interface for INavigationTransitionInfo {
     type Vtable = INavigationTransitionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9b05091_ae4a_4372_8625_21b7a8b98ca4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INavigationTransitionInfoImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INavigationTransitionInfoVtbl(
@@ -8624,6 +9074,10 @@ pub struct INavigationTransitionInfoFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INavigationTransitionInfoFactory {
     type Vtable = INavigationTransitionInfoFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedf4f8d5_af63_4fab_9d4a_87927f82dd6b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait INavigationTransitionInfoFactoryImpl {
+    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8643,6 +9097,11 @@ unsafe impl ::windows::core::Interface for INavigationTransitionInfoOverrides {
     type Vtable = INavigationTransitionInfoOverridesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9517e6a_a9d0_4bf7_9db0_4633a69daff2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait INavigationTransitionInfoOverridesImpl {
+    fn GetNavigationStateCore();
+    fn SetNavigationStateCore();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INavigationTransitionInfoOverridesVtbl(
@@ -8661,6 +9120,12 @@ pub struct IObjectAnimationUsingKeyFrames(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IObjectAnimationUsingKeyFrames {
     type Vtable = IObjectAnimationUsingKeyFramesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x334a2d92_b74a_4c64_b9a6_58bcfa314f22);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IObjectAnimationUsingKeyFramesImpl {
+    fn KeyFrames();
+    fn EnableDependentAnimation();
+    fn SetEnableDependentAnimation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8683,6 +9148,10 @@ unsafe impl ::windows::core::Interface for IObjectAnimationUsingKeyFramesStatics
     type Vtable = IObjectAnimationUsingKeyFramesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb736182_6af1_49a3_97b6_783ed97400fe);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IObjectAnimationUsingKeyFramesStaticsImpl {
+    fn EnableDependentAnimationProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectAnimationUsingKeyFramesStaticsVtbl(
@@ -8700,6 +9169,13 @@ pub struct IObjectKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IObjectKeyFrame {
     type Vtable = IObjectKeyFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9852a851_8593_48ee_a6a4_d5d4720f029a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IObjectKeyFrameImpl {
+    fn Value();
+    fn SetValue();
+    fn KeyTime();
+    fn SetKeyTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8724,6 +9200,10 @@ unsafe impl ::windows::core::Interface for IObjectKeyFrameFactory {
     type Vtable = IObjectKeyFrameFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1626143e_3e6d_44d8_9b9a_04aea70f8492);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IObjectKeyFrameFactoryImpl {
+    fn CreateInstance();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectKeyFrameFactoryVtbl(
@@ -8741,6 +9221,11 @@ pub struct IObjectKeyFrameStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IObjectKeyFrameStatics {
     type Vtable = IObjectKeyFrameStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd6ab00_5319_4286_8eed_4e755ea0cf9c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IObjectKeyFrameStaticsImpl {
+    fn ValueProperty();
+    fn KeyTimeProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8760,6 +9245,11 @@ pub struct IPaneThemeTransition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaneThemeTransition {
     type Vtable = IPaneThemeTransitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4708eb8e_4bfc_ee46_d4f9_708def3fbb2b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPaneThemeTransitionImpl {
+    fn Edge();
+    fn SetEdge();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8782,6 +9272,10 @@ unsafe impl ::windows::core::Interface for IPaneThemeTransitionStatics {
     type Vtable = IPaneThemeTransitionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x316b382f_4be4_1797_b45c_cd900bbe0caa);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPaneThemeTransitionStaticsImpl {
+    fn EdgeProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaneThemeTransitionStaticsVtbl(
@@ -8799,6 +9293,19 @@ pub struct IPointAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointAnimation {
     type Vtable = IPointAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30f04312_7726_4f88_b8e2_2fa54518963b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPointAnimationImpl {
+    fn From();
+    fn SetFrom();
+    fn To();
+    fn SetTo();
+    fn By();
+    fn SetBy();
+    fn EasingFunction();
+    fn SetEasingFunction();
+    fn EnableDependentAnimation();
+    fn SetEnableDependentAnimation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8833,6 +9340,14 @@ unsafe impl ::windows::core::Interface for IPointAnimationStatics {
     type Vtable = IPointAnimationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f99b356_e737_408b_a0fd_327826d32255);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPointAnimationStaticsImpl {
+    fn FromProperty();
+    fn ToProperty();
+    fn ByProperty();
+    fn EasingFunctionProperty();
+    fn EnableDependentAnimationProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointAnimationStaticsVtbl(
@@ -8855,6 +9370,12 @@ unsafe impl ::windows::core::Interface for IPointAnimationUsingKeyFrames {
     type Vtable = IPointAnimationUsingKeyFramesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b944f72_446a_41d0_a129_41a620f4595d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPointAnimationUsingKeyFramesImpl {
+    fn KeyFrames();
+    fn EnableDependentAnimation();
+    fn SetEnableDependentAnimation();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointAnimationUsingKeyFramesVtbl(
@@ -8876,6 +9397,10 @@ unsafe impl ::windows::core::Interface for IPointAnimationUsingKeyFramesStatics 
     type Vtable = IPointAnimationUsingKeyFramesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f454c87_2390_46ea_baa7_762f4bc30d04);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPointAnimationUsingKeyFramesStaticsImpl {
+    fn EnableDependentAnimationProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointAnimationUsingKeyFramesStaticsVtbl(
@@ -8893,6 +9418,13 @@ pub struct IPointKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointKeyFrame {
     type Vtable = IPointKeyFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcc88d01_7f82_4dae_8026_7b7e086878b3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPointKeyFrameImpl {
+    fn Value();
+    fn SetValue();
+    fn KeyTime();
+    fn SetKeyTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8919,6 +9451,10 @@ unsafe impl ::windows::core::Interface for IPointKeyFrameFactory {
     type Vtable = IPointKeyFrameFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb214bdf_426a_4392_8355_c2ae52852623);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPointKeyFrameFactoryImpl {
+    fn CreateInstance();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointKeyFrameFactoryVtbl(
@@ -8936,6 +9472,11 @@ pub struct IPointKeyFrameStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointKeyFrameStatics {
     type Vtable = IPointKeyFrameStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95cf1b27_7965_4bec_b9fb_fbe94b65518e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPointKeyFrameStaticsImpl {
+    fn ValueProperty();
+    fn KeyTimeProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8956,6 +9497,11 @@ unsafe impl ::windows::core::Interface for IPointerDownThemeAnimation {
     type Vtable = IPointerDownThemeAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb58e714e_c49d_4788_a233_0ae85d99dd5a);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPointerDownThemeAnimationImpl {
+    fn TargetName();
+    fn SetTargetName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerDownThemeAnimationVtbl(
@@ -8975,6 +9521,10 @@ unsafe impl ::windows::core::Interface for IPointerDownThemeAnimationStatics {
     type Vtable = IPointerDownThemeAnimationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63a7cb7b_6d46_4494_b94a_e72f3b492a61);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPointerDownThemeAnimationStaticsImpl {
+    fn TargetNameProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerDownThemeAnimationStaticsVtbl(
@@ -8992,6 +9542,11 @@ pub struct IPointerUpThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointerUpThemeAnimation {
     type Vtable = IPointerUpThemeAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9e9d07d_6340_4828_ad12_690694b9910b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPointerUpThemeAnimationImpl {
+    fn TargetName();
+    fn SetTargetName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9012,6 +9567,10 @@ unsafe impl ::windows::core::Interface for IPointerUpThemeAnimationStatics {
     type Vtable = IPointerUpThemeAnimationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c618f9c_7992_4139_8bfc_0883b9727a7e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPointerUpThemeAnimationStaticsImpl {
+    fn TargetNameProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerUpThemeAnimationStaticsVtbl(
@@ -9029,6 +9588,15 @@ pub struct IPopInThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPopInThemeAnimation {
     type Vtable = IPopInThemeAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x196938c1_1c07_4c28_8847_f9f055b32855);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPopInThemeAnimationImpl {
+    fn TargetName();
+    fn SetTargetName();
+    fn FromHorizontalOffset();
+    fn SetFromHorizontalOffset();
+    fn FromVerticalOffset();
+    fn SetFromVerticalOffset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9053,6 +9621,12 @@ unsafe impl ::windows::core::Interface for IPopInThemeAnimationStatics {
     type Vtable = IPopInThemeAnimationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefaa99d3_218a_4701_977f_f1bfae8ba649);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPopInThemeAnimationStaticsImpl {
+    fn TargetNameProperty();
+    fn FromHorizontalOffsetProperty();
+    fn FromVerticalOffsetProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopInThemeAnimationStaticsVtbl(
@@ -9073,6 +9647,11 @@ unsafe impl ::windows::core::Interface for IPopOutThemeAnimation {
     type Vtable = IPopOutThemeAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4786ab49_0e48_4e81_a2e5_cc5aa19e48d3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPopOutThemeAnimationImpl {
+    fn TargetName();
+    fn SetTargetName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopOutThemeAnimationVtbl(
@@ -9092,6 +9671,10 @@ unsafe impl ::windows::core::Interface for IPopOutThemeAnimationStatics {
     type Vtable = IPopOutThemeAnimationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d492c09_03c1_4490_99dc_909feab357fb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPopOutThemeAnimationStaticsImpl {
+    fn TargetNameProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopOutThemeAnimationStaticsVtbl(
@@ -9109,6 +9692,13 @@ pub struct IPopupThemeTransition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPopupThemeTransition {
     type Vtable = IPopupThemeTransitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47843552_4283_545e_c791_268dca22ce4b);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPopupThemeTransitionImpl {
+    fn FromHorizontalOffset();
+    fn SetFromHorizontalOffset();
+    fn FromVerticalOffset();
+    fn SetFromVerticalOffset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9131,6 +9721,11 @@ unsafe impl ::windows::core::Interface for IPopupThemeTransitionStatics {
     type Vtable = IPopupThemeTransitionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5a1640e_490d_1505_9f6b_8fafc044dec5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPopupThemeTransitionStaticsImpl {
+    fn FromHorizontalOffsetProperty();
+    fn FromVerticalOffsetProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopupThemeTransitionStaticsVtbl(
@@ -9149,6 +9744,11 @@ pub struct IPowerEase(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPowerEase {
     type Vtable = IPowerEaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69c80579_eedf_405b_8680_d9606880c937);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPowerEaseImpl {
+    fn Power();
+    fn SetPower();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9169,6 +9769,10 @@ unsafe impl ::windows::core::Interface for IPowerEaseStatics {
     type Vtable = IPowerEaseStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5955103_91a2_460c_9c41_d28f6a939bda);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPowerEaseStaticsImpl {
+    fn PowerProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPowerEaseStaticsVtbl(
@@ -9187,6 +9791,8 @@ unsafe impl ::windows::core::Interface for IQuadraticEase {
     type Vtable = IQuadraticEaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1510e91_ef6d_44f0_803d_68d16de0ddfc);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IQuadraticEaseImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQuadraticEaseVtbl(
@@ -9204,6 +9810,8 @@ unsafe impl ::windows::core::Interface for IQuarticEase {
     type Vtable = IQuarticEaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8698814_fe42_4a05_b5b8_081f41157815);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IQuarticEaseImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQuarticEaseVtbl(
@@ -9221,6 +9829,8 @@ unsafe impl ::windows::core::Interface for IQuinticEase {
     type Vtable = IQuinticEaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92ee793b_3c49_4108_aa11_ab786603da21);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IQuinticEaseImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQuinticEaseVtbl(
@@ -9238,6 +9848,8 @@ unsafe impl ::windows::core::Interface for IReorderThemeTransition {
     type Vtable = IReorderThemeTransitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2065c6c_d052_4ad1_8362_b71b36df7497);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IReorderThemeTransitionImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReorderThemeTransitionVtbl(
@@ -9255,6 +9867,8 @@ unsafe impl ::windows::core::Interface for IRepeatBehaviorHelper {
     type Vtable = IRepeatBehaviorHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6863ab72_4997_47f9_87ad_37efb75993ea);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRepeatBehaviorHelperImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRepeatBehaviorHelperVtbl(
@@ -9271,6 +9885,15 @@ pub struct IRepeatBehaviorHelperStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRepeatBehaviorHelperStatics {
     type Vtable = IRepeatBehaviorHelperStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a795033_79f3_4dd9_b267_9cf50fb51f84);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRepeatBehaviorHelperStaticsImpl {
+    fn Forever();
+    fn FromCount();
+    fn FromDuration();
+    fn GetHasCount();
+    fn GetHasDuration();
+    fn Equals();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9301,6 +9924,15 @@ unsafe impl ::windows::core::Interface for IRepositionThemeAnimation {
     type Vtable = IRepositionThemeAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecda24e8_8945_4949_a1bf_62109965a7e9);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRepositionThemeAnimationImpl {
+    fn TargetName();
+    fn SetTargetName();
+    fn FromHorizontalOffset();
+    fn SetFromHorizontalOffset();
+    fn FromVerticalOffset();
+    fn SetFromVerticalOffset();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRepositionThemeAnimationVtbl(
@@ -9324,6 +9956,12 @@ unsafe impl ::windows::core::Interface for IRepositionThemeAnimationStatics {
     type Vtable = IRepositionThemeAnimationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d92b1b1_860b_4bf9_a59d_1eb1ccbe8fe0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRepositionThemeAnimationStaticsImpl {
+    fn TargetNameProperty();
+    fn FromHorizontalOffsetProperty();
+    fn FromVerticalOffsetProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRepositionThemeAnimationStaticsVtbl(
@@ -9344,6 +9982,8 @@ unsafe impl ::windows::core::Interface for IRepositionThemeTransition {
     type Vtable = IRepositionThemeTransitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88329b82_98f3_455a_ac53_2e7083b6e22c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRepositionThemeTransitionImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRepositionThemeTransitionVtbl(
@@ -9360,6 +10000,11 @@ pub struct IRepositionThemeTransition2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRepositionThemeTransition2 {
     type Vtable = IRepositionThemeTransition2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcebfe864_dbea_4404_8e6e_de55ada75239);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IRepositionThemeTransition2Impl {
+    fn IsStaggeringEnabled();
+    fn SetIsStaggeringEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9380,6 +10025,10 @@ unsafe impl ::windows::core::Interface for IRepositionThemeTransitionStatics2 {
     type Vtable = IRepositionThemeTransitionStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9240e930_0a19_468b_8c2a_68fab4500027);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IRepositionThemeTransitionStatics2Impl {
+    fn IsStaggeringEnabledProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRepositionThemeTransitionStatics2Vtbl(
@@ -9398,6 +10047,8 @@ unsafe impl ::windows::core::Interface for ISineEase {
     type Vtable = ISineEaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9382962_230b_49da_9e0d_664987892343);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISineEaseImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISineEaseVtbl(
@@ -9415,6 +10066,8 @@ unsafe impl ::windows::core::Interface for ISlideNavigationTransitionInfo {
     type Vtable = ISlideNavigationTransitionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6ac9d77_2e03_405f_80ed_e62beef3668f);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISlideNavigationTransitionInfoImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISlideNavigationTransitionInfoVtbl(
@@ -9431,6 +10084,11 @@ pub struct ISlideNavigationTransitionInfo2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISlideNavigationTransitionInfo2 {
     type Vtable = ISlideNavigationTransitionInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90e2d9c0_5c81_5001_8013_4fbfea4bf139);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISlideNavigationTransitionInfo2Impl {
+    fn Effect();
+    fn SetEffect();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9451,6 +10109,10 @@ unsafe impl ::windows::core::Interface for ISlideNavigationTransitionInfoStatics
     type Vtable = ISlideNavigationTransitionInfoStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a861baa_981a_5ace_9f85_cb7fde648a67);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISlideNavigationTransitionInfoStatics2Impl {
+    fn EffectProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISlideNavigationTransitionInfoStatics2Vtbl(
@@ -9468,6 +10130,11 @@ pub struct ISplineColorKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISplineColorKeyFrame {
     type Vtable = ISplineColorKeyFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a4a5941_1fe0_473a_8efe_4316d8c86229);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISplineColorKeyFrameImpl {
+    fn KeySpline();
+    fn SetKeySpline();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9488,6 +10155,10 @@ unsafe impl ::windows::core::Interface for ISplineColorKeyFrameStatics {
     type Vtable = ISplineColorKeyFrameStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61d1d997_8589_4f2f_8fbb_7d03edc98dd3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISplineColorKeyFrameStaticsImpl {
+    fn KeySplineProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISplineColorKeyFrameStaticsVtbl(
@@ -9505,6 +10176,11 @@ pub struct ISplineDoubleKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISplineDoubleKeyFrame {
     type Vtable = ISplineDoubleKeyFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00d72d38_6b2b_4843_838e_c8b115eec801);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISplineDoubleKeyFrameImpl {
+    fn KeySpline();
+    fn SetKeySpline();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9525,6 +10201,10 @@ unsafe impl ::windows::core::Interface for ISplineDoubleKeyFrameStatics {
     type Vtable = ISplineDoubleKeyFrameStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x060a8ffc_975f_4e4e_9ec7_13c5aee02062);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISplineDoubleKeyFrameStaticsImpl {
+    fn KeySplineProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISplineDoubleKeyFrameStaticsVtbl(
@@ -9542,6 +10222,11 @@ pub struct ISplinePointKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISplinePointKeyFrame {
     type Vtable = ISplinePointKeyFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f19f306_7036_494f_bc3c_780df0cc524a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISplinePointKeyFrameImpl {
+    fn KeySpline();
+    fn SetKeySpline();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9562,6 +10247,10 @@ unsafe impl ::windows::core::Interface for ISplinePointKeyFrameStatics {
     type Vtable = ISplinePointKeyFrameStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe97a32c2_0a7a_4766_95cb_0d692611cb4c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISplinePointKeyFrameStaticsImpl {
+    fn KeySplineProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISplinePointKeyFrameStaticsVtbl(
@@ -9579,6 +10268,31 @@ pub struct ISplitCloseThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISplitCloseThemeAnimation {
     type Vtable = ISplitCloseThemeAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f799518_ff39_4e90_bb74_2abd56027402);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISplitCloseThemeAnimationImpl {
+    fn OpenedTargetName();
+    fn SetOpenedTargetName();
+    fn OpenedTarget();
+    fn SetOpenedTarget();
+    fn ClosedTargetName();
+    fn SetClosedTargetName();
+    fn ClosedTarget();
+    fn SetClosedTarget();
+    fn ContentTargetName();
+    fn SetContentTargetName();
+    fn ContentTarget();
+    fn SetContentTarget();
+    fn OpenedLength();
+    fn SetOpenedLength();
+    fn ClosedLength();
+    fn SetClosedLength();
+    fn OffsetFromCenter();
+    fn SetOffsetFromCenter();
+    fn ContentTranslationDirection();
+    fn SetContentTranslationDirection();
+    fn ContentTranslationOffset();
+    fn SetContentTranslationOffset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9621,6 +10335,20 @@ unsafe impl ::windows::core::Interface for ISplitCloseThemeAnimationStatics {
     type Vtable = ISplitCloseThemeAnimationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7aa94de9_cc9b_4e90_a11a_0050a2216a9e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISplitCloseThemeAnimationStaticsImpl {
+    fn OpenedTargetNameProperty();
+    fn OpenedTargetProperty();
+    fn ClosedTargetNameProperty();
+    fn ClosedTargetProperty();
+    fn ContentTargetNameProperty();
+    fn ContentTargetProperty();
+    fn OpenedLengthProperty();
+    fn ClosedLengthProperty();
+    fn OffsetFromCenterProperty();
+    fn ContentTranslationDirectionProperty();
+    fn ContentTranslationOffsetProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISplitCloseThemeAnimationStaticsVtbl(
@@ -9648,6 +10376,31 @@ pub struct ISplitOpenThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISplitOpenThemeAnimation {
     type Vtable = ISplitOpenThemeAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x785fd7aa_5456_4639_8fd2_26bae6a5ffe4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISplitOpenThemeAnimationImpl {
+    fn OpenedTargetName();
+    fn SetOpenedTargetName();
+    fn OpenedTarget();
+    fn SetOpenedTarget();
+    fn ClosedTargetName();
+    fn SetClosedTargetName();
+    fn ClosedTarget();
+    fn SetClosedTarget();
+    fn ContentTargetName();
+    fn SetContentTargetName();
+    fn ContentTarget();
+    fn SetContentTarget();
+    fn OpenedLength();
+    fn SetOpenedLength();
+    fn ClosedLength();
+    fn SetClosedLength();
+    fn OffsetFromCenter();
+    fn SetOffsetFromCenter();
+    fn ContentTranslationDirection();
+    fn SetContentTranslationDirection();
+    fn ContentTranslationOffset();
+    fn SetContentTranslationOffset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9690,6 +10443,20 @@ unsafe impl ::windows::core::Interface for ISplitOpenThemeAnimationStatics {
     type Vtable = ISplitOpenThemeAnimationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d4cfa89_3a91_458d_b0fb_4cad625cbf8d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISplitOpenThemeAnimationStaticsImpl {
+    fn OpenedTargetNameProperty();
+    fn OpenedTargetProperty();
+    fn ClosedTargetNameProperty();
+    fn ClosedTargetProperty();
+    fn ContentTargetNameProperty();
+    fn ContentTargetProperty();
+    fn OpenedLengthProperty();
+    fn ClosedLengthProperty();
+    fn OffsetFromCenterProperty();
+    fn ContentTranslationDirectionProperty();
+    fn ContentTranslationOffsetProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISplitOpenThemeAnimationStaticsVtbl(
@@ -9717,6 +10484,19 @@ pub struct IStoryboard(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoryboard {
     type Vtable = IStoryboardVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd45c1e6e_3594_460e_981a_32271bd3aa06);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IStoryboardImpl {
+    fn Children();
+    fn Seek();
+    fn Stop();
+    fn Begin();
+    fn Pause();
+    fn Resume();
+    fn GetCurrentState();
+    fn GetCurrentTime();
+    fn SeekAlignedToLastTick();
+    fn SkipToFill();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9749,6 +10529,16 @@ unsafe impl ::windows::core::Interface for IStoryboardStatics {
     type Vtable = IStoryboardStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd82f07d8_73d5_4379_bd48_7e05184a8bad);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IStoryboardStaticsImpl {
+    fn TargetPropertyProperty();
+    fn GetTargetProperty();
+    fn SetTargetProperty();
+    fn TargetNameProperty();
+    fn GetTargetName();
+    fn SetTargetName();
+    fn SetTarget();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStoryboardStaticsVtbl(
@@ -9773,6 +10563,8 @@ unsafe impl ::windows::core::Interface for ISuppressNavigationTransitionInfo {
     type Vtable = ISuppressNavigationTransitionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x244d7b0c_b1b7_4871_9d3e_d56203a3a5b4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISuppressNavigationTransitionInfoImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISuppressNavigationTransitionInfoVtbl(
@@ -9789,6 +10581,15 @@ pub struct ISwipeBackThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISwipeBackThemeAnimation {
     type Vtable = ISwipeBackThemeAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa38a4214_0bca_4d2d_95f7_ceba57fbaf60);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISwipeBackThemeAnimationImpl {
+    fn TargetName();
+    fn SetTargetName();
+    fn FromHorizontalOffset();
+    fn SetFromHorizontalOffset();
+    fn FromVerticalOffset();
+    fn SetFromVerticalOffset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9813,6 +10614,12 @@ unsafe impl ::windows::core::Interface for ISwipeBackThemeAnimationStatics {
     type Vtable = ISwipeBackThemeAnimationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x693f31bf_4da6_468a_8ce0_996c9aad42e0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISwipeBackThemeAnimationStaticsImpl {
+    fn TargetNameProperty();
+    fn FromHorizontalOffsetProperty();
+    fn FromVerticalOffsetProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISwipeBackThemeAnimationStaticsVtbl(
@@ -9832,6 +10639,15 @@ pub struct ISwipeHintThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISwipeHintThemeAnimation {
     type Vtable = ISwipeHintThemeAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdd067c0_580e_4e40_be98_f202d3d84365);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ISwipeHintThemeAnimationImpl {
+    fn TargetName();
+    fn SetTargetName();
+    fn ToHorizontalOffset();
+    fn SetToHorizontalOffset();
+    fn ToVerticalOffset();
+    fn SetToVerticalOffset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9856,6 +10672,12 @@ unsafe impl ::windows::core::Interface for ISwipeHintThemeAnimationStatics {
     type Vtable = ISwipeHintThemeAnimationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23d61a57_9115_4d63_b04a_b89f1c744dc0);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ISwipeHintThemeAnimationStaticsImpl {
+    fn TargetNameProperty();
+    fn ToHorizontalOffsetProperty();
+    fn ToVerticalOffsetProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISwipeHintThemeAnimationStaticsVtbl(
@@ -9875,6 +10697,23 @@ pub struct ITimeline(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITimeline {
     type Vtable = ITimelineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bc465dc_be4d_4d0d_9549_2208b715f40d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITimelineImpl {
+    fn AutoReverse();
+    fn SetAutoReverse();
+    fn BeginTime();
+    fn SetBeginTime();
+    fn Duration();
+    fn SetDuration();
+    fn SpeedRatio();
+    fn SetSpeedRatio();
+    fn FillBehavior();
+    fn SetFillBehavior();
+    fn RepeatBehavior();
+    fn SetRepeatBehavior();
+    fn Completed();
+    fn RemoveCompleted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9915,6 +10754,10 @@ unsafe impl ::windows::core::Interface for ITimelineFactory {
     type Vtable = ITimelineFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d56bb07_bda4_478b_8ada_eb04d580cd5e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITimelineFactoryImpl {
+    fn CreateInstance();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimelineFactoryVtbl(
@@ -9932,6 +10775,17 @@ pub struct ITimelineStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITimelineStatics {
     type Vtable = ITimelineStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa902ed4e_ef10_4d6f_9a40_93cb8895f4e5);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITimelineStaticsImpl {
+    fn AllowDependentAnimations();
+    fn SetAllowDependentAnimations();
+    fn AutoReverseProperty();
+    fn BeginTimeProperty();
+    fn DurationProperty();
+    fn SpeedRatioProperty();
+    fn FillBehaviorProperty();
+    fn RepeatBehaviorProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9958,6 +10812,8 @@ unsafe impl ::windows::core::Interface for ITransition {
     type Vtable = ITransitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c677c7c_01d0_4dce_b333_976f93312b08);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITransitionImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransitionVtbl(
@@ -9975,6 +10831,8 @@ unsafe impl ::windows::core::Interface for ITransitionFactory {
     type Vtable = ITransitionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc9ab2cf_3bc9_44aa_b3fc_883a83233a2c);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ITransitionFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransitionFactoryVtbl(

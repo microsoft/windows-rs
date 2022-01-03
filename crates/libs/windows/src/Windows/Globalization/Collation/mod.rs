@@ -308,6 +308,11 @@ unsafe impl ::windows::core::Interface for ICharacterGrouping {
     type Vtable = ICharacterGroupingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfae761bb_805d_4bb0_95bb_c1f7c3e8eb8e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait ICharacterGroupingImpl {
+    fn First();
+    fn Label();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICharacterGroupingVtbl(
@@ -327,6 +332,10 @@ unsafe impl ::windows::core::Interface for ICharacterGroupings {
     type Vtable = ICharacterGroupingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8d20a75_d4cf_4055_80e5_ce169c226496);
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
+pub trait ICharacterGroupingsImpl: IIterableImpl<CharacterGrouping> + IVectorViewImpl<CharacterGrouping> {
+    fn Lookup();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICharacterGroupingsVtbl(
@@ -344,6 +353,10 @@ pub struct ICharacterGroupingsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICharacterGroupingsFactory {
     type Vtable = ICharacterGroupingsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99ea9fd9_886d_4401_9f98_69c82d4c2f78);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ICharacterGroupingsFactoryImpl {
+    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]

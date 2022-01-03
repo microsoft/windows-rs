@@ -237,6 +237,10 @@ unsafe impl ::windows::core::Interface for IConnectionRequestedEventArgs {
     type Vtable = IConnectionRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb6891ae_4f1e_4c66_bd0d_46924a942e08);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IConnectionRequestedEventArgsImpl {
+    fn PeerInformation();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectionRequestedEventArgsVtbl(
@@ -254,6 +258,28 @@ pub struct IPeerFinderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPeerFinderStatics {
     type Vtable = IPeerFinderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x914b3b61_f6e1_47c4_a14c_148a1903d0c6);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPeerFinderStaticsImpl {
+    fn AllowBluetooth();
+    fn SetAllowBluetooth();
+    fn AllowInfrastructure();
+    fn SetAllowInfrastructure();
+    fn AllowWiFiDirect();
+    fn SetAllowWiFiDirect();
+    fn DisplayName();
+    fn SetDisplayName();
+    fn SupportedDiscoveryTypes();
+    fn AlternateIdentities();
+    fn Start();
+    fn StartWithMessage();
+    fn Stop();
+    fn TriggeredConnectionStateChanged();
+    fn RemoveTriggeredConnectionStateChanged();
+    fn ConnectionRequested();
+    fn RemoveConnectionRequested();
+    fn FindAllPeersAsync();
+    fn ConnectAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -298,6 +324,14 @@ unsafe impl ::windows::core::Interface for IPeerFinderStatics2 {
     type Vtable = IPeerFinderStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6e73c65_fdd0_4b0b_9312_866408935d82);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPeerFinderStatics2Impl {
+    fn Role();
+    fn SetRole();
+    fn DiscoveryData();
+    fn SetDiscoveryData();
+    fn CreateWatcher();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPeerFinderStatics2Vtbl(
@@ -322,6 +356,10 @@ unsafe impl ::windows::core::Interface for IPeerInformation {
     type Vtable = IPeerInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20024f08_9fff_45f4_b6e9_408b2ebef373);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPeerInformationImpl {
+    fn DisplayName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPeerInformationVtbl(
@@ -339,6 +377,11 @@ pub struct IPeerInformation3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPeerInformation3 {
     type Vtable = IPeerInformation3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb20f612a_dbd0_40f8_95bd_2d4209c7836f);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPeerInformation3Impl {
+    fn Id();
+    fn DiscoveryData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -360,6 +403,11 @@ unsafe impl ::windows::core::Interface for IPeerInformationWithHostAndService {
     type Vtable = IPeerInformationWithHostAndServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecc7ccad_1b70_4e8b_92db_bbe781419308);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IPeerInformationWithHostAndServiceImpl {
+    fn HostName();
+    fn ServiceName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPeerInformationWithHostAndServiceVtbl(
@@ -378,6 +426,22 @@ pub struct IPeerWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPeerWatcher {
     type Vtable = IPeerWatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cee21f8_2fa6_4679_9691_03c94a420f34);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IPeerWatcherImpl {
+    fn Added();
+    fn RemoveAdded();
+    fn Removed();
+    fn RemoveRemoved();
+    fn Updated();
+    fn RemoveUpdated();
+    fn EnumerationCompleted();
+    fn RemoveEnumerationCompleted();
+    fn Stopped();
+    fn RemoveStopped();
+    fn Status();
+    fn Start();
+    fn Stop();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -418,6 +482,25 @@ pub struct IProximityDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProximityDevice {
     type Vtable = IProximityDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa8a552_f6e1_4329_a0fc_ab6b0fd28262);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IProximityDeviceImpl {
+    fn SubscribeForMessage();
+    fn PublishMessage();
+    fn PublishMessageWithCallback();
+    fn PublishBinaryMessage();
+    fn PublishBinaryMessageWithCallback();
+    fn PublishUriMessage();
+    fn PublishUriMessageWithCallback();
+    fn StopSubscribingForMessage();
+    fn StopPublishingMessage();
+    fn DeviceArrived();
+    fn RemoveDeviceArrived();
+    fn DeviceDeparted();
+    fn RemoveDeviceDeparted();
+    fn MaxMessageBytes();
+    fn BitsPerSecond();
+    fn DeviceId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -460,6 +543,12 @@ unsafe impl ::windows::core::Interface for IProximityDeviceStatics {
     type Vtable = IProximityDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x914ba01d_f6e1_47c4_a14c_148a1903d0c6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IProximityDeviceStaticsImpl {
+    fn GetDeviceSelector();
+    fn GetDefault();
+    fn FromId();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProximityDeviceStaticsVtbl(
@@ -479,6 +568,13 @@ pub struct IProximityMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProximityMessage {
     type Vtable = IProximityMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefab0782_f6e1_4675_a045_d8e320c24808);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IProximityMessageImpl {
+    fn MessageType();
+    fn SubscriptionId();
+    fn Data();
+    fn DataAsString();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -501,6 +597,12 @@ pub struct ITriggeredConnectionStateChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITriggeredConnectionStateChangedEventArgs {
     type Vtable = ITriggeredConnectionStateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6a780ad_f6e1_4d54_96e2_33f620bca88a);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait ITriggeredConnectionStateChangedEventArgsImpl {
+    fn State();
+    fn Id();
+    fn Socket();
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -588,6 +588,15 @@ unsafe impl ::windows::core::Interface for IGameBarStatics {
     type Vtable = IGameBarStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1db9a292_cc78_4173_be45_b61e67283ea7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGameBarStaticsImpl {
+    fn VisibilityChanged();
+    fn RemoveVisibilityChanged();
+    fn IsInputRedirectedChanged();
+    fn RemoveIsInputRedirectedChanged();
+    fn Visible();
+    fn IsInputRedirected();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameBarStaticsVtbl(
@@ -615,6 +624,14 @@ unsafe impl ::windows::core::Interface for IGameChatMessageReceivedEventArgs {
     type Vtable = IGameChatMessageReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa28201f1_3fb9_4e42_a403_7afce2023b1e);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGameChatMessageReceivedEventArgsImpl {
+    fn AppId();
+    fn AppDisplayName();
+    fn SenderName();
+    fn Message();
+    fn Origin();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameChatMessageReceivedEventArgsVtbl(
@@ -637,6 +654,12 @@ unsafe impl ::windows::core::Interface for IGameChatOverlay {
     type Vtable = IGameChatOverlayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc64865_f6fc_4a48_ae07_03ac6ed43704);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGameChatOverlayImpl {
+    fn DesiredPosition();
+    fn SetDesiredPosition();
+    fn AddMessage();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameChatOverlayVtbl(
@@ -656,6 +679,12 @@ pub struct IGameChatOverlayMessageSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameChatOverlayMessageSource {
     type Vtable = IGameChatOverlayMessageSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e177397_59fb_4f4f_8e9a_80acf817743c);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IGameChatOverlayMessageSourceImpl {
+    fn MessageReceived();
+    fn RemoveMessageReceived();
+    fn SetDelayBeforeClosingAfterMessageReceived();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -680,6 +709,10 @@ unsafe impl ::windows::core::Interface for IGameChatOverlayStatics {
     type Vtable = IGameChatOverlayStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89acf614_7867_49f7_9687_25d9dbf444d1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IGameChatOverlayStaticsImpl {
+    fn GetDefault();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameChatOverlayStaticsVtbl(
@@ -697,6 +730,11 @@ pub struct IGameUIProviderActivatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameUIProviderActivatedEventArgs {
     type Vtable = IGameUIProviderActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7b3203e_caf7_4ded_bbd2_47de43bb6dd5);
+}
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "implement_exclusive"))]
+pub trait IGameUIProviderActivatedEventArgsImpl: IActivatedEventArgsImpl {
+    fn GameUIArgs();
+    fn ReportCompleted();
 }
 #[repr(C)]
 #[doc(hidden)]

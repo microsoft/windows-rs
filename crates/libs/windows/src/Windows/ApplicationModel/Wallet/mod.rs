@@ -8,6 +8,12 @@ unsafe impl ::windows::core::Interface for IWalletBarcode {
     type Vtable = IWalletBarcodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f857b29_de80_4ea4_a1cd_81cd084dac27);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWalletBarcodeImpl {
+    fn Symbology();
+    fn Value();
+    fn GetImageAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletBarcodeVtbl(
@@ -29,6 +35,11 @@ unsafe impl ::windows::core::Interface for IWalletBarcodeFactory {
     type Vtable = IWalletBarcodeFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30117161_ed9c_469e_bbfd_306c95ea7108);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWalletBarcodeFactoryImpl {
+    fn CreateWalletBarcode();
+    fn CreateCustomWalletBarcode();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletBarcodeFactoryVtbl(
@@ -48,6 +59,61 @@ pub struct IWalletItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletItem {
     type Vtable = IWalletItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20b54be8_118d_4ec4_996c_b963e7bd3e74);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWalletItemImpl {
+    fn DisplayName();
+    fn SetDisplayName();
+    fn Id();
+    fn IsAcknowledged();
+    fn SetIsAcknowledged();
+    fn IssuerDisplayName();
+    fn SetIssuerDisplayName();
+    fn LastUpdated();
+    fn SetLastUpdated();
+    fn Kind();
+    fn Barcode();
+    fn SetBarcode();
+    fn ExpirationDate();
+    fn SetExpirationDate();
+    fn Logo159x159();
+    fn SetLogo159x159();
+    fn Logo336x336();
+    fn SetLogo336x336();
+    fn Logo99x99();
+    fn SetLogo99x99();
+    fn DisplayMessage();
+    fn SetDisplayMessage();
+    fn IsDisplayMessageLaunchable();
+    fn SetIsDisplayMessageLaunchable();
+    fn LogoText();
+    fn SetLogoText();
+    fn HeaderColor();
+    fn SetHeaderColor();
+    fn BodyColor();
+    fn SetBodyColor();
+    fn HeaderFontColor();
+    fn SetHeaderFontColor();
+    fn BodyFontColor();
+    fn SetBodyFontColor();
+    fn HeaderBackgroundImage();
+    fn SetHeaderBackgroundImage();
+    fn BodyBackgroundImage();
+    fn SetBodyBackgroundImage();
+    fn LogoImage();
+    fn SetLogoImage();
+    fn PromotionalImage();
+    fn SetPromotionalImage();
+    fn RelevantDate();
+    fn SetRelevantDate();
+    fn RelevantDateDisplayMessage();
+    fn SetRelevantDateDisplayMessage();
+    fn TransactionHistory();
+    fn RelevantLocations();
+    fn IsMoreTransactionHistoryLaunchable();
+    fn SetIsMoreTransactionHistoryLaunchable();
+    fn DisplayProperties();
+    fn Verbs();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -150,6 +216,19 @@ unsafe impl ::windows::core::Interface for IWalletItemCustomProperty {
     type Vtable = IWalletItemCustomPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb94b40f3_fa00_40fd_98dc_9de46697f1e7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWalletItemCustomPropertyImpl {
+    fn Name();
+    fn SetName();
+    fn Value();
+    fn SetValue();
+    fn AutoDetectLinks();
+    fn SetAutoDetectLinks();
+    fn DetailViewPosition();
+    fn SetDetailViewPosition();
+    fn SummaryViewPosition();
+    fn SetSummaryViewPosition();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletItemCustomPropertyVtbl(
@@ -177,6 +256,10 @@ unsafe impl ::windows::core::Interface for IWalletItemCustomPropertyFactory {
     type Vtable = IWalletItemCustomPropertyFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0046a44_61a1_41aa_b259_a5610ab5d575);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWalletItemCustomPropertyFactoryImpl {
+    fn CreateWalletItemCustomProperty();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletItemCustomPropertyFactoryVtbl(
@@ -195,6 +278,10 @@ unsafe impl ::windows::core::Interface for IWalletItemFactory {
     type Vtable = IWalletItemFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53e27470_4f0b_4a3e_99e5_0bbb1eab38d4);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWalletItemFactoryImpl {
+    fn CreateWalletItem();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletItemFactoryVtbl(
@@ -212,6 +299,19 @@ pub struct IWalletItemStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletItemStore {
     type Vtable = IWalletItemStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7160484b_6d49_48f8_91a9_40a1d0f13ef4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWalletItemStoreImpl {
+    fn AddAsync();
+    fn ClearAsync();
+    fn GetWalletItemAsync();
+    fn GetItemsAsync();
+    fn GetItemsWithKindAsync();
+    fn ImportItemAsync();
+    fn DeleteAsync();
+    fn ShowAsync();
+    fn ShowItemAsync();
+    fn UpdateAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -250,6 +350,11 @@ unsafe impl ::windows::core::Interface for IWalletItemStore2 {
     type Vtable = IWalletItemStore2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65e682f0_7009_4a15_bd54_4fff379bffe2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWalletItemStore2Impl {
+    fn ItemsChanged();
+    fn RemoveItemsChanged();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletItemStore2Vtbl(
@@ -271,6 +376,10 @@ unsafe impl ::windows::core::Interface for IWalletManagerStatics {
     type Vtable = IWalletManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5111d6b8_c9a4_4c64_b4dd_e1e548001c0d);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWalletManagerStaticsImpl {
+    fn RequestStoreAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletManagerStaticsVtbl(
@@ -289,6 +398,13 @@ pub struct IWalletRelevantLocation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletRelevantLocation {
     type Vtable = IWalletRelevantLocationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fd8782a_e3f9_4de1_bab3_bb192e46b3f3);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWalletRelevantLocationImpl {
+    fn Position();
+    fn SetPosition();
+    fn DisplayMessage();
+    fn SetDisplayMessage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -312,6 +428,21 @@ pub struct IWalletTransaction(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletTransaction {
     type Vtable = IWalletTransactionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40e1e940_2606_4519_81cb_bff1c60d1f79);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWalletTransactionImpl {
+    fn Description();
+    fn SetDescription();
+    fn DisplayAmount();
+    fn SetDisplayAmount();
+    fn IgnoreTimeOfDay();
+    fn SetIgnoreTimeOfDay();
+    fn DisplayLocation();
+    fn SetDisplayLocation();
+    fn TransactionDate();
+    fn SetTransactionDate();
+    fn IsLaunchable();
+    fn SetIsLaunchable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -344,6 +475,11 @@ unsafe impl ::windows::core::Interface for IWalletVerb {
     type Vtable = IWalletVerbVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17b826d6_e3c1_4c74_8a94_217aadbc4884);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IWalletVerbImpl {
+    fn Name();
+    fn SetName();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletVerbVtbl(
@@ -362,6 +498,10 @@ pub struct IWalletVerbFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletVerbFactory {
     type Vtable = IWalletVerbFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76012771_be58_4d5e_83ed_58b1669c7ad9);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IWalletVerbFactoryImpl {
+    fn CreateWalletVerb();
 }
 #[repr(C)]
 #[doc(hidden)]

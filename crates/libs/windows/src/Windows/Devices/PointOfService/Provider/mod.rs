@@ -2605,6 +2605,11 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerDisableScannerRequest 
     type Vtable = IBarcodeScannerDisableScannerRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88ecf7c0_37b9_4275_8e77_c8e52ae5a9c8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerDisableScannerRequestImpl {
+    fn ReportCompletedAsync();
+    fn ReportFailedAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerDisableScannerRequestVtbl(
@@ -2625,6 +2630,11 @@ pub struct IBarcodeScannerDisableScannerRequest2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerDisableScannerRequest2 {
     type Vtable = IBarcodeScannerDisableScannerRequest2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccdfe625_65c3_4ccc_b457_f39c7a9ea60d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerDisableScannerRequest2Impl {
+    fn ReportFailedWithFailedReasonAsync();
+    fn ReportFailedWithFailedReasonAndDescriptionAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2647,6 +2657,11 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerDisableScannerRequestE
     type Vtable = IBarcodeScannerDisableScannerRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7006e142_e802_46f5_b604_352a15ce9232);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerDisableScannerRequestEventArgsImpl {
+    fn Request();
+    fn GetDeferral();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerDisableScannerRequestEventArgsVtbl(
@@ -2666,6 +2681,11 @@ pub struct IBarcodeScannerEnableScannerRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerEnableScannerRequest {
     type Vtable = IBarcodeScannerEnableScannerRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0b3e9ba_816a_452b_bd77_b7e453ec446d);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerEnableScannerRequestImpl {
+    fn ReportCompletedAsync();
+    fn ReportFailedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2688,6 +2708,11 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerEnableScannerRequest2 
     type Vtable = IBarcodeScannerEnableScannerRequest2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71a4f2a8_9905_41ac_9121_b645916a84a1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerEnableScannerRequest2Impl {
+    fn ReportFailedWithFailedReasonAsync();
+    fn ReportFailedWithFailedReasonAndDescriptionAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerEnableScannerRequest2Vtbl(
@@ -2709,6 +2734,11 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerEnableScannerRequestEv
     type Vtable = IBarcodeScannerEnableScannerRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x956c9419_7b4e_4451_8c41_8e10cfbc5b41);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerEnableScannerRequestEventArgsImpl {
+    fn Request();
+    fn GetDeferral();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerEnableScannerRequestEventArgsVtbl(
@@ -2728,6 +2758,15 @@ pub struct IBarcodeScannerFrameReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerFrameReader {
     type Vtable = IBarcodeScannerFrameReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbc72b07_64c3_482b_93c8_65fb33c22208);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerFrameReaderImpl {
+    fn StartAsync();
+    fn StopAsync();
+    fn TryAcquireLatestFrameAsync();
+    fn Connection();
+    fn FrameArrived();
+    fn RemoveFrameArrived();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2757,6 +2796,10 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerFrameReaderFrameArrive
     type Vtable = IBarcodeScannerFrameReaderFrameArrivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0bbd604_54fd_436d_8629_712e787223dd);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerFrameReaderFrameArrivedEventArgsImpl {
+    fn GetDeferral();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerFrameReaderFrameArrivedEventArgsVtbl(
@@ -2775,6 +2818,12 @@ pub struct IBarcodeScannerGetSymbologyAttributesRequest(::windows::core::IUnknow
 unsafe impl ::windows::core::Interface for IBarcodeScannerGetSymbologyAttributesRequest {
     type Vtable = IBarcodeScannerGetSymbologyAttributesRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9774c46a_58e4_4c5f_b8e9_e41467632700);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerGetSymbologyAttributesRequestImpl {
+    fn Symbology();
+    fn ReportCompletedAsync();
+    fn ReportFailedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2798,6 +2847,11 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerGetSymbologyAttributes
     type Vtable = IBarcodeScannerGetSymbologyAttributesRequest2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a6a2b13_75a8_49fb_b852_bfb93d760af7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerGetSymbologyAttributesRequest2Impl {
+    fn ReportFailedWithFailedReasonAsync();
+    fn ReportFailedWithFailedReasonAndDescriptionAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerGetSymbologyAttributesRequest2Vtbl(
@@ -2819,6 +2873,11 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerGetSymbologyAttributes
     type Vtable = IBarcodeScannerGetSymbologyAttributesRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f89de3e_fb5d_493c_b402_356b24d574a6);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerGetSymbologyAttributesRequestEventArgsImpl {
+    fn Request();
+    fn GetDeferral();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerGetSymbologyAttributesRequestEventArgsVtbl(
@@ -2838,6 +2897,11 @@ pub struct IBarcodeScannerHideVideoPreviewRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerHideVideoPreviewRequest {
     type Vtable = IBarcodeScannerHideVideoPreviewRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa4ebe7f_6670_40e1_b90b_bb10d8d425fa);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerHideVideoPreviewRequestImpl {
+    fn ReportCompletedAsync();
+    fn ReportFailedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2860,6 +2924,11 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerHideVideoPreviewReques
     type Vtable = IBarcodeScannerHideVideoPreviewRequest2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e28435d_9814_431d_a2f2_d6248c5ad4b5);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerHideVideoPreviewRequest2Impl {
+    fn ReportFailedWithFailedReasonAsync();
+    fn ReportFailedWithFailedReasonAndDescriptionAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerHideVideoPreviewRequest2Vtbl(
@@ -2881,6 +2950,11 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerHideVideoPreviewReques
     type Vtable = IBarcodeScannerHideVideoPreviewRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16a281fc_d6be_4bc7_9df1_33741f3eadea);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerHideVideoPreviewRequestEventArgsImpl {
+    fn Request();
+    fn GetDeferral();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerHideVideoPreviewRequestEventArgsVtbl(
@@ -2900,6 +2974,39 @@ pub struct IBarcodeScannerProviderConnection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerProviderConnection {
     type Vtable = IBarcodeScannerProviderConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb44acbed_0b3a_4fa3_86c5_491ea30780eb);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerProviderConnectionImpl {
+    fn Id();
+    fn VideoDeviceId();
+    fn SupportedSymbologies();
+    fn CompanyName();
+    fn SetCompanyName();
+    fn Name();
+    fn SetName();
+    fn Version();
+    fn SetVersion();
+    fn Start();
+    fn ReportScannedDataAsync();
+    fn ReportTriggerStateAsync();
+    fn ReportErrorAsync();
+    fn ReportErrorAsyncWithScanReport();
+    fn EnableScannerRequested();
+    fn RemoveEnableScannerRequested();
+    fn DisableScannerRequested();
+    fn RemoveDisableScannerRequested();
+    fn SetActiveSymbologiesRequested();
+    fn RemoveSetActiveSymbologiesRequested();
+    fn StartSoftwareTriggerRequested();
+    fn RemoveStartSoftwareTriggerRequested();
+    fn StopSoftwareTriggerRequested();
+    fn RemoveStopSoftwareTriggerRequested();
+    fn GetBarcodeSymbologyAttributesRequested();
+    fn RemoveGetBarcodeSymbologyAttributesRequested();
+    fn SetBarcodeSymbologyAttributesRequested();
+    fn RemoveSetBarcodeSymbologyAttributesRequested();
+    fn HideVideoPreviewRequested();
+    fn RemoveHideVideoPreviewRequested();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2969,6 +3076,12 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerProviderConnection2 {
     type Vtable = IBarcodeScannerProviderConnection2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe9b53cd_1134_418c_a06b_04423a73f3d7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerProviderConnection2Impl {
+    fn CreateFrameReaderAsync();
+    fn CreateFrameReaderWithFormatAsync();
+    fn CreateFrameReaderWithFormatAndSizeAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerProviderConnection2Vtbl(
@@ -2992,6 +3105,10 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerProviderTriggerDetails
     type Vtable = IBarcodeScannerProviderTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50856d82_24e3_48ce_99c7_70aac1cbc9f7);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerProviderTriggerDetailsImpl {
+    fn Connection();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerProviderTriggerDetailsVtbl(
@@ -3009,6 +3126,12 @@ pub struct IBarcodeScannerSetActiveSymbologiesRequest(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IBarcodeScannerSetActiveSymbologiesRequest {
     type Vtable = IBarcodeScannerSetActiveSymbologiesRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb3f32b9_f7da_41a1_9f79_07bcd95f0bdf);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerSetActiveSymbologiesRequestImpl {
+    fn Symbologies();
+    fn ReportCompletedAsync();
+    fn ReportFailedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3033,6 +3156,11 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerSetActiveSymbologiesRe
     type Vtable = IBarcodeScannerSetActiveSymbologiesRequest2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5ff6edf_fa9a_4749_b11b_e8fccb75bc6b);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerSetActiveSymbologiesRequest2Impl {
+    fn ReportFailedWithFailedReasonAsync();
+    fn ReportFailedWithFailedReasonAndDescriptionAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerSetActiveSymbologiesRequest2Vtbl(
@@ -3054,6 +3182,11 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerSetActiveSymbologiesRe
     type Vtable = IBarcodeScannerSetActiveSymbologiesRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06305afa_7bf6_4d52_801a_330272f60ae1);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerSetActiveSymbologiesRequestEventArgsImpl {
+    fn Request();
+    fn GetDeferral();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerSetActiveSymbologiesRequestEventArgsVtbl(
@@ -3073,6 +3206,13 @@ pub struct IBarcodeScannerSetSymbologyAttributesRequest(::windows::core::IUnknow
 unsafe impl ::windows::core::Interface for IBarcodeScannerSetSymbologyAttributesRequest {
     type Vtable = IBarcodeScannerSetSymbologyAttributesRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32fb814f_a37f_48b0_acea_dce1480f12ae);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerSetSymbologyAttributesRequestImpl {
+    fn Symbology();
+    fn Attributes();
+    fn ReportCompletedAsync();
+    fn ReportFailedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3097,6 +3237,11 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerSetSymbologyAttributes
     type Vtable = IBarcodeScannerSetSymbologyAttributesRequest2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdffbbfc1_dba8_4b77_be1e_b56cd72f65b3);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerSetSymbologyAttributesRequest2Impl {
+    fn ReportFailedWithFailedReasonAsync();
+    fn ReportFailedWithFailedReasonAndDescriptionAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerSetSymbologyAttributesRequest2Vtbl(
@@ -3118,6 +3263,11 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerSetSymbologyAttributes
     type Vtable = IBarcodeScannerSetSymbologyAttributesRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2b89809_9824_47d4_85bd_d0077baa7bd2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerSetSymbologyAttributesRequestEventArgsImpl {
+    fn Request();
+    fn GetDeferral();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerSetSymbologyAttributesRequestEventArgsVtbl(
@@ -3137,6 +3287,11 @@ pub struct IBarcodeScannerStartSoftwareTriggerRequest(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IBarcodeScannerStartSoftwareTriggerRequest {
     type Vtable = IBarcodeScannerStartSoftwareTriggerRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3fa7b27_ff62_4454_af4a_cb6144a3e3f7);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerStartSoftwareTriggerRequestImpl {
+    fn ReportCompletedAsync();
+    fn ReportFailedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3159,6 +3314,11 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerStartSoftwareTriggerRe
     type Vtable = IBarcodeScannerStartSoftwareTriggerRequest2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb72a25c_6658_4765_a68e_327482653deb);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerStartSoftwareTriggerRequest2Impl {
+    fn ReportFailedWithFailedReasonAsync();
+    fn ReportFailedWithFailedReasonAndDescriptionAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerStartSoftwareTriggerRequest2Vtbl(
@@ -3180,6 +3340,11 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerStartSoftwareTriggerRe
     type Vtable = IBarcodeScannerStartSoftwareTriggerRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2305d843_c88f_4f3b_8c3b_d3df071051ec);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerStartSoftwareTriggerRequestEventArgsImpl {
+    fn Request();
+    fn GetDeferral();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerStartSoftwareTriggerRequestEventArgsVtbl(
@@ -3199,6 +3364,11 @@ pub struct IBarcodeScannerStopSoftwareTriggerRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerStopSoftwareTriggerRequest {
     type Vtable = IBarcodeScannerStopSoftwareTriggerRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f9faf35_e287_4ca8_b70d_5a91d694f668);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerStopSoftwareTriggerRequestImpl {
+    fn ReportCompletedAsync();
+    fn ReportFailedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3221,6 +3391,11 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerStopSoftwareTriggerReq
     type Vtable = IBarcodeScannerStopSoftwareTriggerRequest2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb57c5dd_fe50_49f8_a0b4_bdc230814da2);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerStopSoftwareTriggerRequest2Impl {
+    fn ReportFailedWithFailedReasonAsync();
+    fn ReportFailedWithFailedReasonAndDescriptionAsync();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerStopSoftwareTriggerRequest2Vtbl(
@@ -3242,6 +3417,11 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerStopSoftwareTriggerReq
     type Vtable = IBarcodeScannerStopSoftwareTriggerRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeac34450_4eb7_481a_9273_147a273b99b8);
 }
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerStopSoftwareTriggerRequestEventArgsImpl {
+    fn Request();
+    fn GetDeferral();
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerStopSoftwareTriggerRequestEventArgsVtbl(
@@ -3261,6 +3441,13 @@ pub struct IBarcodeScannerVideoFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerVideoFrame {
     type Vtable = IBarcodeScannerVideoFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e585248_9df7_4121_a175_801d8000112e);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeScannerVideoFrameImpl {
+    fn Format();
+    fn Width();
+    fn Height();
+    fn PixelData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3284,6 +3471,16 @@ pub struct IBarcodeSymbologyAttributesBuilder(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeSymbologyAttributesBuilder {
     type Vtable = IBarcodeSymbologyAttributesBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc57b0cbf_e4f5_40b9_84cf_e63fbaea42b4);
+}
+#[cfg(feature = "implement_exclusive")]
+pub trait IBarcodeSymbologyAttributesBuilderImpl {
+    fn IsCheckDigitValidationSupported();
+    fn SetIsCheckDigitValidationSupported();
+    fn IsCheckDigitTransmissionSupported();
+    fn SetIsCheckDigitTransmissionSupported();
+    fn IsDecodeLengthSupported();
+    fn SetIsDecodeLengthSupported();
+    fn CreateAttributes();
 }
 #[repr(C)]
 #[doc(hidden)]
