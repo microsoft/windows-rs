@@ -1304,6 +1304,34 @@ impl ::core::fmt::Debug for UnsupportedAppRequirementReasons {
         f.debug_tuple("UnsupportedAppRequirementReasons").field(&self.0).finish()
     }
 }
+impl ::core::ops::BitOr for UnsupportedAppRequirementReasons {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for UnsupportedAppRequirementReasons {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for UnsupportedAppRequirementReasons {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for UnsupportedAppRequirementReasons {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for UnsupportedAppRequirementReasons {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UnsupportedAppRequirementReasons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.UnsupportedAppRequirementReasons;u4)");
 }

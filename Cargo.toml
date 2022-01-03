@@ -9,6 +9,7 @@ members = [
     "crates/tests/win32/*",
     "crates/tests/core",
     "crates/tests/debug",
+    "crates/tests/enums",
     "crates/tests/sys",
 ]
 exclude = ["crates/tests/component"]

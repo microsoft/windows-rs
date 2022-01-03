@@ -488,6 +488,34 @@ impl ::core::fmt::Debug for ApplicationHighContrastAdjustment {
         f.debug_tuple("ApplicationHighContrastAdjustment").field(&self.0).finish()
     }
 }
+impl ::core::ops::BitOr for ApplicationHighContrastAdjustment {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ApplicationHighContrastAdjustment {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ApplicationHighContrastAdjustment {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ApplicationHighContrastAdjustment {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ApplicationHighContrastAdjustment {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ApplicationHighContrastAdjustment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.ApplicationHighContrastAdjustment;u4)");
 }
@@ -5204,6 +5232,34 @@ impl ::core::cmp::Eq for ElementHighContrastAdjustment {}
 impl ::core::fmt::Debug for ElementHighContrastAdjustment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ElementHighContrastAdjustment").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ElementHighContrastAdjustment {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ElementHighContrastAdjustment {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ElementHighContrastAdjustment {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ElementHighContrastAdjustment {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ElementHighContrastAdjustment {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 unsafe impl ::windows::core::RuntimeType for ElementHighContrastAdjustment {
@@ -18751,6 +18807,34 @@ impl ::core::cmp::Eq for Vector3TransitionComponents {}
 impl ::core::fmt::Debug for Vector3TransitionComponents {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Vector3TransitionComponents").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for Vector3TransitionComponents {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for Vector3TransitionComponents {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for Vector3TransitionComponents {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for Vector3TransitionComponents {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for Vector3TransitionComponents {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 unsafe impl ::windows::core::RuntimeType for Vector3TransitionComponents {
