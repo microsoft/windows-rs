@@ -4,13 +4,9 @@ pub fn gen_enum(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
     let name = gen_type_name(def, gen);
     let underlying_type = def.underlying_type();
 
-    // WinRT enums don't have the flags attribute but are paritioned merely based
-    // on whether they are signed.
-    let bitwise = matches!(underlying_type, ElementType::U32);
-
     // Win32 enums sadly don't use unsigned values uniformly so we need to rely
     // on the flags attribute.
-    let bitwise = if bitwise || def.has_flags() {
+    let bitwise = if def.has_flags() {
         quote! {
             impl ::core::ops::BitOr for #name {
                 type Output = Self;

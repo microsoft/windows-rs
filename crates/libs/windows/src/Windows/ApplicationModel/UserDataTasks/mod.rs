@@ -735,6 +735,34 @@ impl ::core::fmt::Debug for UserDataTaskDaysOfWeek {
         f.debug_tuple("UserDataTaskDaysOfWeek").field(&self.0).finish()
     }
 }
+impl ::core::ops::BitOr for UserDataTaskDaysOfWeek {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for UserDataTaskDaysOfWeek {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for UserDataTaskDaysOfWeek {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for UserDataTaskDaysOfWeek {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for UserDataTaskDaysOfWeek {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskDaysOfWeek {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskDaysOfWeek;u4)");
 }

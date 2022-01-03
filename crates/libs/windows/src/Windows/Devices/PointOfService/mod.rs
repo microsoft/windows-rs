@@ -13146,6 +13146,34 @@ impl ::core::fmt::Debug for PosConnectionTypes {
         f.debug_tuple("PosConnectionTypes").field(&self.0).finish()
     }
 }
+impl ::core::ops::BitOr for PosConnectionTypes {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PosConnectionTypes {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PosConnectionTypes {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PosConnectionTypes {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PosConnectionTypes {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosConnectionTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosConnectionTypes;u4)");
 }
@@ -13649,6 +13677,34 @@ impl ::core::fmt::Debug for PosPrinterCartridgeSensors {
         f.debug_tuple("PosPrinterCartridgeSensors").field(&self.0).finish()
     }
 }
+impl ::core::ops::BitOr for PosPrinterCartridgeSensors {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PosPrinterCartridgeSensors {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PosPrinterCartridgeSensors {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PosPrinterCartridgeSensors {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PosPrinterCartridgeSensors {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinterCartridgeSensors {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterCartridgeSensors;u4)");
 }
@@ -13723,6 +13779,34 @@ impl ::core::cmp::Eq for PosPrinterColorCapabilities {}
 impl ::core::fmt::Debug for PosPrinterColorCapabilities {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PosPrinterColorCapabilities").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PosPrinterColorCapabilities {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PosPrinterColorCapabilities {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PosPrinterColorCapabilities {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PosPrinterColorCapabilities {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PosPrinterColorCapabilities {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterColorCapabilities {
@@ -14002,6 +14086,34 @@ impl ::core::cmp::Eq for PosPrinterMarkFeedCapabilities {}
 impl ::core::fmt::Debug for PosPrinterMarkFeedCapabilities {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PosPrinterMarkFeedCapabilities").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PosPrinterMarkFeedCapabilities {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PosPrinterMarkFeedCapabilities {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PosPrinterMarkFeedCapabilities {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PosPrinterMarkFeedCapabilities {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PosPrinterMarkFeedCapabilities {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterMarkFeedCapabilities {
@@ -14461,6 +14573,34 @@ impl ::core::cmp::Eq for PosPrinterRuledLineCapabilities {}
 impl ::core::fmt::Debug for PosPrinterRuledLineCapabilities {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PosPrinterRuledLineCapabilities").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PosPrinterRuledLineCapabilities {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PosPrinterRuledLineCapabilities {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PosPrinterRuledLineCapabilities {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PosPrinterRuledLineCapabilities {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PosPrinterRuledLineCapabilities {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterRuledLineCapabilities {
