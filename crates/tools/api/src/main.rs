@@ -63,6 +63,7 @@ default = []
 deprecated = []
 std = []
 alloc = []
+implement_exclusive = []
 build = ["windows_gen", "windows_macros", "windows_reader"]
 "#
         .as_bytes(),
@@ -97,14 +98,15 @@ fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a rea
 }
 
 fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &reader::TypeTree) {
-    let mut path = std::path::PathBuf::from(output);
-
-    path.push(tree.namespace.replace('.', "/"));
-    path.push("mod.rs");
-
+    let path = std::path::PathBuf::from(output).join(tree.namespace.replace('.', "/"));
     let gen = bindgen::Gen { namespace: tree.namespace, min_xaml: true, cfg: true, doc: true, ..Default::default() };
-    let mut tokens = bindgen::gen_namespace(&gen);
 
+    let mut tokens = bindgen::gen_namespace(&gen);
+    fmt_tokens(tree.namespace, &mut tokens);
+    std::fs::write(path.join("mod.rs"), tokens).unwrap();
+}
+
+fn fmt_tokens(namespace: &str, tokens: &mut String) {
     let mut child = std::process::Command::new("rustfmt").stdin(std::process::Stdio::piped()).stdout(std::process::Stdio::piped()).stderr(std::process::Stdio::null()).spawn().expect("Failed to spawn `rustfmt`");
     let mut stdin = child.stdin.take().expect("Failed to open stdin");
     stdin.write_all(tokens.as_bytes()).unwrap();
@@ -112,11 +114,9 @@ fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &reader::TypeTr
     let output = child.wait_with_output().unwrap();
 
     if output.status.success() {
-        println!("{}", tree.namespace);
-        tokens = String::from_utf8(output.stdout).expect("Failed to parse UTF-8");
+        println!("{}", namespace);
+        *tokens = String::from_utf8(output.stdout).expect("Failed to parse UTF-8");
     } else {
-        println!("** {} - rustfmt failed", tree.namespace);
+        println!("** {} - rustfmt failed", namespace);
     }
-
-    std::fs::write(&path, tokens).unwrap();
 }
