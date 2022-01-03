@@ -1,5 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CLSID_XMLGraphBuilder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bb05961_5fbf_11d2_a521_44df07c10000);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_XMLGraphBuilder ) , guid : :: windows :: core :: GUID::from_u128(0x1bb05961_5fbf_11d2_a521_44df07c10000) , } }
 #[doc = "*Required features: 'Win32_Media_DirectShow_Xml'*"]
 #[repr(transparent)]
 pub struct IXMLGraphBuilder(::windows::core::IUnknown);

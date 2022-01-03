@@ -178,16 +178,26 @@ pub struct IWCNDeviceVtbl(
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectNow', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_WCN_DeviceType_Category: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x88190b8b_4684_11da_a26a_0002b3988e81), pid: 16u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_WCN_DeviceType_Category ) , guid : :: windows :: core :: GUID::from_u128(0x88190b8b_4684_11da_a26a_0002b3988e81) , } }
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectNow', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_WCN_DeviceType_SubCategory: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x88190b8b_4684_11da_a26a_0002b3988e81), pid: 18u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_WCN_DeviceType_SubCategory ) , guid : :: windows :: core :: GUID::from_u128(0x88190b8b_4684_11da_a26a_0002b3988e81) , } }
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectNow', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_WCN_DeviceType_SubCategoryOUI: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x88190b8b_4684_11da_a26a_0002b3988e81), pid: 17u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_WCN_DeviceType_SubCategoryOUI ) , guid : :: windows :: core :: GUID::from_u128(0x88190b8b_4684_11da_a26a_0002b3988e81) , } }
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectNow', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_WCN_SSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x88190b8b_4684_11da_a26a_0002b3988e81), pid: 32u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_WCN_SSID ) , guid : :: windows :: core :: GUID::from_u128(0x88190b8b_4684_11da_a26a_0002b3988e81) , } }
 pub const SID_WcnProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc100beca_d33a_4a4b_bf23_bbef4663d017);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SID_WcnProvider ) , guid : :: windows :: core :: GUID::from_u128(0xc100beca_d33a_4a4b_bf23_bbef4663d017) , } }
 pub const WCNDeviceObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc100bea7_d33a_4a4b_bf23_bbef4663d017);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectNow'*"]
 pub const WCN_API_MAX_BUFFER_SIZE: u32 = 2096u32;

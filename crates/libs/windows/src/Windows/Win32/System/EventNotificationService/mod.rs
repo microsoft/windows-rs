@@ -647,12 +647,26 @@ impl ::core::default::Default for QOCINFO {
 }
 pub const SENS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd597cafe_5b9f_11d1_8dd2_00aa004abd5e);
 pub const SENSGUID_EVENTCLASS_LOGON: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5978630_5b9f_11d1_8dd2_00aa004abd5e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SENSGUID_EVENTCLASS_LOGON ) , guid : :: windows :: core :: GUID::from_u128(0xd5978630_5b9f_11d1_8dd2_00aa004abd5e) , } }
 pub const SENSGUID_EVENTCLASS_LOGON2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5978650_5b9f_11d1_8dd2_00aa004abd5e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SENSGUID_EVENTCLASS_LOGON2 ) , guid : :: windows :: core :: GUID::from_u128(0xd5978650_5b9f_11d1_8dd2_00aa004abd5e) , } }
 pub const SENSGUID_EVENTCLASS_NETWORK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5978620_5b9f_11d1_8dd2_00aa004abd5e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SENSGUID_EVENTCLASS_NETWORK ) , guid : :: windows :: core :: GUID::from_u128(0xd5978620_5b9f_11d1_8dd2_00aa004abd5e) , } }
 pub const SENSGUID_EVENTCLASS_ONNOW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5978640_5b9f_11d1_8dd2_00aa004abd5e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SENSGUID_EVENTCLASS_ONNOW ) , guid : :: windows :: core :: GUID::from_u128(0xd5978640_5b9f_11d1_8dd2_00aa004abd5e) , } }
 pub const SENSGUID_PUBLISHER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fee1bd6_5b9b_11d1_8dd2_00aa004abd5e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SENSGUID_PUBLISHER ) , guid : :: windows :: core :: GUID::from_u128(0x5fee1bd6_5b9b_11d1_8dd2_00aa004abd5e) , } }
 pub const SENSGUID_SUBSCRIBER_LCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3938ab0_5b9d_11d1_8dd2_00aa004abd5e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SENSGUID_SUBSCRIBER_LCE ) , guid : :: windows :: core :: GUID::from_u128(0xd3938ab0_5b9d_11d1_8dd2_00aa004abd5e) , } }
 pub const SENSGUID_SUBSCRIBER_WININET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3938ab5_5b9d_11d1_8dd2_00aa004abd5e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SENSGUID_SUBSCRIBER_WININET ) , guid : :: windows :: core :: GUID::from_u128(0xd3938ab5_5b9d_11d1_8dd2_00aa004abd5e) , } }
 #[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
 pub type SENS_CONNECTION_TYPE = u32;
 #[doc = "*Required features: 'Win32_System_EventNotificationService'*"]

@@ -387,5 +387,11 @@ pub const SCE_LOG_LEVEL_DETAIL: SCE_LOG_ERR_LEVEL = 2u32;
 #[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
 pub const SCE_LOG_LEVEL_DEBUG: SCE_LOG_ERR_LEVEL = 3u32;
 pub const cNodetypeSceAnalysisServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x678050c7_1ff8_11d1_affb_00c04fb984f9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( cNodetypeSceAnalysisServices ) , guid : :: windows :: core :: GUID::from_u128(0x678050c7_1ff8_11d1_affb_00c04fb984f9) , } }
 pub const cNodetypeSceEventLog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ce06698_4bf3_11d1_8c30_00c04fb984f9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( cNodetypeSceEventLog ) , guid : :: windows :: core :: GUID::from_u128(0x2ce06698_4bf3_11d1_8c30_00c04fb984f9) , } }
 pub const cNodetypeSceTemplateServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24a7f717_1f0c_11d1_affb_00c04fb984f9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( cNodetypeSceTemplateServices ) , guid : :: windows :: core :: GUID::from_u128(0x24a7f717_1f0c_11d1_affb_00c04fb984f9) , } }

@@ -116,6 +116,8 @@ impl ::core::default::Default for EVENT_DATA_HEADER {
     }
 }
 pub const GUID_DEVINTERFACE_SIDESHOW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x152e5811_feb9_4b00_90f4_d32947ae1681);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_SIDESHOW ) , guid : :: windows :: core :: GUID::from_u128(0x152e5811_feb9_4b00_90f4_d32947ae1681) , } }
 #[doc = "*Required features: 'Win32_System_SideShow'*"]
 #[repr(transparent)]
 pub struct ISideShowBulkCapabilities(::windows::core::IUnknown);
@@ -1152,46 +1154,76 @@ impl ::core::default::Default for SCF_NAVIGATION_EVENT {
     }
 }
 pub const SIDESHOW_APPLICATION_EVENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cb572fa_1d3b_49b3_a17a_2e6bff052854);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SIDESHOW_APPLICATION_EVENT ) , guid : :: windows :: core :: GUID::from_u128(0x4cb572fa_1d3b_49b3_a17a_2e6bff052854) , } }
 #[doc = "*Required features: 'Win32_System_SideShow', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_CLIENT_AREA_HEIGHT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 16u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SIDESHOW_CAPABILITY_CLIENT_AREA_HEIGHT ) , guid : :: windows :: core :: GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99) , } }
 #[doc = "*Required features: 'Win32_System_SideShow', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_CLIENT_AREA_WIDTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 15u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SIDESHOW_CAPABILITY_CLIENT_AREA_WIDTH ) , guid : :: windows :: core :: GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99) , } }
 #[doc = "*Required features: 'Win32_System_SideShow', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_COLOR_DEPTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SIDESHOW_CAPABILITY_COLOR_DEPTH ) , guid : :: windows :: core :: GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99) , } }
 #[doc = "*Required features: 'Win32_System_SideShow', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_COLOR_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SIDESHOW_CAPABILITY_COLOR_TYPE ) , guid : :: windows :: core :: GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99) , } }
 #[doc = "*Required features: 'Win32_System_SideShow', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_CURRENT_LANGUAGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SIDESHOW_CAPABILITY_CURRENT_LANGUAGE ) , guid : :: windows :: core :: GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99) , } }
 #[doc = "*Required features: 'Win32_System_SideShow', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_DATA_CACHE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SIDESHOW_CAPABILITY_DATA_CACHE ) , guid : :: windows :: core :: GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99) , } }
 #[doc = "*Required features: 'Win32_System_SideShow', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_DEVICE_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 1u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SIDESHOW_CAPABILITY_DEVICE_ID ) , guid : :: windows :: core :: GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99) , } }
 pub const SIDESHOW_CAPABILITY_DEVICE_PROPERTIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SIDESHOW_CAPABILITY_DEVICE_PROPERTIES ) , guid : :: windows :: core :: GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99) , } }
 #[doc = "*Required features: 'Win32_System_SideShow', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_SCREEN_HEIGHT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SIDESHOW_CAPABILITY_SCREEN_HEIGHT ) , guid : :: windows :: core :: GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99) , } }
 #[doc = "*Required features: 'Win32_System_SideShow', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_SCREEN_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SIDESHOW_CAPABILITY_SCREEN_TYPE ) , guid : :: windows :: core :: GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99) , } }
 #[doc = "*Required features: 'Win32_System_SideShow', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_SCREEN_WIDTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SIDESHOW_CAPABILITY_SCREEN_WIDTH ) , guid : :: windows :: core :: GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99) , } }
 #[doc = "*Required features: 'Win32_System_SideShow', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_SUPPORTED_IMAGE_FORMATS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 14u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SIDESHOW_CAPABILITY_SUPPORTED_IMAGE_FORMATS ) , guid : :: windows :: core :: GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99) , } }
 #[doc = "*Required features: 'Win32_System_SideShow', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_SUPPORTED_LANGUAGES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SIDESHOW_CAPABILITY_SUPPORTED_LANGUAGES ) , guid : :: windows :: core :: GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99) , } }
 #[doc = "*Required features: 'Win32_System_SideShow', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_SUPPORTED_THEMES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SIDESHOW_CAPABILITY_SUPPORTED_THEMES ) , guid : :: windows :: core :: GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99) , } }
 #[doc = "*Required features: 'Win32_System_SideShow'*"]
 pub type SIDESHOW_COLOR_TYPE = i32;
 #[doc = "*Required features: 'Win32_System_SideShow'*"]
@@ -1201,13 +1233,21 @@ pub const SIDESHOW_COLOR_TYPE_GREYSCALE: SIDESHOW_COLOR_TYPE = 1i32;
 #[doc = "*Required features: 'Win32_System_SideShow'*"]
 pub const SIDESHOW_COLOR_TYPE_BLACK_AND_WHITE: SIDESHOW_COLOR_TYPE = 2i32;
 pub const SIDESHOW_CONTENT_MISSING_EVENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5007fba8_d313_439f_bea2_a50201d3e9a8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SIDESHOW_CONTENT_MISSING_EVENT ) , guid : :: windows :: core :: GUID::from_u128(0x5007fba8_d313_439f_bea2_a50201d3e9a8) , } }
 pub const SIDESHOW_ENDPOINT_ICAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4dff36b5_9dde_4f76_9a2a_96435047063d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SIDESHOW_ENDPOINT_ICAL ) , guid : :: windows :: core :: GUID::from_u128(0x4dff36b5_9dde_4f76_9a2a_96435047063d) , } }
 pub const SIDESHOW_ENDPOINT_SIMPLE_CONTENT_FORMAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9a5353f_2d4b_47ce_93ee_759f3a7dda4f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SIDESHOW_ENDPOINT_SIMPLE_CONTENT_FORMAT ) , guid : :: windows :: core :: GUID::from_u128(0xa9a5353f_2d4b_47ce_93ee_759f3a7dda4f) , } }
 #[doc = "*Required features: 'Win32_System_SideShow'*"]
 pub const SIDESHOW_EVENTID_APPLICATION_ENTER: u32 = 4294901760u32;
 #[doc = "*Required features: 'Win32_System_SideShow'*"]
 pub const SIDESHOW_EVENTID_APPLICATION_EXIT: u32 = 4294901761u32;
 pub const SIDESHOW_NEW_EVENT_DATA_AVAILABLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57813854_2fc1_411c_a59f_f24927608804);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SIDESHOW_NEW_EVENT_DATA_AVAILABLE ) , guid : :: windows :: core :: GUID::from_u128(0x57813854_2fc1_411c_a59f_f24927608804) , } }
 #[doc = "*Required features: 'Win32_System_SideShow'*"]
 pub type SIDESHOW_SCREEN_TYPE = i32;
 #[doc = "*Required features: 'Win32_System_SideShow'*"]
@@ -1215,6 +1255,8 @@ pub const SIDESHOW_SCREEN_TYPE_BITMAP: SIDESHOW_SCREEN_TYPE = 0i32;
 #[doc = "*Required features: 'Win32_System_SideShow'*"]
 pub const SIDESHOW_SCREEN_TYPE_TEXT: SIDESHOW_SCREEN_TYPE = 1i32;
 pub const SIDESHOW_USER_CHANGE_REQUEST_EVENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5009673c_3f7d_4c7e_9971_eaa2e91f1575);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SIDESHOW_USER_CHANGE_REQUEST_EVENT ) , guid : :: windows :: core :: GUID::from_u128(0x5009673c_3f7d_4c7e_9971_eaa2e91f1575) , } }
 pub const SideShowKeyCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfbbdbf8_18de_49b8_83dc_ebc727c62d94);
 pub const SideShowNotification: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ce3e86f_d5cd_4525_a766_1abab1a752f5);
 pub const SideShowPropVariantCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe640f415_539e_4923_96cd_5f093bc250cd);

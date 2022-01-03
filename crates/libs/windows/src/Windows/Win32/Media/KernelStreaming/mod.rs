@@ -361,12 +361,18 @@ impl ::core::default::Default for DEVCAPS {
 #[doc = "*Required features: 'Win32_Media_KernelStreaming', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_KsAudio_Controller_DeviceInterface_Path: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVPKEY_KsAudio_Controller_DeviceInterface_Path ) , guid : :: windows :: core :: GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87) , } }
 #[doc = "*Required features: 'Win32_Media_KernelStreaming', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_KsAudio_PacketSize_Constraints: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVPKEY_KsAudio_PacketSize_Constraints ) , guid : :: windows :: core :: GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87) , } }
 #[doc = "*Required features: 'Win32_Media_KernelStreaming', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_KsAudio_PacketSize_Constraints2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x9404f781_7191_409b_8b0b_80bf6ec229ae), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVPKEY_KsAudio_PacketSize_Constraints2 ) , guid : :: windows :: core :: GUID::from_u128(0x9404f781_7191_409b_8b0b_80bf6ec229ae) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
 pub struct DS3DVECTOR {

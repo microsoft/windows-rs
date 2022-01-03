@@ -15232,6 +15232,8 @@ pub const irbAlwaysRequiresReboot: InstallationRebootBehavior = 1i32;
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
 pub const irbCanRequestReboot: InstallationRebootBehavior = 2i32;
 pub const LIBID_WUApiLib: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb596cc9f_56e5_419e_a622_e01bb457431e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( LIBID_WUApiLib ) , guid : :: windows :: core :: GUID::from_u128(0xb596cc9f_56e5_419e_a622_e01bb457431e) , } }
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
 pub type OperationResultCode = i32;
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]

@@ -1,7 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CLSID_WMPMediaPluginRegistrar: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5569e7f5_424b_4b93_89ca_79d17924689a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_WMPMediaPluginRegistrar ) , guid : :: windows :: core :: GUID::from_u128(0x5569e7f5_424b_4b93_89ca_79d17924689a) , } }
 pub const CLSID_WMPSkinManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2a7fd52_301f_4348_b93a_638c6de49229);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_WMPSkinManager ) , guid : :: windows :: core :: GUID::from_u128(0xb2a7fd52_301f_4348_b93a_638c6de49229) , } }
 pub const CLSID_XFeedsManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe6b11c3_c72e_4061_86c6_9d163121f229);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_XFeedsManager ) , guid : :: windows :: core :: GUID::from_u128(0xfe6b11c3_c72e_4061_86c6_9d163121f229) , } }
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const DISPID_DELTA: u32 = 50u32;
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
@@ -19226,8 +19232,14 @@ pub const WMP_MDRT_FLAGS_UNREPORTED_ADDED_ITEMS: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const WMP_MDRT_FLAGS_UNREPORTED_DELETED_ITEMS: u32 = 1u32;
 pub const WMP_PLUGINTYPE_DSP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6434baea_4954_498d_abd5_2b07123e1f04);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMP_PLUGINTYPE_DSP ) , guid : :: windows :: core :: GUID::from_u128(0x6434baea_4954_498d_abd5_2b07123e1f04) , } }
 pub const WMP_PLUGINTYPE_DSP_OUTOFPROC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef29b174_c347_44cc_9a4f_2399118ff38c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMP_PLUGINTYPE_DSP_OUTOFPROC ) , guid : :: windows :: core :: GUID::from_u128(0xef29b174_c347_44cc_9a4f_2399118ff38c) , } }
 pub const WMP_PLUGINTYPE_RENDERING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8554541_115d_406a_a4c7_51111c330183);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMP_PLUGINTYPE_RENDERING ) , guid : :: windows :: core :: GUID::from_u128(0xa8554541_115d_406a_a4c7_51111c330183) , } }
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub struct WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
@@ -19285,79 +19297,227 @@ impl ::core::default::Default for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
     }
 }
 pub const WMProfile_V40_100Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f99ddd8_6684_456b_a0a3_33e1316895f0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V40_100Video ) , guid : :: windows :: core :: GUID::from_u128(0x8f99ddd8_6684_456b_a0a3_33e1316895f0) , } }
 pub const WMProfile_V40_128Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93ddbe12_13dc_4e32_a35e_40378e34279a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V40_128Audio ) , guid : :: windows :: core :: GUID::from_u128(0x93ddbe12_13dc_4e32_a35e_40378e34279a) , } }
 pub const WMProfile_V40_16AMRadio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f4be81f_d57d_41e1_b2e3_2fad986bfec2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V40_16AMRadio ) , guid : :: windows :: core :: GUID::from_u128(0x0f4be81f_d57d_41e1_b2e3_2fad986bfec2) , } }
 pub const WMProfile_V40_1MBVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4482a4c_cc17_4b07_a94e_9818d5e0f13f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V40_1MBVideo ) , guid : :: windows :: core :: GUID::from_u128(0xb4482a4c_cc17_4b07_a94e_9818d5e0f13f) , } }
 pub const WMProfile_V40_250Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x541841c3_9339_4f7b_9a22_b11540894e42);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V40_250Video ) , guid : :: windows :: core :: GUID::from_u128(0x541841c3_9339_4f7b_9a22_b11540894e42) , } }
 pub const WMProfile_V40_2856100MBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a1c2206_dc5e_4186_beb2_4c5a994b132e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V40_2856100MBR ) , guid : :: windows :: core :: GUID::from_u128(0x5a1c2206_dc5e_4186_beb2_4c5a994b132e) , } }
 pub const WMProfile_V40_288FMRadioMono: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fa57fc8_6ea4_4645_8abf_b6e5a8f814a1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V40_288FMRadioMono ) , guid : :: windows :: core :: GUID::from_u128(0x7fa57fc8_6ea4_4645_8abf_b6e5a8f814a1) , } }
 pub const WMProfile_V40_288FMRadioStereo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22fcf466_aa40_431f_a289_06d0ea1a1e40);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V40_288FMRadioStereo ) , guid : :: windows :: core :: GUID::from_u128(0x22fcf466_aa40_431f_a289_06d0ea1a1e40) , } }
 pub const WMProfile_V40_288VideoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac617f2d_6cbe_4e84_8e9a_ce151a12a354);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V40_288VideoAudio ) , guid : :: windows :: core :: GUID::from_u128(0xac617f2d_6cbe_4e84_8e9a_ce151a12a354) , } }
 pub const WMProfile_V40_288VideoVoice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb2bc274_0eb6_4da9_b550_ecf7f2b9948f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V40_288VideoVoice ) , guid : :: windows :: core :: GUID::from_u128(0xbb2bc274_0eb6_4da9_b550_ecf7f2b9948f) , } }
 pub const WMProfile_V40_288VideoWebServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabf2f00d_d555_4815_94ce_8275f3a70bfe);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V40_288VideoWebServer ) , guid : :: windows :: core :: GUID::from_u128(0xabf2f00d_d555_4815_94ce_8275f3a70bfe) , } }
 pub const WMProfile_V40_3MBVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55374ac0_309b_4396_b88f_e6e292113f28);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V40_3MBVideo ) , guid : :: windows :: core :: GUID::from_u128(0x55374ac0_309b_4396_b88f_e6e292113f28) , } }
 pub const WMProfile_V40_512Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70440e6d_c4ef_4f84_8cd0_d5c28686e784);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V40_512Video ) , guid : :: windows :: core :: GUID::from_u128(0x70440e6d_c4ef_4f84_8cd0_d5c28686e784) , } }
 pub const WMProfile_V40_56DialUpStereo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8026f87_e905_4594_a3c7_00d00041d1d9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V40_56DialUpStereo ) , guid : :: windows :: core :: GUID::from_u128(0xe8026f87_e905_4594_a3c7_00d00041d1d9) , } }
 pub const WMProfile_V40_56DialUpVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe21713bb_652f_4dab_99de_71e04400270f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V40_56DialUpVideo ) , guid : :: windows :: core :: GUID::from_u128(0xe21713bb_652f_4dab_99de_71e04400270f) , } }
 pub const WMProfile_V40_56DialUpVideoWebServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb756ff10_520f_4749_a399_b780e2fc9250);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V40_56DialUpVideoWebServer ) , guid : :: windows :: core :: GUID::from_u128(0xb756ff10_520f_4749_a399_b780e2fc9250) , } }
 pub const WMProfile_V40_64Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4820b3f7_cbec_41dc_9391_78598714c8e5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V40_64Audio ) , guid : :: windows :: core :: GUID::from_u128(0x4820b3f7_cbec_41dc_9391_78598714c8e5) , } }
 pub const WMProfile_V40_6VoiceAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd508978a_11a0_4d15_b0da_acdc99d4f890);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V40_6VoiceAudio ) , guid : :: windows :: core :: GUID::from_u128(0xd508978a_11a0_4d15_b0da_acdc99d4f890) , } }
 pub const WMProfile_V40_96Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0efa0ee3_9e64_41e2_837f_3c0038f327ba);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V40_96Audio ) , guid : :: windows :: core :: GUID::from_u128(0x0efa0ee3_9e64_41e2_837f_3c0038f327ba) , } }
 pub const WMProfile_V40_DialUpMBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd7f47f1_72a6_45a4_80f0_3aecefc32c07);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V40_DialUpMBR ) , guid : :: windows :: core :: GUID::from_u128(0xfd7f47f1_72a6_45a4_80f0_3aecefc32c07) , } }
 pub const WMProfile_V40_IntranetMBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82cd3321_a94a_4ffc_9c2b_092c10ca16e7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V40_IntranetMBR ) , guid : :: windows :: core :: GUID::from_u128(0x82cd3321_a94a_4ffc_9c2b_092c10ca16e7) , } }
 pub const WMProfile_V70_100Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9f3c932_5ea9_4c6d_89b4_2686e515426e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_100Video ) , guid : :: windows :: core :: GUID::from_u128(0xd9f3c932_5ea9_4c6d_89b4_2686e515426e) , } }
 pub const WMProfile_V70_128Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc64cf5da_df45_40d3_8027_de698d68dc66);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_128Audio ) , guid : :: windows :: core :: GUID::from_u128(0xc64cf5da_df45_40d3_8027_de698d68dc66) , } }
 pub const WMProfile_V70_1500FilmContentVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6a5f6df_ee3f_434c_a433_523ce55f516b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_1500FilmContentVideo ) , guid : :: windows :: core :: GUID::from_u128(0xf6a5f6df_ee3f_434c_a433_523ce55f516b) , } }
 pub const WMProfile_V70_1500Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b89164a_5490_4686_9e37_5a80884e5146);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_1500Video ) , guid : :: windows :: core :: GUID::from_u128(0x0b89164a_5490_4686_9e37_5a80884e5146) , } }
 pub const WMProfile_V70_150VideoPDA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f472967_e3c6_4797_9694_f0304c5e2f17);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_150VideoPDA ) , guid : :: windows :: core :: GUID::from_u128(0x0f472967_e3c6_4797_9694_f0304c5e2f17) , } }
 pub const WMProfile_V70_2000Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa980124_bf10_4e4f_9afd_4329a7395cff);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_2000Video ) , guid : :: windows :: core :: GUID::from_u128(0xaa980124_bf10_4e4f_9afd_4329a7395cff) , } }
 pub const WMProfile_V70_225VideoPDA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf55ea573_4c02_42b5_9026_a8260c438a9f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_225VideoPDA ) , guid : :: windows :: core :: GUID::from_u128(0xf55ea573_4c02_42b5_9026_a8260c438a9f) , } }
 pub const WMProfile_V70_256Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafe69b3a_403f_4a1b_8007_0e21cfb3df84);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_256Video ) , guid : :: windows :: core :: GUID::from_u128(0xafe69b3a_403f_4a1b_8007_0e21cfb3df84) , } }
 pub const WMProfile_V70_2856100MBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07df7a25_3fe2_4a5b_8b1e_348b0721ca70);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_2856100MBR ) , guid : :: windows :: core :: GUID::from_u128(0x07df7a25_3fe2_4a5b_8b1e_348b0721ca70) , } }
 pub const WMProfile_V70_288FMRadioMono: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc012a833_a03b_44a5_96dc_ed95cc65582d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_288FMRadioMono ) , guid : :: windows :: core :: GUID::from_u128(0xc012a833_a03b_44a5_96dc_ed95cc65582d) , } }
 pub const WMProfile_V70_288FMRadioStereo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe96d67c9_1a39_4dc4_b900_b1184dc83620);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_288FMRadioStereo ) , guid : :: windows :: core :: GUID::from_u128(0xe96d67c9_1a39_4dc4_b900_b1184dc83620) , } }
 pub const WMProfile_V70_288VideoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58bba0ee_896a_4948_9953_85b736f83947);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_288VideoAudio ) , guid : :: windows :: core :: GUID::from_u128(0x58bba0ee_896a_4948_9953_85b736f83947) , } }
 pub const WMProfile_V70_288VideoVoice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb952f38e_7dbc_4533_a9ca_b00b1c6e9800);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_288VideoVoice ) , guid : :: windows :: core :: GUID::from_u128(0xb952f38e_7dbc_4533_a9ca_b00b1c6e9800) , } }
 pub const WMProfile_V70_288VideoWebServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70a32e2b_e2df_4ebd_9105_d9ca194a2d50);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_288VideoWebServer ) , guid : :: windows :: core :: GUID::from_u128(0x70a32e2b_e2df_4ebd_9105_d9ca194a2d50) , } }
 pub const WMProfile_V70_384Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3d45fbb_8782_44df_97c6_8678e2f9b13d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_384Video ) , guid : :: windows :: core :: GUID::from_u128(0xf3d45fbb_8782_44df_97c6_8678e2f9b13d) , } }
 pub const WMProfile_V70_56DialUpStereo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x674ee767_0949_4fac_875e_f4c9c292013b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_56DialUpStereo ) , guid : :: windows :: core :: GUID::from_u128(0x674ee767_0949_4fac_875e_f4c9c292013b) , } }
 pub const WMProfile_V70_56VideoWebServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdef99e40_57bc_4ab3_b2d1_b6e3caf64257);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_56VideoWebServer ) , guid : :: windows :: core :: GUID::from_u128(0xdef99e40_57bc_4ab3_b2d1_b6e3caf64257) , } }
 pub const WMProfile_V70_64Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb29cffc6_f131_41db_b5e8_99d8b0b945f4);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_64Audio ) , guid : :: windows :: core :: GUID::from_u128(0xb29cffc6_f131_41db_b5e8_99d8b0b945f4) , } }
 pub const WMProfile_V70_64AudioISDN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91dea458_9d60_4212_9c59_d40919c939e4);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_64AudioISDN ) , guid : :: windows :: core :: GUID::from_u128(0x91dea458_9d60_4212_9c59_d40919c939e4) , } }
 pub const WMProfile_V70_64VideoISDN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2b7a7e9_7b8e_4992_a1a1_068217a3b311);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_64VideoISDN ) , guid : :: windows :: core :: GUID::from_u128(0xc2b7a7e9_7b8e_4992_a1a1_068217a3b311) , } }
 pub const WMProfile_V70_6VoiceAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeaba9fbf_b64f_49b3_aa0c_73fbdd150ad0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_6VoiceAudio ) , guid : :: windows :: core :: GUID::from_u128(0xeaba9fbf_b64f_49b3_aa0c_73fbdd150ad0) , } }
 pub const WMProfile_V70_700FilmContentVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a747920_2449_4d76_99cb_fdb0c90484d4);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_700FilmContentVideo ) , guid : :: windows :: core :: GUID::from_u128(0x7a747920_2449_4d76_99cb_fdb0c90484d4) , } }
 pub const WMProfile_V70_768Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0326ebb6_f76e_4964_b0db_e729978d35ee);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_768Video ) , guid : :: windows :: core :: GUID::from_u128(0x0326ebb6_f76e_4964_b0db_e729978d35ee) , } }
 pub const WMProfile_V70_96Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9d4b819_16cc_4a59_9f37_693dbb0302d6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_96Audio ) , guid : :: windows :: core :: GUID::from_u128(0xa9d4b819_16cc_4a59_9f37_693dbb0302d6) , } }
 pub const WMProfile_V70_DialUpMBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b16e74b_4068_45b5_b80e_7bf8c80d2c2f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_DialUpMBR ) , guid : :: windows :: core :: GUID::from_u128(0x5b16e74b_4068_45b5_b80e_7bf8c80d2c2f) , } }
 pub const WMProfile_V70_IntranetMBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x045880dc_34b6_4ca9_a326_73557ed143f3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V70_IntranetMBR ) , guid : :: windows :: core :: GUID::from_u128(0x045880dc_34b6_4ca9_a326_73557ed143f3) , } }
 pub const WMProfile_V80_100768VideoMBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bdb5a0e_979e_47d3_9596_73b386392a55);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_100768VideoMBR ) , guid : :: windows :: core :: GUID::from_u128(0x5bdb5a0e_979e_47d3_9596_73b386392a55) , } }
 pub const WMProfile_V80_100Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2e300b4_c2d4_4fc0_b5dd_ecbd948dc0df);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_100Video ) , guid : :: windows :: core :: GUID::from_u128(0xa2e300b4_c2d4_4fc0_b5dd_ecbd948dc0df) , } }
 pub const WMProfile_V80_128StereoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x407b9450_8bdc_4ee5_88b8_6f527bd941f2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_128StereoAudio ) , guid : :: windows :: core :: GUID::from_u128(0x407b9450_8bdc_4ee5_88b8_6f527bd941f2) , } }
 pub const WMProfile_V80_1400NTSCVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x931d1bee_617a_4bcd_9905_ccd0786683ee);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_1400NTSCVideo ) , guid : :: windows :: core :: GUID::from_u128(0x931d1bee_617a_4bcd_9905_ccd0786683ee) , } }
 pub const WMProfile_V80_150VideoPDA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaee16dfa_2c14_4a2f_ad3f_a3034031784f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_150VideoPDA ) , guid : :: windows :: core :: GUID::from_u128(0xaee16dfa_2c14_4a2f_ad3f_a3034031784f) , } }
 pub const WMProfile_V80_255VideoPDA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfeedbcdf_3fac_4c93_ac0d_47941ec72c0b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_255VideoPDA ) , guid : :: windows :: core :: GUID::from_u128(0xfeedbcdf_3fac_4c93_ac0d_47941ec72c0b) , } }
 pub const WMProfile_V80_256Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbc75500_33d2_4466_b86b_122b201cc9ae);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_256Video ) , guid : :: windows :: core :: GUID::from_u128(0xbbc75500_33d2_4466_b86b_122b201cc9ae) , } }
 pub const WMProfile_V80_288100VideoMBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8722c69_2419_4b36_b4e0_6e17b60564e5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_288100VideoMBR ) , guid : :: windows :: core :: GUID::from_u128(0xd8722c69_2419_4b36_b4e0_6e17b60564e5) , } }
 pub const WMProfile_V80_28856VideoMBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd66920c4_c21f_4ec8_a0b4_95cf2bd57fc4);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_28856VideoMBR ) , guid : :: windows :: core :: GUID::from_u128(0xd66920c4_c21f_4ec8_a0b4_95cf2bd57fc4) , } }
 pub const WMProfile_V80_288MonoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ea3126d_e1ba_4716_89af_f65cee0c0c67);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_288MonoAudio ) , guid : :: windows :: core :: GUID::from_u128(0x7ea3126d_e1ba_4716_89af_f65cee0c0c67) , } }
 pub const WMProfile_V80_288StereoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e4cab5c_35dc_45bb_a7c0_19b28070d0cc);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_288StereoAudio ) , guid : :: windows :: core :: GUID::from_u128(0x7e4cab5c_35dc_45bb_a7c0_19b28070d0cc) , } }
 pub const WMProfile_V80_288Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3df678d9_1352_4186_bbf8_74f0c19b6ae2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_288Video ) , guid : :: windows :: core :: GUID::from_u128(0x3df678d9_1352_4186_bbf8_74f0c19b6ae2) , } }
 pub const WMProfile_V80_288VideoOnly: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c45b4c7_4aeb_4f78_a5ec_88420b9dadef);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_288VideoOnly ) , guid : :: windows :: core :: GUID::from_u128(0x8c45b4c7_4aeb_4f78_a5ec_88420b9dadef) , } }
 pub const WMProfile_V80_32StereoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60907f9f_b352_47e5_b210_0ef1f47e9f9d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_32StereoAudio ) , guid : :: windows :: core :: GUID::from_u128(0x60907f9f_b352_47e5_b210_0ef1f47e9f9d) , } }
 pub const WMProfile_V80_384PALVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9227c692_ae62_4f72_a7ea_736062d0e21e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_384PALVideo ) , guid : :: windows :: core :: GUID::from_u128(0x9227c692_ae62_4f72_a7ea_736062d0e21e) , } }
 pub const WMProfile_V80_384Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29b00c2b_09a9_48bd_ad09_cdae117d1da7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_384Video ) , guid : :: windows :: core :: GUID::from_u128(0x29b00c2b_09a9_48bd_ad09_cdae117d1da7) , } }
 pub const WMProfile_V80_48StereoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ee06be5_492b_480a_8a8f_12f373ecf9d4);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_48StereoAudio ) , guid : :: windows :: core :: GUID::from_u128(0x5ee06be5_492b_480a_8a8f_12f373ecf9d4) , } }
 pub const WMProfile_V80_56Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x254e8a96_2612_405c_8039_f0bf725ced7d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_56Video ) , guid : :: windows :: core :: GUID::from_u128(0x254e8a96_2612_405c_8039_f0bf725ced7d) , } }
 pub const WMProfile_V80_56VideoOnly: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e2a6955_81df_4943_ba50_68a986a708f6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_56VideoOnly ) , guid : :: windows :: core :: GUID::from_u128(0x6e2a6955_81df_4943_ba50_68a986a708f6) , } }
 pub const WMProfile_V80_64StereoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09bb5bc4_3176_457f_8dd6_3cd919123e2d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_64StereoAudio ) , guid : :: windows :: core :: GUID::from_u128(0x09bb5bc4_3176_457f_8dd6_3cd919123e2d) , } }
 pub const WMProfile_V80_700NTSCVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8c2985f_e5d9_4538_9e23_9b21bf78f745);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_700NTSCVideo ) , guid : :: windows :: core :: GUID::from_u128(0xc8c2985f_e5d9_4538_9e23_9b21bf78f745) , } }
 pub const WMProfile_V80_700PALVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec298949_639b_45e2_96fd_4ab32d5919c2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_700PALVideo ) , guid : :: windows :: core :: GUID::from_u128(0xec298949_639b_45e2_96fd_4ab32d5919c2) , } }
 pub const WMProfile_V80_768Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74d01102_e71a_4820_8f0d_13d2ec1e4872);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_768Video ) , guid : :: windows :: core :: GUID::from_u128(0x74d01102_e71a_4820_8f0d_13d2ec1e4872) , } }
 pub const WMProfile_V80_96StereoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fc81930_61f2_436f_9d33_349f2a1c0f10);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_96StereoAudio ) , guid : :: windows :: core :: GUID::from_u128(0x1fc81930_61f2_436f_9d33_349f2a1c0f10) , } }
 pub const WMProfile_V80_BESTVBRVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x048439ba_309c_440e_9cb4_3dcca3756423);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_BESTVBRVideo ) , guid : :: windows :: core :: GUID::from_u128(0x048439ba_309c_440e_9cb4_3dcca3756423) , } }
 pub const WMProfile_V80_FAIRVBRVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3510a862_5850_4886_835f_d78ec6a64042);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_FAIRVBRVideo ) , guid : :: windows :: core :: GUID::from_u128(0x3510a862_5850_4886_835f_d78ec6a64042) , } }
 pub const WMProfile_V80_HIGHVBRVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f10d9d3_3b04_4fb0_a3d3_88d4ac854acc);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMProfile_V80_HIGHVBRVideo ) , guid : :: windows :: core :: GUID::from_u128(0x0f10d9d3_3b04_4fb0_a3d3_88d4ac854acc) , } }
 pub const WindowsMediaPlayer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf52a52_394a_11d3_b153_00c04f79faa6);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]

@@ -220,18 +220,44 @@ pub const FILE_DEVICE_USB_SCAN: u32 = 32768u32;
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const FullSpeed: u32 = 2u32;
 pub const GUID_DEVINTERFACE_USB_BILLBOARD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e9adaef_f879_473f_b807_4e5ea77d1b1c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_USB_BILLBOARD ) , guid : :: windows :: core :: GUID::from_u128(0x5e9adaef_f879_473f_b807_4e5ea77d1b1c) , } }
 pub const GUID_DEVINTERFACE_USB_DEVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5dcbf10_6530_11d2_901f_00c04fb951ed);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_USB_DEVICE ) , guid : :: windows :: core :: GUID::from_u128(0xa5dcbf10_6530_11d2_901f_00c04fb951ed) , } }
 pub const GUID_DEVINTERFACE_USB_HOST_CONTROLLER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3abf6f2d_71c4_462a_8a92_1e6861e6af27);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_USB_HOST_CONTROLLER ) , guid : :: windows :: core :: GUID::from_u128(0x3abf6f2d_71c4_462a_8a92_1e6861e6af27) , } }
 pub const GUID_DEVINTERFACE_USB_HUB: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf18a0e88_c30c_11d0_8815_00a0c906bed8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_USB_HUB ) , guid : :: windows :: core :: GUID::from_u128(0xf18a0e88_c30c_11d0_8815_00a0c906bed8) , } }
 pub const GUID_USB_MSOS20_PLATFORM_CAPABILITY_ID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8dd60df_4589_4cc7_9cd2_659d9e648a9f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_USB_MSOS20_PLATFORM_CAPABILITY_ID ) , guid : :: windows :: core :: GUID::from_u128(0xd8dd60df_4589_4cc7_9cd2_659d9e648a9f) , } }
 pub const GUID_USB_PERFORMANCE_TRACING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5de77a6_6ae9_425c_b1e2_f5615fd348a9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_USB_PERFORMANCE_TRACING ) , guid : :: windows :: core :: GUID::from_u128(0xd5de77a6_6ae9_425c_b1e2_f5615fd348a9) , } }
 pub const GUID_USB_TRANSFER_TRACING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x681eb8aa_403d_452c_9f8a_f0616fac9540);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_USB_TRANSFER_TRACING ) , guid : :: windows :: core :: GUID::from_u128(0x681eb8aa_403d_452c_9f8a_f0616fac9540) , } }
 pub const GUID_USB_WMI_DEVICE_PERF_INFO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66c1aa3c_499f_49a0_a9a5_61e2359f6407);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_USB_WMI_DEVICE_PERF_INFO ) , guid : :: windows :: core :: GUID::from_u128(0x66c1aa3c_499f_49a0_a9a5_61e2359f6407) , } }
 pub const GUID_USB_WMI_NODE_INFO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c179357_dc7a_4f41_b66b_323b9ddcb5b1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_USB_WMI_NODE_INFO ) , guid : :: windows :: core :: GUID::from_u128(0x9c179357_dc7a_4f41_b66b_323b9ddcb5b1) , } }
 pub const GUID_USB_WMI_STD_DATA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e623b20_cb14_11d1_b331_00a0c959bbd2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_USB_WMI_STD_DATA ) , guid : :: windows :: core :: GUID::from_u128(0x4e623b20_cb14_11d1_b331_00a0c959bbd2) , } }
 pub const GUID_USB_WMI_STD_NOTIFICATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e623b20_cb14_11d1_b331_00a0c959bbd2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_USB_WMI_STD_NOTIFICATION ) , guid : :: windows :: core :: GUID::from_u128(0x4e623b20_cb14_11d1_b331_00a0c959bbd2) , } }
 pub const GUID_USB_WMI_SURPRISE_REMOVAL_NOTIFICATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bbbf831_a2f2_43b4_96d1_86944b5914b3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_USB_WMI_SURPRISE_REMOVAL_NOTIFICATION ) , guid : :: windows :: core :: GUID::from_u128(0x9bbbf831_a2f2_43b4_96d1_86944b5914b3) , } }
 pub const GUID_USB_WMI_TRACING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a61881b_b4e6_4bf9_ae0f_3cd8f394e52f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_USB_WMI_TRACING ) , guid : :: windows :: core :: GUID::from_u128(0x3a61881b_b4e6_4bf9_ae0f_3cd8f394e52f) , } }
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const HCD_DIAGNOSTIC_MODE_OFF: u32 = 257u32;
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -5908,6 +5934,8 @@ pub const WMI_USB_PERFORMANCE_INFORMATION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const WMI_USB_POWER_DEVICE_ENABLE: u32 = 2u32;
 pub const WinUSB_TestGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda812bff_12c3_46a2_8e2b_dbd3b7834c43);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WinUSB_TestGuid ) , guid : :: windows :: core :: GUID::from_u128(0xda812bff_12c3_46a2_8e2b_dbd3b7834c43) , } }
 #[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

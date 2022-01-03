@@ -359,12 +359,26 @@ pub const CI_S_NEW_AUXMETADATA: ::windows::core::HRESULT = ::windows::core::HRES
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CI_S_RETRY_DOCUMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(268332i32);
 pub const CLSID_DataShapeProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3449a1c8_c56c_11d0_ad72_00c04fc29863);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_DataShapeProvider ) , guid : :: windows :: core :: GUID::from_u128(0x3449a1c8_c56c_11d0_ad72_00c04fc29863) , } }
 pub const CLSID_MSDASQL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8b522cb_5cf3_11ce_ade5_00aa0044773d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_MSDASQL ) , guid : :: windows :: core :: GUID::from_u128(0xc8b522cb_5cf3_11ce_ade5_00aa0044773d) , } }
 pub const CLSID_MSDASQL_ENUMERATOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8b522cd_5cf3_11ce_ade5_00aa0044773d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_MSDASQL_ENUMERATOR ) , guid : :: windows :: core :: GUID::from_u128(0xc8b522cd_5cf3_11ce_ade5_00aa0044773d) , } }
 pub const CLSID_MSPersist: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c07e0d0_4418_11d2_9212_00c04fbbbfb3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_MSPersist ) , guid : :: windows :: core :: GUID::from_u128(0x7c07e0d0_4418_11d2_9212_00c04fbbbfb3) , } }
 pub const CLSID_SQLOLEDB: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c7ff16c_38e3_11d0_97ab_00c04fc2ad98);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_SQLOLEDB ) , guid : :: windows :: core :: GUID::from_u128(0x0c7ff16c_38e3_11d0_97ab_00c04fc2ad98) , } }
 pub const CLSID_SQLOLEDB_ENUMERATOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfa22b8e_e68d_11d0_97e4_00c04fc2ad98);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_SQLOLEDB_ENUMERATOR ) , guid : :: windows :: core :: GUID::from_u128(0xdfa22b8e_e68d_11d0_97e4_00c04fc2ad98) , } }
 pub const CLSID_SQLOLEDB_ERROR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0932c62_38e5_11d0_97ab_00c04fc2ad98);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_SQLOLEDB_ERROR ) , guid : :: windows :: core :: GUID::from_u128(0xc0932c62_38e5_11d0_97ab_00c04fc2ad98) , } }
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub type CLUSION_REASON = i32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -1873,7 +1887,11 @@ impl ::core::default::Default for DBFAILUREINFO {
     }
 }
 pub const DBGUID_MSSQLXML: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d531cb2_e6ed_11d2_b252_00c04f681b71);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DBGUID_MSSQLXML ) , guid : :: windows :: core :: GUID::from_u128(0x5d531cb2_e6ed_11d2_b252_00c04f681b71) , } }
 pub const DBGUID_XPATH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec2a4293_e898_11d2_b1b7_00c04f680c56);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DBGUID_XPATH ) , guid : :: windows :: core :: GUID::from_u128(0xec2a4293_e898_11d2_b1b7_00c04f680c56) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -3647,22 +3665,56 @@ impl ::core::default::Default for DBPROPSET {
     }
 }
 pub const DBPROPSET_MSDAORA8_ROWSET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f06a375_dd6a_43db_b4e0_1fc121e5e62b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DBPROPSET_MSDAORA8_ROWSET ) , guid : :: windows :: core :: GUID::from_u128(0x7f06a375_dd6a_43db_b4e0_1fc121e5e62b) , } }
 pub const DBPROPSET_MSDAORA_ROWSET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8cc4cbd_fdff_11d0_b865_00a0c9081c1d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DBPROPSET_MSDAORA_ROWSET ) , guid : :: windows :: core :: GUID::from_u128(0xe8cc4cbd_fdff_11d0_b865_00a0c9081c1d) , } }
 pub const DBPROPSET_MSDSDBINIT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55cb91a8_5c7a_11d1_adad_00c04fc29863);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DBPROPSET_MSDSDBINIT ) , guid : :: windows :: core :: GUID::from_u128(0x55cb91a8_5c7a_11d1_adad_00c04fc29863) , } }
 pub const DBPROPSET_MSDSSESSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedf17536_afbf_11d1_8847_0000f879f98c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DBPROPSET_MSDSSESSION ) , guid : :: windows :: core :: GUID::from_u128(0xedf17536_afbf_11d1_8847_0000f879f98c) , } }
 pub const DBPROPSET_PERSIST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d7839a0_5b8e_11d1_a6b3_00a0c9138c66);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DBPROPSET_PERSIST ) , guid : :: windows :: core :: GUID::from_u128(0x4d7839a0_5b8e_11d1_a6b3_00a0c9138c66) , } }
 pub const DBPROPSET_PROVIDERCONNATTR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x497c60e4_7123_11cf_b171_00aa0057599e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DBPROPSET_PROVIDERCONNATTR ) , guid : :: windows :: core :: GUID::from_u128(0x497c60e4_7123_11cf_b171_00aa0057599e) , } }
 pub const DBPROPSET_PROVIDERDATASOURCEINFO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x497c60e0_7123_11cf_b171_00aa0057599e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DBPROPSET_PROVIDERDATASOURCEINFO ) , guid : :: windows :: core :: GUID::from_u128(0x497c60e0_7123_11cf_b171_00aa0057599e) , } }
 pub const DBPROPSET_PROVIDERDBINIT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x497c60e2_7123_11cf_b171_00aa0057599e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DBPROPSET_PROVIDERDBINIT ) , guid : :: windows :: core :: GUID::from_u128(0x497c60e2_7123_11cf_b171_00aa0057599e) , } }
 pub const DBPROPSET_PROVIDERROWSET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x497c60e1_7123_11cf_b171_00aa0057599e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DBPROPSET_PROVIDERROWSET ) , guid : :: windows :: core :: GUID::from_u128(0x497c60e1_7123_11cf_b171_00aa0057599e) , } }
 pub const DBPROPSET_PROVIDERSTMTATTR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x497c60e3_7123_11cf_b171_00aa0057599e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DBPROPSET_PROVIDERSTMTATTR ) , guid : :: windows :: core :: GUID::from_u128(0x497c60e3_7123_11cf_b171_00aa0057599e) , } }
 pub const DBPROPSET_SQLSERVERCOLUMN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b63fb5e_3fbb_11d3_9f29_00c04f8ee9dc);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DBPROPSET_SQLSERVERCOLUMN ) , guid : :: windows :: core :: GUID::from_u128(0x3b63fb5e_3fbb_11d3_9f29_00c04f8ee9dc) , } }
 pub const DBPROPSET_SQLSERVERDATASOURCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28efaee4_2d2c_11d1_9807_00c04fc2ad98);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DBPROPSET_SQLSERVERDATASOURCE ) , guid : :: windows :: core :: GUID::from_u128(0x28efaee4_2d2c_11d1_9807_00c04fc2ad98) , } }
 pub const DBPROPSET_SQLSERVERDATASOURCEINFO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf10cb94_35f6_11d2_9c54_00c04f7971d3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DBPROPSET_SQLSERVERDATASOURCEINFO ) , guid : :: windows :: core :: GUID::from_u128(0xdf10cb94_35f6_11d2_9c54_00c04f7971d3) , } }
 pub const DBPROPSET_SQLSERVERDBINIT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cf4ca10_ef21_11d0_97e7_00c04fc2ad98);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DBPROPSET_SQLSERVERDBINIT ) , guid : :: windows :: core :: GUID::from_u128(0x5cf4ca10_ef21_11d0_97e7_00c04fc2ad98) , } }
 pub const DBPROPSET_SQLSERVERROWSET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cf4ca11_ef21_11d0_97e7_00c04fc2ad98);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DBPROPSET_SQLSERVERROWSET ) , guid : :: windows :: core :: GUID::from_u128(0x5cf4ca11_ef21_11d0_97e7_00c04fc2ad98) , } }
 pub const DBPROPSET_SQLSERVERSESSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28efaee5_2d2c_11d1_9807_00c04fc2ad98);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DBPROPSET_SQLSERVERSESSION ) , guid : :: windows :: core :: GUID::from_u128(0x28efaee5_2d2c_11d1_9807_00c04fc2ad98) , } }
 pub const DBPROPSET_SQLSERVERSTREAM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f79c073_8a6d_4bca_a8a8_c9b79a9b962d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DBPROPSET_SQLSERVERSTREAM ) , guid : :: windows :: core :: GUID::from_u128(0x9f79c073_8a6d_4bca_a8a8_c9b79a9b962d) , } }
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPROPSTATUSENUM = i32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -4230,6 +4282,8 @@ pub type DBROWSTATUSENUM20 = i32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWSTATUS_S_NOCHANGE: DBROWSTATUSENUM20 = 20i32;
 pub const DBSCHEMA_LINKEDSERVERS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9093caf4_2eac_11d1_9809_00c04fc2ad98);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DBSCHEMA_LINKEDSERVERS ) , guid : :: windows :: core :: GUID::from_u128(0x9093caf4_2eac_11d1_9809_00c04fc2ad98) , } }
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBSEEKENUM = i32;
 #[doc = "*Required features: 'Win32_System_Search'*"]

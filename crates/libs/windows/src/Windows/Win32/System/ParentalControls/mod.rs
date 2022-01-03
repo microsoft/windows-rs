@@ -939,6 +939,8 @@ pub const WPCFLAG_WEB_SETTING_NOTBLOCKED: WPCFLAG_WEB_SETTING = 0i32;
 #[doc = "*Required features: 'Win32_System_ParentalControls'*"]
 pub const WPCFLAG_WEB_SETTING_DOWNLOADSBLOCKED: WPCFLAG_WEB_SETTING = 1i32;
 pub const WPCPROV: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01090065_b467_4503_9b28_533766761087);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPCPROV ) , guid : :: windows :: core :: GUID::from_u128(0x01090065_b467_4503_9b28_533766761087) , } }
 #[doc = "*Required features: 'Win32_System_ParentalControls'*"]
 pub const WPCPROV_KEYWORD_ThirdParty: u32 = 32u32;
 #[doc = "*Required features: 'Win32_System_ParentalControls'*"]

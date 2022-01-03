@@ -32,6 +32,8 @@ impl ::core::default::Default for CLASSIC_EVENT_ID {
     }
 }
 pub const CLSID_TraceRelogger: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_TraceRelogger ) , guid : :: windows :: core :: GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4) , } }
 pub const CTraceRelogger: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 #[inline]
@@ -120,6 +122,8 @@ pub const DecodingSourceTlg: DECODING_SOURCE = 3i32;
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const DecodingSourceMax: DECODING_SOURCE = 4i32;
 pub const DefaultTraceSecurityGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0811c1af_7a07_4a06_82ed_869455cdf713);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DefaultTraceSecurityGuid ) , guid : :: windows :: core :: GUID::from_u128(0x0811c1af_7a07_4a06_82ed_869455cdf713) , } }
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type ENABLECALLBACK_ENABLED_STATE = u32;
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
@@ -3590,7 +3594,11 @@ pub unsafe fn EventSetInformation(reghandle: u64, informationclass: EVENT_INFO_C
     unimplemented!("Unsupported target OS");
 }
 pub const EventTraceConfigGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01853a65_418f_4f36_aefc_dc0f1d2fd235);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( EventTraceConfigGuid ) , guid : :: windows :: core :: GUID::from_u128(0x01853a65_418f_4f36_aefc_dc0f1d2fd235) , } }
 pub const EventTraceGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68fdd900_4a3e_11d1_84f4_0000f80464e3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( EventTraceGuid ) , guid : :: windows :: core :: GUID::from_u128(0x68fdd900_4a3e_11d1_84f4_0000f80464e3) , } }
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 #[inline]
 pub unsafe fn EventUnregister(reghandle: u64) -> u32 {
@@ -4488,6 +4496,8 @@ impl ::core::default::Default for PROVIDER_FILTER_INFO {
     }
 }
 pub const PrivateLoggerNotificationGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3595ab5c_042a_4c8e_b942_2d059bfeb1b1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PrivateLoggerNotificationGuid ) , guid : :: windows :: core :: GUID::from_u128(0x3595ab5c_042a_4c8e_b942_2d059bfeb1b1) , } }
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -4886,23 +4896,59 @@ pub unsafe fn StopTraceW<'a, Param1: ::windows::core::IntoParam<'a, super::super
     unimplemented!("Unsupported target OS");
 }
 pub const SystemAlpcProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcb9baaf_e529_4980_92e9_ced1a6aadfdf);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SystemAlpcProviderGuid ) , guid : :: windows :: core :: GUID::from_u128(0xfcb9baaf_e529_4980_92e9_ced1a6aadfdf) , } }
 pub const SystemConfigProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfef3a8b6_318d_4b67_a96a_3b0f6b8f18fe);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SystemConfigProviderGuid ) , guid : :: windows :: core :: GUID::from_u128(0xfef3a8b6_318d_4b67_a96a_3b0f6b8f18fe) , } }
 pub const SystemCpuProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6c5265f_eae8_4650_aae4_9d48603d8510);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SystemCpuProviderGuid ) , guid : :: windows :: core :: GUID::from_u128(0xc6c5265f_eae8_4650_aae4_9d48603d8510) , } }
 pub const SystemHypervisorProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbafa072a_918a_4bed_b622_bc152097098f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SystemHypervisorProviderGuid ) , guid : :: windows :: core :: GUID::from_u128(0xbafa072a_918a_4bed_b622_bc152097098f) , } }
 pub const SystemInterruptProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4bbee17_b545_4888_858b_744169015b25);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SystemInterruptProviderGuid ) , guid : :: windows :: core :: GUID::from_u128(0xd4bbee17_b545_4888_858b_744169015b25) , } }
 pub const SystemIoFilterProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbd09363_9e22_4661_b8bf_e7a34b535b8c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SystemIoFilterProviderGuid ) , guid : :: windows :: core :: GUID::from_u128(0xfbd09363_9e22_4661_b8bf_e7a34b535b8c) , } }
 pub const SystemIoProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d5c43e3_0f1c_4202_b817_174c0070dc79);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SystemIoProviderGuid ) , guid : :: windows :: core :: GUID::from_u128(0x3d5c43e3_0f1c_4202_b817_174c0070dc79) , } }
 pub const SystemLockProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x721ddfd3_dacc_4e1e_b26a_a2cb31d4705a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SystemLockProviderGuid ) , guid : :: windows :: core :: GUID::from_u128(0x721ddfd3_dacc_4e1e_b26a_a2cb31d4705a) , } }
 pub const SystemMemoryProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82958ca9_b6cd_47f8_a3a8_03ae85a4bc24);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SystemMemoryProviderGuid ) , guid : :: windows :: core :: GUID::from_u128(0x82958ca9_b6cd_47f8_a3a8_03ae85a4bc24) , } }
 pub const SystemObjectProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfebd7460_3d1d_47eb_af49_c9eeb1e146f2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SystemObjectProviderGuid ) , guid : :: windows :: core :: GUID::from_u128(0xfebd7460_3d1d_47eb_af49_c9eeb1e146f2) , } }
 pub const SystemPowerProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc134884a_32d5_4488_80e5_14ed7abb8269);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SystemPowerProviderGuid ) , guid : :: windows :: core :: GUID::from_u128(0xc134884a_32d5_4488_80e5_14ed7abb8269) , } }
 pub const SystemProcessProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x151f55dc_467d_471f_83b5_5f889d46ff66);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SystemProcessProviderGuid ) , guid : :: windows :: core :: GUID::from_u128(0x151f55dc_467d_471f_83b5_5f889d46ff66) , } }
 pub const SystemProfileProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfeb0324_1cee_496f_a409_2ac2b48a6322);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SystemProfileProviderGuid ) , guid : :: windows :: core :: GUID::from_u128(0xbfeb0324_1cee_496f_a409_2ac2b48a6322) , } }
 pub const SystemRegistryProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16156bd9_fab4_4cfa_a232_89d1099058e3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SystemRegistryProviderGuid ) , guid : :: windows :: core :: GUID::from_u128(0x16156bd9_fab4_4cfa_a232_89d1099058e3) , } }
 pub const SystemSchedulerProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x599a2a76_4d91_4910_9ac7_7d33f2e97a6c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SystemSchedulerProviderGuid ) , guid : :: windows :: core :: GUID::from_u128(0x599a2a76_4d91_4910_9ac7_7d33f2e97a6c) , } }
 pub const SystemSyscallProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x434286f7_6f1b_45bb_b37e_95f623046c7c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SystemSyscallProviderGuid ) , guid : :: windows :: core :: GUID::from_u128(0x434286f7_6f1b_45bb_b37e_95f623046c7c) , } }
 pub const SystemTimerProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f061568_e215_499f_ab2e_eda0ae890a5b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SystemTimerProviderGuid ) , guid : :: windows :: core :: GUID::from_u128(0x4f061568_e215_499f_ab2e_eda0ae890a5b) , } }
 pub const SystemTraceControlGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e814aad_3204_11d2_9a82_006008a86939);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SystemTraceControlGuid ) , guid : :: windows :: core :: GUID::from_u128(0x9e814aad_3204_11d2_9a82_006008a86939) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct TDH_CONTEXT {

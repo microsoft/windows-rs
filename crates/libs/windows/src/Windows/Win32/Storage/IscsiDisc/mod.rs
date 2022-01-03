@@ -5173,6 +5173,8 @@ impl ::core::default::Default for STORAGE_FIRMWARE_SLOT_INFO_V2 {
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
 pub const STORAGE_FIRMWARE_SLOT_INFO_V2_REVISION_LENGTH: u32 = 16u32;
 pub const ScsiRawInterfaceGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f56309_b6bf_11d0_94f2_00a0c91efb8b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( ScsiRawInterfaceGuid ) , guid : :: windows :: core :: GUID::from_u128(0x53f56309_b6bf_11d0_94f2_00a0c91efb8b) , } }
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
 #[inline]
 pub unsafe fn SendScsiInquiry(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, lun: u64, evpdcmddt: u8, pagecode: u8, scsistatus: *mut u8, responsesize: *mut u32, responsebuffer: *mut u8, sensesize: *mut u32, sensebuffer: *mut u8) -> u32 {
@@ -5399,5 +5401,7 @@ pub const TargetFlags: TARGET_INFORMATION_CLASS = 6i32;
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
 pub const LoginOptions: TARGET_INFORMATION_CLASS = 7i32;
 pub const WmiScsiAddressGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f5630f_b6bf_11d0_94f2_00a0c91efb8b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WmiScsiAddressGuid ) , guid : :: windows :: core :: GUID::from_u128(0x53f5630f_b6bf_11d0_94f2_00a0c91efb8b) , } }
 #[repr(C)]
 pub struct _ADAPTER_OBJECT(pub u8);

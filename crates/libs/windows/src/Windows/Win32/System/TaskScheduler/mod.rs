@@ -1,6 +1,10 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CLSID_CTask: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x148bd520_a2ab_11ce_b11f_00aa00530503);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_CTask ) , guid : :: windows :: core :: GUID::from_u128(0x148bd520_a2ab_11ce_b11f_00aa00530503) , } }
 pub const CLSID_CTaskScheduler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x148bd52a_a2ab_11ce_b11f_00aa00530503);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_CTaskScheduler ) , guid : :: windows :: core :: GUID::from_u128(0x148bd52a_a2ab_11ce_b11f_00aa00530503) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub struct DAILY {

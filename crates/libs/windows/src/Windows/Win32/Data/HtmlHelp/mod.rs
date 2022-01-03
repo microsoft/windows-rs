@@ -1,18 +1,46 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CLSID_IITCmdInt: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4662daa2_d393_11d0_9a56_00c04fb68bf7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_IITCmdInt ) , guid : :: windows :: core :: GUID::from_u128(0x4662daa2_d393_11d0_9a56_00c04fb68bf7) , } }
 pub const CLSID_IITDatabase: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66673452_8c23_11d0_a84e_00aa006c7d01);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_IITDatabase ) , guid : :: windows :: core :: GUID::from_u128(0x66673452_8c23_11d0_a84e_00aa006c7d01) , } }
 pub const CLSID_IITDatabaseLocal: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4662daa9_d393_11d0_9a56_00c04fb68bf7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_IITDatabaseLocal ) , guid : :: windows :: core :: GUID::from_u128(0x4662daa9_d393_11d0_9a56_00c04fb68bf7) , } }
 pub const CLSID_IITGroupUpdate: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4662daa4_d393_11d0_9a56_00c04fb68bf7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_IITGroupUpdate ) , guid : :: windows :: core :: GUID::from_u128(0x4662daa4_d393_11d0_9a56_00c04fb68bf7) , } }
 pub const CLSID_IITIndexBuild: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5aa_dedf_11d0_9a61_00c04fb68bf7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_IITIndexBuild ) , guid : :: windows :: core :: GUID::from_u128(0x8fa0d5aa_dedf_11d0_9a61_00c04fb68bf7) , } }
 pub const CLSID_IITPropList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4662daae_d393_11d0_9a56_00c04fb68bf7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_IITPropList ) , guid : :: windows :: core :: GUID::from_u128(0x4662daae_d393_11d0_9a56_00c04fb68bf7) , } }
 pub const CLSID_IITResultSet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4662daa7_d393_11d0_9a56_00c04fb68bf7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_IITResultSet ) , guid : :: windows :: core :: GUID::from_u128(0x4662daa7_d393_11d0_9a56_00c04fb68bf7) , } }
 pub const CLSID_IITSvMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4662daa3_d393_11d0_9a56_00c04fb68bf7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_IITSvMgr ) , guid : :: windows :: core :: GUID::from_u128(0x4662daa3_d393_11d0_9a56_00c04fb68bf7) , } }
 pub const CLSID_IITWWFilterBuild: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5ab_dedf_11d0_9a61_00c04fb68bf7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_IITWWFilterBuild ) , guid : :: windows :: core :: GUID::from_u128(0x8fa0d5ab_dedf_11d0_9a61_00c04fb68bf7) , } }
 pub const CLSID_IITWordWheel: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd73725c2_8c12_11d0_a84e_00aa006c7d01);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_IITWordWheel ) , guid : :: windows :: core :: GUID::from_u128(0xd73725c2_8c12_11d0_a84e_00aa006c7d01) , } }
 pub const CLSID_IITWordWheelLocal: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4662daa8_d393_11d0_9a56_00c04fb68bf7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_IITWordWheelLocal ) , guid : :: windows :: core :: GUID::from_u128(0x4662daa8_d393_11d0_9a56_00c04fb68bf7) , } }
 pub const CLSID_IITWordWheelUpdate: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4662daa5_d393_11d0_9a56_00c04fb68bf7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_IITWordWheelUpdate ) , guid : :: windows :: core :: GUID::from_u128(0x4662daa5_d393_11d0_9a56_00c04fb68bf7) , } }
 pub const CLSID_ITEngStemmer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5a8_dedf_11d0_9a61_00c04fb68bf7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_ITEngStemmer ) , guid : :: windows :: core :: GUID::from_u128(0x8fa0d5a8_dedf_11d0_9a61_00c04fb68bf7) , } }
 pub const CLSID_ITStdBreaker: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4662daaf_d393_11d0_9a56_00c04fb68bf7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_ITStdBreaker ) , guid : :: windows :: core :: GUID::from_u128(0x4662daaf_d393_11d0_9a56_00c04fb68bf7) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub struct COLUMNSTATUS {

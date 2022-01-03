@@ -1,7 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const DXCORE_ADAPTER_ATTRIBUTE_D3D11_GRAPHICS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c47866b_7583_450d_f0f0_6bada895af4b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DXCORE_ADAPTER_ATTRIBUTE_D3D11_GRAPHICS ) , guid : :: windows :: core :: GUID::from_u128(0x8c47866b_7583_450d_f0f0_6bada895af4b) , } }
 pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_CORE_COMPUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x248e2800_a793_4724_abaa_23a6de1be090);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DXCORE_ADAPTER_ATTRIBUTE_D3D12_CORE_COMPUTE ) , guid : :: windows :: core :: GUID::from_u128(0x248e2800_a793_4724_abaa_23a6de1be090) , } }
 pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_GRAPHICS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c9ece4d_2f6e_4f01_8c96_e89e331b47b1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DXCORE_ADAPTER_ATTRIBUTE_D3D12_GRAPHICS ) , guid : :: windows :: core :: GUID::from_u128(0x0c9ece4d_2f6e_4f01_8c96_e89e331b47b1) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
 pub struct DXCoreAdapterMemoryBudget {

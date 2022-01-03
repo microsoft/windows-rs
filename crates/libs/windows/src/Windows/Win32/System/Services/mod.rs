@@ -1,5 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d7a2816_0c5e_45fc_9ce7_570e5ecde9c9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x2d7a2816_0c5e_45fc_9ce7_570e5ecde9c9) , } }
 #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
@@ -231,7 +233,11 @@ pub unsafe fn CreateServiceW<'a, Param0: ::windows::core::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 pub const DOMAIN_JOIN_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ce20aba_9851_4421_9430_1ddeb766e809);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DOMAIN_JOIN_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x1ce20aba_9851_4421_9430_1ddeb766e809) , } }
 pub const DOMAIN_LEAVE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddaf516e_58c2_4866_9574_c3b615d42ea1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DOMAIN_LEAVE_GUID ) , guid : :: windows :: core :: GUID::from_u128(0xddaf516e_58c2_4866_9574_c3b615d42ea1) , } }
 #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
@@ -532,7 +538,11 @@ pub unsafe fn EnumServicesStatusW<'a, Param0: ::windows::core::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 pub const FIREWALL_PORT_CLOSE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa144ed38_8e12_4de4_9d96_e64740b1a524);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( FIREWALL_PORT_CLOSE_GUID ) , guid : :: windows :: core :: GUID::from_u128(0xa144ed38_8e12_4de4_9d96_e64740b1a524) , } }
 pub const FIREWALL_PORT_OPEN_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7569e07_8421_4ee0_ad10_86915afdad09);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( FIREWALL_PORT_OPEN_GUID ) , guid : :: windows :: core :: GUID::from_u128(0xb7569e07_8421_4ee0_ad10_86915afdad09) , } }
 #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -683,9 +693,17 @@ pub unsafe fn LockServiceDatabase<'a, Param0: ::windows::core::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 pub const MACHINE_POLICY_PRESENT_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x659fcae6_5bdb_4da9_b1ff_ca2a178d46e0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( MACHINE_POLICY_PRESENT_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x659fcae6_5bdb_4da9_b1ff_ca2a178d46e0) , } }
 pub const NAMED_PIPE_EVENT_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f81d131_3fac_4537_9e0c_7e7b0c2f4b55);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( NAMED_PIPE_EVENT_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x1f81d131_3fac_4537_9e0c_7e7b0c2f4b55) , } }
 pub const NETWORK_MANAGER_FIRST_IP_ADDRESS_ARRIVAL_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f27f2de_14e2_430b_a549_7cd48cbc8245);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( NETWORK_MANAGER_FIRST_IP_ADDRESS_ARRIVAL_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x4f27f2de_14e2_430b_a549_7cd48cbc8245) , } }
 pub const NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc4ba62a_162e_4648_847a_b6bdf993e335);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID ) , guid : :: windows :: core :: GUID::from_u128(0xcc4ba62a_162e_4648_847a_b6bdf993e335) , } }
 #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1118,6 +1136,8 @@ pub unsafe fn QueryServiceStatusEx<'a, Param0: ::windows::core::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 pub const RPC_INTERFACE_EVENT_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc90d167_9470_4139_a9ba_be0bbbf5b74d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( RPC_INTERFACE_EVENT_GUID ) , guid : :: windows :: core :: GUID::from_u128(0xbc90d167_9470_4139_a9ba_be0bbbf5b74d) , } }
 #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2783,6 +2803,8 @@ pub unsafe fn StartServiceW<'a, Param0: ::windows::core::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 pub const USER_POLICY_PRESENT_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54fb46c8_f089_464c_b1fd_59d1b62c3b50);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( USER_POLICY_PRESENT_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x54fb46c8_f089_464c_b1fd_59d1b62c3b50) , } }
 #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

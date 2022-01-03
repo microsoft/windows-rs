@@ -651,73 +651,209 @@ pub unsafe fn AuditSetSystemPolicy(pauditpolicy: *const AUDIT_POLICY_INFORMATION
     unimplemented!("Unsupported target OS");
 }
 pub const Audit_AccountLogon: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69979850_797a_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_AccountLogon ) , guid : :: windows :: core :: GUID::from_u128(0x69979850_797a_11d9_bed3_505054503030) , } }
 pub const Audit_AccountLogon_CredentialValidation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce923f_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_AccountLogon_CredentialValidation ) , guid : :: windows :: core :: GUID::from_u128(0x0cce923f_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_AccountLogon_KerbCredentialValidation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9242_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_AccountLogon_KerbCredentialValidation ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9242_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_AccountLogon_Kerberos: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9240_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_AccountLogon_Kerberos ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9240_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_AccountLogon_Others: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9241_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_AccountLogon_Others ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9241_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_AccountManagement: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6997984e_797a_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_AccountManagement ) , guid : :: windows :: core :: GUID::from_u128(0x6997984e_797a_11d9_bed3_505054503030) , } }
 pub const Audit_AccountManagement_ApplicationGroup: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9239_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_AccountManagement_ApplicationGroup ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9239_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_AccountManagement_ComputerAccount: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9236_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_AccountManagement_ComputerAccount ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9236_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_AccountManagement_DistributionGroup: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9238_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_AccountManagement_DistributionGroup ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9238_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_AccountManagement_Others: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce923a_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_AccountManagement_Others ) , guid : :: windows :: core :: GUID::from_u128(0x0cce923a_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_AccountManagement_SecurityGroup: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9237_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_AccountManagement_SecurityGroup ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9237_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_AccountManagement_UserAccount: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9235_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_AccountManagement_UserAccount ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9235_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_DSAccess_DSAccess: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce923b_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_DSAccess_DSAccess ) , guid : :: windows :: core :: GUID::from_u128(0x0cce923b_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_DetailedTracking: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6997984c_797a_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_DetailedTracking ) , guid : :: windows :: core :: GUID::from_u128(0x6997984c_797a_11d9_bed3_505054503030) , } }
 pub const Audit_DetailedTracking_DpapiActivity: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce922d_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_DetailedTracking_DpapiActivity ) , guid : :: windows :: core :: GUID::from_u128(0x0cce922d_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_DetailedTracking_PnpActivity: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9248_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_DetailedTracking_PnpActivity ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9248_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_DetailedTracking_ProcessCreation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce922b_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_DetailedTracking_ProcessCreation ) , guid : :: windows :: core :: GUID::from_u128(0x0cce922b_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_DetailedTracking_ProcessTermination: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce922c_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_DetailedTracking_ProcessTermination ) , guid : :: windows :: core :: GUID::from_u128(0x0cce922c_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_DetailedTracking_RpcCall: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce922e_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_DetailedTracking_RpcCall ) , guid : :: windows :: core :: GUID::from_u128(0x0cce922e_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_DetailedTracking_TokenRightAdjusted: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce924a_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_DetailedTracking_TokenRightAdjusted ) , guid : :: windows :: core :: GUID::from_u128(0x0cce924a_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_DirectoryServiceAccess: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6997984f_797a_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_DirectoryServiceAccess ) , guid : :: windows :: core :: GUID::from_u128(0x6997984f_797a_11d9_bed3_505054503030) , } }
 pub const Audit_DsAccess_AdAuditChanges: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce923c_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_DsAccess_AdAuditChanges ) , guid : :: windows :: core :: GUID::from_u128(0x0cce923c_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_Ds_DetailedReplication: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce923e_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_Ds_DetailedReplication ) , guid : :: windows :: core :: GUID::from_u128(0x0cce923e_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_Ds_Replication: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce923d_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_Ds_Replication ) , guid : :: windows :: core :: GUID::from_u128(0x0cce923d_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_Logon: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69979849_797a_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_Logon ) , guid : :: windows :: core :: GUID::from_u128(0x69979849_797a_11d9_bed3_505054503030) , } }
 pub const Audit_Logon_AccountLockout: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9217_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_Logon_AccountLockout ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9217_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_Logon_Claims: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9247_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_Logon_Claims ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9247_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_Logon_Groups: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9249_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_Logon_Groups ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9249_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_Logon_IPSecMainMode: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9218_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_Logon_IPSecMainMode ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9218_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_Logon_IPSecQuickMode: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9219_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_Logon_IPSecQuickMode ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9219_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_Logon_IPSecUserMode: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce921a_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_Logon_IPSecUserMode ) , guid : :: windows :: core :: GUID::from_u128(0x0cce921a_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_Logon_Logoff: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9216_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_Logon_Logoff ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9216_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_Logon_Logon: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9215_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_Logon_Logon ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9215_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_Logon_NPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9243_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_Logon_NPS ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9243_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_Logon_Others: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce921c_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_Logon_Others ) , guid : :: windows :: core :: GUID::from_u128(0x0cce921c_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_Logon_SpecialLogon: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce921b_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_Logon_SpecialLogon ) , guid : :: windows :: core :: GUID::from_u128(0x0cce921b_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_ObjectAccess: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6997984a_797a_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_ObjectAccess ) , guid : :: windows :: core :: GUID::from_u128(0x6997984a_797a_11d9_bed3_505054503030) , } }
 pub const Audit_ObjectAccess_ApplicationGenerated: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9222_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_ObjectAccess_ApplicationGenerated ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9222_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_ObjectAccess_CbacStaging: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9246_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_ObjectAccess_CbacStaging ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9246_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_ObjectAccess_CertificationServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9221_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_ObjectAccess_CertificationServices ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9221_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_ObjectAccess_DetailedFileShare: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9244_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_ObjectAccess_DetailedFileShare ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9244_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_ObjectAccess_FileSystem: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce921d_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_ObjectAccess_FileSystem ) , guid : :: windows :: core :: GUID::from_u128(0x0cce921d_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_ObjectAccess_FirewallConnection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9226_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_ObjectAccess_FirewallConnection ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9226_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_ObjectAccess_FirewallPacketDrops: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9225_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_ObjectAccess_FirewallPacketDrops ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9225_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_ObjectAccess_Handle: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9223_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_ObjectAccess_Handle ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9223_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_ObjectAccess_Kernel: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce921f_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_ObjectAccess_Kernel ) , guid : :: windows :: core :: GUID::from_u128(0x0cce921f_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_ObjectAccess_Other: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9227_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_ObjectAccess_Other ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9227_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_ObjectAccess_Registry: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce921e_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_ObjectAccess_Registry ) , guid : :: windows :: core :: GUID::from_u128(0x0cce921e_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_ObjectAccess_RemovableStorage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9245_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_ObjectAccess_RemovableStorage ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9245_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_ObjectAccess_Sam: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9220_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_ObjectAccess_Sam ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9220_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_ObjectAccess_Share: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9224_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_ObjectAccess_Share ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9224_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_PolicyChange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6997984d_797a_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_PolicyChange ) , guid : :: windows :: core :: GUID::from_u128(0x6997984d_797a_11d9_bed3_505054503030) , } }
 pub const Audit_PolicyChange_AuditPolicy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce922f_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_PolicyChange_AuditPolicy ) , guid : :: windows :: core :: GUID::from_u128(0x0cce922f_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_PolicyChange_AuthenticationPolicy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9230_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_PolicyChange_AuthenticationPolicy ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9230_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_PolicyChange_AuthorizationPolicy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9231_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_PolicyChange_AuthorizationPolicy ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9231_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_PolicyChange_MpsscvRulePolicy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9232_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_PolicyChange_MpsscvRulePolicy ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9232_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_PolicyChange_Others: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9234_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_PolicyChange_Others ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9234_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_PolicyChange_WfpIPSecPolicy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9233_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_PolicyChange_WfpIPSecPolicy ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9233_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_PrivilegeUse: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6997984b_797a_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_PrivilegeUse ) , guid : :: windows :: core :: GUID::from_u128(0x6997984b_797a_11d9_bed3_505054503030) , } }
 pub const Audit_PrivilegeUse_NonSensitive: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9229_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_PrivilegeUse_NonSensitive ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9229_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_PrivilegeUse_Others: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce922a_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_PrivilegeUse_Others ) , guid : :: windows :: core :: GUID::from_u128(0x0cce922a_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_PrivilegeUse_Sensitive: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9228_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_PrivilegeUse_Sensitive ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9228_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_System: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69979848_797a_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_System ) , guid : :: windows :: core :: GUID::from_u128(0x69979848_797a_11d9_bed3_505054503030) , } }
 pub const Audit_System_IPSecDriverEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9213_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_System_IPSecDriverEvents ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9213_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_System_Integrity: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9212_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_System_Integrity ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9212_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_System_Others: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9214_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_System_Others ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9214_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_System_SecurityStateChange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9210_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_System_SecurityStateChange ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9210_69ae_11d9_bed3_505054503030) , } }
 pub const Audit_System_SecuritySubsystemExtension: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce9211_69ae_11d9_bed3_505054503030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Audit_System_SecuritySubsystemExtension ) , guid : :: windows :: core :: GUID::from_u128(0x0cce9211_69ae_11d9_bed3_505054503030) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -20450,6 +20586,8 @@ pub unsafe fn VerifySignature(phcontext: *const super::super::Credentials::SecHa
     unimplemented!("Unsupported target OS");
 }
 pub const WINDOWS_SLID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55c92734_d682_4d71_983e_d6ec3f16059f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WINDOWS_SLID ) , guid : :: windows :: core :: GUID::from_u128(0x55c92734_d682_4d71_983e_d6ec3f16059f) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

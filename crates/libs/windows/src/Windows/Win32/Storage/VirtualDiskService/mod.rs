@@ -1,6 +1,10 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CLSID_VdsLoader: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c38ed61_d565_4728_aeee_c80952f0ecde);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_VdsLoader ) , guid : :: windows :: core :: GUID::from_u128(0x9c38ed61_d565_4728_aeee_c80952f0ecde) , } }
 pub const CLSID_VdsService: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d1933cb_86f6_4a98_8628_01be94c9a575);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_VdsService ) , guid : :: windows :: core :: GUID::from_u128(0x7d1933cb_86f6_4a98_8628_01be94c9a575) , } }
 #[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
 pub const GPT_PARTITION_NAME_LENGTH: u32 = 36u32;
 #[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]

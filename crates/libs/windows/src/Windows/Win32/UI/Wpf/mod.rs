@@ -1,10 +1,22 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CLSID_MILBitmapEffectBevel: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd361dbe_6c9b_4de0_8290_f6400c2737ed);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_MILBitmapEffectBevel ) , guid : :: windows :: core :: GUID::from_u128(0xfd361dbe_6c9b_4de0_8290_f6400c2737ed) , } }
 pub const CLSID_MILBitmapEffectBlur: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa924df87_225d_4373_8f5b_b90ec85ae3de);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_MILBitmapEffectBlur ) , guid : :: windows :: core :: GUID::from_u128(0xa924df87_225d_4373_8f5b_b90ec85ae3de) , } }
 pub const CLSID_MILBitmapEffectDropShadow: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x459a3fbe_d8ac_4692_874b_7a265715aa16);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_MILBitmapEffectDropShadow ) , guid : :: windows :: core :: GUID::from_u128(0x459a3fbe_d8ac_4692_874b_7a265715aa16) , } }
 pub const CLSID_MILBitmapEffectEmboss: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd299846_824f_47ec_a007_12aa767f2816);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_MILBitmapEffectEmboss ) , guid : :: windows :: core :: GUID::from_u128(0xcd299846_824f_47ec_a007_12aa767f2816) , } }
 pub const CLSID_MILBitmapEffectGroup: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac9c1a9a_7e18_4f64_ac7e_47cf7f051e95);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_MILBitmapEffectGroup ) , guid : :: windows :: core :: GUID::from_u128(0xac9c1a9a_7e18_4f64_ac7e_47cf7f051e95) , } }
 pub const CLSID_MILBitmapEffectOuterGlow: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2161bdd_7eb6_4725_9c0b_8a2a1b4f0667);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_MILBitmapEffectOuterGlow ) , guid : :: windows :: core :: GUID::from_u128(0xe2161bdd_7eb6_4725_9c0b_8a2a1b4f0667) , } }
 #[doc = "*Required features: 'Win32_UI_Wpf'*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffect(::windows::core::IUnknown);

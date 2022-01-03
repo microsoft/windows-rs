@@ -3885,27 +3885,43 @@ impl ::core::default::Default for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
 #[doc = "*Required features: 'Win32_System_Ioctl', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_Storage_Disk_Number: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVPKEY_Storage_Disk_Number ) , guid : :: windows :: core :: GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9) , } }
 #[doc = "*Required features: 'Win32_System_Ioctl', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_Storage_Gpt_Name: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVPKEY_Storage_Gpt_Name ) , guid : :: windows :: core :: GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9) , } }
 #[doc = "*Required features: 'Win32_System_Ioctl', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_Storage_Gpt_Type: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVPKEY_Storage_Gpt_Type ) , guid : :: windows :: core :: GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9) , } }
 #[doc = "*Required features: 'Win32_System_Ioctl', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_Storage_Mbr_Type: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVPKEY_Storage_Mbr_Type ) , guid : :: windows :: core :: GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9) , } }
 #[doc = "*Required features: 'Win32_System_Ioctl', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_Storage_Partition_Number: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVPKEY_Storage_Partition_Number ) , guid : :: windows :: core :: GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9) , } }
 #[doc = "*Required features: 'Win32_System_Ioctl', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_Storage_Portable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVPKEY_Storage_Portable ) , guid : :: windows :: core :: GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9) , } }
 #[doc = "*Required features: 'Win32_System_Ioctl', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_Storage_Removable_Media: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVPKEY_Storage_Removable_Media ) , guid : :: windows :: core :: GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9) , } }
 #[doc = "*Required features: 'Win32_System_Ioctl', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_Storage_System_Critical: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVPKEY_Storage_System_Critical ) , guid : :: windows :: core :: GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9) , } }
 #[doc = "*Required features: 'Win32_System_Ioctl'*"]
 pub const DISABLE_SMART: u32 = 217u32;
 #[doc = "*Required features: 'Win32_System_Ioctl'*"]
@@ -6845,8 +6861,14 @@ pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_BEGIN: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Ioctl'*"]
 pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_END: u32 = 2u32;
 pub const FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d453eb7_d2a6_4dbd_a2e3_fbd0ed9109a9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE ) , guid : :: windows :: core :: GUID::from_u128(0x9d453eb7_d2a6_4dbd_a2e3_fbd0ed9109a9) , } }
 pub const FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7624d64_b9a3_4cf8_8011_5b86c940e7b7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE ) , guid : :: windows :: core :: GUID::from_u128(0xb7624d64_b9a3_4cf8_8011_5b86c940e7b7) , } }
 pub const FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d0a64a1_38fc_4db8_9fe7_3f4352cd7c5c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE ) , guid : :: windows :: core :: GUID::from_u128(0x0d0a64a1_38fc_4db8_9fe7_3f4352cd7c5c) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Ioctl'*"]
 pub struct FILE_TYPE_NOTIFICATION_INPUT {
@@ -8460,28 +8482,74 @@ impl ::core::default::Default for GP_LOG_PAGE_DESCRIPTOR {
     }
 }
 pub const GUID_DEVICEDUMP_DRIVER_STORAGE_PORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda82441d_7142_4bc1_b844_0807c5a4b67f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVICEDUMP_DRIVER_STORAGE_PORT ) , guid : :: windows :: core :: GUID::from_u128(0xda82441d_7142_4bc1_b844_0807c5a4b67f) , } }
 pub const GUID_DEVICEDUMP_STORAGE_DEVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8e2592f_1aab_4d56_a746_1f7585df40f4);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVICEDUMP_STORAGE_DEVICE ) , guid : :: windows :: core :: GUID::from_u128(0xd8e2592f_1aab_4d56_a746_1f7585df40f4) , } }
 pub const GUID_DEVINTERFACE_CDCHANGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f56312_b6bf_11d0_94f2_00a0c91efb8b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_CDCHANGER ) , guid : :: windows :: core :: GUID::from_u128(0x53f56312_b6bf_11d0_94f2_00a0c91efb8b) , } }
 pub const GUID_DEVINTERFACE_CDROM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f56308_b6bf_11d0_94f2_00a0c91efb8b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_CDROM ) , guid : :: windows :: core :: GUID::from_u128(0x53f56308_b6bf_11d0_94f2_00a0c91efb8b) , } }
 pub const GUID_DEVINTERFACE_COMPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86e0d1e0_8089_11d0_9ce4_08003e301f73);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_COMPORT ) , guid : :: windows :: core :: GUID::from_u128(0x86e0d1e0_8089_11d0_9ce4_08003e301f73) , } }
 pub const GUID_DEVINTERFACE_DISK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f56307_b6bf_11d0_94f2_00a0c91efb8b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_DISK ) , guid : :: windows :: core :: GUID::from_u128(0x53f56307_b6bf_11d0_94f2_00a0c91efb8b) , } }
 pub const GUID_DEVINTERFACE_FLOPPY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f56311_b6bf_11d0_94f2_00a0c91efb8b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_FLOPPY ) , guid : :: windows :: core :: GUID::from_u128(0x53f56311_b6bf_11d0_94f2_00a0c91efb8b) , } }
 pub const GUID_DEVINTERFACE_HIDDEN_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f108a28_9833_4b3b_b780_2c6b5fa5c062);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_HIDDEN_VOLUME ) , guid : :: windows :: core :: GUID::from_u128(0x7f108a28_9833_4b3b_b780_2c6b5fa5c062) , } }
 pub const GUID_DEVINTERFACE_MEDIUMCHANGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f56310_b6bf_11d0_94f2_00a0c91efb8b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_MEDIUMCHANGER ) , guid : :: windows :: core :: GUID::from_u128(0x53f56310_b6bf_11d0_94f2_00a0c91efb8b) , } }
 pub const GUID_DEVINTERFACE_PARTITION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f5630a_b6bf_11d0_94f2_00a0c91efb8b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_PARTITION ) , guid : :: windows :: core :: GUID::from_u128(0x53f5630a_b6bf_11d0_94f2_00a0c91efb8b) , } }
 pub const GUID_DEVINTERFACE_SCM_PHYSICAL_DEVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4283609d_4dc2_43be_bbb4_4f15dfce2c61);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_SCM_PHYSICAL_DEVICE ) , guid : :: windows :: core :: GUID::from_u128(0x4283609d_4dc2_43be_bbb4_4f15dfce2c61) , } }
 pub const GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d36e978_e325_11ce_bfc1_08002be10318);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR ) , guid : :: windows :: core :: GUID::from_u128(0x4d36e978_e325_11ce_bfc1_08002be10318) , } }
 pub const GUID_DEVINTERFACE_SERVICE_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ead3d82_25ec_46bc_b7fd_c1f0df8f5037);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_SERVICE_VOLUME ) , guid : :: windows :: core :: GUID::from_u128(0x6ead3d82_25ec_46bc_b7fd_c1f0df8f5037) , } }
 pub const GUID_DEVINTERFACE_SES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1790c9ec_47d5_4df3_b5af_9adf3cf23e48);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_SES ) , guid : :: windows :: core :: GUID::from_u128(0x1790c9ec_47d5_4df3_b5af_9adf3cf23e48) , } }
 pub const GUID_DEVINTERFACE_STORAGEPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2accfe60_c130_11d2_b082_00a0c91efb8b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_STORAGEPORT ) , guid : :: windows :: core :: GUID::from_u128(0x2accfe60_c130_11d2_b082_00a0c91efb8b) , } }
 pub const GUID_DEVINTERFACE_TAPE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f5630b_b6bf_11d0_94f2_00a0c91efb8b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_TAPE ) , guid : :: windows :: core :: GUID::from_u128(0x53f5630b_b6bf_11d0_94f2_00a0c91efb8b) , } }
 pub const GUID_DEVINTERFACE_UNIFIED_ACCESS_RPMB: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27447c21_bcc3_4d07_a05b_a3395bb4eee7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_UNIFIED_ACCESS_RPMB ) , guid : :: windows :: core :: GUID::from_u128(0x27447c21_bcc3_4d07_a05b_a3395bb4eee7) , } }
 pub const GUID_DEVINTERFACE_VMLUN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f416619_9f29_42a5_b20b_37e219ca02b0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_VMLUN ) , guid : :: windows :: core :: GUID::from_u128(0x6f416619_9f29_42a5_b20b_37e219ca02b0) , } }
 pub const GUID_DEVINTERFACE_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f5630d_b6bf_11d0_94f2_00a0c91efb8b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_VOLUME ) , guid : :: windows :: core :: GUID::from_u128(0x53f5630d_b6bf_11d0_94f2_00a0c91efb8b) , } }
 pub const GUID_DEVINTERFACE_WRITEONCEDISK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f5630c_b6bf_11d0_94f2_00a0c91efb8b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_WRITEONCEDISK ) , guid : :: windows :: core :: GUID::from_u128(0x53f5630c_b6bf_11d0_94f2_00a0c91efb8b) , } }
 pub const GUID_DEVINTERFACE_ZNSDISK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb87941c5_ffdb_43c7_b6b1_20b632f0b109);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_ZNSDISK ) , guid : :: windows :: core :: GUID::from_u128(0xb87941c5_ffdb_43c7_b6b1_20b632f0b109) , } }
 pub const GUID_SCM_PD_HEALTH_NOTIFICATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9da2d386_72f5_4ee3_8155_eca0678e3b06);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_SCM_PD_HEALTH_NOTIFICATION ) , guid : :: windows :: core :: GUID::from_u128(0x9da2d386_72f5_4ee3_8155_eca0678e3b06) , } }
 pub const GUID_SCM_PD_PASSTHROUGH_INVDIMM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4309ac30_0d11_11e4_9191_0800200c9a66);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_SCM_PD_PASSTHROUGH_INVDIMM ) , guid : :: windows :: core :: GUID::from_u128(0x4309ac30_0d11_11e4_9191_0800200c9a66) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Ioctl'*"]
 pub struct HISTOGRAM_BUCKET {

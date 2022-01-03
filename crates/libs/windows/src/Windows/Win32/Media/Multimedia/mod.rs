@@ -1635,7 +1635,11 @@ impl ::core::default::Default for CHANNEL_CAPS {
     }
 }
 pub const CLSID_AVIFile: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020000_0000_0000_c000_000000000046);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_AVIFile ) , guid : :: windows :: core :: GUID::from_u128(0x00020000_0000_0000_c000_000000000046) , } }
 pub const CLSID_AVISimpleUnMarshal: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020009_0000_0000_c000_000000000046);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_AVISimpleUnMarshal ) , guid : :: windows :: core :: GUID::from_u128(0x00020009_0000_0000_c000_000000000046) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]

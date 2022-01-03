@@ -4,6 +4,8 @@ pub const ALLOW_OUTOFBAND_NOTIFICATION: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const DO_NOT_VIRTUALIZE_STORAGES_AS_DEVICES: u32 = 1u32;
 pub const EVENT_WMDM_CONTENT_TRANSFER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x339c9bf4_bcfe_4ed8_94df_eaf8c26ab61b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( EVENT_WMDM_CONTENT_TRANSFER ) , guid : :: windows :: core :: GUID::from_u128(0x339c9bf4_bcfe_4ed8_94df_eaf8c26ab61b) , } }
 #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IComponentAuthenticate(::windows::core::IUnknown);
@@ -6608,9 +6610,17 @@ pub const SAC_PROTOCOL_WMDM: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const SAC_SESSION_KEYLEN: u32 = 8u32;
 pub const SCP_EVENTID_ACQSECURECLOCK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86248cc9_4a59_43e2_9146_48a7f3f4140c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SCP_EVENTID_ACQSECURECLOCK ) , guid : :: windows :: core :: GUID::from_u128(0x86248cc9_4a59_43e2_9146_48a7f3f4140c) , } }
 pub const SCP_EVENTID_DRMINFO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x213dd287_41d2_432b_9e3f_3b4f7b3581dd);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SCP_EVENTID_DRMINFO ) , guid : :: windows :: core :: GUID::from_u128(0x213dd287_41d2_432b_9e3f_3b4f7b3581dd) , } }
 pub const SCP_EVENTID_NEEDTOINDIV: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87a507c7_b469_4386_b976_d5d1ce538a6f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SCP_EVENTID_NEEDTOINDIV ) , guid : :: windows :: core :: GUID::from_u128(0x87a507c7_b469_4386_b976_d5d1ce538a6f) , } }
 pub const SCP_PARAMID_DRMVERSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41d0155d_7cc7_4217_ada9_005074624da4);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SCP_PARAMID_DRMVERSION ) , guid : :: windows :: core :: GUID::from_u128(0x41d0155d_7cc7_4217_ada9_005074624da4) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub struct WMDMDATETIME {
@@ -6906,8 +6916,14 @@ pub const WMDM_DEVICECAP_CANSTREAMRECORD: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_DEVICECAP_HASSECURECLOCK: u32 = 256u32;
 pub const WMDM_DEVICE_PROTOCOL_MSC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4d2c26c_a881_44bb_bd5d_1f703c71f7a9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMDM_DEVICE_PROTOCOL_MSC ) , guid : :: windows :: core :: GUID::from_u128(0xa4d2c26c_a881_44bb_bd5d_1f703c71f7a9) , } }
 pub const WMDM_DEVICE_PROTOCOL_MTP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x979e54e5_0afc_4604_8d93_dc798a4bcf45);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMDM_DEVICE_PROTOCOL_MTP ) , guid : :: windows :: core :: GUID::from_u128(0x979e54e5_0afc_4604_8d93_dc798a4bcf45) , } }
 pub const WMDM_DEVICE_PROTOCOL_RAPI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a11ed91_8c8f_41e4_82d1_8386e003561c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMDM_DEVICE_PROTOCOL_RAPI ) , guid : :: windows :: core :: GUID::from_u128(0x2a11ed91_8c8f_41e4_82d1_8386e003561c) , } }
 #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_DEVICE_TYPE_DECODE: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
@@ -7518,6 +7534,8 @@ pub const WMDM_SEEK_REMOTECONTROL: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_SEEK_STREAMINGAUDIO: u32 = 2u32;
 pub const WMDM_SERVICE_PROVIDER_VENDOR_MICROSOFT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7de8686d_78ee_43ea_a496_c625ac91cc5d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WMDM_SERVICE_PROVIDER_VENDOR_MICROSOFT ) , guid : :: windows :: core :: GUID::from_u128(0x7de8686d_78ee_43ea_a496_c625ac91cc5d) , } }
 #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub type WMDM_SESSION_TYPE = i32;
 #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]

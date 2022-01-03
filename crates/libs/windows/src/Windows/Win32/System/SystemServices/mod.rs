@@ -172,6 +172,8 @@ pub const ALERT_SYSTEM_QUERY: ALERT_SYSTEM_SEV = 4u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const ALERT_SYSTEM_CRITICAL: ALERT_SYSTEM_SEV = 5u32;
 pub const ALL_POWERSCHEMES_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68a1e95e_13ea_41e1_8011_0c496ca490b0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( ALL_POWERSCHEMES_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x68a1e95e_13ea_41e1_8011_0c496ca490b0) , } }
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const ALL_PROCESSOR_GROUPS: u32 = 65535u32;
 #[repr(C)]
@@ -3181,77 +3183,221 @@ pub const GC_PRESSANDTAP: GESTURECONFIG_FLAGS = 1u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const GC_ROLLOVER: GESTURECONFIG_FLAGS = 1u32;
 pub const GUID_ACDC_POWER_SOURCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d3e9a59_e9d5_4b00_a6bd_ff34ff516548);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_ACDC_POWER_SOURCE ) , guid : :: windows :: core :: GUID::from_u128(0x5d3e9a59_e9d5_4b00_a6bd_ff34ff516548) , } }
 pub const GUID_ACTIVE_POWERSCHEME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31f9f286_5084_42fe_b720_2b0264993763);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_ACTIVE_POWERSCHEME ) , guid : :: windows :: core :: GUID::from_u128(0x31f9f286_5084_42fe_b720_2b0264993763) , } }
 pub const GUID_ADAPTIVE_INPUT_CONTROLLER_STATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e98fae9_f45a_4de1_a757_6031f197f6ea);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_ADAPTIVE_INPUT_CONTROLLER_STATE ) , guid : :: windows :: core :: GUID::from_u128(0x0e98fae9_f45a_4de1_a757_6031f197f6ea) , } }
 pub const GUID_ADAPTIVE_POWER_BEHAVIOR_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8619b916_e004_4dd8_9b66_dae86f806698);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_ADAPTIVE_POWER_BEHAVIOR_SUBGROUP ) , guid : :: windows :: core :: GUID::from_u128(0x8619b916_e004_4dd8_9b66_dae86f806698) , } }
 pub const GUID_ADVANCED_COLOR_QUALITY_BIAS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x684c3e69_a4f7_4014_8754_d45179a56167);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_ADVANCED_COLOR_QUALITY_BIAS ) , guid : :: windows :: core :: GUID::from_u128(0x684c3e69_a4f7_4014_8754_d45179a56167) , } }
 pub const GUID_ALLOW_AWAYMODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25dfa149_5dd1_4736_b5ab_e8a37b5b8187);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_ALLOW_AWAYMODE ) , guid : :: windows :: core :: GUID::from_u128(0x25dfa149_5dd1_4736_b5ab_e8a37b5b8187) , } }
 pub const GUID_ALLOW_DISPLAY_REQUIRED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9ceb8da_cd46_44fb_a98b_02af69de4623);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_ALLOW_DISPLAY_REQUIRED ) , guid : :: windows :: core :: GUID::from_u128(0xa9ceb8da_cd46_44fb_a98b_02af69de4623) , } }
 pub const GUID_ALLOW_RTC_WAKE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd3b718a_0680_4d9d_8ab2_e1d2b4ac806d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_ALLOW_RTC_WAKE ) , guid : :: windows :: core :: GUID::from_u128(0xbd3b718a_0680_4d9d_8ab2_e1d2b4ac806d) , } }
 pub const GUID_ALLOW_STANDBY_STATES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabfc2519_3608_4c2a_94ea_171b0ed546ab);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_ALLOW_STANDBY_STATES ) , guid : :: windows :: core :: GUID::from_u128(0xabfc2519_3608_4c2a_94ea_171b0ed546ab) , } }
 pub const GUID_ALLOW_SYSTEM_REQUIRED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4b195f5_8225_47d8_8012_9d41369786e2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_ALLOW_SYSTEM_REQUIRED ) , guid : :: windows :: core :: GUID::from_u128(0xa4b195f5_8225_47d8_8012_9d41369786e2) , } }
 pub const GUID_APPLAUNCH_BUTTON: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a689231_7399_4e9a_8f99_b71f999db3fa);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_APPLAUNCH_BUTTON ) , guid : :: windows :: core :: GUID::from_u128(0x1a689231_7399_4e9a_8f99_b71f999db3fa) , } }
 pub const GUID_BACKGROUND_TASK_NOTIFICATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf23f240_2a54_48d8_b114_de1518ff052e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BACKGROUND_TASK_NOTIFICATION ) , guid : :: windows :: core :: GUID::from_u128(0xcf23f240_2a54_48d8_b114_de1518ff052e) , } }
 pub const GUID_BATTERY_COUNT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d263f15_fca4_49e5_854b_a9f2bfbd5c24);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BATTERY_COUNT ) , guid : :: windows :: core :: GUID::from_u128(0x7d263f15_fca4_49e5_854b_a9f2bfbd5c24) , } }
 pub const GUID_BATTERY_DISCHARGE_ACTION_0: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x637ea02f_bbcb_4015_8e2c_a1c7b9c0b546);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BATTERY_DISCHARGE_ACTION_0 ) , guid : :: windows :: core :: GUID::from_u128(0x637ea02f_bbcb_4015_8e2c_a1c7b9c0b546) , } }
 pub const GUID_BATTERY_DISCHARGE_ACTION_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8742dcb_3e6a_4b3c_b3fe_374623cdcf06);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BATTERY_DISCHARGE_ACTION_1 ) , guid : :: windows :: core :: GUID::from_u128(0xd8742dcb_3e6a_4b3c_b3fe_374623cdcf06) , } }
 pub const GUID_BATTERY_DISCHARGE_ACTION_2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x421cba38_1a8e_4881_ac89_e33a8b04ece4);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BATTERY_DISCHARGE_ACTION_2 ) , guid : :: windows :: core :: GUID::from_u128(0x421cba38_1a8e_4881_ac89_e33a8b04ece4) , } }
 pub const GUID_BATTERY_DISCHARGE_ACTION_3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80472613_9780_455e_b308_72d3003cf2f8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BATTERY_DISCHARGE_ACTION_3 ) , guid : :: windows :: core :: GUID::from_u128(0x80472613_9780_455e_b308_72d3003cf2f8) , } }
 pub const GUID_BATTERY_DISCHARGE_FLAGS_0: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5dbb7c9f_38e9_40d2_9749_4f8a0e9f640f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BATTERY_DISCHARGE_FLAGS_0 ) , guid : :: windows :: core :: GUID::from_u128(0x5dbb7c9f_38e9_40d2_9749_4f8a0e9f640f) , } }
 pub const GUID_BATTERY_DISCHARGE_FLAGS_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcded951_187b_4d05_bccc_f7e51960c258);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BATTERY_DISCHARGE_FLAGS_1 ) , guid : :: windows :: core :: GUID::from_u128(0xbcded951_187b_4d05_bccc_f7e51960c258) , } }
 pub const GUID_BATTERY_DISCHARGE_FLAGS_2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fd2f0c4_feb7_4da3_8117_e3fbedc46582);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BATTERY_DISCHARGE_FLAGS_2 ) , guid : :: windows :: core :: GUID::from_u128(0x7fd2f0c4_feb7_4da3_8117_e3fbedc46582) , } }
 pub const GUID_BATTERY_DISCHARGE_FLAGS_3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73613ccf_dbfa_4279_8356_4935f6bf62f3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BATTERY_DISCHARGE_FLAGS_3 ) , guid : :: windows :: core :: GUID::from_u128(0x73613ccf_dbfa_4279_8356_4935f6bf62f3) , } }
 pub const GUID_BATTERY_DISCHARGE_LEVEL_0: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a66d8d7_4ff7_4ef9_b5a2_5a326ca2a469);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BATTERY_DISCHARGE_LEVEL_0 ) , guid : :: windows :: core :: GUID::from_u128(0x9a66d8d7_4ff7_4ef9_b5a2_5a326ca2a469) , } }
 pub const GUID_BATTERY_DISCHARGE_LEVEL_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8183ba9a_e910_48da_8769_14ae6dc1170a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BATTERY_DISCHARGE_LEVEL_1 ) , guid : :: windows :: core :: GUID::from_u128(0x8183ba9a_e910_48da_8769_14ae6dc1170a) , } }
 pub const GUID_BATTERY_DISCHARGE_LEVEL_2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07a07ca2_adaf_40d7_b077_533aaded1bfa);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BATTERY_DISCHARGE_LEVEL_2 ) , guid : :: windows :: core :: GUID::from_u128(0x07a07ca2_adaf_40d7_b077_533aaded1bfa) , } }
 pub const GUID_BATTERY_DISCHARGE_LEVEL_3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58afd5a6_c2dd_47d2_9fbf_ef70cc5c5965);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BATTERY_DISCHARGE_LEVEL_3 ) , guid : :: windows :: core :: GUID::from_u128(0x58afd5a6_c2dd_47d2_9fbf_ef70cc5c5965) , } }
 pub const GUID_BATTERY_PERCENTAGE_REMAINING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7ad8041_b45a_4cae_87a3_eecbb468a9e1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BATTERY_PERCENTAGE_REMAINING ) , guid : :: windows :: core :: GUID::from_u128(0xa7ad8041_b45a_4cae_87a3_eecbb468a9e1) , } }
 pub const GUID_BATTERY_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe73a048d_bf27_4f12_9731_8b2076e8891f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BATTERY_SUBGROUP ) , guid : :: windows :: core :: GUID::from_u128(0xe73a048d_bf27_4f12_9731_8b2076e8891f) , } }
 pub const GUID_CONNECTIVITY_IN_STANDBY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf15576e8_98b7_4186_b944_eafa664402d9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_CONNECTIVITY_IN_STANDBY ) , guid : :: windows :: core :: GUID::from_u128(0xf15576e8_98b7_4186_b944_eafa664402d9) , } }
 pub const GUID_CONSOLE_DISPLAY_STATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fe69556_704a_47a0_8f24_c28d936fda47);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_CONSOLE_DISPLAY_STATE ) , guid : :: windows :: core :: GUID::from_u128(0x6fe69556_704a_47a0_8f24_c28d936fda47) , } }
 pub const GUID_CRITICAL_POWER_TRANSITION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7a27025_e569_46c2_a504_2b96cad225a1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_CRITICAL_POWER_TRANSITION ) , guid : :: windows :: core :: GUID::from_u128(0xb7a27025_e569_46c2_a504_2b96cad225a1) , } }
 pub const GUID_DEEP_SLEEP_ENABLED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd502f7ee_1dc7_4efd_a55d_f04b6f5c0545);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEEP_SLEEP_ENABLED ) , guid : :: windows :: core :: GUID::from_u128(0xd502f7ee_1dc7_4efd_a55d_f04b6f5c0545) , } }
 pub const GUID_DEEP_SLEEP_PLATFORM_STATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd23f2fb8_9536_4038_9c94_1ce02e5c2152);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEEP_SLEEP_PLATFORM_STATE ) , guid : :: windows :: core :: GUID::from_u128(0xd23f2fb8_9536_4038_9c94_1ce02e5c2152) , } }
 pub const GUID_DEVICE_EVENT_RBC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0744792_a98e_11d2_917a_00a0c9068ff3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVICE_EVENT_RBC ) , guid : :: windows :: core :: GUID::from_u128(0xd0744792_a98e_11d2_917a_00a0c9068ff3) , } }
 pub const GUID_DEVICE_IDLE_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4faab71a_92e5_4726_b531_224559672d19);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVICE_IDLE_POLICY ) , guid : :: windows :: core :: GUID::from_u128(0x4faab71a_92e5_4726_b531_224559672d19) , } }
 pub const GUID_DEVICE_POWER_POLICY_VIDEO_BRIGHTNESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaded5e82_b909_4619_9949_f5d71dac0bcb);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVICE_POWER_POLICY_VIDEO_BRIGHTNESS ) , guid : :: windows :: core :: GUID::from_u128(0xaded5e82_b909_4619_9949_f5d71dac0bcb) , } }
 pub const GUID_DEVICE_POWER_POLICY_VIDEO_DIM_BRIGHTNESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1fbfde2_a960_4165_9f88_50667911ce96);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVICE_POWER_POLICY_VIDEO_DIM_BRIGHTNESS ) , guid : :: windows :: core :: GUID::from_u128(0xf1fbfde2_a960_4165_9f88_50667911ce96) , } }
 pub const GUID_DEVINTERFACE_DMP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25b4e268_2a05_496e_803b_266837fbda4b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_DMP ) , guid : :: windows :: core :: GUID::from_u128(0x25b4e268_2a05_496e_803b_266837fbda4b) , } }
 pub const GUID_DEVINTERFACE_DMR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0875fb4_2196_4c7a_a63d_e416addd60a1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_DMR ) , guid : :: windows :: core :: GUID::from_u128(0xd0875fb4_2196_4c7a_a63d_e416addd60a1) , } }
 pub const GUID_DEVINTERFACE_DMS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc96037ae_a558_4470_b432_115a31b85553);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_DMS ) , guid : :: windows :: core :: GUID::from_u128(0xc96037ae_a558_4470_b432_115a31b85553) , } }
 pub const GUID_DISCONNECTED_STANDBY_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68afb2d9_ee95_47a8_8f50_4115088073b1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DISCONNECTED_STANDBY_MODE ) , guid : :: windows :: core :: GUID::from_u128(0x68afb2d9_ee95_47a8_8f50_4115088073b1) , } }
 pub const GUID_DISK_ADAPTIVE_POWERDOWN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x396a32e1_499a_40b2_9124_a96afe707667);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DISK_ADAPTIVE_POWERDOWN ) , guid : :: windows :: core :: GUID::from_u128(0x396a32e1_499a_40b2_9124_a96afe707667) , } }
 pub const GUID_DISK_BURST_IGNORE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80e3c60e_bb94_4ad8_bbe0_0d3195efc663);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DISK_BURST_IGNORE_THRESHOLD ) , guid : :: windows :: core :: GUID::from_u128(0x80e3c60e_bb94_4ad8_bbe0_0d3195efc663) , } }
 pub const GUID_DISK_COALESCING_POWERDOWN_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc36f0eb4_2988_4a70_8eee_0884fc2c2433);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DISK_COALESCING_POWERDOWN_TIMEOUT ) , guid : :: windows :: core :: GUID::from_u128(0xc36f0eb4_2988_4a70_8eee_0884fc2c2433) , } }
 pub const GUID_DISK_IDLE_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58e39ba8_b8e6_4ef6_90d0_89ae32b258d6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DISK_IDLE_TIMEOUT ) , guid : :: windows :: core :: GUID::from_u128(0x58e39ba8_b8e6_4ef6_90d0_89ae32b258d6) , } }
 pub const GUID_DISK_MAX_POWER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51dea550_bb38_4bc4_991b_eacf37be5ec8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DISK_MAX_POWER ) , guid : :: windows :: core :: GUID::from_u128(0x51dea550_bb38_4bc4_991b_eacf37be5ec8) , } }
 pub const GUID_DISK_NVME_NOPPME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc7372b6_ab2d_43ee_8797_15e9841f2cca);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DISK_NVME_NOPPME ) , guid : :: windows :: core :: GUID::from_u128(0xfc7372b6_ab2d_43ee_8797_15e9841f2cca) , } }
 pub const GUID_DISK_POWERDOWN_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6738e2c4_e8a5_4a42_b16a_e040e769756e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DISK_POWERDOWN_TIMEOUT ) , guid : :: windows :: core :: GUID::from_u128(0x6738e2c4_e8a5_4a42_b16a_e040e769756e) , } }
 pub const GUID_DISK_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0012ee47_9041_4b5d_9b77_535fba8b1442);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DISK_SUBGROUP ) , guid : :: windows :: core :: GUID::from_u128(0x0012ee47_9041_4b5d_9b77_535fba8b1442) , } }
 pub const GUID_ENABLE_SWITCH_FORCED_SHUTDOWN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x833a6b62_dfa4_46d1_82f8_e09e34d029d6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_ENABLE_SWITCH_FORCED_SHUTDOWN ) , guid : :: windows :: core :: GUID::from_u128(0x833a6b62_dfa4_46d1_82f8_e09e34d029d6) , } }
 pub const GUID_ENERGY_SAVER_BATTERY_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe69653ca_cf7f_4f05_aa73_cb833fa90ad4);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_ENERGY_SAVER_BATTERY_THRESHOLD ) , guid : :: windows :: core :: GUID::from_u128(0xe69653ca_cf7f_4f05_aa73_cb833fa90ad4) , } }
 pub const GUID_ENERGY_SAVER_BRIGHTNESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13d09884_f74e_474a_a852_b6bde8ad03a8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_ENERGY_SAVER_BRIGHTNESS ) , guid : :: windows :: core :: GUID::from_u128(0x13d09884_f74e_474a_a852_b6bde8ad03a8) , } }
 pub const GUID_ENERGY_SAVER_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c5bb349_ad29_4ee2_9d0b_2b25270f7a81);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_ENERGY_SAVER_POLICY ) , guid : :: windows :: core :: GUID::from_u128(0x5c5bb349_ad29_4ee2_9d0b_2b25270f7a81) , } }
 pub const GUID_ENERGY_SAVER_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde830923_a562_41af_a086_e3a2c6bad2da);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_ENERGY_SAVER_SUBGROUP ) , guid : :: windows :: core :: GUID::from_u128(0xde830923_a562_41af_a086_e3a2c6bad2da) , } }
 pub const GUID_EXECUTION_REQUIRED_REQUEST_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3166bc41_7e98_4e03_b34e_ec0f5f2b218e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EXECUTION_REQUIRED_REQUEST_TIMEOUT ) , guid : :: windows :: core :: GUID::from_u128(0x3166bc41_7e98_4e03_b34e_ec0f5f2b218e) , } }
 pub const GUID_GLOBAL_USER_PRESENCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x786e8a1d_b427_4344_9207_09e70bdcbea9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_GLOBAL_USER_PRESENCE ) , guid : :: windows :: core :: GUID::from_u128(0x786e8a1d_b427_4344_9207_09e70bdcbea9) , } }
 pub const GUID_GPU_PREFERENCE_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd848b2a_8a5d_4451_9ae2_39cd41658f6c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_GPU_PREFERENCE_POLICY ) , guid : :: windows :: core :: GUID::from_u128(0xdd848b2a_8a5d_4451_9ae2_39cd41658f6c) , } }
 pub const GUID_GRAPHICS_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fb4938d_1ee8_4b0f_9a3c_5036b0ab995c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_GRAPHICS_SUBGROUP ) , guid : :: windows :: core :: GUID::from_u128(0x5fb4938d_1ee8_4b0f_9a3c_5036b0ab995c) , } }
 pub const GUID_HIBERNATE_FASTS4_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94ac6d29_73ce_41a6_809f_6363ba21b47e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_HIBERNATE_FASTS4_POLICY ) , guid : :: windows :: core :: GUID::from_u128(0x94ac6d29_73ce_41a6_809f_6363ba21b47e) , } }
 pub const GUID_HIBERNATE_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d7815a6_7ee4_497e_8888_515a05f02364);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_HIBERNATE_TIMEOUT ) , guid : :: windows :: core :: GUID::from_u128(0x9d7815a6_7ee4_497e_8888_515a05f02364) , } }
 pub const GUID_HUPR_ADAPTIVE_DISPLAY_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a7d6ab6_ac83_4ad1_8282_eca5b58308f3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_HUPR_ADAPTIVE_DISPLAY_TIMEOUT ) , guid : :: windows :: core :: GUID::from_u128(0x0a7d6ab6_ac83_4ad1_8282_eca5b58308f3) , } }
 pub const GUID_IDLE_BACKGROUND_TASK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x515c31d8_f734_163d_a0fd_11a08c91e8f1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IDLE_BACKGROUND_TASK ) , guid : :: windows :: core :: GUID::from_u128(0x515c31d8_f734_163d_a0fd_11a08c91e8f1) , } }
 pub const GUID_IDLE_RESILIENCY_PERIOD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc42b79aa_aa3a_484b_a98f_2cf32aa90a28);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IDLE_RESILIENCY_PERIOD ) , guid : :: windows :: core :: GUID::from_u128(0xc42b79aa_aa3a_484b_a98f_2cf32aa90a28) , } }
 pub const GUID_IDLE_RESILIENCY_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e601130_5351_4d9d_8e04_252966bad054);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IDLE_RESILIENCY_SUBGROUP ) , guid : :: windows :: core :: GUID::from_u128(0x2e601130_5351_4d9d_8e04_252966bad054) , } }
 pub const GUID_INTSTEER_LOAD_PER_PROC_TRIGGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73cde64d_d720_4bb2_a860_c755afe77ef2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_INTSTEER_LOAD_PER_PROC_TRIGGER ) , guid : :: windows :: core :: GUID::from_u128(0x73cde64d_d720_4bb2_a860_c755afe77ef2) , } }
 pub const GUID_INTSTEER_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bfc24f9_5ea2_4801_8213_3dbae01aa39d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_INTSTEER_MODE ) , guid : :: windows :: core :: GUID::from_u128(0x2bfc24f9_5ea2_4801_8213_3dbae01aa39d) , } }
 pub const GUID_INTSTEER_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48672f38_7a9a_4bb2_8bf8_3d85be19de4e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_INTSTEER_SUBGROUP ) , guid : :: windows :: core :: GUID::from_u128(0x48672f38_7a9a_4bb2_8bf8_3d85be19de4e) , } }
 pub const GUID_INTSTEER_TIME_UNPARK_TRIGGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6ba4903_386f_4c2c_8adb_5c21b3328d25);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_INTSTEER_TIME_UNPARK_TRIGGER ) , guid : :: windows :: core :: GUID::from_u128(0xd6ba4903_386f_4c2c_8adb_5c21b3328d25) , } }
 pub const GUID_IO_CDROM_EXCLUSIVE_LOCK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc56c139_7a10_47ee_a294_4c6a38f0149a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_CDROM_EXCLUSIVE_LOCK ) , guid : :: windows :: core :: GUID::from_u128(0xbc56c139_7a10_47ee_a294_4c6a38f0149a) , } }
 pub const GUID_IO_CDROM_EXCLUSIVE_UNLOCK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3b6d27d_5e35_4885_81e5_ee18c00ed779);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_CDROM_EXCLUSIVE_UNLOCK ) , guid : :: windows :: core :: GUID::from_u128(0xa3b6d27d_5e35_4885_81e5_ee18c00ed779) , } }
 pub const GUID_IO_DEVICE_BECOMING_READY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07433f0_a98e_11d2_917a_00a0c9068ff3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_DEVICE_BECOMING_READY ) , guid : :: windows :: core :: GUID::from_u128(0xd07433f0_a98e_11d2_917a_00a0c9068ff3) , } }
 pub const GUID_IO_DEVICE_EXTERNAL_REQUEST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07433d0_a98e_11d2_917a_00a0c9068ff3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_DEVICE_EXTERNAL_REQUEST ) , guid : :: windows :: core :: GUID::from_u128(0xd07433d0_a98e_11d2_917a_00a0c9068ff3) , } }
 pub const GUID_IO_DISK_CLONE_ARRIVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a61885b_7c39_43dd_9b56_b8ac22a549aa);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_DISK_CLONE_ARRIVAL ) , guid : :: windows :: core :: GUID::from_u128(0x6a61885b_7c39_43dd_9b56_b8ac22a549aa) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub struct GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
@@ -3283,170 +3429,500 @@ impl ::core::default::Default for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
     }
 }
 pub const GUID_IO_DISK_HEALTH_NOTIFICATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f1bd644_3916_49c5_b063_991940118fb2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_DISK_HEALTH_NOTIFICATION ) , guid : :: windows :: core :: GUID::from_u128(0x0f1bd644_3916_49c5_b063_991940118fb2) , } }
 pub const GUID_IO_DISK_LAYOUT_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11dff54c_8469_41f9_b3de_ef836487c54a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_DISK_LAYOUT_CHANGE ) , guid : :: windows :: core :: GUID::from_u128(0x11dff54c_8469_41f9_b3de_ef836487c54a) , } }
 pub const GUID_IO_DRIVE_REQUIRES_CLEANING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7207877c_90ed_44e5_a000_81428d4c79bb);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_DRIVE_REQUIRES_CLEANING ) , guid : :: windows :: core :: GUID::from_u128(0x7207877c_90ed_44e5_a000_81428d4c79bb) , } }
 pub const GUID_IO_MEDIA_ARRIVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07433c0_a98e_11d2_917a_00a0c9068ff3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_MEDIA_ARRIVAL ) , guid : :: windows :: core :: GUID::from_u128(0xd07433c0_a98e_11d2_917a_00a0c9068ff3) , } }
 pub const GUID_IO_MEDIA_EJECT_REQUEST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07433d1_a98e_11d2_917a_00a0c9068ff3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_MEDIA_EJECT_REQUEST ) , guid : :: windows :: core :: GUID::from_u128(0xd07433d1_a98e_11d2_917a_00a0c9068ff3) , } }
 pub const GUID_IO_MEDIA_REMOVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07433c1_a98e_11d2_917a_00a0c9068ff3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_MEDIA_REMOVAL ) , guid : :: windows :: core :: GUID::from_u128(0xd07433c1_a98e_11d2_917a_00a0c9068ff3) , } }
 pub const GUID_IO_TAPE_ERASE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x852d11eb_4bb8_4507_9d9b_417cc2b1b438);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_TAPE_ERASE ) , guid : :: windows :: core :: GUID::from_u128(0x852d11eb_4bb8_4507_9d9b_417cc2b1b438) , } }
 pub const GUID_IO_VOLUME_BACKGROUND_FORMAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2e5fc86_d5cd_4038_b2e3_4445065c2377);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_VOLUME_BACKGROUND_FORMAT ) , guid : :: windows :: core :: GUID::from_u128(0xa2e5fc86_d5cd_4038_b2e3_4445065c2377) , } }
 pub const GUID_IO_VOLUME_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7373654a_812a_11d0_bec7_08002be2092f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_VOLUME_CHANGE ) , guid : :: windows :: core :: GUID::from_u128(0x7373654a_812a_11d0_bec7_08002be2092f) , } }
 pub const GUID_IO_VOLUME_CHANGE_SIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a1625be_ad03_49f1_8ef8_6bbac182d1fd);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_VOLUME_CHANGE_SIZE ) , guid : :: windows :: core :: GUID::from_u128(0x3a1625be_ad03_49f1_8ef8_6bbac182d1fd) , } }
 pub const GUID_IO_VOLUME_DEVICE_INTERFACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f5630d_b6bf_11d0_94f2_00a0c91efb8b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_VOLUME_DEVICE_INTERFACE ) , guid : :: windows :: core :: GUID::from_u128(0x53f5630d_b6bf_11d0_94f2_00a0c91efb8b) , } }
 pub const GUID_IO_VOLUME_DISMOUNT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd16a55e8_1059_11d2_8ffd_00a0c9a06d32);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_VOLUME_DISMOUNT ) , guid : :: windows :: core :: GUID::from_u128(0xd16a55e8_1059_11d2_8ffd_00a0c9a06d32) , } }
 pub const GUID_IO_VOLUME_DISMOUNT_FAILED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3c5b178_105d_11d2_8ffd_00a0c9a06d32);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_VOLUME_DISMOUNT_FAILED ) , guid : :: windows :: core :: GUID::from_u128(0xe3c5b178_105d_11d2_8ffd_00a0c9a06d32) , } }
 pub const GUID_IO_VOLUME_FORCE_CLOSED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x411ad84f_433e_4dc2_a5ae_4a2d1a2de654);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_VOLUME_FORCE_CLOSED ) , guid : :: windows :: core :: GUID::from_u128(0x411ad84f_433e_4dc2_a5ae_4a2d1a2de654) , } }
 pub const GUID_IO_VOLUME_FVE_STATUS_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x062998b2_ee1f_4b6a_b857_e76cbbe9a6da);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_VOLUME_FVE_STATUS_CHANGE ) , guid : :: windows :: core :: GUID::from_u128(0x062998b2_ee1f_4b6a_b857_e76cbbe9a6da) , } }
 pub const GUID_IO_VOLUME_INFO_MAKE_COMPAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ab9a0d2_ef80_45cf_8cdc_cbe02a212906);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_VOLUME_INFO_MAKE_COMPAT ) , guid : :: windows :: core :: GUID::from_u128(0x3ab9a0d2_ef80_45cf_8cdc_cbe02a212906) , } }
 pub const GUID_IO_VOLUME_LOCK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50708874_c9af_11d1_8fef_00a0c9a06d32);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_VOLUME_LOCK ) , guid : :: windows :: core :: GUID::from_u128(0x50708874_c9af_11d1_8fef_00a0c9a06d32) , } }
 pub const GUID_IO_VOLUME_LOCK_FAILED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae2eed10_0ba8_11d2_8ffb_00a0c9a06d32);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_VOLUME_LOCK_FAILED ) , guid : :: windows :: core :: GUID::from_u128(0xae2eed10_0ba8_11d2_8ffb_00a0c9a06d32) , } }
 pub const GUID_IO_VOLUME_MOUNT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5804878_1a96_11d2_8ffd_00a0c9a06d32);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_VOLUME_MOUNT ) , guid : :: windows :: core :: GUID::from_u128(0xb5804878_1a96_11d2_8ffd_00a0c9a06d32) , } }
 pub const GUID_IO_VOLUME_NAME_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2de97f83_4c06_11d2_a532_00609713055a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_VOLUME_NAME_CHANGE ) , guid : :: windows :: core :: GUID::from_u128(0x2de97f83_4c06_11d2_a532_00609713055a) , } }
 pub const GUID_IO_VOLUME_NEED_CHKDSK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x799a0960_0a0b_4e03_ad88_2fa7c6ce748a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_VOLUME_NEED_CHKDSK ) , guid : :: windows :: core :: GUID::from_u128(0x799a0960_0a0b_4e03_ad88_2fa7c6ce748a) , } }
 pub const GUID_IO_VOLUME_PHYSICAL_CONFIGURATION_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2de97f84_4c06_11d2_a532_00609713055a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_VOLUME_PHYSICAL_CONFIGURATION_CHANGE ) , guid : :: windows :: core :: GUID::from_u128(0x2de97f84_4c06_11d2_a532_00609713055a) , } }
 pub const GUID_IO_VOLUME_PREPARING_EJECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc79eb16e_0dac_4e7a_a86c_b25ceeaa88f6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_VOLUME_PREPARING_EJECT ) , guid : :: windows :: core :: GUID::from_u128(0xc79eb16e_0dac_4e7a_a86c_b25ceeaa88f6) , } }
 pub const GUID_IO_VOLUME_UNIQUE_ID_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf39da42_6622_41f5_970b_139d092fa3d9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_VOLUME_UNIQUE_ID_CHANGE ) , guid : :: windows :: core :: GUID::from_u128(0xaf39da42_6622_41f5_970b_139d092fa3d9) , } }
 pub const GUID_IO_VOLUME_UNLOCK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a8c3d68_d0cb_11d1_8fef_00a0c9a06d32);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_VOLUME_UNLOCK ) , guid : :: windows :: core :: GUID::from_u128(0x9a8c3d68_d0cb_11d1_8fef_00a0c9a06d32) , } }
 pub const GUID_IO_VOLUME_WEARING_OUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x873113ca_1486_4508_82ac_c3b2e5297aaa);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_VOLUME_WEARING_OUT ) , guid : :: windows :: core :: GUID::from_u128(0x873113ca_1486_4508_82ac_c3b2e5297aaa) , } }
 pub const GUID_IO_VOLUME_WORM_NEAR_FULL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3bfff82_f3de_48d2_af95_457f80b763f2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IO_VOLUME_WORM_NEAR_FULL ) , guid : :: windows :: core :: GUID::from_u128(0xf3bfff82_f3de_48d2_af95_457f80b763f2) , } }
 pub const GUID_LEGACY_RTC_MITIGATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a34bdc3_7e6b_442e_a9d0_64b6ef378e84);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_LEGACY_RTC_MITIGATION ) , guid : :: windows :: core :: GUID::from_u128(0x1a34bdc3_7e6b_442e_a9d0_64b6ef378e84) , } }
 pub const GUID_LIDCLOSE_ACTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ca83367_6e45_459f_a27b_476b1d01c936);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_LIDCLOSE_ACTION ) , guid : :: windows :: core :: GUID::from_u128(0x5ca83367_6e45_459f_a27b_476b1d01c936) , } }
 pub const GUID_LIDOPEN_POWERSTATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99ff10e7_23b1_4c07_a9d1_5c3206d741b4);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_LIDOPEN_POWERSTATE ) , guid : :: windows :: core :: GUID::from_u128(0x99ff10e7_23b1_4c07_a9d1_5c3206d741b4) , } }
 pub const GUID_LIDSWITCH_STATE_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba3e0f4d_b817_4094_a2d1_d56379e6a0f3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_LIDSWITCH_STATE_CHANGE ) , guid : :: windows :: core :: GUID::from_u128(0xba3e0f4d_b817_4094_a2d1_d56379e6a0f3) , } }
 pub const GUID_LIDSWITCH_STATE_RELIABILITY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae4c4ff1_d361_43f4_80aa_bbb6eb03de94);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_LIDSWITCH_STATE_RELIABILITY ) , guid : :: windows :: core :: GUID::from_u128(0xae4c4ff1_d361_43f4_80aa_bbb6eb03de94) , } }
 pub const GUID_LOCK_CONSOLE_ON_WAKE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e796bdb_100d_47d6_a2d5_f7d2daa51f51);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_LOCK_CONSOLE_ON_WAKE ) , guid : :: windows :: core :: GUID::from_u128(0x0e796bdb_100d_47d6_a2d5_f7d2daa51f51) , } }
 pub const GUID_MAX_POWER_SAVINGS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1841308_3541_4fab_bc81_f71556f20b4a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_MAX_POWER_SAVINGS ) , guid : :: windows :: core :: GUID::from_u128(0xa1841308_3541_4fab_bc81_f71556f20b4a) , } }
 pub const GUID_MIN_POWER_SAVINGS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c5e7fda_e8bf_4a96_9a85_a6e23a8c635c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_MIN_POWER_SAVINGS ) , guid : :: windows :: core :: GUID::from_u128(0x8c5e7fda_e8bf_4a96_9a85_a6e23a8c635c) , } }
 pub const GUID_MIXED_REALITY_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e626b4e_cf04_4f8d_9cc7_c97c5b0f2391);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_MIXED_REALITY_MODE ) , guid : :: windows :: core :: GUID::from_u128(0x1e626b4e_cf04_4f8d_9cc7_c97c5b0f2391) , } }
 pub const GUID_MONITOR_POWER_ON: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02731015_4510_4526_99e6_e5a17ebd1aea);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_MONITOR_POWER_ON ) , guid : :: windows :: core :: GUID::from_u128(0x02731015_4510_4526_99e6_e5a17ebd1aea) , } }
 pub const GUID_NON_ADAPTIVE_INPUT_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5adbbfbc_074e_4da1_ba38_db8b36b2c8f3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_NON_ADAPTIVE_INPUT_TIMEOUT ) , guid : :: windows :: core :: GUID::from_u128(0x5adbbfbc_074e_4da1_ba38_db8b36b2c8f3) , } }
 pub const GUID_PCIEXPRESS_ASPM_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee12f906_d277_404b_b6da_e5fa1a576df5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PCIEXPRESS_ASPM_POLICY ) , guid : :: windows :: core :: GUID::from_u128(0xee12f906_d277_404b_b6da_e5fa1a576df5) , } }
 pub const GUID_PCIEXPRESS_SETTINGS_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x501a4d13_42af_4429_9fd1_a8218c268e20);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PCIEXPRESS_SETTINGS_SUBGROUP ) , guid : :: windows :: core :: GUID::from_u128(0x501a4d13_42af_4429_9fd1_a8218c268e20) , } }
 pub const GUID_POWERBUTTON_ACTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7648efa3_dd9c_4e3e_b566_50f929386280);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_POWERBUTTON_ACTION ) , guid : :: windows :: core :: GUID::from_u128(0x7648efa3_dd9c_4e3e_b566_50f929386280) , } }
 pub const GUID_POWERSCHEME_PERSONALITY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x245d8541_3943_4422_b025_13a784f679b7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_POWERSCHEME_PERSONALITY ) , guid : :: windows :: core :: GUID::from_u128(0x245d8541_3943_4422_b025_13a784f679b7) , } }
 pub const GUID_POWER_SAVING_STATUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe00958c0_c213_4ace_ac77_fecced2eeea5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_POWER_SAVING_STATUS ) , guid : :: windows :: core :: GUID::from_u128(0xe00958c0_c213_4ace_ac77_fecced2eeea5) , } }
 pub const GUID_PROCESSOR_ALLOW_THROTTLING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b04d4fd_1cc7_4f23_ab1c_d1337819c4bb);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_ALLOW_THROTTLING ) , guid : :: windows :: core :: GUID::from_u128(0x3b04d4fd_1cc7_4f23_ab1c_d1337819c4bb) , } }
 pub const GUID_PROCESSOR_CLASS0_FLOOR_PERF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfddc842b_8364_4edc_94cf_c17f60de1c80);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_CLASS0_FLOOR_PERF ) , guid : :: windows :: core :: GUID::from_u128(0xfddc842b_8364_4edc_94cf_c17f60de1c80) , } }
 pub const GUID_PROCESSOR_CLASS1_INITIAL_PERF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1facfc65_a930_4bc5_9f38_504ec097bbc0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_CLASS1_INITIAL_PERF ) , guid : :: windows :: core :: GUID::from_u128(0x1facfc65_a930_4bc5_9f38_504ec097bbc0) , } }
 pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_DECREASE_FACTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f7b45e3_c393_480a_878c_f67ac3d07082);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_DECREASE_FACTOR ) , guid : :: windows :: core :: GUID::from_u128(0x8f7b45e3_c393_480a_878c_f67ac3d07082) , } }
 pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b33697b_e89d_4d38_aa46_9e7dfb7cd2f9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_THRESHOLD ) , guid : :: windows :: core :: GUID::from_u128(0x5b33697b_e89d_4d38_aa46_9e7dfb7cd2f9) , } }
 pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_WEIGHTING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe70867f1_fa2f_4f4e_aea1_4d8a0ba23b20);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_CORE_PARKING_AFFINITY_WEIGHTING ) , guid : :: windows :: core :: GUID::from_u128(0xe70867f1_fa2f_4f4e_aea1_4d8a0ba23b20) , } }
 pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71021b41_c749_4d21_be74_a00f335d582b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_CORE_PARKING_DECREASE_POLICY ) , guid : :: windows :: core :: GUID::from_u128(0x71021b41_c749_4d21_be74_a00f335d582b) , } }
 pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68dd2f27_a4ce_4e11_8487_3794e4135dfa);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_CORE_PARKING_DECREASE_THRESHOLD ) , guid : :: windows :: core :: GUID::from_u128(0x68dd2f27_a4ce_4e11_8487_3794e4135dfa) , } }
 pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfd10d17_d5eb_45dd_877a_9a34ddd15c82);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_CORE_PARKING_DECREASE_TIME ) , guid : :: windows :: core :: GUID::from_u128(0xdfd10d17_d5eb_45dd_877a_9a34ddd15c82) , } }
 pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7be0679_2817_4d69_9d02_519a537ed0c6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_CORE_PARKING_INCREASE_POLICY ) , guid : :: windows :: core :: GUID::from_u128(0xc7be0679_2817_4d69_9d02_519a537ed0c6) , } }
 pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf142941_20f3_4edf_9a4a_9c83d3d717d1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_CORE_PARKING_INCREASE_THRESHOLD ) , guid : :: windows :: core :: GUID::from_u128(0xdf142941_20f3_4edf_9a4a_9c83d3d717d1) , } }
 pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ddd5a84_5a71_437e_912a_db0b8c788732);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_CORE_PARKING_INCREASE_TIME ) , guid : :: windows :: core :: GUID::from_u128(0x2ddd5a84_5a71_437e_912a_db0b8c788732) , } }
 pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea062031_0e34_4ff1_9b6d_eb1059334028);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_CORE_PARKING_MAX_CORES ) , guid : :: windows :: core :: GUID::from_u128(0xea062031_0e34_4ff1_9b6d_eb1059334028) , } }
 pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea062031_0e34_4ff1_9b6d_eb1059334029);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_CORE_PARKING_MAX_CORES_1 ) , guid : :: windows :: core :: GUID::from_u128(0xea062031_0e34_4ff1_9b6d_eb1059334029) , } }
 pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cc5b647_c1df_4637_891a_dec35c318583);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_CORE_PARKING_MIN_CORES ) , guid : :: windows :: core :: GUID::from_u128(0x0cc5b647_c1df_4637_891a_dec35c318583) , } }
 pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cc5b647_c1df_4637_891a_dec35c318584);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_CORE_PARKING_MIN_CORES_1 ) , guid : :: windows :: core :: GUID::from_u128(0x0cc5b647_c1df_4637_891a_dec35c318584) , } }
 pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_DECREASE_FACTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1299023c_bc28_4f0a_81ec_d3295a8d815d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_DECREASE_FACTOR ) , guid : :: windows :: core :: GUID::from_u128(0x1299023c_bc28_4f0a_81ec_d3295a8d815d) , } }
 pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ac18e92_aa3c_4e27_b307_01ae37307129);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_THRESHOLD ) , guid : :: windows :: core :: GUID::from_u128(0x9ac18e92_aa3c_4e27_b307_01ae37307129) , } }
 pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x943c8cb6_6f93_4227_ad87_e9a3feec08d1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_THRESHOLD ) , guid : :: windows :: core :: GUID::from_u128(0x943c8cb6_6f93_4227_ad87_e9a3feec08d1) , } }
 pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_WEIGHTING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8809c2d8_b155_42d4_bcda_0d345651b1db);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_WEIGHTING ) , guid : :: windows :: core :: GUID::from_u128(0x8809c2d8_b155_42d4_bcda_0d345651b1db) , } }
 pub const GUID_PROCESSOR_DISTRIBUTE_UTILITY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0007330_f589_42ed_a401_5ddb10e785d3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_DISTRIBUTE_UTILITY ) , guid : :: windows :: core :: GUID::from_u128(0xe0007330_f589_42ed_a401_5ddb10e785d3) , } }
 pub const GUID_PROCESSOR_DUTY_CYCLING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e4450b3_6179_4e91_b8f1_5bb9938f81a1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_DUTY_CYCLING ) , guid : :: windows :: core :: GUID::from_u128(0x4e4450b3_6179_4e91_b8f1_5bb9938f81a1) , } }
 pub const GUID_PROCESSOR_FREQUENCY_LIMIT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75b0ae3f_bce0_45a7_8c89_c9611c25e100);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_FREQUENCY_LIMIT ) , guid : :: windows :: core :: GUID::from_u128(0x75b0ae3f_bce0_45a7_8c89_c9611c25e100) , } }
 pub const GUID_PROCESSOR_FREQUENCY_LIMIT_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75b0ae3f_bce0_45a7_8c89_c9611c25e101);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_FREQUENCY_LIMIT_1 ) , guid : :: windows :: core :: GUID::from_u128(0x75b0ae3f_bce0_45a7_8c89_c9611c25e101) , } }
 pub const GUID_PROCESSOR_HETEROGENEOUS_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f2f5cfa_f10c_4823_b5e1_e93ae85f46b5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_HETEROGENEOUS_POLICY ) , guid : :: windows :: core :: GUID::from_u128(0x7f2f5cfa_f10c_4823_b5e1_e93ae85f46b5) , } }
 pub const GUID_PROCESSOR_HETERO_DECREASE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8861c27_95e7_475c_865b_13c0cb3f9d6b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_HETERO_DECREASE_THRESHOLD ) , guid : :: windows :: core :: GUID::from_u128(0xf8861c27_95e7_475c_865b_13c0cb3f9d6b) , } }
 pub const GUID_PROCESSOR_HETERO_DECREASE_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f2492b6_60b1_45e5_ae55_773f8cd5caec);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_HETERO_DECREASE_TIME ) , guid : :: windows :: core :: GUID::from_u128(0x7f2492b6_60b1_45e5_ae55_773f8cd5caec) , } }
 pub const GUID_PROCESSOR_HETERO_INCREASE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb000397d_9b0b_483d_98c9_692a6060cfbf);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_HETERO_INCREASE_THRESHOLD ) , guid : :: windows :: core :: GUID::from_u128(0xb000397d_9b0b_483d_98c9_692a6060cfbf) , } }
 pub const GUID_PROCESSOR_HETERO_INCREASE_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4009efa7_e72d_4cba_9edf_91084ea8cbc3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_HETERO_INCREASE_TIME ) , guid : :: windows :: core :: GUID::from_u128(0x4009efa7_e72d_4cba_9edf_91084ea8cbc3) , } }
 pub const GUID_PROCESSOR_IDLESTATE_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68f262a7_f621_4069_b9a5_4874169be23c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_IDLESTATE_POLICY ) , guid : :: windows :: core :: GUID::from_u128(0x68f262a7_f621_4069_b9a5_4874169be23c) , } }
 pub const GUID_PROCESSOR_IDLE_ALLOW_SCALING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c2993b0_8f48_481f_bcc6_00dd2742aa06);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_IDLE_ALLOW_SCALING ) , guid : :: windows :: core :: GUID::from_u128(0x6c2993b0_8f48_481f_bcc6_00dd2742aa06) , } }
 pub const GUID_PROCESSOR_IDLE_DEMOTE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b92d758_5a24_4851_a470_815d78aee119);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_IDLE_DEMOTE_THRESHOLD ) , guid : :: windows :: core :: GUID::from_u128(0x4b92d758_5a24_4851_a470_815d78aee119) , } }
 pub const GUID_PROCESSOR_IDLE_DISABLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d76a2ca_e8c0_402f_a133_2158492d58ad);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_IDLE_DISABLE ) , guid : :: windows :: core :: GUID::from_u128(0x5d76a2ca_e8c0_402f_a133_2158492d58ad) , } }
 pub const GUID_PROCESSOR_IDLE_PROMOTE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b224883_b3cc_4d79_819f_8374152cbe7c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_IDLE_PROMOTE_THRESHOLD ) , guid : :: windows :: core :: GUID::from_u128(0x7b224883_b3cc_4d79_819f_8374152cbe7c) , } }
 pub const GUID_PROCESSOR_IDLE_STATE_MAXIMUM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9943e905_9a30_4ec1_9b99_44dd3b76f7a2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_IDLE_STATE_MAXIMUM ) , guid : :: windows :: core :: GUID::from_u128(0x9943e905_9a30_4ec1_9b99_44dd3b76f7a2) , } }
 pub const GUID_PROCESSOR_IDLE_TIME_CHECK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4581c31_89ab_4597_8e2b_9c9cab440e6b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_IDLE_TIME_CHECK ) , guid : :: windows :: core :: GUID::from_u128(0xc4581c31_89ab_4597_8e2b_9c9cab440e6b) , } }
 pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x616cdaa5_695e_4545_97ad_97dc2d1bdd88);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK ) , guid : :: windows :: core :: GUID::from_u128(0x616cdaa5_695e_4545_97ad_97dc2d1bdd88) , } }
 pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x616cdaa5_695e_4545_97ad_97dc2d1bdd89);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK_1 ) , guid : :: windows :: core :: GUID::from_u128(0x616cdaa5_695e_4545_97ad_97dc2d1bdd89) , } }
 pub const GUID_PROCESSOR_PARKING_CONCURRENCY_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2430ab6f_a520_44a2_9601_f7f23b5134b1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PARKING_CONCURRENCY_THRESHOLD ) , guid : :: windows :: core :: GUID::from_u128(0x2430ab6f_a520_44a2_9601_f7f23b5134b1) , } }
 pub const GUID_PROCESSOR_PARKING_CORE_OVERRIDE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa55612aa_f624_42c6_a443_7397d064c04f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PARKING_CORE_OVERRIDE ) , guid : :: windows :: core :: GUID::from_u128(0xa55612aa_f624_42c6_a443_7397d064c04f) , } }
 pub const GUID_PROCESSOR_PARKING_DISTRIBUTION_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bdaf4e9_d103_46d7_a5f0_6280121616ef);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PARKING_DISTRIBUTION_THRESHOLD ) , guid : :: windows :: core :: GUID::from_u128(0x4bdaf4e9_d103_46d7_a5f0_6280121616ef) , } }
 pub const GUID_PROCESSOR_PARKING_HEADROOM_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf735a673_2066_4f80_a0c5_ddee0cf1bf5d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PARKING_HEADROOM_THRESHOLD ) , guid : :: windows :: core :: GUID::from_u128(0xf735a673_2066_4f80_a0c5_ddee0cf1bf5d) , } }
 pub const GUID_PROCESSOR_PARKING_PERF_STATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x447235c7_6a8d_4cc0_8e24_9eaf70b96e2b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PARKING_PERF_STATE ) , guid : :: windows :: core :: GUID::from_u128(0x447235c7_6a8d_4cc0_8e24_9eaf70b96e2b) , } }
 pub const GUID_PROCESSOR_PARKING_PERF_STATE_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x447235c7_6a8d_4cc0_8e24_9eaf70b96e2c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PARKING_PERF_STATE_1 ) , guid : :: windows :: core :: GUID::from_u128(0x447235c7_6a8d_4cc0_8e24_9eaf70b96e2c) , } }
 pub const GUID_PROCESSOR_PERFSTATE_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbdc3814_18e9_4463_8a55_d197327c45c0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERFSTATE_POLICY ) , guid : :: windows :: core :: GUID::from_u128(0xbbdc3814_18e9_4463_8a55_d197327c45c0) , } }
 pub const GUID_PROCESSOR_PERF_AUTONOMOUS_ACTIVITY_WINDOW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfeda3d0_7697_4566_a922_a9086cd49dfa);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_AUTONOMOUS_ACTIVITY_WINDOW ) , guid : :: windows :: core :: GUID::from_u128(0xcfeda3d0_7697_4566_a922_a9086cd49dfa) , } }
 pub const GUID_PROCESSOR_PERF_AUTONOMOUS_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8baa4a8a_14c6_4451_8e8b_14bdbd197537);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_AUTONOMOUS_MODE ) , guid : :: windows :: core :: GUID::from_u128(0x8baa4a8a_14c6_4451_8e8b_14bdbd197537) , } }
 pub const GUID_PROCESSOR_PERF_BOOST_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe337238_0d82_4146_a960_4f3749d470c7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_BOOST_MODE ) , guid : :: windows :: core :: GUID::from_u128(0xbe337238_0d82_4146_a960_4f3749d470c7) , } }
 pub const GUID_PROCESSOR_PERF_BOOST_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45bcc044_d885_43e2_8605_ee0ec6e96b59);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_BOOST_POLICY ) , guid : :: windows :: core :: GUID::from_u128(0x45bcc044_d885_43e2_8605_ee0ec6e96b59) , } }
 pub const GUID_PROCESSOR_PERF_CORE_PARKING_HISTORY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77d7f282_8f1a_42cd_8537_45450a839be8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_CORE_PARKING_HISTORY ) , guid : :: windows :: core :: GUID::from_u128(0x77d7f282_8f1a_42cd_8537_45450a839be8) , } }
 pub const GUID_PROCESSOR_PERF_DECREASE_HISTORY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0300f6f8_abd6_45a9_b74f_4908691a40b5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_DECREASE_HISTORY ) , guid : :: windows :: core :: GUID::from_u128(0x0300f6f8_abd6_45a9_b74f_4908691a40b5) , } }
 pub const GUID_PROCESSOR_PERF_DECREASE_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40fbefc7_2e9d_4d25_a185_0cfd8574bac6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_DECREASE_POLICY ) , guid : :: windows :: core :: GUID::from_u128(0x40fbefc7_2e9d_4d25_a185_0cfd8574bac6) , } }
 pub const GUID_PROCESSOR_PERF_DECREASE_POLICY_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40fbefc7_2e9d_4d25_a185_0cfd8574bac7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_DECREASE_POLICY_1 ) , guid : :: windows :: core :: GUID::from_u128(0x40fbefc7_2e9d_4d25_a185_0cfd8574bac7) , } }
 pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12a0ab44_fe28_4fa9_b3bd_4b64f44960a6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_DECREASE_THRESHOLD ) , guid : :: windows :: core :: GUID::from_u128(0x12a0ab44_fe28_4fa9_b3bd_4b64f44960a6) , } }
 pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12a0ab44_fe28_4fa9_b3bd_4b64f44960a7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_DECREASE_THRESHOLD_1 ) , guid : :: windows :: core :: GUID::from_u128(0x12a0ab44_fe28_4fa9_b3bd_4b64f44960a7) , } }
 pub const GUID_PROCESSOR_PERF_DECREASE_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8edeb9b_95cf_4f95_a73c_b061973693c8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_DECREASE_TIME ) , guid : :: windows :: core :: GUID::from_u128(0xd8edeb9b_95cf_4f95_a73c_b061973693c8) , } }
 pub const GUID_PROCESSOR_PERF_DECREASE_TIME_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8edeb9b_95cf_4f95_a73c_b061973693c9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_DECREASE_TIME_1 ) , guid : :: windows :: core :: GUID::from_u128(0xd8edeb9b_95cf_4f95_a73c_b061973693c9) , } }
 pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36687f9e_e3a5_4dbf_b1dc_15eb381c6863);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE ) , guid : :: windows :: core :: GUID::from_u128(0x36687f9e_e3a5_4dbf_b1dc_15eb381c6863) , } }
 pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36687f9e_e3a5_4dbf_b1dc_15eb381c6864);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE_1 ) , guid : :: windows :: core :: GUID::from_u128(0x36687f9e_e3a5_4dbf_b1dc_15eb381c6864) , } }
 pub const GUID_PROCESSOR_PERF_HISTORY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d24baa7_0b84_480f_840c_1b0743c00f5f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_HISTORY ) , guid : :: windows :: core :: GUID::from_u128(0x7d24baa7_0b84_480f_840c_1b0743c00f5f) , } }
 pub const GUID_PROCESSOR_PERF_HISTORY_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d24baa7_0b84_480f_840c_1b0743c00f60);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_HISTORY_1 ) , guid : :: windows :: core :: GUID::from_u128(0x7d24baa7_0b84_480f_840c_1b0743c00f60) , } }
 pub const GUID_PROCESSOR_PERF_INCREASE_HISTORY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99b3ef01_752f_46a1_80fb_7730011f2354);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_INCREASE_HISTORY ) , guid : :: windows :: core :: GUID::from_u128(0x99b3ef01_752f_46a1_80fb_7730011f2354) , } }
 pub const GUID_PROCESSOR_PERF_INCREASE_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x465e1f50_b610_473a_ab58_00d1077dc418);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_INCREASE_POLICY ) , guid : :: windows :: core :: GUID::from_u128(0x465e1f50_b610_473a_ab58_00d1077dc418) , } }
 pub const GUID_PROCESSOR_PERF_INCREASE_POLICY_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x465e1f50_b610_473a_ab58_00d1077dc419);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_INCREASE_POLICY_1 ) , guid : :: windows :: core :: GUID::from_u128(0x465e1f50_b610_473a_ab58_00d1077dc419) , } }
 pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06cadf0e_64ed_448a_8927_ce7bf90eb35d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_INCREASE_THRESHOLD ) , guid : :: windows :: core :: GUID::from_u128(0x06cadf0e_64ed_448a_8927_ce7bf90eb35d) , } }
 pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06cadf0e_64ed_448a_8927_ce7bf90eb35e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_INCREASE_THRESHOLD_1 ) , guid : :: windows :: core :: GUID::from_u128(0x06cadf0e_64ed_448a_8927_ce7bf90eb35e) , } }
 pub const GUID_PROCESSOR_PERF_INCREASE_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x984cf492_3bed_4488_a8f9_4286c97bf5aa);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_INCREASE_TIME ) , guid : :: windows :: core :: GUID::from_u128(0x984cf492_3bed_4488_a8f9_4286c97bf5aa) , } }
 pub const GUID_PROCESSOR_PERF_INCREASE_TIME_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x984cf492_3bed_4488_a8f9_4286c97bf5ab);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_INCREASE_TIME_1 ) , guid : :: windows :: core :: GUID::from_u128(0x984cf492_3bed_4488_a8f9_4286c97bf5ab) , } }
 pub const GUID_PROCESSOR_PERF_LATENCY_HINT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0822df31_9c83_441c_a079_0de4cf009c7b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_LATENCY_HINT ) , guid : :: windows :: core :: GUID::from_u128(0x0822df31_9c83_441c_a079_0de4cf009c7b) , } }
 pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x619b7505_003b_4e82_b7a6_4dd29c300971);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_LATENCY_HINT_PERF ) , guid : :: windows :: core :: GUID::from_u128(0x619b7505_003b_4e82_b7a6_4dd29c300971) , } }
 pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x619b7505_003b_4e82_b7a6_4dd29c300972);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_LATENCY_HINT_PERF_1 ) , guid : :: windows :: core :: GUID::from_u128(0x619b7505_003b_4e82_b7a6_4dd29c300972) , } }
 pub const GUID_PROCESSOR_PERF_TIME_CHECK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d2b0152_7d5c_498b_88e2_34345392a2c5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_PERF_TIME_CHECK ) , guid : :: windows :: core :: GUID::from_u128(0x4d2b0152_7d5c_498b_88e2_34345392a2c5) , } }
 pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38b8383d_cce0_4c79_9e3e_56a4f17cc480);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD ) , guid : :: windows :: core :: GUID::from_u128(0x38b8383d_cce0_4c79_9e3e_56a4f17cc480) , } }
 pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38b8383d_cce0_4c79_9e3e_56a4f17cc481);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD_1 ) , guid : :: windows :: core :: GUID::from_u128(0x38b8383d_cce0_4c79_9e3e_56a4f17cc481) , } }
 pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf565999f_3fb0_411a_a226_3f0198dec130);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME ) , guid : :: windows :: core :: GUID::from_u128(0xf565999f_3fb0_411a_a226_3f0198dec130) , } }
 pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf565999f_3fb0_411a_a226_3f0198dec131);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME_1 ) , guid : :: windows :: core :: GUID::from_u128(0xf565999f_3fb0_411a_a226_3f0198dec131) , } }
 pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d44e256_7222_4415_a9ed_9c45fa3dd830);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD ) , guid : :: windows :: core :: GUID::from_u128(0x3d44e256_7222_4415_a9ed_9c45fa3dd830) , } }
 pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d44e256_7222_4415_a9ed_9c45fa3dd831);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD_1 ) , guid : :: windows :: core :: GUID::from_u128(0x3d44e256_7222_4415_a9ed_9c45fa3dd831) , } }
 pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d915188_7830_49ae_a79a_0fb0a1e5a200);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME ) , guid : :: windows :: core :: GUID::from_u128(0x3d915188_7830_49ae_a79a_0fb0a1e5a200) , } }
 pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d915188_7830_49ae_a79a_0fb0a1e5a201);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME_1 ) , guid : :: windows :: core :: GUID::from_u128(0x3d915188_7830_49ae_a79a_0fb0a1e5a201) , } }
 pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4427c73b_9756_4a5c_b84b_c7bda79c7320);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING ) , guid : :: windows :: core :: GUID::from_u128(0x4427c73b_9756_4a5c_b84b_c7bda79c7320) , } }
 pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4427c73b_9756_4a5c_b84b_c7bda79c7321);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING_1 ) , guid : :: windows :: core :: GUID::from_u128(0x4427c73b_9756_4a5c_b84b_c7bda79c7321) , } }
 pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce8e92ee_6a86_4572_bfe0_20c21d03cd40);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR ) , guid : :: windows :: core :: GUID::from_u128(0xce8e92ee_6a86_4572_bfe0_20c21d03cd40) , } }
 pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce8e92ee_6a86_4572_bfe0_20c21d03cd41);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR_1 ) , guid : :: windows :: core :: GUID::from_u128(0xce8e92ee_6a86_4572_bfe0_20c21d03cd41) , } }
 pub const GUID_PROCESSOR_SETTINGS_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54533251_82be_4824_96c1_47b60b740d00);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_SETTINGS_SUBGROUP ) , guid : :: windows :: core :: GUID::from_u128(0x54533251_82be_4824_96c1_47b60b740d00) , } }
 pub const GUID_PROCESSOR_SHORT_THREAD_RUNTIME_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd92998c2_6a48_49ca_85d4_8cceec294570);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_SHORT_THREAD_RUNTIME_THRESHOLD ) , guid : :: windows :: core :: GUID::from_u128(0xd92998c2_6a48_49ca_85d4_8cceec294570) , } }
 pub const GUID_PROCESSOR_SHORT_THREAD_SCHEDULING_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbae08b81_2d5e_4688_ad6a_13243356654b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_SHORT_THREAD_SCHEDULING_POLICY ) , guid : :: windows :: core :: GUID::from_u128(0xbae08b81_2d5e_4688_ad6a_13243356654b) , } }
 pub const GUID_PROCESSOR_SOFT_PARKING_LATENCY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97cfac41_2217_47eb_992d_618b1977c907);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_SOFT_PARKING_LATENCY ) , guid : :: windows :: core :: GUID::from_u128(0x97cfac41_2217_47eb_992d_618b1977c907) , } }
 pub const GUID_PROCESSOR_THREAD_SCHEDULING_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93b8b6dc_0698_4d1c_9ee4_0644e900c85d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_THREAD_SCHEDULING_POLICY ) , guid : :: windows :: core :: GUID::from_u128(0x93b8b6dc_0698_4d1c_9ee4_0644e900c85d) , } }
 pub const GUID_PROCESSOR_THROTTLE_MAXIMUM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc5038f7_23e0_4960_96da_33abaf5935ec);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_THROTTLE_MAXIMUM ) , guid : :: windows :: core :: GUID::from_u128(0xbc5038f7_23e0_4960_96da_33abaf5935ec) , } }
 pub const GUID_PROCESSOR_THROTTLE_MAXIMUM_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc5038f7_23e0_4960_96da_33abaf5935ed);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_THROTTLE_MAXIMUM_1 ) , guid : :: windows :: core :: GUID::from_u128(0xbc5038f7_23e0_4960_96da_33abaf5935ed) , } }
 pub const GUID_PROCESSOR_THROTTLE_MINIMUM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x893dee8e_2bef_41e0_89c6_b55d0929964c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_THROTTLE_MINIMUM ) , guid : :: windows :: core :: GUID::from_u128(0x893dee8e_2bef_41e0_89c6_b55d0929964c) , } }
 pub const GUID_PROCESSOR_THROTTLE_MINIMUM_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x893dee8e_2bef_41e0_89c6_b55d0929964d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_THROTTLE_MINIMUM_1 ) , guid : :: windows :: core :: GUID::from_u128(0x893dee8e_2bef_41e0_89c6_b55d0929964d) , } }
 pub const GUID_PROCESSOR_THROTTLE_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57027304_4af6_4104_9260_e3d95248fc36);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_PROCESSOR_THROTTLE_POLICY ) , guid : :: windows :: core :: GUID::from_u128(0x57027304_4af6_4104_9260_e3d95248fc36) , } }
 pub const GUID_SESSION_DISPLAY_STATUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b84c20e_ad23_4ddf_93db_05ffbd7efca5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_SESSION_DISPLAY_STATUS ) , guid : :: windows :: core :: GUID::from_u128(0x2b84c20e_ad23_4ddf_93db_05ffbd7efca5) , } }
 pub const GUID_SESSION_USER_PRESENCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c0f4548_c03f_4c4d_b9f2_237ede686376);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_SESSION_USER_PRESENCE ) , guid : :: windows :: core :: GUID::from_u128(0x3c0f4548_c03f_4c4d_b9f2_237ede686376) , } }
 pub const GUID_SLEEPBUTTON_ACTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96996bc0_ad50_47ec_923b_6f41874dd9eb);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_SLEEPBUTTON_ACTION ) , guid : :: windows :: core :: GUID::from_u128(0x96996bc0_ad50_47ec_923b_6f41874dd9eb) , } }
 pub const GUID_SLEEP_IDLE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81cd32e0_7833_44f3_8737_7081f38d1f70);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_SLEEP_IDLE_THRESHOLD ) , guid : :: windows :: core :: GUID::from_u128(0x81cd32e0_7833_44f3_8737_7081f38d1f70) , } }
 pub const GUID_SLEEP_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x238c9fa8_0aad_41ed_83f4_97be242c8f20);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_SLEEP_SUBGROUP ) , guid : :: windows :: core :: GUID::from_u128(0x238c9fa8_0aad_41ed_83f4_97be242c8f20) , } }
 pub const GUID_SPR_ACTIVE_SESSION_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e24ce38_c393_4742_bdb1_744f4b9ee08e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_SPR_ACTIVE_SESSION_CHANGE ) , guid : :: windows :: core :: GUID::from_u128(0x0e24ce38_c393_4742_bdb1_744f4b9ee08e) , } }
 pub const GUID_STANDBY_BUDGET_GRACE_PERIOD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60c07fe1_0556_45cf_9903_d56e32210242);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_STANDBY_BUDGET_GRACE_PERIOD ) , guid : :: windows :: core :: GUID::from_u128(0x60c07fe1_0556_45cf_9903_d56e32210242) , } }
 pub const GUID_STANDBY_BUDGET_PERCENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fe527be_1b70_48da_930d_7bcf17b44990);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_STANDBY_BUDGET_PERCENT ) , guid : :: windows :: core :: GUID::from_u128(0x9fe527be_1b70_48da_930d_7bcf17b44990) , } }
 pub const GUID_STANDBY_RESERVE_GRACE_PERIOD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc763ee92_71e8_4127_84eb_f6ed043a3e3d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_STANDBY_RESERVE_GRACE_PERIOD ) , guid : :: windows :: core :: GUID::from_u128(0xc763ee92_71e8_4127_84eb_f6ed043a3e3d) , } }
 pub const GUID_STANDBY_RESERVE_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x468fe7e5_1158_46ec_88bc_5b96c9e44fd0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_STANDBY_RESERVE_TIME ) , guid : :: windows :: core :: GUID::from_u128(0x468fe7e5_1158_46ec_88bc_5b96c9e44fd0) , } }
 pub const GUID_STANDBY_RESET_PERCENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49cb11a5_56e2_4afb_9d38_3df47872e21b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_STANDBY_RESET_PERCENT ) , guid : :: windows :: core :: GUID::from_u128(0x49cb11a5_56e2_4afb_9d38_3df47872e21b) , } }
 pub const GUID_STANDBY_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29f6c1db_86da_48c5_9fdb_f2b67b1f44da);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_STANDBY_TIMEOUT ) , guid : :: windows :: core :: GUID::from_u128(0x29f6c1db_86da_48c5_9fdb_f2b67b1f44da) , } }
 pub const GUID_SYSTEM_AWAYMODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98a7f580_01f7_48aa_9c0f_44352c29e5c0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_SYSTEM_AWAYMODE ) , guid : :: windows :: core :: GUID::from_u128(0x98a7f580_01f7_48aa_9c0f_44352c29e5c0) , } }
 pub const GUID_SYSTEM_BUTTON_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f971e89_eebd_4455_a8de_9e59040e7347);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_SYSTEM_BUTTON_SUBGROUP ) , guid : :: windows :: core :: GUID::from_u128(0x4f971e89_eebd_4455_a8de_9e59040e7347) , } }
 pub const GUID_SYSTEM_COOLING_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94d3a615_a899_4ac5_ae2b_e4d8f634367f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_SYSTEM_COOLING_POLICY ) , guid : :: windows :: core :: GUID::from_u128(0x94d3a615_a899_4ac5_ae2b_e4d8f634367f) , } }
 pub const GUID_TYPICAL_POWER_SAVINGS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x381b4222_f694_41f0_9685_ff5bb260df2e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_TYPICAL_POWER_SAVINGS ) , guid : :: windows :: core :: GUID::from_u128(0x381b4222_f694_41f0_9685_ff5bb260df2e) , } }
 pub const GUID_UNATTEND_SLEEP_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bc4a2f9_d8fc_4469_b07b_33eb785aaca0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_UNATTEND_SLEEP_TIMEOUT ) , guid : :: windows :: core :: GUID::from_u128(0x7bc4a2f9_d8fc_4469_b07b_33eb785aaca0) , } }
 pub const GUID_USERINTERFACEBUTTON_ACTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7066653_8d6c_40a8_910e_a1f54b84c7e5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_USERINTERFACEBUTTON_ACTION ) , guid : :: windows :: core :: GUID::from_u128(0xa7066653_8d6c_40a8_910e_a1f54b84c7e5) , } }
 pub const GUID_USER_PRESENCE_PREDICTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82011705_fb95_4d46_8d35_4042b1d20def);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_USER_PRESENCE_PREDICTION ) , guid : :: windows :: core :: GUID::from_u128(0x82011705_fb95_4d46_8d35_4042b1d20def) , } }
 pub const GUID_VIDEO_ADAPTIVE_DISPLAY_BRIGHTNESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbd9aa66_9553_4097_ba44_ed6e9d65eab8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_VIDEO_ADAPTIVE_DISPLAY_BRIGHTNESS ) , guid : :: windows :: core :: GUID::from_u128(0xfbd9aa66_9553_4097_ba44_ed6e9d65eab8) , } }
 pub const GUID_VIDEO_ADAPTIVE_PERCENT_INCREASE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeed904df_b142_4183_b10b_5a1197a37864);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_VIDEO_ADAPTIVE_PERCENT_INCREASE ) , guid : :: windows :: core :: GUID::from_u128(0xeed904df_b142_4183_b10b_5a1197a37864) , } }
 pub const GUID_VIDEO_ADAPTIVE_POWERDOWN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90959d22_d6a1_49b9_af93_bce885ad335b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_VIDEO_ADAPTIVE_POWERDOWN ) , guid : :: windows :: core :: GUID::from_u128(0x90959d22_d6a1_49b9_af93_bce885ad335b) , } }
 pub const GUID_VIDEO_ANNOYANCE_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82dbcf2d_cd67_40c5_bfdc_9f1a5ccd4663);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_VIDEO_ANNOYANCE_TIMEOUT ) , guid : :: windows :: core :: GUID::from_u128(0x82dbcf2d_cd67_40c5_bfdc_9f1a5ccd4663) , } }
 pub const GUID_VIDEO_CONSOLE_LOCK_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ec4b3a5_6868_48c2_be75_4f3044be88a7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_VIDEO_CONSOLE_LOCK_TIMEOUT ) , guid : :: windows :: core :: GUID::from_u128(0x8ec4b3a5_6868_48c2_be75_4f3044be88a7) , } }
 pub const GUID_VIDEO_CURRENT_MONITOR_BRIGHTNESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ffee2c6_2d01_46be_adb9_398addc5b4ff);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_VIDEO_CURRENT_MONITOR_BRIGHTNESS ) , guid : :: windows :: core :: GUID::from_u128(0x8ffee2c6_2d01_46be_adb9_398addc5b4ff) , } }
 pub const GUID_VIDEO_DIM_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17aaa29b_8b43_4b94_aafe_35f64daaf1ee);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_VIDEO_DIM_TIMEOUT ) , guid : :: windows :: core :: GUID::from_u128(0x17aaa29b_8b43_4b94_aafe_35f64daaf1ee) , } }
 pub const GUID_VIDEO_POWERDOWN_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c0bc021_c8a8_4e07_a973_6b14cbcb2b7e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_VIDEO_POWERDOWN_TIMEOUT ) , guid : :: windows :: core :: GUID::from_u128(0x3c0bc021_c8a8_4e07_a973_6b14cbcb2b7e) , } }
 pub const GUID_VIDEO_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7516b95f_f776_4464_8c53_06167f40cc99);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_VIDEO_SUBGROUP ) , guid : :: windows :: core :: GUID::from_u128(0x7516b95f_f776_4464_8c53_06167f40cc99) , } }
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const HEAP_OPTIMIZE_RESOURCES_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
@@ -8482,6 +8958,8 @@ impl ::core::default::Default for NOTIFY_USER_POWER_SETTING {
     }
 }
 pub const NO_SUBGROUP_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfea3413e_7e05_4911_9a71_700331f1c294);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( NO_SUBGROUP_GUID ) , guid : :: windows :: core :: GUID::from_u128(0xfea3413e_7e05_4911_9a71_700331f1c294) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub struct NT_TIB32 {
@@ -9326,7 +9804,11 @@ pub const PPM_FIRMWARE_TSS: u32 = 2048u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const PPM_FIRMWARE_XPSS: u32 = 128u32;
 pub const PPM_IDLESTATES_DATA_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba138e10_e250_4ad7_8616_cf1a7ad410e7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PPM_IDLESTATES_DATA_GUID ) , guid : :: windows :: core :: GUID::from_u128(0xba138e10_e250_4ad7_8616_cf1a7ad410e7) , } }
 pub const PPM_IDLESTATE_CHANGE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4838fe4f_f71c_4e51_9ecc_8430a7ac4c6c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PPM_IDLESTATE_CHANGE_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x4838fe4f_f71c_4e51_9ecc_8430a7ac4c6c) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub struct PPM_IDLESTATE_EVENT {
@@ -9429,7 +9911,11 @@ impl ::core::default::Default for PPM_IDLE_ACCOUNTING_EX {
     }
 }
 pub const PPM_IDLE_ACCOUNTING_EX_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd67abd39_81f8_4a5e_8152_72e31ec912ee);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PPM_IDLE_ACCOUNTING_EX_GUID ) , guid : :: windows :: core :: GUID::from_u128(0xd67abd39_81f8_4a5e_8152_72e31ec912ee) , } }
 pub const PPM_IDLE_ACCOUNTING_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2a26f78_ae07_4ee0_a30f_ce54f55a94cd);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PPM_IDLE_ACCOUNTING_GUID ) , guid : :: windows :: core :: GUID::from_u128(0xe2a26f78_ae07_4ee0_a30f_ce54f55a94cd) , } }
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const PPM_IDLE_IMPLEMENTATION_CSTATES: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -9545,6 +10031,8 @@ impl ::core::default::Default for PPM_IDLE_STATE_BUCKET_EX {
     }
 }
 pub const PPM_PERFMON_PERFSTATE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fd18652_0cfe_40d2_b0a1_0b066a87759e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PPM_PERFMON_PERFSTATE_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x7fd18652_0cfe_40d2_b0a1_0b066a87759e) , } }
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const PPM_PERFORMANCE_IMPLEMENTATION_CPPC: u32 = 3u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -9556,8 +10044,14 @@ pub const PPM_PERFORMANCE_IMPLEMENTATION_PEP: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const PPM_PERFORMANCE_IMPLEMENTATION_PSTATES: u32 = 1u32;
 pub const PPM_PERFSTATES_DATA_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5708cc20_7d40_4bf4_b4aa_2b01338d0126);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PPM_PERFSTATES_DATA_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x5708cc20_7d40_4bf4_b4aa_2b01338d0126) , } }
 pub const PPM_PERFSTATE_CHANGE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5b32ddd_7f39_4abc_b892_900e43b59ebb);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PPM_PERFSTATE_CHANGE_GUID ) , guid : :: windows :: core :: GUID::from_u128(0xa5b32ddd_7f39_4abc_b892_900e43b59ebb) , } }
 pub const PPM_PERFSTATE_DOMAIN_CHANGE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x995e6b7f_d653_497a_b978_36a30c29bf01);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PPM_PERFSTATE_DOMAIN_CHANGE_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x995e6b7f_d653_497a_b978_36a30c29bf01) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub struct PPM_PERFSTATE_DOMAIN_EVENT {
@@ -9657,7 +10151,11 @@ impl ::core::default::Default for PPM_THERMALCHANGE_EVENT {
     }
 }
 pub const PPM_THERMALCONSTRAINT_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa852c2c8_1a4c_423b_8c2c_f30d82931a88);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PPM_THERMALCONSTRAINT_GUID ) , guid : :: windows :: core :: GUID::from_u128(0xa852c2c8_1a4c_423b_8c2c_f30d82931a88) , } }
 pub const PPM_THERMAL_POLICY_CHANGE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48f377b8_6880_4c7b_8bdc_380176c6654d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PPM_THERMAL_POLICY_CHANGE_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x48f377b8_6880_4c7b_8bdc_380176c6654d) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub struct PPM_THERMAL_POLICY_EVENT {

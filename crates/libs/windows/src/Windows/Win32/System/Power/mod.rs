@@ -206,9 +206,13 @@ pub const BATTERY_CLASS_MINOR_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_CRITICAL: u32 = 8u32;
 pub const BATTERY_CYCLE_COUNT_WMI_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef98db24_0014_4c25_a50b_c724ae5cd371);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( BATTERY_CYCLE_COUNT_WMI_GUID ) , guid : :: windows :: core :: GUID::from_u128(0xef98db24_0014_4c25_a50b_c724ae5cd371) , } }
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_DISCHARGING: u32 = 2u32;
 pub const BATTERY_FULL_CHARGED_CAPACITY_WMI_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40b40565_96f7_4435_8694_97e0e4395905);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( BATTERY_FULL_CHARGED_CAPACITY_WMI_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x40b40565_96f7_4435_8694_97e0e4395905) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub struct BATTERY_INFORMATION {
@@ -372,6 +376,8 @@ impl ::core::default::Default for BATTERY_REPORTING_SCALE {
     }
 }
 pub const BATTERY_RUNTIME_WMI_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x535a3767_1ac2_49bc_a077_3f7a02e40aec);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( BATTERY_RUNTIME_WMI_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x535a3767_1ac2_49bc_a077_3f7a02e40aec) , } }
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_SEALED: u32 = 268435456u32;
 #[doc = "*Required features: 'Win32_System_Power'*"]
@@ -429,6 +435,8 @@ pub const BatteryChargerId: BATTERY_SET_INFORMATION_LEVEL = 4i32;
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BatteryChargerStatus: BATTERY_SET_INFORMATION_LEVEL = 5i32;
 pub const BATTERY_STATIC_DATA_WMI_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05e1e463_e4e2_4ea9_80cb_9bd4b3ca0655);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( BATTERY_STATIC_DATA_WMI_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x05e1e463_e4e2_4ea9_80cb_9bd4b3ca0655) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub struct BATTERY_STATUS {
@@ -463,13 +471,21 @@ impl ::core::default::Default for BATTERY_STATUS {
     }
 }
 pub const BATTERY_STATUS_CHANGE_WMI_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcddfa0c3_7c5b_4e43_a034_059fa5b84364);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( BATTERY_STATUS_CHANGE_WMI_GUID ) , guid : :: windows :: core :: GUID::from_u128(0xcddfa0c3_7c5b_4e43_a034_059fa5b84364) , } }
 pub const BATTERY_STATUS_WMI_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc4670d1_ebbf_416e_87ce_374a4ebc111a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( BATTERY_STATUS_WMI_GUID ) , guid : :: windows :: core :: GUID::from_u128(0xfc4670d1_ebbf_416e_87ce_374a4ebc111a) , } }
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_SYSTEM_BATTERY: u32 = 2147483648u32;
 pub const BATTERY_TAG_CHANGE_WMI_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e1f6e19_8786_4d23_94fc_9e746bd5d888);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( BATTERY_TAG_CHANGE_WMI_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x5e1f6e19_8786_4d23_94fc_9e746bd5d888) , } }
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_TAG_INVALID: u32 = 0u32;
 pub const BATTERY_TEMPERATURE_WMI_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a52a14d_adce_4a44_9a3e_c8d8f15ff2c2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( BATTERY_TEMPERATURE_WMI_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x1a52a14d_adce_4a44_9a3e_c8d8f15ff2c2) , } }
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_UNKNOWN_CAPACITY: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_System_Power'*"]
@@ -1170,19 +1186,47 @@ impl ::core::default::Default for GLOBAL_USER_POWER_POLICY {
     }
 }
 pub const GUID_CLASS_INPUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d1e55b2_f16f_11cf_88cb_001111000030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_CLASS_INPUT ) , guid : :: windows :: core :: GUID::from_u128(0x4d1e55b2_f16f_11cf_88cb_001111000030) , } }
 pub const GUID_DEVICE_ACPI_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97f99bf6_4497_4f18_bb22_4b9fb2fbef9c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVICE_ACPI_TIME ) , guid : :: windows :: core :: GUID::from_u128(0x97f99bf6_4497_4f18_bb22_4b9fb2fbef9c) , } }
 pub const GUID_DEVICE_APPLICATIONLAUNCH_BUTTON: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x629758ee_986e_4d9e_8e47_de27f8ab054d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVICE_APPLICATIONLAUNCH_BUTTON ) , guid : :: windows :: core :: GUID::from_u128(0x629758ee_986e_4d9e_8e47_de27f8ab054d) , } }
 pub const GUID_DEVICE_BATTERY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72631e54_78a4_11d0_bcf7_00aa00b7b32a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVICE_BATTERY ) , guid : :: windows :: core :: GUID::from_u128(0x72631e54_78a4_11d0_bcf7_00aa00b7b32a) , } }
 pub const GUID_DEVICE_ENERGY_METER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45bd8344_7ed6_49cf_a440_c276c933b053);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVICE_ENERGY_METER ) , guid : :: windows :: core :: GUID::from_u128(0x45bd8344_7ed6_49cf_a440_c276c933b053) , } }
 pub const GUID_DEVICE_FAN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05ecd13d_81da_4a2a_8a4c_524f23dd4dc9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVICE_FAN ) , guid : :: windows :: core :: GUID::from_u128(0x05ecd13d_81da_4a2a_8a4c_524f23dd4dc9) , } }
 pub const GUID_DEVICE_LID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4afa3d52_74a7_11d0_be5e_00a0c9062857);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVICE_LID ) , guid : :: windows :: core :: GUID::from_u128(0x4afa3d52_74a7_11d0_be5e_00a0c9062857) , } }
 pub const GUID_DEVICE_MEMORY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fd0f03d_92e0_45fb_b75c_5ed8ffb01021);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVICE_MEMORY ) , guid : :: windows :: core :: GUID::from_u128(0x3fd0f03d_92e0_45fb_b75c_5ed8ffb01021) , } }
 pub const GUID_DEVICE_MESSAGE_INDICATOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd48a365_fa94_4ce2_a232_a1b764e5d8b4);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVICE_MESSAGE_INDICATOR ) , guid : :: windows :: core :: GUID::from_u128(0xcd48a365_fa94_4ce2_a232_a1b764e5d8b4) , } }
 pub const GUID_DEVICE_PROCESSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97fadb10_4e33_40ae_359c_8bef029dbdd0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVICE_PROCESSOR ) , guid : :: windows :: core :: GUID::from_u128(0x97fadb10_4e33_40ae_359c_8bef029dbdd0) , } }
 pub const GUID_DEVICE_SYS_BUTTON: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4afa3d53_74a7_11d0_be5e_00a0c9062857);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVICE_SYS_BUTTON ) , guid : :: windows :: core :: GUID::from_u128(0x4afa3d53_74a7_11d0_be5e_00a0c9062857) , } }
 pub const GUID_DEVICE_THERMAL_ZONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4afa3d51_74a7_11d0_be5e_00a0c9062857);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVICE_THERMAL_ZONE ) , guid : :: windows :: core :: GUID::from_u128(0x4afa3d51_74a7_11d0_be5e_00a0c9062857) , } }
 pub const GUID_DEVINTERFACE_THERMAL_COOLING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbe4373d_3c81_40cb_ace4_e0e5d05f0c9f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_THERMAL_COOLING ) , guid : :: windows :: core :: GUID::from_u128(0xdbe4373d_3c81_40cb_ace4_e0e5d05f0c9f) , } }
 pub const GUID_DEVINTERFACE_THERMAL_MANAGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x927ec093_69a4_4bc0_bd02_711664714463);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_THERMAL_MANAGER ) , guid : :: windows :: core :: GUID::from_u128(0x927ec093_69a4_4bc0_bd02_711664714463) , } }
 #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1975,6 +2019,8 @@ pub const DEVICE_NOTIFY_WINDOW_HANDLE: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS
 #[doc = "*Required features: 'Win32_System_Power', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PROCESSOR_NUMBER_PKEY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x5724c81d_d5af_4c1f_a103_a06e28f204c6), pid: 1u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PROCESSOR_NUMBER_PKEY ) , guid : :: windows :: core :: GUID::from_u128(0x5724c81d_d5af_4c1f_a103_a06e28f204c6) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub struct PROCESSOR_OBJECT_INFO {

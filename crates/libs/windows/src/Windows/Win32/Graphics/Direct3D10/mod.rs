@@ -5939,7 +5939,11 @@ pub const D3D_SPEC_DATE_YEAR: u32 = 2006u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
 pub const D3D_SPEC_VERSION: f64 = 1.050005f64;
 pub const DXGI_DEBUG_D3D10: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x243b4c52_3606_4d3a_99d7_a7e7b33ed706);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DXGI_DEBUG_D3D10 ) , guid : :: windows :: core :: GUID::from_u128(0x243b4c52_3606_4d3a_99d7_a7e7b33ed706) , } }
 pub const GUID_DeviceType: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd722fb4d_7a68_437a_b20c_5804ee2494a6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DeviceType ) , guid : :: windows :: core :: GUID::from_u128(0xd722fb4d_7a68_437a_b20c_5804ee2494a6) , } }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
 #[repr(transparent)]
 pub struct ID3D10Asynchronous(::windows::core::IUnknown);

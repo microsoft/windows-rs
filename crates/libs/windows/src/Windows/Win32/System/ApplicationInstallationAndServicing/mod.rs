@@ -816,7 +816,11 @@ pub unsafe fn ApplyPatchToFileW<'a, Param0: ::windows::core::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 pub const CLSID_EvalCom2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e5e1910_8053_4660_b795_6b612e29bc58);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_EvalCom2 ) , guid : :: windows :: core :: GUID::from_u128(0x6e5e1910_8053_4660_b795_6b612e29bc58) , } }
 pub const CLSID_MsmMerge2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf94985d5_29f9_4743_9805_99bc3f35b678);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_MsmMerge2 ) , guid : :: windows :: core :: GUID::from_u128(0xf94985d5_29f9_4743_9805_99bc3f35b678) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing'*"]
 pub struct COMPATIBILITY_CONTEXT_ELEMENT {
@@ -1696,8 +1700,14 @@ impl ::core::default::Default for FUSION_INSTALL_REFERENCE {
     }
 }
 pub const FUSION_REFCOUNT_FILEPATH_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb02f9d65_fb77_4f7a_afa5_b391309f11c9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( FUSION_REFCOUNT_FILEPATH_GUID ) , guid : :: windows :: core :: GUID::from_u128(0xb02f9d65_fb77_4f7a_afa5_b391309f11c9) , } }
 pub const FUSION_REFCOUNT_OPAQUE_STRING_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ec93463_b0c3_45e1_8364_327e96aea856);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( FUSION_REFCOUNT_OPAQUE_STRING_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x2ec93463_b0c3_45e1_8364_327e96aea856) , } }
 pub const FUSION_REFCOUNT_UNINSTALL_SUBKEY_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cedc215_ac4b_488b_93c0_a50a49cb2fb8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( FUSION_REFCOUNT_UNINSTALL_SUBKEY_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x8cedc215_ac4b_488b_93c0_a50a49cb2fb8) , } }
 #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation', 'Win32_System_WindowsProgramming'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
@@ -6498,6 +6508,8 @@ pub struct IValidateVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 pub const LIBID_MsmMergeTypeLib: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda82f_2c26_11d2_ad65_00a0c9af11a6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( LIBID_MsmMergeTypeLib ) , guid : :: windows :: core :: GUID::from_u128(0x0adda82f_2c26_11d2_ad65_00a0c9af11a6) , } }
 #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing'*"]
 pub const LOGALL: u32 = 15u32;
 #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing'*"]

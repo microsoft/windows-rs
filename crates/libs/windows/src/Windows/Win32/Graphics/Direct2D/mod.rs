@@ -2,70 +2,200 @@
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub mod Common;
 pub const CLSID_D2D12DAffineTransform: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6aa97485_6354_4cfc_908c_e4a74f62c96c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D12DAffineTransform ) , guid : :: windows :: core :: GUID::from_u128(0x6aa97485_6354_4cfc_908c_e4a74f62c96c) , } }
 pub const CLSID_D2D13DPerspectiveTransform: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2844d0b_3d86_46e7_85ba_526c9240f3fb);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D13DPerspectiveTransform ) , guid : :: windows :: core :: GUID::from_u128(0xc2844d0b_3d86_46e7_85ba_526c9240f3fb) , } }
 pub const CLSID_D2D13DTransform: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8467b04_ec61_4b8a_b5de_d4d73debea5a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D13DTransform ) , guid : :: windows :: core :: GUID::from_u128(0xe8467b04_ec61_4b8a_b5de_d4d73debea5a) , } }
 pub const CLSID_D2D1AlphaMask: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc80ecff0_3fd5_4f05_8328_c5d1724b4f0a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1AlphaMask ) , guid : :: windows :: core :: GUID::from_u128(0xc80ecff0_3fd5_4f05_8328_c5d1724b4f0a) , } }
 pub const CLSID_D2D1ArithmeticComposite: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc151437_049a_4784_a24a_f1c4daf20987);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1ArithmeticComposite ) , guid : :: windows :: core :: GUID::from_u128(0xfc151437_049a_4784_a24a_f1c4daf20987) , } }
 pub const CLSID_D2D1Atlas: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x913e2be4_fdcf_4fe2_a5f0_2454f14ff408);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Atlas ) , guid : :: windows :: core :: GUID::from_u128(0x913e2be4_fdcf_4fe2_a5f0_2454f14ff408) , } }
 pub const CLSID_D2D1BitmapSource: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fb6c24d_c6dd_4231_9404_50f4d5c3252d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1BitmapSource ) , guid : :: windows :: core :: GUID::from_u128(0x5fb6c24d_c6dd_4231_9404_50f4d5c3252d) , } }
 pub const CLSID_D2D1Blend: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81c5b77b_13f8_4cdd_ad20_c890547ac65d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Blend ) , guid : :: windows :: core :: GUID::from_u128(0x81c5b77b_13f8_4cdd_ad20_c890547ac65d) , } }
 pub const CLSID_D2D1Border: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a2d49c0_4acf_43c7_8c6a_7c4a27874d27);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Border ) , guid : :: windows :: core :: GUID::from_u128(0x2a2d49c0_4acf_43c7_8c6a_7c4a27874d27) , } }
 pub const CLSID_D2D1Brightness: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cea8d1e_77b0_4986_b3b9_2f0c0eae7887);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Brightness ) , guid : :: windows :: core :: GUID::from_u128(0x8cea8d1e_77b0_4986_b3b9_2f0c0eae7887) , } }
 pub const CLSID_D2D1ChromaKey: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74c01f5b_2a0d_408c_88e2_c7a3c7197742);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1ChromaKey ) , guid : :: windows :: core :: GUID::from_u128(0x74c01f5b_2a0d_408c_88e2_c7a3c7197742) , } }
 pub const CLSID_D2D1ColorManagement: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a28524c_fdd6_4aa4_ae8f_837eb8267b37);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1ColorManagement ) , guid : :: windows :: core :: GUID::from_u128(0x1a28524c_fdd6_4aa4_ae8f_837eb8267b37) , } }
 pub const CLSID_D2D1ColorMatrix: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x921f03d6_641c_47df_852d_b4bb6153ae11);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1ColorMatrix ) , guid : :: windows :: core :: GUID::from_u128(0x921f03d6_641c_47df_852d_b4bb6153ae11) , } }
 pub const CLSID_D2D1Composite: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48fc9f51_f6ac_48f1_8b58_3b28ac46f76d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Composite ) , guid : :: windows :: core :: GUID::from_u128(0x48fc9f51_f6ac_48f1_8b58_3b28ac46f76d) , } }
 pub const CLSID_D2D1Contrast: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb648a78a_0ed5_4f80_a94a_8e825aca6b77);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Contrast ) , guid : :: windows :: core :: GUID::from_u128(0xb648a78a_0ed5_4f80_a94a_8e825aca6b77) , } }
 pub const CLSID_D2D1ConvolveMatrix: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x407f8c08_5533_4331_a341_23cc3877843e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1ConvolveMatrix ) , guid : :: windows :: core :: GUID::from_u128(0x407f8c08_5533_4331_a341_23cc3877843e) , } }
 pub const CLSID_D2D1Crop: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe23f7110_0e9a_4324_af47_6a2c0c46f35b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Crop ) , guid : :: windows :: core :: GUID::from_u128(0xe23f7110_0e9a_4324_af47_6a2c0c46f35b) , } }
 pub const CLSID_D2D1CrossFade: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12f575e8_4db1_485f_9a84_03a07dd3829f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1CrossFade ) , guid : :: windows :: core :: GUID::from_u128(0x12f575e8_4db1_485f_9a84_03a07dd3829f) , } }
 pub const CLSID_D2D1DirectionalBlur: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x174319a6_58e9_49b2_bb63_caf2c811a3db);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1DirectionalBlur ) , guid : :: windows :: core :: GUID::from_u128(0x174319a6_58e9_49b2_bb63_caf2c811a3db) , } }
 pub const CLSID_D2D1DiscreteTransfer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90866fcd_488e_454b_af06_e5041b66c36c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1DiscreteTransfer ) , guid : :: windows :: core :: GUID::from_u128(0x90866fcd_488e_454b_af06_e5041b66c36c) , } }
 pub const CLSID_D2D1DisplacementMap: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedc48364_0417_4111_9450_43845fa9f890);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1DisplacementMap ) , guid : :: windows :: core :: GUID::from_u128(0xedc48364_0417_4111_9450_43845fa9f890) , } }
 pub const CLSID_D2D1DistantDiffuse: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e7efd62_a32d_46d4_a83c_5278889ac954);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1DistantDiffuse ) , guid : :: windows :: core :: GUID::from_u128(0x3e7efd62_a32d_46d4_a83c_5278889ac954) , } }
 pub const CLSID_D2D1DistantSpecular: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x428c1ee5_77b8_4450_8ab5_72219c21abda);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1DistantSpecular ) , guid : :: windows :: core :: GUID::from_u128(0x428c1ee5_77b8_4450_8ab5_72219c21abda) , } }
 pub const CLSID_D2D1DpiCompensation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c26c5c7_34e0_46fc_9cfd_e5823706e228);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1DpiCompensation ) , guid : :: windows :: core :: GUID::from_u128(0x6c26c5c7_34e0_46fc_9cfd_e5823706e228) , } }
 pub const CLSID_D2D1EdgeDetection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeff583ca_cb07_4aa9_ac5d_2cc44c76460f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1EdgeDetection ) , guid : :: windows :: core :: GUID::from_u128(0xeff583ca_cb07_4aa9_ac5d_2cc44c76460f) , } }
 pub const CLSID_D2D1Emboss: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1c5eb2b_0348_43f0_8107_4957cacba2ae);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Emboss ) , guid : :: windows :: core :: GUID::from_u128(0xb1c5eb2b_0348_43f0_8107_4957cacba2ae) , } }
 pub const CLSID_D2D1Exposure: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb56c8cfa_f634_41ee_bee0_ffa617106004);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Exposure ) , guid : :: windows :: core :: GUID::from_u128(0xb56c8cfa_f634_41ee_bee0_ffa617106004) , } }
 pub const CLSID_D2D1Flood: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61c23c20_ae69_4d8e_94cf_50078df638f2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Flood ) , guid : :: windows :: core :: GUID::from_u128(0x61c23c20_ae69_4d8e_94cf_50078df638f2) , } }
 pub const CLSID_D2D1GammaTransfer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x409444c4_c419_41a0_b0c1_8cd0c0a18e42);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1GammaTransfer ) , guid : :: windows :: core :: GUID::from_u128(0x409444c4_c419_41a0_b0c1_8cd0c0a18e42) , } }
 pub const CLSID_D2D1GaussianBlur: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1feb6d69_2fe6_4ac9_8c58_1d7f93e7a6a5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1GaussianBlur ) , guid : :: windows :: core :: GUID::from_u128(0x1feb6d69_2fe6_4ac9_8c58_1d7f93e7a6a5) , } }
 pub const CLSID_D2D1Grayscale: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36dde0eb_3725_42e0_836d_52fb20aee644);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Grayscale ) , guid : :: windows :: core :: GUID::from_u128(0x36dde0eb_3725_42e0_836d_52fb20aee644) , } }
 pub const CLSID_D2D1HdrToneMap: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b0b748d_4610_4486_a90c_999d9a2e2b11);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1HdrToneMap ) , guid : :: windows :: core :: GUID::from_u128(0x7b0b748d_4610_4486_a90c_999d9a2e2b11) , } }
 pub const CLSID_D2D1HighlightsShadows: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcadc8384_323f_4c7e_a361_2e2b24df6ee4);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1HighlightsShadows ) , guid : :: windows :: core :: GUID::from_u128(0xcadc8384_323f_4c7e_a361_2e2b24df6ee4) , } }
 pub const CLSID_D2D1Histogram: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x881db7d0_f7ee_4d4d_a6d2_4697acc66ee8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Histogram ) , guid : :: windows :: core :: GUID::from_u128(0x881db7d0_f7ee_4d4d_a6d2_4697acc66ee8) , } }
 pub const CLSID_D2D1HueRotation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f4458ec_4b32_491b_9e85_bd73f44d3eb6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1HueRotation ) , guid : :: windows :: core :: GUID::from_u128(0x0f4458ec_4b32_491b_9e85_bd73f44d3eb6) , } }
 pub const CLSID_D2D1HueToRgb: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b78a6bd_0141_4def_8a52_6356ee0cbdd5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1HueToRgb ) , guid : :: windows :: core :: GUID::from_u128(0x7b78a6bd_0141_4def_8a52_6356ee0cbdd5) , } }
 pub const CLSID_D2D1Invert: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0c3784d_cb39_4e84_b6fd_6b72f0810263);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Invert ) , guid : :: windows :: core :: GUID::from_u128(0xe0c3784d_cb39_4e84_b6fd_6b72f0810263) , } }
 pub const CLSID_D2D1LinearTransfer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad47c8fd_63ef_4acc_9b51_67979c036c06);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1LinearTransfer ) , guid : :: windows :: core :: GUID::from_u128(0xad47c8fd_63ef_4acc_9b51_67979c036c06) , } }
 pub const CLSID_D2D1LookupTable3D: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x349e0eda_0088_4a79_9ca3_c7e300202020);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1LookupTable3D ) , guid : :: windows :: core :: GUID::from_u128(0x349e0eda_0088_4a79_9ca3_c7e300202020) , } }
 pub const CLSID_D2D1LuminanceToAlpha: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41251ab7_0beb_46f8_9da7_59e93fcce5de);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1LuminanceToAlpha ) , guid : :: windows :: core :: GUID::from_u128(0x41251ab7_0beb_46f8_9da7_59e93fcce5de) , } }
 pub const CLSID_D2D1Morphology: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeae6c40d_626a_4c2d_bfcb_391001abe202);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Morphology ) , guid : :: windows :: core :: GUID::from_u128(0xeae6c40d_626a_4c2d_bfcb_391001abe202) , } }
 pub const CLSID_D2D1Opacity: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x811d79a4_de28_4454_8094_c64685f8bd4c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Opacity ) , guid : :: windows :: core :: GUID::from_u128(0x811d79a4_de28_4454_8094_c64685f8bd4c) , } }
 pub const CLSID_D2D1OpacityMetadata: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c53006a_4450_4199_aa5b_ad1656fece5e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1OpacityMetadata ) , guid : :: windows :: core :: GUID::from_u128(0x6c53006a_4450_4199_aa5b_ad1656fece5e) , } }
 pub const CLSID_D2D1PointDiffuse: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9e303c3_c08c_4f91_8b7b_38656bc48c20);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1PointDiffuse ) , guid : :: windows :: core :: GUID::from_u128(0xb9e303c3_c08c_4f91_8b7b_38656bc48c20) , } }
 pub const CLSID_D2D1PointSpecular: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09c3ca26_3ae2_4f09_9ebc_ed3865d53f22);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1PointSpecular ) , guid : :: windows :: core :: GUID::from_u128(0x09c3ca26_3ae2_4f09_9ebc_ed3865d53f22) , } }
 pub const CLSID_D2D1Posterize: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2188945e_33a3_4366_b7bc_086bd02d0884);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Posterize ) , guid : :: windows :: core :: GUID::from_u128(0x2188945e_33a3_4366_b7bc_086bd02d0884) , } }
 pub const CLSID_D2D1Premultiply: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06eab419_deed_4018_80d2_3e1d471adeb2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Premultiply ) , guid : :: windows :: core :: GUID::from_u128(0x06eab419_deed_4018_80d2_3e1d471adeb2) , } }
 pub const CLSID_D2D1RgbToHue: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23f3e5ec_91e8_4d3d_ad0a_afadc1004aa1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1RgbToHue ) , guid : :: windows :: core :: GUID::from_u128(0x23f3e5ec_91e8_4d3d_ad0a_afadc1004aa1) , } }
 pub const CLSID_D2D1Saturation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cb2d9cf_327d_459f_a0ce_40c0b2086bf7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Saturation ) , guid : :: windows :: core :: GUID::from_u128(0x5cb2d9cf_327d_459f_a0ce_40c0b2086bf7) , } }
 pub const CLSID_D2D1Scale: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9daf9369_3846_4d0e_a44e_0c607934a5d7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Scale ) , guid : :: windows :: core :: GUID::from_u128(0x9daf9369_3846_4d0e_a44e_0c607934a5d7) , } }
 pub const CLSID_D2D1Sepia: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a1af410_5f1d_4dbe_84df_915da79b7153);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Sepia ) , guid : :: windows :: core :: GUID::from_u128(0x3a1af410_5f1d_4dbe_84df_915da79b7153) , } }
 pub const CLSID_D2D1Shadow: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc67ea361_1863_4e69_89db_695d3e9a5b6b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Shadow ) , guid : :: windows :: core :: GUID::from_u128(0xc67ea361_1863_4e69_89db_695d3e9a5b6b) , } }
 pub const CLSID_D2D1Sharpen: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9b887cb_c5ff_4dc5_9779_273dcf417c7d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Sharpen ) , guid : :: windows :: core :: GUID::from_u128(0xc9b887cb_c5ff_4dc5_9779_273dcf417c7d) , } }
 pub const CLSID_D2D1SpotDiffuse: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x818a1105_7932_44f4_aa86_08ae7b2f2c93);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1SpotDiffuse ) , guid : :: windows :: core :: GUID::from_u128(0x818a1105_7932_44f4_aa86_08ae7b2f2c93) , } }
 pub const CLSID_D2D1SpotSpecular: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedae421e_7654_4a37_9db8_71acc1beb3c1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1SpotSpecular ) , guid : :: windows :: core :: GUID::from_u128(0xedae421e_7654_4a37_9db8_71acc1beb3c1) , } }
 pub const CLSID_D2D1Straighten: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4da47b12_79a3_4fb0_8237_bbc3b2a4de08);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Straighten ) , guid : :: windows :: core :: GUID::from_u128(0x4da47b12_79a3_4fb0_8237_bbc3b2a4de08) , } }
 pub const CLSID_D2D1TableTransfer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bf818c3_5e43_48cb_b631_868396d6a1d4);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1TableTransfer ) , guid : :: windows :: core :: GUID::from_u128(0x5bf818c3_5e43_48cb_b631_868396d6a1d4) , } }
 pub const CLSID_D2D1TemperatureTint: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89176087_8af9_4a08_aeb1_895f38db1766);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1TemperatureTint ) , guid : :: windows :: core :: GUID::from_u128(0x89176087_8af9_4a08_aeb1_895f38db1766) , } }
 pub const CLSID_D2D1Tile: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0784138_3b76_4bc5_b13b_0fa2ad02659f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Tile ) , guid : :: windows :: core :: GUID::from_u128(0xb0784138_3b76_4bc5_b13b_0fa2ad02659f) , } }
 pub const CLSID_D2D1Tint: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36312b17_f7dd_4014_915d_ffca768cf211);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Tint ) , guid : :: windows :: core :: GUID::from_u128(0x36312b17_f7dd_4014_915d_ffca768cf211) , } }
 pub const CLSID_D2D1Turbulence: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf2bb6ae_889a_4ad7_ba29_a2fd732c9fc9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Turbulence ) , guid : :: windows :: core :: GUID::from_u128(0xcf2bb6ae_889a_4ad7_ba29_a2fd732c9fc9) , } }
 pub const CLSID_D2D1UnPremultiply: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb9ac489_ad8d_41ed_9999_bb6347d110f7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1UnPremultiply ) , guid : :: windows :: core :: GUID::from_u128(0xfb9ac489_ad8d_41ed_9999_bb6347d110f7) , } }
 pub const CLSID_D2D1Vignette: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc00c40be_5e67_4ca3_95b4_f4b02c115135);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1Vignette ) , guid : :: windows :: core :: GUID::from_u128(0xc00c40be_5e67_4ca3_95b4_f4b02c115135) , } }
 pub const CLSID_D2D1WhiteLevelAdjustment: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44a1cadb_6cdd_4818_8ff4_26c1cfe95bdb);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1WhiteLevelAdjustment ) , guid : :: windows :: core :: GUID::from_u128(0x44a1cadb_6cdd_4818_8ff4_26c1cfe95bdb) , } }
 pub const CLSID_D2D1YCbCr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99503cc1_66c7_45c9_a875_8ad8a7914401);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D2D1YCbCr ) , guid : :: windows :: core :: GUID::from_u128(0x99503cc1_66c7_45c9_a875_8ad8a7914401) , } }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics'*"]
 #[cfg(feature = "Foundation_Numerics")]
 #[inline]

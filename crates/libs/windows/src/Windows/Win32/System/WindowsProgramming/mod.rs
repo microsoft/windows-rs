@@ -420,6 +420,8 @@ impl ::core::default::Default for CABINFOW {
     }
 }
 pub const CATID_DeleteBrowsingHistory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31caf6e4_d6aa_4090_a050_a5ac8972e9ef);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_DeleteBrowsingHistory ) , guid : :: windows :: core :: GUID::from_u128(0x31caf6e4_d6aa_4090_a050_a5ac8972e9ef) , } }
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 pub const CBR_110: u32 = 110u32;
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]

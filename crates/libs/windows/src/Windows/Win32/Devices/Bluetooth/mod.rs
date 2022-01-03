@@ -1200,6 +1200,8 @@ impl ::core::default::Default for BTH_L2CAP_EVENT_INFO {
     }
 }
 pub const BTH_LE_ATT_BLUETOOTH_BASE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_1000_8000_00805f9b34fb);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( BTH_LE_ATT_BLUETOOTH_BASE_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x00000000_0000_1000_8000_00805f9b34fb) , } }
 #[doc = "*Required features: 'Win32_Devices_Bluetooth'*"]
 pub const BTH_LE_ATT_CID: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Devices_Bluetooth'*"]
@@ -2211,6 +2213,8 @@ pub unsafe fn BluetoothUpdateDeviceRecord(pbtdi: *const BLUETOOTH_DEVICE_INFO) -
     unimplemented!("Unsupported target OS");
 }
 pub const Bluetooth_Base_UUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_1000_8000_00805f9b34fb);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( Bluetooth_Base_UUID ) , guid : :: windows :: core :: GUID::from_u128(0x00000000_0000_1000_8000_00805f9b34fb) , } }
 #[doc = "*Required features: 'Win32_Devices_Bluetooth'*"]
 pub const BrowseGroupDescriptorServiceClassID_UUID16: u32 = 4097u32;
 #[doc = "*Required features: 'Win32_Devices_Bluetooth'*"]
@@ -2470,16 +2474,38 @@ pub const GNSSServerServiceClassID_UUID16: u32 = 4406u32;
 #[doc = "*Required features: 'Win32_Devices_Bluetooth'*"]
 pub const GNServiceClassID_UUID16: u32 = 4375u32;
 pub const GUID_BLUETOOTHLE_DEVICE_INTERFACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x781aee18_7733_4ce4_add0_91f41c67b592);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BLUETOOTHLE_DEVICE_INTERFACE ) , guid : :: windows :: core :: GUID::from_u128(0x781aee18_7733_4ce4_add0_91f41c67b592) , } }
 pub const GUID_BLUETOOTH_AUTHENTICATION_REQUEST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5dc9136d_996c_46db_84f5_32c0a3f47352);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BLUETOOTH_AUTHENTICATION_REQUEST ) , guid : :: windows :: core :: GUID::from_u128(0x5dc9136d_996c_46db_84f5_32c0a3f47352) , } }
 pub const GUID_BLUETOOTH_GATT_SERVICE_DEVICE_INTERFACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e3bb679_4372_40c8_9eaa_4509df260cd8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BLUETOOTH_GATT_SERVICE_DEVICE_INTERFACE ) , guid : :: windows :: core :: GUID::from_u128(0x6e3bb679_4372_40c8_9eaa_4509df260cd8) , } }
 pub const GUID_BLUETOOTH_HCI_EVENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc240062_1541_49be_b463_84c4dcd7bf7f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BLUETOOTH_HCI_EVENT ) , guid : :: windows :: core :: GUID::from_u128(0xfc240062_1541_49be_b463_84c4dcd7bf7f) , } }
 pub const GUID_BLUETOOTH_HCI_VENDOR_EVENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x547247e6_45bb_4c33_af8c_c00efe15a71d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BLUETOOTH_HCI_VENDOR_EVENT ) , guid : :: windows :: core :: GUID::from_u128(0x547247e6_45bb_4c33_af8c_c00efe15a71d) , } }
 pub const GUID_BLUETOOTH_KEYPRESS_EVENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd668dfcd_0f4e_4efc_bfe0_392eeec5109c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BLUETOOTH_KEYPRESS_EVENT ) , guid : :: windows :: core :: GUID::from_u128(0xd668dfcd_0f4e_4efc_bfe0_392eeec5109c) , } }
 pub const GUID_BLUETOOTH_L2CAP_EVENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7eae4030_b709_4aa8_ac55_e953829c9daa);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BLUETOOTH_L2CAP_EVENT ) , guid : :: windows :: core :: GUID::from_u128(0x7eae4030_b709_4aa8_ac55_e953829c9daa) , } }
 pub const GUID_BLUETOOTH_RADIO_IN_RANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea3b5b82_26ee_450e_b0d8_d26fe30a3869);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BLUETOOTH_RADIO_IN_RANGE ) , guid : :: windows :: core :: GUID::from_u128(0xea3b5b82_26ee_450e_b0d8_d26fe30a3869) , } }
 pub const GUID_BLUETOOTH_RADIO_OUT_OF_RANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe28867c9_c2aa_4ced_b969_4570866037c4);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BLUETOOTH_RADIO_OUT_OF_RANGE ) , guid : :: windows :: core :: GUID::from_u128(0xe28867c9_c2aa_4ced_b969_4570866037c4) , } }
 pub const GUID_BTHPORT_DEVICE_INTERFACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0850302a_b344_4fda_9be9_90576b8d46f0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BTHPORT_DEVICE_INTERFACE ) , guid : :: windows :: core :: GUID::from_u128(0x0850302a_b344_4fda_9be9_90576b8d46f0) , } }
 pub const GUID_BTH_RFCOMM_SERVICE_DEVICE_INTERFACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb142fc3e_fa4e_460b_8abc_072b628b3c70);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_BTH_RFCOMM_SERVICE_DEVICE_INTERFACE ) , guid : :: windows :: core :: GUID::from_u128(0xb142fc3e_fa4e_460b_8abc_072b628b3c70) , } }
 #[doc = "*Required features: 'Win32_Devices_Bluetooth'*"]
 pub const GenericAudioServiceClassID_UUID16: u32 = 4611u32;
 #[doc = "*Required features: 'Win32_Devices_Bluetooth'*"]
@@ -3581,6 +3607,8 @@ pub const STRING_NAME_OFFSET: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Devices_Bluetooth'*"]
 pub const STRING_PROVIDER_NAME_OFFSET: u32 = 2u32;
 pub const SVCID_BTH_PROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06aa63e0_7d60_41ff_afb2_3ee6d2d9392d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SVCID_BTH_PROVIDER ) , guid : :: windows :: core :: GUID::from_u128(0x06aa63e0_7d60_41ff_afb2_3ee6d2d9392d) , } }
 #[doc = "*Required features: 'Win32_Devices_Bluetooth'*"]
 pub const SYNCH_DATA_STORE_CALENDAR: u32 = 3u32;
 #[doc = "*Required features: 'Win32_Devices_Bluetooth'*"]

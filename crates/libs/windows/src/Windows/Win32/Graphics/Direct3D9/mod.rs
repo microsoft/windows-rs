@@ -1407,23 +1407,59 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {
     }
 }
 pub const D3DAUTHENTICATEDCONFIGURE_CRYPTOSESSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6346cc54_2cfc_4ad4_8224_d15837de7700);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DAUTHENTICATEDCONFIGURE_CRYPTOSESSION ) , guid : :: windows :: core :: GUID::from_u128(0x6346cc54_2cfc_4ad4_8224_d15837de7700) , } }
 pub const D3DAUTHENTICATEDCONFIGURE_ENCRYPTIONWHENACCESSIBLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41fff286_6ae0_4d43_9d55_a46e9efd158a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DAUTHENTICATEDCONFIGURE_ENCRYPTIONWHENACCESSIBLE ) , guid : :: windows :: core :: GUID::from_u128(0x41fff286_6ae0_4d43_9d55_a46e9efd158a) , } }
 pub const D3DAUTHENTICATEDCONFIGURE_INITIALIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06114bdb_3523_470a_8dca_fbc2845154f0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DAUTHENTICATEDCONFIGURE_INITIALIZE ) , guid : :: windows :: core :: GUID::from_u128(0x06114bdb_3523_470a_8dca_fbc2845154f0) , } }
 pub const D3DAUTHENTICATEDCONFIGURE_PROTECTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50455658_3f47_4362_bf99_bfdfcde9ed29);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DAUTHENTICATEDCONFIGURE_PROTECTION ) , guid : :: windows :: core :: GUID::from_u128(0x50455658_3f47_4362_bf99_bfdfcde9ed29) , } }
 pub const D3DAUTHENTICATEDCONFIGURE_SHAREDRESOURCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0772d047_1b40_48e8_9ca6_b5f510de9f01);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DAUTHENTICATEDCONFIGURE_SHAREDRESOURCE ) , guid : :: windows :: core :: GUID::from_u128(0x0772d047_1b40_48e8_9ca6_b5f510de9f01) , } }
 pub const D3DAUTHENTICATEDQUERY_ACCESSIBILITYATTRIBUTES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6214d9d2_432c_4abb_9fce_216eea269e3b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DAUTHENTICATEDQUERY_ACCESSIBILITYATTRIBUTES ) , guid : :: windows :: core :: GUID::from_u128(0x6214d9d2_432c_4abb_9fce_216eea269e3b) , } }
 pub const D3DAUTHENTICATEDQUERY_CHANNELTYPE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc1b18a5_b1fb_42ab_bd94_b5828b4bf7be);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DAUTHENTICATEDQUERY_CHANNELTYPE ) , guid : :: windows :: core :: GUID::from_u128(0xbc1b18a5_b1fb_42ab_bd94_b5828b4bf7be) , } }
 pub const D3DAUTHENTICATEDQUERY_CRYPTOSESSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2634499e_d018_4d74_ac17_7f724059528d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DAUTHENTICATEDQUERY_CRYPTOSESSION ) , guid : :: windows :: core :: GUID::from_u128(0x2634499e_d018_4d74_ac17_7f724059528d) , } }
 pub const D3DAUTHENTICATEDQUERY_CURRENTENCRYPTIONWHENACCESSIBLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec1791c7_dad3_4f15_9ec3_faa93d60d4f0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DAUTHENTICATEDQUERY_CURRENTENCRYPTIONWHENACCESSIBLE ) , guid : :: windows :: core :: GUID::from_u128(0xec1791c7_dad3_4f15_9ec3_faa93d60d4f0) , } }
 pub const D3DAUTHENTICATEDQUERY_DEVICEHANDLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec1c539d_8cff_4e2a_bcc4_f5692f99f480);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DAUTHENTICATEDQUERY_DEVICEHANDLE ) , guid : :: windows :: core :: GUID::from_u128(0xec1c539d_8cff_4e2a_bcc4_f5692f99f480) , } }
 pub const D3DAUTHENTICATEDQUERY_ENCRYPTIONWHENACCESSIBLEGUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf83a5958_e986_4bda_beb0_411f6a7a01b7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DAUTHENTICATEDQUERY_ENCRYPTIONWHENACCESSIBLEGUID ) , guid : :: windows :: core :: GUID::from_u128(0xf83a5958_e986_4bda_beb0_411f6a7a01b7) , } }
 pub const D3DAUTHENTICATEDQUERY_ENCRYPTIONWHENACCESSIBLEGUIDCOUNT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb30f7066_203c_4b07_93fc_ceaafd61241e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DAUTHENTICATEDQUERY_ENCRYPTIONWHENACCESSIBLEGUIDCOUNT ) , guid : :: windows :: core :: GUID::from_u128(0xb30f7066_203c_4b07_93fc_ceaafd61241e) , } }
 pub const D3DAUTHENTICATEDQUERY_OUTPUTID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x839ddca3_9b4e_41e4_b053_892bd2a11ee7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DAUTHENTICATEDQUERY_OUTPUTID ) , guid : :: windows :: core :: GUID::from_u128(0x839ddca3_9b4e_41e4_b053_892bd2a11ee7) , } }
 pub const D3DAUTHENTICATEDQUERY_OUTPUTIDCOUNT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c042b5e_8c07_46d5_aabe_8f75cbad4c31);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DAUTHENTICATEDQUERY_OUTPUTIDCOUNT ) , guid : :: windows :: core :: GUID::from_u128(0x2c042b5e_8c07_46d5_aabe_8f75cbad4c31) , } }
 pub const D3DAUTHENTICATEDQUERY_PROTECTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa84eb584_c495_48aa_b94d_8bd2d6fbce05);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DAUTHENTICATEDQUERY_PROTECTION ) , guid : :: windows :: core :: GUID::from_u128(0xa84eb584_c495_48aa_b94d_8bd2d6fbce05) , } }
 pub const D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x649bbadb_f0f4_4639_a15b_24393fc3abac);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESS ) , guid : :: windows :: core :: GUID::from_u128(0x649bbadb_f0f4_4639_a15b_24393fc3abac) , } }
 pub const D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESSCOUNT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0db207b3_9450_46a6_82de_1b96d44f9cf2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESSCOUNT ) , guid : :: windows :: core :: GUID::from_u128(0x0db207b3_9450_46a6_82de_1b96d44f9cf2) , } }
 pub const D3DAUTHENTICATEDQUERY_UNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x012f0bd6_e662_4474_befd_aa53e5143c6d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DAUTHENTICATEDQUERY_UNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT ) , guid : :: windows :: core :: GUID::from_u128(0x012f0bd6_e662_4474_befd_aa53e5143c6d) , } }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
 pub type D3DBACKBUFFER_TYPE = u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
@@ -1972,7 +2008,11 @@ pub const D3DCREATE_SCREENSAVER: i32 = 268435456i32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
 pub const D3DCREATE_SOFTWARE_VERTEXPROCESSING: i32 = 32i32;
 pub const D3DCRYPTOTYPE_AES128_CTR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b6bd711_4f74_41c9_9e7b_0be2d7d93b4f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DCRYPTOTYPE_AES128_CTR ) , guid : :: windows :: core :: GUID::from_u128(0x9b6bd711_4f74_41c9_9e7b_0be2d7d93b4f) , } }
 pub const D3DCRYPTOTYPE_PROPRIETARY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab4e9afd_1d1c_46e6_a72f_0869917b0de8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DCRYPTOTYPE_PROPRIETARY ) , guid : :: windows :: core :: GUID::from_u128(0xab4e9afd_1d1c_46e6_a72f_0869917b0de8) , } }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
 pub const D3DCS_BACK: i32 = 32i32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
@@ -2892,7 +2932,11 @@ pub const D3DISSUE_BEGIN: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
 pub const D3DISSUE_END: u32 = 1u32;
 pub const D3DKEYEXCHANGE_DXVA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43d3775c_38e5_4924_8d86_d3fccf153e9b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DKEYEXCHANGE_DXVA ) , guid : :: windows :: core :: GUID::from_u128(0x43d3775c_38e5_4924_8d86_d3fccf153e9b) , } }
 pub const D3DKEYEXCHANGE_RSAES_OAEP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1949895_d72a_4a1d_8e5d_ed857d171520);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3DKEYEXCHANGE_RSAES_OAEP ) , guid : :: windows :: core :: GUID::from_u128(0xc1949895_d72a_4a1d_8e5d_ed857d171520) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Graphics_Direct3D'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]

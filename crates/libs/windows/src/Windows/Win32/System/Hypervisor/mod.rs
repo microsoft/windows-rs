@@ -317,6 +317,8 @@ pub const GuestOsVendorLANCOM: GUEST_OS_VENDOR = 512i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK = ::core::option::Option<unsafe extern "system" fn(infomessage: super::super::Foundation::PSTR)>;
 pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ff2c92b_6598_4e60_8e1c_0ccf4927e319);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_VM_GENCOUNTER ) , guid : :: windows :: core :: GUID::from_u128(0x3ff2c92b_6598_4e60_8e1c_0ccf4927e319) , } }
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 #[inline]
 pub unsafe fn GetActiveVirtualTrustLevel(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualtrustlevel: *mut u8) -> ::windows::core::Result<()> {
@@ -771,12 +773,26 @@ pub const HVSOCKET_CONNECT_TIMEOUT_MAX: u32 = 300000u32;
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const HVSOCKET_CONTAINER_PASSTHRU: u32 = 2u32;
 pub const HV_GUID_BROADCAST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffffffff_ffff_ffff_ffff_ffffffffffff);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( HV_GUID_BROADCAST ) , guid : :: windows :: core :: GUID::from_u128(0xffffffff_ffff_ffff_ffff_ffffffffffff) , } }
 pub const HV_GUID_CHILDREN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90db8b89_0d35_4f79_8ce9_49ea0ac8b7cd);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( HV_GUID_CHILDREN ) , guid : :: windows :: core :: GUID::from_u128(0x90db8b89_0d35_4f79_8ce9_49ea0ac8b7cd) , } }
 pub const HV_GUID_LOOPBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0e16197_dd56_4a10_9195_5ee7a155a838);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( HV_GUID_LOOPBACK ) , guid : :: windows :: core :: GUID::from_u128(0xe0e16197_dd56_4a10_9195_5ee7a155a838) , } }
 pub const HV_GUID_PARENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa42e7cda_d03f_480c_9cc2_a4de20abb878);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( HV_GUID_PARENT ) , guid : :: windows :: core :: GUID::from_u128(0xa42e7cda_d03f_480c_9cc2_a4de20abb878) , } }
 pub const HV_GUID_SILOHOST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36bd0c5c_7276_4223_88ba_7d03b654c568);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( HV_GUID_SILOHOST ) , guid : :: windows :: core :: GUID::from_u128(0x36bd0c5c_7276_4223_88ba_7d03b654c568) , } }
 pub const HV_GUID_VSOCK_TEMPLATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_facb_11e6_bd58_64006a7986d3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( HV_GUID_VSOCK_TEMPLATE ) , guid : :: windows :: core :: GUID::from_u128(0x00000000_facb_11e6_bd58_64006a7986d3) , } }
 pub const HV_GUID_ZERO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( HV_GUID_ZERO ) , guid : :: windows :: core :: GUID::from_u128(0x00000000_0000_0000_0000_000000000000) , } }
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const HV_PROTOCOL_RAW: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]

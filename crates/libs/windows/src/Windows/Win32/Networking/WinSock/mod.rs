@@ -341,6 +341,8 @@ pub const AI_SECURE_WITH_FALLBACK: u32 = 1048576u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const AI_V4MAPPED: u32 = 2048u32;
 pub const ASSOCIATE_NAMERES_CONTEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59a38b67_d4fe_46e1_ba3c_87ea74ca3049);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( ASSOCIATE_NAMERES_CONTEXT ) , guid : :: windows :: core :: GUID::from_u128(0x59a38b67_d4fe_46e1_ba3c_87ea74ca3049) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub struct ASSOCIATE_NAMERES_CONTEXT_INPUT {
@@ -5204,7 +5206,11 @@ pub const RCVALL_SOCKETLEVELONLY: RCVALL_VALUE = 2i32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const RCVALL_IPLEVEL: RCVALL_VALUE = 3i32;
 pub const REAL_TIME_NOTIFICATION_CAPABILITY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b59819a_5cae_492d_a901_2a3c2c50164f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( REAL_TIME_NOTIFICATION_CAPABILITY ) , guid : :: windows :: core :: GUID::from_u128(0x6b59819a_5cae_492d_a901_2a3c2c50164f) , } }
 pub const REAL_TIME_NOTIFICATION_CAPABILITY_EX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6843da03_154a_4616_a508_44371295f96b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( REAL_TIME_NOTIFICATION_CAPABILITY_EX ) , guid : :: windows :: core :: GUID::from_u128(0x6843da03_154a_4616_a508_44371295f96b) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub struct REAL_TIME_NOTIFICATION_SETTING_INPUT {
@@ -7311,6 +7317,8 @@ impl ::core::default::Default for SOCKET_ADDRESS_LIST {
     }
 }
 pub const SOCKET_DEFAULT2_QM_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaec2ef9c_3a4d_4d3e_8842_239942e39a47);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SOCKET_DEFAULT2_QM_POLICY ) , guid : :: windows :: core :: GUID::from_u128(0xaec2ef9c_3a4d_4d3e_8842_239942e39a47) , } }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const SOCKET_ERROR: i32 = -1i32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]

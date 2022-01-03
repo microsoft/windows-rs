@@ -333,11 +333,19 @@ pub const DXGI_COMPUTE_PREEMPTION_INSTRUCTION_BOUNDARY: DXGI_COMPUTE_PREEMPTION_
 #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_CREATE_FACTORY_DEBUG: u32 = 1u32;
 pub const DXGI_DEBUG_ALL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe48ae283_da80_490b_87e6_43e9a9cfda08);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DXGI_DEBUG_ALL ) , guid : :: windows :: core :: GUID::from_u128(0xe48ae283_da80_490b_87e6_43e9a9cfda08) , } }
 pub const DXGI_DEBUG_APP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06cd6e01_4219_4ebd_8709_27ed23360c62);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DXGI_DEBUG_APP ) , guid : :: windows :: core :: GUID::from_u128(0x06cd6e01_4219_4ebd_8709_27ed23360c62) , } }
 #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_DEBUG_BINARY_VERSION: u32 = 1u32;
 pub const DXGI_DEBUG_DX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35cdd7fc_13b2_421d_a5d7_7e4451287d64);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DXGI_DEBUG_DX ) , guid : :: windows :: core :: GUID::from_u128(0x35cdd7fc_13b2_421d_a5d7_7e4451287d64) , } }
 pub const DXGI_DEBUG_DXGI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25cddaa4_b1c6_47e1_ac3e_98875b5a2e2a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DXGI_DEBUG_DXGI ) , guid : :: windows :: core :: GUID::from_u128(0x25cddaa4_b1c6_47e1_ac3e_98875b5a2e2a) , } }
 #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub type DXGI_DEBUG_RLO_FLAGS = u32;
 #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]

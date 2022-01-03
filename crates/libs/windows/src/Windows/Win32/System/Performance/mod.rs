@@ -178,10 +178,20 @@ pub struct DICounterItemVtbl(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 pub const DIID_DICounterItem: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08c4ff2_0e2e_11cf_942c_008029004347);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DIID_DICounterItem ) , guid : :: windows :: core :: GUID::from_u128(0xc08c4ff2_0e2e_11cf_942c_008029004347) , } }
 pub const DIID_DILogFileItem: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d093ffc_f777_4917_82d1_833fbc54c58f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DIID_DILogFileItem ) , guid : :: windows :: core :: GUID::from_u128(0x8d093ffc_f777_4917_82d1_833fbc54c58f) , } }
 pub const DIID_DISystemMonitor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13d73d81_c32e_11cf_9398_00aa00a3ddea);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DIID_DISystemMonitor ) , guid : :: windows :: core :: GUID::from_u128(0x13d73d81_c32e_11cf_9398_00aa00a3ddea) , } }
 pub const DIID_DISystemMonitorEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84979930_4ab3_11cf_943a_008029004347);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DIID_DISystemMonitorEvents ) , guid : :: windows :: core :: GUID::from_u128(0x84979930_4ab3_11cf_943a_008029004347) , } }
 pub const DIID_DISystemMonitorInternal: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x194eb242_c32c_11cf_9398_00aa00a3ddea);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DIID_DISystemMonitorInternal ) , guid : :: windows :: core :: GUID::from_u128(0x194eb242_c32c_11cf_9398_00aa00a3ddea) , } }
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct DILogFileItem(::windows::core::IUnknown);
@@ -7365,6 +7375,8 @@ pub unsafe fn InstallPerfDllW<'a, Param0: ::windows::core::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 pub const LIBID_SystemMonitor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b773e42_2509_11cf_942f_008029004347);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( LIBID_SystemMonitor ) , guid : :: windows :: core :: GUID::from_u128(0x1b773e42_2509_11cf_942f_008029004347) , } }
 pub const LegacyDataCollectorSet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837526_098b_11d8_9414_505054503030);
 pub const LegacyDataCollectorSetCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837527_098b_11d8_9414_505054503030);
 pub const LegacyTraceSession: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837528_098b_11d8_9414_505054503030);
@@ -12033,6 +12045,8 @@ pub unsafe fn RestorePerfRegistryFromFileW<'a, Param0: ::windows::core::IntoPara
     unimplemented!("Unsupported target OS");
 }
 pub const S_PDH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04d66358_c4a1_419b_8023_23b73902de2c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( S_PDH ) , guid : :: windows :: core :: GUID::from_u128(0x04d66358_c4a1_419b_8023_23b73902de2c) , } }
 pub const ServerDataCollectorSet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837531_098b_11d8_9414_505054503030);
 pub const ServerDataCollectorSetCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837532_098b_11d8_9414_505054503030);
 #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]

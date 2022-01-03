@@ -1967,9 +1967,17 @@ pub const DEVICE_STATE_NOTPRESENT: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const DEVICE_STATE_UNPLUGGED: u32 = 8u32;
 pub const DEVINTERFACE_AUDIO_CAPTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2eef81be_33fa_4800_9670_1cd474972c3f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVINTERFACE_AUDIO_CAPTURE ) , guid : :: windows :: core :: GUID::from_u128(0x2eef81be_33fa_4800_9670_1cd474972c3f) , } }
 pub const DEVINTERFACE_AUDIO_RENDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6327cad_dcec_4949_ae8a_991e976a79d2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVINTERFACE_AUDIO_RENDER ) , guid : :: windows :: core :: GUID::from_u128(0xe6327cad_dcec_4949_ae8a_991e976a79d2) , } }
 pub const DEVINTERFACE_MIDI_INPUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x504be32c_ccf6_4d2c_b73f_6f8b3747e22b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVINTERFACE_MIDI_INPUT ) , guid : :: windows :: core :: GUID::from_u128(0x504be32c_ccf6_4d2c_b73f_6f8b3747e22b) , } }
 pub const DEVINTERFACE_MIDI_OUTPUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dc23320_ab33_4ce4_80d4_bbb3ebbf2814);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVINTERFACE_MIDI_OUTPUT ) , guid : :: windows :: core :: GUID::from_u128(0x6dc23320_ab33_4ce4_80d4_bbb3ebbf2814) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub struct DIRECTX_AUDIO_ACTIVATION_PARAMS {
@@ -2077,6 +2085,8 @@ pub const eCommunications: ERole = 2i32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ERole_enum_count: ERole = 3i32;
 pub const EVENTCONTEXT_VOLUMESLIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2c2e9de_09b1_4b04_84e5_07931225ee04);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( EVENTCONTEXT_VOLUMESLIDER ) , guid : :: windows :: core :: GUID::from_u128(0xe2c2e9de_09b1_4b04_84e5_07931225ee04) , } }
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub type EndpointFormFactor = i32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
@@ -10053,51 +10063,83 @@ impl ::core::default::Default for PCMWAVEFORMAT {
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpointLogo_IconEffects: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf1ab780d_2010_4ed3_a3a6_8b87f0f0c476), pid: 0u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_AudioEndpointLogo_IconEffects ) , guid : :: windows :: core :: GUID::from_u128(0xf1ab780d_2010_4ed3_a3a6_8b87f0f0c476) , } }
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpointLogo_IconPath: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf1ab780d_2010_4ed3_a3a6_8b87f0f0c476), pid: 1u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_AudioEndpointLogo_IconPath ) , guid : :: windows :: core :: GUID::from_u128(0xf1ab780d_2010_4ed3_a3a6_8b87f0f0c476) , } }
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpointSettings_LaunchContract: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x14242002_0320_4de4_9555_a7d82b73c286), pid: 1u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_AudioEndpointSettings_LaunchContract ) , guid : :: windows :: core :: GUID::from_u128(0x14242002_0320_4de4_9555_a7d82b73c286) , } }
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpointSettings_MenuText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x14242002_0320_4de4_9555_a7d82b73c286), pid: 0u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_AudioEndpointSettings_MenuText ) , guid : :: windows :: core :: GUID::from_u128(0x14242002_0320_4de4_9555_a7d82b73c286) , } }
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpoint_Association: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_AudioEndpoint_Association ) , guid : :: windows :: core :: GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e) , } }
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpoint_ControlPanelPageProvider: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 1u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_AudioEndpoint_ControlPanelPageProvider ) , guid : :: windows :: core :: GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e) , } }
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpoint_Default_VolumeInDb: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_AudioEndpoint_Default_VolumeInDb ) , guid : :: windows :: core :: GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e) , } }
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpoint_Disable_SysFx: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_AudioEndpoint_Disable_SysFx ) , guid : :: windows :: core :: GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e) , } }
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpoint_FormFactor: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 0u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_AudioEndpoint_FormFactor ) , guid : :: windows :: core :: GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e) , } }
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpoint_FullRangeSpeakers: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_AudioEndpoint_FullRangeSpeakers ) , guid : :: windows :: core :: GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e) , } }
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpoint_GUID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_AudioEndpoint_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e) , } }
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpoint_JackSubType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_AudioEndpoint_JackSubType ) , guid : :: windows :: core :: GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e) , } }
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpoint_PhysicalSpeakers: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_AudioEndpoint_PhysicalSpeakers ) , guid : :: windows :: core :: GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e) , } }
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpoint_Supports_EventDriven_Mode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_AudioEndpoint_Supports_EventDriven_Mode ) , guid : :: windows :: core :: GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e) , } }
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEngine_DeviceFormat: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf19f064d_082c_4e27_bc73_6882a1bb8e4c), pid: 0u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_AudioEngine_DeviceFormat ) , guid : :: windows :: core :: GUID::from_u128(0xf19f064d_082c_4e27_bc73_6882a1bb8e4c) , } }
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEngine_OEMFormat: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe4870e26_3cc5_4cd2_ba46_ca0a9a70ed04), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_AudioEngine_OEMFormat ) , guid : :: windows :: core :: GUID::from_u128(0xe4870e26_3cc5_4cd2_ba46_ca0a9a70ed04) , } }
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub type PROCESS_LOOPBACK_MODE = i32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]

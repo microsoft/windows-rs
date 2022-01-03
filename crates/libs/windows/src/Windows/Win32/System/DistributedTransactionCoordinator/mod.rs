@@ -44,7 +44,11 @@ impl ::core::default::Default for BOID {
     }
 }
 pub const CLSID_MSDtcTransaction: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39f8d76b_0928_11d1_97df_00c04fb9618a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_MSDtcTransaction ) , guid : :: windows :: core :: GUID::from_u128(0x39f8d76b_0928_11d1_97df_00c04fb9618a) , } }
 pub const CLSID_MSDtcTransactionManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b18ab61_091d_11d1_97df_00c04fb9618a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_MSDtcTransactionManager ) , guid : :: windows :: core :: GUID::from_u128(0x5b18ab61_091d_11d1_97df_00c04fb9618a) , } }
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCINSTALL_E_CLIENT_ALREADY_INSTALLED: i32 = 384i32;
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]

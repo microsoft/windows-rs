@@ -1170,7 +1170,11 @@ pub const NS_PNRPCLOUD: u32 = 39u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const NS_PNRPNAME: u32 = 38u32;
 pub const NS_PROVIDER_PNRPCLOUD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03fe89ce_766d_4976_b9c1_bb9bc42c7b4d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( NS_PROVIDER_PNRPCLOUD ) , guid : :: windows :: core :: GUID::from_u128(0x03fe89ce_766d_4976_b9c1_bb9bc42c7b4d) , } }
 pub const NS_PROVIDER_PNRPNAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03fe89cd_766d_4976_b9c1_bb9bc42c7b4d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( NS_PROVIDER_PNRPNAME ) , guid : :: windows :: core :: GUID::from_u128(0x03fe89cd_766d_4976_b9c1_bb9bc42c7b4d) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1663,6 +1667,8 @@ pub const PEER_EVENT_PEOPLE_NEAR_ME_CHANGED: PEER_COLLAB_EVENT_TYPE = 10i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PEER_EVENT_REQUEST_STATUS_CHANGED: PEER_COLLAB_EVENT_TYPE = 11i32;
 pub const PEER_COLLAB_OBJECTID_USER_PICTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd15f41f_fc4e_4922_b035_4c06a754d01d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PEER_COLLAB_OBJECTID_USER_PICTURE ) , guid : :: windows :: core :: GUID::from_u128(0xdd15f41f_fc4e_4922_b035_4c06a754d01d) , } }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub type PEER_CONNECTION_FLAGS = i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
@@ -2781,8 +2787,14 @@ pub const PEER_DISABLE_PRESENCE: PEER_GROUP_PROPERTY_FLAGS = 2i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PEER_DEFER_EXPIRATION: PEER_GROUP_PROPERTY_FLAGS = 4i32;
 pub const PEER_GROUP_ROLE_ADMIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04387127_aa56_450a_8ce5_4f565c6790f4);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PEER_GROUP_ROLE_ADMIN ) , guid : :: windows :: core :: GUID::from_u128(0x04387127_aa56_450a_8ce5_4f565c6790f4) , } }
 pub const PEER_GROUP_ROLE_INVITING_MEMBER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4370fd89_dc18_4cfb_8dbf_9853a8a9f905);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PEER_GROUP_ROLE_INVITING_MEMBER ) , guid : :: windows :: core :: GUID::from_u128(0x4370fd89_dc18_4cfb_8dbf_9853a8a9f905) , } }
 pub const PEER_GROUP_ROLE_MEMBER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf12dc4c7_0857_4ca0_93fc_b1bb19a3d8c2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PEER_GROUP_ROLE_MEMBER ) , guid : :: windows :: core :: GUID::from_u128(0xf12dc4c7_0857_4ca0_93fc_b1bb19a3d8c2) , } }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub type PEER_GROUP_STATUS = i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
@@ -6413,8 +6425,14 @@ pub unsafe fn PeerPnrpUpdateRegistration(hregistration: *const ::core::ffi::c_vo
     unimplemented!("Unsupported target OS");
 }
 pub const SVCID_PNRPCLOUD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2239ce6_00c0_4fbf_bad6_18139385a49a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SVCID_PNRPCLOUD ) , guid : :: windows :: core :: GUID::from_u128(0xc2239ce6_00c0_4fbf_bad6_18139385a49a) , } }
 pub const SVCID_PNRPNAME_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2239ce5_00c0_4fbf_bad6_18139385a49a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SVCID_PNRPNAME_V1 ) , guid : :: windows :: core :: GUID::from_u128(0xc2239ce5_00c0_4fbf_bad6_18139385a49a) , } }
 pub const SVCID_PNRPNAME_V2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2239ce7_00c0_4fbf_bad6_18139385a49a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SVCID_PNRPNAME_V2 ) , guid : :: windows :: core :: GUID::from_u128(0xc2239ce7_00c0_4fbf_bad6_18139385a49a) , } }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const WSA_PNRP_CLIENT_INVALID_COMPARTMENT_ID: u32 = 11506u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]

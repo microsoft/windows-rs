@@ -2008,24 +2008,62 @@ pub unsafe fn BinarySDToSecurityDescriptor<'a, Param2: ::windows::core::IntoPara
     unimplemented!("Unsupported target OS");
 }
 pub const CLSID_CommonQuery: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83bc5ec0_6f2a_11d0_a1c4_00aa00c16e65);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_CommonQuery ) , guid : :: windows :: core :: GUID::from_u128(0x83bc5ec0_6f2a_11d0_a1c4_00aa00c16e65) , } }
 pub const CLSID_DsAdminCreateObj: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe301a009_f901_11d2_82b9_00c04f68928b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_DsAdminCreateObj ) , guid : :: windows :: core :: GUID::from_u128(0xe301a009_f901_11d2_82b9_00c04f68928b) , } }
 pub const CLSID_DsDisplaySpecifier: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ab4a8c0_6a0b_11d2_ad49_00c04fa31a86);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_DsDisplaySpecifier ) , guid : :: windows :: core :: GUID::from_u128(0x1ab4a8c0_6a0b_11d2_ad49_00c04fa31a86) , } }
 pub const CLSID_DsDomainTreeBrowser: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1698790a_e2b4_11d0_b0b1_00c04fd8dca6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_DsDomainTreeBrowser ) , guid : :: windows :: core :: GUID::from_u128(0x1698790a_e2b4_11d0_b0b1_00c04fd8dca6) , } }
 pub const CLSID_DsFindAdvanced: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83ee3fe3_57d9_11d0_b932_00a024ab2dbb);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_DsFindAdvanced ) , guid : :: windows :: core :: GUID::from_u128(0x83ee3fe3_57d9_11d0_b932_00a024ab2dbb) , } }
 pub const CLSID_DsFindComputer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16006700_87ad_11d0_9140_00aa00c16e65);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_DsFindComputer ) , guid : :: windows :: core :: GUID::from_u128(0x16006700_87ad_11d0_9140_00aa00c16e65) , } }
 pub const CLSID_DsFindContainer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1b3cbf2_886a_11d0_9140_00aa00c16e65);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_DsFindContainer ) , guid : :: windows :: core :: GUID::from_u128(0xc1b3cbf2_886a_11d0_9140_00aa00c16e65) , } }
 pub const CLSID_DsFindDomainController: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x538c7b7e_d25e_11d0_9742_00a0c906af45);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_DsFindDomainController ) , guid : :: windows :: core :: GUID::from_u128(0x538c7b7e_d25e_11d0_9742_00a0c906af45) , } }
 pub const CLSID_DsFindFrsMembers: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94ce4b18_b3d3_11d1_b9b4_00c04fd8d5b0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_DsFindFrsMembers ) , guid : :: windows :: core :: GUID::from_u128(0x94ce4b18_b3d3_11d1_b9b4_00c04fd8d5b0) , } }
 pub const CLSID_DsFindObjects: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83ee3fe1_57d9_11d0_b932_00a024ab2dbb);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_DsFindObjects ) , guid : :: windows :: core :: GUID::from_u128(0x83ee3fe1_57d9_11d0_b932_00a024ab2dbb) , } }
 pub const CLSID_DsFindPeople: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83ee3fe2_57d9_11d0_b932_00a024ab2dbb);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_DsFindPeople ) , guid : :: windows :: core :: GUID::from_u128(0x83ee3fe2_57d9_11d0_b932_00a024ab2dbb) , } }
 pub const CLSID_DsFindPrinter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb577f070_7ee2_11d0_913f_00aa00c16e65);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_DsFindPrinter ) , guid : :: windows :: core :: GUID::from_u128(0xb577f070_7ee2_11d0_913f_00aa00c16e65) , } }
 pub const CLSID_DsFindVolume: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1b3cbf1_886a_11d0_9140_00aa00c16e65);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_DsFindVolume ) , guid : :: windows :: core :: GUID::from_u128(0xc1b3cbf1_886a_11d0_9140_00aa00c16e65) , } }
 pub const CLSID_DsFindWriteableDomainController: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cbef079_aa84_444b_bc70_68e41283eabc);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_DsFindWriteableDomainController ) , guid : :: windows :: core :: GUID::from_u128(0x7cbef079_aa84_444b_bc70_68e41283eabc) , } }
 pub const CLSID_DsFolderProperties: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e51e0d0_6e0f_11d2_9601_00c04fa31a86);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_DsFolderProperties ) , guid : :: windows :: core :: GUID::from_u128(0x9e51e0d0_6e0f_11d2_9601_00c04fa31a86) , } }
 pub const CLSID_DsObjectPicker: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17d6ccd8_3b7b_11d2_b9e0_00c04fd8dbf7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_DsObjectPicker ) , guid : :: windows :: core :: GUID::from_u128(0x17d6ccd8_3b7b_11d2_b9e0_00c04fd8dbf7) , } }
 pub const CLSID_DsPropertyPages: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d45d530_764b_11d0_a1ca_00aa00c16e65);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_DsPropertyPages ) , guid : :: windows :: core :: GUID::from_u128(0x0d45d530_764b_11d0_a1ca_00aa00c16e65) , } }
 pub const CLSID_DsQuery: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a23e65e_31c2_11d0_891c_00a024ab2dbb);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_DsQuery ) , guid : :: windows :: core :: GUID::from_u128(0x8a23e65e_31c2_11d0_891c_00a024ab2dbb) , } }
 pub const CLSID_MicrosoftDS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe1290f0_cfbd_11cf_a330_00aa00c16e65);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_MicrosoftDS ) , guid : :: windows :: core :: GUID::from_u128(0xfe1290f0_cfbd_11cf_a330_00aa00c16e65) , } }
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const CQFF_ISOPTIONAL: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]

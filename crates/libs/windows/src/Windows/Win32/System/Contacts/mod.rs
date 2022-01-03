@@ -12,6 +12,8 @@ pub const CGD_STRING_PROPERTY: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Contacts'*"]
 pub const CGD_UNKNOWN_PROPERTY: u32 = 0u32;
 pub const CLSID_ContactAggregationManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96c8ad95_c199_44de_b34e_ac33c442df39);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_ContactAggregationManager ) , guid : :: windows :: core :: GUID::from_u128(0x96c8ad95_c199_44de_b34e_ac33c442df39) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Contacts'*"]
 pub struct CONTACT_AGGREGATION_BLOB {

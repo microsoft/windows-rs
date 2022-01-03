@@ -990,6 +990,8 @@ pub unsafe fn PurgeComm<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     unimplemented!("Unsupported target OS");
 }
 pub const SID_3GPP_SUPSVCMODEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d08e07_d767_4478_b14a_eecc87ea12f7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SID_3GPP_SUPSVCMODEL ) , guid : :: windows :: core :: GUID::from_u128(0xd7d08e07_d767_4478_b14a_eecc87ea12f7) , } }
 #[doc = "*Required features: 'Win32_Devices_Communication', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

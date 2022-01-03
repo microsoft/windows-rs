@@ -1,8 +1,16 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CLSID_D3D12Debug: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2352aeb_dd84_49fe_b97b_a9dcfdcc1b4f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D3D12Debug ) , guid : :: windows :: core :: GUID::from_u128(0xf2352aeb_dd84_49fe_b97b_a9dcfdcc1b4f) , } }
 pub const CLSID_D3D12DeviceRemovedExtendedData: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a75bbc4_9ff4_4ad8_9f18_abae84dc5ff2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D3D12DeviceRemovedExtendedData ) , guid : :: windows :: core :: GUID::from_u128(0x4a75bbc4_9ff4_4ad8_9f18_abae84dc5ff2) , } }
 pub const CLSID_D3D12SDKConfiguration: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cda6aca_a03e_49c8_9458_0334d20e07ce);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D3D12SDKConfiguration ) , guid : :: windows :: core :: GUID::from_u128(0x7cda6aca_a03e_49c8_9458_0334d20e07ce) , } }
 pub const CLSID_D3D12Tools: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe38216b1_3c8c_4833_aa09_0a06b65d96c8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_D3D12Tools ) , guid : :: windows :: core :: GUID::from_u128(0xe38216b1_3c8c_4833_aa09_0a06b65d96c8) , } }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Direct3D'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
@@ -61,6 +69,8 @@ pub unsafe fn D3D12EnableExperimentalFeatures(numfeatures: u32, piids: *const ::
     unimplemented!("Unsupported target OS");
 }
 pub const D3D12ExperimentalShaderModels: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76f5573e_f13a_40f5_b297_81ce9e18933f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D12ExperimentalShaderModels ) , guid : :: windows :: core :: GUID::from_u128(0x76f5573e_f13a_40f5_b297_81ce9e18933f) , } }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 #[inline]
 pub unsafe fn D3D12GetDebugInterface<T: ::windows::core::Interface>(result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -93,6 +103,8 @@ pub unsafe fn D3D12GetInterface<T: ::windows::core::Interface>(rclsid: *const ::
 #[cfg(feature = "Win32_Foundation")]
 pub type D3D12MessageFunc = ::core::option::Option<unsafe extern "system" fn(category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: super::super::Foundation::PSTR, pcontext: *mut ::core::ffi::c_void)>;
 pub const D3D12MetaCommand: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc734c97e_8077_48c8_9fdc_d9d1dd31dd77);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D12MetaCommand ) , guid : :: windows :: core :: GUID::from_u128(0xc734c97e_8077_48c8_9fdc_d9d1dd31dd77) , } }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Direct3D'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
@@ -124,6 +136,8 @@ pub unsafe fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_
     unimplemented!("Unsupported target OS");
 }
 pub const D3D12TiledResourceTier4: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9c4725f_a81a_4f56_8c5b_c51039d694fb);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D12TiledResourceTier4 ) , guid : :: windows :: core :: GUID::from_u128(0xc9c4725f_a81a_4f56_8c5b_c51039d694fb) , } }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub const D3D12_16BIT_INDEX_STRIP_CUT_VALUE: u32 = 65535u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -8160,6 +8174,8 @@ pub const D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER_1: D3D12_PROGRAMMABLE_SAMPLE_
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub const D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER_2: D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER = 2i32;
 pub const D3D12_PROTECTED_RESOURCES_SESSION_HARDWARE_PROTECTED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62b0084e_c70e_4daa_a109_30ff8d5a0482);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D12_PROTECTED_RESOURCES_SESSION_HARDWARE_PROTECTED ) , guid : :: windows :: core :: GUID::from_u128(0x62b0084e_c70e_4daa_a109_30ff8d5a0482) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_PROTECTED_RESOURCE_SESSION_DESC {
@@ -13795,6 +13811,8 @@ pub const D3D_SHADER_REQUIRES_WAVE_MMA: u32 = 134217728u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub const D3D_SHADER_REQUIRES_WAVE_OPS: u32 = 16384u32;
 pub const DXGI_DEBUG_D3D12: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf59a98c_a950_4326_91ef_9bbaa17bfd95);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DXGI_DEBUG_D3D12 ) , guid : :: windows :: core :: GUID::from_u128(0xcf59a98c_a950_4326_91ef_9bbaa17bfd95) , } }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 #[repr(transparent)]
 pub struct ID3D12CommandAllocator(::windows::core::IUnknown);
@@ -29941,3 +29959,5 @@ pub type PFN_D3D12_SERIALIZE_ROOT_SIGNATURE = ::core::option::Option<unsafe exte
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub type PFN_D3D12_SERIALIZE_VERSIONED_ROOT_SIGNATURE = ::core::option::Option<unsafe extern "system" fn(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrorblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::HRESULT>;
 pub const WKPDID_D3DAutoDebugObjectNameW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4902e36_757a_4942_9594_b6769afa43cd);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WKPDID_D3DAutoDebugObjectNameW ) , guid : :: windows :: core :: GUID::from_u128(0xd4902e36_757a_4942_9594_b6769afa43cd) , } }

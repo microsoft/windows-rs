@@ -1,5 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CLSID_WPD_NAMESPACE_EXTENSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35786d3c_b075_49b9_88dd_029876e11c01);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_WPD_NAMESPACE_EXTENSION ) , guid : :: windows :: core :: GUID::from_u128(0x35786d3c_b075_49b9_88dd_029876e11c01) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub type DELETE_OBJECT_OPTIONS = i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
@@ -27,6 +29,8 @@ pub const DRS_RADIO_MAX: DEVICE_RADIO_STATE = 6i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_MTPBTH_IsConnected: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xea1237fa_589d_4472_84e4_0abe36fd62ef), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVPKEY_MTPBTH_IsConnected ) , guid : :: windows :: core :: GUID::from_u128(0xea1237fa_589d_4472_84e4_0abe36fd62ef) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub const DEVSVCTYPE_ABSTRACT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
@@ -175,8 +179,14 @@ pub const FLAG_MessageObj_DayOfWeekTuesday: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub const FLAG_MessageObj_DayOfWeekWednesday: u32 = 8u32;
 pub const GUID_DEVINTERFACE_WPD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ac27878_a6fa_4155_ba85_f98f491d4f33);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_WPD ) , guid : :: windows :: core :: GUID::from_u128(0x6ac27878_a6fa_4155_ba85_f98f491d4f33) , } }
 pub const GUID_DEVINTERFACE_WPD_PRIVATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba0c718f_4ded_49b7_bdd3_fabe28661211);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_WPD_PRIVATE ) , guid : :: windows :: core :: GUID::from_u128(0xba0c718f_4ded_49b7_bdd3_fabe28661211) , } }
 pub const GUID_DEVINTERFACE_WPD_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ef44f80_3d64_4246_a6aa_206f328d1edc);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_WPD_SERVICE ) , guid : :: windows :: core :: GUID::from_u128(0x9ef44f80_3d64_4246_a6aa_206f328d1edc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 #[repr(transparent)]
 pub struct IConnectionRequestCallback(::windows::core::IUnknown);
@@ -3527,22 +3537,36 @@ pub const TYPE_TasksSvc: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPDNSE_OBJECT_HAS_ALBUM_ART: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x34d71409_4b47_4d80_aaac_3a28a4a3b3e6), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPDNSE_OBJECT_HAS_ALBUM_ART ) , guid : :: windows :: core :: GUID::from_u128(0x34d71409_4b47_4d80_aaac_3a28a4a3b3e6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPDNSE_OBJECT_HAS_AUDIO_CLIP: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x34d71409_4b47_4d80_aaac_3a28a4a3b3e6), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPDNSE_OBJECT_HAS_AUDIO_CLIP ) , guid : :: windows :: core :: GUID::from_u128(0x34d71409_4b47_4d80_aaac_3a28a4a3b3e6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPDNSE_OBJECT_HAS_CONTACT_PHOTO: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x34d71409_4b47_4d80_aaac_3a28a4a3b3e6), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPDNSE_OBJECT_HAS_CONTACT_PHOTO ) , guid : :: windows :: core :: GUID::from_u128(0x34d71409_4b47_4d80_aaac_3a28a4a3b3e6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPDNSE_OBJECT_HAS_ICON: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x34d71409_4b47_4d80_aaac_3a28a4a3b3e6), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPDNSE_OBJECT_HAS_ICON ) , guid : :: windows :: core :: GUID::from_u128(0x34d71409_4b47_4d80_aaac_3a28a4a3b3e6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPDNSE_OBJECT_HAS_THUMBNAIL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x34d71409_4b47_4d80_aaac_3a28a4a3b3e6), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPDNSE_OBJECT_HAS_THUMBNAIL ) , guid : :: windows :: core :: GUID::from_u128(0x34d71409_4b47_4d80_aaac_3a28a4a3b3e6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPDNSE_OBJECT_OPTIMAL_READ_BLOCK_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x34d71409_4b47_4d80_aaac_3a28a4a3b3e6), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPDNSE_OBJECT_OPTIMAL_READ_BLOCK_SIZE ) , guid : :: windows :: core :: GUID::from_u128(0x34d71409_4b47_4d80_aaac_3a28a4a3b3e6) , } }
 pub const WPDNSE_OBJECT_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34d71409_4b47_4d80_aaac_3a28a4a3b3e6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPDNSE_OBJECT_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x34d71409_4b47_4d80_aaac_3a28a4a3b3e6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub const WPDNSE_PROPSHEET_CONTENT_DETAILS: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
@@ -3556,52 +3580,86 @@ pub const WPDNSE_PROPSHEET_DEVICE_GENERAL: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub const WPDNSE_PROPSHEET_STORAGE_GENERAL: u32 = 2u32;
 pub const WPD_API_OPTIONS_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10e54a3e_052d_4777_a13c_de7614be2bc4);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_API_OPTIONS_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x10e54a3e_052d_4777_a13c_de7614be2bc4) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_API_OPTION_IOCTL_ACCESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x10e54a3e_052d_4777_a13c_de7614be2bc4), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_API_OPTION_IOCTL_ACCESS ) , guid : :: windows :: core :: GUID::from_u128(0x10e54a3e_052d_4777_a13c_de7614be2bc4) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_API_OPTION_USE_CLEAR_DATA_STREAM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x10e54a3e_052d_4777_a13c_de7614be2bc4), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_API_OPTION_USE_CLEAR_DATA_STREAM ) , guid : :: windows :: core :: GUID::from_u128(0x10e54a3e_052d_4777_a13c_de7614be2bc4) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_APPOINTMENT_ACCEPTED_ATTENDEES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf99efd03_431d_40d8_a1c9_4e220d9c88d3), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_APPOINTMENT_ACCEPTED_ATTENDEES ) , guid : :: windows :: core :: GUID::from_u128(0xf99efd03_431d_40d8_a1c9_4e220d9c88d3) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_APPOINTMENT_DECLINED_ATTENDEES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf99efd03_431d_40d8_a1c9_4e220d9c88d3), pid: 13u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_APPOINTMENT_DECLINED_ATTENDEES ) , guid : :: windows :: core :: GUID::from_u128(0xf99efd03_431d_40d8_a1c9_4e220d9c88d3) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_APPOINTMENT_LOCATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf99efd03_431d_40d8_a1c9_4e220d9c88d3), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_APPOINTMENT_LOCATION ) , guid : :: windows :: core :: GUID::from_u128(0xf99efd03_431d_40d8_a1c9_4e220d9c88d3) , } }
 pub const WPD_APPOINTMENT_OBJECT_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf99efd03_431d_40d8_a1c9_4e220d9c88d3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_APPOINTMENT_OBJECT_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0xf99efd03_431d_40d8_a1c9_4e220d9c88d3) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_APPOINTMENT_OPTIONAL_ATTENDEES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf99efd03_431d_40d8_a1c9_4e220d9c88d3), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_APPOINTMENT_OPTIONAL_ATTENDEES ) , guid : :: windows :: core :: GUID::from_u128(0xf99efd03_431d_40d8_a1c9_4e220d9c88d3) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_APPOINTMENT_REQUIRED_ATTENDEES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf99efd03_431d_40d8_a1c9_4e220d9c88d3), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_APPOINTMENT_REQUIRED_ATTENDEES ) , guid : :: windows :: core :: GUID::from_u128(0xf99efd03_431d_40d8_a1c9_4e220d9c88d3) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_APPOINTMENT_RESOURCES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf99efd03_431d_40d8_a1c9_4e220d9c88d3), pid: 11u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_APPOINTMENT_RESOURCES ) , guid : :: windows :: core :: GUID::from_u128(0xf99efd03_431d_40d8_a1c9_4e220d9c88d3) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_APPOINTMENT_TENTATIVE_ATTENDEES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf99efd03_431d_40d8_a1c9_4e220d9c88d3), pid: 12u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_APPOINTMENT_TENTATIVE_ATTENDEES ) , guid : :: windows :: core :: GUID::from_u128(0xf99efd03_431d_40d8_a1c9_4e220d9c88d3) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_APPOINTMENT_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf99efd03_431d_40d8_a1c9_4e220d9c88d3), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_APPOINTMENT_TYPE ) , guid : :: windows :: core :: GUID::from_u128(0xf99efd03_431d_40d8_a1c9_4e220d9c88d3) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_AUDIO_BITRATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb324f56a_dc5d_46e5_b6df_d2ea414888c6), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_AUDIO_BITRATE ) , guid : :: windows :: core :: GUID::from_u128(0xb324f56a_dc5d_46e5_b6df_d2ea414888c6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_AUDIO_BIT_DEPTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb324f56a_dc5d_46e5_b6df_d2ea414888c6), pid: 12u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_AUDIO_BIT_DEPTH ) , guid : :: windows :: core :: GUID::from_u128(0xb324f56a_dc5d_46e5_b6df_d2ea414888c6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_AUDIO_BLOCK_ALIGNMENT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb324f56a_dc5d_46e5_b6df_d2ea414888c6), pid: 13u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_AUDIO_BLOCK_ALIGNMENT ) , guid : :: windows :: core :: GUID::from_u128(0xb324f56a_dc5d_46e5_b6df_d2ea414888c6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_AUDIO_CHANNEL_COUNT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb324f56a_dc5d_46e5_b6df_d2ea414888c6), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_AUDIO_CHANNEL_COUNT ) , guid : :: windows :: core :: GUID::from_u128(0xb324f56a_dc5d_46e5_b6df_d2ea414888c6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_AUDIO_FORMAT_CODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb324f56a_dc5d_46e5_b6df_d2ea414888c6), pid: 11u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_AUDIO_FORMAT_CODE ) , guid : :: windows :: core :: GUID::from_u128(0xb324f56a_dc5d_46e5_b6df_d2ea414888c6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub type WPD_BITRATE_TYPES = i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
@@ -3623,86 +3681,172 @@ pub const WPD_CAPTURE_MODE_BURST: WPD_CAPTURE_MODES = 2i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub const WPD_CAPTURE_MODE_TIMELAPSE: WPD_CAPTURE_MODES = 3i32;
 pub const WPD_CATEGORY_CAPABILITIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CATEGORY_CAPABILITIES ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 pub const WPD_CATEGORY_COMMON: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CATEGORY_COMMON ) , guid : :: windows :: core :: GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a) , } }
 pub const WPD_CATEGORY_DEVICE_HINTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d5fb92b_cb46_4c4f_8343_0bc3d3f17c84);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CATEGORY_DEVICE_HINTS ) , guid : :: windows :: core :: GUID::from_u128(0x0d5fb92b_cb46_4c4f_8343_0bc3d3f17c84) , } }
 pub const WPD_CATEGORY_MEDIA_CAPTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59b433ba_fe44_4d8d_808c_6bcb9b0f15e8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CATEGORY_MEDIA_CAPTURE ) , guid : :: windows :: core :: GUID::from_u128(0x59b433ba_fe44_4d8d_808c_6bcb9b0f15e8) , } }
 pub const WPD_CATEGORY_MTP_EXT_VENDOR_OPERATIONS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CATEGORY_MTP_EXT_VENDOR_OPERATIONS ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 pub const WPD_CATEGORY_NETWORK_CONFIGURATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78f9c6fc_79b8_473c_9060_6bd23dd072c4);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CATEGORY_NETWORK_CONFIGURATION ) , guid : :: windows :: core :: GUID::from_u128(0x78f9c6fc_79b8_473c_9060_6bd23dd072c4) , } }
 pub const WPD_CATEGORY_NULL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CATEGORY_NULL ) , guid : :: windows :: core :: GUID::from_u128(0x00000000_0000_0000_0000_000000000000) , } }
 pub const WPD_CATEGORY_OBJECT_ENUMERATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7474e91_e7f8_4ad9_b400_ad1a4b58eeec);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CATEGORY_OBJECT_ENUMERATION ) , guid : :: windows :: core :: GUID::from_u128(0xb7474e91_e7f8_4ad9_b400_ad1a4b58eeec) , } }
 pub const WPD_CATEGORY_OBJECT_MANAGEMENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CATEGORY_OBJECT_MANAGEMENT ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 pub const WPD_CATEGORY_OBJECT_PROPERTIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CATEGORY_OBJECT_PROPERTIES ) , guid : :: windows :: core :: GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804) , } }
 pub const WPD_CATEGORY_OBJECT_PROPERTIES_BULK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CATEGORY_OBJECT_PROPERTIES_BULK ) , guid : :: windows :: core :: GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e) , } }
 pub const WPD_CATEGORY_OBJECT_RESOURCES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CATEGORY_OBJECT_RESOURCES ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 pub const WPD_CATEGORY_SERVICE_CAPABILITIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CATEGORY_SERVICE_CAPABILITIES ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 pub const WPD_CATEGORY_SERVICE_COMMON: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x322f071d_36ef_477f_b4b5_6f52d734baee);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CATEGORY_SERVICE_COMMON ) , guid : :: windows :: core :: GUID::from_u128(0x322f071d_36ef_477f_b4b5_6f52d734baee) , } }
 pub const WPD_CATEGORY_SERVICE_METHODS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d521ca8_c1b0_4268_a342_cf19321569bc);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CATEGORY_SERVICE_METHODS ) , guid : :: windows :: core :: GUID::from_u128(0x2d521ca8_c1b0_4268_a342_cf19321569bc) , } }
 pub const WPD_CATEGORY_SMS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafc25d66_fe0d_4114_9097_970c93e920d1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CATEGORY_SMS ) , guid : :: windows :: core :: GUID::from_u128(0xafc25d66_fe0d_4114_9097_970c93e920d1) , } }
 pub const WPD_CATEGORY_STILL_IMAGE_CAPTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fcd6982_22a2_4b05_a48b_62d38bf27b32);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CATEGORY_STILL_IMAGE_CAPTURE ) , guid : :: windows :: core :: GUID::from_u128(0x4fcd6982_22a2_4b05_a48b_62d38bf27b32) , } }
 pub const WPD_CATEGORY_STORAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8f907a6_34cc_45fa_97fb_d007fa47ec94);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CATEGORY_STORAGE ) , guid : :: windows :: core :: GUID::from_u128(0xd8f907a6_34cc_45fa_97fb_d007fa47ec94) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CLASS_EXTENSION_OPTIONS_DEVICE_IDENTIFICATION_VALUES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x3e3595da_4d71_49fe_a0b4_d4406c3ae93f), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLASS_EXTENSION_OPTIONS_DEVICE_IDENTIFICATION_VALUES ) , guid : :: windows :: core :: GUID::from_u128(0x3e3595da_4d71_49fe_a0b4_d4406c3ae93f) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CLASS_EXTENSION_OPTIONS_DONT_REGISTER_WPD_DEVICE_INTERFACE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x6309ffef_a87c_4ca7_8434_797576e40a96), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLASS_EXTENSION_OPTIONS_DONT_REGISTER_WPD_DEVICE_INTERFACE ) , guid : :: windows :: core :: GUID::from_u128(0x6309ffef_a87c_4ca7_8434_797576e40a96) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CLASS_EXTENSION_OPTIONS_MULTITRANSPORT_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x3e3595da_4d71_49fe_a0b4_d4406c3ae93f), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLASS_EXTENSION_OPTIONS_MULTITRANSPORT_MODE ) , guid : :: windows :: core :: GUID::from_u128(0x3e3595da_4d71_49fe_a0b4_d4406c3ae93f) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CLASS_EXTENSION_OPTIONS_REGISTER_WPD_PRIVATE_DEVICE_INTERFACE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x6309ffef_a87c_4ca7_8434_797576e40a96), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLASS_EXTENSION_OPTIONS_REGISTER_WPD_PRIVATE_DEVICE_INTERFACE ) , guid : :: windows :: core :: GUID::from_u128(0x6309ffef_a87c_4ca7_8434_797576e40a96) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CLASS_EXTENSION_OPTIONS_SILENCE_AUTOPLAY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x65c160f8_1367_4ce2_939d_8310839f0d30), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLASS_EXTENSION_OPTIONS_SILENCE_AUTOPLAY ) , guid : :: windows :: core :: GUID::from_u128(0x65c160f8_1367_4ce2_939d_8310839f0d30) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CLASS_EXTENSION_OPTIONS_SUPPORTED_CONTENT_TYPES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x6309ffef_a87c_4ca7_8434_797576e40a96), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLASS_EXTENSION_OPTIONS_SUPPORTED_CONTENT_TYPES ) , guid : :: windows :: core :: GUID::from_u128(0x6309ffef_a87c_4ca7_8434_797576e40a96) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CLASS_EXTENSION_OPTIONS_TRANSPORT_BANDWIDTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x3e3595da_4d71_49fe_a0b4_d4406c3ae93f), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLASS_EXTENSION_OPTIONS_TRANSPORT_BANDWIDTH ) , guid : :: windows :: core :: GUID::from_u128(0x3e3595da_4d71_49fe_a0b4_d4406c3ae93f) , } }
 pub const WPD_CLASS_EXTENSION_OPTIONS_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6309ffef_a87c_4ca7_8434_797576e40a96);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLASS_EXTENSION_OPTIONS_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x6309ffef_a87c_4ca7_8434_797576e40a96) , } }
 pub const WPD_CLASS_EXTENSION_OPTIONS_V2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e3595da_4d71_49fe_a0b4_d4406c3ae93f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLASS_EXTENSION_OPTIONS_V2 ) , guid : :: windows :: core :: GUID::from_u128(0x3e3595da_4d71_49fe_a0b4_d4406c3ae93f) , } }
 pub const WPD_CLASS_EXTENSION_OPTIONS_V3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65c160f8_1367_4ce2_939d_8310839f0d30);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLASS_EXTENSION_OPTIONS_V3 ) , guid : :: windows :: core :: GUID::from_u128(0x65c160f8_1367_4ce2_939d_8310839f0d30) , } }
 pub const WPD_CLASS_EXTENSION_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33fb0d11_64a3_4fac_b4c7_3dfeaa99b051);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLASS_EXTENSION_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x33fb0d11_64a3_4fac_b4c7_3dfeaa99b051) , } }
 pub const WPD_CLASS_EXTENSION_V2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f0779b5_fa2b_4766_9cb2_f73ba30b6758);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLASS_EXTENSION_V2 ) , guid : :: windows :: core :: GUID::from_u128(0x7f0779b5_fa2b_4766_9cb2_f73ba30b6758) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CLIENT_DESIRED_ACCESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLIENT_DESIRED_ACCESS ) , guid : :: windows :: core :: GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CLIENT_EVENT_COOKIE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859), pid: 11u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLIENT_EVENT_COOKIE ) , guid : :: windows :: core :: GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859) , } }
 pub const WPD_CLIENT_INFORMATION_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLIENT_INFORMATION_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CLIENT_MAJOR_VERSION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLIENT_MAJOR_VERSION ) , guid : :: windows :: core :: GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CLIENT_MANUAL_CLOSE_ON_DISCONNECT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859), pid: 13u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLIENT_MANUAL_CLOSE_ON_DISCONNECT ) , guid : :: windows :: core :: GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CLIENT_MINIMUM_RESULTS_BUFFER_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859), pid: 12u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLIENT_MINIMUM_RESULTS_BUFFER_SIZE ) , guid : :: windows :: core :: GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CLIENT_MINOR_VERSION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLIENT_MINOR_VERSION ) , guid : :: windows :: core :: GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CLIENT_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLIENT_NAME ) , guid : :: windows :: core :: GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CLIENT_REVISION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLIENT_REVISION ) , guid : :: windows :: core :: GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CLIENT_SECURITY_QUALITY_OF_SERVICE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLIENT_SECURITY_QUALITY_OF_SERVICE ) , guid : :: windows :: core :: GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CLIENT_SHARE_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLIENT_SHARE_MODE ) , guid : :: windows :: core :: GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CLIENT_WMDRM_APPLICATION_CERTIFICATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLIENT_WMDRM_APPLICATION_CERTIFICATE ) , guid : :: windows :: core :: GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CLIENT_WMDRM_APPLICATION_PRIVATE_KEY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CLIENT_WMDRM_APPLICATION_PRIVATE_KEY ) , guid : :: windows :: core :: GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub type WPD_COLOR_CORRECTED_STATUS_VALUES = i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
@@ -3766,517 +3910,901 @@ pub const WPD_COMMAND_ACCESS_FROM_ATTRIBUTE_WITH_METHOD_ACCESS: WPD_COMMAND_ACCE
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_CAPABILITIES_GET_COMMAND_OPTIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_CAPABILITIES_GET_COMMAND_OPTIONS ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_CAPABILITIES_GET_EVENT_OPTIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 11u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_CAPABILITIES_GET_EVENT_OPTIONS ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_CAPABILITIES_GET_FIXED_PROPERTY_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_CAPABILITIES_GET_FIXED_PROPERTY_ATTRIBUTES ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_CAPABILITIES_GET_FUNCTIONAL_OBJECTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_CAPABILITIES_GET_FUNCTIONAL_OBJECTS ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_CAPABILITIES_GET_SUPPORTED_COMMANDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_CAPABILITIES_GET_SUPPORTED_COMMANDS ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_CAPABILITIES_GET_SUPPORTED_CONTENT_TYPES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_CAPABILITIES_GET_SUPPORTED_CONTENT_TYPES ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_CAPABILITIES_GET_SUPPORTED_EVENTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_CAPABILITIES_GET_SUPPORTED_EVENTS ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_CAPABILITIES_GET_SUPPORTED_FORMATS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_CAPABILITIES_GET_SUPPORTED_FORMATS ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_CAPABILITIES_GET_SUPPORTED_FORMAT_PROPERTIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_CAPABILITIES_GET_SUPPORTED_FORMAT_PROPERTIES ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_CAPABILITIES_GET_SUPPORTED_FUNCTIONAL_CATEGORIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_CAPABILITIES_GET_SUPPORTED_FUNCTIONAL_CATEGORIES ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_CLASS_EXTENSION_REGISTER_SERVICE_INTERFACES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x7f0779b5_fa2b_4766_9cb2_f73ba30b6758), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_CLASS_EXTENSION_REGISTER_SERVICE_INTERFACES ) , guid : :: windows :: core :: GUID::from_u128(0x7f0779b5_fa2b_4766_9cb2_f73ba30b6758) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_CLASS_EXTENSION_UNREGISTER_SERVICE_INTERFACES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x7f0779b5_fa2b_4766_9cb2_f73ba30b6758), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_CLASS_EXTENSION_UNREGISTER_SERVICE_INTERFACES ) , guid : :: windows :: core :: GUID::from_u128(0x7f0779b5_fa2b_4766_9cb2_f73ba30b6758) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_CLASS_EXTENSION_WRITE_DEVICE_INFORMATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x33fb0d11_64a3_4fac_b4c7_3dfeaa99b051), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_CLASS_EXTENSION_WRITE_DEVICE_INFORMATION ) , guid : :: windows :: core :: GUID::from_u128(0x33fb0d11_64a3_4fac_b4c7_3dfeaa99b051) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_COMMIT_KEYPAIR: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x78f9c6fc_79b8_473c_9060_6bd23dd072c4), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_COMMIT_KEYPAIR ) , guid : :: windows :: core :: GUID::from_u128(0x78f9c6fc_79b8_473c_9060_6bd23dd072c4) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_COMMON_GET_OBJECT_IDS_FROM_PERSISTENT_UNIQUE_IDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_COMMON_GET_OBJECT_IDS_FROM_PERSISTENT_UNIQUE_IDS ) , guid : :: windows :: core :: GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_COMMON_RESET_DEVICE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_COMMON_RESET_DEVICE ) , guid : :: windows :: core :: GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_COMMON_SAVE_CLIENT_INFORMATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_COMMON_SAVE_CLIENT_INFORMATION ) , guid : :: windows :: core :: GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_DEVICE_HINTS_GET_CONTENT_LOCATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0d5fb92b_cb46_4c4f_8343_0bc3d3f17c84), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_DEVICE_HINTS_GET_CONTENT_LOCATION ) , guid : :: windows :: core :: GUID::from_u128(0x0d5fb92b_cb46_4c4f_8343_0bc3d3f17c84) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_GENERATE_KEYPAIR: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x78f9c6fc_79b8_473c_9060_6bd23dd072c4), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_GENERATE_KEYPAIR ) , guid : :: windows :: core :: GUID::from_u128(0x78f9c6fc_79b8_473c_9060_6bd23dd072c4) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_MEDIA_CAPTURE_PAUSE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x59b433ba_fe44_4d8d_808c_6bcb9b0f15e8), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_MEDIA_CAPTURE_PAUSE ) , guid : :: windows :: core :: GUID::from_u128(0x59b433ba_fe44_4d8d_808c_6bcb9b0f15e8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_MEDIA_CAPTURE_START: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x59b433ba_fe44_4d8d_808c_6bcb9b0f15e8), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_MEDIA_CAPTURE_START ) , guid : :: windows :: core :: GUID::from_u128(0x59b433ba_fe44_4d8d_808c_6bcb9b0f15e8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_MEDIA_CAPTURE_STOP: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x59b433ba_fe44_4d8d_808c_6bcb9b0f15e8), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_MEDIA_CAPTURE_STOP ) , guid : :: windows :: core :: GUID::from_u128(0x59b433ba_fe44_4d8d_808c_6bcb9b0f15e8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_MTP_EXT_END_DATA_TRANSFER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 17u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_MTP_EXT_END_DATA_TRANSFER ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_MTP_EXT_EXECUTE_COMMAND_WITHOUT_DATA_PHASE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 12u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_MTP_EXT_EXECUTE_COMMAND_WITHOUT_DATA_PHASE ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_MTP_EXT_EXECUTE_COMMAND_WITH_DATA_TO_READ: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 13u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_MTP_EXT_EXECUTE_COMMAND_WITH_DATA_TO_READ ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_MTP_EXT_EXECUTE_COMMAND_WITH_DATA_TO_WRITE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 14u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_MTP_EXT_EXECUTE_COMMAND_WITH_DATA_TO_WRITE ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_MTP_EXT_GET_SUPPORTED_VENDOR_OPCODES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 11u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_MTP_EXT_GET_SUPPORTED_VENDOR_OPCODES ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_MTP_EXT_GET_VENDOR_EXTENSION_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 18u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_MTP_EXT_GET_VENDOR_EXTENSION_DESCRIPTION ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_MTP_EXT_READ_DATA: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 15u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_MTP_EXT_READ_DATA ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_MTP_EXT_WRITE_DATA: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 16u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_MTP_EXT_WRITE_DATA ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_ENUMERATION_END_FIND: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb7474e91_e7f8_4ad9_b400_ad1a4b58eeec), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_ENUMERATION_END_FIND ) , guid : :: windows :: core :: GUID::from_u128(0xb7474e91_e7f8_4ad9_b400_ad1a4b58eeec) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_ENUMERATION_FIND_NEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb7474e91_e7f8_4ad9_b400_ad1a4b58eeec), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_ENUMERATION_FIND_NEXT ) , guid : :: windows :: core :: GUID::from_u128(0xb7474e91_e7f8_4ad9_b400_ad1a4b58eeec) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_ENUMERATION_START_FIND: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb7474e91_e7f8_4ad9_b400_ad1a4b58eeec), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_ENUMERATION_START_FIND ) , guid : :: windows :: core :: GUID::from_u128(0xb7474e91_e7f8_4ad9_b400_ad1a4b58eeec) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_MANAGEMENT_COMMIT_OBJECT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_MANAGEMENT_COMMIT_OBJECT ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_MANAGEMENT_COPY_OBJECTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_MANAGEMENT_COPY_OBJECTS ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_MANAGEMENT_CREATE_OBJECT_WITH_PROPERTIES_AND_DATA: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_MANAGEMENT_CREATE_OBJECT_WITH_PROPERTIES_AND_DATA ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_MANAGEMENT_CREATE_OBJECT_WITH_PROPERTIES_ONLY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_MANAGEMENT_CREATE_OBJECT_WITH_PROPERTIES_ONLY ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_MANAGEMENT_DELETE_OBJECTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_MANAGEMENT_DELETE_OBJECTS ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_MANAGEMENT_MOVE_OBJECTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_MANAGEMENT_MOVE_OBJECTS ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_MANAGEMENT_REVERT_OBJECT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_MANAGEMENT_REVERT_OBJECT ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_MANAGEMENT_UPDATE_OBJECT_WITH_PROPERTIES_AND_DATA: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_MANAGEMENT_UPDATE_OBJECT_WITH_PROPERTIES_AND_DATA ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_MANAGEMENT_WRITE_OBJECT_DATA: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_MANAGEMENT_WRITE_OBJECT_DATA ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_FORMAT_END: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_FORMAT_END ) , guid : :: windows :: core :: GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_FORMAT_NEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_FORMAT_NEXT ) , guid : :: windows :: core :: GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_FORMAT_START: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_FORMAT_START ) , guid : :: windows :: core :: GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_LIST_END: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_LIST_END ) , guid : :: windows :: core :: GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_LIST_NEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_LIST_NEXT ) , guid : :: windows :: core :: GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_LIST_START: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_LIST_START ) , guid : :: windows :: core :: GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_SET_VALUES_BY_OBJECT_LIST_END: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_PROPERTIES_BULK_SET_VALUES_BY_OBJECT_LIST_END ) , guid : :: windows :: core :: GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_SET_VALUES_BY_OBJECT_LIST_NEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_PROPERTIES_BULK_SET_VALUES_BY_OBJECT_LIST_NEXT ) , guid : :: windows :: core :: GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_SET_VALUES_BY_OBJECT_LIST_START: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_PROPERTIES_BULK_SET_VALUES_BY_OBJECT_LIST_START ) , guid : :: windows :: core :: GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_DELETE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_PROPERTIES_DELETE ) , guid : :: windows :: core :: GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_GET: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_PROPERTIES_GET ) , guid : :: windows :: core :: GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_GET_ALL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_PROPERTIES_GET_ALL ) , guid : :: windows :: core :: GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_GET_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_PROPERTIES_GET_ATTRIBUTES ) , guid : :: windows :: core :: GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_GET_SUPPORTED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_PROPERTIES_GET_SUPPORTED ) , guid : :: windows :: core :: GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_SET: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_PROPERTIES_SET ) , guid : :: windows :: core :: GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_RESOURCES_CLOSE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_RESOURCES_CLOSE ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_RESOURCES_COMMIT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 12u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_RESOURCES_COMMIT ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_RESOURCES_CREATE_RESOURCE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_RESOURCES_CREATE_RESOURCE ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_RESOURCES_DELETE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_RESOURCES_DELETE ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_RESOURCES_GET_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_RESOURCES_GET_ATTRIBUTES ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_RESOURCES_GET_SUPPORTED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_RESOURCES_GET_SUPPORTED ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_RESOURCES_OPEN: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_RESOURCES_OPEN ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_RESOURCES_READ: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_RESOURCES_READ ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_RESOURCES_REVERT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_RESOURCES_REVERT ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_RESOURCES_SEEK: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 11u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_RESOURCES_SEEK ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_RESOURCES_SEEK_IN_UNITS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 13u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_RESOURCES_SEEK_IN_UNITS ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_OBJECT_RESOURCES_WRITE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_OBJECT_RESOURCES_WRITE ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_PROCESS_WIRELESS_PROFILE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x78f9c6fc_79b8_473c_9060_6bd23dd072c4), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_PROCESS_WIRELESS_PROFILE ) , guid : :: windows :: core :: GUID::from_u128(0x78f9c6fc_79b8_473c_9060_6bd23dd072c4) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_COMMAND_OPTIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 16u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_SERVICE_CAPABILITIES_GET_COMMAND_OPTIONS ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_EVENT_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 11u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_SERVICE_CAPABILITIES_GET_EVENT_ATTRIBUTES ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_EVENT_PARAMETER_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 12u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_SERVICE_CAPABILITIES_GET_EVENT_PARAMETER_ATTRIBUTES ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_FORMAT_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_SERVICE_CAPABILITIES_GET_FORMAT_ATTRIBUTES ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_FORMAT_PROPERTY_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_SERVICE_CAPABILITIES_GET_FORMAT_PROPERTY_ATTRIBUTES ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_FORMAT_RENDERING_PROFILES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 14u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_SERVICE_CAPABILITIES_GET_FORMAT_RENDERING_PROFILES ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_INHERITED_SERVICES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 13u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_SERVICE_CAPABILITIES_GET_INHERITED_SERVICES ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_METHOD_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_SERVICE_CAPABILITIES_GET_METHOD_ATTRIBUTES ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_METHOD_PARAMETER_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_SERVICE_CAPABILITIES_GET_METHOD_PARAMETER_ATTRIBUTES ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_SUPPORTED_COMMANDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 15u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_SERVICE_CAPABILITIES_GET_SUPPORTED_COMMANDS ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_SUPPORTED_EVENTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_SERVICE_CAPABILITIES_GET_SUPPORTED_EVENTS ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_SUPPORTED_FORMATS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_SERVICE_CAPABILITIES_GET_SUPPORTED_FORMATS ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_SUPPORTED_FORMAT_PROPERTIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_SERVICE_CAPABILITIES_GET_SUPPORTED_FORMAT_PROPERTIES ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_SUPPORTED_METHODS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_SERVICE_CAPABILITIES_GET_SUPPORTED_METHODS ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_SUPPORTED_METHODS_BY_FORMAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_SERVICE_CAPABILITIES_GET_SUPPORTED_METHODS_BY_FORMAT ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_SERVICE_COMMON_GET_SERVICE_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x322f071d_36ef_477f_b4b5_6f52d734baee), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_SERVICE_COMMON_GET_SERVICE_OBJECT_ID ) , guid : :: windows :: core :: GUID::from_u128(0x322f071d_36ef_477f_b4b5_6f52d734baee) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_SERVICE_METHODS_CANCEL_INVOKE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2d521ca8_c1b0_4268_a342_cf19321569bc), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_SERVICE_METHODS_CANCEL_INVOKE ) , guid : :: windows :: core :: GUID::from_u128(0x2d521ca8_c1b0_4268_a342_cf19321569bc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_SERVICE_METHODS_END_INVOKE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2d521ca8_c1b0_4268_a342_cf19321569bc), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_SERVICE_METHODS_END_INVOKE ) , guid : :: windows :: core :: GUID::from_u128(0x2d521ca8_c1b0_4268_a342_cf19321569bc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_SERVICE_METHODS_START_INVOKE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2d521ca8_c1b0_4268_a342_cf19321569bc), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_SERVICE_METHODS_START_INVOKE ) , guid : :: windows :: core :: GUID::from_u128(0x2d521ca8_c1b0_4268_a342_cf19321569bc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_SMS_SEND: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xafc25d66_fe0d_4114_9097_970c93e920d1), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_SMS_SEND ) , guid : :: windows :: core :: GUID::from_u128(0xafc25d66_fe0d_4114_9097_970c93e920d1) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_STILL_IMAGE_CAPTURE_INITIATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4fcd6982_22a2_4b05_a48b_62d38bf27b32), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_STILL_IMAGE_CAPTURE_INITIATE ) , guid : :: windows :: core :: GUID::from_u128(0x4fcd6982_22a2_4b05_a48b_62d38bf27b32) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_STORAGE_EJECT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd8f907a6_34cc_45fa_97fb_d007fa47ec94), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_STORAGE_EJECT ) , guid : :: windows :: core :: GUID::from_u128(0xd8f907a6_34cc_45fa_97fb_d007fa47ec94) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_STORAGE_FORMAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd8f907a6_34cc_45fa_97fb_d007fa47ec94), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMAND_STORAGE_FORMAT ) , guid : :: windows :: core :: GUID::from_u128(0xd8f907a6_34cc_45fa_97fb_d007fa47ec94) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMON_INFORMATION_BODY_TEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb28ae94b_05a4_4e8e_be01_72cc7e099d8f), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMON_INFORMATION_BODY_TEXT ) , guid : :: windows :: core :: GUID::from_u128(0xb28ae94b_05a4_4e8e_be01_72cc7e099d8f) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMON_INFORMATION_END_DATETIME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb28ae94b_05a4_4e8e_be01_72cc7e099d8f), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMON_INFORMATION_END_DATETIME ) , guid : :: windows :: core :: GUID::from_u128(0xb28ae94b_05a4_4e8e_be01_72cc7e099d8f) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMON_INFORMATION_NOTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb28ae94b_05a4_4e8e_be01_72cc7e099d8f), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMON_INFORMATION_NOTES ) , guid : :: windows :: core :: GUID::from_u128(0xb28ae94b_05a4_4e8e_be01_72cc7e099d8f) , } }
 pub const WPD_COMMON_INFORMATION_OBJECT_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb28ae94b_05a4_4e8e_be01_72cc7e099d8f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMON_INFORMATION_OBJECT_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0xb28ae94b_05a4_4e8e_be01_72cc7e099d8f) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMON_INFORMATION_PRIORITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb28ae94b_05a4_4e8e_be01_72cc7e099d8f), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMON_INFORMATION_PRIORITY ) , guid : :: windows :: core :: GUID::from_u128(0xb28ae94b_05a4_4e8e_be01_72cc7e099d8f) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMON_INFORMATION_START_DATETIME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb28ae94b_05a4_4e8e_be01_72cc7e099d8f), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMON_INFORMATION_START_DATETIME ) , guid : :: windows :: core :: GUID::from_u128(0xb28ae94b_05a4_4e8e_be01_72cc7e099d8f) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMON_INFORMATION_SUBJECT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb28ae94b_05a4_4e8e_be01_72cc7e099d8f), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_COMMON_INFORMATION_SUBJECT ) , guid : :: windows :: core :: GUID::from_u128(0xb28ae94b_05a4_4e8e_be01_72cc7e099d8f) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_ANNIVERSARY_DATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 62u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_ANNIVERSARY_DATE ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_ASSISTANT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 61u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_ASSISTANT ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_BIRTHDATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 57u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_BIRTHDATE ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_BUSINESS_EMAIL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 34u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_BUSINESS_EMAIL ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_BUSINESS_EMAIL2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 35u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_BUSINESS_EMAIL2 ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_BUSINESS_FAX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 45u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_BUSINESS_FAX ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_BUSINESS_FULL_POSTAL_ADDRESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 17u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_BUSINESS_FULL_POSTAL_ADDRESS ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_BUSINESS_PHONE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 40u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_BUSINESS_PHONE ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_BUSINESS_PHONE2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 41u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_BUSINESS_PHONE2 ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_CITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 20u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_CITY ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_COUNTRY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 23u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_COUNTRY ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_LINE1: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 18u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_LINE1 ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_LINE2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 19u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_LINE2 ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_POSTAL_CODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 22u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_POSTAL_CODE ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_REGION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 21u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_REGION ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_BUSINESS_WEB_ADDRESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 50u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_BUSINESS_WEB_ADDRESS ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_CHILDREN: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 60u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_CHILDREN ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_COMPANY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 54u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_COMPANY_NAME ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_DISPLAY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_DISPLAY_NAME ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_FIRST_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_FIRST_NAME ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_INSTANT_MESSENGER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 51u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_INSTANT_MESSENGER ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_INSTANT_MESSENGER2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 52u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_INSTANT_MESSENGER2 ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_INSTANT_MESSENGER3: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 53u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_INSTANT_MESSENGER3 ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_LAST_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_LAST_NAME ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_MIDDLE_NAMES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_MIDDLE_NAMES ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_MOBILE_PHONE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 42u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_MOBILE_PHONE ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_MOBILE_PHONE2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 43u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_MOBILE_PHONE2 ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 pub const WPD_CONTACT_OBJECT_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_OBJECT_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_OTHER_EMAILS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 36u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_OTHER_EMAILS ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_OTHER_FULL_POSTAL_ADDRESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 24u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_OTHER_FULL_POSTAL_ADDRESS ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_OTHER_PHONES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 47u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_OTHER_PHONES ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_OTHER_POSTAL_ADDRESS_CITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 27u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_OTHER_POSTAL_ADDRESS_CITY ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_OTHER_POSTAL_ADDRESS_LINE1: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 25u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_OTHER_POSTAL_ADDRESS_LINE1 ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_OTHER_POSTAL_ADDRESS_LINE2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 26u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_OTHER_POSTAL_ADDRESS_LINE2 ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_OTHER_POSTAL_ADDRESS_POSTAL_CODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 29u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_OTHER_POSTAL_ADDRESS_POSTAL_CODE ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_OTHER_POSTAL_ADDRESS_POSTAL_COUNTRY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 30u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_OTHER_POSTAL_ADDRESS_POSTAL_COUNTRY ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_OTHER_POSTAL_ADDRESS_REGION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 28u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_OTHER_POSTAL_ADDRESS_REGION ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PAGER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 46u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PAGER ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PERSONAL_EMAIL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 32u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PERSONAL_EMAIL ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PERSONAL_EMAIL2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 33u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PERSONAL_EMAIL2 ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PERSONAL_FAX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 44u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PERSONAL_FAX ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PERSONAL_FULL_POSTAL_ADDRESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PERSONAL_FULL_POSTAL_ADDRESS ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PERSONAL_PHONE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 38u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PERSONAL_PHONE ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PERSONAL_PHONE2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 39u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PERSONAL_PHONE2 ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_CITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 13u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_CITY ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_COUNTRY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 16u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_COUNTRY ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_LINE1: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 11u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_LINE1 ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_LINE2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 12u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_LINE2 ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_POSTAL_CODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 15u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_POSTAL_CODE ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_REGION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 14u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_REGION ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PERSONAL_WEB_ADDRESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 49u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PERSONAL_WEB_ADDRESS ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PHONETIC_COMPANY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 55u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PHONETIC_COMPANY_NAME ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PHONETIC_FIRST_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PHONETIC_FIRST_NAME ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PHONETIC_LAST_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PHONETIC_LAST_NAME ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PREFIX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PREFIX ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PRIMARY_EMAIL_ADDRESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 31u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PRIMARY_EMAIL_ADDRESS ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PRIMARY_FAX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 58u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PRIMARY_FAX ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PRIMARY_PHONE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 37u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PRIMARY_PHONE ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_PRIMARY_WEB_ADDRESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 48u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_PRIMARY_WEB_ADDRESS ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_RINGTONE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 63u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_RINGTONE ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_ROLE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 56u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_ROLE ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_SPOUSE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 59u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_SPOUSE ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CONTACT_SUFFIX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTACT_SUFFIX ) , guid : :: windows :: core :: GUID::from_u128(0xfbd4fdab_987d_4777_b3f9_726185a9312b) , } }
 pub const WPD_CONTENT_TYPE_ALL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80e170d2_1055_4a3e_b952_82cc4f8a8689);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_ALL ) , guid : :: windows :: core :: GUID::from_u128(0x80e170d2_1055_4a3e_b952_82cc4f8a8689) , } }
 pub const WPD_CONTENT_TYPE_APPOINTMENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fed060e_8793_4b1e_90c9_48ac389ac631);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_APPOINTMENT ) , guid : :: windows :: core :: GUID::from_u128(0x0fed060e_8793_4b1e_90c9_48ac389ac631) , } }
 pub const WPD_CONTENT_TYPE_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ad2c85e_5e2d_45e5_8864_4f229e3c6cf0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_AUDIO ) , guid : :: windows :: core :: GUID::from_u128(0x4ad2c85e_5e2d_45e5_8864_4f229e3c6cf0) , } }
 pub const WPD_CONTENT_TYPE_AUDIO_ALBUM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa18737e_5009_48fa_ae21_85f24383b4e6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_AUDIO_ALBUM ) , guid : :: windows :: core :: GUID::from_u128(0xaa18737e_5009_48fa_ae21_85f24383b4e6) , } }
 pub const WPD_CONTENT_TYPE_CALENDAR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1fd5967_6023_49a0_9df1_f8060be751b0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_CALENDAR ) , guid : :: windows :: core :: GUID::from_u128(0xa1fd5967_6023_49a0_9df1_f8060be751b0) , } }
 pub const WPD_CONTENT_TYPE_CERTIFICATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc3876e8_a948_4060_9050_cbd77e8a3d87);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_CERTIFICATE ) , guid : :: windows :: core :: GUID::from_u128(0xdc3876e8_a948_4060_9050_cbd77e8a3d87) , } }
 pub const WPD_CONTENT_TYPE_CONTACT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeaba8313_4525_4707_9f0e_87c6808e9435);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_CONTACT ) , guid : :: windows :: core :: GUID::from_u128(0xeaba8313_4525_4707_9f0e_87c6808e9435) , } }
 pub const WPD_CONTENT_TYPE_CONTACT_GROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x346b8932_4c36_40d8_9415_1828291f9de9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_CONTACT_GROUP ) , guid : :: windows :: core :: GUID::from_u128(0x346b8932_4c36_40d8_9415_1828291f9de9) , } }
 pub const WPD_CONTENT_TYPE_DOCUMENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x680adf52_950a_4041_9b41_65e393648155);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_DOCUMENT ) , guid : :: windows :: core :: GUID::from_u128(0x680adf52_950a_4041_9b41_65e393648155) , } }
 pub const WPD_CONTENT_TYPE_EMAIL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8038044a_7e51_4f8f_883d_1d0623d14533);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_EMAIL ) , guid : :: windows :: core :: GUID::from_u128(0x8038044a_7e51_4f8f_883d_1d0623d14533) , } }
 pub const WPD_CONTENT_TYPE_FOLDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27e2e392_a111_48e0_ab0c_e17705a05f85);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_FOLDER ) , guid : :: windows :: core :: GUID::from_u128(0x27e2e392_a111_48e0_ab0c_e17705a05f85) , } }
 pub const WPD_CONTENT_TYPE_FUNCTIONAL_OBJECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99ed0160_17ff_4c44_9d98_1d7a6f941921);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_FUNCTIONAL_OBJECT ) , guid : :: windows :: core :: GUID::from_u128(0x99ed0160_17ff_4c44_9d98_1d7a6f941921) , } }
 pub const WPD_CONTENT_TYPE_GENERIC_FILE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0085e0a6_8d34_45d7_bc5c_447e59c73d48);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_GENERIC_FILE ) , guid : :: windows :: core :: GUID::from_u128(0x0085e0a6_8d34_45d7_bc5c_447e59c73d48) , } }
 pub const WPD_CONTENT_TYPE_GENERIC_MESSAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe80eaaf8_b2db_4133_b67e_1bef4b4a6e5f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_GENERIC_MESSAGE ) , guid : :: windows :: core :: GUID::from_u128(0xe80eaaf8_b2db_4133_b67e_1bef4b4a6e5f) , } }
 pub const WPD_CONTENT_TYPE_IMAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef2107d5_a52a_4243_a26b_62d4176d7603);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_IMAGE ) , guid : :: windows :: core :: GUID::from_u128(0xef2107d5_a52a_4243_a26b_62d4176d7603) , } }
 pub const WPD_CONTENT_TYPE_IMAGE_ALBUM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75793148_15f5_4a30_a813_54ed8a37e226);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_IMAGE_ALBUM ) , guid : :: windows :: core :: GUID::from_u128(0x75793148_15f5_4a30_a813_54ed8a37e226) , } }
 pub const WPD_CONTENT_TYPE_MEDIA_CAST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e88b3cc_3e65_4e62_bfff_229495253ab0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_MEDIA_CAST ) , guid : :: windows :: core :: GUID::from_u128(0x5e88b3cc_3e65_4e62_bfff_229495253ab0) , } }
 pub const WPD_CONTENT_TYPE_MEMO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cd20ecf_3b50_414f_a641_e473ffe45751);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_MEMO ) , guid : :: windows :: core :: GUID::from_u128(0x9cd20ecf_3b50_414f_a641_e473ffe45751) , } }
 pub const WPD_CONTENT_TYPE_MIXED_CONTENT_ALBUM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f0c3ac_a593_49ac_9219_24abca5a2563);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_MIXED_CONTENT_ALBUM ) , guid : :: windows :: core :: GUID::from_u128(0x00f0c3ac_a593_49ac_9219_24abca5a2563) , } }
 pub const WPD_CONTENT_TYPE_NETWORK_ASSOCIATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x031da7ee_18c8_4205_847e_89a11261d0f3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_NETWORK_ASSOCIATION ) , guid : :: windows :: core :: GUID::from_u128(0x031da7ee_18c8_4205_847e_89a11261d0f3) , } }
 pub const WPD_CONTENT_TYPE_PLAYLIST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a33f7e4_af13_48f5_994e_77369dfe04a3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_PLAYLIST ) , guid : :: windows :: core :: GUID::from_u128(0x1a33f7e4_af13_48f5_994e_77369dfe04a3) , } }
 pub const WPD_CONTENT_TYPE_PROGRAM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd269f96a_247c_4bff_98fb_97f3c49220e6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_PROGRAM ) , guid : :: windows :: core :: GUID::from_u128(0xd269f96a_247c_4bff_98fb_97f3c49220e6) , } }
 pub const WPD_CONTENT_TYPE_SECTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x821089f5_1d91_4dc9_be3c_bbb1b35b18ce);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_SECTION ) , guid : :: windows :: core :: GUID::from_u128(0x821089f5_1d91_4dc9_be3c_bbb1b35b18ce) , } }
 pub const WPD_CONTENT_TYPE_TASK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63252f2c_887f_4cb6_b1ac_d29855dcef6c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_TASK ) , guid : :: windows :: core :: GUID::from_u128(0x63252f2c_887f_4cb6_b1ac_d29855dcef6c) , } }
 pub const WPD_CONTENT_TYPE_TELEVISION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60a169cf_f2ae_4e21_9375_9677f11c1c6e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_TELEVISION ) , guid : :: windows :: core :: GUID::from_u128(0x60a169cf_f2ae_4e21_9375_9677f11c1c6e) , } }
 pub const WPD_CONTENT_TYPE_UNSPECIFIED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28d8d31e_249c_454e_aabc_34883168e634);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_UNSPECIFIED ) , guid : :: windows :: core :: GUID::from_u128(0x28d8d31e_249c_454e_aabc_34883168e634) , } }
 pub const WPD_CONTENT_TYPE_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9261b03c_3d78_4519_85e3_02c5e1f50bb9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_VIDEO ) , guid : :: windows :: core :: GUID::from_u128(0x9261b03c_3d78_4519_85e3_02c5e1f50bb9) , } }
 pub const WPD_CONTENT_TYPE_VIDEO_ALBUM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x012b0db7_d4c1_45d6_b081_94b87779614f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_VIDEO_ALBUM ) , guid : :: windows :: core :: GUID::from_u128(0x012b0db7_d4c1_45d6_b081_94b87779614f) , } }
 pub const WPD_CONTENT_TYPE_WIRELESS_PROFILE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bac070a_9f5f_4da4_a8f6_3de44d68fd6c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_CONTENT_TYPE_WIRELESS_PROFILE ) , guid : :: windows :: core :: GUID::from_u128(0x0bac070a_9f5f_4da4_a8f6_3de44d68fd6c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub const WPD_CONTROL_FUNCTION_GENERIC_MESSAGE: u32 = 66u32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
@@ -4290,60 +4818,102 @@ pub const WPD_CROPPED_STATUS_SHOULD_NOT_BE_CROPPED: WPD_CROPPED_STATUS_VALUES = 
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_DATETIME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc), pid: 11u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_DATETIME ) , guid : :: windows :: core :: GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_EDP_IDENTITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x6c2b878c_c2ec_490d_b425_d7a75e23e5ed), pid: 1u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_EDP_IDENTITY ) , guid : :: windows :: core :: GUID::from_u128(0x6c2b878c_c2ec_490d_b425_d7a75e23e5ed) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_FIRMWARE_VERSION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_FIRMWARE_VERSION ) , guid : :: windows :: core :: GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_FRIENDLY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc), pid: 12u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_FRIENDLY_NAME ) , guid : :: windows :: core :: GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_FUNCTIONAL_UNIQUE_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x463dd662_7fc4_4291_911c_7f4c9cca9799), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_FUNCTIONAL_UNIQUE_ID ) , guid : :: windows :: core :: GUID::from_u128(0x463dd662_7fc4_4291_911c_7f4c9cca9799) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_MANUFACTURER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_MANUFACTURER ) , guid : :: windows :: core :: GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_MODEL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_MODEL ) , guid : :: windows :: core :: GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_MODEL_UNIQUE_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x463dd662_7fc4_4291_911c_7f4c9cca9799), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_MODEL_UNIQUE_ID ) , guid : :: windows :: core :: GUID::from_u128(0x463dd662_7fc4_4291_911c_7f4c9cca9799) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_NETWORK_IDENTIFIER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc), pid: 16u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_NETWORK_IDENTIFIER ) , guid : :: windows :: core :: GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_POWER_LEVEL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_POWER_LEVEL ) , guid : :: windows :: core :: GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_POWER_SOURCE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_POWER_SOURCE ) , guid : :: windows :: core :: GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc) , } }
 pub const WPD_DEVICE_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc) , } }
 pub const WPD_DEVICE_PROPERTIES_V2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x463dd662_7fc4_4291_911c_7f4c9cca9799);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_PROPERTIES_V2 ) , guid : :: windows :: core :: GUID::from_u128(0x463dd662_7fc4_4291_911c_7f4c9cca9799) , } }
 pub const WPD_DEVICE_PROPERTIES_V3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c2b878c_c2ec_490d_b425_d7a75e23e5ed);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_PROPERTIES_V3 ) , guid : :: windows :: core :: GUID::from_u128(0x6c2b878c_c2ec_490d_b425_d7a75e23e5ed) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_PROTOCOL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_PROTOCOL ) , guid : :: windows :: core :: GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_SERIAL_NUMBER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_SERIAL_NUMBER ) , guid : :: windows :: core :: GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_SUPPORTED_DRM_SCHEMES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc), pid: 13u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_SUPPORTED_DRM_SCHEMES ) , guid : :: windows :: core :: GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_SUPPORTED_FORMATS_ARE_ORDERED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc), pid: 14u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_SUPPORTED_FORMATS_ARE_ORDERED ) , guid : :: windows :: core :: GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_SUPPORTS_NON_CONSUMABLE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_SUPPORTS_NON_CONSUMABLE ) , guid : :: windows :: core :: GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_SYNC_PARTNER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_SYNC_PARTNER ) , guid : :: windows :: core :: GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_TRANSPORT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x463dd662_7fc4_4291_911c_7f4c9cca9799), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_TRANSPORT ) , guid : :: windows :: core :: GUID::from_u128(0x463dd662_7fc4_4291_911c_7f4c9cca9799) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub type WPD_DEVICE_TRANSPORTS = i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
@@ -4357,6 +4927,8 @@ pub const WPD_DEVICE_TRANSPORT_BLUETOOTH: WPD_DEVICE_TRANSPORTS = 3i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc), pid: 15u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_TYPE ) , guid : :: windows :: core :: GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub type WPD_DEVICE_TYPES = i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
@@ -4376,7 +4948,11 @@ pub const WPD_DEVICE_TYPE_AUDIO_RECORDER: WPD_DEVICE_TYPES = 6i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_USE_DEVICE_STAGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x463dd662_7fc4_4291_911c_7f4c9cca9799), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DEVICE_USE_DEVICE_STAGE ) , guid : :: windows :: core :: GUID::from_u128(0x463dd662_7fc4_4291_911c_7f4c9cca9799) , } }
 pub const WPD_DOCUMENT_OBJECT_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b110203_eb95_4f02_93e0_97c631493ad5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_DOCUMENT_OBJECT_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x0b110203_eb95_4f02_93e0_97c631493ad5) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub type WPD_EFFECT_MODES = i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
@@ -4390,79 +4966,151 @@ pub const WPD_EFFECT_MODE_SEPIA: WPD_EFFECT_MODES = 3i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EMAIL_BCC_LINE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x41f8f65a_5484_4782_b13d_4740dd7c37c5), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EMAIL_BCC_LINE ) , guid : :: windows :: core :: GUID::from_u128(0x41f8f65a_5484_4782_b13d_4740dd7c37c5) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EMAIL_CC_LINE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x41f8f65a_5484_4782_b13d_4740dd7c37c5), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EMAIL_CC_LINE ) , guid : :: windows :: core :: GUID::from_u128(0x41f8f65a_5484_4782_b13d_4740dd7c37c5) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EMAIL_HAS_ATTACHMENTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x41f8f65a_5484_4782_b13d_4740dd7c37c5), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EMAIL_HAS_ATTACHMENTS ) , guid : :: windows :: core :: GUID::from_u128(0x41f8f65a_5484_4782_b13d_4740dd7c37c5) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EMAIL_HAS_BEEN_READ: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x41f8f65a_5484_4782_b13d_4740dd7c37c5), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EMAIL_HAS_BEEN_READ ) , guid : :: windows :: core :: GUID::from_u128(0x41f8f65a_5484_4782_b13d_4740dd7c37c5) , } }
 pub const WPD_EMAIL_OBJECT_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41f8f65a_5484_4782_b13d_4740dd7c37c5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EMAIL_OBJECT_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x41f8f65a_5484_4782_b13d_4740dd7c37c5) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EMAIL_RECEIVED_TIME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x41f8f65a_5484_4782_b13d_4740dd7c37c5), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EMAIL_RECEIVED_TIME ) , guid : :: windows :: core :: GUID::from_u128(0x41f8f65a_5484_4782_b13d_4740dd7c37c5) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EMAIL_SENDER_ADDRESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x41f8f65a_5484_4782_b13d_4740dd7c37c5), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EMAIL_SENDER_ADDRESS ) , guid : :: windows :: core :: GUID::from_u128(0x41f8f65a_5484_4782_b13d_4740dd7c37c5) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EMAIL_TO_LINE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x41f8f65a_5484_4782_b13d_4740dd7c37c5), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EMAIL_TO_LINE ) , guid : :: windows :: core :: GUID::from_u128(0x41f8f65a_5484_4782_b13d_4740dd7c37c5) , } }
 pub const WPD_EVENT_ATTRIBUTES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10c96578_2e81_4111_adde_e08ca6138f6d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_ATTRIBUTES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x10c96578_2e81_4111_adde_e08ca6138f6d) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EVENT_ATTRIBUTE_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x10c96578_2e81_4111_adde_e08ca6138f6d), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_ATTRIBUTE_NAME ) , guid : :: windows :: core :: GUID::from_u128(0x10c96578_2e81_4111_adde_e08ca6138f6d) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EVENT_ATTRIBUTE_OPTIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x10c96578_2e81_4111_adde_e08ca6138f6d), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_ATTRIBUTE_OPTIONS ) , guid : :: windows :: core :: GUID::from_u128(0x10c96578_2e81_4111_adde_e08ca6138f6d) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EVENT_ATTRIBUTE_PARAMETERS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x10c96578_2e81_4111_adde_e08ca6138f6d), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_ATTRIBUTE_PARAMETERS ) , guid : :: windows :: core :: GUID::from_u128(0x10c96578_2e81_4111_adde_e08ca6138f6d) , } }
 pub const WPD_EVENT_DEVICE_CAPABILITIES_UPDATED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36885aa1_cd54_4daa_b3d0_afb3e03f5999);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_DEVICE_CAPABILITIES_UPDATED ) , guid : :: windows :: core :: GUID::from_u128(0x36885aa1_cd54_4daa_b3d0_afb3e03f5999) , } }
 pub const WPD_EVENT_DEVICE_REMOVED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4cbca1b_6918_48b9_85ee_02be7c850af9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_DEVICE_REMOVED ) , guid : :: windows :: core :: GUID::from_u128(0xe4cbca1b_6918_48b9_85ee_02be7c850af9) , } }
 pub const WPD_EVENT_DEVICE_RESET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7755cf53_c1ed_44f3_b5a2_451e2c376b27);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_DEVICE_RESET ) , guid : :: windows :: core :: GUID::from_u128(0x7755cf53_c1ed_44f3_b5a2_451e2c376b27) , } }
 pub const WPD_EVENT_MTP_VENDOR_EXTENDED_EVENTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_5738_4ff2_8445_be3126691059);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_MTP_VENDOR_EXTENDED_EVENTS ) , guid : :: windows :: core :: GUID::from_u128(0x00000000_5738_4ff2_8445_be3126691059) , } }
 pub const WPD_EVENT_NOTIFICATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ba2e40a_6b4c_4295_bb43_26322b99aeb2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_NOTIFICATION ) , guid : :: windows :: core :: GUID::from_u128(0x2ba2e40a_6b4c_4295_bb43_26322b99aeb2) , } }
 pub const WPD_EVENT_OBJECT_ADDED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa726da95_e207_4b02_8d44_bef2e86cbffc);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_OBJECT_ADDED ) , guid : :: windows :: core :: GUID::from_u128(0xa726da95_e207_4b02_8d44_bef2e86cbffc) , } }
 pub const WPD_EVENT_OBJECT_REMOVED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe82ab88_a52c_4823_96e5_d0272671fc38);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_OBJECT_REMOVED ) , guid : :: windows :: core :: GUID::from_u128(0xbe82ab88_a52c_4823_96e5_d0272671fc38) , } }
 pub const WPD_EVENT_OBJECT_TRANSFER_REQUESTED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d16a0a1_f2c6_41da_8f19_5e53721adbf2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_OBJECT_TRANSFER_REQUESTED ) , guid : :: windows :: core :: GUID::from_u128(0x8d16a0a1_f2c6_41da_8f19_5e53721adbf2) , } }
 pub const WPD_EVENT_OBJECT_UPDATED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1445a759_2e01_485d_9f27_ff07dae697ab);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_OBJECT_UPDATED ) , guid : :: windows :: core :: GUID::from_u128(0x1445a759_2e01_485d_9f27_ff07dae697ab) , } }
 pub const WPD_EVENT_OPTIONS_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3d8dad7_a361_4b83_8a48_5b02ce10713b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_OPTIONS_V1 ) , guid : :: windows :: core :: GUID::from_u128(0xb3d8dad7_a361_4b83_8a48_5b02ce10713b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EVENT_OPTION_IS_AUTOPLAY_EVENT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3d8dad7_a361_4b83_8a48_5b02ce10713b), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_OPTION_IS_AUTOPLAY_EVENT ) , guid : :: windows :: core :: GUID::from_u128(0xb3d8dad7_a361_4b83_8a48_5b02ce10713b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EVENT_OPTION_IS_BROADCAST_EVENT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3d8dad7_a361_4b83_8a48_5b02ce10713b), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_OPTION_IS_BROADCAST_EVENT ) , guid : :: windows :: core :: GUID::from_u128(0xb3d8dad7_a361_4b83_8a48_5b02ce10713b) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EVENT_PARAMETER_CHILD_HIERARCHY_CHANGED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x15ab1953_f817_4fef_a921_5676e838f6e0), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_PARAMETER_CHILD_HIERARCHY_CHANGED ) , guid : :: windows :: core :: GUID::from_u128(0x15ab1953_f817_4fef_a921_5676e838f6e0) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EVENT_PARAMETER_EVENT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x15ab1953_f817_4fef_a921_5676e838f6e0), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_PARAMETER_EVENT_ID ) , guid : :: windows :: core :: GUID::from_u128(0x15ab1953_f817_4fef_a921_5676e838f6e0) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EVENT_PARAMETER_OBJECT_CREATION_COOKIE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x15ab1953_f817_4fef_a921_5676e838f6e0), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_PARAMETER_OBJECT_CREATION_COOKIE ) , guid : :: windows :: core :: GUID::from_u128(0x15ab1953_f817_4fef_a921_5676e838f6e0) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EVENT_PARAMETER_OBJECT_PARENT_PERSISTENT_UNIQUE_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x15ab1953_f817_4fef_a921_5676e838f6e0), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_PARAMETER_OBJECT_PARENT_PERSISTENT_UNIQUE_ID ) , guid : :: windows :: core :: GUID::from_u128(0x15ab1953_f817_4fef_a921_5676e838f6e0) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EVENT_PARAMETER_OPERATION_PROGRESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x15ab1953_f817_4fef_a921_5676e838f6e0), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_PARAMETER_OPERATION_PROGRESS ) , guid : :: windows :: core :: GUID::from_u128(0x15ab1953_f817_4fef_a921_5676e838f6e0) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EVENT_PARAMETER_OPERATION_STATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x15ab1953_f817_4fef_a921_5676e838f6e0), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_PARAMETER_OPERATION_STATE ) , guid : :: windows :: core :: GUID::from_u128(0x15ab1953_f817_4fef_a921_5676e838f6e0) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EVENT_PARAMETER_PNP_DEVICE_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x15ab1953_f817_4fef_a921_5676e838f6e0), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_PARAMETER_PNP_DEVICE_ID ) , guid : :: windows :: core :: GUID::from_u128(0x15ab1953_f817_4fef_a921_5676e838f6e0) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EVENT_PARAMETER_SERVICE_METHOD_CONTEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x52807b8a_4914_4323_9b9a_74f654b2b846), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_PARAMETER_SERVICE_METHOD_CONTEXT ) , guid : :: windows :: core :: GUID::from_u128(0x52807b8a_4914_4323_9b9a_74f654b2b846) , } }
 pub const WPD_EVENT_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15ab1953_f817_4fef_a921_5676e838f6e0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x15ab1953_f817_4fef_a921_5676e838f6e0) , } }
 pub const WPD_EVENT_PROPERTIES_V2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52807b8a_4914_4323_9b9a_74f654b2b846);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_PROPERTIES_V2 ) , guid : :: windows :: core :: GUID::from_u128(0x52807b8a_4914_4323_9b9a_74f654b2b846) , } }
 pub const WPD_EVENT_SERVICE_METHOD_COMPLETE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a33f5f8_0acc_4d9b_9cc4_112d353b86ca);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_SERVICE_METHOD_COMPLETE ) , guid : :: windows :: core :: GUID::from_u128(0x8a33f5f8_0acc_4d9b_9cc4_112d353b86ca) , } }
 pub const WPD_EVENT_STORAGE_FORMAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3782616b_22bc_4474_a251_3070f8d38857);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_EVENT_STORAGE_FORMAT ) , guid : :: windows :: core :: GUID::from_u128(0x3782616b_22bc_4474_a251_3070f8d38857) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub type WPD_EXPOSURE_METERING_MODES = i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
@@ -4530,171 +5178,303 @@ pub const WPD_FOCUS_AUTOMATIC_MACRO: WPD_FOCUS_MODES = 3i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_FOLDER_CONTENT_TYPES_ALLOWED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x7e9a7abf_e568_4b34_aa2f_13bb12ab177d), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_FOLDER_CONTENT_TYPES_ALLOWED ) , guid : :: windows :: core :: GUID::from_u128(0x7e9a7abf_e568_4b34_aa2f_13bb12ab177d) , } }
 pub const WPD_FOLDER_OBJECT_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e9a7abf_e568_4b34_aa2f_13bb12ab177d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_FOLDER_OBJECT_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x7e9a7abf_e568_4b34_aa2f_13bb12ab177d) , } }
 pub const WPD_FORMAT_ATTRIBUTES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0a02000_bcaf_4be8_b3f5_233f231cf58f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_FORMAT_ATTRIBUTES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0xa0a02000_bcaf_4be8_b3f5_233f231cf58f) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_FORMAT_ATTRIBUTE_MIMETYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xa0a02000_bcaf_4be8_b3f5_233f231cf58f), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_FORMAT_ATTRIBUTE_MIMETYPE ) , guid : :: windows :: core :: GUID::from_u128(0xa0a02000_bcaf_4be8_b3f5_233f231cf58f) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_FORMAT_ATTRIBUTE_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xa0a02000_bcaf_4be8_b3f5_233f231cf58f), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_FORMAT_ATTRIBUTE_NAME ) , guid : :: windows :: core :: GUID::from_u128(0xa0a02000_bcaf_4be8_b3f5_233f231cf58f) , } }
 pub const WPD_FUNCTIONAL_CATEGORY_ALL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d8a6512_a74c_448e_ba8a_f4ac07c49399);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_FUNCTIONAL_CATEGORY_ALL ) , guid : :: windows :: core :: GUID::from_u128(0x2d8a6512_a74c_448e_ba8a_f4ac07c49399) , } }
 pub const WPD_FUNCTIONAL_CATEGORY_AUDIO_CAPTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f2a1919_c7c2_4a00_855d_f57cf06debbb);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_FUNCTIONAL_CATEGORY_AUDIO_CAPTURE ) , guid : :: windows :: core :: GUID::from_u128(0x3f2a1919_c7c2_4a00_855d_f57cf06debbb) , } }
 pub const WPD_FUNCTIONAL_CATEGORY_DEVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08ea466b_e3a4_4336_a1f3_a44d2b5c438c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_FUNCTIONAL_CATEGORY_DEVICE ) , guid : :: windows :: core :: GUID::from_u128(0x08ea466b_e3a4_4336_a1f3_a44d2b5c438c) , } }
 pub const WPD_FUNCTIONAL_CATEGORY_NETWORK_CONFIGURATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48f4db72_7c6a_4ab0_9e1a_470e3cdbf26a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_FUNCTIONAL_CATEGORY_NETWORK_CONFIGURATION ) , guid : :: windows :: core :: GUID::from_u128(0x48f4db72_7c6a_4ab0_9e1a_470e3cdbf26a) , } }
 pub const WPD_FUNCTIONAL_CATEGORY_RENDERING_INFORMATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08600ba4_a7ba_4a01_ab0e_0065d0a356d3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_FUNCTIONAL_CATEGORY_RENDERING_INFORMATION ) , guid : :: windows :: core :: GUID::from_u128(0x08600ba4_a7ba_4a01_ab0e_0065d0a356d3) , } }
 pub const WPD_FUNCTIONAL_CATEGORY_SMS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0044a0b1_c1e9_4afd_b358_a62c6117c9cf);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_FUNCTIONAL_CATEGORY_SMS ) , guid : :: windows :: core :: GUID::from_u128(0x0044a0b1_c1e9_4afd_b358_a62c6117c9cf) , } }
 pub const WPD_FUNCTIONAL_CATEGORY_STILL_IMAGE_CAPTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x613ca327_ab93_4900_b4fa_895bb5874b79);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_FUNCTIONAL_CATEGORY_STILL_IMAGE_CAPTURE ) , guid : :: windows :: core :: GUID::from_u128(0x613ca327_ab93_4900_b4fa_895bb5874b79) , } }
 pub const WPD_FUNCTIONAL_CATEGORY_STORAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23f05bbc_15de_4c2a_a55b_a9af5ce412ef);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_FUNCTIONAL_CATEGORY_STORAGE ) , guid : :: windows :: core :: GUID::from_u128(0x23f05bbc_15de_4c2a_a55b_a9af5ce412ef) , } }
 pub const WPD_FUNCTIONAL_CATEGORY_VIDEO_CAPTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe23e5f6b_7243_43aa_8df1_0eb3d968a918);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_FUNCTIONAL_CATEGORY_VIDEO_CAPTURE ) , guid : :: windows :: core :: GUID::from_u128(0xe23e5f6b_7243_43aa_8df1_0eb3d968a918) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_FUNCTIONAL_OBJECT_CATEGORY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8f052d93_abca_4fc5_a5ac_b01df4dbe598), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_FUNCTIONAL_OBJECT_CATEGORY ) , guid : :: windows :: core :: GUID::from_u128(0x8f052d93_abca_4fc5_a5ac_b01df4dbe598) , } }
 pub const WPD_FUNCTIONAL_OBJECT_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f052d93_abca_4fc5_a5ac_b01df4dbe598);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_FUNCTIONAL_OBJECT_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x8f052d93_abca_4fc5_a5ac_b01df4dbe598) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_IMAGE_BITDEPTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x63d64908_9fa1_479f_85ba_9952216447db), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_IMAGE_BITDEPTH ) , guid : :: windows :: core :: GUID::from_u128(0x63d64908_9fa1_479f_85ba_9952216447db) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_IMAGE_COLOR_CORRECTED_STATUS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x63d64908_9fa1_479f_85ba_9952216447db), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_IMAGE_COLOR_CORRECTED_STATUS ) , guid : :: windows :: core :: GUID::from_u128(0x63d64908_9fa1_479f_85ba_9952216447db) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_IMAGE_CROPPED_STATUS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x63d64908_9fa1_479f_85ba_9952216447db), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_IMAGE_CROPPED_STATUS ) , guid : :: windows :: core :: GUID::from_u128(0x63d64908_9fa1_479f_85ba_9952216447db) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_IMAGE_EXPOSURE_INDEX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x63d64908_9fa1_479f_85ba_9952216447db), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_IMAGE_EXPOSURE_INDEX ) , guid : :: windows :: core :: GUID::from_u128(0x63d64908_9fa1_479f_85ba_9952216447db) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_IMAGE_EXPOSURE_TIME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x63d64908_9fa1_479f_85ba_9952216447db), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_IMAGE_EXPOSURE_TIME ) , guid : :: windows :: core :: GUID::from_u128(0x63d64908_9fa1_479f_85ba_9952216447db) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_IMAGE_FNUMBER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x63d64908_9fa1_479f_85ba_9952216447db), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_IMAGE_FNUMBER ) , guid : :: windows :: core :: GUID::from_u128(0x63d64908_9fa1_479f_85ba_9952216447db) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_IMAGE_HORIZONTAL_RESOLUTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x63d64908_9fa1_479f_85ba_9952216447db), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_IMAGE_HORIZONTAL_RESOLUTION ) , guid : :: windows :: core :: GUID::from_u128(0x63d64908_9fa1_479f_85ba_9952216447db) , } }
 pub const WPD_IMAGE_OBJECT_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63d64908_9fa1_479f_85ba_9952216447db);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_IMAGE_OBJECT_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x63d64908_9fa1_479f_85ba_9952216447db) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_IMAGE_VERTICAL_RESOLUTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x63d64908_9fa1_479f_85ba_9952216447db), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_IMAGE_VERTICAL_RESOLUTION ) , guid : :: windows :: core :: GUID::from_u128(0x63d64908_9fa1_479f_85ba_9952216447db) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_ALBUM_ARTIST: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 25u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_ALBUM_ARTIST ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_ARTIST: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 24u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_ARTIST ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_AUDIO_ENCODING_PROFILE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 49u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_AUDIO_ENCODING_PROFILE ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_BITRATE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_BITRATE_TYPE ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_BUY_NOW: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 20u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_BUY_NOW ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_BYTE_BOOKMARK: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 36u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_BYTE_BOOKMARK ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_COMPOSER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 11u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_COMPOSER ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_COPYRIGHT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_COPYRIGHT ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 31u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_DESCRIPTION ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_DESTINATION_URL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 30u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_DESTINATION_URL ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_DURATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 19u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_DURATION ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_EFFECTIVE_RATING: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 12u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_EFFECTIVE_RATING ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_ENCODING_PROFILE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 21u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_ENCODING_PROFILE ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_GENRE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 32u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_GENRE ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_GUID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 38u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_GUID ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_HEIGHT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 23u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_HEIGHT ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_LAST_ACCESSED_TIME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_LAST_ACCESSED_TIME ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_LAST_BUILD_DATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 35u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_LAST_BUILD_DATE ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_MANAGING_EDITOR: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 27u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_MANAGING_EDITOR ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_META_GENRE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_META_GENRE ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_OBJECT_BOOKMARK: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 34u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_OBJECT_BOOKMARK ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_OWNER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 26u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_OWNER ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_PARENTAL_RATING: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_PARENTAL_RATING ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 pub const WPD_MEDIA_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_RELEASE_DATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 14u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_RELEASE_DATE ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_SAMPLE_RATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 15u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_SAMPLE_RATE ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_SKIP_COUNT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_SKIP_COUNT ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_SOURCE_URL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 29u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_SOURCE_URL ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_STAR_RATING: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 16u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_STAR_RATING ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_SUBSCRIPTION_CONTENT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_SUBSCRIPTION_CONTENT_ID ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_SUB_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 39u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_SUB_DESCRIPTION ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_SUB_TITLE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 13u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_SUB_TITLE ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_TIME_BOOKMARK: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 33u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_TIME_BOOKMARK ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_TIME_TO_LIVE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 37u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_TIME_TO_LIVE ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_TITLE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 18u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_TITLE ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_TOTAL_BITRATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_TOTAL_BITRATE ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_USER_EFFECTIVE_RATING: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 17u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_USER_EFFECTIVE_RATING ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_USE_COUNT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_USE_COUNT ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_WEBMASTER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 28u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_WEBMASTER ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MEDIA_WIDTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 22u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEDIA_WIDTH ) , guid : :: windows :: core :: GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8) , } }
 pub const WPD_MEMO_OBJECT_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ffbfc7b_7483_41ad_afb9_da3f4e592b8d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MEMO_OBJECT_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x5ffbfc7b_7483_41ad_afb9_da3f4e592b8d) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub type WPD_META_GENRES = i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
@@ -4736,186 +5516,408 @@ pub const WPD_META_GENRE_VIDEO_PODCAST: WPD_META_GENRES = 65i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub const WPD_META_GENRE_MIXED_PODCAST: WPD_META_GENRES = 66i32;
 pub const WPD_METHOD_ATTRIBUTES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf17a5071_f039_44af_8efe_432cf32e432a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_METHOD_ATTRIBUTES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0xf17a5071_f039_44af_8efe_432cf32e432a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_METHOD_ATTRIBUTE_ACCESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf17a5071_f039_44af_8efe_432cf32e432a), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_METHOD_ATTRIBUTE_ACCESS ) , guid : :: windows :: core :: GUID::from_u128(0xf17a5071_f039_44af_8efe_432cf32e432a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_METHOD_ATTRIBUTE_ASSOCIATED_FORMAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf17a5071_f039_44af_8efe_432cf32e432a), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_METHOD_ATTRIBUTE_ASSOCIATED_FORMAT ) , guid : :: windows :: core :: GUID::from_u128(0xf17a5071_f039_44af_8efe_432cf32e432a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_METHOD_ATTRIBUTE_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf17a5071_f039_44af_8efe_432cf32e432a), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_METHOD_ATTRIBUTE_NAME ) , guid : :: windows :: core :: GUID::from_u128(0xf17a5071_f039_44af_8efe_432cf32e432a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_METHOD_ATTRIBUTE_PARAMETERS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf17a5071_f039_44af_8efe_432cf32e432a), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_METHOD_ATTRIBUTE_PARAMETERS ) , guid : :: windows :: core :: GUID::from_u128(0xf17a5071_f039_44af_8efe_432cf32e432a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MUSIC_ALBUM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb324f56a_dc5d_46e5_b6df_d2ea414888c6), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MUSIC_ALBUM ) , guid : :: windows :: core :: GUID::from_u128(0xb324f56a_dc5d_46e5_b6df_d2ea414888c6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MUSIC_LYRICS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb324f56a_dc5d_46e5_b6df_d2ea414888c6), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MUSIC_LYRICS ) , guid : :: windows :: core :: GUID::from_u128(0xb324f56a_dc5d_46e5_b6df_d2ea414888c6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MUSIC_MOOD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb324f56a_dc5d_46e5_b6df_d2ea414888c6), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MUSIC_MOOD ) , guid : :: windows :: core :: GUID::from_u128(0xb324f56a_dc5d_46e5_b6df_d2ea414888c6) , } }
 pub const WPD_MUSIC_OBJECT_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb324f56a_dc5d_46e5_b6df_d2ea414888c6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MUSIC_OBJECT_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0xb324f56a_dc5d_46e5_b6df_d2ea414888c6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_MUSIC_TRACK: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb324f56a_dc5d_46e5_b6df_d2ea414888c6), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_MUSIC_TRACK ) , guid : :: windows :: core :: GUID::from_u128(0xb324f56a_dc5d_46e5_b6df_d2ea414888c6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_NETWORK_ASSOCIATION_HOST_NETWORK_IDENTIFIERS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe4c93c1f_b203_43f1_a100_5a07d11b0274), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_NETWORK_ASSOCIATION_HOST_NETWORK_IDENTIFIERS ) , guid : :: windows :: core :: GUID::from_u128(0xe4c93c1f_b203_43f1_a100_5a07d11b0274) , } }
 pub const WPD_NETWORK_ASSOCIATION_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4c93c1f_b203_43f1_a100_5a07d11b0274);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_NETWORK_ASSOCIATION_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0xe4c93c1f_b203_43f1_a100_5a07d11b0274) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_NETWORK_ASSOCIATION_X509V3SEQUENCE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe4c93c1f_b203_43f1_a100_5a07d11b0274), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_NETWORK_ASSOCIATION_X509V3SEQUENCE ) , guid : :: windows :: core :: GUID::from_u128(0xe4c93c1f_b203_43f1_a100_5a07d11b0274) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_BACK_REFERENCES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 21u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_BACK_REFERENCES ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_CAN_DELETE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 26u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_CAN_DELETE ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_CONTAINER_FUNCTIONAL_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 23u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_CONTAINER_FUNCTIONAL_OBJECT_ID ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_CONTENT_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_CONTENT_TYPE ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_DATE_AUTHORED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 20u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_DATE_AUTHORED ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_DATE_CREATED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 18u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_DATE_CREATED ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_DATE_MODIFIED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 19u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_DATE_MODIFIED ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_FORMAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 pub const WPD_OBJECT_FORMAT_3G2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9850000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_3G2 ) , guid : :: windows :: core :: GUID::from_u128(0xb9850000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_3G2A: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a11202d_8759_4e34_ba5e_b1211087eee4);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_3G2A ) , guid : :: windows :: core :: GUID::from_u128(0x1a11202d_8759_4e34_ba5e_b1211087eee4) , } }
 pub const WPD_OBJECT_FORMAT_3GP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9840000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_3GP ) , guid : :: windows :: core :: GUID::from_u128(0xb9840000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_3GPA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5172730_f971_41ef_a10b_2271a0019d7a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_3GPA ) , guid : :: windows :: core :: GUID::from_u128(0xe5172730_f971_41ef_a10b_2271a0019d7a) , } }
 pub const WPD_OBJECT_FORMAT_AAC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9030000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_AAC ) , guid : :: windows :: core :: GUID::from_u128(0xb9030000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_ABSTRACT_CONTACT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb810000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_ABSTRACT_CONTACT ) , guid : :: windows :: core :: GUID::from_u128(0xbb810000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_ABSTRACT_CONTACT_GROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba060000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_ABSTRACT_CONTACT_GROUP ) , guid : :: windows :: core :: GUID::from_u128(0xba060000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_ABSTRACT_MEDIA_CAST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba0b0000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_ABSTRACT_MEDIA_CAST ) , guid : :: windows :: core :: GUID::from_u128(0xba0b0000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_AIFF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30070000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_AIFF ) , guid : :: windows :: core :: GUID::from_u128(0x30070000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_ALL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1f62eb2_4bb3_479c_9cfa_05b5f3a57b22);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_ALL ) , guid : :: windows :: core :: GUID::from_u128(0xc1f62eb2_4bb3_479c_9cfa_05b5f3a57b22) , } }
 pub const WPD_OBJECT_FORMAT_AMR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9080000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_AMR ) , guid : :: windows :: core :: GUID::from_u128(0xb9080000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_ASF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x300c0000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_ASF ) , guid : :: windows :: core :: GUID::from_u128(0x300c0000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_ASXPLAYLIST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba130000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_ASXPLAYLIST ) , guid : :: windows :: core :: GUID::from_u128(0xba130000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_ATSCTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9870000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_ATSCTS ) , guid : :: windows :: core :: GUID::from_u128(0xb9870000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_AUDIBLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9040000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_AUDIBLE ) , guid : :: windows :: core :: GUID::from_u128(0xb9040000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_AVCHD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9860000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_AVCHD ) , guid : :: windows :: core :: GUID::from_u128(0xb9860000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_AVI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x300a0000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_AVI ) , guid : :: windows :: core :: GUID::from_u128(0x300a0000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_BMP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38040000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_BMP ) , guid : :: windows :: core :: GUID::from_u128(0x38040000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_CIFF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38050000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_CIFF ) , guid : :: windows :: core :: GUID::from_u128(0x38050000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_DPOF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30060000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_DPOF ) , guid : :: windows :: core :: GUID::from_u128(0x30060000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_DVBTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9880000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_DVBTS ) , guid : :: windows :: core :: GUID::from_u128(0xb9880000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_EXECUTABLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30030000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_EXECUTABLE ) , guid : :: windows :: core :: GUID::from_u128(0x30030000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_EXIF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38010000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_EXIF ) , guid : :: windows :: core :: GUID::from_u128(0x38010000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_FLAC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9060000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_FLAC ) , guid : :: windows :: core :: GUID::from_u128(0xb9060000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_FLASHPIX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38030000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_FLASHPIX ) , guid : :: windows :: core :: GUID::from_u128(0x38030000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_GIF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38070000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_GIF ) , guid : :: windows :: core :: GUID::from_u128(0x38070000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_HTML: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30050000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_HTML ) , guid : :: windows :: core :: GUID::from_u128(0x30050000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_ICALENDAR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe030000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_ICALENDAR ) , guid : :: windows :: core :: GUID::from_u128(0xbe030000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_ICON: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x077232ed_102c_4638_9c22_83f142bfc822);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_ICON ) , guid : :: windows :: core :: GUID::from_u128(0x077232ed_102c_4638_9c22_83f142bfc822) , } }
 pub const WPD_OBJECT_FORMAT_JFIF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38080000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_JFIF ) , guid : :: windows :: core :: GUID::from_u128(0x38080000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_JP2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x380f0000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_JP2 ) , guid : :: windows :: core :: GUID::from_u128(0x380f0000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_JPEGXR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8040000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_JPEGXR ) , guid : :: windows :: core :: GUID::from_u128(0xb8040000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_JPX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38100000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_JPX ) , guid : :: windows :: core :: GUID::from_u128(0x38100000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_M3UPLAYLIST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba110000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_M3UPLAYLIST ) , guid : :: windows :: core :: GUID::from_u128(0xba110000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_M4A: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30aba7ac_6ffd_4c23_a359_3e9b52f3f1c8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_M4A ) , guid : :: windows :: core :: GUID::from_u128(0x30aba7ac_6ffd_4c23_a359_3e9b52f3f1c8) , } }
 pub const WPD_OBJECT_FORMAT_MHT_COMPILED_HTML: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba840000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_MHT_COMPILED_HTML ) , guid : :: windows :: core :: GUID::from_u128(0xba840000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_MICROSOFT_EXCEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba850000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_MICROSOFT_EXCEL ) , guid : :: windows :: core :: GUID::from_u128(0xba850000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_MICROSOFT_POWERPOINT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba860000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_MICROSOFT_POWERPOINT ) , guid : :: windows :: core :: GUID::from_u128(0xba860000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_MICROSOFT_WFC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1040000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_MICROSOFT_WFC ) , guid : :: windows :: core :: GUID::from_u128(0xb1040000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_MICROSOFT_WORD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba830000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_MICROSOFT_WORD ) , guid : :: windows :: core :: GUID::from_u128(0xba830000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_MKV: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9900000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_MKV ) , guid : :: windows :: core :: GUID::from_u128(0xb9900000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_MP2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9830000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_MP2 ) , guid : :: windows :: core :: GUID::from_u128(0xb9830000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_MP3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30090000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_MP3 ) , guid : :: windows :: core :: GUID::from_u128(0x30090000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_MP4: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9820000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_MP4 ) , guid : :: windows :: core :: GUID::from_u128(0xb9820000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_MPEG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x300b0000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_MPEG ) , guid : :: windows :: core :: GUID::from_u128(0x300b0000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_MPLPLAYLIST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba120000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_MPLPLAYLIST ) , guid : :: windows :: core :: GUID::from_u128(0xba120000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_NETWORK_ASSOCIATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1020000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_NETWORK_ASSOCIATION ) , guid : :: windows :: core :: GUID::from_u128(0xb1020000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_OGG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9020000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_OGG ) , guid : :: windows :: core :: GUID::from_u128(0xb9020000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_PCD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38090000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_PCD ) , guid : :: windows :: core :: GUID::from_u128(0x38090000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_PICT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x380a0000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_PICT ) , guid : :: windows :: core :: GUID::from_u128(0x380a0000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_PLSPLAYLIST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba140000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_PLSPLAYLIST ) , guid : :: windows :: core :: GUID::from_u128(0xba140000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_PNG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x380b0000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_PNG ) , guid : :: windows :: core :: GUID::from_u128(0x380b0000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_PROPERTIES_ONLY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30010000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_PROPERTIES_ONLY ) , guid : :: windows :: core :: GUID::from_u128(0x30010000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_QCELP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9070000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_QCELP ) , guid : :: windows :: core :: GUID::from_u128(0xb9070000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_SCRIPT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30020000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_SCRIPT ) , guid : :: windows :: core :: GUID::from_u128(0x30020000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_TEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30040000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_TEXT ) , guid : :: windows :: core :: GUID::from_u128(0x30040000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_TIFF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x380d0000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_TIFF ) , guid : :: windows :: core :: GUID::from_u128(0x380d0000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_TIFFEP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38020000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_TIFFEP ) , guid : :: windows :: core :: GUID::from_u128(0x38020000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_TIFFIT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x380e0000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_TIFFIT ) , guid : :: windows :: core :: GUID::from_u128(0x380e0000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_UNSPECIFIED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30000000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_UNSPECIFIED ) , guid : :: windows :: core :: GUID::from_u128(0x30000000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_VCALENDAR1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe020000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_VCALENDAR1 ) , guid : :: windows :: core :: GUID::from_u128(0xbe020000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_VCARD2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb820000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_VCARD2 ) , guid : :: windows :: core :: GUID::from_u128(0xbb820000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_VCARD3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb830000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_VCARD3 ) , guid : :: windows :: core :: GUID::from_u128(0xbb830000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_WAVE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30080000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_WAVE ) , guid : :: windows :: core :: GUID::from_u128(0x30080000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_WBMP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8030000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_WBMP ) , guid : :: windows :: core :: GUID::from_u128(0xb8030000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_WINDOWSIMAGEFORMAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8810000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_WINDOWSIMAGEFORMAT ) , guid : :: windows :: core :: GUID::from_u128(0xb8810000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_WMA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9010000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_WMA ) , guid : :: windows :: core :: GUID::from_u128(0xb9010000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_WMV: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9810000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_WMV ) , guid : :: windows :: core :: GUID::from_u128(0xb9810000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_WPLPLAYLIST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba100000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_WPLPLAYLIST ) , guid : :: windows :: core :: GUID::from_u128(0xba100000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_X509V3CERTIFICATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1030000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_X509V3CERTIFICATE ) , guid : :: windows :: core :: GUID::from_u128(0xb1030000_ae6c_4804_98ba_c57b46965fe7) , } }
 pub const WPD_OBJECT_FORMAT_XML: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba820000_ae6c_4804_98ba_c57b46965fe7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_FORMAT_XML ) , guid : :: windows :: core :: GUID::from_u128(0xba820000_ae6c_4804_98ba_c57b46965fe7) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_GENERATE_THUMBNAIL_FROM_RESOURCE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 24u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_GENERATE_THUMBNAIL_FROM_RESOURCE ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_HINT_LOCATION_DISPLAY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 25u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_HINT_LOCATION_DISPLAY_NAME ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_ID ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_ISHIDDEN: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_ISHIDDEN ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_ISSYSTEM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_ISSYSTEM ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_IS_DRM_PROTECTED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 17u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_IS_DRM_PROTECTED ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_KEYWORDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 15u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_KEYWORDS ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_LANGUAGE_LOCALE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 27u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_LANGUAGE_LOCALE ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_NAME ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_NON_CONSUMABLE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 13u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_NON_CONSUMABLE ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_ORIGINAL_FILE_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 12u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_ORIGINAL_FILE_NAME ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_PARENT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_PARENT_ID ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_PERSISTENT_UNIQUE_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_PERSISTENT_UNIQUE_ID ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 pub const WPD_OBJECT_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 pub const WPD_OBJECT_PROPERTIES_V2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0373cd3d_4a46_40d7_b4d8_73e8da74e775);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_PROPERTIES_V2 ) , guid : :: windows :: core :: GUID::from_u128(0x0373cd3d_4a46_40d7_b4d8_73e8da74e775) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_REFERENCES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 14u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_REFERENCES ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 11u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_SIZE ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_SUPPORTED_UNITS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0373cd3d_4a46_40d7_b4d8_73e8da74e775), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_SUPPORTED_UNITS ) , guid : :: windows :: core :: GUID::from_u128(0x0373cd3d_4a46_40d7_b4d8_73e8da74e775) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_SYNC_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 16u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OBJECT_SYNC_ID ) , guid : :: windows :: core :: GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub type WPD_OPERATION_STATES = i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
@@ -4935,58 +5937,96 @@ pub const WPD_OPERATION_STATE_ABORTED: WPD_OPERATION_STATES = 6i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OPTION_OBJECT_MANAGEMENT_RECURSIVE_DELETE_SUPPORTED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 5001u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OPTION_OBJECT_MANAGEMENT_RECURSIVE_DELETE_SUPPORTED ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OPTION_OBJECT_RESOURCES_NO_INPUT_BUFFER_ON_READ: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 5003u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OPTION_OBJECT_RESOURCES_NO_INPUT_BUFFER_ON_READ ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OPTION_OBJECT_RESOURCES_SEEK_ON_READ_SUPPORTED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 5001u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OPTION_OBJECT_RESOURCES_SEEK_ON_READ_SUPPORTED ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OPTION_OBJECT_RESOURCES_SEEK_ON_WRITE_SUPPORTED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 5002u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OPTION_OBJECT_RESOURCES_SEEK_ON_WRITE_SUPPORTED ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OPTION_SMS_BINARY_MESSAGE_SUPPORTED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xafc25d66_fe0d_4114_9097_970c93e920d1), pid: 5001u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OPTION_SMS_BINARY_MESSAGE_SUPPORTED ) , guid : :: windows :: core :: GUID::from_u128(0xafc25d66_fe0d_4114_9097_970c93e920d1) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OPTION_VALID_OBJECT_IDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a), pid: 5001u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_OPTION_VALID_OBJECT_IDS ) , guid : :: windows :: core :: GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a) , } }
 pub const WPD_PARAMETER_ATTRIBUTES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PARAMETER_ATTRIBUTES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PARAMETER_ATTRIBUTE_DEFAULT_VALUE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PARAMETER_ATTRIBUTE_DEFAULT_VALUE ) , guid : :: windows :: core :: GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PARAMETER_ATTRIBUTE_ENUMERATION_ELEMENTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PARAMETER_ATTRIBUTE_ENUMERATION_ELEMENTS ) , guid : :: windows :: core :: GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PARAMETER_ATTRIBUTE_FORM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PARAMETER_ATTRIBUTE_FORM ) , guid : :: windows :: core :: GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PARAMETER_ATTRIBUTE_MAX_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58), pid: 11u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PARAMETER_ATTRIBUTE_MAX_SIZE ) , guid : :: windows :: core :: GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PARAMETER_ATTRIBUTE_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58), pid: 13u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PARAMETER_ATTRIBUTE_NAME ) , guid : :: windows :: core :: GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PARAMETER_ATTRIBUTE_ORDER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PARAMETER_ATTRIBUTE_ORDER ) , guid : :: windows :: core :: GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PARAMETER_ATTRIBUTE_RANGE_MAX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PARAMETER_ATTRIBUTE_RANGE_MAX ) , guid : :: windows :: core :: GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PARAMETER_ATTRIBUTE_RANGE_MIN: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PARAMETER_ATTRIBUTE_RANGE_MIN ) , guid : :: windows :: core :: GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PARAMETER_ATTRIBUTE_RANGE_STEP: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PARAMETER_ATTRIBUTE_RANGE_STEP ) , guid : :: windows :: core :: GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PARAMETER_ATTRIBUTE_REGULAR_EXPRESSION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PARAMETER_ATTRIBUTE_REGULAR_EXPRESSION ) , guid : :: windows :: core :: GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PARAMETER_ATTRIBUTE_USAGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PARAMETER_ATTRIBUTE_USAGE ) , guid : :: windows :: core :: GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PARAMETER_ATTRIBUTE_VARTYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58), pid: 12u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PARAMETER_ATTRIBUTE_VARTYPE ) , guid : :: windows :: core :: GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub type WPD_PARAMETER_USAGE_TYPES = i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
@@ -5004,454 +6044,760 @@ pub const WPD_POWER_SOURCE_BATTERY: WPD_POWER_SOURCES = 0i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub const WPD_POWER_SOURCE_EXTERNAL: WPD_POWER_SOURCES = 1i32;
 pub const WPD_PROPERTIES_MTP_VENDOR_EXTENDED_DEVICE_PROPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d545058_8900_40b3_8f1d_dc246e1e8370);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTIES_MTP_VENDOR_EXTENDED_DEVICE_PROPS ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_8900_40b3_8f1d_dc246e1e8370) , } }
 pub const WPD_PROPERTIES_MTP_VENDOR_EXTENDED_OBJECT_PROPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d545058_4fce_4578_95c8_8698a9bc0f49);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTIES_MTP_VENDOR_EXTENDED_OBJECT_PROPS ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_4fce_4578_95c8_8698a9bc0f49) , } }
 pub const WPD_PROPERTY_ATTRIBUTES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_ATTRIBUTES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37) , } }
 pub const WPD_PROPERTY_ATTRIBUTES_V2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d9da160_74ae_43cc_85a9_fe555a80798e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_ATTRIBUTES_V2 ) , guid : :: windows :: core :: GUID::from_u128(0x5d9da160_74ae_43cc_85a9_fe555a80798e) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_ATTRIBUTE_CAN_DELETE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_ATTRIBUTE_CAN_DELETE ) , guid : :: windows :: core :: GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_ATTRIBUTE_CAN_READ: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_ATTRIBUTE_CAN_READ ) , guid : :: windows :: core :: GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_ATTRIBUTE_CAN_WRITE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_ATTRIBUTE_CAN_WRITE ) , guid : :: windows :: core :: GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_ATTRIBUTE_DEFAULT_VALUE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_ATTRIBUTE_DEFAULT_VALUE ) , guid : :: windows :: core :: GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_ATTRIBUTE_ENUMERATION_ELEMENTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37), pid: 11u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_ATTRIBUTE_ENUMERATION_ELEMENTS ) , guid : :: windows :: core :: GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_ATTRIBUTE_FAST_PROPERTY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_ATTRIBUTE_FAST_PROPERTY ) , guid : :: windows :: core :: GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_ATTRIBUTE_FORM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_ATTRIBUTE_FORM ) , guid : :: windows :: core :: GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_ATTRIBUTE_MAX_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37), pid: 13u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_ATTRIBUTE_MAX_SIZE ) , guid : :: windows :: core :: GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_ATTRIBUTE_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x5d9da160_74ae_43cc_85a9_fe555a80798e), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_ATTRIBUTE_NAME ) , guid : :: windows :: core :: GUID::from_u128(0x5d9da160_74ae_43cc_85a9_fe555a80798e) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_ATTRIBUTE_RANGE_MAX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_ATTRIBUTE_RANGE_MAX ) , guid : :: windows :: core :: GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_ATTRIBUTE_RANGE_MIN: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_ATTRIBUTE_RANGE_MIN ) , guid : :: windows :: core :: GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_ATTRIBUTE_RANGE_STEP: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_ATTRIBUTE_RANGE_STEP ) , guid : :: windows :: core :: GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_ATTRIBUTE_REGULAR_EXPRESSION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37), pid: 12u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_ATTRIBUTE_REGULAR_EXPRESSION ) , guid : :: windows :: core :: GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_ATTRIBUTE_VARTYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x5d9da160_74ae_43cc_85a9_fe555a80798e), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_ATTRIBUTE_VARTYPE ) , guid : :: windows :: core :: GUID::from_u128(0x5d9da160_74ae_43cc_85a9_fe555a80798e) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_CAPABILITIES_COMMAND: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 1002u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_CAPABILITIES_COMMAND ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_CAPABILITIES_COMMAND_OPTIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 1003u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_CAPABILITIES_COMMAND_OPTIONS ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_CAPABILITIES_CONTENT_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 1008u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_CAPABILITIES_CONTENT_TYPE ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_CAPABILITIES_CONTENT_TYPES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 1007u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_CAPABILITIES_CONTENT_TYPES ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_CAPABILITIES_EVENT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 1014u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_CAPABILITIES_EVENT ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_CAPABILITIES_EVENT_OPTIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 1015u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_CAPABILITIES_EVENT_OPTIONS ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_CAPABILITIES_FORMAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 1010u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_CAPABILITIES_FORMAT ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_CAPABILITIES_FORMATS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 1009u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_CAPABILITIES_FORMATS ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_CAPABILITIES_FUNCTIONAL_CATEGORIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 1004u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_CAPABILITIES_FUNCTIONAL_CATEGORIES ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_CAPABILITIES_FUNCTIONAL_CATEGORY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 1005u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_CAPABILITIES_FUNCTIONAL_CATEGORY ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_CAPABILITIES_FUNCTIONAL_OBJECTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 1006u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_CAPABILITIES_FUNCTIONAL_OBJECTS ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_CAPABILITIES_PROPERTY_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 1012u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_CAPABILITIES_PROPERTY_ATTRIBUTES ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_CAPABILITIES_PROPERTY_KEYS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 1011u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_CAPABILITIES_PROPERTY_KEYS ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_CAPABILITIES_SUPPORTED_COMMANDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 1001u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_CAPABILITIES_SUPPORTED_COMMANDS ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_CAPABILITIES_SUPPORTED_EVENTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 1013u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_CAPABILITIES_SUPPORTED_EVENTS ) , guid : :: windows :: core :: GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_CLASS_EXTENSION_DEVICE_INFORMATION_VALUES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x33fb0d11_64a3_4fac_b4c7_3dfeaa99b051), pid: 1001u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_CLASS_EXTENSION_DEVICE_INFORMATION_VALUES ) , guid : :: windows :: core :: GUID::from_u128(0x33fb0d11_64a3_4fac_b4c7_3dfeaa99b051) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_CLASS_EXTENSION_DEVICE_INFORMATION_WRITE_RESULTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x33fb0d11_64a3_4fac_b4c7_3dfeaa99b051), pid: 1002u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_CLASS_EXTENSION_DEVICE_INFORMATION_WRITE_RESULTS ) , guid : :: windows :: core :: GUID::from_u128(0x33fb0d11_64a3_4fac_b4c7_3dfeaa99b051) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_CLASS_EXTENSION_SERVICE_INTERFACES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x7f0779b5_fa2b_4766_9cb2_f73ba30b6758), pid: 1002u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_CLASS_EXTENSION_SERVICE_INTERFACES ) , guid : :: windows :: core :: GUID::from_u128(0x7f0779b5_fa2b_4766_9cb2_f73ba30b6758) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_CLASS_EXTENSION_SERVICE_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x7f0779b5_fa2b_4766_9cb2_f73ba30b6758), pid: 1001u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_CLASS_EXTENSION_SERVICE_OBJECT_ID ) , guid : :: windows :: core :: GUID::from_u128(0x7f0779b5_fa2b_4766_9cb2_f73ba30b6758) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_CLASS_EXTENSION_SERVICE_REGISTRATION_RESULTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x7f0779b5_fa2b_4766_9cb2_f73ba30b6758), pid: 1003u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_CLASS_EXTENSION_SERVICE_REGISTRATION_RESULTS ) , guid : :: windows :: core :: GUID::from_u128(0x7f0779b5_fa2b_4766_9cb2_f73ba30b6758) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_COMMON_ACTIVITY_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a), pid: 1011u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_COMMON_ACTIVITY_ID ) , guid : :: windows :: core :: GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_COMMON_CLIENT_INFORMATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a), pid: 1009u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_COMMON_CLIENT_INFORMATION ) , guid : :: windows :: core :: GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_COMMON_CLIENT_INFORMATION_CONTEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a), pid: 1010u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_COMMON_CLIENT_INFORMATION_CONTEXT ) , guid : :: windows :: core :: GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_COMMON_COMMAND_CATEGORY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a), pid: 1001u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_COMMON_COMMAND_CATEGORY ) , guid : :: windows :: core :: GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_COMMON_COMMAND_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a), pid: 1002u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_COMMON_COMMAND_ID ) , guid : :: windows :: core :: GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_COMMON_COMMAND_TARGET: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a), pid: 1006u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_COMMON_COMMAND_TARGET ) , guid : :: windows :: core :: GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_COMMON_DRIVER_ERROR_CODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a), pid: 1004u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_COMMON_DRIVER_ERROR_CODE ) , guid : :: windows :: core :: GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_COMMON_HRESULT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a), pid: 1003u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_COMMON_HRESULT ) , guid : :: windows :: core :: GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_COMMON_OBJECT_IDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a), pid: 1008u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_COMMON_OBJECT_IDS ) , guid : :: windows :: core :: GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_COMMON_PERSISTENT_UNIQUE_IDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a), pid: 1007u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_COMMON_PERSISTENT_UNIQUE_IDS ) , guid : :: windows :: core :: GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_DEVICE_HINTS_CONTENT_LOCATIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0d5fb92b_cb46_4c4f_8343_0bc3d3f17c84), pid: 1002u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_DEVICE_HINTS_CONTENT_LOCATIONS ) , guid : :: windows :: core :: GUID::from_u128(0x0d5fb92b_cb46_4c4f_8343_0bc3d3f17c84) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_DEVICE_HINTS_CONTENT_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x0d5fb92b_cb46_4c4f_8343_0bc3d3f17c84), pid: 1001u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_DEVICE_HINTS_CONTENT_TYPE ) , guid : :: windows :: core :: GUID::from_u128(0x0d5fb92b_cb46_4c4f_8343_0bc3d3f17c84) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_MTP_EXT_EVENT_PARAMS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_ef88_4e4d_95c3_4f327f728a96), pid: 1011u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_MTP_EXT_EVENT_PARAMS ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_ef88_4e4d_95c3_4f327f728a96) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_MTP_EXT_OPERATION_CODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 1001u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_MTP_EXT_OPERATION_CODE ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_MTP_EXT_OPERATION_PARAMS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 1002u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_MTP_EXT_OPERATION_PARAMS ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_MTP_EXT_OPTIMAL_TRANSFER_BUFFER_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 1013u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_MTP_EXT_OPTIMAL_TRANSFER_BUFFER_SIZE ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_MTP_EXT_RESPONSE_CODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 1003u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_MTP_EXT_RESPONSE_CODE ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_MTP_EXT_RESPONSE_PARAMS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 1004u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_MTP_EXT_RESPONSE_PARAMS ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_MTP_EXT_TRANSFER_CONTEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 1006u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_MTP_EXT_TRANSFER_CONTEXT ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_MTP_EXT_TRANSFER_DATA: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 1012u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_MTP_EXT_TRANSFER_DATA ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_MTP_EXT_TRANSFER_NUM_BYTES_READ: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 1009u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_MTP_EXT_TRANSFER_NUM_BYTES_READ ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_MTP_EXT_TRANSFER_NUM_BYTES_TO_READ: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 1008u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_MTP_EXT_TRANSFER_NUM_BYTES_TO_READ ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_MTP_EXT_TRANSFER_NUM_BYTES_TO_WRITE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 1010u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_MTP_EXT_TRANSFER_NUM_BYTES_TO_WRITE ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_MTP_EXT_TRANSFER_NUM_BYTES_WRITTEN: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 1011u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_MTP_EXT_TRANSFER_NUM_BYTES_WRITTEN ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_MTP_EXT_TRANSFER_TOTAL_DATA_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 1007u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_MTP_EXT_TRANSFER_TOTAL_DATA_SIZE ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_MTP_EXT_VENDOR_EXTENSION_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 1014u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_MTP_EXT_VENDOR_EXTENSION_DESCRIPTION ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_MTP_EXT_VENDOR_OPERATION_CODES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56), pid: 1005u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_MTP_EXT_VENDOR_OPERATION_CODES ) , guid : :: windows :: core :: GUID::from_u128(0x4d545058_1a2e_4106_a357_771e0819fc56) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_NULL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000), pid: 0u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_NULL ) , guid : :: windows :: core :: GUID::from_u128(0x00000000_0000_0000_0000_000000000000) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_ENUMERATION_CONTEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb7474e91_e7f8_4ad9_b400_ad1a4b58eeec), pid: 1004u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_ENUMERATION_CONTEXT ) , guid : :: windows :: core :: GUID::from_u128(0xb7474e91_e7f8_4ad9_b400_ad1a4b58eeec) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_ENUMERATION_FILTER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb7474e91_e7f8_4ad9_b400_ad1a4b58eeec), pid: 1002u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_ENUMERATION_FILTER ) , guid : :: windows :: core :: GUID::from_u128(0xb7474e91_e7f8_4ad9_b400_ad1a4b58eeec) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_ENUMERATION_NUM_OBJECTS_REQUESTED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb7474e91_e7f8_4ad9_b400_ad1a4b58eeec), pid: 1005u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_ENUMERATION_NUM_OBJECTS_REQUESTED ) , guid : :: windows :: core :: GUID::from_u128(0xb7474e91_e7f8_4ad9_b400_ad1a4b58eeec) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_ENUMERATION_OBJECT_IDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb7474e91_e7f8_4ad9_b400_ad1a4b58eeec), pid: 1003u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_ENUMERATION_OBJECT_IDS ) , guid : :: windows :: core :: GUID::from_u128(0xb7474e91_e7f8_4ad9_b400_ad1a4b58eeec) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_ENUMERATION_PARENT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb7474e91_e7f8_4ad9_b400_ad1a4b58eeec), pid: 1001u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_ENUMERATION_PARENT_ID ) , guid : :: windows :: core :: GUID::from_u128(0xb7474e91_e7f8_4ad9_b400_ad1a4b58eeec) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_CONTEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 1002u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_MANAGEMENT_CONTEXT ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_COPY_RESULTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 1013u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_MANAGEMENT_COPY_RESULTS ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_CREATION_PROPERTIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 1001u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_MANAGEMENT_CREATION_PROPERTIES ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_DATA: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 1005u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_MANAGEMENT_DATA ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_DELETE_OPTIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 1007u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_MANAGEMENT_DELETE_OPTIONS ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_DELETE_RESULTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 1010u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_MANAGEMENT_DELETE_RESULTS ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_DESTINATION_FOLDER_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 1011u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_MANAGEMENT_DESTINATION_FOLDER_OBJECT_ID ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_MOVE_RESULTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 1012u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_MANAGEMENT_MOVE_RESULTS ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_NUM_BYTES_TO_WRITE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 1003u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_MANAGEMENT_NUM_BYTES_TO_WRITE ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_NUM_BYTES_WRITTEN: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 1004u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_MANAGEMENT_NUM_BYTES_WRITTEN ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_OBJECT_FORMAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 1016u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_MANAGEMENT_OBJECT_FORMAT ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 1006u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_MANAGEMENT_OBJECT_ID ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_OBJECT_IDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 1009u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_MANAGEMENT_OBJECT_IDS ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_OPTIMAL_TRANSFER_BUFFER_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 1008u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_MANAGEMENT_OPTIMAL_TRANSFER_BUFFER_SIZE ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_PROPERTY_KEYS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 1015u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_MANAGEMENT_PROPERTY_KEYS ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_UPDATE_PROPERTIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 1014u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_MANAGEMENT_UPDATE_PROPERTIES ) , guid : :: windows :: core :: GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_CONTEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e), pid: 1002u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_PROPERTIES_BULK_CONTEXT ) , guid : :: windows :: core :: GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_DEPTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e), pid: 1005u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_PROPERTIES_BULK_DEPTH ) , guid : :: windows :: core :: GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_OBJECT_FORMAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e), pid: 1007u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_PROPERTIES_BULK_OBJECT_FORMAT ) , guid : :: windows :: core :: GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_OBJECT_IDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e), pid: 1001u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_PROPERTIES_BULK_OBJECT_IDS ) , guid : :: windows :: core :: GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_PARENT_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e), pid: 1006u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_PROPERTIES_BULK_PARENT_OBJECT_ID ) , guid : :: windows :: core :: GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_PROPERTY_KEYS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e), pid: 1004u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_PROPERTIES_BULK_PROPERTY_KEYS ) , guid : :: windows :: core :: GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_VALUES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e), pid: 1003u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_PROPERTIES_BULK_VALUES ) , guid : :: windows :: core :: GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_WRITE_RESULTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e), pid: 1008u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_PROPERTIES_BULK_WRITE_RESULTS ) , guid : :: windows :: core :: GUID::from_u128(0x11c824dd_04cd_4e4e_8c7b_f6efb794d84e) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804), pid: 1001u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_PROPERTIES_OBJECT_ID ) , guid : :: windows :: core :: GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_PROPERTY_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804), pid: 1003u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_PROPERTIES_PROPERTY_ATTRIBUTES ) , guid : :: windows :: core :: GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_PROPERTY_DELETE_RESULTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804), pid: 1006u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_PROPERTIES_PROPERTY_DELETE_RESULTS ) , guid : :: windows :: core :: GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_PROPERTY_KEYS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804), pid: 1002u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_PROPERTIES_PROPERTY_KEYS ) , guid : :: windows :: core :: GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_PROPERTY_VALUES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804), pid: 1004u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_PROPERTIES_PROPERTY_VALUES ) , guid : :: windows :: core :: GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_PROPERTY_WRITE_RESULTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804), pid: 1005u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_PROPERTIES_PROPERTY_WRITE_RESULTS ) , guid : :: windows :: core :: GUID::from_u128(0x9e5582e4_0814_44e6_981a_b2998d583804) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_ACCESS_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 1002u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_RESOURCES_ACCESS_MODE ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_CONTEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 1005u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_RESOURCES_CONTEXT ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_DATA: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 1010u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_RESOURCES_DATA ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_NUM_BYTES_READ: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 1007u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_RESOURCES_NUM_BYTES_READ ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_NUM_BYTES_TO_READ: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 1006u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_RESOURCES_NUM_BYTES_TO_READ ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_NUM_BYTES_TO_WRITE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 1008u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_RESOURCES_NUM_BYTES_TO_WRITE ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_NUM_BYTES_WRITTEN: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 1009u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_RESOURCES_NUM_BYTES_WRITTEN ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 1001u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_RESOURCES_OBJECT_ID ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_OPTIMAL_TRANSFER_BUFFER_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 1011u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_RESOURCES_OPTIMAL_TRANSFER_BUFFER_SIZE ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_POSITION_FROM_START: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 1014u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_RESOURCES_POSITION_FROM_START ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_RESOURCE_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 1004u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_RESOURCES_RESOURCE_ATTRIBUTES ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_RESOURCE_KEYS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 1003u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_RESOURCES_RESOURCE_KEYS ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_SEEK_OFFSET: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 1012u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_RESOURCES_SEEK_OFFSET ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_SEEK_ORIGIN_FLAG: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 1013u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_RESOURCES_SEEK_ORIGIN_FLAG ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_STREAM_UNITS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 1016u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_RESOURCES_STREAM_UNITS ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_SUPPORTS_UNITS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a), pid: 1015u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_OBJECT_RESOURCES_SUPPORTS_UNITS ) , guid : :: windows :: core :: GUID::from_u128(0xb3a2b22d_a595_4108_be0a_fc3c965f3d4a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_PUBLIC_KEY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x78f9c6fc_79b8_473c_9060_6bd23dd072c4), pid: 1001u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_PUBLIC_KEY ) , guid : :: windows :: core :: GUID::from_u128(0x78f9c6fc_79b8_473c_9060_6bd23dd072c4) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_COMMAND: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 1018u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_CAPABILITIES_COMMAND ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_COMMAND_OPTIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 1019u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_CAPABILITIES_COMMAND_OPTIONS ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_EVENT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 1012u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_CAPABILITIES_EVENT ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_EVENT_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 1013u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_CAPABILITIES_EVENT_ATTRIBUTES ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_FORMAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 1002u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_CAPABILITIES_FORMAT ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_FORMATS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 1007u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_CAPABILITIES_FORMATS ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_FORMAT_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 1008u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_CAPABILITIES_FORMAT_ATTRIBUTES ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_INHERITANCE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 1014u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_CAPABILITIES_INHERITANCE_TYPE ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_INHERITED_SERVICES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 1015u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_CAPABILITIES_INHERITED_SERVICES ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_METHOD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 1003u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_CAPABILITIES_METHOD ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_METHOD_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 1004u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_CAPABILITIES_METHOD_ATTRIBUTES ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_PARAMETER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 1005u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_CAPABILITIES_PARAMETER ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_PARAMETER_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 1006u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_CAPABILITIES_PARAMETER_ATTRIBUTES ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_PROPERTY_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 1010u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_CAPABILITIES_PROPERTY_ATTRIBUTES ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_PROPERTY_KEYS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 1009u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_CAPABILITIES_PROPERTY_KEYS ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_RENDERING_PROFILES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 1016u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_CAPABILITIES_RENDERING_PROFILES ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_SUPPORTED_COMMANDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 1017u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_CAPABILITIES_SUPPORTED_COMMANDS ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_SUPPORTED_EVENTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 1011u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_CAPABILITIES_SUPPORTED_EVENTS ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_SUPPORTED_METHODS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89), pid: 1001u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_CAPABILITIES_SUPPORTED_METHODS ) , guid : :: windows :: core :: GUID::from_u128(0x24457e74_2e9f_44f9_8c57_1d1bcb170b89) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_METHOD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2d521ca8_c1b0_4268_a342_cf19321569bc), pid: 1001u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_METHOD ) , guid : :: windows :: core :: GUID::from_u128(0x2d521ca8_c1b0_4268_a342_cf19321569bc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_METHOD_CONTEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2d521ca8_c1b0_4268_a342_cf19321569bc), pid: 1004u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_METHOD_CONTEXT ) , guid : :: windows :: core :: GUID::from_u128(0x2d521ca8_c1b0_4268_a342_cf19321569bc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_METHOD_HRESULT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2d521ca8_c1b0_4268_a342_cf19321569bc), pid: 1005u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_METHOD_HRESULT ) , guid : :: windows :: core :: GUID::from_u128(0x2d521ca8_c1b0_4268_a342_cf19321569bc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_METHOD_PARAMETER_VALUES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2d521ca8_c1b0_4268_a342_cf19321569bc), pid: 1002u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_METHOD_PARAMETER_VALUES ) , guid : :: windows :: core :: GUID::from_u128(0x2d521ca8_c1b0_4268_a342_cf19321569bc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_METHOD_RESULT_VALUES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2d521ca8_c1b0_4268_a342_cf19321569bc), pid: 1003u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_METHOD_RESULT_VALUES ) , guid : :: windows :: core :: GUID::from_u128(0x2d521ca8_c1b0_4268_a342_cf19321569bc) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SERVICE_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x322f071d_36ef_477f_b4b5_6f52d734baee), pid: 1001u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SERVICE_OBJECT_ID ) , guid : :: windows :: core :: GUID::from_u128(0x322f071d_36ef_477f_b4b5_6f52d734baee) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SMS_BINARY_MESSAGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xafc25d66_fe0d_4114_9097_970c93e920d1), pid: 1004u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SMS_BINARY_MESSAGE ) , guid : :: windows :: core :: GUID::from_u128(0xafc25d66_fe0d_4114_9097_970c93e920d1) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SMS_MESSAGE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xafc25d66_fe0d_4114_9097_970c93e920d1), pid: 1002u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SMS_MESSAGE_TYPE ) , guid : :: windows :: core :: GUID::from_u128(0xafc25d66_fe0d_4114_9097_970c93e920d1) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SMS_RECIPIENT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xafc25d66_fe0d_4114_9097_970c93e920d1), pid: 1001u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SMS_RECIPIENT ) , guid : :: windows :: core :: GUID::from_u128(0xafc25d66_fe0d_4114_9097_970c93e920d1) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_SMS_TEXT_MESSAGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xafc25d66_fe0d_4114_9097_970c93e920d1), pid: 1003u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_SMS_TEXT_MESSAGE ) , guid : :: windows :: core :: GUID::from_u128(0xafc25d66_fe0d_4114_9097_970c93e920d1) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_STORAGE_DESTINATION_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd8f907a6_34cc_45fa_97fb_d007fa47ec94), pid: 1002u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_STORAGE_DESTINATION_OBJECT_ID ) , guid : :: windows :: core :: GUID::from_u128(0xd8f907a6_34cc_45fa_97fb_d007fa47ec94) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_STORAGE_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd8f907a6_34cc_45fa_97fb_d007fa47ec94), pid: 1001u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_PROPERTY_STORAGE_OBJECT_ID ) , guid : :: windows :: core :: GUID::from_u128(0xd8f907a6_34cc_45fa_97fb_d007fa47ec94) , } }
 pub const WPD_RENDERING_INFORMATION_OBJECT_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc53d039f_ee23_4a31_8590_7639879870b4);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RENDERING_INFORMATION_OBJECT_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0xc53d039f_ee23_4a31_8590_7639879870b4) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RENDERING_INFORMATION_PROFILES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xc53d039f_ee23_4a31_8590_7639879870b4), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RENDERING_INFORMATION_PROFILES ) , guid : :: windows :: core :: GUID::from_u128(0xc53d039f_ee23_4a31_8590_7639879870b4) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RENDERING_INFORMATION_PROFILE_ENTRY_CREATABLE_RESOURCES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xc53d039f_ee23_4a31_8590_7639879870b4), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RENDERING_INFORMATION_PROFILE_ENTRY_CREATABLE_RESOURCES ) , guid : :: windows :: core :: GUID::from_u128(0xc53d039f_ee23_4a31_8590_7639879870b4) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xc53d039f_ee23_4a31_8590_7639879870b4), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPE ) , guid : :: windows :: core :: GUID::from_u128(0xc53d039f_ee23_4a31_8590_7639879870b4) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub type WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES = i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
@@ -5461,67 +6807,111 @@ pub const WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPE_RESOURCE: WPD_RENDERING_I
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RESOURCE_ALBUM_ART: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf02aa354_2300_4e2d_a1b9_3b6730f7fa21), pid: 0u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RESOURCE_ALBUM_ART ) , guid : :: windows :: core :: GUID::from_u128(0xf02aa354_2300_4e2d_a1b9_3b6730f7fa21) , } }
 pub const WPD_RESOURCE_ATTRIBUTES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1eb6f604_9278_429f_93cc_5bb8c06656b6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RESOURCE_ATTRIBUTES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x1eb6f604_9278_429f_93cc_5bb8c06656b6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RESOURCE_ATTRIBUTE_CAN_DELETE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1eb6f604_9278_429f_93cc_5bb8c06656b6), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RESOURCE_ATTRIBUTE_CAN_DELETE ) , guid : :: windows :: core :: GUID::from_u128(0x1eb6f604_9278_429f_93cc_5bb8c06656b6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RESOURCE_ATTRIBUTE_CAN_READ: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1eb6f604_9278_429f_93cc_5bb8c06656b6), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RESOURCE_ATTRIBUTE_CAN_READ ) , guid : :: windows :: core :: GUID::from_u128(0x1eb6f604_9278_429f_93cc_5bb8c06656b6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RESOURCE_ATTRIBUTE_CAN_WRITE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1eb6f604_9278_429f_93cc_5bb8c06656b6), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RESOURCE_ATTRIBUTE_CAN_WRITE ) , guid : :: windows :: core :: GUID::from_u128(0x1eb6f604_9278_429f_93cc_5bb8c06656b6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RESOURCE_ATTRIBUTE_FORMAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1eb6f604_9278_429f_93cc_5bb8c06656b6), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RESOURCE_ATTRIBUTE_FORMAT ) , guid : :: windows :: core :: GUID::from_u128(0x1eb6f604_9278_429f_93cc_5bb8c06656b6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RESOURCE_ATTRIBUTE_OPTIMAL_READ_BUFFER_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1eb6f604_9278_429f_93cc_5bb8c06656b6), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RESOURCE_ATTRIBUTE_OPTIMAL_READ_BUFFER_SIZE ) , guid : :: windows :: core :: GUID::from_u128(0x1eb6f604_9278_429f_93cc_5bb8c06656b6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RESOURCE_ATTRIBUTE_OPTIMAL_WRITE_BUFFER_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1eb6f604_9278_429f_93cc_5bb8c06656b6), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RESOURCE_ATTRIBUTE_OPTIMAL_WRITE_BUFFER_SIZE ) , guid : :: windows :: core :: GUID::from_u128(0x1eb6f604_9278_429f_93cc_5bb8c06656b6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RESOURCE_ATTRIBUTE_RESOURCE_KEY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1eb6f604_9278_429f_93cc_5bb8c06656b6), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RESOURCE_ATTRIBUTE_RESOURCE_KEY ) , guid : :: windows :: core :: GUID::from_u128(0x1eb6f604_9278_429f_93cc_5bb8c06656b6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RESOURCE_ATTRIBUTE_TOTAL_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1eb6f604_9278_429f_93cc_5bb8c06656b6), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RESOURCE_ATTRIBUTE_TOTAL_SIZE ) , guid : :: windows :: core :: GUID::from_u128(0x1eb6f604_9278_429f_93cc_5bb8c06656b6) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RESOURCE_AUDIO_CLIP: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x3bc13982_85b1_48e0_95a6_8d3ad06be117), pid: 0u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RESOURCE_AUDIO_CLIP ) , guid : :: windows :: core :: GUID::from_u128(0x3bc13982_85b1_48e0_95a6_8d3ad06be117) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RESOURCE_BRANDING_ART: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb633b1ae_6caf_4a87_9589_22ded6dd5899), pid: 0u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RESOURCE_BRANDING_ART ) , guid : :: windows :: core :: GUID::from_u128(0xb633b1ae_6caf_4a87_9589_22ded6dd5899) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RESOURCE_CONTACT_PHOTO: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x2c4d6803_80ea_4580_af9a_5be1a23eddcb), pid: 0u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RESOURCE_CONTACT_PHOTO ) , guid : :: windows :: core :: GUID::from_u128(0x2c4d6803_80ea_4580_af9a_5be1a23eddcb) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RESOURCE_DEFAULT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe81e79be_34f0_41bf_b53f_f1a06ae87842), pid: 0u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RESOURCE_DEFAULT ) , guid : :: windows :: core :: GUID::from_u128(0xe81e79be_34f0_41bf_b53f_f1a06ae87842) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RESOURCE_GENERIC: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb9b9f515_ba70_4647_94dc_fa4925e95a07), pid: 0u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RESOURCE_GENERIC ) , guid : :: windows :: core :: GUID::from_u128(0xb9b9f515_ba70_4647_94dc_fa4925e95a07) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RESOURCE_ICON: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xf195fed8_aa28_4ee3_b153_e182dd5edc39), pid: 0u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RESOURCE_ICON ) , guid : :: windows :: core :: GUID::from_u128(0xf195fed8_aa28_4ee3_b153_e182dd5edc39) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RESOURCE_THUMBNAIL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xc7c407ba_98fa_46b5_9960_23fec124cfde), pid: 0u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RESOURCE_THUMBNAIL ) , guid : :: windows :: core :: GUID::from_u128(0xc7c407ba_98fa_46b5_9960_23fec124cfde) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RESOURCE_VIDEO_CLIP: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb566ee42_6368_4290_8662_70182fb79f20), pid: 0u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_RESOURCE_VIDEO_CLIP ) , guid : :: windows :: core :: GUID::from_u128(0xb566ee42_6368_4290_8662_70182fb79f20) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_SECTION_DATA_LENGTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x516afd2b_c64e_44f0_98dc_bee1c88f7d66), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_SECTION_DATA_LENGTH ) , guid : :: windows :: core :: GUID::from_u128(0x516afd2b_c64e_44f0_98dc_bee1c88f7d66) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_SECTION_DATA_OFFSET: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x516afd2b_c64e_44f0_98dc_bee1c88f7d66), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_SECTION_DATA_OFFSET ) , guid : :: windows :: core :: GUID::from_u128(0x516afd2b_c64e_44f0_98dc_bee1c88f7d66) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_SECTION_DATA_REFERENCED_OBJECT_RESOURCE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x516afd2b_c64e_44f0_98dc_bee1c88f7d66), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_SECTION_DATA_REFERENCED_OBJECT_RESOURCE ) , guid : :: windows :: core :: GUID::from_u128(0x516afd2b_c64e_44f0_98dc_bee1c88f7d66) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_SECTION_DATA_UNITS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x516afd2b_c64e_44f0_98dc_bee1c88f7d66), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_SECTION_DATA_UNITS ) , guid : :: windows :: core :: GUID::from_u128(0x516afd2b_c64e_44f0_98dc_bee1c88f7d66) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub type WPD_SECTION_DATA_UNITS_VALUES = i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
@@ -5529,17 +6919,25 @@ pub const WPD_SECTION_DATA_UNITS_BYTES: WPD_SECTION_DATA_UNITS_VALUES = 0i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub const WPD_SECTION_DATA_UNITS_MILLISECONDS: WPD_SECTION_DATA_UNITS_VALUES = 1i32;
 pub const WPD_SECTION_OBJECT_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x516afd2b_c64e_44f0_98dc_bee1c88f7d66);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_SECTION_OBJECT_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x516afd2b_c64e_44f0_98dc_bee1c88f7d66) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub type WPD_SERVICE_INHERITANCE_TYPES = i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub const WPD_SERVICE_INHERITANCE_IMPLEMENTATION: WPD_SERVICE_INHERITANCE_TYPES = 0i32;
 pub const WPD_SERVICE_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7510698a_cb54_481c_b8db_0d75c93f1c06);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_SERVICE_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x7510698a_cb54_481c_b8db_0d75c93f1c06) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_SERVICE_VERSION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x7510698a_cb54_481c_b8db_0d75c93f1c06), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_SERVICE_VERSION ) , guid : :: windows :: core :: GUID::from_u128(0x7510698a_cb54_481c_b8db_0d75c93f1c06) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_SMS_ENCODING: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x7e1074cc_50ff_4dd1_a742_53be6f093a0d), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_SMS_ENCODING ) , guid : :: windows :: core :: GUID::from_u128(0x7e1074cc_50ff_4dd1_a742_53be6f093a0d) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub type WPD_SMS_ENCODING_TYPES = i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
@@ -5551,107 +6949,179 @@ pub const SMS_ENCODING_UTF_16: WPD_SMS_ENCODING_TYPES = 2i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_SMS_MAX_PAYLOAD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x7e1074cc_50ff_4dd1_a742_53be6f093a0d), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_SMS_MAX_PAYLOAD ) , guid : :: windows :: core :: GUID::from_u128(0x7e1074cc_50ff_4dd1_a742_53be6f093a0d) , } }
 pub const WPD_SMS_OBJECT_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e1074cc_50ff_4dd1_a742_53be6f093a0d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_SMS_OBJECT_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x7e1074cc_50ff_4dd1_a742_53be6f093a0d) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_SMS_PROVIDER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x7e1074cc_50ff_4dd1_a742_53be6f093a0d), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_SMS_PROVIDER ) , guid : :: windows :: core :: GUID::from_u128(0x7e1074cc_50ff_4dd1_a742_53be6f093a0d) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_SMS_TIMEOUT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x7e1074cc_50ff_4dd1_a742_53be6f093a0d), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_SMS_TIMEOUT ) , guid : :: windows :: core :: GUID::from_u128(0x7e1074cc_50ff_4dd1_a742_53be6f093a0d) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_ARTIST: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 29u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_ARTIST ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_BURST_INTERVAL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 24u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_BURST_INTERVAL ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_BURST_NUMBER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 23u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_BURST_NUMBER ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_CAMERA_MANUFACTURER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 31u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_CAMERA_MANUFACTURER ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_CAMERA_MODEL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 30u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_CAMERA_MODEL ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_CAPTURE_DELAY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 17u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_CAPTURE_DELAY ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_CAPTURE_FORMAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_CAPTURE_FORMAT ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_CAPTURE_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 18u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_CAPTURE_MODE ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 pub const WPD_STILL_IMAGE_CAPTURE_OBJECT_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_CAPTURE_OBJECT_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_CAPTURE_RESOLUTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_CAPTURE_RESOLUTION ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_COMPRESSION_SETTING: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_COMPRESSION_SETTING ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_CONTRAST: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 19u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_CONTRAST ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_DIGITAL_ZOOM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 21u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_DIGITAL_ZOOM ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_EFFECT_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 22u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_EFFECT_MODE ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_EXPOSURE_BIAS_COMPENSATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 16u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_EXPOSURE_BIAS_COMPENSATION ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_EXPOSURE_INDEX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 15u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_EXPOSURE_INDEX ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_EXPOSURE_METERING_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 11u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_EXPOSURE_METERING_MODE ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_EXPOSURE_PROGRAM_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 14u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_EXPOSURE_PROGRAM_MODE ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_EXPOSURE_TIME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 13u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_EXPOSURE_TIME ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_FLASH_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 12u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_FLASH_MODE ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_FNUMBER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_FNUMBER ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_FOCAL_LENGTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_FOCAL_LENGTH ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_FOCUS_DISTANCE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_FOCUS_DISTANCE ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_FOCUS_METERING_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 27u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_FOCUS_METERING_MODE ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_FOCUS_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_FOCUS_MODE ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_RGB_GAIN: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_RGB_GAIN ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_SHARPNESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 20u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_SHARPNESS ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_TIMELAPSE_INTERVAL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 26u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_TIMELAPSE_INTERVAL ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_TIMELAPSE_NUMBER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 25u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_TIMELAPSE_NUMBER ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_UPLOAD_URL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 28u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_UPLOAD_URL ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STILL_IMAGE_WHITE_BALANCE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STILL_IMAGE_WHITE_BALANCE ) , guid : :: windows :: core :: GUID::from_u128(0x58c571ec_1bcb_42a7_8ac5_bb291573a260) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STORAGE_ACCESS_CAPABILITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a), pid: 11u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STORAGE_ACCESS_CAPABILITY ) , guid : :: windows :: core :: GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub type WPD_STORAGE_ACCESS_CAPABILITY_VALUES = i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
@@ -5663,31 +7133,51 @@ pub const WPD_STORAGE_ACCESS_CAPABILITY_READ_ONLY_WITH_OBJECT_DELETION: WPD_STOR
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STORAGE_CAPACITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STORAGE_CAPACITY ) , guid : :: windows :: core :: GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STORAGE_CAPACITY_IN_OBJECTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STORAGE_CAPACITY_IN_OBJECTS ) , guid : :: windows :: core :: GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STORAGE_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STORAGE_DESCRIPTION ) , guid : :: windows :: core :: GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STORAGE_FILE_SYSTEM_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STORAGE_FILE_SYSTEM_TYPE ) , guid : :: windows :: core :: GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STORAGE_FREE_SPACE_IN_BYTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STORAGE_FREE_SPACE_IN_BYTES ) , guid : :: windows :: core :: GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STORAGE_FREE_SPACE_IN_OBJECTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STORAGE_FREE_SPACE_IN_OBJECTS ) , guid : :: windows :: core :: GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STORAGE_MAX_OBJECT_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STORAGE_MAX_OBJECT_SIZE ) , guid : :: windows :: core :: GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a) , } }
 pub const WPD_STORAGE_OBJECT_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STORAGE_OBJECT_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STORAGE_SERIAL_NUMBER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STORAGE_SERIAL_NUMBER ) , guid : :: windows :: core :: GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STORAGE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_STORAGE_TYPE ) , guid : :: windows :: core :: GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub type WPD_STORAGE_TYPE_VALUES = i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
@@ -5713,55 +7203,91 @@ pub const WPD_STREAM_UNITS_MILLISECONDS: WPD_STREAM_UNITS = 4i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub const WPD_STREAM_UNITS_MICROSECONDS: WPD_STREAM_UNITS = 8i32;
 pub const WPD_TASK_OBJECT_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe354e95e_d8a0_4637_a03a_0cb26838dbc7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_TASK_OBJECT_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0xe354e95e_d8a0_4637_a03a_0cb26838dbc7) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_TASK_OWNER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe354e95e_d8a0_4637_a03a_0cb26838dbc7), pid: 11u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_TASK_OWNER ) , guid : :: windows :: core :: GUID::from_u128(0xe354e95e_d8a0_4637_a03a_0cb26838dbc7) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_TASK_PERCENT_COMPLETE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe354e95e_d8a0_4637_a03a_0cb26838dbc7), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_TASK_PERCENT_COMPLETE ) , guid : :: windows :: core :: GUID::from_u128(0xe354e95e_d8a0_4637_a03a_0cb26838dbc7) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_TASK_REMINDER_DATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe354e95e_d8a0_4637_a03a_0cb26838dbc7), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_TASK_REMINDER_DATE ) , guid : :: windows :: core :: GUID::from_u128(0xe354e95e_d8a0_4637_a03a_0cb26838dbc7) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_TASK_STATUS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe354e95e_d8a0_4637_a03a_0cb26838dbc7), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_TASK_STATUS ) , guid : :: windows :: core :: GUID::from_u128(0xe354e95e_d8a0_4637_a03a_0cb26838dbc7) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_VIDEO_AUTHOR: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_VIDEO_AUTHOR ) , guid : :: windows :: core :: GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_VIDEO_BITRATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a), pid: 13u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_VIDEO_BITRATE ) , guid : :: windows :: core :: GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_VIDEO_BUFFER_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_VIDEO_BUFFER_SIZE ) , guid : :: windows :: core :: GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_VIDEO_CREDITS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_VIDEO_CREDITS ) , guid : :: windows :: core :: GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_VIDEO_FOURCC_CODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a), pid: 14u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_VIDEO_FOURCC_CODE ) , guid : :: windows :: core :: GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_VIDEO_FRAMERATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a), pid: 15u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_VIDEO_FRAMERATE ) , guid : :: windows :: core :: GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_VIDEO_KEY_FRAME_DISTANCE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_VIDEO_KEY_FRAME_DISTANCE ) , guid : :: windows :: core :: GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a) , } }
 pub const WPD_VIDEO_OBJECT_PROPERTIES_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_VIDEO_OBJECT_PROPERTIES_V1 ) , guid : :: windows :: core :: GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_VIDEO_QUALITY_SETTING: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a), pid: 11u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_VIDEO_QUALITY_SETTING ) , guid : :: windows :: core :: GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_VIDEO_RECORDEDTV_CHANNEL_NUMBER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_VIDEO_RECORDEDTV_CHANNEL_NUMBER ) , guid : :: windows :: core :: GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_VIDEO_RECORDEDTV_REPEAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_VIDEO_RECORDEDTV_REPEAT ) , guid : :: windows :: core :: GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_VIDEO_RECORDEDTV_STATION_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_VIDEO_RECORDEDTV_STATION_NAME ) , guid : :: windows :: core :: GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_VIDEO_SCAN_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a), pid: 12u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WPD_VIDEO_SCAN_TYPE ) , guid : :: windows :: core :: GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a) , } }
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub type WPD_VIDEO_SCAN_TYPES = i32;
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]

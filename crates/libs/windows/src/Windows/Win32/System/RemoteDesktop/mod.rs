@@ -462,7 +462,11 @@ pub const CONNECTION_REQUEST_QUERY_PL_COMPLETED: CONNECTION_CHANGE_NOTIFICATION 
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CONNECTION_REQUEST_ORCH_COMPLETED: CONNECTION_CHANGE_NOTIFICATION = 8i32;
 pub const CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b150580_fea4_4d3c_9de4_7433a66618f7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED ) , guid : :: windows :: core :: GUID::from_u128(0x4b150580_fea4_4d3c_9de4_7433a66618f7) , } }
 pub const CONNECTION_PROPERTY_IDLE_TIME_WARNING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x693f7ff5_0c4e_4d17_b8e0_1f70325e5d58);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CONNECTION_PROPERTY_IDLE_TIME_WARNING ) , guid : :: windows :: core :: GUID::from_u128(0x693f7ff5_0c4e_4d17_b8e0_1f70325e5d58) , } }
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_AX_ADMINMESSAGERECEIVED: u32 = 760u32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
@@ -9987,9 +9991,17 @@ pub const PRODUCTINFO_COMPANYNAME_LENGTH: u32 = 256u32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const PRODUCTINFO_PRODUCTID_LENGTH: u32 = 4u32;
 pub const PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cdfd28e_d0b9_4c1f_a5eb_6d1f6c6535b9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION ) , guid : :: windows :: core :: GUID::from_u128(0x0cdfd28e_d0b9_4c1f_a5eb_6d1f6c6535b9) , } }
 pub const PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed2c3fda_338d_4d3f_81a3_e767310d908e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL ) , guid : :: windows :: core :: GUID::from_u128(0xed2c3fda_338d_4d3f_81a3_e767310d908e) , } }
 pub const PROPERTY_TYPE_GET_FAST_RECONNECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6212d757_0043_4862_99c3_9f3059ac2a3b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PROPERTY_TYPE_GET_FAST_RECONNECT ) , guid : :: windows :: core :: GUID::from_u128(0x6212d757_0043_4862_99c3_9f3059ac2a3b) , } }
 pub const PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x197c427a_0135_4b6d_9c5e_e6579a0ab625);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID ) , guid : :: windows :: core :: GUID::from_u128(0x197c427a_0135_4b6d_9c5e_e6579a0ab625) , } }
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub type PVIRTUALCHANNELCLOSE = ::core::option::Option<unsafe extern "system" fn(openhandle: u32) -> u32>;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
@@ -10045,6 +10057,8 @@ pub unsafe fn ProcessIdToSessionId(dwprocessid: u32, psessionid: *mut u32) -> su
     unimplemented!("Unsupported target OS");
 }
 pub const RDCLIENT_BITMAP_RENDER_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4cc08cb_942e_4b19_8504_bd5a89a747f5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( RDCLIENT_BITMAP_RENDER_SERVICE ) , guid : :: windows :: core :: GUID::from_u128(0xe4cc08cb_942e_4b19_8504_bd5a89a747f5) , } }
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub type RDV_TASK_STATUS = i32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
@@ -11122,6 +11136,8 @@ pub const WRDS_PERF_ENABLE_FONT_SMOOTHING: u32 = 128u32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_PROTOCOL_NAME_LENGTH: u32 = 8u32;
 pub const WRDS_SERVICE_ID_GRAPHICS_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2993f4d_02cf_4280_8c48_1624b44f8706);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WRDS_SERVICE_ID_GRAPHICS_GUID ) , guid : :: windows :: core :: GUID::from_u128(0xd2993f4d_02cf_4280_8c48_1624b44f8706) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14578,9 +14594,17 @@ pub const WTS_PROTOCOL_TYPE_ICA: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_PROTOCOL_TYPE_RDP: u32 = 2u32;
 pub const WTS_QUERY_ALLOWED_INITIAL_APP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc77d1b30_5be1_4c6b_a0e1_bd6d2e5c9fcc);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WTS_QUERY_ALLOWED_INITIAL_APP ) , guid : :: windows :: core :: GUID::from_u128(0xc77d1b30_5be1_4c6b_a0e1_bd6d2e5c9fcc) , } }
 pub const WTS_QUERY_AUDIOENUM_DLL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bf4fa97_c883_4c2a_80ab_5a39c9af00db);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WTS_QUERY_AUDIOENUM_DLL ) , guid : :: windows :: core :: GUID::from_u128(0x9bf4fa97_c883_4c2a_80ab_5a39c9af00db) , } }
 pub const WTS_QUERY_LOGON_SCREEN_SIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b8e0fe7_0804_4a0e_b279_8660b1df0049);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WTS_QUERY_LOGON_SCREEN_SIZE ) , guid : :: windows :: core :: GUID::from_u128(0x8b8e0fe7_0804_4a0e_b279_8660b1df0049) , } }
 pub const WTS_QUERY_MF_FORMAT_SUPPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41869ad0_6332_4dc8_95d5_db749e2f1d94);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( WTS_QUERY_MF_FORMAT_SUPPORT ) , guid : :: windows :: core :: GUID::from_u128(0x41869ad0_6332_4dc8_95d5_db749e2f1d94) , } }
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub type WTS_RCM_DRAIN_STATE = i32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]

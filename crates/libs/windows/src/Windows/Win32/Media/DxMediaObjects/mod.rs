@@ -1,14 +1,34 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const DMOCATEGORY_ACOUSTIC_ECHO_CANCEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DMOCATEGORY_ACOUSTIC_ECHO_CANCEL ) , guid : :: windows :: core :: GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1) , } }
 pub const DMOCATEGORY_AGC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe88c9ba0_c557_11d0_8a2b_00a0c9255ac1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DMOCATEGORY_AGC ) , guid : :: windows :: core :: GUID::from_u128(0xe88c9ba0_c557_11d0_8a2b_00a0c9255ac1) , } }
 pub const DMOCATEGORY_AUDIO_CAPTURE_EFFECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf665aaba_3e09_4920_aa5f_219811148f09);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DMOCATEGORY_AUDIO_CAPTURE_EFFECT ) , guid : :: windows :: core :: GUID::from_u128(0xf665aaba_3e09_4920_aa5f_219811148f09) , } }
 pub const DMOCATEGORY_AUDIO_DECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57f2db8b_e6bb_4513_9d43_dcd2a6593125);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DMOCATEGORY_AUDIO_DECODER ) , guid : :: windows :: core :: GUID::from_u128(0x57f2db8b_e6bb_4513_9d43_dcd2a6593125) , } }
 pub const DMOCATEGORY_AUDIO_EFFECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3602b3f_0592_48df_a4cd_674721e7ebeb);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DMOCATEGORY_AUDIO_EFFECT ) , guid : :: windows :: core :: GUID::from_u128(0xf3602b3f_0592_48df_a4cd_674721e7ebeb) , } }
 pub const DMOCATEGORY_AUDIO_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33d9a761_90c8_11d0_bd43_00a0c911ce86);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DMOCATEGORY_AUDIO_ENCODER ) , guid : :: windows :: core :: GUID::from_u128(0x33d9a761_90c8_11d0_bd43_00a0c911ce86) , } }
 pub const DMOCATEGORY_AUDIO_NOISE_SUPPRESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe07f903f_62fd_4e60_8cdd_dea7236665b5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DMOCATEGORY_AUDIO_NOISE_SUPPRESS ) , guid : :: windows :: core :: GUID::from_u128(0xe07f903f_62fd_4e60_8cdd_dea7236665b5) , } }
 pub const DMOCATEGORY_VIDEO_DECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a69b442_28be_4991_969c_b500adf5d8a8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DMOCATEGORY_VIDEO_DECODER ) , guid : :: windows :: core :: GUID::from_u128(0x4a69b442_28be_4991_969c_b500adf5d8a8) , } }
 pub const DMOCATEGORY_VIDEO_EFFECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd990ee14_776c_4723_be46_3da2f56f10b9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DMOCATEGORY_VIDEO_EFFECT ) , guid : :: windows :: core :: GUID::from_u128(0xd990ee14_776c_4723_be46_3da2f56f10b9) , } }
 pub const DMOCATEGORY_VIDEO_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33d9a760_90c8_11d0_bd43_00a0c911ce86);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DMOCATEGORY_VIDEO_ENCODER ) , guid : :: windows :: core :: GUID::from_u128(0x33d9a760_90c8_11d0_bd43_00a0c911ce86) , } }
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
 #[inline]
 pub unsafe fn DMOEnum(guidcategory: *const ::windows::core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE) -> ::windows::core::Result<IEnumDMO> {

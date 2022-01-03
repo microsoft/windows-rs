@@ -1,7 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const ID_DOCUMENTPACKAGETARGET_MSXPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cae40a8_ded1_41c9_a9fd_d735ef33aeda);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( ID_DOCUMENTPACKAGETARGET_MSXPS ) , guid : :: windows :: core :: GUID::from_u128(0x9cae40a8_ded1_41c9_a9fd_d735ef33aeda) , } }
 pub const ID_DOCUMENTPACKAGETARGET_OPENXPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0056bb72_8c9c_4612_bd0f_93012a87099d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( ID_DOCUMENTPACKAGETARGET_OPENXPS ) , guid : :: windows :: core :: GUID::from_u128(0x0056bb72_8c9c_4612_bd0f_93012a87099d) , } }
 pub const ID_DOCUMENTPACKAGETARGET_OPENXPS_WITH_3D: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63dbd720_8b14_4577_b074_7bb11b596d28);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( ID_DOCUMENTPACKAGETARGET_OPENXPS_WITH_3D ) , guid : :: windows :: core :: GUID::from_u128(0x63dbd720_8b14_4577_b074_7bb11b596d28) , } }
 #[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintDocumentPackageStatusEvent(::windows::core::IUnknown);

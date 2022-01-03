@@ -3,25 +3,65 @@ pub const BlockRange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0
 pub const BlockRangeList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb507ca28_2204_11dd_966a_001aa01bbc58);
 pub const BootOptions: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fce_975b_59be_a960_9a2a262853a5);
 pub const CATID_SMTP_DNSRESOLVERRECORDSINK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd0b4366_8e03_11d2_94f6_00c04f79f1d6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_SMTP_DNSRESOLVERRECORDSINK ) , guid : :: windows :: core :: GUID::from_u128(0xbd0b4366_8e03_11d2_94f6_00c04f79f1d6) , } }
 pub const CATID_SMTP_DSN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22b55731_f5f8_4d23_bd8f_87b52371a73a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_SMTP_DSN ) , guid : :: windows :: core :: GUID::from_u128(0x22b55731_f5f8_4d23_bd8f_87b52371a73a) , } }
 pub const CATID_SMTP_GET_AUX_DOMAIN_INFO_FLAGS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84ff368a_fab3_43d7_bcdf_692c5b46e6b1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_SMTP_GET_AUX_DOMAIN_INFO_FLAGS ) , guid : :: windows :: core :: GUID::from_u128(0x84ff368a_fab3_43d7_bcdf_692c5b46e6b1) , } }
 pub const CATID_SMTP_LOG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93d0a538_2c1e_4b68_a7c9_d73a8aa6ee97);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_SMTP_LOG ) , guid : :: windows :: core :: GUID::from_u128(0x93d0a538_2c1e_4b68_a7c9_d73a8aa6ee97) , } }
 pub const CATID_SMTP_MAXMSGSIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebf159de_a67e_11d2_94f7_00c04f79f1d6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_SMTP_MAXMSGSIZE ) , guid : :: windows :: core :: GUID::from_u128(0xebf159de_a67e_11d2_94f7_00c04f79f1d6) , } }
 pub const CATID_SMTP_MSGTRACKLOG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6df52aa_7db0_11d2_94f4_00c04f79f1d6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_SMTP_MSGTRACKLOG ) , guid : :: windows :: core :: GUID::from_u128(0xc6df52aa_7db0_11d2_94f4_00c04f79f1d6) , } }
 pub const CATID_SMTP_ON_BEFORE_DATA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6628c92_0d5e_11d2_aa68_00c04fa35b82);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_SMTP_ON_BEFORE_DATA ) , guid : :: windows :: core :: GUID::from_u128(0xf6628c92_0d5e_11d2_aa68_00c04fa35b82) , } }
 pub const CATID_SMTP_ON_INBOUND_COMMAND: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6628c8d_0d5e_11d2_aa68_00c04fa35b82);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_SMTP_ON_INBOUND_COMMAND ) , guid : :: windows :: core :: GUID::from_u128(0xf6628c8d_0d5e_11d2_aa68_00c04fa35b82) , } }
 pub const CATID_SMTP_ON_MESSAGE_START: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6628c90_0d5e_11d2_aa68_00c04fa35b82);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_SMTP_ON_MESSAGE_START ) , guid : :: windows :: core :: GUID::from_u128(0xf6628c90_0d5e_11d2_aa68_00c04fa35b82) , } }
 pub const CATID_SMTP_ON_PER_RECIPIENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6628c91_0d5e_11d2_aa68_00c04fa35b82);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_SMTP_ON_PER_RECIPIENT ) , guid : :: windows :: core :: GUID::from_u128(0xf6628c91_0d5e_11d2_aa68_00c04fa35b82) , } }
 pub const CATID_SMTP_ON_SERVER_RESPONSE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6628c8e_0d5e_11d2_aa68_00c04fa35b82);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_SMTP_ON_SERVER_RESPONSE ) , guid : :: windows :: core :: GUID::from_u128(0xf6628c8e_0d5e_11d2_aa68_00c04fa35b82) , } }
 pub const CATID_SMTP_ON_SESSION_END: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6628c93_0d5e_11d2_aa68_00c04fa35b82);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_SMTP_ON_SESSION_END ) , guid : :: windows :: core :: GUID::from_u128(0xf6628c93_0d5e_11d2_aa68_00c04fa35b82) , } }
 pub const CATID_SMTP_ON_SESSION_START: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6628c8f_0d5e_11d2_aa68_00c04fa35b82);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_SMTP_ON_SESSION_START ) , guid : :: windows :: core :: GUID::from_u128(0xf6628c8f_0d5e_11d2_aa68_00c04fa35b82) , } }
 pub const CATID_SMTP_STORE_DRIVER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59175850_e533_11d1_aa67_00c04fa345f6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_SMTP_STORE_DRIVER ) , guid : :: windows :: core :: GUID::from_u128(0x59175850_e533_11d1_aa67_00c04fa345f6) , } }
 pub const CATID_SMTP_TRANSPORT_CATEGORIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x960252a3_0a3a_11d2_9e00_00c04fa322ba);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_SMTP_TRANSPORT_CATEGORIZE ) , guid : :: windows :: core :: GUID::from_u128(0x960252a3_0a3a_11d2_9e00_00c04fa322ba) , } }
 pub const CATID_SMTP_TRANSPORT_POSTCATEGORIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76719654_05a6_11d2_9dfd_00c04fa322ba);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_SMTP_TRANSPORT_POSTCATEGORIZE ) , guid : :: windows :: core :: GUID::from_u128(0x76719654_05a6_11d2_9dfd_00c04fa322ba) , } }
 pub const CATID_SMTP_TRANSPORT_PRECATEGORIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3acfb0d_83ff_11d2_9e14_00c04fa322ba);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_SMTP_TRANSPORT_PRECATEGORIZE ) , guid : :: windows :: core :: GUID::from_u128(0xa3acfb0d_83ff_11d2_9e14_00c04fa322ba) , } }
 pub const CATID_SMTP_TRANSPORT_ROUTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x283430c9_1850_11d2_9e03_00c04fa322ba);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_SMTP_TRANSPORT_ROUTER ) , guid : :: windows :: core :: GUID::from_u128(0x283430c9_1850_11d2_9e03_00c04fa322ba) , } }
 pub const CATID_SMTP_TRANSPORT_SUBMISSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff3caa23_00b9_11d2_9dfb_00c04fa322ba);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_SMTP_TRANSPORT_SUBMISSION ) , guid : :: windows :: core :: GUID::from_u128(0xff3caa23_00b9_11d2_9dfb_00c04fa322ba) , } }
 pub const CLSID_SmtpCat: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb23c35b7_9219_11d2_9e17_00c04fa322ba);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_SmtpCat ) , guid : :: windows :: core :: GUID::from_u128(0xb23c35b7_9219_11d2_9e17_00c04fa322ba) , } }
 #[doc = "*Required features: 'Win32_Storage_Imapi'*"]
 #[inline]
 pub unsafe fn CloseIMsgSession(lpmsgsess: *mut _MSGSESS) {
@@ -1339,7 +1379,11 @@ pub const FsiItemFile: FsiItemType = 2i32;
 pub const FsiNamedStreams: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6b6f8ed_6d19_44b4_b539_b159b793a32d);
 pub const FsiStream: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fcd_975b_59be_a960_9a2a262853a5);
 pub const GUID_SMTPSVC_SOURCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b3c0666_e470_11d1_aa67_00c04fa345f6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_SMTPSVC_SOURCE ) , guid : :: windows :: core :: GUID::from_u128(0x1b3c0666_e470_11d1_aa67_00c04fa345f6) , } }
 pub const GUID_SMTP_SOURCE_TYPE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb65c4dc_e468_11d1_aa67_00c04fa345f6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_SMTP_SOURCE_TYPE ) , guid : :: windows :: core :: GUID::from_u128(0xfb65c4dc_e468_11d1_aa67_00c04fa345f6) , } }
 #[doc = "*Required features: 'Win32_Storage_Imapi', 'Win32_System_AddressBook'*"]
 #[cfg(feature = "Win32_System_AddressBook")]
 #[inline]

@@ -593,14 +593,32 @@ impl ::core::default::Default for CERT_CONTEXT_EX {
     }
 }
 pub const CLSID_IImgCtx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3050f3d6_98b5_11cf_bb82_00aa00bdce0b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_IImgCtx ) , guid : :: windows :: core :: GUID::from_u128(0x3050f3d6_98b5_11cf_bb82_00aa00bdce0b) , } }
 pub const CLSID_IisServiceControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8fb8621_588f_11d2_9d61_00c04f79c5fe);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_IisServiceControl ) , guid : :: windows :: core :: GUID::from_u128(0xe8fb8621_588f_11d2_9d61_00c04f79c5fe) , } }
 pub const CLSID_MSAdminBase_W: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9e69610_b80d_11d0_b9b9_00a0c922e750);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_MSAdminBase_W ) , guid : :: windows :: core :: GUID::from_u128(0xa9e69610_b80d_11d0_b9b9_00a0c922e750) , } }
 pub const CLSID_Request: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x920c25d0_25d9_11d0_a55f_00a0c90c2091);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_Request ) , guid : :: windows :: core :: GUID::from_u128(0x920c25d0_25d9_11d0_a55f_00a0c90c2091) , } }
 pub const CLSID_Response: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46e19ba0_25dd_11d0_a55f_00a0c90c2091);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_Response ) , guid : :: windows :: core :: GUID::from_u128(0x46e19ba0_25dd_11d0_a55f_00a0c90c2091) , } }
 pub const CLSID_ScriptingContext: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd97a6da0_a868_11cf_83ae_11b0c90c2bd8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_ScriptingContext ) , guid : :: windows :: core :: GUID::from_u128(0xd97a6da0_a868_11cf_83ae_11b0c90c2bd8) , } }
 pub const CLSID_Server: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa506d160_25e0_11d0_a55f_00a0c90c2091);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_Server ) , guid : :: windows :: core :: GUID::from_u128(0xa506d160_25e0_11d0_a55f_00a0c90c2091) , } }
 pub const CLSID_Session: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x509f8f20_25de_11d0_a55f_00a0c90c2091);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_Session ) , guid : :: windows :: core :: GUID::from_u128(0x509f8f20_25de_11d0_a55f_00a0c90c2091) , } }
 pub const CLSID_WamAdmin: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61738644_f196_11d0_9953_00c04fd919c1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_WamAdmin ) , guid : :: windows :: core :: GUID::from_u128(0x61738644_f196_11d0_9953_00c04fd919c1) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -784,12 +802,26 @@ pub const FTP_PROCESS_TERMINATE_SESSION: FTP_PROCESS_STATUS = 2i32;
 pub const FTP_PROCESS_REJECT_COMMAND: FTP_PROCESS_STATUS = 3i32;
 pub const FtpProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70bdc667_33b2_45f0_ac52_c3ca46f7a656);
 pub const GUID_IIS_ALL_TRACE_PROVIDERS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IIS_ALL_TRACE_PROVIDERS ) , guid : :: windows :: core :: GUID::from_u128(0x00000000_0000_0000_0000_000000000000) , } }
 pub const GUID_IIS_ASPNET_TRACE_PROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaff081fe_0247_4275_9c4e_021f3dc1da35);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IIS_ASPNET_TRACE_PROVIDER ) , guid : :: windows :: core :: GUID::from_u128(0xaff081fe_0247_4275_9c4e_021f3dc1da35) , } }
 pub const GUID_IIS_ASP_TRACE_TRACE_PROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06b94d9a_b15e_456e_a4ef_37c984a2cb4b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IIS_ASP_TRACE_TRACE_PROVIDER ) , guid : :: windows :: core :: GUID::from_u128(0x06b94d9a_b15e_456e_a4ef_37c984a2cb4b) , } }
 pub const GUID_IIS_ISAPI_TRACE_PROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1c2040e_8840_4c31_ba11_9871031a19ea);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IIS_ISAPI_TRACE_PROVIDER ) , guid : :: windows :: core :: GUID::from_u128(0xa1c2040e_8840_4c31_ba11_9871031a19ea) , } }
 pub const GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd55d3bc9_cba9_44df_827e_132d3a4596c2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER ) , guid : :: windows :: core :: GUID::from_u128(0xd55d3bc9_cba9_44df_827e_132d3a4596c2) , } }
 pub const GUID_IIS_WWW_SERVER_TRACE_PROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a2a4e84_4c21_4981_ae10_3fda0d9b0f83);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IIS_WWW_SERVER_TRACE_PROVIDER ) , guid : :: windows :: core :: GUID::from_u128(0x3a2a4e84_4c21_4981_ae10_3fda0d9b0f83) , } }
 pub const GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde4649c9_15e8_4fea_9d85_1cdda520c334);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER ) , guid : :: windows :: core :: GUID::from_u128(0xde4649c9_15e8_4fea_9d85_1cdda520c334) , } }
 #[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -3891,8 +3923,14 @@ pub struct IMSImpExpHelpWVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 pub const LIBID_ASPTypeLibrary: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd97a6da0_a85c_11cf_83ae_00a0c90c2bd8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( LIBID_ASPTypeLibrary ) , guid : :: windows :: core :: GUID::from_u128(0xd97a6da0_a85c_11cf_83ae_00a0c90c2bd8) , } }
 pub const LIBID_IISRSTALib: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8fb8614_588f_11d2_9d61_00c04f79c5fe);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( LIBID_IISRSTALib ) , guid : :: windows :: core :: GUID::from_u128(0xe8fb8614_588f_11d2_9d61_00c04f79c5fe) , } }
 pub const LIBID_WAMREGLib: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29822aa8_f302_11d0_9953_00c04fd919c1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( LIBID_WAMREGLib ) , guid : :: windows :: core :: GUID::from_u128(0x29822aa8_f302_11d0_9953_00c04fd919c1) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

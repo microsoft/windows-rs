@@ -1,5 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CLSID_SoftwareBitmapNativeFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84e65691_8602_4a84_be46_708be9cd4b74);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_SoftwareBitmapNativeFactory ) , guid : :: windows :: core :: GUID::from_u128(0x84e65691_8602_4a84_be46_708be9cd4b74) , } }
 #[doc = "*Required features: 'Win32_System_WinRT_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct ISoftwareBitmapNative(::windows::core::IUnknown);

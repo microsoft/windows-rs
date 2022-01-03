@@ -1093,5 +1093,11 @@ pub const XmlWriterProperty_CompactEmptyElement: XmlWriterProperty = 5i32;
 #[doc = "*Required features: 'Win32_Data_Xml_XmlLite'*"]
 pub const _XmlWriterProperty_Last: XmlWriterProperty = 5i32;
 pub const _IID_IXmlReader: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7279fc81_709d_4095_b63d_69fe4b0d9030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( _IID_IXmlReader ) , guid : :: windows :: core :: GUID::from_u128(0x7279fc81_709d_4095_b63d_69fe4b0d9030) , } }
 pub const _IID_IXmlResolver: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7279fc82_709d_4095_b63d_69fe4b0d9030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( _IID_IXmlResolver ) , guid : :: windows :: core :: GUID::from_u128(0x7279fc82_709d_4095_b63d_69fe4b0d9030) , } }
 pub const _IID_IXmlWriter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7279fc88_709d_4095_b63d_69fe4b0d9030);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( _IID_IXmlWriter ) , guid : :: windows :: core :: GUID::from_u128(0x7279fc88_709d_4095_b63d_69fe4b0d9030) , } }

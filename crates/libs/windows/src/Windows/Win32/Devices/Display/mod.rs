@@ -1409,15 +1409,23 @@ impl ::core::default::Default for DEVINFO {
 #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_Device_ActivityId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVPKEY_Device_ActivityId ) , guid : :: windows :: core :: GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310) , } }
 #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_Device_AdapterLuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVPKEY_Device_AdapterLuid ) , guid : :: windows :: core :: GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310) , } }
 #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_Device_TerminalLuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVPKEY_Device_TerminalLuid ) , guid : :: windows :: core :: GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310) , } }
 #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_IndirectDisplay: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 1u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVPKEY_IndirectDisplay ) , guid : :: windows :: core :: GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310) , } }
 pub type DHPDEV = isize;
 pub type DHSURF = isize;
 #[repr(C)]
@@ -6226,10 +6234,20 @@ pub const GS_8BIT_HANDLES: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub const GS_UNICODE_HANDLES: u32 = 1u32;
 pub const GUID_DEVINTERFACE_DISPLAY_ADAPTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b45201d_f2f2_4f3b_85bb_30ff1f953599);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_DISPLAY_ADAPTER ) , guid : :: windows :: core :: GUID::from_u128(0x5b45201d_f2f2_4f3b_85bb_30ff1f953599) , } }
 pub const GUID_DEVINTERFACE_MONITOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6f07b5f_ee97_4a90_b076_33f57bf4eaa7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_MONITOR ) , guid : :: windows :: core :: GUID::from_u128(0xe6f07b5f_ee97_4a90_b076_33f57bf4eaa7) , } }
 pub const GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ad9e4f0_f88d_4360_bab9_4c2d55e564cd);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL ) , guid : :: windows :: core :: GUID::from_u128(0x1ad9e4f0_f88d_4360_bab9_4c2d55e564cd) , } }
 pub const GUID_DISPLAY_DEVICE_ARRIVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ca05180_a699_450a_9a0c_de4fbe3ddd89);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DISPLAY_DEVICE_ARRIVAL ) , guid : :: windows :: core :: GUID::from_u128(0x1ca05180_a699_450a_9a0c_de4fbe3ddd89) , } }
 pub const GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf196c02f_f86f_4f9a_aa15_e9cebdfe3b96);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED ) , guid : :: windows :: core :: GUID::from_u128(0xf196c02f_f86f_4f9a_aa15_e9cebdfe3b96) , } }
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub const GX_GENERAL: i32 = 3i32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]

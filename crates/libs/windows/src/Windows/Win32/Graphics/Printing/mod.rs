@@ -1336,11 +1336,23 @@ pub const CHKBOXS_OFF_ON: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const CHKBOXS_OFF_PDATA: u32 = 5u32;
 pub const CLSID_OEMPTPROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91723892_45d2_48e2_9ec9_562379daf992);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_OEMPTPROVIDER ) , guid : :: windows :: core :: GUID::from_u128(0x91723892_45d2_48e2_9ec9_562379daf992) , } }
 pub const CLSID_OEMRENDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d6abf26_9f38_11d1_882a_00c04fb961ec);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_OEMRENDER ) , guid : :: windows :: core :: GUID::from_u128(0x6d6abf26_9f38_11d1_882a_00c04fb961ec) , } }
 pub const CLSID_OEMUI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabce80d7_9f46_11d1_882a_00c04fb961ec);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_OEMUI ) , guid : :: windows :: core :: GUID::from_u128(0xabce80d7_9f46_11d1_882a_00c04fb961ec) , } }
 pub const CLSID_OEMUIMXDC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e144300_5b43_4288_932a_5e4dd6d82bed);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_OEMUIMXDC ) , guid : :: windows :: core :: GUID::from_u128(0x4e144300_5b43_4288_932a_5e4dd6d82bed) , } }
 pub const CLSID_PTPROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46ac151b_8490_4531_96cc_55bf2bf19e11);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_PTPROVIDER ) , guid : :: windows :: core :: GUID::from_u128(0x46ac151b_8490_4531_96cc_55bf2bf19e11) , } }
 pub const CLSID_XPSRASTERIZER_FACTORY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x503e79bf_1d09_4764_9d72_1eb0c65967c6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_XPSRASTERIZER_FACTORY ) , guid : :: windows :: core :: GUID::from_u128(0x503e79bf_1d09_4764_9d72_1eb0c65967c6) , } }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const COLOR_OPTIMIZATION: u32 = 1u32;
 #[repr(C)]
@@ -5426,6 +5438,8 @@ pub const FG_CANCHANGE: u32 = 128u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const FILL_WITH_DEFAULTS: u32 = 1u32;
 pub const FMTID_PrinterPropertyBag: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75f9adca_097d_45c3_a6e4_bab29e276f3e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( FMTID_PrinterPropertyBag ) , guid : :: windows :: core :: GUID::from_u128(0x75f9adca_097d_45c3_a6e4_bab29e276f3e) , } }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const FNT_INFO_CURRENTFONTID: u32 = 10u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
@@ -5795,7 +5809,11 @@ impl ::core::default::Default for GLYPHRUN {
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const GPD_OEMCUSTOMDATA: u32 = 1u32;
 pub const GUID_DEVINTERFACE_IPPUSB_PRINT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2f40381_f46d_4e51_bce7_62de6cf2d098);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_IPPUSB_PRINT ) , guid : :: windows :: core :: GUID::from_u128(0xf2f40381_f46d_4e51_bce7_62de6cf2d098) , } }
 pub const GUID_DEVINTERFACE_USBPRINT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28d78fad_5a12_11d1_ae5b_0000f803a8c2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_USBPRINT ) , guid : :: windows :: core :: GUID::from_u128(0x28d78fad_5a12_11d1_ae5b_0000f803a8c2) , } }
 #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -19471,6 +19489,8 @@ pub const NOTIFICATION_CONFIG_EVENT_TRIGGER: NOTIFICATION_CONFIG_FLAGS = 4i32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const NOTIFICATION_CONFIG_ASYNC_CHANNEL: NOTIFICATION_CONFIG_FLAGS = 8i32;
 pub const NOTIFICATION_RELEASE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba9a5027_a70e_4ae7_9b7d_eb3e06ad4157);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( NOTIFICATION_RELEASE ) , guid : :: windows :: core :: GUID::from_u128(0xba9a5027_a70e_4ae7_9b7d_eb3e06ad4157) , } }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const NO_BORDER_PRINT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
@@ -21296,8 +21316,14 @@ pub const PRINTER_EVENT_FLAG_NO_UI: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const PRINTER_EVENT_INITIALIZE: u32 = 3u32;
 pub const PRINTER_EXTENSION_DETAILEDREASON_PRINTER_STATUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d5a1704_dfd1_4181_8eee_815c86edad31);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PRINTER_EXTENSION_DETAILEDREASON_PRINTER_STATUS ) , guid : :: windows :: core :: GUID::from_u128(0x5d5a1704_dfd1_4181_8eee_815c86edad31) , } }
 pub const PRINTER_EXTENSION_REASON_DRIVER_EVENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23bb1328_63de_4293_915b_a6a23d929acb);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PRINTER_EXTENSION_REASON_DRIVER_EVENT ) , guid : :: windows :: core :: GUID::from_u128(0x23bb1328_63de_4293_915b_a6a23d929acb) , } }
 pub const PRINTER_EXTENSION_REASON_PRINT_PREFERENCES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec8f261f_267c_469f_b5d6_3933023c29cc);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PRINTER_EXTENSION_REASON_PRINT_PREFERENCES ) , guid : :: windows :: core :: GUID::from_u128(0xec8f261f_267c_469f_b5d6_3933023c29cc) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23020,6 +23046,8 @@ impl ::core::default::Default for PRINTPROVIDOR {
     }
 }
 pub const PRINT_APP_BIDI_NOTIFY_CHANNEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2abad223_b994_4aca_82fc_4571b1b585ac);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PRINT_APP_BIDI_NOTIFY_CHANNEL ) , guid : :: windows :: core :: GUID::from_u128(0x2abad223_b994_4aca_82fc_4571b1b585ac) , } }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub type PRINT_EXECUTION_CONTEXT = i32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
@@ -23103,6 +23131,8 @@ impl ::core::default::Default for PRINT_FEATURE_OPTION {
     }
 }
 pub const PRINT_PORT_MONITOR_NOTIFY_CHANNEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25df3b0e_74a9_47f5_80ce_79b4b1eb5c58);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PRINT_PORT_MONITOR_NOTIFY_CHANNEL ) , guid : :: windows :: core :: GUID::from_u128(0x25df3b0e_74a9_47f5_80ce_79b4b1eb5c58) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]

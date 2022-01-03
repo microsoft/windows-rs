@@ -1291,30 +1291,48 @@ pub const PHOTOACQ_RUN_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_CameraSequenceNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_PhotoAcquire_CameraSequenceNumber ) , guid : :: windows :: core :: GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a) , } }
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_DuplicateDetectionID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_PhotoAcquire_DuplicateDetectionID ) , guid : :: windows :: core :: GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a) , } }
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_FinalFilename: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_PhotoAcquire_FinalFilename ) , guid : :: windows :: core :: GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a) , } }
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_GroupTag: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_PhotoAcquire_GroupTag ) , guid : :: windows :: core :: GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a) , } }
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_IntermediateFile: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_PhotoAcquire_IntermediateFile ) , guid : :: windows :: core :: GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a) , } }
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_OriginalFilename: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_PhotoAcquire_OriginalFilename ) , guid : :: windows :: core :: GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a) , } }
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_RelativePathname: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_PhotoAcquire_RelativePathname ) , guid : :: windows :: core :: GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a) , } }
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_SkipImport: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_PhotoAcquire_SkipImport ) , guid : :: windows :: core :: GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a) , } }
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_TransferResult: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_PhotoAcquire_TransferResult ) , guid : :: windows :: core :: GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a) , } }
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub type PROGRESS_DIALOG_CHECKBOX_ID = i32;
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]

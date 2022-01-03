@@ -1,10 +1,22 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CLSID_AutoScrollBehavior: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26126a51_3c70_4c9a_aec2_948849eeb093);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_AutoScrollBehavior ) , guid : :: windows :: core :: GUID::from_u128(0x26126a51_3c70_4c9a_aec2_948849eeb093) , } }
 pub const CLSID_DeferContactService: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7b67cf4_84bb_434e_86ae_6592bbc9abd9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_DeferContactService ) , guid : :: windows :: core :: GUID::from_u128(0xd7b67cf4_84bb_434e_86ae_6592bbc9abd9) , } }
 pub const CLSID_DragDropConfigurationBehavior: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09b01b3e_ba6c_454d_82e8_95e352329f23);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_DragDropConfigurationBehavior ) , guid : :: windows :: core :: GUID::from_u128(0x09b01b3e_ba6c_454d_82e8_95e352329f23) , } }
 pub const CLSID_HorizontalIndicatorContent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7d18cf5_3ec7_44d5_a76b_3770f3cf903d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_HorizontalIndicatorContent ) , guid : :: windows :: core :: GUID::from_u128(0xe7d18cf5_3ec7_44d5_a76b_3770f3cf903d) , } }
 pub const CLSID_VerticalIndicatorContent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa10b5f17_afe0_4aa2_91e9_3e7001d2e6b4);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_VerticalIndicatorContent ) , guid : :: windows :: core :: GUID::from_u128(0xa10b5f17_afe0_4aa2_91e9_3e7001d2e6b4) , } }
 pub const CLSID_VirtualViewportContent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3206a19a_86f0_4cb4_a7f3_16e3b7e2d852);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_VirtualViewportContent ) , guid : :: windows :: core :: GUID::from_u128(0x3206a19a_86f0_4cb4_a7f3_16e3b7e2d852) , } }
 pub const DCompManipulationCompositor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79dea627_a08a_43ac_8ef5_6900b9299126);
 #[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub type DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION = i32;

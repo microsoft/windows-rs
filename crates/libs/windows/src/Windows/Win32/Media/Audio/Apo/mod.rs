@@ -1948,95 +1948,159 @@ pub struct IAudioSystemEffectsCustomFormatsVtbl(
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_APO_SWFallback_ProcessingModes: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 13u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_APO_SWFallback_ProcessingModes ) , guid : :: windows :: core :: GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CompositeFX_EndpointEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 15u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_CompositeFX_EndpointEffectClsid ) , guid : :: windows :: core :: GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CompositeFX_KeywordDetector_EndpointEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 18u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_CompositeFX_KeywordDetector_EndpointEffectClsid ) , guid : :: windows :: core :: GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CompositeFX_KeywordDetector_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 17u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_CompositeFX_KeywordDetector_ModeEffectClsid ) , guid : :: windows :: core :: GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CompositeFX_KeywordDetector_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 16u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_CompositeFX_KeywordDetector_StreamEffectClsid ) , guid : :: windows :: core :: GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CompositeFX_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 14u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_CompositeFX_ModeEffectClsid ) , guid : :: windows :: core :: GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CompositeFX_Offload_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 20u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_CompositeFX_Offload_ModeEffectClsid ) , guid : :: windows :: core :: GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CompositeFX_Offload_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 19u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_CompositeFX_Offload_StreamEffectClsid ) , guid : :: windows :: core :: GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CompositeFX_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 13u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_CompositeFX_StreamEffectClsid ) , guid : :: windows :: core :: GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_EFX_KeywordDetector_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_EFX_KeywordDetector_ProcessingModes_Supported_For_Streaming ) , guid : :: windows :: core :: GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_EFX_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_EFX_ProcessingModes_Supported_For_Streaming ) , guid : :: windows :: core :: GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_Association: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 0u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_FX_Association ) , guid : :: windows :: core :: GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_EndpointEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 7u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_FX_EndpointEffectClsid ) , guid : :: windows :: core :: GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_FriendlyName: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 4u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_FX_FriendlyName ) , guid : :: windows :: core :: GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_KeywordDetector_EndpointEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 10u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_FX_KeywordDetector_EndpointEffectClsid ) , guid : :: windows :: core :: GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_KeywordDetector_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_FX_KeywordDetector_ModeEffectClsid ) , guid : :: windows :: core :: GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_KeywordDetector_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_FX_KeywordDetector_StreamEffectClsid ) , guid : :: windows :: core :: GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_FX_ModeEffectClsid ) , guid : :: windows :: core :: GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_Offload_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 12u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_FX_Offload_ModeEffectClsid ) , guid : :: windows :: core :: GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_Offload_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 11u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_FX_Offload_StreamEffectClsid ) , guid : :: windows :: core :: GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_PostMixEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_FX_PostMixEffectClsid ) , guid : :: windows :: core :: GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_PreMixEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 1u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_FX_PreMixEffectClsid ) , guid : :: windows :: core :: GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_FX_StreamEffectClsid ) , guid : :: windows :: core :: GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_UserInterfaceClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_FX_UserInterfaceClsid ) , guid : :: windows :: core :: GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_MFX_KeywordDetector_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 9u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_MFX_KeywordDetector_ProcessingModes_Supported_For_Streaming ) , guid : :: windows :: core :: GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_MFX_Offload_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 12u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_MFX_Offload_ProcessingModes_Supported_For_Streaming ) , guid : :: windows :: core :: GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_MFX_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 6u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_MFX_ProcessingModes_Supported_For_Streaming ) , guid : :: windows :: core :: GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_SFX_KeywordDetector_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 8u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_SFX_KeywordDetector_ProcessingModes_Supported_For_Streaming ) , guid : :: windows :: core :: GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_SFX_Offload_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 11u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_SFX_Offload_ProcessingModes_Supported_For_Streaming ) , guid : :: windows :: core :: GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b) , } }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_SFX_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 5u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( PKEY_SFX_ProcessingModes_Supported_For_Streaming ) , guid : :: windows :: core :: GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b) , } }
 pub const SID_AudioProcessingObjectLoggingService: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b8008af_09f9_456e_a173_bdb58499bce7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SID_AudioProcessingObjectLoggingService ) , guid : :: windows :: core :: GUID::from_u128(0x8b8008af_09f9_456e_a173_bdb58499bce7) , } }
 pub const SID_AudioProcessingObjectRTQueue: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x458c1a1f_6899_4c12_99ac_e2e6ac253104);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( SID_AudioProcessingObjectRTQueue ) , guid : :: windows :: core :: GUID::from_u128(0x458c1a1f_6899_4c12_99ac_e2e6ac253104) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub struct UNCOMPRESSEDAUDIOFORMAT {

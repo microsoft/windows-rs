@@ -195,12 +195,26 @@ impl ::core::default::Default for CANDIDATELIST {
     }
 }
 pub const CATID_MSIME_IImePadApplet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7566cad1_4ec9_4478_9fe9_8ed766619edf);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_MSIME_IImePadApplet ) , guid : :: windows :: core :: GUID::from_u128(0x7566cad1_4ec9_4478_9fe9_8ed766619edf) , } }
 pub const CATID_MSIME_IImePadApplet1000: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe081e1d6_2389_43cb_b66f_609f823d9f9c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_MSIME_IImePadApplet1000 ) , guid : :: windows :: core :: GUID::from_u128(0xe081e1d6_2389_43cb_b66f_609f823d9f9c) , } }
 pub const CATID_MSIME_IImePadApplet1200: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa47fb5fc_7d15_4223_a789_b781bf9ae667);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_MSIME_IImePadApplet1200 ) , guid : :: windows :: core :: GUID::from_u128(0xa47fb5fc_7d15_4223_a789_b781bf9ae667) , } }
 pub const CATID_MSIME_IImePadApplet900: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaae51bf_5e5b_4a1d_8de1_17c1d9e1728d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_MSIME_IImePadApplet900 ) , guid : :: windows :: core :: GUID::from_u128(0xfaae51bf_5e5b_4a1d_8de1_17c1d9e1728d) , } }
 pub const CATID_MSIME_IImePadApplet_VER7: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a0f8e31_c3ee_11d1_afef_00805f0c8b6d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_MSIME_IImePadApplet_VER7 ) , guid : :: windows :: core :: GUID::from_u128(0x4a0f8e31_c3ee_11d1_afef_00805f0c8b6d) , } }
 pub const CATID_MSIME_IImePadApplet_VER80: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56f7a792_fef1_11d3_8463_00c04f7a06e5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_MSIME_IImePadApplet_VER80 ) , guid : :: windows :: core :: GUID::from_u128(0x56f7a792_fef1_11d3_8463_00c04f7a06e5) , } }
 pub const CATID_MSIME_IImePadApplet_VER81: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x656520b0_bb88_11d4_84c0_00c04f7a06e5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_MSIME_IImePadApplet_VER81 ) , guid : :: windows :: core :: GUID::from_u128(0x656520b0_bb88_11d4_84c0_00c04f7a06e5) , } }
 pub const CActiveIMM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4955dd33_b159_11d0_8fcf_00aa006bcc59);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const CFS_CANDIDATEPOS: u32 = 64u32;
@@ -221,8 +235,14 @@ pub const CHARINFO_CHARID_MASK: u32 = 65535u32;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const CHARINFO_FEID_MASK: u32 = 15728640u32;
 pub const CLSID_ImePlugInDictDictionaryList_CHS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bf0129b_5bef_4de4_9b0b_5edb66ac2fa6);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_ImePlugInDictDictionaryList_CHS ) , guid : :: windows :: core :: GUID::from_u128(0x7bf0129b_5bef_4de4_9b0b_5edb66ac2fa6) , } }
 pub const CLSID_ImePlugInDictDictionaryList_JPN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fe2776b_b0f9_4396_b5fc_e9d4cf1ec195);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_ImePlugInDictDictionaryList_JPN ) , guid : :: windows :: core :: GUID::from_u128(0x4fe2776b_b0f9_4396_b5fc_e9d4cf1ec195) , } }
 pub const CLSID_VERSION_DEPENDENT_MSIME_JAPANESE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a91029e_aa49_471b_aee7_7d332785660d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_VERSION_DEPENDENT_MSIME_JAPANESE ) , guid : :: windows :: core :: GUID::from_u128(0x6a91029e_aa49_471b_aee7_7d332785660d) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

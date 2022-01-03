@@ -2536,59 +2536,167 @@ impl ::core::default::Default for EapUsernamePasswordCredential {
 #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
 pub const FACILITY_EAP_MESSAGE: u32 = 2114u32;
 pub const GUID_EapHost_Cause_CertStoreInaccessible: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000004);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_CertStoreInaccessible ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000004) , } }
 pub const GUID_EapHost_Cause_EapNegotiationFailed: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_EapNegotiationFailed ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001c) , } }
 pub const GUID_EapHost_Cause_EapQecInaccessible: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000312);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_EapQecInaccessible ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000312) , } }
 pub const GUID_EapHost_Cause_Generic_AuthFailure: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000104);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_Generic_AuthFailure ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000104) , } }
 pub const GUID_EapHost_Cause_IdentityUnknown: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000204);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_IdentityUnknown ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000204) , } }
 pub const GUID_EapHost_Cause_MethodDLLNotFound: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000001);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_MethodDLLNotFound ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000001) , } }
 pub const GUID_EapHost_Cause_MethodDoesNotSupportOperation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_MethodDoesNotSupportOperation ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001e) , } }
 pub const GUID_EapHost_Cause_Method_Config_Does_Not_Support_Sso: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda18bd32_004f_41fa_ae08_0bc85e5845ac);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_Method_Config_Does_Not_Support_Sso ) , guid : :: windows :: core :: GUID::from_u128(0xda18bd32_004f_41fa_ae08_0bc85e5845ac) , } }
 pub const GUID_EapHost_Cause_No_SmartCardReader_Found: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000002b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_No_SmartCardReader_Found ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000002b) , } }
 pub const GUID_EapHost_Cause_Server_CertExpired: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000005);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_Server_CertExpired ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000005) , } }
 pub const GUID_EapHost_Cause_Server_CertInvalid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000006);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_Server_CertInvalid ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000006) , } }
 pub const GUID_EapHost_Cause_Server_CertNotFound: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000007);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_Server_CertNotFound ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000007) , } }
 pub const GUID_EapHost_Cause_Server_CertOtherError: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000108);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_Server_CertOtherError ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000108) , } }
 pub const GUID_EapHost_Cause_Server_CertRevoked: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000008);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_Server_CertRevoked ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000008) , } }
 pub const GUID_EapHost_Cause_Server_Root_CertNameRequired: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000012);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_Server_Root_CertNameRequired ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000012) , } }
 pub const GUID_EapHost_Cause_Server_Root_CertNotFound: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000112);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_Server_Root_CertNotFound ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000112) , } }
 pub const GUID_EapHost_Cause_SimNotValid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000304);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_SimNotValid ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000304) , } }
 pub const GUID_EapHost_Cause_ThirdPartyMethod_Host_Reset: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000212);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_ThirdPartyMethod_Host_Reset ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000212) , } }
 pub const GUID_EapHost_Cause_User_Account_OtherProblem: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000010e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_User_Account_OtherProblem ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000010e) , } }
 pub const GUID_EapHost_Cause_User_CertExpired: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000009);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_User_CertExpired ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000009) , } }
 pub const GUID_EapHost_Cause_User_CertInvalid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000000a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_User_CertInvalid ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000000a) , } }
 pub const GUID_EapHost_Cause_User_CertNotFound: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000000b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_User_CertNotFound ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000000b) , } }
 pub const GUID_EapHost_Cause_User_CertOtherError: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000000c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_User_CertOtherError ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000000c) , } }
 pub const GUID_EapHost_Cause_User_CertRejected: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000000d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_User_CertRejected ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000000d) , } }
 pub const GUID_EapHost_Cause_User_CertRevoked: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000000e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_User_CertRevoked ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000000e) , } }
 pub const GUID_EapHost_Cause_User_CredsRejected: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000020e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_User_CredsRejected ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000020e) , } }
 pub const GUID_EapHost_Cause_User_Root_CertExpired: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000000f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_User_Root_CertExpired ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000000f) , } }
 pub const GUID_EapHost_Cause_User_Root_CertInvalid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000010);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_User_Root_CertInvalid ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000010) , } }
 pub const GUID_EapHost_Cause_User_Root_CertNotFound: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000011);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_User_Root_CertNotFound ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000011) , } }
 pub const GUID_EapHost_Cause_XmlMalformed: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Cause_XmlMalformed ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001d) , } }
 pub const GUID_EapHost_Default: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Default ) , guid : :: windows :: core :: GUID::from_u128(0x00000000_0000_0000_0000_000000000000) , } }
 pub const GUID_EapHost_Help_ObtainingCerts: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf535eea3_1bdd_46ca_a2fc_a6655939b7e8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Help_ObtainingCerts ) , guid : :: windows :: core :: GUID::from_u128(0xf535eea3_1bdd_46ca_a2fc_a6655939b7e8) , } }
 pub const GUID_EapHost_Help_Troubleshooting: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33307acf_0698_41ba_b014_ea0a2eb8d0a8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Help_Troubleshooting ) , guid : :: windows :: core :: GUID::from_u128(0x33307acf_0698_41ba_b014_ea0a2eb8d0a8) , } }
 pub const GUID_EapHost_Repair_ContactAdmin_AuthFailure: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Repair_ContactAdmin_AuthFailure ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001f) , } }
 pub const GUID_EapHost_Repair_ContactAdmin_CertNameAbsent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000029);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Repair_ContactAdmin_CertNameAbsent ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000029) , } }
 pub const GUID_EapHost_Repair_ContactAdmin_CertStoreInaccessible: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000024);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Repair_ContactAdmin_CertStoreInaccessible ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000024) , } }
 pub const GUID_EapHost_Repair_ContactAdmin_IdentityUnknown: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000020);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Repair_ContactAdmin_IdentityUnknown ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000020) , } }
 pub const GUID_EapHost_Repair_ContactAdmin_InvalidUserAccount: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000025);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Repair_ContactAdmin_InvalidUserAccount ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000025) , } }
 pub const GUID_EapHost_Repair_ContactAdmin_InvalidUserCert: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000002c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Repair_ContactAdmin_InvalidUserCert ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000002c) , } }
 pub const GUID_EapHost_Repair_ContactAdmin_MethodNotFound: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000022);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Repair_ContactAdmin_MethodNotFound ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000022) , } }
 pub const GUID_EapHost_Repair_ContactAdmin_NegotiationFailed: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000021);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Repair_ContactAdmin_NegotiationFailed ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000021) , } }
 pub const GUID_EapHost_Repair_ContactAdmin_NoSmartCardReader: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000002a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Repair_ContactAdmin_NoSmartCardReader ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000002a) , } }
 pub const GUID_EapHost_Repair_ContactAdmin_RootCertInvalid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000026);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Repair_ContactAdmin_RootCertInvalid ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000026) , } }
 pub const GUID_EapHost_Repair_ContactAdmin_RootCertNotFound: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000027);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Repair_ContactAdmin_RootCertNotFound ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000027) , } }
 pub const GUID_EapHost_Repair_ContactAdmin_RootExpired: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000028);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Repair_ContactAdmin_RootExpired ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000028) , } }
 pub const GUID_EapHost_Repair_ContactSysadmin: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000002);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Repair_ContactSysadmin ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000002) , } }
 pub const GUID_EapHost_Repair_Method_Not_Support_Sso: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000002d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Repair_Method_Not_Support_Sso ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000002d) , } }
 pub const GUID_EapHost_Repair_No_ValidSim_Found: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000002e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Repair_No_ValidSim_Found ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000002e) , } }
 pub const GUID_EapHost_Repair_RestartNap: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000023);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Repair_RestartNap ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000023) , } }
 pub const GUID_EapHost_Repair_Retry_Authentication: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000011b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Repair_Retry_Authentication ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000011b) , } }
 pub const GUID_EapHost_Repair_Server_ClientSelectServerCert: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000018);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Repair_Server_ClientSelectServerCert ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000018) , } }
 pub const GUID_EapHost_Repair_User_AuthFailure: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000019);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Repair_User_AuthFailure ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000019) , } }
 pub const GUID_EapHost_Repair_User_GetNewCert: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Repair_User_GetNewCert ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001a) , } }
 pub const GUID_EapHost_Repair_User_SelectValidCert: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_EapHost_Repair_User_SelectValidCert ) , guid : :: windows :: core :: GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001b) , } }
 #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
 #[repr(transparent)]
 pub struct IAccountingProviderConfig(::windows::core::IUnknown);

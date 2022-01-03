@@ -1288,3 +1288,5 @@ pub const IDENTITY_CONNECTED: IdentityUpdateEvent = 64u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const IDENTITY_DISCONNECTED: IdentityUpdateEvent = 128u32;
 pub const OID_OAssociatedIdentityProviderObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98c5a3dd_db68_4f1a_8d2b_9079cdfeaf61);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( OID_OAssociatedIdentityProviderObject ) , guid : :: windows :: core :: GUID::from_u128(0x98c5a3dd_db68_4f1a_8d2b_9079cdfeaf61) , } }

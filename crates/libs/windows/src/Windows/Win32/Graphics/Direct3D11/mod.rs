@@ -138,6 +138,8 @@ impl ::core::default::Default for D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRY
     }
 }
 pub const D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6346cc54_2cfc_4ad4_8224_d15837de7700);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION ) , guid : :: windows :: core :: GUID::from_u128(0x6346cc54_2cfc_4ad4_8224_d15837de7700) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -180,7 +182,11 @@ impl ::core::default::Default for D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_I
     }
 }
 pub const D3D11_AUTHENTICATED_CONFIGURE_ENCRYPTION_WHEN_ACCESSIBLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41fff286_6ae0_4d43_9d55_a46e9efd158a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_AUTHENTICATED_CONFIGURE_ENCRYPTION_WHEN_ACCESSIBLE ) , guid : :: windows :: core :: GUID::from_u128(0x41fff286_6ae0_4d43_9d55_a46e9efd158a) , } }
 pub const D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06114bdb_3523_470a_8dca_fbc2845154f0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE ) , guid : :: windows :: core :: GUID::from_u128(0x06114bdb_3523_470a_8dca_fbc2845154f0) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -305,6 +311,8 @@ impl ::core::default::Default for D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {
     }
 }
 pub const D3D11_AUTHENTICATED_CONFIGURE_PROTECTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50455658_3f47_4362_bf99_bfdfcde9ed29);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_AUTHENTICATED_CONFIGURE_PROTECTION ) , guid : :: windows :: core :: GUID::from_u128(0x50455658_3f47_4362_bf99_bfdfcde9ed29) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -339,6 +347,8 @@ impl ::core::default::Default for D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT
     }
 }
 pub const D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0772d047_1b40_48e8_9ca6_b5f510de9f01);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE ) , guid : :: windows :: core :: GUID::from_u128(0x0772d047_1b40_48e8_9ca6_b5f510de9f01) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -445,6 +455,8 @@ impl ::core::default::Default for D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {
     }
 }
 pub const D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ATTRIBUTES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6214d9d2_432c_4abb_9fce_216eea269e3b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ATTRIBUTES ) , guid : :: windows :: core :: GUID::from_u128(0x6214d9d2_432c_4abb_9fce_216eea269e3b) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -605,6 +617,8 @@ impl ::core::default::Default for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT
     }
 }
 pub const D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc1b18a5_b1fb_42ab_bd94_b5828b4bf7be);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE ) , guid : :: windows :: core :: GUID::from_u128(0xbc1b18a5_b1fb_42ab_bd94_b5828b4bf7be) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -645,6 +659,8 @@ impl ::core::default::Default for D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT 
     }
 }
 pub const D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2634499e_d018_4d74_ac17_7f724059528d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION ) , guid : :: windows :: core :: GUID::from_u128(0x2634499e_d018_4d74_ac17_7f724059528d) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -765,7 +781,11 @@ impl ::core::default::Default for D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILIT
     }
 }
 pub const D3D11_AUTHENTICATED_QUERY_CURRENT_ENCRYPTION_WHEN_ACCESSIBLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec1791c7_dad3_4f15_9ec3_faa93d60d4f0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_AUTHENTICATED_QUERY_CURRENT_ENCRYPTION_WHEN_ACCESSIBLE ) , guid : :: windows :: core :: GUID::from_u128(0xec1791c7_dad3_4f15_9ec3_faa93d60d4f0) , } }
 pub const D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec1c539d_8cff_4e2a_bcc4_f5692f99f480);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE ) , guid : :: windows :: core :: GUID::from_u128(0xec1c539d_8cff_4e2a_bcc4_f5692f99f480) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -806,7 +826,11 @@ impl ::core::default::Default for D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT
     }
 }
 pub const D3D11_AUTHENTICATED_QUERY_ENCRYPTION_WHEN_ACCESSIBLE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf83a5958_e986_4bda_beb0_411f6a7a01b7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_AUTHENTICATED_QUERY_ENCRYPTION_WHEN_ACCESSIBLE_GUID ) , guid : :: windows :: core :: GUID::from_u128(0xf83a5958_e986_4bda_beb0_411f6a7a01b7) , } }
 pub const D3D11_AUTHENTICATED_QUERY_ENCRYPTION_WHEN_ACCESSIBLE_GUID_COUNT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb30f7066_203c_4b07_93fc_ceaafd61241e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_AUTHENTICATED_QUERY_ENCRYPTION_WHEN_ACCESSIBLE_GUID_COUNT ) , guid : :: windows :: core :: GUID::from_u128(0xb30f7066_203c_4b07_93fc_ceaafd61241e) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -890,7 +914,11 @@ impl ::core::default::Default for D3D11_AUTHENTICATED_QUERY_OUTPUT {
     }
 }
 pub const D3D11_AUTHENTICATED_QUERY_OUTPUT_ID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x839ddca3_9b4e_41e4_b053_892bd2a11ee7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_AUTHENTICATED_QUERY_OUTPUT_ID ) , guid : :: windows :: core :: GUID::from_u128(0x839ddca3_9b4e_41e4_b053_892bd2a11ee7) , } }
 pub const D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c042b5e_8c07_46d5_aabe_8f75cbad4c31);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT ) , guid : :: windows :: core :: GUID::from_u128(0x2c042b5e_8c07_46d5_aabe_8f75cbad4c31) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1056,6 +1084,8 @@ impl ::core::default::Default for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT {
     }
 }
 pub const D3D11_AUTHENTICATED_QUERY_PROTECTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa84eb584_c495_48aa_b94d_8bd2d6fbce05);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_AUTHENTICATED_QUERY_PROTECTION ) , guid : :: windows :: core :: GUID::from_u128(0xa84eb584_c495_48aa_b94d_8bd2d6fbce05) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1090,7 +1120,11 @@ impl ::core::default::Default for D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
     }
 }
 pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x649bbadb_f0f4_4639_a15b_24393fc3abac);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS ) , guid : :: windows :: core :: GUID::from_u128(0x649bbadb_f0f4_4639_a15b_24393fc3abac) , } }
 pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0db207b3_9450_46a6_82de_1b96d44f9cf2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT ) , guid : :: windows :: core :: GUID::from_u128(0x0db207b3_9450_46a6_82de_1b96d44f9cf2) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1211,6 +1245,8 @@ impl ::core::default::Default for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RE
     }
 }
 pub const D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x012f0bd6_e662_4474_befd_aa53e5143c6d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT ) , guid : :: windows :: core :: GUID::from_u128(0x012f0bd6_e662_4474_befd_aa53e5143c6d) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2103,6 +2139,8 @@ pub const D3D11_CRYPTO_SESSION_STATUS_KEY_LOST: D3D11_CRYPTO_SESSION_STATUS = 1i
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_CRYPTO_SESSION_STATUS_KEY_AND_CONTENT_LOST: D3D11_CRYPTO_SESSION_STATUS = 2i32;
 pub const D3D11_CRYPTO_TYPE_AES128_CTR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b6bd711_4f74_41c9_9e7b_0be2d7d93b4f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_CRYPTO_TYPE_AES128_CTR ) , guid : :: windows :: core :: GUID::from_u128(0x9b6bd711_4f74_41c9_9e7b_0be2d7d93b4f) , } }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_CS_4_X_BUCKET00_MAX_BYTES_TGSM_WRITABLE_PER_THREAD: u32 = 256u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
@@ -2244,46 +2282,128 @@ pub const D3D11_DEBUG_FEATURE_NEVER_DISCARD_OFFERED_RESOURCE: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_DEBUG_FEATURE_PRESENT_PER_RENDER_OP: u32 = 4u32;
 pub const D3D11_DECODER_BITSTREAM_ENCRYPTION_TYPE_CBCS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x422d9319_9d21_4bb7_9371_faf5a82c3e04);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_BITSTREAM_ENCRYPTION_TYPE_CBCS ) , guid : :: windows :: core :: GUID::from_u128(0x422d9319_9d21_4bb7_9371_faf5a82c3e04) , } }
 pub const D3D11_DECODER_BITSTREAM_ENCRYPTION_TYPE_CENC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0405235_c13d_44f2_9ae5_dd48e08e5b67);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_BITSTREAM_ENCRYPTION_TYPE_CENC ) , guid : :: windows :: core :: GUID::from_u128(0xb0405235_c13d_44f2_9ae5_dd48e08e5b67) , } }
 pub const D3D11_DECODER_ENCRYPTION_HW_CENC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89d6ac4f_09f2_4229_b2cd_37740a6dfd81);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_ENCRYPTION_HW_CENC ) , guid : :: windows :: core :: GUID::from_u128(0x89d6ac4f_09f2_4229_b2cd_37740a6dfd81) , } }
 pub const D3D11_DECODER_PROFILE_AV1_VLD_12BIT_PROFILE2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17127009_a00f_4ce1_994e_bf4081f6f3f0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_AV1_VLD_12BIT_PROFILE2 ) , guid : :: windows :: core :: GUID::from_u128(0x17127009_a00f_4ce1_994e_bf4081f6f3f0) , } }
 pub const D3D11_DECODER_PROFILE_AV1_VLD_12BIT_PROFILE2_420: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d80bed6_9cac_4835_9e91_327bbc4f9ee8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_AV1_VLD_12BIT_PROFILE2_420 ) , guid : :: windows :: core :: GUID::from_u128(0x2d80bed6_9cac_4835_9e91_327bbc4f9ee8) , } }
 pub const D3D11_DECODER_PROFILE_AV1_VLD_PROFILE0: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8be4ccb_cf53_46ba_8d59_d6b8a6da5d2a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_AV1_VLD_PROFILE0 ) , guid : :: windows :: core :: GUID::from_u128(0xb8be4ccb_cf53_46ba_8d59_d6b8a6da5d2a) , } }
 pub const D3D11_DECODER_PROFILE_AV1_VLD_PROFILE1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6936ff0f_45b1_4163_9cc1_646ef6946108);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_AV1_VLD_PROFILE1 ) , guid : :: windows :: core :: GUID::from_u128(0x6936ff0f_45b1_4163_9cc1_646ef6946108) , } }
 pub const D3D11_DECODER_PROFILE_AV1_VLD_PROFILE2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c5f2aa1_e541_4089_bb7b_98110a19d7c8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_AV1_VLD_PROFILE2 ) , guid : :: windows :: core :: GUID::from_u128(0x0c5f2aa1_e541_4089_bb7b_98110a19d7c8) , } }
 pub const D3D11_DECODER_PROFILE_H264_IDCT_FGT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81be67_a0c7_11d3_b984_00c04f2e73c5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_H264_IDCT_FGT ) , guid : :: windows :: core :: GUID::from_u128(0x1b81be67_a0c7_11d3_b984_00c04f2e73c5) , } }
 pub const D3D11_DECODER_PROFILE_H264_IDCT_NOFGT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81be66_a0c7_11d3_b984_00c04f2e73c5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_H264_IDCT_NOFGT ) , guid : :: windows :: core :: GUID::from_u128(0x1b81be66_a0c7_11d3_b984_00c04f2e73c5) , } }
 pub const D3D11_DECODER_PROFILE_H264_MOCOMP_FGT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81be65_a0c7_11d3_b984_00c04f2e73c5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_H264_MOCOMP_FGT ) , guid : :: windows :: core :: GUID::from_u128(0x1b81be65_a0c7_11d3_b984_00c04f2e73c5) , } }
 pub const D3D11_DECODER_PROFILE_H264_MOCOMP_NOFGT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81be64_a0c7_11d3_b984_00c04f2e73c5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_H264_MOCOMP_NOFGT ) , guid : :: windows :: core :: GUID::from_u128(0x1b81be64_a0c7_11d3_b984_00c04f2e73c5) , } }
 pub const D3D11_DECODER_PROFILE_H264_VLD_FGT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81be69_a0c7_11d3_b984_00c04f2e73c5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_H264_VLD_FGT ) , guid : :: windows :: core :: GUID::from_u128(0x1b81be69_a0c7_11d3_b984_00c04f2e73c5) , } }
 pub const D3D11_DECODER_PROFILE_H264_VLD_MULTIVIEW_NOFGT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x705b9d82_76cf_49d6_b7e6_ac8872db013c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_H264_VLD_MULTIVIEW_NOFGT ) , guid : :: windows :: core :: GUID::from_u128(0x705b9d82_76cf_49d6_b7e6_ac8872db013c) , } }
 pub const D3D11_DECODER_PROFILE_H264_VLD_NOFGT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81be68_a0c7_11d3_b984_00c04f2e73c5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_H264_VLD_NOFGT ) , guid : :: windows :: core :: GUID::from_u128(0x1b81be68_a0c7_11d3_b984_00c04f2e73c5) , } }
 pub const D3D11_DECODER_PROFILE_H264_VLD_STEREO_NOFGT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9aaccbb_c2b6_4cfc_8779_5707b1760552);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_H264_VLD_STEREO_NOFGT ) , guid : :: windows :: core :: GUID::from_u128(0xf9aaccbb_c2b6_4cfc_8779_5707b1760552) , } }
 pub const D3D11_DECODER_PROFILE_H264_VLD_STEREO_PROGRESSIVE_NOFGT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd79be8da_0cf1_4c81_b82a_69a4e236f43d);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_H264_VLD_STEREO_PROGRESSIVE_NOFGT ) , guid : :: windows :: core :: GUID::from_u128(0xd79be8da_0cf1_4c81_b82a_69a4e236f43d) , } }
 pub const D3D11_DECODER_PROFILE_H264_VLD_WITHFMOASO_NOFGT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5f04ff9_3418_45d8_9561_32a76aae2ddd);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_H264_VLD_WITHFMOASO_NOFGT ) , guid : :: windows :: core :: GUID::from_u128(0xd5f04ff9_3418_45d8_9561_32a76aae2ddd) , } }
 pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b11d51b_2f4c_4452_bcc3_09f2a1160cc0);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_HEVC_VLD_MAIN ) , guid : :: windows :: core :: GUID::from_u128(0x5b11d51b_2f4c_4452_bcc3_09f2a1160cc0) , } }
 pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN10: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x107af0e0_ef1a_4d19_aba8_67a163073d13);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_HEVC_VLD_MAIN10 ) , guid : :: windows :: core :: GUID::from_u128(0x107af0e0_ef1a_4d19_aba8_67a163073d13) , } }
 pub const D3D11_DECODER_PROFILE_MPEG1_VLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f3ec719_3735_42cc_8063_65cc3cb36616);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_MPEG1_VLD ) , guid : :: windows :: core :: GUID::from_u128(0x6f3ec719_3735_42cc_8063_65cc3cb36616) , } }
 pub const D3D11_DECODER_PROFILE_MPEG2_IDCT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf22ad00_03ea_4690_8077_473346209b7e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_MPEG2_IDCT ) , guid : :: windows :: core :: GUID::from_u128(0xbf22ad00_03ea_4690_8077_473346209b7e) , } }
 pub const D3D11_DECODER_PROFILE_MPEG2_MOCOMP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6a9f44b_61b0_4563_9ea4_63d2a3c6fe66);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_MPEG2_MOCOMP ) , guid : :: windows :: core :: GUID::from_u128(0xe6a9f44b_61b0_4563_9ea4_63d2a3c6fe66) , } }
 pub const D3D11_DECODER_PROFILE_MPEG2_VLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee27417f_5e28_4e65_beea_1d26b508adc9);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_MPEG2_VLD ) , guid : :: windows :: core :: GUID::from_u128(0xee27417f_5e28_4e65_beea_1d26b508adc9) , } }
 pub const D3D11_DECODER_PROFILE_MPEG2and1_VLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86695f12_340e_4f04_9fd3_9253dd327460);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_MPEG2and1_VLD ) , guid : :: windows :: core :: GUID::from_u128(0x86695f12_340e_4f04_9fd3_9253dd327460) , } }
 pub const D3D11_DECODER_PROFILE_MPEG4PT2_VLD_ADVSIMPLE_GMC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab998b5b_4258_44a9_9feb_94e597a6baae);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_MPEG4PT2_VLD_ADVSIMPLE_GMC ) , guid : :: windows :: core :: GUID::from_u128(0xab998b5b_4258_44a9_9feb_94e597a6baae) , } }
 pub const D3D11_DECODER_PROFILE_MPEG4PT2_VLD_ADVSIMPLE_NOGMC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed418a9f_010d_4eda_9ae3_9a65358d8d2e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_MPEG4PT2_VLD_ADVSIMPLE_NOGMC ) , guid : :: windows :: core :: GUID::from_u128(0xed418a9f_010d_4eda_9ae3_9a65358d8d2e) , } }
 pub const D3D11_DECODER_PROFILE_MPEG4PT2_VLD_SIMPLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefd64d74_c9e8_41d7_a5e9_e9b0e39fa319);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_MPEG4PT2_VLD_SIMPLE ) , guid : :: windows :: core :: GUID::from_u128(0xefd64d74_c9e8_41d7_a5e9_e9b0e39fa319) , } }
 pub const D3D11_DECODER_PROFILE_VC1_D2010: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81bea4_a0c7_11d3_b984_00c04f2e73c5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_VC1_D2010 ) , guid : :: windows :: core :: GUID::from_u128(0x1b81bea4_a0c7_11d3_b984_00c04f2e73c5) , } }
 pub const D3D11_DECODER_PROFILE_VC1_IDCT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81bea2_a0c7_11d3_b984_00c04f2e73c5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_VC1_IDCT ) , guid : :: windows :: core :: GUID::from_u128(0x1b81bea2_a0c7_11d3_b984_00c04f2e73c5) , } }
 pub const D3D11_DECODER_PROFILE_VC1_MOCOMP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81bea1_a0c7_11d3_b984_00c04f2e73c5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_VC1_MOCOMP ) , guid : :: windows :: core :: GUID::from_u128(0x1b81bea1_a0c7_11d3_b984_00c04f2e73c5) , } }
 pub const D3D11_DECODER_PROFILE_VC1_POSTPROC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81bea0_a0c7_11d3_b984_00c04f2e73c5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_VC1_POSTPROC ) , guid : :: windows :: core :: GUID::from_u128(0x1b81bea0_a0c7_11d3_b984_00c04f2e73c5) , } }
 pub const D3D11_DECODER_PROFILE_VC1_VLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81bea3_a0c7_11d3_b984_00c04f2e73c5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_VC1_VLD ) , guid : :: windows :: core :: GUID::from_u128(0x1b81bea3_a0c7_11d3_b984_00c04f2e73c5) , } }
 pub const D3D11_DECODER_PROFILE_VP8_VLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90b899ea_3a62_4705_88b3_8df04b2744e7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_VP8_VLD ) , guid : :: windows :: core :: GUID::from_u128(0x90b899ea_3a62_4705_88b3_8df04b2744e7) , } }
 pub const D3D11_DECODER_PROFILE_VP9_VLD_10BIT_PROFILE2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4c749ef_6ecf_48aa_8448_50a7a1165ff7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_VP9_VLD_10BIT_PROFILE2 ) , guid : :: windows :: core :: GUID::from_u128(0xa4c749ef_6ecf_48aa_8448_50a7a1165ff7) , } }
 pub const D3D11_DECODER_PROFILE_VP9_VLD_PROFILE0: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x463707f8_a1d0_4585_876d_83aa6d60b89e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_VP9_VLD_PROFILE0 ) , guid : :: windows :: core :: GUID::from_u128(0x463707f8_a1d0_4585_876d_83aa6d60b89e) , } }
 pub const D3D11_DECODER_PROFILE_WMV8_MOCOMP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81be81_a0c7_11d3_b984_00c04f2e73c5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_WMV8_MOCOMP ) , guid : :: windows :: core :: GUID::from_u128(0x1b81be81_a0c7_11d3_b984_00c04f2e73c5) , } }
 pub const D3D11_DECODER_PROFILE_WMV8_POSTPROC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81be80_a0c7_11d3_b984_00c04f2e73c5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_WMV8_POSTPROC ) , guid : :: windows :: core :: GUID::from_u128(0x1b81be80_a0c7_11d3_b984_00c04f2e73c5) , } }
 pub const D3D11_DECODER_PROFILE_WMV9_IDCT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81be94_a0c7_11d3_b984_00c04f2e73c5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_WMV9_IDCT ) , guid : :: windows :: core :: GUID::from_u128(0x1b81be94_a0c7_11d3_b984_00c04f2e73c5) , } }
 pub const D3D11_DECODER_PROFILE_WMV9_MOCOMP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81be91_a0c7_11d3_b984_00c04f2e73c5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_WMV9_MOCOMP ) , guid : :: windows :: core :: GUID::from_u128(0x1b81be91_a0c7_11d3_b984_00c04f2e73c5) , } }
 pub const D3D11_DECODER_PROFILE_WMV9_POSTPROC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81be90_a0c7_11d3_b984_00c04f2e73c5);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_DECODER_PROFILE_WMV9_POSTPROC ) , guid : :: windows :: core :: GUID::from_u128(0x1b81be90_a0c7_11d3_b984_00c04f2e73c5) , } }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_DEFAULT_BLEND_FACTOR_ALPHA: f32 = 1f32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
@@ -4269,6 +4389,8 @@ pub const D3D11_KEEP_RENDER_TARGETS_AND_DEPTH_STENCIL: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_KEEP_UNORDERED_ACCESS_VIEWS: u32 = 4294967295u32;
 pub const D3D11_KEY_EXCHANGE_HW_PROTECTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1170d8a_628d_4da3_ad3b_82ddb08b4970);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_KEY_EXCHANGE_HW_PROTECTION ) , guid : :: windows :: core :: GUID::from_u128(0xb1170d8a_628d_4da3_ad3b_82ddb08b4970) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub struct D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA {
@@ -4370,6 +4492,8 @@ impl ::core::default::Default for D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {
     }
 }
 pub const D3D11_KEY_EXCHANGE_RSAES_OAEP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1949895_d72a_4a1d_8e5d_ed857d171520);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( D3D11_KEY_EXCHANGE_RSAES_OAEP ) , guid : :: windows :: core :: GUID::from_u128(0xc1949895_d72a_4a1d_8e5d_ed857d171520) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12957,6 +13081,8 @@ pub const D3D_SHADER_REQUIRES_TILED_RESOURCES: u32 = 256u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D_SHADER_REQUIRES_UAVS_AT_EVERY_STAGE: u32 = 4u32;
 pub const DXGI_DEBUG_D3D11: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b99317b_ac39_4aa6_bb0b_baa04784798f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DXGI_DEBUG_D3D11 ) , guid : :: windows :: core :: GUID::from_u128(0x4b99317b_ac39_4aa6_bb0b_baa04784798f) , } }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 #[repr(transparent)]
 pub struct ID3D11Asynchronous(::windows::core::IUnknown);

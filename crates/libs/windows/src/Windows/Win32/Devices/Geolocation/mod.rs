@@ -2491,6 +2491,8 @@ impl ::core::default::Default for GNSS_V2UPL_NI_INFO {
     }
 }
 pub const GUID_DEVINTERFACE_GNSS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3336e5e4_018a_4669_84c5_bd05f3bd368b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DEVINTERFACE_GNSS ) , guid : :: windows :: core :: GUID::from_u128(0x3336e5e4_018a_4669_84c5_bd05f3bd368b) , } }
 #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct ICivicAddressReport(::windows::core::IUnknown);

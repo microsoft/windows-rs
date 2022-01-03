@@ -15737,6 +15737,8 @@ pub const SW_AUTOPROF_LOAD_MASK: u32 = 1u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const SW_AUTOPROF_SAVE_MASK: u32 = 2u32;
 pub const ServiceAccountPasswordGUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x262e99c9_6160_4871_acec_4e61736b6f21);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( ServiceAccountPasswordGUID ) , guid : :: windows :: core :: GUID::from_u128(0x262e99c9_6160_4871_acec_4e61736b6f21) , } }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

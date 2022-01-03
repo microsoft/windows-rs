@@ -159,6 +159,8 @@ impl ::core::default::Default for BlackInformation {
     }
 }
 pub const CATID_WcsPlugin: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0b402e0_8240_405f_8a16_8a5b4df2f0dd);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CATID_WcsPlugin ) , guid : :: windows :: core :: GUID::from_u128(0xa0b402e0_8240_405f_8a16_8a5b4df2f0dd) , } }
 #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

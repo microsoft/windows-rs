@@ -23,8 +23,14 @@ pub unsafe fn BrowseForGPO(lpbrowseinfo: *mut GPOBROWSEINFO) -> ::windows::core:
     unimplemented!("Unsupported target OS");
 }
 pub const CLSID_GPESnapIn: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fc0b734_a0e1_11d1_a7d3_0000f87571e3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_GPESnapIn ) , guid : :: windows :: core :: GUID::from_u128(0x8fc0b734_a0e1_11d1_a7d3_0000f87571e3) , } }
 pub const CLSID_GroupPolicyObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea502722_a23d_11d1_a7d3_0000f87571e3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_GroupPolicyObject ) , guid : :: windows :: core :: GUID::from_u128(0xea502722_a23d_11d1_a7d3_0000f87571e3) , } }
 pub const CLSID_RSOPSnapIn: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dc3804b_7212_458d_adb0_9a07e2ae1fa2);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_RSOPSnapIn ) , guid : :: windows :: core :: GUID::from_u128(0x6dc3804b_7212_458d_adb0_9a07e2ae1fa2) , } }
 #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -9233,13 +9239,29 @@ pub const MANAGED_APPTYPE_UNSUPPORTED: u32 = 3u32;
 #[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const MANAGED_APPTYPE_WINDOWSINSTALLER: u32 = 1u32;
 pub const NODEID_Machine: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fc0b737_a0e1_11d1_a7d3_0000f87571e3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( NODEID_Machine ) , guid : :: windows :: core :: GUID::from_u128(0x8fc0b737_a0e1_11d1_a7d3_0000f87571e3) , } }
 pub const NODEID_MachineSWSettings: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fc0b73a_a0e1_11d1_a7d3_0000f87571e3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( NODEID_MachineSWSettings ) , guid : :: windows :: core :: GUID::from_u128(0x8fc0b73a_a0e1_11d1_a7d3_0000f87571e3) , } }
 pub const NODEID_RSOPMachine: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd4c1a2e_0b7a_4a62_a6b0_c0577539c97e);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( NODEID_RSOPMachine ) , guid : :: windows :: core :: GUID::from_u128(0xbd4c1a2e_0b7a_4a62_a6b0_c0577539c97e) , } }
 pub const NODEID_RSOPMachineSWSettings: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a76273e_eb8e_45db_94c5_25663a5f2c1a);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( NODEID_RSOPMachineSWSettings ) , guid : :: windows :: core :: GUID::from_u128(0x6a76273e_eb8e_45db_94c5_25663a5f2c1a) , } }
 pub const NODEID_RSOPUser: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab87364f_0cec_4cd8_9bf8_898f34628fb8);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( NODEID_RSOPUser ) , guid : :: windows :: core :: GUID::from_u128(0xab87364f_0cec_4cd8_9bf8_898f34628fb8) , } }
 pub const NODEID_RSOPUserSWSettings: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe52c5ce3_fd27_4402_84de_d9a5f2858910);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( NODEID_RSOPUserSWSettings ) , guid : :: windows :: core :: GUID::from_u128(0xe52c5ce3_fd27_4402_84de_d9a5f2858910) , } }
 pub const NODEID_User: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fc0b738_a0e1_11d1_a7d3_0000f87571e3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( NODEID_User ) , guid : :: windows :: core :: GUID::from_u128(0x8fc0b738_a0e1_11d1_a7d3_0000f87571e3) , } }
 pub const NODEID_UserSWSettings: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fc0b73c_a0e1_11d1_a7d3_0000f87571e3);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( NODEID_UserSWSettings ) , guid : :: windows :: core :: GUID::from_u128(0x8fc0b73c_a0e1_11d1_a7d3_0000f87571e3) , } }
 #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Wmi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
 pub type PFNGENERATEGROUPPOLICY = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, pbabort: *mut super::super::Foundation::BOOL, pwszsite: super::super::Foundation::PWSTR, pcomputertarget: *const RSOP_TARGET, pusertarget: *const RSOP_TARGET) -> u32>;

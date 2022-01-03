@@ -1,5 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CLSID_Sti: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb323f8e0_2e68_11d0_90ea_00aa0060f86c);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( CLSID_Sti ) , guid : :: windows :: core :: GUID::from_u128(0xb323f8e0_2e68_11d0_90ea_00aa0060f86c) , } }
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -18,9 +20,13 @@ pub unsafe fn CanSendToFaxRecipient() -> super::super::Foundation::BOOL {
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WIA_DeviceType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x6bdd1fc6_810f_11d0_bec7_08002be2092f), pid: 2u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVPKEY_WIA_DeviceType ) , guid : :: windows :: core :: GUID::from_u128(0x6bdd1fc6_810f_11d0_bec7_08002be2092f) , } }
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WIA_USDClassId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x6bdd1fc6_810f_11d0_bec7_08002be2092f), pid: 3u32 };
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( DEVPKEY_WIA_USDClassId ) , guid : :: windows :: core :: GUID::from_u128(0x6bdd1fc6_810f_11d0_bec7_08002be2092f) , } }
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const FAXDEVRECEIVE_SIZE: u32 = 4096u32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
@@ -3159,12 +3165,26 @@ pub unsafe fn FaxUnregisterServiceProviderW<'a, Param0: ::windows::core::IntoPar
     unimplemented!("Unsupported target OS");
 }
 pub const GUID_DeviceArrivedLaunch: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x740d9ee6_70f1_11d1_ad10_00a02438ad48);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_DeviceArrivedLaunch ) , guid : :: windows :: core :: GUID::from_u128(0x740d9ee6_70f1_11d1_ad10_00a02438ad48) , } }
 pub const GUID_STIUserDefined1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc00eb795_8c6e_11d2_977a_0000f87a926f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_STIUserDefined1 ) , guid : :: windows :: core :: GUID::from_u128(0xc00eb795_8c6e_11d2_977a_0000f87a926f) , } }
 pub const GUID_STIUserDefined2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc77ae9c5_8c6e_11d2_977a_0000f87a926f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_STIUserDefined2 ) , guid : :: windows :: core :: GUID::from_u128(0xc77ae9c5_8c6e_11d2_977a_0000f87a926f) , } }
 pub const GUID_STIUserDefined3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc77ae9c6_8c6e_11d2_977a_0000f87a926f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_STIUserDefined3 ) , guid : :: windows :: core :: GUID::from_u128(0xc77ae9c6_8c6e_11d2_977a_0000f87a926f) , } }
 pub const GUID_ScanFaxImage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc00eb793_8c6e_11d2_977a_0000f87a926f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_ScanFaxImage ) , guid : :: windows :: core :: GUID::from_u128(0xc00eb793_8c6e_11d2_977a_0000f87a926f) , } }
 pub const GUID_ScanImage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6c5a715_8c6e_11d2_977a_0000f87a926f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_ScanImage ) , guid : :: windows :: core :: GUID::from_u128(0xa6c5a715_8c6e_11d2_977a_0000f87a926f) , } }
 pub const GUID_ScanPrintImage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb441f425_8c6e_11d2_977a_0000f87a926f);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( GUID_ScanPrintImage ) , guid : :: windows :: core :: GUID::from_u128(0xb441f425_8c6e_11d2_977a_0000f87a926f) , } }
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 #[repr(transparent)]
 pub struct IFaxAccount(::windows::core::IUnknown);

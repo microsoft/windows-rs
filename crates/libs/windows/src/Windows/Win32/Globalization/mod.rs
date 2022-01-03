@@ -901,14 +901,32 @@ impl ::core::default::Default for DetectEncodingInfo {
     }
 }
 pub const ELS_GUID_LANGUAGE_DETECTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf7e00b1_909b_4d95_a8f4_611f7c377702);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( ELS_GUID_LANGUAGE_DETECTION ) , guid : :: windows :: core :: GUID::from_u128(0xcf7e00b1_909b_4d95_a8f4_611f7c377702) , } }
 pub const ELS_GUID_SCRIPT_DETECTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d64b439_6caf_4f6b_b688_e5d0f4faa7d7);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( ELS_GUID_SCRIPT_DETECTION ) , guid : :: windows :: core :: GUID::from_u128(0x2d64b439_6caf_4f6b_b688_e5d0f4faa7d7) , } }
 pub const ELS_GUID_TRANSLITERATION_BENGALI_TO_LATIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4dfd825_91a4_489f_855e_9ad9bee55727);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( ELS_GUID_TRANSLITERATION_BENGALI_TO_LATIN ) , guid : :: windows :: core :: GUID::from_u128(0xf4dfd825_91a4_489f_855e_9ad9bee55727) , } }
 pub const ELS_GUID_TRANSLITERATION_CYRILLIC_TO_LATIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3dd12a98_5afd_4903_a13f_e17e6c0bfe01);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( ELS_GUID_TRANSLITERATION_CYRILLIC_TO_LATIN ) , guid : :: windows :: core :: GUID::from_u128(0x3dd12a98_5afd_4903_a13f_e17e6c0bfe01) , } }
 pub const ELS_GUID_TRANSLITERATION_DEVANAGARI_TO_LATIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4a4dcfe_2661_4d02_9835_f48187109803);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( ELS_GUID_TRANSLITERATION_DEVANAGARI_TO_LATIN ) , guid : :: windows :: core :: GUID::from_u128(0xc4a4dcfe_2661_4d02_9835_f48187109803) , } }
 pub const ELS_GUID_TRANSLITERATION_HANGUL_DECOMPOSITION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ba2a721_e43d_41b7_b330_536ae1e48863);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( ELS_GUID_TRANSLITERATION_HANGUL_DECOMPOSITION ) , guid : :: windows :: core :: GUID::from_u128(0x4ba2a721_e43d_41b7_b330_536ae1e48863) , } }
 pub const ELS_GUID_TRANSLITERATION_HANS_TO_HANT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3caccdc8_5590_42dc_9a7b_b5a6b5b3b63b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( ELS_GUID_TRANSLITERATION_HANS_TO_HANT ) , guid : :: windows :: core :: GUID::from_u128(0x3caccdc8_5590_42dc_9a7b_b5a6b5b3b63b) , } }
 pub const ELS_GUID_TRANSLITERATION_HANT_TO_HANS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3a8333b_f4fc_42f6_a0c4_0462fe7317cb);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( ELS_GUID_TRANSLITERATION_HANT_TO_HANS ) , guid : :: windows :: core :: GUID::from_u128(0xa3a8333b_f4fc_42f6_a0c4_0462fe7317cb) , } }
 pub const ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8b983b1_f8bf_4a2b_bcd5_5b5ea20613e1);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN ) , guid : :: windows :: core :: GUID::from_u128(0xd8b983b1_f8bf_4a2b_bcd5_5b5ea20613e1) , } }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]

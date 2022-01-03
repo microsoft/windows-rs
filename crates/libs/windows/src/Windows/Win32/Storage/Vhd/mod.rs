@@ -3181,4 +3181,8 @@ pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHDSET: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Storage_Vhd'*"]
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHDX: u32 = 3u32;
 pub const VIRTUAL_STORAGE_TYPE_VENDOR_MICROSOFT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec984aec_a0f9_47e9_901f_71415a66345b);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( VIRTUAL_STORAGE_TYPE_VENDOR_MICROSOFT ) , guid : :: windows :: core :: GUID::from_u128(0xec984aec_a0f9_47e9_901f_71415a66345b) , } }
 pub const VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+#[cfg(feature = "guid_hashmap")]
+inventory::submit! { crate :: core :: GuidConst { name : stringify ! ( VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN ) , guid : :: windows :: core :: GUID::from_u128(0x00000000_0000_0000_0000_000000000000) , } }
