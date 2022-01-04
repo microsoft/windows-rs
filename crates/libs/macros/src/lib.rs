@@ -1,5 +1,6 @@
 mod build_macro;
 mod implement;
+mod implement2;
 mod implement_macro;
 
 use build_macro::*;
@@ -66,6 +67,11 @@ pub fn generate(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
 #[proc_macro_attribute]
 pub fn implement(attribute: proc_macro::TokenStream, input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     implement::gen(attribute, input)
+}
+
+#[proc_macro_attribute]
+pub fn implement2(attribute: proc_macro::TokenStream, input: proc_macro::TokenStream) -> proc_macro::TokenStream {
+    implement2::gen(attribute, input)
 }
 
 /// Includes the generated bindings into the current context.

@@ -1126,7 +1126,9 @@ unsafe impl ::windows::core::Interface for IAsyncAction {
 pub trait IAsyncActionImpl: IAsyncInfoImpl {
     fn SetCompleted(&self, handler: &::core::option::Option<AsyncActionCompletedHandler>) -> ::windows::core::Result<()>;
     fn Completed(&self) -> ::windows::core::Result<AsyncActionCompletedHandler>;
-    fn GetResults(&self) -> ::windows::core::Result<()>;
+    fn GetResults(&self) -> ::windows::core::Result<()> {
+        panic!()
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

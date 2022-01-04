@@ -271,7 +271,7 @@ fn gen_conversions(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     tokens
 }
 
-fn gen_implement(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
+fn gen_implement(_def: &TypeDef, _cfg: &Cfg, _gen: &Gen) -> TokenStream {
     // TODO: gen trait for classes and cfg based on all interfaces being featured 
     // and only provide implement trait if "implement_exclusive" is featured.
     // Also cfg should include all method cfgs.
