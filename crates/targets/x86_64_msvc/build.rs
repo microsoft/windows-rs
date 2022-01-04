@@ -1,5 +1,6 @@
 fn main() {
-    if std::env::var("TARGET").unwrap() != "x86_64-pc-windows-msvc" {
+    let target = std::env::var("TARGET").unwrap();
+    if target != "x86_64-pc-windows-msvc" && target != "x86_64-uwp-windows-msvc" {
         return;
     }
 
