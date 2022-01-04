@@ -40,16 +40,31 @@ all-features = true
 [target.i686-pc-windows-msvc.dependencies]
 windows_i686_msvc = { path = "../../targets/i686_msvc", version = "0.29.0" }
 
+[target.i686-uwp-windows-msvc.dependencies]
+windows_i686_msvc = { path = "../../targets/i686_msvc", version = "0.29.0" }
+
 [target.x86_64-pc-windows-msvc.dependencies]
+windows_x86_64_msvc = { path = "../../targets/x86_64_msvc", version = "0.29.0" }
+
+[target.x86_64-uwp-windows-msvc.dependencies]
 windows_x86_64_msvc = { path = "../../targets/x86_64_msvc", version = "0.29.0" }
 
 [target.aarch64-pc-windows-msvc.dependencies]
 windows_aarch64_msvc = { path = "../../targets/aarch64_msvc", version = "0.29.0" }
 
+[target.aarch64-uwp-windows-msvc.dependencies]
+windows_aarch64_msvc = { path = "../../targets/aarch64_msvc", version = "0.29.0" }
+
 [target.i686-pc-windows-gnu.dependencies]
 windows_i686_gnu = { path = "../../targets/i686_gnu", version = "0.29.0" }
 
+[target.i686-uwp-windows-gnu.dependencies]
+windows_i686_gnu = { path = "../../targets/i686_gnu", version = "0.29.0" }
+
 [target.x86_64-pc-windows-gnu.dependencies]
+windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.29.0" }
+
+[target.x86_64-uwp-windows-gnu.dependencies]
 windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.29.0" }
 
 [features]
